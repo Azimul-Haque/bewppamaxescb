@@ -32,7 +32,7 @@ class APIController extends Controller
     {
         $user = User::where('mobile', substr($phonenumber, -11))->first();
 
-        if($user && $softtoken == 'Rifat.Admin.2022')
+        if($user && $softtoken == env('SOFT_TOKEN'))
         {
             return response()->json([
                 'success' => true,
@@ -51,7 +51,7 @@ class APIController extends Controller
     {
         $user = User::where('mobile', substr($phonenumber, -11))->first();
 
-        if($user && $softtoken == 'Rifat.Admin.2022')
+        if($user && $softtoken == env('SOFT_TOKEN'))
         {
             return response()->json([
                 'success' => true,
@@ -74,7 +74,7 @@ class APIController extends Controller
             'softtoken'   => 'required|max:191'
         ));
 
-        if($request->softtoken == 'Rifat.Admin.2022')
+        if($request->softtoken == env('SOFT_TOKEN'))
         {
             $user = new User;
             $user->uid = $request->uid;
@@ -109,7 +109,7 @@ class APIController extends Controller
         // DB::beginTransaction();
         $user = User::where('mobile', $request->mobile)->first();
 
-        if($user && $request->softtoken == 'Rifat.Admin.2022')
+        if($user && $request->softtoken == env('SOFT_TOKEN'))
         {
 
             $user->name = $request->name;
@@ -130,7 +130,7 @@ class APIController extends Controller
 
     public function getCourses($softtoken, $coursetype)
     {
-        if($softtoken == 'Rifat.Admin.2022')
+        if($softtoken == env('SOFT_TOKEN'))
         {
             $courses = Cache::remember('courses'.$coursetype, 7 * 24 * 60 * 60, function () use ($coursetype) {
                  $courses = Course::select('id', 'name')
@@ -164,7 +164,7 @@ class APIController extends Controller
 
     public function getCourseExams($softtoken, $id)
     {
-        if($softtoken == 'Rifat.Admin.2022')
+        if($softtoken == env('SOFT_TOKEN'))
         {
             $courseexams = Cache::remember('courseexams'.$id, 7 * 24 * 60 * 60, function () use ($id) {
                 $courseexams = Courseexam::select('course_id', 'exam_id')
@@ -196,7 +196,7 @@ class APIController extends Controller
 
     public function getOtherCourseExams($softtoken, $coursetype)
     {
-        if($softtoken == 'Rifat.Admin.2022')
+        if($softtoken == env('SOFT_TOKEN'))
         {
             $course = Course::select('id')
                              ->where('status', 1) // take only active courses
@@ -234,7 +234,7 @@ class APIController extends Controller
 
     public function getCourseExamQuestions($softtoken, $id)
     {
-        if($softtoken == 'Rifat.Admin.2022')
+        if($softtoken == env('SOFT_TOKEN'))
         {
             $examquestions = Examquestion::select('exam_id', 'question_id')
                                      ->where('exam_id', $id)
@@ -266,7 +266,7 @@ class APIController extends Controller
 
     public function getTopicExamQuestions($softtoken, $id)
     {
-        if($softtoken == 'Rifat.Admin.2022')
+        if($softtoken == env('SOFT_TOKEN'))
         {
             $topicquestions = Question::where('topic_id', $id)->orderBy(DB::raw('RAND()'))
                                       ->take(20)
@@ -300,7 +300,7 @@ class APIController extends Controller
 
     public function getTopics($softtoken)
     {
-        if($softtoken == 'Rifat.Admin.2022')
+        if($softtoken == env('SOFT_TOKEN'))
         {
             $topics = Cache::remember('topics', 7 * 24 * 60 * 60, function () {
                 $topics = Topic::all();
@@ -319,7 +319,7 @@ class APIController extends Controller
 
     public function getPackages($softtoken)
     {
-        if($softtoken == 'Rifat.Admin.2022')
+        if($softtoken == env('SOFT_TOKEN'))
         {
             $packages = Package::select('id', 'name', 'tagline', 'duration', 'price', 'strike_price', 'suggested')
                                ->where('status', 1)->get();
@@ -347,7 +347,7 @@ class APIController extends Controller
         $user = User::where('mobile', substr($request->user_number, -11))->first();
         $package = Package::findOrFail($request->package_id);
         
-        if($request->softtoken == 'Rifat.Admin.2022') {
+        if($request->softtoken == env('SOFT_TOKEN')) {
             if($user) {
                 $temppayment = new Temppayment;
                 $temppayment->user_id = $user->id;
@@ -395,7 +395,7 @@ class APIController extends Controller
     {
         $user = User::where('mobile', substr($phonenumber, -11))->first();
 
-        if($user && $softtoken == 'Rifat.Admin.2022')
+        if($user && $softtoken == env('SOFT_TOKEN'))
         {
             foreach($user->payments as $payment) {
                 $payment->makeHidden(['id', 'user_id', 'package_id', 'uid', 'payment_status', 'card_type', 'store_amount', 'updated_at']);
@@ -422,7 +422,7 @@ class APIController extends Controller
             'softtoken'            => 'required|max:191'
         ));
 
-        if($request->softtoken == 'Rifat.Admin.2022')
+        if($request->softtoken == env('SOFT_TOKEN'))
         {
 
             // $user = User::where('mobile', substr($request->mobile, -11))->first();
@@ -446,7 +446,7 @@ class APIController extends Controller
 
     public function getMaterials($softtoken)
     {
-        if($softtoken == 'Rifat.Admin.2022')
+        if($softtoken == env('SOFT_TOKEN'))
         {
             $materials = Cache::remember('lecturematerials', 7 * 24 * 60 * 60, function () {
                 $materials = Material::where('status', 1) // 1 = active, 0 = inactive

@@ -1,5 +1,5 @@
 @extends('layouts.index')
-@section('title') BJS & Bar Exam @endsection
+@section('title') BCS Exam @endsection
 
 @section('third_party_stylesheets')
 <style type="text/css">

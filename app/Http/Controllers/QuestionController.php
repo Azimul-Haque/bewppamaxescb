@@ -42,6 +42,7 @@ class QuestionController extends Controller
         $topics = Topic::orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
 
+        // dd($questions);
         return view('dashboard.questions.index')
                     ->withQuestions($questions)
                     ->withTopics($topics)
@@ -236,6 +237,7 @@ class QuestionController extends Controller
     public function storeExcelQuestion(Request $request)
     {
         // dd($request->file('file'));
+        ini_set('memory_limit', '512000000');
         try {
             $collections = (new FastExcel)->import($request->file('file'));
         } catch (\Exception $exception) {

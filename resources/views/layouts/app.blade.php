@@ -24,7 +24,7 @@
 <body class="hold-transition sidebar-mini layout-fixed pace-primary layout-navbar-fixed">
 <div class="wrapper">
     <!-- Main Header -->
-    <nav class="main-header navbar navbar-expand navbar-green navbar-dark">
+    <nav class="main-header navbar navbar-expand navbar-blue navbar-dark">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">

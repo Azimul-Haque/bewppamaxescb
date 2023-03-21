@@ -29,7 +29,7 @@
             <div class="header-content">
               <h1 style="padding-top: 7px;">বিসিএস এবং বার কাউন্সিল পরীক্ষার প্রস্তুতির জন্য সেরা অনলাইন প্ল্যাটফর্ম!</h1>
               <p>
-                BJS & BAR EXAM is a dedicated online platform to take the best preparation for the Bangladesh Judicial Service (BJS) Exam and Bar Council Exam.
+                BCS EXAM is a dedicated online platform to take the best preparation for the Bangladesh Judicial Service (BJS) Exam and Bar Council Exam.
               </p>
               <div class="button">
                 {{-- <a href="javascript:void(0)" class="btn primary-btn">Get Started</a> --}}

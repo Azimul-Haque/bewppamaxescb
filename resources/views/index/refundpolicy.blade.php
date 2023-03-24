@@ -1,5 +1,5 @@
 @extends('layouts.index')
-@section('title') Refund Policy | BJS & Bar Exam @endsection
+@section('title') Refund Policy | BCS Exam AID @endsection
 
 @section('third_party_stylesheets')
 

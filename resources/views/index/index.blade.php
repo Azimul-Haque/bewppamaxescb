@@ -233,7 +233,7 @@
                 <i class="lni lni-bootstrap"></i>
               </div>
               <div class="service-content">
-                <h4>Bar Council Exam</h4>
+                <h4>Other Gobt Job Exam</h4>
                 <p>
                   আপনার বার কাউন্সিল পরীক্ষার প্রস্তুতির জন্য সেরা MCQ পরীক্ষার ব্যবস্থা!
                 </p>

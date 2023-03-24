@@ -33,7 +33,7 @@
               </p>
               <div class="button">
                 {{-- <a href="javascript:void(0)" class="btn primary-btn">Get Started</a> --}}
-                <a href='https://play.google.com/store/apps/details?id=com.orbachinujbuk.bjsandbarexam' target="_blank"><img alt='Get it on Google Play' class="img-responsive" style="max-width: 250px; width: auto;" src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+                <a href='https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs' target="_blank"><img alt='Get it on Google Play' class="img-responsive" style="max-width: 250px; width: auto;" src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
                 <a href="https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM"
                   class="glightbox video-button">
                   <span class="btn icon-btn rounded-full">

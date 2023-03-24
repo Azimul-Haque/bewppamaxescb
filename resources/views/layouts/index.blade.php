@@ -5,7 +5,7 @@
   <!--====== Required meta tags ======-->
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="description" content="BCS EXAM AID বাংলাদেশ সিভিল সার্ভিস (BCS) পরীক্ষা এবং বার কাউন্সিল পরীক্ষার প্রস্তুতি জন্য সেরা ডেডিকেটেড অনলাইন প্ল্যাটফর্ম। Developed By A. H. M. Azimul Haque.">
+  <meta name="description" content="BCS EXAM AID বাংলাদেশ সিভিল সার্ভিস (BCS) পরীক্ষা এবং অন্যান্য সরকারি চাকরির পরীক্ষার প্রস্তুতি জন্য সেরা ডেডিকেটেড অনলাইন প্ল্যাটফর্ম। Developed By A. H. M. Azimul Haque.">
     <meta name="keywords" content="BJS, Bar Council, BJS Exam, Bar Council Exam, বিজেএস পরীক্ষা, বার কাউন্সিল পরীক্ষা, জুডিশিয়াল পরীক্ষা, Judicial Exam">
   <meta name="author" content="A. H. M. Azimul Haque">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />

@@ -220,7 +220,7 @@
                 <i class="lni lni-capsule"></i>
               </div>
               <div class="service-content">
-                <h4>BJS MCQ Exam</h4>
+                <h4>BCS MCQ Exam</h4>
                 <p>
                   আপনার জুডিশিয়াল পরীক্ষার প্রস্তুতির জন্য সেরা MCQ পরীক্ষার ব্যবস্থা!
                 </p>

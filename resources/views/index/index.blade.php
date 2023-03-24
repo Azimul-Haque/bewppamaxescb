@@ -344,7 +344,7 @@
                   <ul class="table-list">
                     <li> <i class="lni lni-checkmark-circle"></i> অ্যাপের ফিচারসমূহের এক্সেস</li>
                     <li> <i class="lni lni-checkmark-circle"></i> সম্পূর্ণ বিসিএস কোর্স এক্সেস</li>
-                    <li> <i class="lni lni-checkmark-circle"></i> সম্পূর্ণ অন্যান্য সরকারি চাকরির এক্সেস</li>
+                    <li> <i class="lni lni-checkmark-circle"></i> অন্যান্য সরকারি চাকরির কোর্স এক্সেস</li>
                     <li> <i class="lni lni-checkmark-circle"></i> মডেল টেস্ট ও সাবজেক্টিভ প্রস্তুতি</li>
                     {{-- <li> <i class="lni lni-checkmark-circle deactive"></i> মডেল টেস্ট ও সাবজেক্টিভ প্রস্তুতি</li> --}}
                   </ul>

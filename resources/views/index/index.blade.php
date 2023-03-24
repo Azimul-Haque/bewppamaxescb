@@ -29,7 +29,7 @@
             <div class="header-content">
               <h1 style="padding-top: 7px;">বিসিএস-সহ সরকারি চাকরির পরীক্ষার প্রস্তুতির জন্য সেরা অনলাইন প্ল্যাটফর্ম!</h1>
               <p>
-                <b>BCS EXAM AID</b> is a dedicated online platform to take the best preparation for the Bangladesh Judicial Service (BJS) Exam and Bar Council Exam.
+                <b>BCS EXAM AID</b> is a dedicated online platform to take the best preparation for the Bangladesh Civil Service (BCS) Exam and Other Govt Job Exam.
               </p>
               <div class="button">
                 {{-- <a href="javascript:void(0)" class="btn primary-btn">Get Started</a> --}}

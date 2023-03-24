@@ -5,13 +5,13 @@
   <!--====== Required meta tags ======-->
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="description" content="BCS EXAM AID বাংলাদেশ সিভিল সার্ভিস (BCS) পরীক্ষা এবং অন্যান্য সরকারি চাকরি পরীক্ষার প্রস্তুতির জন্য সেরা ডেডিকেটেড অনলাইন প্ল্যাটফর্ম। Developed By A. H. M. Azimul Haque.">
-    <meta name="keywords" content="BJS, Bar Council, BJS Exam, Bar Council Exam, বিজেএস পরীক্ষা, বার কাউন্সিল পরীক্ষা, জুডিশিয়াল পরীক্ষা, Judicial Exam">
+  <meta name="description" content="BJS & BAR EXAM হলো বাংলাদেশ জুডিশিয়াল সার্ভিস (BJS) পরীক্ষা এবং বার কাউন্সিল পরীক্ষার প্রস্তুতির জন্য সেরা ডেডিকেটেড অনলাইন প্ল্যাটফর্ম। Developed By A. H. M. Azimul Haque.">
+    <meta name="keywords" content="BCS, Bangladesh Civil Service, Primary Exam, Job Circular, Bank Job Circular, Bank Job Exam, BCS Circular, বিসিএস পরীক্ষা, বার কাউন্সিল পরীক্ষা, জুডিশিয়াল পরীক্ষা, Judicial Exam">
   <meta name="author" content="A. H. M. Azimul Haque">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   <!--====== Title ======-->
-  {{-- <title>BJS & Bar Exam</title> --}}
+  {{-- <title>BCS Exam Aid</title> --}}
   <title>@yield('title')</title>
   <!--====== Favicon Icon ======-->
   <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/svg" />
@@ -93,7 +93,7 @@
       <div class="sidebar-logo">
         <a href="/"><img src="{{ asset('/') }}images/logo.png" alt="Logo" /></a>
       </div>
-      <p class="text">BJS & Bar Council Exam</p>
+      <p class="text">BCS Exam Aid</p>
       <!-- logo -->
       <div class="sidebar-menu">
         <h5 class="menu-title">Quick Links</h5>
@@ -189,7 +189,7 @@
               <!-- Single Widget -->
               <div class="footer-widget newsletter">
                 <h5>Subscribe</h5>
-                <a href='https://play.google.com/store/apps/details?id=com.orbachinujbuk.bjsandbarexam&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank"><img alt='Get it on Google Play' class="img-responsive" style="max-width: 200px; width: auto;" src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+                <a href='https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs' target="_blank"><img alt='Get it on Google Play' class="img-responsive" style="max-width: 200px; width: auto;" src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
                 <form action="#" method="get" target="_blank" class="newsletter-form">
                   <input name="EMAIL" placeholder="Email address" required="required" type="email" />
                   <div class="button">

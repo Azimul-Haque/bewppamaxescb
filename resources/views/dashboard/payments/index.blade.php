@@ -16,6 +16,17 @@
             	{{-- <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#addPackageModal" title="" rel="tooltip" data-original-title="পেমেন্ট যোগ করুন">
             		<i class="fas fa-clipboard-check"></i> নতুন পেমেন্ট
             	</button> --}}
+              <div class="card-tools">
+                <form class="form-inline form-group-lg" action="">
+                  <div class="form-group">
+                    <input type="search-param" class="form-control form-control-sm" placeholder="পেমেন্ট খুঁজুন" id="search-param" required>
+                  </div>
+                  <button type="button" id="search-button" class="btn btn-default btn-sm" style="margin-left: 5px;">
+                    <i class="fas fa-search"></i> খুঁজুন
+                  </button>
+                </form>
+                
+              </div>
             </div>
           </div>
           <!-- /.card-header -->
@@ -55,17 +66,34 @@
 
 @section('third_party_scripts')
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        // $('#adduserrole').change(function () {
-        //     if($('#adduserrole').val() == 'accountant') {
-        //         $('#ifaccountant').hide();
-        //     } else {
-        //         $('#ifaccountant').show();
-        //     }
-        // });
-    </script>
-
     <script type="module">
+
+      $(document).on('click', '#search-button', function() {
+        if($('#search-param').val() != '') {
+          var urltocall = '{{ route('dashboard.payments') }}' +  '/' + $('#search-param').val();
+          location.href= urltocall;
+        } else {
+          $('#search-param').css({ "border": '#FF0000 2px solid'});
+          Toast.fire({
+              icon: 'warning',
+              title: 'কিছু লিখে খুঁজুন!'
+          })
+        }
+      });
+      $("#search-param").keyup(function(e) {
+        if(e.which == 13) {
+          if($('#search-param').val() != '') {
+            var urltocall = '{{ route('dashboard.payments') }}' +  '/' + $('#search-param').val();
+            location.href= urltocall;
+          } else {
+            $('#search-param').css({ "border": '#FF0000 2px solid'});
+            Toast.fire({
+                icon: 'warning',
+                title: 'কিছু লিখে খুঁজুন!'
+            })
+          }
+        }
+      });
       // import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js';
 
       // // import { auth } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js';

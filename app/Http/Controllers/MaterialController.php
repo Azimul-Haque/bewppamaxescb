@@ -111,6 +111,7 @@ class MaterialController extends Controller
         
         $material->delete();
 
+        Cache::forget('lecturematerials');
         Session::flash('success', 'Material deleted successfully!');
         return redirect()->route('dashboard.materials');
     }

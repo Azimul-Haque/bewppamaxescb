@@ -106,7 +106,7 @@ class BkashController extends Controller
         // $request['amount'] = '1.00';
         $request['intent'] = 'sale';
         $request['currency'] = 'BDT';
-        $request['merchantInvoiceNumber'] = 'BJS' . random_string(10) . date('Ymd');
+        $request['merchantInvoiceNumber'] = 'BCS' . random_string(10) . date('Ymd');
 
         $url = curl_init("$this->base_url/checkout/payment/create");
         $request_data_json = json_encode($request->all());

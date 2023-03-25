@@ -150,8 +150,7 @@
                   </a>
                 </div>
                 <p>
-                  Making the world a better place through constructing elegant
-                  hierarchies.
+                  BCS EXAM AID is a dedicated online platform to take the best preparation for the Bangladesh Civil Service (BCS) Exam and Other Govt Job Exam.
                 </p>
                 <p class="copyright-text">
                   <span>© {{ date('Y') }} App Lab IT.</span>Designed and Developed by

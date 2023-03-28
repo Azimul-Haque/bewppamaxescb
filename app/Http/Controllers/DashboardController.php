@@ -103,6 +103,8 @@ class DashboardController extends Controller
         $users = User::where('name', 'LIKE', "%$search%")
                      ->orWhere('email', 'LIKE', "%$search%")
                      ->orWhere('mobile', 'LIKE', "%$search%")
+                     ->orWhere('uid', 'LIKE', "%$search%")
+                     ->orWhere('onesignal_id', 'LIKE', "%$search%")
                      ->orderBy('id', 'desc')
                      ->paginate(10);
 
@@ -163,6 +165,8 @@ class DashboardController extends Controller
             'mobile'      => 'required|string|max:191|unique:users,mobile,'.$id,
             'role'        => 'required',
             'packageexpirydate'        => 'required',
+            'uid'        => 'sometimes',
+            'onesignal_id'        => 'sometimes',
             // 'sitecheck'   => 'sometimes',
             'password'    => 'nullable|string|min:8|max:191',
         ));
@@ -175,6 +179,8 @@ class DashboardController extends Controller
         // if(!empty($request->sitecheck)) {
         //     $user->sites = implode(',', $request->sitecheck);
         // }
+        $user->uid = $request->uid;
+        $user->onesignal_id = $request->onesignal_id;
         if(!empty($request->password)) {
             $user->password = Hash::make($request->password);
         }

@@ -26,6 +26,14 @@
                 <span class="info-box-text">মোট ক্রয় সংখ্যা: {{ $user->payments->count() }}</span>
             </div>
           </div>
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-cog"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Firebase UID: <u><i>{{ $user->uid }}</i></u></span>
+                <span class="info-box-text">Onesignal Player ID: <u><i>{{ $user->onesignal_id }}</i></u></span>
+            </div>
+          </div>
         </div>
         <div class="col-md-4">
           <div class="info-box mb-3">

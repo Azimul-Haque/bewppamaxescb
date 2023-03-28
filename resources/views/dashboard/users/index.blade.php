@@ -144,6 +144,30 @@
             				                    </div>
             				                </div>
 
+                                    <div class="input-group mb-3">
+                                        <input type="text"
+                                               name="uid"
+                                               value="{{ $user->uid }}"
+                                               autocomplete="off"
+                                               class="form-control"
+                                               placeholder="Firebase UID">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text"><span class="fas fa-server"></span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <input type="text"
+                                               name="onesignal_id"
+                                               value="{{ $user->onesignal_id }}"
+                                               autocomplete="off"
+                                               class="form-control"
+                                               placeholder="Onesignal Player ID">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text"><span class="fas fa-bell"></span></div>
+                                        </div>
+                                    </div>
+
             				                <div class="input-group mb-3">
             				                	<select name="role" class="form-control" required>
             				                		<option disabled="" value="">ধরন নির্ধারণ করুন</option>

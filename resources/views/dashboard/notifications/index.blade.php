@@ -83,7 +83,7 @@
                                           @endif
                                         </center>
                                         <div style="margin: 30px; padding: 10px; border: 1px solid #007BFF; border-radius: 10px;">
-                                          <small style="color: #7A7B7D;"><span class="fas fa-bell"></span> BJS & Bar Exam</small><br/>
+                                          <small style="color: #7A7B7D;"><span class="fas fa-bell"></span> BCS Exam</small><br/>
                                           <b><span>{{ $notification->headings }}</span></b><br/>
                                           <span>{{ $notification->message }}</span>
                                         </div>

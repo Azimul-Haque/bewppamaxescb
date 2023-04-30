@@ -97,6 +97,39 @@ class APIController extends Controller
         ]);
     }
 
+    public function addUser(Request $request)
+    {
+        $this->validate($request,array(
+            'uid'         => 'required|max:191|unique:users,uid',
+            'name'        => 'required|max:191',
+            'mobile'      => 'required|max:191',
+            'onesignal_id'      => 'sometimes|max:191',
+            'softtoken'   => 'required|max:191'
+        ));
+
+        if($request->softtoken == env('SOFT_TOKEN'))
+        {
+            $user = new User;
+            $user->uid = $request->uid;
+            $user->onesignal_id = $request->onesignal_id;
+            $package_expiry_date = Carbon::now()->addDays(1)->format('Y-m-d') . ' 23:59:59';
+            // dd($package_expiry_date);
+            $user->package_expiry_date = $package_expiry_date;
+            $user->name = $request->name;
+            $user->role = 'user';
+            $user->mobile = substr($request->mobile, -11);
+            $user->password = Hash::make('12345678');
+            $user->save();
+            return response()->json([
+                'success' => true
+            ]);
+        }
+
+        return response()->json([
+            'success' => false
+        ]);
+    }
+
     public function updateUser(Request $request)
     {
         $this->validate($request,array(

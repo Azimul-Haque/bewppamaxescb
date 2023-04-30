@@ -108,7 +108,8 @@ class APIController extends Controller
 
         if($request->softtoken == env('SOFT_TOKEN'))
         {
-            $user = new User;
+            $user = User::where('mobile', $request->mobile)->first();
+            
             $user->uid = $request->uid;
             $user->onesignal_id = $request->onesignal_id;
             $package_expiry_date = Carbon::now()->addDays(1)->format('Y-m-d') . ' 23:59:59';

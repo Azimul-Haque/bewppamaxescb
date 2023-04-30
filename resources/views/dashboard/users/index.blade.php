@@ -51,7 +51,8 @@
                             {{-- {{ $user->balances2 }} --}}
                 			<small class="text-black-50">{{ $user->mobile }}</small> 
                 			<span class="badge @if($user->role == 'admin') bg-success @else bg-info @endif">{{ ucfirst($user->role) }}</span>,
-                      <small><span>যোগদান: {{ date('d F, Y h:i A', strtotime($user->created_at)) }}</span></small> 
+                      <small><span>যোগদান: {{ date('d F, Y h:i A', strtotime($user->created_at)) }}</span></small>,
+                      <small><span>যোগদান: {{ date('d F, Y h:i A', strtotime($user->created_at)) }}</span></small>
                 		</td>
                 		<td align="right" width="40%">
                       <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#notifModal{{ $user->id }}">

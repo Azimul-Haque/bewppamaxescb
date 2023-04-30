@@ -100,7 +100,7 @@ class APIController extends Controller
     public function addOneSignalData(Request $request)
     {
         $this->validate($request,array(
-            'uid'         => 'required|max:191|unique:users,uid',
+            'uid'         => 'required',
             'mobile'      => 'required|max:191',
             'onesignal_id'      => 'sometimes|max:191',
             'softtoken'   => 'required|max:191'

@@ -106,9 +106,11 @@ class APIController extends Controller
             'softtoken'   => 'required|max:191'
         ));
 
-        if($request->softtoken == env('SOFT_TOKEN'))
+        $user = User::where('mobile', $request->mobile)->first();
+        
+        if($user && $request->softtoken == env('SOFT_TOKEN'))
         {
-            $user = User::where('mobile', $request->mobile)->first();
+
             $user->uid = $request->uid;
             $user->onesignal_id = $request->onesignal_id;
             $user->save();

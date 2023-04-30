@@ -23,7 +23,7 @@ Route::get('/testapi', 'APIController@test')->name('api.test');
 Route::get('/checkuid/{softtoken}/{phonenumber}', 'APIController@checkUid')->name('api.checkuid');
 Route::get('/checkpackagevalidity/{softtoken}/{phonenumber}', 'APIController@checkPackageValidity')->name('api.checkpackagevalidity');
 Route::post('/adduser', 'APIController@addUser')->name('api.adduser');
-Route::post('/addonesignaldata', 'APIController@addOneSignaldata')->name('api.adduser');
+Route::post('/addonesignaldata', 'APIController@addOneSignalData')->name('api.adduser');
 Route::post('/updateuser', 'APIController@updateUser')->name('api.updateuser');
 Route::post('/notification/single', 'APIController@sendSingleNotification')->name('api.sendsinglenotification');
 Route::get('/notification/test', 'APIController@testNotification')->name('api.testnotification');

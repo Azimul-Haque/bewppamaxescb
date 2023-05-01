@@ -16,6 +16,7 @@ class CreateMeritlistsTable extends Migration
         Schema::create('meritlists', function (Blueprint $table) {
             $table->id();
             $table->integer('exam_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }

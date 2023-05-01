@@ -43,3 +43,5 @@ Route::post('/message/store', 'APIController@storeMessage')->name('api.storemess
 Route::get('/getpaymenthistory/{softtoken}/{phonenumber}', 'APIController@getPaymentHistory')->name('api.getpaymenthistory');
 
 Route::get('/getmaterials/{softtoken}', 'APIController@getMaterials')->name('api.getmaterials');
+
+Route::post('/addexamresult', 'APIController@addUser')->name('api.addexamresult');

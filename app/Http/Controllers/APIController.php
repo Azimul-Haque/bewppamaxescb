@@ -502,8 +502,7 @@ class APIController extends Controller
     public function addExamResult(Request $request)
     {
         $this->validate($request,array(
-            'uid'         => 'required|max:191|unique:users,uid',
-            'name'        => 'required|max:191',
+            'uid'         => 'required|max:191',
             'mobile'      => 'required|max:191',
             'onesignal_id'      => 'sometimes|max:191',
             'softtoken'   => 'required|max:191'
@@ -531,7 +530,7 @@ class APIController extends Controller
             'success' => false
         ]);
     }
-    
+
 
     public function testNotification()
     {

@@ -503,11 +503,11 @@ class APIController extends Controller
     public function addExamResult(Request $request)
     {
         $this->validate($request,array(
-            'mobile'      => 'required|max:191',
-            'course_id'      => 'required|max:191',
-            'exam_id'      => 'required|max:191',
-            'marks'      => 'required|max:191',
-            'softtoken'   => 'required|max:191'
+            'mobile'      => 'required',
+            'course_id'      => 'required',
+            'exam_id'      => 'required',
+            'marks'      => 'required',
+            'softtoken'   => 'required'
         ));
 
         if($request->softtoken == env('SOFT_TOKEN'))

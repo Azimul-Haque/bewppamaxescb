@@ -503,7 +503,6 @@ class APIController extends Controller
     public function addExamResult(Request $request)
     {
         $this->validate($request,array(
-            'uid'         => 'required|max:191',
             'mobile'      => 'required|max:191',
             'course_id'      => 'required|max:191',
             'exam_id'      => 'required|max:191',
@@ -513,6 +512,8 @@ class APIController extends Controller
 
         if($request->softtoken == env('SOFT_TOKEN'))
         {
+            $user = User::where('mobile', substr($phonenumber, -11))->first();
+            
             $examresult = new Meritlist;
             $user->uid = $request->uid;
             $user->onesignal_id = $request->onesignal_id;

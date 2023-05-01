@@ -517,6 +517,7 @@ class APIController extends Controller
             $examresult = new Meritlist;
             $examresult->course_id = $request->course_id;
             $examresult->exam_id = $request->exam_id;
+            $examresult->user_id = $request->exam_id;
             $examresult->marks = $request->marks;
 
             

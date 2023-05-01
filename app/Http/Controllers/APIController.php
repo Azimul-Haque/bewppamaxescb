@@ -504,7 +504,8 @@ class APIController extends Controller
         $this->validate($request,array(
             'uid'         => 'required|max:191',
             'mobile'      => 'required|max:191',
-            'onesignal_id'      => 'sometimes|max:191',
+            'course_id'      => 'required|max:191',
+            'course_id'      => 'required|max:191',
             'softtoken'   => 'required|max:191'
         ));
 

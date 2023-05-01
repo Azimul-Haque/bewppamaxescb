@@ -505,7 +505,8 @@ class APIController extends Controller
             'uid'         => 'required|max:191',
             'mobile'      => 'required|max:191',
             'course_id'      => 'required|max:191',
-            'course_id'      => 'required|max:191',
+            'exam_id'      => 'required|max:191',
+            'marks'      => 'required|max:191',
             'softtoken'   => 'required|max:191'
         ));
 

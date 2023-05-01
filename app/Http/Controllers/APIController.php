@@ -502,6 +502,7 @@ class APIController extends Controller
 
     public function addExamResult(Request $request)
     {
+        return $request->all();
         $this->validate($request,array(
             'mobile'      => 'required',
             'course_id'   => 'required',

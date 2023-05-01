@@ -17,6 +17,7 @@ class CreateMeritlistsTable extends Migration
             $table->id();
             $table->integer('exam_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->string('marks');
             $table->foreign('exam_id')->references('id')->on('exams')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

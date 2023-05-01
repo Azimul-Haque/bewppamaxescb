@@ -515,7 +515,7 @@ class APIController extends Controller
             $user = User::where('mobile', substr($phonenumber, -11))->first();
 
             $examresult = new Meritlist;
-            $examresult->uid = $request->uid;
+            $examresult->course_id = $request->course_id;
 
             
             $user->onesignal_id = $request->onesignal_id;

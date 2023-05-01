@@ -517,10 +517,10 @@ class APIController extends Controller
             $examresult = new Meritlist;
             $examresult->course_id = $request->course_id;
             $examresult->exam_id = $request->exam_id;
-            $examresult->user_id = $request->exam_id;
+            $examresult->user_id = $user->id;
             $examresult->marks = $request->marks;
 
-            
+
             $user->onesignal_id = $request->onesignal_id;
             $package_expiry_date = Carbon::now()->addDays(1)->format('Y-m-d') . ' 23:59:59';
             // dd($package_expiry_date);

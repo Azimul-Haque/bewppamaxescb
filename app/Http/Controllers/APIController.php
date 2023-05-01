@@ -504,9 +504,9 @@ class APIController extends Controller
     {
         $this->validate($request,array(
             'mobile'      => 'required',
-            'course_id'      => 'required',
-            'exam_id'      => 'required',
-            'marks'      => 'required',
+            'course_id'   => 'required',
+            'exam_id'     => 'required',
+            'marks'       => 'required',
             'softtoken'   => 'required'
         ));
 
@@ -520,7 +520,7 @@ class APIController extends Controller
             $examresult->user_id = $user->id;
             $examresult->marks = $request->marks;
             $examresult->save();
-            
+
             return response()->json([
                 'success' => true
             ]);

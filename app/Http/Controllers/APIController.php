@@ -520,6 +520,7 @@ class APIController extends Controller
             $examresult->user_id = $user->id;
             $examresult->marks = $request->marks;
             $examresult->save();
+            
             return response()->json([
                 'success' => true
             ]);

@@ -519,17 +519,7 @@ class APIController extends Controller
             $examresult->exam_id = $request->exam_id;
             $examresult->user_id = $user->id;
             $examresult->marks = $request->marks;
-
-
-            $user->onesignal_id = $request->onesignal_id;
-            $package_expiry_date = Carbon::now()->addDays(1)->format('Y-m-d') . ' 23:59:59';
-            // dd($package_expiry_date);
-            $user->package_expiry_date = $package_expiry_date;
-            $user->name = $request->name;
-            $user->role = 'user';
-            $user->mobile = substr($request->mobile, -11);
-            $user->password = Hash::make('12345678');
-            $user->save();
+            $examresult->save();
             return response()->json([
                 'success' => true
             ]);

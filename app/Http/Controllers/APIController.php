@@ -513,7 +513,7 @@ class APIController extends Controller
 
         if($request->softtoken == env('SOFT_TOKEN'))
         {
-            $user = User::where('mobile', substr($phonenumber, -11))->first();
+            $user = User::where('mobile', substr($request->mobile, -11))->first();
 
             $examresult = new Meritlist;
             $examresult->course_id = $request->course_id;

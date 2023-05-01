@@ -499,7 +499,7 @@ class APIController extends Controller
         }
     }
 
-    public function addUser(Request $request)
+    public function addExamResult(Request $request)
     {
         $this->validate($request,array(
             'uid'         => 'required|max:191|unique:users,uid',

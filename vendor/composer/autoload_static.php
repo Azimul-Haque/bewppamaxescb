@@ -582,6 +582,7 @@ class ComposerStaticInitd99be2aa22b662638be63ef18831ea06
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Material' => __DIR__ . '/../..' . '/app/Material.php',
+        'App\\Meritlist' => __DIR__ . '/../..' . '/app/Meritlist.php',
         'App\\Message' => __DIR__ . '/../..' . '/app/Message.php',
         'App\\Notification' => __DIR__ . '/../..' . '/app/Notification.php',
         'App\\Package' => __DIR__ . '/../..' . '/app/Package.php',

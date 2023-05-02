@@ -459,6 +459,6 @@ class ExamController extends Controller
         foreach($meritlists as $meritlist) {
             echo $meritlist->user->name;
         }
-        dd($meritlists);
+        // dd($meritlists);
     }
 }

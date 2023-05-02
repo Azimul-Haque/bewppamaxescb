@@ -457,7 +457,7 @@ class ExamController extends Controller
                                ->get();
         
         foreach($meritlists as $meritlist) {
-            echo $meritlist->user->name . '-' $meritlist->marks . '<br>';
+            echo $meritlist->user->name . '-' . $meritlist->marks . '<br>';
         }
         // dd($meritlists);
     }

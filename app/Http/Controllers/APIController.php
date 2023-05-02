@@ -537,34 +537,27 @@ class APIController extends Controller
         if($softtoken == env('SOFT_TOKEN'))
         {
             $meritlists = Meritlist::remember('meritlist'.$course_id.$exam_id, 7 * 24 * 60 * 60, function () use ([$course_id, $exam_id]) {
-                 $courses = Course::select('id', 'name')
-                             ->where('status', 1) // take only active courses
-                             ->where('type', $coursetype) // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT, 5 = QB
-                             ->orderBy('priority', 'asc')
-                             ->get();
-                 foreach($courses as $course) {
-                     $course->examcount = $course->courseexams->count();
-                     $course->makeHidden('courseexams');
-                 }
-                 return $courses;
-            });
-            $meritlists = Meritlist::where('course_id', $course_id)
-                                   ->where('exam_id', $exam_id)
-                                   ->get();
+                 $meritlists = Meritlist::where('course_id', $course_id)
+                                        ->where('exam_id', $exam_id)
+                                        ->get();
 
-            $rank = 1;
-            $previous = null;
-            foreach ($meritlists->sortByDesc('marks') as $score) {
-                if ($previous && $previous->marks != $score->marks) {
-                    $rank++;
-                }
-                $score->rank = $rank;
-                $previous = $score;
-            }
-            foreach($meritlists as $meritlist) {
-                $meritlist->name = $meritlist->user->name;
-                $meritlist->makeHidden('id', 'created_at', 'updated_at', 'user_id', 'user');
-            }
+                 $rank = 1;
+                 $previous = null;
+                 foreach ($meritlists->sortByDesc('marks') as $score) {
+                     if ($previous && $previous->marks != $score->marks) {
+                         $rank++;
+                     }
+                     $score->rank = $rank;
+                     $previous = $score;
+                 }
+                 foreach($meritlists as $meritlist) {
+                     $meritlist->name = $meritlist->user->name;
+                     $meritlist->makeHidden('id', 'created_at', 'updated_at', 'user_id', 'user');
+                 }  $course->makeHidden('courseexams');
+                 }
+                 return $meritlists;
+            });
+            
             return response()->json([
                 'success' => true,
                 'meritlists' => $meritlists,

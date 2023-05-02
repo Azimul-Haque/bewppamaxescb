@@ -536,7 +536,8 @@ class APIController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $exam = Exam::findOrFail($exam_id);
+            $meritlists = Meritlist::where('course_id', $course_id)
+                                   ->where('exam_id', $exam_id)
 
             $rank = 1;
             $previous = null;

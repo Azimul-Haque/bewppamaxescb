@@ -41,7 +41,7 @@
                                   <td>{{ $meritlist->course->name }}</td>
                                   <td>
                                     <a href="{{ route('dashboard.users.single', $meritlist->user->id) }}">{{ $meritlist->user->name }}</a><br/>
-                                    <small class="text-black-50">{{ $singledata['mobile'] }}</small> 
+                                    <small class="text-black-50">{{ $meritlist->user->mobile }}</small> 
                                   </td>
                                   <td>{{ $singledata['marks'] }}</td>
                                   <td>{{ $singledata['rank'] }}</td>

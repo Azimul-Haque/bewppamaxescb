@@ -52,10 +52,10 @@ class ExamController extends Controller
         
         
         $exam = Exam::findOrFail($exam_id);
-        
+
         foreach($exam->meritlists as $meritlist) {
             $meritlist->name = $meritlist->user->name;
-            $meritlist->course = $meritlist->course->name;
+            $meritlist->coursename = $meritlist->course->name;
         }
         $exam->meritlists->makeHidden('user', 'course', 'created_at', 'updated_at');
         $newmeritlists = $this->rankandScore($exam->meritlists->toArray());

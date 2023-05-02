@@ -44,7 +44,7 @@
                                     <small class="text-black-50">{{ $meritlist->user->mobile }}</small> 
                                   </td>
                                   <td>{{ $meritlist->marks }}</td>
-                                  <td>{{ $singledata['rank'] }}</td>
+                                  <td>{{ $meritlist->rank }}</td>
                                   <td></td>
                               </tr>
                           @endforeach

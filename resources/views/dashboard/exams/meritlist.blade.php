@@ -17,7 +17,7 @@
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">পরীক্ষাসমূহ</h3>
+                      <h3 class="card-title">মেধাতালিকা</h3>
           
                       <div class="card-tools">
                           

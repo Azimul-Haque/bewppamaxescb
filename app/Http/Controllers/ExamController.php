@@ -56,8 +56,8 @@ class ExamController extends Controller
             $meritlist->coursename = $meritlist->course->name;
         }
         $exam->meritlists->makeHidden('course');
-        $exam->meritlists->makeHidden('user', 'created_at', 'updated_at');
-        $exam->meritlists->makeHidden('user', 'created_at', 'updated_at');
+        $exam->meritlists->makeHidden('user');
+        $exam->meritlists->makeHidden('created_at', 'updated_at');
         $newmeritlists = $this->rankandScore($exam->meritlists->toArray());
         dd($newmeritlists);
         $finalmeritlist = collect($newmeritlists);

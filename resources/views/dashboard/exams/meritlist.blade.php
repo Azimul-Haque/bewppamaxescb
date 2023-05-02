@@ -40,7 +40,8 @@
                               <tr>
                                   <td>{{ $singledata['coursename'] }}</td>
                                   <td>
-                                    <a href="{{ route('dashboard.users.single', $singledata['user_id']) }}">{{ $singledata['name'] }}</a>
+                                    <a href="{{ route('dashboard.users.single', $singledata['user_id']) }}">{{ $singledata['name'] }}</a><br/>
+                                    <small class="text-black-50">{{ $singledata['mobile'] }}</small> 
                                   </td>
                                   <td>{{ $singledata['marks'] }}</td>
                                   <td>{{ $singledata['rank'] }}</td>

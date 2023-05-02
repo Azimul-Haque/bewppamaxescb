@@ -59,9 +59,7 @@ class ExamController extends Controller
         // }
         
         $rank = 1;
-
         $previous = null;
-
         foreach ($exam->meritlists as $score) {
             if ($previous && $previous->marks != $score->marks) {
                 $rank++;

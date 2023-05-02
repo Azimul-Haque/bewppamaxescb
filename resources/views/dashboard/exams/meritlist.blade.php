@@ -36,7 +36,7 @@
                               </tr>
                           </thead>
                           <tbody>
-                          @foreach($meritlists as $meritlist)
+                          @foreach($meritlists->sortByDesc('marks') as $meritlist)
                               <tr>
                                   <td>{{ $meritlist->course->name }}</td>
                                   <td>

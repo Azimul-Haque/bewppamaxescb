@@ -17,4 +17,8 @@ class Exam extends Model
     public function course(){
         return $this->hasOne('App\Course');
     }
+
+    public function meritlists(){
+        return $this->hasMany('App\Meritlist');
+    }
 }

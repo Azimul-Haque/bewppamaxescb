@@ -102,6 +102,8 @@ Route::post('/dashboard/exams/category/store', 'ExamController@storeExamCategory
 Route::post('/dashboard/exams/category/{id}/update', 'ExamController@updateExamCategory')->name('dashboard.exams.category.update');
 Route::get('/dashboard/exams/category/{id}/delete', 'ExamController@deleteExamCategory')->name('dashboard.exams.category.delete');
 
+Route::get('/dashboard/exams/meritlist/{course_id}/{exam_id}', 'ExamController@getMeritList')->name('dashboard.exams.meritlist');
+
 Route::get('/dashboard/courses', 'CourseController@getCourses')->name('dashboard.courses');
 Route::post('/dashboard/courses/store', 'CourseController@storeCourse')->name('dashboard.courses.store');
 Route::post('/dashboard/courses/{id}/update', 'CourseController@updateCourse')->name('dashboard.courses.update');

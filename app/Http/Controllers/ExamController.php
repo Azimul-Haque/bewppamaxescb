@@ -11,6 +11,7 @@ use App\Exam;
 use App\Examcategory;
 use App\Examquestion;
 use App\Question;
+use App\Meritlist;
 
 use Carbon\Carbon;
 use DB;
@@ -447,5 +448,11 @@ class ExamController extends Controller
             Session::flash('success', 'Question updated successfully!');
         }
         return redirect()->route('dashboard.exams.add.question', $request->exam_id);
+    }
+    
+    public function getMeritList($course_id, $exam_id)
+    {
+        $meritlists = Meritlist::where('course_id', $course_id)
+                               ->where('exam_id', $exam_id)
     }
 }

@@ -49,9 +49,7 @@ class ExamController extends Controller
 
     public function getExamMeritList($exam_id)
     {
-        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
-            abort(403, 'Access Denied');
-        }
+        
         
         $exams = Exam::orderBy('id', 'desc')->paginate(10);
         $examcategories = Examcategory::all();

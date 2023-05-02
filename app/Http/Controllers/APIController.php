@@ -536,7 +536,7 @@ class APIController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $meritlists = Cache::remember('courses'.$coursetype, 7 * 24 * 60 * 60, function () use ($coursetype) {
+            $meritlists = Meritlist::remember('meritlist'.$course_id.$exam_id, 7 * 24 * 60 * 60, function () use ($coursetype) {
                  $courses = Course::select('id', 'name')
                              ->where('status', 1) // take only active courses
                              ->where('type', $coursetype) // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT, 5 = QB

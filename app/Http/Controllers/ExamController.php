@@ -494,7 +494,9 @@ class ExamController extends Controller
     }
 
     public function rankandScore($scores){
-
+        // OBSOLETE, USE KORTESI NA
+        // OBSOLETE, USE KORTESI NA
+        // OBSOLETE, USE KORTESI NA
         return collect($scores)
             ->sortByDesc('marks')
             ->zip(range(1, count($scores)))

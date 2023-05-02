@@ -50,22 +50,36 @@ class ExamController extends Controller
     public function getExamMeritList($exam_id)
     {  
         $exam = Exam::findOrFail($exam_id);
-        $finalmeritlist = collect();
+        // $finalmeritlist = collect();
         foreach($exam->meritlists as $meritlist) {
             $meritlist->user_id = $meritlist->user->id;
             $meritlist->name = $meritlist->user->name;
             $meritlist->mobile = $meritlist->user->mobile;
             $meritlist->coursename = $meritlist->course->name;
         }
-        $exam->meritlists->makeHidden('course');
-        $exam->meritlists->makeHidden('user');
-        $exam->meritlists->makeHidden('created_at', 'updated_at');
-        $newmeritlists = $this->rankandScore($exam->meritlists->toArray());
-        // dd($newmeritlists);
-        $finalmeritlist = collect($newmeritlists);
-        // dd($finalmeritlist);
-        return view('dashboard.exams.meritlist')
-                    ->withFinalmeritlist($finalmeritlist);
+        
+        $rank = 1;
+
+        $previous = null;
+
+        foreach ($scores as $score) {
+            if ($previous && $previous->marks_scored != $score->marks_scored) {
+                $rank++;
+            }
+
+            $score->rank = $rank;
+
+            $previous = $score;
+        }
+        // $exam->meritlists->makeHidden('course');
+        // $exam->meritlists->makeHidden('user');
+        // $exam->meritlists->makeHidden('created_at', 'updated_at');
+        // $newmeritlists = $this->rankandScore($exam->meritlists->toArray());
+        // // dd($newmeritlists);
+        // $finalmeritlist = collect($newmeritlists);
+        // // dd($finalmeritlist);
+        // return view('dashboard.exams.meritlist')
+        //             ->withFinalmeritlist($finalmeritlist);
     }
 
     public function storeExamCategory(Request $request)
@@ -490,7 +504,7 @@ class ExamController extends Controller
     }
 
     public function rankandScore($scores){
-        
+
         return collect($scores)
             ->sortByDesc('marks')
             ->zip(range(1, count($scores)))

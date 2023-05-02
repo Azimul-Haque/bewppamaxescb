@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') ড্যাশবোর্ড | পরীক্ষাসমূহ @endsection
+@section('title') ড্যাশবোর্ড | {{ $exam->name }} @endsection
 
 @section('third_party_stylesheets')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-    @section('page-header') পরীক্ষাসমূহ @endsection
+    @section('page-header') {{ $exam->name }} @endsection
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9">
@@ -36,7 +36,7 @@
                               </tr>
                           </thead>
                           <tbody>
-                          @foreach($meritlists->sortByDesc('marks') as $meritlist)
+                          @foreach($exam->meritlists->sortByDesc('marks') as $meritlist)
                               <tr>
                                   <td>{{ $meritlist->course->name }}</td>
                                   <td>

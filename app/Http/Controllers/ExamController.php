@@ -490,7 +490,7 @@ class ExamController extends Controller
     }
 
     public function rankandScore($scores){
-        $marks = [];
+        
         return collect($scores)
             ->sortByDesc('marks')
             ->zip(range(1, count($scores)))

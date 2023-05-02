@@ -538,6 +538,7 @@ class APIController extends Controller
         {
             $meritlists = Meritlist::where('course_id', $course_id)
                                    ->where('exam_id', $exam_id)
+                                   ->get();
 
             $rank = 1;
             $previous = null;

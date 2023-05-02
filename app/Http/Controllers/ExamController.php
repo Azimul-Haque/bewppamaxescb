@@ -52,7 +52,9 @@ class ExamController extends Controller
         $exam = Exam::findOrFail($exam_id);
 
         foreach($exam->meritlists as $meritlist) {
+            $meritlist->user_id = $meritlist->user->name;
             $meritlist->name = $meritlist->user->name;
+            $meritlist->mobile = $meritlist->user->mobile;
             $meritlist->coursename = $meritlist->course->name;
         }
         $exam->meritlists->makeHidden('course');

@@ -80,7 +80,7 @@ class ExamController extends Controller
         // $finalmeritlist = collect($newmeritlists);
         // // dd($finalmeritlist);
         return view('dashboard.exams.meritlist')
-                    ->withFinalmeritlist($exam->meritlists);
+                    ->withMeritlists($exam->meritlists);
     }
 
     public function storeExamCategory(Request $request)

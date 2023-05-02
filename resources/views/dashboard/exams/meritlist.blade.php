@@ -38,9 +38,9 @@
                               </tr>
                           </thead>
                           <tbody>
-                          @foreach($exams as $exam)
+                          @foreach($finalmeritlist as $singledata)
                               <tr>
-                                  
+                                  <td>{{ $singledata-> }</td>
                               </tr>
                           @endforeach
                           </tbody>

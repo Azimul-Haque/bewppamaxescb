@@ -48,9 +48,7 @@ class ExamController extends Controller
     }
 
     public function getExamMeritList($exam_id)
-    {
-        
-        
+    {  
         $exam = Exam::findOrFail($exam_id);
 
         foreach($exam->meritlists as $meritlist) {

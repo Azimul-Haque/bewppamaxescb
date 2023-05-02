@@ -51,11 +51,8 @@ class ExamController extends Controller
     {
         
         
-        $exam = Exam::where('id', $exam_id)->with(['meritlists' => function($query){
-                $query->groupBy('course_id');
-            }])->get();
-
-        dd($exam->meritlists);
+        $exam = Exam::findOrFail($exam_id);
+        
         foreach($exam->meritlists as $meritlist) {
             $meritlist->name = $meritlist->user->name;
             $meritlist->course = $meritlist->course->name;

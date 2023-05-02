@@ -61,7 +61,7 @@ class ExamController extends Controller
             $previous = $score;
         }
         return view('dashboard.exams.meritlist')
-                    ->withMeritlists($exam->meritlists);
+                    ->withExam($exam);
     }
 
     public function storeExamCategory(Request $request)

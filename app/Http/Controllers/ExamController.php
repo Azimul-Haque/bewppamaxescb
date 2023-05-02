@@ -52,7 +52,7 @@ class ExamController extends Controller
         
         
         $exam = Exam::findOrFail($exam_id);
-        dd()
+        dd($exam->meritlists);
         return view('dashboard.exams.meritlist')
                     ->withExams($exams)
                     ->withExamcategories($examcategories);

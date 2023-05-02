@@ -462,4 +462,30 @@ class ExamController extends Controller
         }
         // dd($meritlists);
     }
+
+    public function rankandscore($scores){
+
+        return collect($scores)
+            ->sortByDesc('score')
+            ->zip(range(1, $scores->count()))
+            ->map(function ($scoreAndRank){
+                list($score, $rank) = $scoreAndRank;
+                return array_merge($score, [
+                    'rank' => $rank
+                ]);
+            })
+            ->groupBy('score')
+            ->map(function ($tiedScores){
+                $lowestRank = $tiedScores->pluck('rank')->min();
+                return $tiedScores->map(function ($rankedScore) use ($lowestRank){
+                    return array_merge($rankedScore, [
+                        'rank' => $lowestRank,
+                    ]);
+                });
+
+            })
+            ->collapse()
+            ->sortBy('rank');
+
+    }
 }

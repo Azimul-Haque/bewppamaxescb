@@ -456,7 +456,7 @@ class ExamController extends Controller
                                ->where('exam_id', $exam_id)
                                ->orderBy('marks', 'desc')
                                ->get();
-        
+        $newmeritlists = rankandscore($meritlists);
         foreach($meritlists as $meritlist) {
             echo $meritlist->user->name . '-' . $meritlist->marks . '<br>';
         }

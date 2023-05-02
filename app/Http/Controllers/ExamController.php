@@ -477,6 +477,9 @@ class ExamController extends Controller
     
     public function getMeritList($course_id, $exam_id)
     {
+        // OBSOLETE, USE KORTESI NA
+        // OBSOLETE, USE KORTESI NA
+        // OBSOLETE, USE KORTESI NA
         $meritlists = Meritlist::where('course_id', $course_id)
                                ->where('exam_id', $exam_id)
                                ->orderBy('marks', 'desc')

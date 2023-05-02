@@ -549,9 +549,10 @@ class APIController extends Controller
                 $score->rank = $rank;
                 $previous = $score;
             }
+            dd($meritlists);
             return response()->json([
                 'success' => true,
-                'materials' => $materials,
+                'meritlists' => $meritlists,
             ]);
         } else {
             return response()->json([

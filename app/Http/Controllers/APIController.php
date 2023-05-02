@@ -553,7 +553,7 @@ class APIController extends Controller
                 $meritlist->name = $meritlist->user->name;
             }
             
-            $finalmeritlist = $meritlists->sortByDesc('marks');
+            $finalmeritlist = collect($meritlists->sortByDesc('marks'));
             $finalmeritlist->makeHidden('id');
             $finalmeritlist->makeHidden('created_at');
             $finalmeritlist->makeHidden('updated_at');

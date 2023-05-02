@@ -522,6 +522,8 @@ class APIController extends Controller
             $examresult->marks = $request->marks;
             $examresult->save();
 
+            Cache::forget('meritlist');
+            
             return response()->json([
                 'success' => true
             ]);

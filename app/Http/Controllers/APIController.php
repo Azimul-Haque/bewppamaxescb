@@ -553,7 +553,7 @@ class APIController extends Controller
                 $meritlist->name = $meritlist->user->name;
             }
             $meritlists->makeHidden('id');
-            $meritlists->makeHidden('created_at', 'updated_at');
+            $meritlists->makeHidden('created_at');
             $meritlists->makeHidden('updated_at');
             $meritlists->makeHidden('user_id');
             $meritlists->makeHidden('user');

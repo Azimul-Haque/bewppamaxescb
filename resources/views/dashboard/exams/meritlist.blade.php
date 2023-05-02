@@ -44,6 +44,7 @@
                                   <td>{{ $singledata['name'] }}</td>
                                   <td>{{ $singledata['marks'] }}</td>
                                   <td>{{ $singledata['rank'] }}</td>
+                                  <td></td>
                               </tr>
                           @endforeach
                           </tbody>

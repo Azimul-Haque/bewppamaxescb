@@ -84,6 +84,7 @@ Route::post('/dashboard/questions/tag/{id}/update', 'QuestionController@updateQu
 Route::get('/dashboard/questions/tag/{id}/delete', 'QuestionController@deleteQuestionsTag')->name('dashboard.questions.tag.delete');
 
 Route::get('/dashboard/exams', 'ExamController@getExams')->name('dashboard.exams');
+Route::get('/dashboard/exams/meritlist', 'ExamController@getExams')->name('dashboard.exams');
 Route::post('/dashboard/exams/store', 'ExamController@storeExam')->name('dashboard.exams.store');
 Route::post('/dashboard/exams/{id}/update', 'ExamController@updateExam')->name('dashboard.exams.update');
 Route::post('/dashboard/exams/{id}/copy', 'ExamController@copyExam')->name('dashboard.exams.copy');

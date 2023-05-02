@@ -550,7 +550,8 @@ class APIController extends Controller
                 $previous = $score;
             }
             $meritlists->makeHidden('id', 'created_at', 'updated_at');
-            dd($meritlists->sortByDesc('marks'));
+            $finalmeritlist = $meritlists->sortByDesc('marks');
+            dd($finalmeritlist);
             return response()->json([
                 'success' => true,
                 'meritlists' => $meritlists,

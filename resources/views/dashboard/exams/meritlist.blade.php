@@ -30,7 +30,7 @@
                       <table class="table">
                           <thead>
                               <tr>
-                                  <th>পরীক্ষা</th>
+                                  <th>কোর্স</th>
                                   <th>সময়কাল</th>
                                   <th>প্রশ্ন ও প্রশ্নের মান</th>
                                   <th>শুরু-শেষ</th>

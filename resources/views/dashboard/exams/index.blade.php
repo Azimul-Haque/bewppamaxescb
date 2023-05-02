@@ -53,7 +53,7 @@
                                     @if($isCurrent == true)
                                         <i class="fas fa-calendar-check" style="color: green;" rel="tooltip" title="চলতি"></i>
                                     @endif
-                                    <a href="{{ route('dashboard.exams.add.question', $exam->id) }}" rel="tooltip" title="প্রশ্ন যোগ করুন">{{ $exam->name }}</a>
+                                    <a href="{{ route('dashboard.exams.getmeritlist', $exam->id) }}" rel="tooltip" title="প্রশ্ন যোগ করুন">{{ $exam->name }}</a>
                                     <br/>
                                     <span class="badge bg-success">{{ $exam->examcategory->name }}</span>
                                     <span class="badge bg-info">{{ $exam->price_type == 0 ? 'ফ্রি' : 'পেইড' }}</span>

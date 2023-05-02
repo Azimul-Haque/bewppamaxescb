@@ -39,12 +39,12 @@
                           @foreach($meritlists as $meritlist)
                               <tr>
                                   <td>{{ $meritlist->course->name }}</td>
-                                  {{-- <td>
+                                  <td>
                                     <a href="{{ route('dashboard.users.single', $singledata['user_id']) }}">{{ $singledata['name'] }}</a><br/>
                                     <small class="text-black-50">{{ $singledata['mobile'] }}</small> 
                                   </td>
                                   <td>{{ $singledata['marks'] }}</td>
-                                  <td>{{ $singledata['rank'] }}</td> --}}
+                                  <td>{{ $singledata['rank'] }}</td>
                                   <td></td>
                               </tr>
                           @endforeach

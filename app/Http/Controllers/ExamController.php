@@ -469,12 +469,12 @@ class ExamController extends Controller
             ->sortByDesc('marks')
             ->zip(range(1, $scores->count()))
             ->map(function ($scoreAndRank){
-                list($score, $rank) = $scoreAndRank;
-                return array_merge($score, [
+                list($marks, $rank) = $scoreAndRank;
+                return array_merge($marks, [
                     'rank' => $rank
                 ]);
             })
-            ->groupBy('score')
+            ->groupBy('marks')
             ->map(function ($tiedScores){
                 $lowestRank = $tiedScores->pluck('rank')->min();
                 return $tiedScores->map(function ($rankedScore) use ($lowestRank){

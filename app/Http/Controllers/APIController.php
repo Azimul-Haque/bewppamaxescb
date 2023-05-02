@@ -532,7 +532,7 @@ class APIController extends Controller
         ]);
     }
 
-    public function getMeritList($softtoken)
+    public function getMeritList($softtoken, $course_id, $exam_id)
     {
         if($softtoken == env('SOFT_TOKEN'))
         {

@@ -458,9 +458,9 @@ class ExamController extends Controller
                                ->get();
         $newmeritlists = $this->rankandScore($meritlists->toArray());
         $finalmeritlist = collect($newmeritlists);
-        foreach($finalmeritlist as $meritlist) {
-            echo $meritlist->user->name . '-' . $meritlist->marks . '<br>';
-        }
+        // foreach($finalmeritlist as $meritlist) {
+        //     echo $meritlist->user->name . '-' . $meritlist->marks . '<br>';
+        // }
         dd($finalmeritlist);
     }
 

@@ -47,7 +47,7 @@ class ExamController extends Controller
                     ->withExamcategories($examcategories);
     }
 
-    public function getExamMeritList()
+    public function getExamMeritList($exam_id)
     {
         if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
             abort(403, 'Access Denied');

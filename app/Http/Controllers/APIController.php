@@ -549,7 +549,7 @@ class APIController extends Controller
                 $score->rank = $rank;
                 $previous = $score;
             }
-            dd($meritlists);
+            dd($meritlists->sortByDesc('marks'));
             return response()->json([
                 'success' => true,
                 'meritlists' => $meritlists,

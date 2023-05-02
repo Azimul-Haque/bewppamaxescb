@@ -542,7 +542,7 @@ class APIController extends Controller
 
             $rank = 1;
             $previous = null;
-            foreach ($exam->meritlists->sortByDesc('marks') as $score) {
+            foreach ($meritlists->sortByDesc('marks') as $score) {
                 if ($previous && $previous->marks != $score->marks) {
                     $rank++;
                 }

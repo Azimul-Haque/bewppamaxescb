@@ -40,7 +40,8 @@
                           <tbody>
                           @foreach($finalmeritlist as $singledata)
                               <tr>
-                                  <td>{{ $singledata-> }</td>
+                                  <td>{{ $singledata->coursename }</td>
+                                  <td>{{ $singledata->coursename }</td>
                               </tr>
                           @endforeach
                           </tbody>

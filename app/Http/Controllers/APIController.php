@@ -551,7 +551,7 @@ class APIController extends Controller
             // }
             foreach($meritlists as $meritlist) {
                 $meritlist->name = $meritlist->user->name;
-                $meritlists->makeHidden('id', 'created_at', 'updated_at', 'user_id', 'user');
+                $meritlist->makeHidden('id', 'created_at', 'updated_at', 'user_id', 'user');
             }
             
             $finalmeritlist = $meritlists->sortByDesc('marks');

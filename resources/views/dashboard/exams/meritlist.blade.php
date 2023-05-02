@@ -28,10 +28,10 @@
                       <table class="table">
                           <thead>
                               <tr>
-                                  <th>কোর্স</th>
                                   <th>নাম</th>
                                   <th>প্রাপ্ত নম্বর</th>
                                   <th>র‍্যাংক</th>
+                                  <th>কোর্স</th>
                                   <th>Action</th>
                               </tr>
                           </thead>

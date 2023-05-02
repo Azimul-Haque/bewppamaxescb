@@ -454,6 +454,7 @@ class ExamController extends Controller
     {
         $meritlists = Meritlist::where('course_id', $course_id)
                                ->where('exam_id', $exam_id)
+                               ->orderBy('marks', 'desc')
                                ->get();
         
         foreach($meritlists as $meritlist) {

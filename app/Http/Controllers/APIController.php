@@ -540,15 +540,15 @@ class APIController extends Controller
                                    ->where('exam_id', $exam_id)
                                    ->get();
 
-            $rank = 1;
-            $previous = null;
-            foreach ($meritlists as $score) {
-                if ($previous && $previous->marks != $score->marks) {
-                    $rank++;
-                }
-                $score->rank = $rank;
-                $previous = $score;
-            }
+            // $rank = 1;
+            // $previous = null;
+            // foreach ($meritlists as $score) {
+            //     if ($previous && $previous->marks != $score->marks) {
+            //         $rank++;
+            //     }
+            //     $score->rank = $rank;
+            //     $previous = $score;
+            // }
             foreach($meritlists as $meritlist) {
                 $meritlist->name = $meritlist->user->name;
             }

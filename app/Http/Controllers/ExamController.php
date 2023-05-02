@@ -456,10 +456,10 @@ class ExamController extends Controller
                                ->where('exam_id', $exam_id)
                                ->orderBy('marks', 'desc')
                                ->get();
-        $newmeritlists = $this->rankandScore($meritlists);
-        foreach($newmeritlists as $meritlist) {
-            echo $meritlist->user->name . '-' . $meritlist->marks . '<br>';
-        }
+        // $newmeritlists = $this->rankandScore($meritlists);
+        // foreach($newmeritlists as $meritlist) {
+        //     echo $meritlist->user->name . '-' . $meritlist->marks . '<br>';
+        // }
         dd($meritlists);
     }
 

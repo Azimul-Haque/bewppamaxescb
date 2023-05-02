@@ -54,6 +54,7 @@ class ExamController extends Controller
         $exam = Exam::where('id', $exam_id)
                     ->groupBy('course_id')
                     ->groupBy('course_id')
+                    
         dd($exam->meritlists);
         return view('dashboard.exams.meritlist')
                     ->withExams($exams)

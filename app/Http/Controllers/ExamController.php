@@ -467,7 +467,7 @@ class ExamController extends Controller
 
         return collect($scores)
             ->sortByDesc('marks')
-            ->zip(range(1, $scores->count()))
+            ->zip(range(1, cou$scores))
             ->map(function ($scoreAndRank){
                 list($marks, $rank) = $scoreAndRank;
                 return array_merge($marks, [

@@ -536,7 +536,7 @@ class APIController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $meritlists = Meritlist::remember('meritlist'.$course_id.$exam_id, 7 * 24 * 60 * 60, function () use ($course_id, $exam_id) {
+            $meritlists = Cache::remember('meritlist'.$course_id.$exam_id, 7 * 24 * 60 * 60, function () use ($course_id, $exam_id) {
                  $meritlists = Meritlist::where('course_id', $course_id)
                                         ->where('exam_id', $exam_id)
                                         ->get();

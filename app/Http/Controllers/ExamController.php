@@ -55,7 +55,7 @@ class ExamController extends Controller
                 $query->groupBy('course_id');
             }])->get();
 
-        dd($exam->meritlists->course->name);
+        dd($exam->meritlists);
         return view('dashboard.exams.meritlist')
                     ->withExams($exams)
                     ->withExamcategories($examcategories);

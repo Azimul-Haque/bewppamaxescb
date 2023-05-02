@@ -456,6 +456,9 @@ class ExamController extends Controller
                                ->where('exam_id', $exam_id)
                                ->orderBy('marks', 'desc')
                                ->get();
+        foreach($meritlists as $meritlist) {
+            $meritlist
+        }
         $newmeritlists = $this->rankandScore($meritlists->toArray());
         $finalmeritlist = collect($newmeritlists);
         // foreach($finalmeritlist as $meritlist) {

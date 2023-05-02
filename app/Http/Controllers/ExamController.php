@@ -50,14 +50,7 @@ class ExamController extends Controller
     public function getExamMeritList($exam_id)
     {  
         $exam = Exam::findOrFail($exam_id);
-        // $finalmeritlist = collect();
-        // foreach($exam->meritlists as $meritlist) {
-        //     $meritlist->user_id = $meritlist->user->id;
-        //     $meritlist->name = $meritlist->user->name;
-        //     $meritlist->mobile = $meritlist->user->mobile;
-        //     $meritlist->coursename = $meritlist->course->name;
-        // }
-        
+
         $rank = 1;
         $previous = null;
         foreach ($exam->meritlists->sortByDesc('marks') as $score) {
@@ -65,7 +58,6 @@ class ExamController extends Controller
                 $rank++;
             }
             $score->rank = $rank;
-
             $previous = $score;
         }
         return view('dashboard.exams.meritlist')

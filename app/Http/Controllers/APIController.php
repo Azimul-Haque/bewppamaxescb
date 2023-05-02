@@ -559,7 +559,7 @@ class APIController extends Controller
             $finalmeritlist->makeHidden('updated_at');
             $finalmeritlist->makeHidden('user_id');
             $finalmeritlist->makeHidden('user');
-            dd($finalmeritlist);
+            // dd($finalmeritlist);
             return response()->json([
                 'success' => true,
                 'meritlists' => $finalmeritlist,

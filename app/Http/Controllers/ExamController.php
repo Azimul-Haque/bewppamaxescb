@@ -71,6 +71,7 @@ class ExamController extends Controller
 
             $previous = $score;
         }
+        dd($previous);
         // $exam->meritlists->makeHidden('course');
         // $exam->meritlists->makeHidden('user');
         // $exam->meritlists->makeHidden('created_at', 'updated_at');

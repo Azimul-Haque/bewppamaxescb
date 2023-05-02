@@ -460,7 +460,7 @@ class ExamController extends Controller
         // foreach($newmeritlists as $meritlist) {
         //     echo $meritlist->user->name . '-' . $meritlist->marks . '<br>';
         // }
-        dd($meritlists);
+        dd($meritlists->toArray());
     }
 
     public function rankandScore($scores){

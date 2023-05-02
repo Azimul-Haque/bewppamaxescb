@@ -68,14 +68,6 @@ class ExamController extends Controller
 
             $previous = $score;
         }
-        // dd($exam->meritlists);
-        // $exam->meritlists->makeHidden('course');
-        // $exam->meritlists->makeHidden('user');
-        // $exam->meritlists->makeHidden('created_at', 'updated_at');
-        // $newmeritlists = $this->rankandScore($exam->meritlists->toArray());
-        // // dd($newmeritlists);
-        // $finalmeritlist = collect($newmeritlists);
-        // // dd($finalmeritlist);
         return view('dashboard.exams.meritlist')
                     ->withMeritlists($exam->meritlists);
     }

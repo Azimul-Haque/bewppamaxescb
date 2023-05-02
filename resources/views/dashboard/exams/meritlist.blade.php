@@ -39,7 +39,9 @@
                           @foreach($finalmeritlist as $singledata)
                               <tr>
                                   <td>{{ $singledata['coursename'] }}</td>
-                                  <td><a href="{{ route('dashboard.users.single', $singledata['user_id']) }}">{{ $singledata['name'] }}</a></td>
+                                  <td>
+                                    <a href="{{ route('dashboard.users.single', $singledata['user_id']) }}">{{ $singledata['name'] }}</a>
+                                  </td>
                                   <td>{{ $singledata['marks'] }}</td>
                                   <td>{{ $singledata['rank'] }}</td>
                                   <td></td>

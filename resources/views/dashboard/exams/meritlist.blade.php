@@ -41,7 +41,6 @@
                           @foreach($exams as $exam)
                               <tr>
                                   
-                                  
                               </tr>
                           @endforeach
                           </tbody>

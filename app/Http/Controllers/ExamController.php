@@ -61,7 +61,7 @@ class ExamController extends Controller
         $newmeritlists = $this->rankandScore($exam->meritlists->toArray());
         // dd($newmeritlists);
         $finalmeritlist = collect($newmeritlists);
-        dd($finalmeritlist);
+        // dd($finalmeritlist);
         return view('dashboard.exams.meritlist')
                     ->withFinalmeritlist($finalmeritlist);
     }

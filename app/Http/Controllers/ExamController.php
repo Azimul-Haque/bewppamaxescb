@@ -51,7 +51,9 @@ class ExamController extends Controller
     {
         
         
-        $exam = Exam::where('id', $exam_id)
+        $exam = Exam::where('id', $exam_id)->with('meritlists' => function($query){
+                $query->groupBy('product_name');
+            }])->get();
 
         Sales::with(['product_detail.product' => function($query){
                 $query->groupBy('product_name');

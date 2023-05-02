@@ -64,7 +64,6 @@ class ExamController extends Controller
             if ($previous && $previous->marks != $score->marks) {
                 $rank++;
             }
-
             $score->rank = $rank;
 
             $previous = $score;

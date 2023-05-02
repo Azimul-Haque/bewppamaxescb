@@ -58,10 +58,10 @@ class ExamController extends Controller
         $exam->meritlists->makeHidden('user', 'course', 'created_at', 'updated_at');
         $newmeritlists = $this->rankandScore($exam->meritlists->toArray());
         $finalmeritlist = collect($newmeritlists);
-        // foreach($finalmeritlist as $meritlist) {
-        //     echo $meritlist->user->name . '-' . $meritlist->marks . '<br>';
-        // }
-        dd($finalmeritlist);
+        foreach($finalmeritlist as $meritlist) {
+            echo $meritlist->user->name . '-' . $meritlist->marks . '<br>';
+        }
+        // dd($finalmeritlist);
         return view('dashboard.exams.meritlist')
                     ->withExams($exams)
                     ->withExamcategories($examcategories);

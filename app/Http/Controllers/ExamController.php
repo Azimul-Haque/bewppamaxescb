@@ -51,18 +51,18 @@ class ExamController extends Controller
     {  
         $exam = Exam::findOrFail($exam_id);
         // $finalmeritlist = collect();
-        foreach($exam->meritlists as $meritlist) {
-            $meritlist->user_id = $meritlist->user->id;
-            $meritlist->name = $meritlist->user->name;
-            $meritlist->mobile = $meritlist->user->mobile;
-            $meritlist->coursename = $meritlist->course->name;
-        }
+        // foreach($exam->meritlists as $meritlist) {
+        //     $meritlist->user_id = $meritlist->user->id;
+        //     $meritlist->name = $meritlist->user->name;
+        //     $meritlist->mobile = $meritlist->user->mobile;
+        //     $meritlist->coursename = $meritlist->course->name;
+        // }
         
         $rank = 1;
 
         $previous = null;
 
-        foreach ($scores as $score) {
+        foreach ($exam->meritlists as $score) {
             if ($previous && $previous->marks_scored != $score->marks_scored) {
                 $rank++;
             }

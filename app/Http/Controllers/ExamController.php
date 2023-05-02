@@ -51,7 +51,7 @@ class ExamController extends Controller
     {
         
         
-        $exam = Exam::orderBy('id', 'desc')->paginate(10);
+        $exam = Exam::findOrFail($exam_id);
         $examcategories = Examcategory::all();
 
         return view('dashboard.exams.index')

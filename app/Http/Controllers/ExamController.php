@@ -456,8 +456,8 @@ class ExamController extends Controller
                                ->where('exam_id', $exam_id)
                                ->get();
         
-        foreach() {
-            
+        foreach($meritlists as $meritlist) {
+            dd($meritlist->)
         }
         dd($meritlists);
     }

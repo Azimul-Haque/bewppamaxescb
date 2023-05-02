@@ -554,11 +554,11 @@ class APIController extends Controller
                 $meritlist->makeHidden('id', 'created_at', 'updated_at', 'user_id', 'user');
             }
             
-            $finalmeritlist = $meritlists->sortByDesc('marks');
-            // dd($finalmeritlist);
+            $finalmeritlists = $meritlists->sortByDesc('marks');
+            // dd($finalmeritlists);
             return response()->json([
                 'success' => true,
-                'meritlists' => $finalmeritlist,
+                'meritlists' => $finalmeritlists,
             ]);
         } else {
             return response()->json([

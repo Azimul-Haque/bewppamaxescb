@@ -553,7 +553,6 @@ class APIController extends Controller
                  foreach($meritlists as $meritlist) {
                      $meritlist->name = $meritlist->user->name;
                      $meritlist->makeHidden('id', 'created_at', 'updated_at', 'user_id', 'user');
-                 }  $course->makeHidden('courseexams');
                  }
                  return $meritlists;
             });

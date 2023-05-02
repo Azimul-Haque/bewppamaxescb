@@ -459,7 +459,7 @@ class ExamController extends Controller
         foreach($meritlists as $meritlist) {
             $meritlist->name = $meritlist->user->name;
         }
-        $meritlists->makeHidden('user');
+        $meritlists->makeHidden('user', 'created_at', 'updated_at');
         $newmeritlists = $this->rankandScore($meritlists->toArray());
         $finalmeritlist = collect($newmeritlists);
         // foreach($finalmeritlist as $meritlist) {

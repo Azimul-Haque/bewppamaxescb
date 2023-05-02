@@ -466,7 +466,7 @@ class ExamController extends Controller
     public function rankandscore($scores){
 
         return collect($scores)
-            ->sortByDesc('score')
+            ->sortByDesc('marks')
             ->zip(range(1, $scores->count()))
             ->map(function ($scoreAndRank){
                 list($score, $rank) = $scoreAndRank;

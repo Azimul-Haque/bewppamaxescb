@@ -532,6 +532,34 @@ class APIController extends Controller
         ]);
     }
 
+    public function getMaterials($softtoken)
+    {
+        if($softtoken == env('SOFT_TOKEN'))
+        {
+            $materials = Cache::remember('lecturematerials', 7 * 24 * 60 * 60, function () {
+                $materials = Material::where('status', 1) // 1 = active, 0 = inactive
+                                     ->orderBy('id', 'desc')
+                                     ->get();
+
+                foreach($materials as $material) {
+                    $material->makeHidden('id', 'status', 'updated_at');
+                }
+                return $materials;
+            });
+            // dd($materials);
+            // $materials = $materials->sortByDesc('start');
+            // return 'Test';
+            return response()->json([
+                'success' => true,
+                'materials' => $materials,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false
+            ]);
+        }
+    }
+
 
     public function testNotification()
     {

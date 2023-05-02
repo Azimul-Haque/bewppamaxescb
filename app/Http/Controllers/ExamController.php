@@ -52,6 +52,10 @@ class ExamController extends Controller
         
         
         $exam = Exam::where('id', $exam_id)
+
+        Sales::with(['product_detail.product' => function($query){
+                $query->groupBy('product_name');
+            }])->get();
         dd($exam->meritlists);
         return view('dashboard.exams.meritlist')
                     ->withExams($exams)

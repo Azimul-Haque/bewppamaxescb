@@ -40,38 +40,7 @@
                           <tbody>
                           @foreach($exams as $exam)
                               <tr>
-                                  <td>
-                                    @php
-                                        $currentDate = date('Y-m-d');  
-                                        $startDate = date('Y-m-d', strtotime($exam->available_from));
-                                        $endDate = date('Y-m-d', strtotime($exam->available_to));
-                                        $isCurrent = false;
-                                        if (($currentDate >= $startDate) && ($currentDate <= $endDate)) {   
-                                            $isCurrent = true;
-                                        }
-                                    @endphp
-                                    @if($isCurrent == true)
-                                        <i class="fas fa-calendar-check" style="color: green;" rel="tooltip" title="চলতি"></i>
-                                    @endif
-                                    <a href="{{ route('dashboard.exams.add.question', $exam->id) }}" rel="tooltip" title="প্রশ্ন যোগ করুন">{{ $exam->name }}</a>
-                                    <br/>
-                                    <span class="badge bg-success">{{ $exam->examcategory->name }}</span>
-                                    <span class="badge bg-info">{{ $exam->price_type == 0 ? 'ফ্রি' : 'পেইড' }}</span>
-                                    <a href="{{ route('dashboard.exams.getmeritlist', $exam->id) }}" class="badge bg-primary" rel="tooltip" title="" data-original-title="মেধাতালিকা দেখুন"><i class="fas fa-bolt"></i> {{ $exam->participation }}</a>
-                                  </td>
-                                  <td><span class="fas fa-stopwatch"></span> {{ $exam->duration }} মিনিট</td>
-                                  <td>
-                                    <span class="badge bg-primary">{{ $exam->examquestions->count() }} টি প্রশ্ন</span><br/>
-                                    মানঃ {{ $exam->qsweight }} (-{{ $exam->negativepercentage / 100 }} প্রতি ভুলের জন্য)
-                                  </td>
-                                  <td>{{ date('F d, Y', strtotime($exam->available_from)) }} থেকে {{ date('F d, Y', strtotime($exam->available_to)) }}</td>
-                                  {{-- <td>
-                                      <div class="progress progress-xs">
-                                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                      </div>
-                                  </td> --}}
-                              
-                                
+                                  
                                   
                               </tr>
                           @endforeach

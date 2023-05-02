@@ -558,7 +558,7 @@ class APIController extends Controller
             // dd($finalmeritlists);
             return response()->json([
                 'success' => true,
-                'meritlists' => [$finalmeritlists],
+                'meritlists' => $finalmeritlists,
             ]);
         } else {
             return response()->json([

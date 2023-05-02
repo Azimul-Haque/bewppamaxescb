@@ -554,11 +554,11 @@ class APIController extends Controller
             }
             
             $finalmeritlist = collect($meritlists->sortByDesc('marks'));
-            $finalmeritlist->makeHidden('id');
-            $finalmeritlist->makeHidden('created_at');
-            $finalmeritlist->makeHidden('updated_at');
-            $finalmeritlist->makeHidden('user_id');
-            $finalmeritlist->makeHidden('user');
+            // $finalmeritlist->makeHidden('id');
+            // $finalmeritlist->makeHidden('created_at');
+            // $finalmeritlist->makeHidden('updated_at');
+            // $finalmeritlist->makeHidden('user_id');
+            // $finalmeritlist->makeHidden('user');
             // dd($finalmeritlist);
             return response()->json([
                 'success' => true,

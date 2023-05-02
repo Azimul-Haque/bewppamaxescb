@@ -52,9 +52,8 @@ class ExamController extends Controller
         
         
         $exam = Exam::findOrFail($exam_id);
-        $examcategories = Examcategory::all();
-
-        return view('dashboard.exams.index')
+        dd()
+        return view('dashboard.exams.meritlist')
                     ->withExams($exams)
                     ->withExamcategories($examcategories);
     }

@@ -281,7 +281,6 @@
                     </div>
                     <!-- /.card-body -->
                   </div>
-                  {{ $exams->links() }}
             </div>
         </div>
 

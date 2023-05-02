@@ -20,9 +20,7 @@
                       <h3 class="card-title">পরীক্ষাসমূহ</h3>
           
                       <div class="card-tools">
-                          <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#addExamModal">
-                              <i class="fas fa-plus-circle"></i> নতুন পরীক্ষা যোগ
-                          </button>
+                          
                       </div>
                     </div>
                     <!-- /.card-header -->

@@ -36,7 +36,7 @@
                               </tr>
                           </thead>
                           <tbody>
-                          @foreach($finalmeritlist as $singledata)
+                          @foreach($meritlists as $meritlist)
                               <tr>
                                   <td>{{ $singledata['coursename'] }}</td>
                                   <td>

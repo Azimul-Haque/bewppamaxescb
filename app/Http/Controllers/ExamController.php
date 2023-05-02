@@ -457,7 +457,7 @@ class ExamController extends Controller
                                ->get();
         
         foreach($meritlists as $meritlist) {
-            dd($meritlist->user);
+            echo $meritlist->user->name;
         }
         dd($meritlists);
     }

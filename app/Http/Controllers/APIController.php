@@ -532,7 +532,7 @@ class APIController extends Controller
         ]);
     }
 
-    public function getMaterials($softtoken)
+    public function getMeritList($softtoken)
     {
         if($softtoken == env('SOFT_TOKEN'))
         {

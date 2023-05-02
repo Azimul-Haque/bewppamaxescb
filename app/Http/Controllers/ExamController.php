@@ -486,6 +486,5 @@ class ExamController extends Controller
             })
             ->collapse()
             ->sortBy('rank');
-
     }
 }

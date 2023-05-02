@@ -38,13 +38,13 @@
                           <tbody>
                           @foreach($exam->meritlists->sortByDesc('marks') as $meritlist)
                               <tr>
-                                  <td><small>{{ $meritlist->course->name }}</small></td>
                                   <td>
                                     <a href="{{ route('dashboard.users.single', $meritlist->user->id) }}">{{ $meritlist->user->name }}</a><br/>
                                     <small class="text-black-50">{{ $meritlist->user->mobile }}</small> 
                                   </td>
                                   <td>{{ $meritlist->marks }}</td>
                                   <td>{{ $meritlist->rank }}</td>
+                                  <td><small>{{ $meritlist->course->name }}</small></td>
                                   <td></td>
                               </tr>
                           @endforeach

@@ -52,6 +52,7 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
 Route::get('/dashboard/clear/query/cache', 'DashboardController@clearQueryCache')->name('dashboard.clearquerycache');
 
 Route::get('/dashboard/users', 'DashboardController@getUsers')->name('dashboard.users');
+Route::get('/dashboard/users/sort', 'DashboardController@getUsersSort')->name('dashboard.userssort');
 Route::get('/dashboard/users/{search}', 'DashboardController@getUsersSearch')->name('dashboard.users.search');
 Route::get('/dashboard/users/{id}/single', 'DashboardController@getUser')->name('dashboard.users.single');
 Route::get('/dashboard/users/{id}/single/otherpage', 'DashboardController@getUserWithOtherPage')->name('dashboard.users.singleother');

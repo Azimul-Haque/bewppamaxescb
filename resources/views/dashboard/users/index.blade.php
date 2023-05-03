@@ -12,7 +12,7 @@
 		<div class="card">
           <div class="card-header">
             <h3 class="card-title">ব্যবহারকারীগণ</h3>
-            <a style="margin-left: 5px;">সর্বোচ্চ পরীক্ষার্থী</a>
+            <small><a style="margin-left: 5px;">সর্বোচ্চ পরীক্ষার্থী</a></small>
 
             <div class="card-tools">
               <form class="form-inline form-group-lg" action="">

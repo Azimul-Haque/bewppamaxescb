@@ -103,7 +103,9 @@ class DashboardController extends Controller
 
         $users = User::withCount(['meritlists' => function ($query) {
             $query->where('user_id', 'users.id');
-        }])->paginate(10);
+        }])
+        ->orderBy('meritlistscount', $order)
+        ->paginate(10);
 
         dd($users);
         // $users = $users->join('meritlists', function ($join) {

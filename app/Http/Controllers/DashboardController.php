@@ -105,7 +105,7 @@ class DashboardController extends Controller
             $query->where('user_id', 'users.id');
             $query->select(DB::raw('COUNT(meritlists.user_id) as count'));
         }])
-        ->orderBy('meritlists_count', 'desc')
+        ->orderBy('count', 'desc')
         ->paginate(10);
 
         // dd($users);

@@ -12,7 +12,7 @@
 		<div class="card">
           <div class="card-header">
             <h3 class="card-title">ব্যবহারকারীগণ</h3>
-            <span style="margin-right: 10px;">asd</span>
+            <span style="margin-left: 10px;">asd</span>
 
             <div class="card-tools">
               <form class="form-inline form-group-lg" action="">

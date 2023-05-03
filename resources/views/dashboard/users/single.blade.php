@@ -22,6 +22,7 @@
             <div class="info-box-content">
                 <big><b>{{ $user->name }}</b></big>
                 <span class="info-box-text">যোগদান: {{ bangla(date('d, F Y', strtotime($user->created_at))) }}</span>
+                <span class="info-box-text">প্যাকেজের মেয়াদ: {{ bangla(date('d, F Y', strtotime($user->package_expiry_date))) }}</span>
                 <span class="info-box-text">মোবাইল: {{ $user->mobile }}</span>
                 <span class="info-box-text">মোট ক্রয় সংখ্যা: {{ $user->payments->count() }}</span>
             </div>
@@ -34,16 +35,42 @@
                 <span class="info-box-text">Onesignal Player ID: <u><i>{{ $user->onesignal_id }}</i></u></span>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
           <div class="info-box mb-3">
             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-list-ul"></i></span>
             <div class="info-box-content">
-              <small>
-                <big><b>পরীক্ষা তথ্য</b></big>
-                <span class="info-box-text"></span>
-                </small>
+              <big><b>পরীক্ষা তথ্য</b></big>
+              <span class="info-box-text">মোট অংশগ্রহণ: {{ $user->meritlists->count() }}</span>
               {{-- <span class="info-box-number"></span> --}}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">পরীক্ষার তালিকা</h3>
+              <div class="card-tools"></div>
+            </div>
+            <div class="card-body p-0">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>পরীক্ষা</th>
+                    <th>প্রাপ্ত নম্বর</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($user->meritlists as $examdata)
+                    <tr>
+                      <td>
+                        <b>{{ $examdata->exam->name }}</b><br/>
+                        <small class="text-black-50">{{ $examdata->course->name }}</small> 
+                      </td>
+                      <td>
+                        {{ $examdata->marks }}
+                      </td>
+                  @endforeach
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

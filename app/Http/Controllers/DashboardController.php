@@ -104,8 +104,8 @@ class DashboardController extends Controller
             return $user->meritlists->count();
         })->paginate(10);
 
-        $users = User::with(array('meritlists' => function($query) {
-           $query->select(DB::raw('SELECT * count(user_id) WHERE user_id = 2 as count'))
+        $users = User::with(array('meritlists' => function($query, $user) {
+           $query->select(DB::raw('SELECT * count(user_id) WHERE user_id = $user->id as count'))
             $query->orderBy('MAX(count)')
          }))->paginate(15);
 

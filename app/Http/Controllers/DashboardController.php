@@ -105,7 +105,7 @@ class DashboardController extends Controller
         });
 
         $users = $users->join('meritlists', function ($join) {
-                        $join->on('meritlists.product_id', '=', 'products.id')
+                        $join->on('meritlists.user_id', '=', 'products.id')
                             ->where('meritlists.status', '=', 2);
                     })
                     ->groupBy('products.id')

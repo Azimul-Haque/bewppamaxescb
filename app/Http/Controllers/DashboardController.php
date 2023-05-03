@@ -104,6 +104,11 @@ class DashboardController extends Controller
             return $user->meritlists->count();
         })->paginate(10);
 
+        $users = Prodcuts::with(array('orders' => function($query) {
+           $query->select(DB::raw('SELECT * count(status) WHERE status = 2 as count'))
+            $query->orderBy('MAX(count)')
+         }))->paginate(15);
+
         return view('dashboard.users.index')
                     ->withUsers($users);
     }

@@ -99,11 +99,11 @@ class DashboardController extends Controller
 
     public function getUsersSort()
     {
-        $users = Hackathon::with('participants')->get()->sortBy(function($hackathon)
+        $users = User::with('meritlists')->get()->sortBy(function($hackathon)
         {
             return $hackathon->participants->count();
         });
-        
+
         return view('dashboard.users.index')
                     ->withUsers($users);
     }

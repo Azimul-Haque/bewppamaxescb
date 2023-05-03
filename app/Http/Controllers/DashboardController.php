@@ -105,11 +105,11 @@ class DashboardController extends Controller
         });
 
         $users = $users->join('meritlists', function ($join) {
-                        $join->on('meritlists.user_id', '=', 'products.id');
+                        $join->on('meritlists.user_id', '=', 'users.id');
                     })
-                    ->groupBy('products.id')
+                    ->groupBy('users.id')
                     ->orderBy('count', $order)
-                    ->select((['products.*', DB::raw('COUNT(orders.product_id) as count')]))->paginate(50);
+                    ->select((['users.*', DB::raw('COUNT(orders.product_id) as count')]))->paginate(50);
 
         return view('dashboard.users.index')
                     ->withUsers($users);

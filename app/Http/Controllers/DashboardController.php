@@ -93,16 +93,17 @@ class DashboardController extends Controller
     public function getUsers()
     {
         $users = User::where('name', '!=', null)->orderBy('id', 'asc')->paginate(10);
-        // $sites = Site::all();
         return view('dashboard.users.index')
                     ->withUsers($users);
     }
 
     public function getUsersSort()
     {
-        $users = User::where('name', '!=', null)
-                     ->orderBy('id', 'asc')->paginate(10);
-        // $sites = Site::all();
+        $users = Hackathon::with('participants')->get()->sortBy(function($hackathon)
+        {
+            return $hackathon->participants->count();
+        });
+        
         return view('dashboard.users.index')
                     ->withUsers($users);
     }

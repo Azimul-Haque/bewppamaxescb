@@ -109,7 +109,7 @@ class DashboardController extends Controller
                     })
                     ->groupBy('users.id')
                     ->orderBy('count', $order)
-                    ->select((['users.*', DB::raw('COUNT(orders.product_id) as count')]))->paginate(50);
+                    ->select((['users.*', DB::raw('COUNT(meritlists.user_id) as count')]))->paginate(10);
 
         return view('dashboard.users.index')
                     ->withUsers($users);

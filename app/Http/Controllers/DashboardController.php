@@ -103,14 +103,14 @@ class DashboardController extends Controller
 
         $users = User::withCount(['meritlists' => function ($query) {
             $query->where('user_id', 'users.id');
-        }])->paginate(10);;
+        }])->paginate(10);
 
-        $users = $users->join('meritlists', function ($join) {
-                        $join->on('meritlists.user_id', '=', 'users.id');
-                    })
-                    ->groupBy('users.id')
-                    ->orderBy('count', $order)
-                    ->select((['users.*', DB::raw('COUNT(meritlists.user_id) as count')]))->paginate(10);
+        // $users = $users->join('meritlists', function ($join) {
+        //                 $join->on('meritlists.user_id', '=', 'users.id');
+        //             })
+        //             ->groupBy('users.id')
+        //             ->orderBy('count', $order)
+        //             ->select((['users.*', DB::raw('COUNT(meritlists.user_id) as count')]))->paginate(10);
 
         return view('dashboard.users.index')
                     ->withUsers($users);

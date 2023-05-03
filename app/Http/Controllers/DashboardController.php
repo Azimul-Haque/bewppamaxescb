@@ -102,7 +102,7 @@ class DashboardController extends Controller
         // $users = User::where('name', '!=', null)->orderBy('id', 'asc')->get(10);
 
         $users = User::withCount(['meritlists' => function ($query) {
-            // $query->where('user_id', 'users.id');
+            $query->where('user_id', 'users.id');
             $query->select(DB::raw('COUNT(meritlists.user_id) as count'));
         }])
         ->orderBy('count', 'desc')

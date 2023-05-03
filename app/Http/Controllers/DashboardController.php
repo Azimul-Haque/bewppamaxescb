@@ -98,7 +98,7 @@ class DashboardController extends Controller
                     ->withUsers($users);
     }
 
-    public function getUsers()
+    public function getUsersSort()
     {
         $users = User::where('name', '!=', null)->orderBy('id', 'asc')->paginate(10);
         // $sites = Site::all();

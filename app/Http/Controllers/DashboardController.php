@@ -105,6 +105,7 @@ class DashboardController extends Controller
             $query->where('user_id', 'users.id');
         }])->paginate(10);
 
+        dd($users);
         // $users = $users->join('meritlists', function ($join) {
         //                 $join->on('meritlists.user_id', '=', 'users.id');
         //             })

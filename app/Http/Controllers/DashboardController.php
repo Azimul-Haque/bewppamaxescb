@@ -99,7 +99,7 @@ class DashboardController extends Controller
 
     public function getUsersSort()
     {
-        $users = User::where('name', '!=', null)->orderBy('id', 'asc')->paginate(10);
+        $users = User::where('name', '!=', null)->orderBy('id', 'asc')->get();
 
         // $products = $products->withCount(['orders' => function ($query) {
         //     $query->where('status', 2);

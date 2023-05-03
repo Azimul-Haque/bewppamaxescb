@@ -104,10 +104,13 @@ class DashboardController extends Controller
         //     return $user->meritlists->count();
         // })->paginate(10);
 
-        $users = User::with(array('meritlists' => function($query) {
-           $query->select(DB::raw('SELECT * count(user_id) as count'));
-           $query->orderBy('MAX(count)');
-         }))->paginate(10);
+        $users = $products->join('orders', function ($join) {
+                        $join->on('orders.product_id', '=', 'products.id')
+                            ->where('orders.status', '=', 2);
+                    })
+                    ->groupBy('products.id')
+                    ->orderBy('count', $order)
+                    ->select((['products.*', DB::raw('COUNT(orders.product_id) as count')]))->paginate(50);
 
         return view('dashboard.users.index')
                     ->withUsers($users);

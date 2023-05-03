@@ -99,12 +99,12 @@ class DashboardController extends Controller
 
     public function getUsersSort()
     {
-        // $users = User::with('meritlists')->get()->sortBy(function($user)
-        // {
-        //     return $user->meritlists->count();
-        // })->paginate(10);
+        $users = User::with('meritlists')->get()->sortBy(function($user)
+        {
+            return $user->meritlists->count();
+        });
 
-        $users = $products->join('orders', function ($join) {
+        $users = $users->join('orders', function ($join) {
                         $join->on('orders.product_id', '=', 'products.id')
                             ->where('orders.status', '=', 2);
                     })

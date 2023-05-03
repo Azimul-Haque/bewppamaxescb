@@ -39,7 +39,7 @@
             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-list-ul"></i></span>
             <div class="info-box-content">
               <big><b>পরীক্ষা তথ্য</b></big>
-              <span class="info-box-text">মোট অংশগ্রহণ: {{ bangla($user->meritlists->count()) }}</span>
+              <span class="info-box-text">মোট অংশগ্রহণ: {{ bangla($user->meritlists->count()) }} টি পরীক্ষায়</span>
               {{-- <span class="info-box-number"></span> --}}
             </div>
           </div>

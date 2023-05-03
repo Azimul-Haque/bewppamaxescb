@@ -108,7 +108,7 @@ class DashboardController extends Controller
         ->orderBy('count', 'desc')
         ->paginate(10);
 
-        // dd($users);
+        dd($users);
         // $users = $users->join('meritlists', function ($join) {
         //                 $join->on('meritlists.user_id', '=', 'users.id');
         //             })

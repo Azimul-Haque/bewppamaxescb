@@ -161,6 +161,7 @@ class ExamController extends Controller
         $exam->syllabus = nl2br($request->syllabus);
         $exam->save();
 
+        Cache::forget(examcutmark . $id);
         Session::flash('success', 'Exam updated successfully!');
         return redirect()->route('dashboard.exams');
     }

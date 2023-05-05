@@ -451,20 +451,13 @@ class QuestionController extends Controller
                     ->withTotalreportedquestions($reportedquestions->count());
     }
 
-    public function deleteReportedQuestionsSearch($search)
+    public function deleteReportedQuestionsSearch($id)
     {
         if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
             abort(403, 'Access Denied');
         }
 
-        $reportedquestions = Reportedquestion::whereHas('Question', function($q) use ($search){
-                        $q->where('question', 'LIKE', "%$search%");
-                        $q->orWhere('option1', 'LIKE', "%$search%");
-                        $q->orWhere('option2', 'LIKE', "%$search%");
-                        $q->orWhere('option3', 'LIKE', "%$search%");
-                        $q->orWhere('option4', 'LIKE', "%$search%");
-                        $q->orderBy('id', 'desc');
-                    })->paginate(10);
+        $reportedquestion = Reportedquestion::findOrFail($id);
 
         $topics = Topic::orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();

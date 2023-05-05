@@ -271,6 +271,7 @@
     $(document).ready( function() {
       $(document).on('click', '#search-button', function() {
         if($('#search-param').val() != '') {
+          console.log($('#search-param').val().replace(/\\/g, ''));
           var urltocall = '{{ route('dashboard.questions.reported') }}' +  '/' + $('#search-param').val().replace(/\\/g, '');
           location.href= urltocall;
         } else {

@@ -593,6 +593,9 @@ class APIController extends Controller
                 $reportedquestion->question_id = $request->id;
                 $reportedquestion->user_id = $user->id;
                 $reportedquestion->message = $request->message;
+                $reportedquestion->save();
+            } else {
+                
             }
 
             return response()->json([

@@ -561,14 +561,14 @@ class APIController extends Controller
                  return $meritlists;
             });
             $exam = Cache::remember('exam' . $exam_id, 7 * 24 * 60 * 60, function () use ($exam_id) {
-                 $exam = Exam::select('cutmark')->where('id', $exam_id)->first();
+                 $exam = Exam::where('id', $exam_id)->first();
                  return $exam;
             });
             
             return response()->json([
                 'success' => true,
                 'meritlists' => $meritlists,
-                'exam' => $exam->cutmark,
+                'exam' => $exam,
             ]);
         } else {
             return response()->json([

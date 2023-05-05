@@ -444,7 +444,7 @@ class QuestionController extends Controller
         $topics = Topic::orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
         
-        Session::flash('success', $totalquestions . ' টি প্রশ্ন পাওয়া গিয়েছে!');
+        Session::flash('success', $totalquestions . ' টি রিপোর্টেড প্রশ্ন পাওয়া গিয়েছে!');
         return view('dashboard.questions.reported')
                     ->withReportedquestions($reportedquestions)
                     ->withTopics($topics)

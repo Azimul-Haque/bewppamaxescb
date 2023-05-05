@@ -588,6 +588,8 @@ class APIController extends Controller
         {
             if(isset($request->id)) {
                 $reportedquestion = new Reportedquestion;
+                $reportedquestion->question_id = $request->id;
+                $reportedquestion->user_id = $request->id;
             }
 
             return response()->json([

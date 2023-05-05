@@ -62,7 +62,7 @@
 
 @if(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')
 <li class="nav-item">
-    <a href="{{ route('dashboard.courses') }}" class="nav-link {{ Request::is('dashboard/courses') ? 'active' : '' }} {{ Request::is('dashboard/courses/*') ? 'active' : '' }}">
+    <a href="{{ route('dashboard.reported') }}" class="nav-link {{ Request::is('dashboard/reported') ? 'active' : '' }} {{ Request::is('dashboard/reported/*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-layer-group"></i>
         <p>রিপোর্টেড প্রশ্নসমূহ</p>
     </a>

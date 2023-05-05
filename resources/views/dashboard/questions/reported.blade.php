@@ -284,7 +284,7 @@
       $("#search-param").keyup(function(e) {
         if(e.which == 13) {
           if($('#search-param').val() != '') {
-            var urltocall = '{{ route('dashboard.questions.reported') }}' +  '/' + $('#search-param').val();
+            var urltocall = '{{ route('dashboard.questions.reported') }}' +  '/' + $('#search-param').replace(/\\/gi, "%");
             location.href= urltocall;
           } else {
             $('#search-param').css({ "border": '#FF0000 2px solid'});

@@ -42,7 +42,7 @@
                                   <th>উত্তর</th>
                                   <th width="30%">অপশনসমূহ</th>
                                   <th>রিপোর্ট প্রদানকারী</th>
-                                  <th>বার্তা</th>
+                                  <th width="20%">বার্তা</th>
                                   <th width="10%">Action</th>
                               </tr>
                           </thead>

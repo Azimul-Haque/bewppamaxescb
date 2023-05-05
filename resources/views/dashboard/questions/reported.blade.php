@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') ড্যাশবোর্ড | প্রশ্নব্যাংক @endsection
+@section('title') ড্যাশবোর্ড | রিপোর্টেড প্রশ্নসমূহ @endsection
 
 @section('third_party_stylesheets')
 <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />

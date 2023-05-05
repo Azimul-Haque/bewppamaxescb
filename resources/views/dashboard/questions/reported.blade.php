@@ -235,7 +235,7 @@
                                       {{-- Edit Question Modal Code --}}
                                       {{-- Edit Question Modal Code --}}
                                       
-                                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#deleteReport{{ $message->id }}">
+                                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#deleteReport{{ $reportedquestion->id }}">
                                         <i class="fas fa-clipboard-check"></i>
                                       </button>
                                         
@@ -244,7 +244,7 @@
                                           {{-- Update Modal Code --}}
                                           {{-- Update Modal Code --}}
                                           <!-- Modal -->
-                                          <div class="modal fade" id="updateModal{{ $message->id }}" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true" data-backdrop="static">
+                                          <div class="modal fade" id="updateModal{{ $reportedquestion->id }}" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true" data-backdrop="static">
                                             <div class="modal-dialog" role="document">
                                               <div class="modal-content">
                                                 <div class="modal-header bg-warning">
@@ -255,13 +255,13 @@
                                                 </div>
                                                 <div class="modal-body">
                                                   আপনি কি নিশ্চিতভাবে এই সমস্যাটি সমাধান করতে চান?<br/><br/>
-                                                  <b>{{ $message->user->name }}</b><br/>
-                                                  {{ $message->message }}
+                                                  <b>{{ $reportedquestion->user->name }}</b><br/>
+                                                  {{ $reportedquestion->message }}
                                                   
                                                 </div>
                                                 <div class="modal-footer">
                                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                                                  <form method="POST" action="{{ route('dashboard.messages.update', $message->id) }}">
+                                                  <form method="POST" action="{{ route('dashboard.messages.update', $reportedquestion->id) }}">
                                                     @csrf
                                                     <button type="submit" class="btn btn-warning">দাখিল করুন</button>
                                                   </form>

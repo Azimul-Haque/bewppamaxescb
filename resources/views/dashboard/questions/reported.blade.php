@@ -241,8 +241,8 @@
                                         
                                         
                                       </td>
-                                          {{-- Update Modal Code --}}
-                                          {{-- Update Modal Code --}}
+                                          {{-- Delete Modal Code --}}
+                                          {{-- Delete Modal Code --}}
                                           <!-- Modal -->
                                           <div class="modal fade" id="updateModal{{ $reportedquestion->id }}" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true" data-backdrop="static">
                                             <div class="modal-dialog" role="document">
@@ -269,8 +269,8 @@
                                               </div>
                                             </div>
                                           </div>
-                                          {{-- Update Modal Code --}}
-                                          {{-- Update Modal Code --}}
+                                          {{-- Delete Modal Code --}}
+                                          {{-- Delete Modal Code --}}
                                   </td>
                               </tr>
                           @endforeach

@@ -10,6 +10,7 @@ use App\Questionimage;
 use App\Questionexplanation;
 use App\Topic;
 use App\Tag;
+use App\Reportedquestion;
 
 use Carbon\Carbon;
 use DB;

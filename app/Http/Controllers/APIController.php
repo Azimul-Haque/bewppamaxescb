@@ -596,6 +596,7 @@ class APIController extends Controller
                 $reportedquestion->message = $request->message;
                 $reportedquestion->save();
             } else {
+                return 'এখানে আসে';
                 $question = Question::where('question', 'like', '%$request->question%')->first();
 
                 $reportedquestion = new Reportedquestion;

@@ -558,7 +558,26 @@ class APIController extends Controller
                      $meritlist->name = $meritlist->user->name;
                      $meritlist->makeHidden('id', 'created_at', 'updated_at', 'user_id', 'user');
                  }
-                 $exam = Exam::findOrFail($exam_id);
+                 return $meritlists;
+            });
+            $exam = Cache::remember('exam'$exam_id, 7 * 24 * 60 * 60, function () use ($course_id, $exam_id) {
+                 $meritlists = Meritlist::where('course_id', $course_id)
+                                        ->where('exam_id', $exam_id)
+                                        ->get();
+
+                 $rank = 1;
+                 $previous = null;
+                 foreach ($meritlists->sortByDesc('marks') as $score) {
+                     if ($previous && $previous->marks != $score->marks) {
+                         $rank++;
+                     }
+                     $score->rank = $rank;
+                     $previous = $score;
+                 }
+                 foreach($meritlists as $meritlist) {
+                     $meritlist->name = $meritlist->user->name;
+                     $meritlist->makeHidden('id', 'created_at', 'updated_at', 'user_id', 'user');
+                 }
                  return $meritlists;
             });
             

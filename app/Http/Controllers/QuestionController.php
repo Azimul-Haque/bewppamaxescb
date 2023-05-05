@@ -432,7 +432,7 @@ class QuestionController extends Controller
             abort(403, 'Access Denied');
         }
         
-        $reportedquestions = Question::where('question', 'LIKE', "%$search%")
+        $reportedquestions = Reportedquestion::where('question', 'LIKE', "%$search%")
                              ->orWhere('option1', 'LIKE', "%$search%")
                              ->orWhere('option2', 'LIKE', "%$search%")
                              ->orWhere('option3', 'LIKE', "%$search%")

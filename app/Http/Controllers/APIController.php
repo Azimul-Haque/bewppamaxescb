@@ -586,8 +586,8 @@ class APIController extends Controller
 
         if($request->softtoken == env('SOFT_TOKEN'))
         {
-            if(!empty($request->id)) {
-                
+            if($request->exists('id')) {
+
             }
 
             return response()->json([

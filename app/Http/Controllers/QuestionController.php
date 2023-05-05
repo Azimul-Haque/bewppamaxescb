@@ -412,18 +412,7 @@ class QuestionController extends Controller
 
     public function Reportedquestion()
     {
-        $question = Question::find($id);
-        if($question->questionimage) {
-            $image_path = public_path('images/questions/'. $question->questionimage->image);
-            if(File::exists($image_path)) {
-                File::delete($image_path);
-            }
-            $question->questionimage->delete();
-        }
-        if($question->questionexplanation) {
-            $question->questionexplanation->delete();
-        }
-        $question->delete();
+        $reportedquestios = Reportedquestion::orderBy('created_at', 'desc')->paginate(10);
 
         Session::flash('success', 'Question deleted successfully!');
         return redirect()->route('dashboard.questions');

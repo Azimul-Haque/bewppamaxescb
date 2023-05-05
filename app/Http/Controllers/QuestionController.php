@@ -424,4 +424,32 @@ class QuestionController extends Controller
                     ->withTags($tags)
                     ->withTotalreportedquestions($totalreportedquestions);
     }
+
+    public function getReportedQuestionsSearch()
+    {
+        $reportedquestions = Reportedquestion::orderBy('created_at', 'desc')->paginate(10);
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
+            abort(403, 'Access Denied');
+        }
+        
+        $reportedquestions = Question::where('question', 'LIKE', "%$search%")
+                             ->orWhere('option1', 'LIKE', "%$search%")
+                             ->orWhere('option2', 'LIKE', "%$search%")
+                             ->orWhere('option3', 'LIKE', "%$search%")
+                             ->orWhere('option4', 'LIKE', "%$search%")
+                             ->orderBy('id', 'desc')
+                             ->paginate(10);
+
+        Session::flash('success', $totalquestions . ' টি প্রশ্ন পাওয়া গিয়েছে!');
+
+        $totalreportedquestions  = Reportedquestion::count();
+        $topics = Topic::orderBy('id', 'asc')->get();
+        $tags = Tag::orderBy('id', 'asc')->get();
+        
+        return view('dashboard.questions.reported')
+                    ->withReportedquestions($reportedquestions)
+                    ->withTopics($topics)
+                    ->withTags($tags)
+                    ->withTotalreportedquestions($totalreportedquestions);
+    }
 }

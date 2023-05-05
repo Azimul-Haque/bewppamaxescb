@@ -425,7 +425,7 @@ class QuestionController extends Controller
                     ->withTotalreportedquestions($totalreportedquestions);
     }
 
-    public function getReportedQuestionsSearch()
+    public function getReportedQuestionsSearch($search)
     {
         if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
             abort(403, 'Access Denied');

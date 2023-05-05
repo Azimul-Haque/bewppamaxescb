@@ -587,6 +587,7 @@ class APIController extends Controller
 
         if($request->softtoken == env('SOFT_TOKEN'))
         {
+            $user = User::where('mobile', substr($request->mobile, -11))->first();
             if(isset($request->id)) {
                 $reportedquestion = new Reportedquestion;
                 $reportedquestion->question_id = $request->id;

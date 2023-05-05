@@ -463,13 +463,9 @@
                         </div>
                         <div class="col-md-6">
                             <div class="input-group mb-3">
-                                <select name="price_type" class="form-control" required>
-                                    <option selected="" disabled="" value="">মূল্য</option>
-                                    <option value="0">ফ্রি</option>
-                                    <option value="1" selected>পেইড</option>
-                                </select>
+                                <input type="number" name="negativepercentage" value="25" min="0" max="50" class="form-control" placeholder="নেগেটিভ মার্ক পারসেন্টেজ" required>
                                 <div class="input-group-append">
-                                    <div class="input-group-text"><span class="fas fa-hand-holding-usd"></span></div>
+                                    <div class="input-group-text"><span class="fas fa-percent"></span></div>
                                 </div>
                             </div>
                         </div>

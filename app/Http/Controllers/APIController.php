@@ -576,11 +576,9 @@ class APIController extends Controller
     {
         // return $request->all();
         $this->validate($request,array(
-            'question'      => 'sometimes',
-            'id'   => 'required',
-            'exam_id'     => 'required',
-            'marks'       => 'required',
-            'softtoken'   => 'required'
+            'question'    => 'sometimes',
+            'id'          => 'sometimes',
+            'message'     => 'sometimes',
         ));
 
         if($request->softtoken == env('SOFT_TOKEN'))

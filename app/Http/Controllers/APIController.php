@@ -570,13 +570,13 @@ class APIController extends Controller
         }
     }
 
-    
+
 
     public function reportQuestion(Request $request)
     {
         // return $request->all();
         $this->validate($request,array(
-            'mobile'      => 'required',
+            'question'      => 'sometimes',
             'course_id'   => 'required',
             'exam_id'     => 'required',
             'marks'       => 'required',

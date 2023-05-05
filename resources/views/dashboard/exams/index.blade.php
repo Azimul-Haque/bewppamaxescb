@@ -185,13 +185,9 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="input-group mb-3">
-                                                                <select name="price_type" class="form-control" required>
-                                                                    <option selected="" disabled="" value="">মূল্য</option>
-                                                                    <option value="0" @if($exam->price_type == 0) selected @endif>ফ্রি</option>
-                                                                    <option value="1" @if($exam->price_type == 1) selected @endif>পেইড</option>
-                                                                </select>
+                                                                <input type="number" name="cutmark" class="form-control" placeholder="কাটমার্কস" required>
                                                                 <div class="input-group-append">
-                                                                    <div class="input-group-text"><span class="fas fa-hand-holding-usd"></span></div>
+                                                                    <div class="input-group-text"><span class="fas fa-greater-than-equal"></span></div>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -578,6 +578,7 @@ class APIController extends Controller
     {
         // return $request->all();
         $this->validate($request,array(
+            'mobile'      => 'required',
             'question'    => 'sometimes',
             'id'          => 'sometimes',
             'message'     => 'sometimes',

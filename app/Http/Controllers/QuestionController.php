@@ -440,13 +440,12 @@ class QuestionController extends Controller
                         $q->orderBy('id', 'desc');
                     })->paginate(10);
 
-        $totalreportedquestions  = Reportedquestion::count();
         $topics = Topic::orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
         
         Session::flash('success', $totalquestions . ' টি রিপোর্টেড প্রশ্ন পাওয়া গিয়েছে!');
         return view('dashboard.questions.reported')
-                    ->withReportedquestions($reportedquestions)
+                    ->withReportedquestions($reportedquestions->count())
                     ->withTopics($topics)
                     ->withTags($tags)
                     ->withTotalreportedquestions($totalreportedquestions);

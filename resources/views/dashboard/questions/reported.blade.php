@@ -51,7 +51,7 @@
                               </tr>
                           </thead>
                           <tbody>
-                          @foreach($questions as $question)
+                          @foreach($reportedquestios as $question)
                               <tr>
                                   <td>
                                       {{ $question->question }}<br/>

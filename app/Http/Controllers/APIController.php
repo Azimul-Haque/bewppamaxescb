@@ -585,6 +585,8 @@ class APIController extends Controller
             'softtoken'   => 'required',
         ));
 
+        return($request->all());
+
         if($request->softtoken == env('SOFT_TOKEN'))
         {
             $user = User::where('mobile', substr($request->mobile, -11))->first();

@@ -431,7 +431,7 @@ class QuestionController extends Controller
             abort(403, 'Access Denied');
         }
 
-        $payments = Payment::where('trx_id', 'LIKE', "%$search%")->orWhereHas('User', function($q) use ($search){
+        $reportedquestions = Reportedquestion::whereHas('User', function($q) use ($search){
                         $q->where('name', 'like', '%' . $search . '%');
                         $q->orWhere('mobile', 'like', '%' . $search . '%');
                     })->paginate(15);

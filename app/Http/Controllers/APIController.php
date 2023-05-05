@@ -586,7 +586,7 @@ class APIController extends Controller
 
         if($request->softtoken == env('SOFT_TOKEN'))
         {
-            if(isset(var)) {
+            if(isset($request->id)) {
 
             }
 

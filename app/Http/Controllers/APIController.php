@@ -558,6 +558,7 @@ class APIController extends Controller
                      $meritlist->name = $meritlist->user->name;
                      $meritlist->makeHidden('id', 'created_at', 'updated_at', 'user_id', 'user');
                  }
+                 $exam = Exam::findOrFail($exam_id);
                  return $meritlists;
             });
             

@@ -43,7 +43,7 @@
                                   <th width="20%">অপশনসমূহ</th>
                                   <th>ব্যবয়াহ্রকারী</th>
                                   <th width="20%">বার্তা</th>
-                                  <th width="10%">Action</th>
+                                  <th>Action</th>
                               </tr>
                           </thead>
                           <tbody>

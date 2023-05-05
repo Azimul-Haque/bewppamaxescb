@@ -597,7 +597,7 @@ class APIController extends Controller
                 $reportedquestion->save();
             } else {
 
-                $question = Question::where('question', 'like', '%$request->question%')->first();
+                $question = Question::where('question', 'LIKE', "%$search%")->first();
                 if($question) {
                     return response()->json([
                         'success' => true,

@@ -112,6 +112,7 @@ class ExamController extends Controller
             'qsweight'           => 'required|string|max:191',
             'negativepercentage' => 'required|string|max:191',
             // 'price_type'         => 'required|string|max:191',
+            'cutmark'            => 'required|string|max:191',
             'available_from'     => 'required|string|max:191',
             'available_to'       => 'required|string|max:191',
             'syllabus'           => 'required|string',

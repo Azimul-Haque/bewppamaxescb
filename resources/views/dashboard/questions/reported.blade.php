@@ -60,7 +60,7 @@
                                   <td>{{ $reportedquestion->question->answer }}</td>
                                   <td>{{ $reportedquestion->question->option1 }}, {{ $reportedquestion->question->option2 }}, {{ $reportedquestion->question->option3 }}, {{ $reportedquestion->question->option4 }}</td>
                                   <td>
-                                    <a href="{{ route('users.single', $reportedquestion->user->id) }}">{{ $reportedquestion->user->name }}</a>
+                                    <a href="{{ route('dashboardusers.single', $reportedquestion->user->id) }}">{{ $reportedquestion->user->name }}</a>
                                   </td>                     
                                   <td>{{ $reportedquestion->message }}</td>                     
                                   <td>

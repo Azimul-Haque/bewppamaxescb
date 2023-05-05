@@ -9,6 +9,7 @@ use App\Package;
 use App\Payment;
 use App\Message;
 use App\Notification;
+use App\Exam;
 
 use Carbon\Carbon;
 use DB;

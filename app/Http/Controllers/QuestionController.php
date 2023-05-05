@@ -410,7 +410,7 @@ class QuestionController extends Controller
         return redirect()->route('dashboard.questions');
     }
 
-    public function getReportedQuestions ($id)
+    public function Reportedquestion()
     {
         $question = Question::find($id);
         if($question->questionimage) {

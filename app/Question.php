@@ -24,5 +24,9 @@ class Question extends Model
 
     public function tags() {
         return $this->belongsToMany('App\Tag');
-    } 
+    }
+
+    public function reportedquestions(){
+        return $this->hasMany('App\Reportedquestion');
+    }
 }

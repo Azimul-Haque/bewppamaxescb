@@ -59,6 +59,7 @@ return array(
     'App\\Question' => $baseDir . '/app/Question.php',
     'App\\Questionexplanation' => $baseDir . '/app/Questionexplanation.php',
     'App\\Questionimage' => $baseDir . '/app/Questionimage.php',
+    'App\\Reportedquestion' => $baseDir . '/app/Reportedquestion.php',
     'App\\Site' => $baseDir . '/app/Site.php',
     'App\\Tag' => $baseDir . '/app/Tag.php',
     'App\\Temppayment' => $baseDir . '/app/Temppayment.php',

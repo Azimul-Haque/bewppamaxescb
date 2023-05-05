@@ -595,6 +595,7 @@ class ComposerStaticInitd99be2aa22b662638be63ef18831ea06
         'App\\Question' => __DIR__ . '/../..' . '/app/Question.php',
         'App\\Questionexplanation' => __DIR__ . '/../..' . '/app/Questionexplanation.php',
         'App\\Questionimage' => __DIR__ . '/../..' . '/app/Questionimage.php',
+        'App\\Reportedquestion' => __DIR__ . '/../..' . '/app/Reportedquestion.php',
         'App\\Site' => __DIR__ . '/../..' . '/app/Site.php',
         'App\\Tag' => __DIR__ . '/../..' . '/app/Tag.php',
         'App\\Temppayment' => __DIR__ . '/../..' . '/app/Temppayment.php',

@@ -235,11 +235,9 @@
                                       {{-- Edit Question Modal Code --}}
                                       {{-- Edit Question Modal Code --}}
                                       
-                                        @if($message->status == 0)
-                                          <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#updateModal{{ $message->id }}">
-                                          <i class="fas fa-clipboard-check"></i>
-                                        </button>
-                                        @endif
+                                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#deleteReport{{ $message->id }}">
+                                        <i class="fas fa-clipboard-check"></i>
+                                      </button>
                                         
                                         
                                       </td>

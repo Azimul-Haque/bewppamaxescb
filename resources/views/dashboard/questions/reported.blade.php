@@ -254,7 +254,7 @@
                                                   </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                  আপনি কি নিশ্চিতভাবে এই সমস্যাটি সমাধান করতে চান?<br/><br/>
+                                                  আপনি কি নিশ্চিতভাবে এই রিপোর্টটি সমাধান করতে চান?<br/><br/>
                                                   <b>{{ $reportedquestion->user->name }}</b><br/>
                                                   {{ $reportedquestion->message }}
                                                   

@@ -596,9 +596,9 @@ class APIController extends Controller
                 $reportedquestion->message = $request->message;
                 $reportedquestion->save();
             } else {
-                
-                $question = Question::where('question', 'like', '%$request->question%')->first();
 
+                $question = Question::where('question', 'like', '%$request->question%')->first();
+                return $question;
                 $reportedquestion = new Reportedquestion;
                 $reportedquestion->question_id = $question->id;
                 $reportedquestion->user_id = $user->id;

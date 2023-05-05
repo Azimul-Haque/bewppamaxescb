@@ -465,7 +465,7 @@
                             <div class="input-group mb-3">
                                 <input type="number" name="cutmark" class="form-control" placeholder="কাটমার্কস" required>
                                 <div class="input-group-append">
-                                    <div class="input-group-text"><span class="fas fa-percent"></span></div>
+                                    <div class="input-group-text"><span class="fas fa-greater-than-equal"></span></div>
                                 </div>
                             </div>
                         </div>

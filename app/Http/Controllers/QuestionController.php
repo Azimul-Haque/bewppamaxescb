@@ -430,6 +430,11 @@ class QuestionController extends Controller
         if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
             abort(403, 'Access Denied');
         }
+
+        $payments = Payment::where('trx_id', 'LIKE', "%$search%")->orWhereHas('User', function($q) use ($search){
+                        $q->where('name', 'like', '%' . $search . '%');
+                        $q->orWhere('mobile', 'like', '%' . $search . '%');
+                    })->paginate(15);
         
         $reportedquestions = Reportedquestion::where('question', 'LIKE', "%$search%")
                              ->orWhere('option1', 'LIKE', "%$search%")

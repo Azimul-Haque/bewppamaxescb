@@ -432,12 +432,12 @@ class QuestionController extends Controller
         }
 
         $reportedquestions = Reportedquestion::whereHas('Question', function($q) use ($search){
-                        $q->where('question', 'LIKE', "%$search%")
-                        $q->orWhere('option1', 'LIKE', "%$search%")
-                        $q->orWhere('option2', 'LIKE', "%$search%")
-                        $q->orWhere('option3', 'LIKE', "%$search%")
-                        $q->orWhere('option4', 'LIKE', "%$search%")
-                        $q->orderBy('id', 'desc')
+                        $q->where('question', 'LIKE', "%$search%");
+                        $q->orWhere('option1', 'LIKE', "%$search%");
+                        $q->orWhere('option2', 'LIKE', "%$search%");
+                        $q->orWhere('option3', 'LIKE', "%$search%");
+                        $q->orWhere('option4', 'LIKE', "%$search%");
+                        $q->orderBy('id', 'desc');
                     })->paginate(10);
 
         $totalreportedquestions  = Reportedquestion::count();

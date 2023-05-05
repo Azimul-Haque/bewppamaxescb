@@ -279,7 +279,7 @@
                     </div>
                     <!-- /.card-body -->
                   </div>
-                  {{ $questions->links() }}
+                  {{ $reportedquestios->links() }}
             </div>
             <div class="col-md-3">
             </div>

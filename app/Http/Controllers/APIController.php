@@ -560,10 +560,8 @@ class APIController extends Controller
                  }
                  return $meritlists;
             });
-            $exam = Cache::remember('exam'$exam_id, 7 * 24 * 60 * 60, function () use ($course_id, $exam_id) {
-                 $meritlists = Meritlist::where('course_id', $course_id)
-                                        ->where('exam_id', $exam_id)
-                                        ->get();
+            $exam = Cache::remember('exam'$exam_id, 7 * 24 * 60 * 60, function () use ($exam_id) {
+                 $exam = Exam::findOrFail($exam_id);
 
                  $rank = 1;
                  $previous = null;

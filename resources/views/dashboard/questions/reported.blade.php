@@ -271,10 +271,10 @@
     $(document).ready( function() {
       $(document).on('click', '#search-button', function() {
         if($('#search-param').val() != '') {
-          var tempsearch = $('#search-param').val().replace(/\\|\//g, '%');
-          console.log(tempsearch);
-          // var urltocall = '{{ route('dashboard.questions.reported') }}' +  '/' + $('#search-param').val().replace(/\\/g, '');
-          // location.href= urltocall;
+          // var tempsearch = $('#search-param').val().replace(/\\|\//g, '%');
+          // console.log(tempsearch);
+          var urltocall = '{{ route('dashboard.questions.reported') }}' +  '/' + $('#search-param').val().replace(/\\|\//g, '%');
+          location.href= urltocall;
         } else {
           $('#search-param').css({ "border": '#FF0000 2px solid'});
           Toast.fire({
@@ -286,7 +286,7 @@
       $("#search-param").keyup(function(e) {
         if(e.which == 13) {
           if($('#search-param').val() != '') {
-            var urltocall = '{{ route('dashboard.questions.reported') }}' +  '/' + $('#search-param').replace(/\\/g, '');
+            var urltocall = '{{ route('dashboard.questions.reported') }}' +  '/' + $('#search-param').replace(/\\|\//g, '%');
             location.href= urltocall;
           } else {
             $('#search-param').css({ "border": '#FF0000 2px solid'});

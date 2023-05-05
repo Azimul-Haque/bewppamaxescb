@@ -415,11 +415,7 @@ class QuestionController extends Controller
         $reportedquestios = Reportedquestion::orderBy('created_at', 'desc')->paginate(10);
 
         $totalreportedquestios = Reportedquestion::count();
-        $questions = Question::orderBy('id', 'desc')->paginate(10);
-        $topics = Topic::orderBy('id', 'asc')->get();
-        $tags = Tag::orderBy('id', 'asc')->get();
-
-        // dd($questions);
+        
         return view('dashboard.questions.index')
                     ->withQuestions($questions)
                     ->withTopics($topics)

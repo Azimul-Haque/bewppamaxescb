@@ -420,6 +420,8 @@ class QuestionController extends Controller
         
         return view('dashboard.questions.reported')
                     ->withReportedquestions($reportedquestions)
+                    ->withTopics($topics)
+                    ->withTags($tags)
                     ->withTotalreportedquestions($totalreportedquestions);
     }
 }

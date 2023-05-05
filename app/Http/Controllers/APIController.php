@@ -568,6 +568,7 @@ class APIController extends Controller
             return response()->json([
                 'success' => true,
                 'meritlists' => $meritlists,
+                'cutmark' => $exam->cutmark,
             ]);
         } else {
             return response()->json([

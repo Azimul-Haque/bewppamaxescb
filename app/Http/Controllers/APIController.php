@@ -560,7 +560,7 @@ class APIController extends Controller
                  }
                  return $meritlists;
             });
-            $exam = Cache::remember('examcutmark' . $exam_id, 7 * 24 * 60 * 60, function () use ($exam_id) {
+            $exam = Cache::remember('exam' . $exam_id, 7 * 24 * 60 * 60, function () use ($exam_id) {
                  $exam = Exam::select('cutmark')->where('id', $exam_id)->first();
                  return $exam;
             });

@@ -417,6 +417,7 @@ class QuestionController extends Controller
         $totalreportedquestions  = Reportedquestion::count();
         
         return view('dashboard.questions.reported')
+                    ->withReportedquestions($reportedquestions)
                     ->withTotalreportedquestions($totalreportedquestions);
     }
 }

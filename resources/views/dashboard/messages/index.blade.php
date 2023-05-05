@@ -52,9 +52,7 @@
                       </button>
                       @endif
                 			
-                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal{{ $message->id }}">
-                        <i class="fas fa-trash-alt"></i>
-                      </button>
+                      
                 		</td>
                         {{-- Update Modal Code --}}
                         {{-- Update Modal Code --}}
@@ -87,6 +85,9 @@
                         {{-- Update Modal Code --}}
                         {{-- Update Modal Code --}}
 
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal{{ $message->id }}">
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
                         {{-- Delete Modal Code --}}
                         {{-- Delete Modal Code --}}
                         <!-- Modal -->

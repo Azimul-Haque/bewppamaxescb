@@ -16,6 +16,8 @@ use App\Temppayment;
 use App\Message;
 use App\Material;
 use App\Meritlist;
+use App\Reportedquestion;
+
 use Hash;
 use Carbon\Carbon;
 use DB;

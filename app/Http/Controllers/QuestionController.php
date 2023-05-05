@@ -427,7 +427,6 @@ class QuestionController extends Controller
 
     public function getReportedQuestionsSearch()
     {
-        $reportedquestions = Reportedquestion::orderBy('created_at', 'desc')->paginate(10);
         if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
             abort(403, 'Access Denied');
         }

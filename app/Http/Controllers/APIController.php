@@ -579,6 +579,7 @@ class APIController extends Controller
             'question'    => 'sometimes',
             'id'          => 'sometimes',
             'message'     => 'sometimes',
+            'softtoken'   => 'required',
         ));
 
         if($request->softtoken == env('SOFT_TOKEN'))

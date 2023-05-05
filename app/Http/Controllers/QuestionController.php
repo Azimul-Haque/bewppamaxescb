@@ -410,7 +410,7 @@ class QuestionController extends Controller
         return redirect()->route('dashboard.questions');
     }
 
-    public function Reportedquestion()
+    public function getReportedQuestions()
     {
         $reportedquestios = Reportedquestion::orderBy('created_at', 'desc')->paginate(10);
 

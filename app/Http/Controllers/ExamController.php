@@ -111,7 +111,7 @@ class ExamController extends Controller
             'duration'           => 'required|string|max:191',
             'qsweight'           => 'required|string|max:191',
             'negativepercentage' => 'required|string|max:191',
-            'price_type'         => 'required|string|max:191',
+            // 'price_type'         => 'required|string|max:191',
             'available_from'     => 'required|string|max:191',
             'available_to'       => 'required|string|max:191',
             'syllabus'           => 'required|string',
@@ -143,7 +143,7 @@ class ExamController extends Controller
             'duration'           => 'required|string|max:191',
             'qsweight'           => 'required|string|max:191',
             'negativepercentage' => 'required|string|max:191',
-            'price_type'         => 'required|string|max:191',
+            // 'price_type'         => 'required|string|max:191',
             'available_from'     => 'required|string|max:191',
             'available_to'       => 'required|string|max:191',
             'syllabus'           => 'required|string',
@@ -155,7 +155,7 @@ class ExamController extends Controller
         $exam->duration = $request->duration;
         $exam->qsweight = $request->qsweight;
         $exam->negativepercentage = $request->negativepercentage;
-        $exam->price_type = $request->price_type;
+        $exam->price_type = 1;
         $exam->available_from = Carbon::parse($request->available_from);
         $exam->available_to = Carbon::parse($request->available_to);
         $exam->syllabus = nl2br($request->syllabus);

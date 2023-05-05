@@ -181,7 +181,7 @@ class ExamController extends Controller
         $exam->duration = $oldexam->duration;
         $exam->qsweight = $oldexam->qsweight;
         $exam->negativepercentage = $oldexam->negativepercentage;
-        $exam->price_type = $oldexam->price_type;
+        $exam->price_type = 1;
         $exam->available_from = Carbon::parse($oldexam->available_from);
         $exam->available_to = Carbon::parse($oldexam->available_to);
         $exam->syllabus = $oldexam->syllabus;

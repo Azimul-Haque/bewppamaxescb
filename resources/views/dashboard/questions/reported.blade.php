@@ -799,7 +799,6 @@
             }, 1000);
           }
       });
-
     });
 </script>
 @endsection

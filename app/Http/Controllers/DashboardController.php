@@ -47,7 +47,7 @@ class DashboardController extends Controller
     public function index()
     {
         $exam = Exam::select('cutmark')->where('id', 2)->first();
-        dd($exam->cutmark);
+        dd($exam);
         // if user is a manager, redirect him to his profile
         // if user is a manager, redirect him to his profile
         if(Auth::user()->role == 'user') {

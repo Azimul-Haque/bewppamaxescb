@@ -587,7 +587,7 @@ class APIController extends Controller
         if($request->softtoken == env('SOFT_TOKEN'))
         {
             if(isset($request->id)) {
-
+                $reportedquestion = new Reportedquestion;
             }
 
             return response()->json([

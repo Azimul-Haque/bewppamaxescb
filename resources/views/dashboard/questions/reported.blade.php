@@ -38,8 +38,9 @@
                       <table class="table">
                           <thead>
                               <tr>
-                                  <th>Question</th>
-                                  <th>Answer</th>
+                                  <th>প্রশ্ন</th>
+                                  <th>উত্তর</th>
+                                  <th>অপশনসমূহ</th>
                                   <th>Options</th>
                                   <th width="10%">Action</th>
                               </tr>

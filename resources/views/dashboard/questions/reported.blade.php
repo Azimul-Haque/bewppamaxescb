@@ -236,8 +236,6 @@
                                       {{-- Edit Question Modal Code --}}
           
                                   </td>
-                                  {{-- Delete Question Modal Code --}}
-                                  {{-- Delete Question Modal Code --}}
                               </tr>
                           @endforeach
                           </tbody>

@@ -30,12 +30,6 @@
                             <button type="button" id="search-button" class="btn btn-default btn-sm" style="margin-left: 5px;">
                               <i class="fas fa-search"></i> খুঁজুন
                             </button>
-                            <button type="button" class="btn btn-warning btn-sm"  data-toggle="modal" data-target="#addExcelQuesitonModal" style="margin-left: 5px;">
-                                <i class="fas fa-file-excel"></i> এক্সেল ফাইল আপলোড করুন
-                            </button>
-                            <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#addQuesitonModal" style="margin-left: 5px;">
-                                <i class="fas fa-plus-circle"></i> নতুন প্রশ্ন যোগ
-                            </button>
                           </form>
                       </div>
                     </div>

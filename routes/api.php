@@ -46,4 +46,4 @@ Route::get('/getmaterials/{softtoken}', 'APIController@getMaterials')->name('api
 
 Route::post('/addexamresult', 'APIController@addExamResult')->name('api.addexamresult');
 Route::get('/meritlist/{softtoken}/{course_id}/{exam_id}', 'APIController@getMeritList')->name('api.getmeritlist');
-Route::post('/addexamresult', 'APIController@addExamResult')->name('api.addexamresult');
+Route::post('/reportquestion', 'APIController@reportQuestion')->name('api.reportquestion');

@@ -445,9 +445,9 @@ class QuestionController extends Controller
         
         Session::flash('success', $reportedquestions . ' টি রিপোর্টেড প্রশ্ন পাওয়া গিয়েছে!');
         return view('dashboard.questions.reported')
-                    ->withReportedquestions($reportedquestions->count())
+                    ->withReportedquestions($reportedquestions)
                     ->withTopics($topics)
                     ->withTags($tags)
-                    ->withTotalreportedquestions($totalreportedquestions);
+                    ->withTotalreportedquestions($reportedquestions->count());
     }
 }

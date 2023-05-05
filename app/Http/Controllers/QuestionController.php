@@ -412,12 +412,11 @@ class QuestionController extends Controller
 
     public function getReportedQuestions()
     {
-        $reportedquestions = Reportedquestion::orderBy('created_at', 'desc')->paginate(10);
+        $reportedquestions  = Reportedquestion::orderBy('created_at', 'desc')->paginate(10);
 
-        $totalreportedquestions = Reportedquestion::count();
+        $totalreportedquestions  = Reportedquestion::count();
         
         return view('dashboard.questions.reported')
-                    ->withTeportedquestions($reportedquestions)
                     ->withTotalreportedquestions($totalreportedquestions);
     }
 }

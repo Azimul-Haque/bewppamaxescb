@@ -586,16 +586,9 @@ class APIController extends Controller
 
         if($request->softtoken == env('SOFT_TOKEN'))
         {
-            $user = User::where('mobile', substr($request->mobile, -11))->first();
-
-            $examresult = new Meritlist;
-            $examresult->course_id = $request->course_id;
-            $examresult->exam_id = $request->exam_id;
-            $examresult->user_id = $user->id;
-            $examresult->marks = $request->marks;
-            $examresult->save();
-
-            Cache::forget('meritlist'.$request->course_id.$request->exam_id);
+            if(!empty($request->id)) {
+                
+            }
 
             return response()->json([
                 'success' => true

@@ -577,7 +577,7 @@ class APIController extends Controller
         // return $request->all();
         $this->validate($request,array(
             'question'      => 'sometimes',
-            'course_id'   => 'required',
+            'id'   => 'required',
             'exam_id'     => 'required',
             'marks'       => 'required',
             'softtoken'   => 'required'

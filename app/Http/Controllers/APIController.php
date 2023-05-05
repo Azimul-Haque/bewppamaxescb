@@ -562,21 +562,7 @@ class APIController extends Controller
             });
             $exam = Cache::remember('exam'$exam_id, 7 * 24 * 60 * 60, function () use ($exam_id) {
                  $exam = Exam::findOrFail($exam_id);
-
-                 $rank = 1;
-                 $previous = null;
-                 foreach ($meritlists->sortByDesc('marks') as $score) {
-                     if ($previous && $previous->marks != $score->marks) {
-                         $rank++;
-                     }
-                     $score->rank = $rank;
-                     $previous = $score;
-                 }
-                 foreach($meritlists as $meritlist) {
-                     $meritlist->name = $meritlist->user->name;
-                     $meritlist->makeHidden('id', 'created_at', 'updated_at', 'user_id', 'user');
-                 }
-                 return $meritlists;
+                 return $exam;
             });
             
             return response()->json([

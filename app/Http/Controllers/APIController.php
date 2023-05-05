@@ -599,6 +599,10 @@ class APIController extends Controller
 
                 $question = Question::where('question', 'like', '%$request->question%')->first();
                 return $question;
+                return response()->json([
+                    'success' => true,
+                    'question' => $question
+                ]);
                 $reportedquestion = new Reportedquestion;
                 $reportedquestion->question_id = $question->id;
                 $reportedquestion->user_id = $user->id;

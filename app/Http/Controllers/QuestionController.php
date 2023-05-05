@@ -461,10 +461,6 @@ class QuestionController extends Controller
         $reportedquestion->delete();
         
         Session::flash('success', $reportedquestions . ' টি রিপোর্টেড প্রশ্ন পাওয়া গিয়েছে!');
-        return view('dashboard.questions.reported')
-                    ->withReportedquestions($reportedquestions)
-                    ->withTopics($topics)
-                    ->withTags($tags)
-                    ->withTotalreportedquestions($reportedquestions->count());
+        return redirect()->back();
     }
 }

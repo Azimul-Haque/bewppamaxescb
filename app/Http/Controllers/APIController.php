@@ -598,7 +598,6 @@ class APIController extends Controller
             } else {
 
                 $question = Question::where('question', 'like', '%$request->question%')->first();
-                return $question;
                 return response()->json([
                     'success' => true,
                     'question' => $question

@@ -185,7 +185,7 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="input-group mb-3">
-                                                                <input type="number" name="cutmark" value="{{ $exam->cutmark }}" class="form-control" placeholder="কাটমার্কস" required>
+                                                                <input type="text" name="cutmark" value="{{ $exam->cutmark }}" class="form-control" placeholder="কাটমার্কস" required>
                                                                 <div class="input-group-append">
                                                                     <div class="input-group-text"><span class="fas fa-greater-than-equal"></span></div>
                                                                 </div>
@@ -459,7 +459,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="input-group mb-3">
-                                <input type="number" name="cutmark" class="form-control" placeholder="কাটমার্কস" required>
+                                <input type="text" name="cutmark" class="form-control" placeholder="কাটমার্কস" required>
                                 <div class="input-group-append">
                                     <div class="input-group-text"><span class="fas fa-greater-than-equal"></span></div>
                                 </div>

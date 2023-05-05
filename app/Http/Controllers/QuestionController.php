@@ -414,7 +414,7 @@ class QuestionController extends Controller
     {
         $reportedquestios = Reportedquestion::orderBy('created_at', 'desc')->paginate(10);
 
-        $totalquestions = Question::count();
+        $totalreportedquestios = Reportedquestion::count();
         $questions = Question::orderBy('id', 'desc')->paginate(10);
         $topics = Topic::orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();

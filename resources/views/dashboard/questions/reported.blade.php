@@ -41,7 +41,7 @@
                                   <th>প্রশ্ন</th>
                                   <th>উত্তর</th>
                                   <th>অপশনসমূহ</th>
-                                  <th>Options</th>
+                                  <th>রিপোর্ট প্রদানকারী</th>
                                   <th width="10%">Action</th>
                               </tr>
                           </thead>

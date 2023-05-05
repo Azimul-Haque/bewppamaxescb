@@ -595,7 +595,7 @@ class APIController extends Controller
                 $reportedquestion->message = $request->message;
                 $reportedquestion->save();
             } else {
-                $question = Question::where('question', 'like', '%%')
+                $question = Question::where('question', 'like', '%$request->question%')
             }
 
             return response()->json([

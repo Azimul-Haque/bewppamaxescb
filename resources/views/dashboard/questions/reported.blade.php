@@ -14,13 +14,13 @@
 @endsection
 
 @section('content')
-    @section('page-header') প্রশ্নব্যাংক @endsection
+    @section('page-header') রিপোর্টেড প্রশ্নসমূহ @endsection
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">প্রশ্নব্যাংক (মোটঃ {{ $totalreportedquestios }})</h3>
+                      <h3 class="card-title">রিপোর্টেড প্রশ্নসমূহ (মোটঃ {{ $totalreportedquestios }})</h3>
           
                       <div class="card-tools">
                           <form class="form-inline form-group-lg" action="">

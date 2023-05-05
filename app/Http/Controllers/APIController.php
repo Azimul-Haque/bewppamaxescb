@@ -562,6 +562,7 @@ class APIController extends Controller
             });
             $exam = Cache::remember('exam' . $exam_id, 7 * 24 * 60 * 60, function () use ($exam_id) {
                  $exam = Exam::where('id', $exam_id)->first();
+                 $exam->makeHidden('course_id', 'exam_id', '');
                  return $exam;
             });
             

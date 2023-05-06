@@ -41,7 +41,7 @@
                                   <th width="30%">প্রশ্ন</th>
                                   <th>উত্তর</th>
                                   <th width="20%">অপশনসমূহ</th>
-                                  <th>ব্যবহারকারী</th>
+                                  <th>ব্যবয়াহ্রকারী</th>
                                   <th width="20%">বার্তা</th>
                                   <th width="10%">Action</th>
                               </tr>
@@ -234,7 +234,7 @@
 </script>
                                       {{-- Edit Question Modal Code --}}
                                       {{-- Edit Question Modal Code --}}
-                                        
+          
                                   </td>
                               </tr>
                           @endforeach

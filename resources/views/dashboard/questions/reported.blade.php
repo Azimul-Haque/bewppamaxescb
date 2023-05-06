@@ -235,6 +235,44 @@
                                       {{-- Edit Question Modal Code --}}
                                       {{-- Edit Question Modal Code --}}
                                       
+                                            @if($message->status == 0)
+                                              <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#updateModal{{ $message->id }}">
+                                              <i class="fas fa-clipboard-check"></i>
+                                            </button>
+                                            @endif
+                                            
+                                            
+                                          </td>
+                                              {{-- Update Modal Code --}}
+                                              {{-- Update Modal Code --}}
+                                              <!-- Modal -->
+                                              <div class="modal fade" id="updateModal{{ $message->id }}" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true" data-backdrop="static">
+                                                <div class="modal-dialog" role="document">
+                                                  <div class="modal-content">
+                                                    <div class="modal-header bg-warning">
+                                                      <h5 class="modal-title" id="updateModalLabel">সমাধান করা হয়েছে?</h5>
+                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                      </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                      আপনি কি নিশ্চিতভাবে এই সমস্যাটি সমাধান করতে চান?<br/><br/>
+                                                      <b>{{ $message->user->name }}</b><br/>
+                                                      {{ $message->message }}
+                                                      
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                                                      <form method="POST" action="{{ route('dashboard.messages.update', $message->id) }}">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-warning">দাখিল করুন</button>
+                                                      </form>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              {{-- Update Modal Code --}}
+                                              {{-- Update Modal Code --}}
                                   </td>
                               </tr>
                           @endforeach

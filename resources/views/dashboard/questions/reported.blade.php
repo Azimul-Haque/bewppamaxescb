@@ -257,7 +257,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                                                  <form method="POST" action="{{ route('dashboard.questions.reported.delete', $reportedquestion->id) }}">
+                                                  <form method="GET" action="{{ route('dashboard.questions.reported.delete', $reportedquestion->id) }}">
                                                     @csrf
                                                     <button type="submit" class="btn btn-warning">দাখিল করুন</button>
                                                   </form>

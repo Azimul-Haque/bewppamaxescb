@@ -241,11 +241,11 @@
                                           {{-- Delete Modal Code --}}
                                           {{-- Delete Modal Code --}}
                                           <!-- Modal -->
-                                          <div class="modal fade" id="updateModal{{ $reportedquestion->id }}" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true" data-backdrop="static">
+                                          <div class="modal fade" id="deleteReport{{ $reportedquestion->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteReportLabel" aria-hidden="true" data-backdrop="static">
                                             <div class="modal-dialog" role="document">
                                               <div class="modal-content">
                                                 <div class="modal-header bg-warning">
-                                                  <h5 class="modal-title" id="updateModalLabel">সমাধান করা হয়েছে?</h5>
+                                                  <h5 class="modal-title" id="deleteReportLabel">সমাধান করা হয়েছে?</h5>
                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                   </button>

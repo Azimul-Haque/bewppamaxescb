@@ -460,7 +460,7 @@ class QuestionController extends Controller
         $reportedquestion = Reportedquestion::findOrFail($id);
         $reportedquestion->delete();
         
-        Session::flash('success', $reportedquestions . ' টি রিপোর্টেড প্রশ্ন পাওয়া গিয়েছে!');
+        Session::flash('success', 'প্রশ্নটি সমাধান করা হয়েছে!');
         return redirect()->back();
     }
 }

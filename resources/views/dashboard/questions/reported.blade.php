@@ -240,7 +240,6 @@
                                       </button>
                                         
                                         
-                                      </td>
                                           {{-- Delete Modal Code --}}
                                           {{-- Delete Modal Code --}}
                                           <!-- Modal -->

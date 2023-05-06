@@ -238,8 +238,6 @@
                                       <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#deleteReport{{ $reportedquestion->id }}">
                                         <i class="fas fa-clipboard-check"></i>
                                       </button>
-                                        
-                                        
                                           {{-- Delete Modal Code --}}
                                           {{-- Delete Modal Code --}}
                                           <!-- Modal -->

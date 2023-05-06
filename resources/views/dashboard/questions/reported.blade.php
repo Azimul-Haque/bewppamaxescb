@@ -252,8 +252,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                   আপনি কি নিশ্চিতভাবে এই রিপোর্টটি সমাধান করতে চান?<br/><br/>
-                                                  <b>{{ $reportedquestion->user->name }}</b><br/>
-                                                  {{ $reportedquestion->message }}
+                                                  <b>{{ $reportedquestion->question->question }}</b><br/>
                                                   
                                                 </div>
                                                 <div class="modal-footer">

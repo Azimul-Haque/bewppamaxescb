@@ -39,12 +39,31 @@ class ExamController extends Controller
             abort(403, 'Access Denied');
         }
         
+        $totalexams = Exam::count();
         $exams = Exam::orderBy('id', 'desc')->paginate(10);
         $examcategories = Examcategory::all();
 
         return view('dashboard.exams.index')
                     ->withExams($exams)
                     ->withExamcategories($examcategories);
+                    ->withTotalexams($totalexams);
+    }
+
+    public function getExamsSearch($search)
+    {
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
+            abort(403, 'Access Denied');
+        }
+        
+        $totalexams = Exam::where('name', 'LIKE', "%$search%")->count();
+        $exams = Exam::where('name', 'LIKE', "%$search%")->paginate(10); 
+        $examcategories = Examcategory::all();
+
+        Session::flash('success', $totalexams . ' টি পরীক্ষা পাওয়া গিয়েছে!');
+        return view('dashboard.exams.index')
+                    ->withExams($exams)
+                    ->withExamcategories($examcategories)
+                    ->withTotalexams($totalexams);
     }
 
     public function getExamMeritList($exam_id)

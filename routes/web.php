@@ -89,6 +89,7 @@ Route::get('/dashboard/reported/questions/{search}', 'QuestionController@getRepo
 Route::get('/dashboard/reported/questions/{id}/delete', 'QuestionController@deleteReportedQuestionsSearch')->name('dashboard.questions.reported.delete');
 
 Route::get('/dashboard/exams', 'ExamController@getExams')->name('dashboard.exams');
+Route::get('/dashboard/exams/{search}', 'ExamController@getExamsSearch')->name('dashboard.exams.search');
 Route::get('/dashboard/exams/meritlist/{exam_id}', 'ExamController@getExamMeritList')->name('dashboard.exams.getmeritlist');
 Route::post('/dashboard/exams/store', 'ExamController@storeExam')->name('dashboard.exams.store');
 Route::post('/dashboard/exams/{id}/update', 'ExamController@updateExam')->name('dashboard.exams.update');

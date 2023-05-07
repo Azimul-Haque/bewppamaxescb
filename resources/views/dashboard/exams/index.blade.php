@@ -17,12 +17,20 @@
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">পরীক্ষাসমূহ</h3>
+                      <h3 class="card-title">পরীক্ষাসমূহ (মোটঃ {{ $totalexams }} টি)</h3>
           
                       <div class="card-tools">
-                          <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#addExamModal">
+                          <form class="form-inline form-group-lg" action="">
+                            <div class="form-group">
+                              <input type="search-param" class="form-control form-control-sm" placeholder="প্রশ্ন খুঁজুন" id="search-param" required>
+                            </div>
+                            <button type="button" id="search-button" class="btn btn-default btn-sm" style="margin-left: 5px;">
+                              <i class="fas fa-search"></i> খুঁজুন
+                            </button>
+                            <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#addExamModal" style="margin-left: 5px;">
                               <i class="fas fa-plus-circle"></i> নতুন পরীক্ষা যোগ
                           </button>
+                          </form>
                       </div>
                     </div>
                     <!-- /.card-header -->
@@ -554,6 +562,33 @@
       todayHighlight: true,
       autoclose: true,
       container:'#addExamModal',
+    });
+
+    $(document).on('click', '#search-button', function() {
+      if($('#search-param').val() != '') {
+        var urltocall = '{{ route('dashboard.exams') }}' +  '/' + $('#search-param').val().replace(/\\|\//g, '%');
+        location.href= urltocall;
+      } else {
+        $('#search-param').css({ "border": '#FF0000 2px solid'});
+        Toast.fire({
+            icon: 'warning',
+            title: 'কিছু লিখে খুঁজুন!'
+        })
+      }
+    });
+    $("#search-param").keyup(function(e) {
+      if(e.which == 13) {
+        if($('#search-param').val() != '') {
+          var urltocall = '{{ route('dashboard.exams') }}' +  '/' + $('#search-param').val().replace(/\\|\//g, '%');
+          location.href= urltocall;
+        } else {
+          $('#search-param').css({ "border": '#FF0000 2px solid'});
+          Toast.fire({
+              icon: 'warning',
+              title: 'কিছু লিখে খুঁজুন!'
+          })
+        }
+      }
     });
 </script>
 @endsection

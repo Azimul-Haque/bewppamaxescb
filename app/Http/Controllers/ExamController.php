@@ -45,7 +45,7 @@ class ExamController extends Controller
 
         return view('dashboard.exams.index')
                     ->withExams($exams)
-                    ->withExamcategories($examcategories);
+                    ->withExamcategories($examcategories)
                     ->withTotalexams($totalexams);
     }
 

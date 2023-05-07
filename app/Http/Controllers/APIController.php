@@ -525,6 +525,7 @@ class APIController extends Controller
             $examresult->save();
 
             Cache::forget('meritlist'.$request->course_id.$request->exam_id);
+            Cache::forget('exam'.$request->exam_id);
 
             return response()->json([
                 'success' => true

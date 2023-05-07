@@ -20,7 +20,8 @@
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">প্রশ্নব্যাংক </h3>(মোটঃ {{ $totalquestions }} টি প্রশ্ন)
+                      <h3 class="card-title">প্রশ্নব্যাংক </h3>
+                      (মোটঃ {{ $totalquestions }} টি প্রশ্ন)
           
                       <div class="card-tools">
                           <form class="form-inline form-group-lg" action="">

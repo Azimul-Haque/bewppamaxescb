@@ -186,7 +186,8 @@ class ExamController extends Controller
 
         Cache::forget('exam' . $id);
         Session::flash('success', 'Exam updated successfully!');
-        return redirect()->route('dashboard.exams');
+        // return redirect()->route('dashboard.exams');
+        return redirect()->back();
     }
     
     public function copyExam(Request $request, $id)

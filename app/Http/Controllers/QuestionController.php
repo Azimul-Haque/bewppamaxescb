@@ -457,7 +457,7 @@ class QuestionController extends Controller
 
     public function deleteReportedQuestionsSearch($id)
     {
-        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'volunteer')) {
             abort(403, 'Access Denied');
         }
 

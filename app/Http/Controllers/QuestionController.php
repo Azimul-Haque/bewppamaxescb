@@ -415,8 +415,8 @@ class QuestionController extends Controller
         if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'volunteer')) {
             abort(403, 'Access Denied');
         }
-        
-        $reportedquestions = Reportedquestion::orderBy('created_at', 'desc')->paginate(10);
+
+        $reportedquestions = Reportedquestion::orderBy('created_at', 'desc')->where('status', 0)->paginate(10);
 
         $totalreportedquestions  = Reportedquestion::count();
         $topics = Topic::orderBy('id', 'asc')->get();

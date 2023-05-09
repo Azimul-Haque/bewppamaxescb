@@ -60,7 +60,7 @@
 </li>
 @endif
 
-@if(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')
+@if(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'volunteer')
 <li class="nav-item">
     <a href="{{ route('dashboard.questions.reported') }}" class="nav-link {{ Request::is('dashboard/reported') ? 'active' : '' }} {{ Request::is('dashboard/reported/*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-flag"></i>

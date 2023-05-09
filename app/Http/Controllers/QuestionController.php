@@ -442,7 +442,7 @@ class QuestionController extends Controller
                         $q->orWhere('option3', 'LIKE', "%$search%");
                         $q->orWhere('option4', 'LIKE', "%$search%");
                         $q->orderBy('id', 'desc');
-                    })->paginate(10);
+                    })->where('status', 0)->paginate(10);
 
         $topics = Topic::orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();

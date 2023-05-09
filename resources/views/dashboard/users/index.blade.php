@@ -175,6 +175,7 @@
             				                		<option disabled="" value="">ধরন নির্ধারণ করুন</option>
             				                		<option value="admin" @if($user->role == 'admin') selected="" @endif>এডমিন</option>
               													<option value="manager" @if($user->role == 'manager') selected="" @endif>ম্যানেজার</option>
+                                        <option value="volunteer" @if($user->role == 'volunteer') selected="" @endif>ভলান্টিয়ার</option>
               													<option value="user" @if($user->role == 'user') selected="" @endif>ব্যবহারকারী</option>
               													{{-- <option value="accountant" @if($user->role == 'accountant') selected="" @endif>একাউন্টেন্ট</option> --}}
             				                	</select>
@@ -315,7 +316,8 @@
 	                	<select name="role" id="adduserrole" class="form-control" required>
 	                		<option selected="" disabled="" value="">ধরন</option>
 	                		<option value="admin">এডমিন</option>
-							<option value="manager">ম্যানেজার</option>
+							       <option value="manager">ম্যানেজার</option>
+                     <option value="volunteer">ভলান্টিয়ার</option>
 	                		<option value="user">ব্যবহারকারী</option>
 							{{-- <option value="accountant">একাউন্টেন্ট</option> --}}
 	                	</select>

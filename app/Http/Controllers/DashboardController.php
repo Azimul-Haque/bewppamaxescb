@@ -34,7 +34,7 @@ class DashboardController extends Controller
     {
         parent::__construct();
         $this->middleware('auth')->except('clear');
-        $this->middleware(['admin'])->only('getUsers', 'storeUser', 'updateUser', 'deleteUser', 'deleteBalance', 'getCreditors', 'getSingleCreditor', 'getAddDuePage', 'deleteCreditorDue', 'getSiteCategorywise', 'getPackages', 'getPayments');
+        $this->middleware(['admin'])->only('getUsers', 'storeUser', 'updateUser', 'deleteUser', 'deleteBalance', 'getCreditors', 'getSingleCreditor', 'getAddDuePage', 'deleteCreditorDue', 'getSiteCategorywise', 'getPackages', 'storePackage', 'updatePackage', 'deletePackage', 'getPayments', 'getMessages', 'updateMessage', 'getNotifications');
         
     }
     
@@ -50,6 +50,9 @@ class DashboardController extends Controller
         // if user is a manager, redirect him to his profile
         if(Auth::user()->role == 'user') {
             abort(403, 'Access Denied');
+        } elseif(Auth::user()->role == 'volunteer') {
+            echo 'ase';
+            return redirect()->route('dashboard.questions.reported');
         }
 
         // $totalsites = Site::count();

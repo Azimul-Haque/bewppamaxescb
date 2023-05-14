@@ -882,11 +882,10 @@ class DashboardController extends Controller
                 $mobile_number = substr($user->mobile, -11);
             }
         }
+        
         $url = config('sms.url');
         $number = $mobile_number;
         $text = $request->message;
-        // this sms costs 2 SMS
-        // this sms costs 2 SMS
         
         $data= array(
             'username'=>config('sms.username'),
@@ -895,7 +894,7 @@ class DashboardController extends Controller
             'message'=>"$text",
         );
 
-        
+
         // initialize send status
         $ch = curl_init(); // Initialize cURL
         curl_setopt($ch, CURLOPT_URL,$url);

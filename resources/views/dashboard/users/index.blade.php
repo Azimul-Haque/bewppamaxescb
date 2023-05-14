@@ -56,6 +56,9 @@
                       <small><span>প্যাকেজ: <b>{{ date('d F, Y', strtotime($user->package_expiry_date)) }}</b></span></small>
                 		</td>
                 		<td align="right" width="40%">
+                      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#notifModal{{ $user->id }}">
+                        <i class="fas fa-bell"></i>
+                      </button>
                       <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#notifModal{{ $user->id }}">
                         <i class="fas fa-bell"></i>
                       </button>

@@ -78,7 +78,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                                <button type="submit" class="btn btn-warning">দাখিল করুন</button>
+                                <button type="submit" class="btn btn-warning">মেসেজ পাঠান করুন</button>
                               </div>
                             </form>
                           </div>

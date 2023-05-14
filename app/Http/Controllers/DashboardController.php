@@ -884,7 +884,7 @@ class DashboardController extends Controller
         }
         $url = config('sms.url');
         $number = $mobile_number;
-        $text = 'Dear ' . $user->name . ', your membership application has been approved! Your ID: '. $user->member_id .', Email: '. $user->email .' and Password: cvcs12345. Customs and VAT Co-operative Society (CVCS). Login & change password: https://cvcsbd.com/login';
+        $text = $request->message;
         // this sms costs 2 SMS
         // this sms costs 2 SMS
         

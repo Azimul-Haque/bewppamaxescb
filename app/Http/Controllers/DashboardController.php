@@ -913,7 +913,6 @@ class DashboardController extends Controller
             Session::flash('warning', 'দুঃখিত! SMS পাঠানো যায়নি!');
         }
 
-        Session::flash('success', 'সদস্য সফলভাবে অনুমোদন করা হয়েছে!');
         return redirect()->back();
     }
 

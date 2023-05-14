@@ -865,7 +865,7 @@ class DashboardController extends Controller
         }
     }
 
-    public function sendSingleNotification(Request $request, $id)
+    public function sendSingleSMS(Request $request, $id)
     {
         $user = User::find($id);
         if($user->onesignal_id !=null) {

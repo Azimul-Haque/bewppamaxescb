@@ -59,6 +59,50 @@
                       <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#notifModal{{ $user->id }}">
                         <i class="fas fa-envelope"></i>
                       </button>
+                      {{-- Notif Modal Code --}}
+                      {{-- Notif Modal Code --}}
+                      <!-- Modal -->
+                      <div class="modal fade" id="notifModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="notifModalLabel" aria-hidden="true" data-backdrop="static">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header bg-warning">
+                              <h5 class="modal-title" id="notifModalLabel">নোটিফিকেশন পাঠান</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <form method="post" action="{{ route('dashboard.users.singlenotification', $user->id) }}">
+                              <div class="modal-body">
+                                    @csrf
+                                    <div class="input-group mb-3">
+                                        <input type="text"
+                                               name="headings"
+                                               class="form-control"
+                                               placeholder="হেডিংস" required>
+                                        <div class="input-group-append">
+                                            <div class="input-group-text"><span class="fas fa-file-alt"></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text"
+                                               name="message"
+                                               class="form-control"
+                                               placeholder="মেসেজ" required>
+                                        <div class="input-group-append">
+                                            <div class="input-group-text"><span class="fas fa-spa"></span></div>
+                                        </div>
+                                    </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                                <button type="submit" class="btn btn-warning">দাখিল করুন</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                      {{-- Notif Modal Code --}}
+                      {{-- Notif Modal Code --}}
                       <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#notifModal{{ $user->id }}">
                         <i class="fas fa-bell"></i>
                       </button>

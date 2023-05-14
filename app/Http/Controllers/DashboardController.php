@@ -894,6 +894,8 @@ class DashboardController extends Controller
             'number'=>"$number",
             'message'=>"$text",
         );
+
+        
         // initialize send status
         $ch = curl_init(); // Initialize cURL
         curl_setopt($ch, CURLOPT_URL,$url);

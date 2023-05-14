@@ -906,7 +906,7 @@ class DashboardController extends Controller
         // dd($smsresult);
         // send sms
         if($sendstatus == 1101) {
-            Session::flash('info', 'SMS সফলভাবে পাঠানো হয়েছে!');
+            Session::flash('success', 'SMS সফলভাবে পাঠানো হয়েছে!');
         } elseif($sendstatus == 1006) {
             Session::flash('warning', 'অপর্যাপ্ত SMS ব্যালেন্সের কারণে SMS পাঠানো যায়নি!');
         } else {

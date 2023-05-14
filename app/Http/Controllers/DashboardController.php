@@ -872,18 +872,19 @@ class DashboardController extends Controller
         ));
 
         $user = User::find($id);
+
         // send sms
         $mobile_number = 0;
-        if(strlen($application->mobile) == 11) {
-            $mobile_number = $application->mobile;
-        } elseif(strlen($application->mobile) > 11) {
-            if (strpos($application->mobile, '+') !== false) {
-                $mobile_number = substr($application->mobile, -11);
+        if(strlen($user->mobile) == 11) {
+            $mobile_number = $user->mobile;
+        } elseif(strlen($user->mobile) > 11) {
+            if (strpos($user->mobile, '+') !== false) {
+                $mobile_number = substr($user->mobile, -11);
             }
         }
         $url = config('sms.url');
         $number = $mobile_number;
-        $text = 'Dear ' . $application->name . ', your membership application has been approved! Your ID: '. $application->member_id .', Email: '. $application->email .' and Password: cvcs12345. Customs and VAT Co-operative Society (CVCS). Login & change password: https://cvcsbd.com/login';
+        $text = 'Dear ' . $user->name . ', your membership application has been approved! Your ID: '. $user->member_id .', Email: '. $user->email .' and Password: cvcs12345. Customs and VAT Co-operative Society (CVCS). Login & change password: https://cvcsbd.com/login';
         // this sms costs 2 SMS
         // this sms costs 2 SMS
         

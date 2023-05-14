@@ -882,7 +882,7 @@ class DashboardController extends Controller
                 $mobile_number = substr($user->mobile, -11);
             }
         }
-        
+
         $url = config('sms.url');
         $number = $mobile_number;
         $text = $request->message;
@@ -893,7 +893,6 @@ class DashboardController extends Controller
             'number'=>"$number",
             'message'=>"$text",
         );
-
 
         // initialize send status
         $ch = curl_init(); // Initialize cURL

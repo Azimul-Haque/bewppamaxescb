@@ -65,7 +65,7 @@
                       <div class="modal fade" id="smsModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="smsModalLabel" aria-hidden="true" data-backdrop="static">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
-                            <div class="modal-header bg-warning">
+                            <div class="modal-header bg-info">
                               <h5 class="modal-title" id="smsModalLabel">এসএমএস পাঠান</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -78,7 +78,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                                <button type="submit" class="btn btn-warning">মেসেজ পাঠান করুন</button>
+                                <button type="submit" class="btn btn-info">মেসেজ পাঠান করুন</button>
                               </div>
                             </form>
                           </div>

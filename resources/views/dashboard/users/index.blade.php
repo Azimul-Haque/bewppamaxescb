@@ -74,7 +74,7 @@
                             <form method="post" action="{{ route('dashboard.users.singlenotification', $user->id) }}">
                               <div class="modal-body">
                                     @csrf
-                                    <textarea class="form-control" placeholder="মেসেজ লিখুন" name="message" required></textarea>
+                                    <textarea class="form-control" placeholder="মেসেজ লিখুন" name="message" class="textarea" required></textarea>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

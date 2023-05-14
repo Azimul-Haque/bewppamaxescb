@@ -868,9 +868,7 @@ class DashboardController extends Controller
     public function sendSingleSMS(Request $request, $id)
     {
         $this->validate($request,array(
-            'creditor_id'           => 'required',
-            'description'           => 'sometimes',
-            'amount'                => 'required|integer'
+            'message'           => 'required',
         ));
         // send sms
         $mobile_number = 0;

@@ -870,6 +870,8 @@ class DashboardController extends Controller
         $this->validate($request,array(
             'message'           => 'required',
         ));
+
+        $user = User::find($id);
         // send sms
         $mobile_number = 0;
         if(strlen($application->mobile) == 11) {

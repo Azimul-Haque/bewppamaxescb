@@ -515,11 +515,10 @@ class APIController extends Controller
                 return $material;
             });
             // dd($material);
-            // $material = $material->sortByDesc('start');
             // return 'Test';
             return response()->json([
                 'success' => true,
-                'materials' => $materials,
+                'material' => $material,
             ]);
         } else {
             return response()->json([

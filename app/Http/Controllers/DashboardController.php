@@ -1031,11 +1031,33 @@ class DashboardController extends Controller
                 $schedule = null,
                 $headings = $request->headings,
             );
-        } else {
+        } elseif($request->type == 'all') {
             OneSignal::sendNotificationToAll(
                 $request->message,
                 $url = null, 
                 $data = null, 
+                $buttons = null, 
+                $schedule = null,
+                $headings = $request->headings,
+            );
+        } elseif($request->type == 'update') {
+            // LIVE HOILE ETA DEOA HOBE
+            // LIVE HOILE ETA DEOA HOBE
+            // OneSignal::sendNotificationToAll(
+            //     $request->message,
+            //     $url = null, 
+            //     $data = array("a" => 'update'),
+            //     $buttons = null, 
+            //     $schedule = null,
+            //     $headings = $request->headings,
+            // );
+
+
+            OneSignal::sendNotificationToUser(
+                $request->message,
+                ['716ffeb3-f6c2-4a4a-a253-710f339aa863'],
+                $url = null, 
+                $data = array("a" => 'update'),
                 $buttons = null, 
                 $schedule = null,
                 $headings = $request->headings,

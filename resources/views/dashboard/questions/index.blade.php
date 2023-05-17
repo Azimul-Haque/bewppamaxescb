@@ -288,7 +288,7 @@
                                             <span aria-hidden="true">&times;</span>
                                           </button>
                                         </div>
-                                        <form method="post" action="{{ route('dashboard.users.singlenotification', $user->id) }}">
+                                        <form method="post" action="{{ route('dashboard.questions.sendnotification', $user->id) }}">
                                           <div class="modal-body">
                                                 @csrf
                                                 <div class="input-group mb-3">

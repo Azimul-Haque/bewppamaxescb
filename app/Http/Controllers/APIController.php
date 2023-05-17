@@ -514,6 +514,7 @@ class APIController extends Controller
                 return $material;
             });            
             
+            $material = Material::findOrFail($id);
             $material->count++;
             $material->save();
 

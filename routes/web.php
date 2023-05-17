@@ -76,6 +76,7 @@ Route::post('/dashboard/questions/store', 'QuestionController@storeQuestion')->n
 Route::post('/dashboard/questions/excel/store', 'QuestionController@storeExcelQuestion')->name('dashboard.questions.excel.store');
 Route::post('/dashboard/questions/{id}/update', 'QuestionController@updateQuestion')->name('dashboard.questions.update');
 Route::get('/dashboard/questions/{id}/delete', 'QuestionController@deleteQuestion')->name('dashboard.questions.delete');
+Route::get('/dashboard/questions/{id}/notification', 'QuestionController@sendNotificationQuestion')->name('dashboard.questions.delete');
 
 Route::post('/dashboard/questions/topic/store', 'QuestionController@storeQuestionsTopic')->name('dashboard.questions.topic.store');
 Route::post('/dashboard/questions/topic/{id}/update', 'QuestionController@updateQuestionsTopic')->name('dashboard.questions.topic.update');

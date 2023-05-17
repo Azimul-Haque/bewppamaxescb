@@ -163,7 +163,7 @@
                           <option value="premium">প্রিমিয়াম ব্যবহারকারী</option>
                           <option value="free">ফ্রি ব্যবহারকারী</option>
                           <option value="all">সব ব্যবহারকারী</option>
-                          <option value="update">সব ব্যবহারকারী</option>
+                          <option value="update">সব ব্যবহারকারী (UPDATE)</option>
                         </select>
                           <div class="input-group-append">
                               <div class="input-group-text"><span class="fas fa-wrench"></span></div>

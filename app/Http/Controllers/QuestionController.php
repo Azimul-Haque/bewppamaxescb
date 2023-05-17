@@ -414,6 +414,24 @@ class QuestionController extends Controller
     {
         $question = Question::findOrFail($id);
         
+        // OneSignal::sendNotificationToAll(
+        //     "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
+        //     $url = null, 
+        //     $data = array("answer" => $charioteer->answer),
+        //     $buttons = null, 
+        //     $schedule = null,
+        //     $headings = $charioteer->question
+        // );
+
+        OneSignal::sendNotificationToUser(
+            "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
+            $user->onesignal_id,
+            $url = null, 
+            $data = array("answer" => 'answer'),
+            $buttons = null, 
+            $schedule = null,
+            $headings = 'question'
+        );
 
         Session::flash('success', 'Question deleted successfully!');
         return redirect()->route('dashboard.questions');

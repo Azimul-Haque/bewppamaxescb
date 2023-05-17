@@ -290,7 +290,10 @@
                                         </div>
                                         
                                           <div class="modal-body">
-                                            
+                                            আপনি কি নিশ্চিতভাবে এই প্রশ্নটি ডিলেট করতে চান?<br/><br/>
+                                            <center>
+                                                <big><b>{{ $question->question }}</b></big>
+                                            </center>
                                             {{-- @csrf
                                             <div class="input-group mb-3">
                                                 <input type="text"

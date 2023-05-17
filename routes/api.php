@@ -43,7 +43,7 @@ Route::post('/message/store', 'APIController@storeMessage')->name('api.storemess
 Route::get('/getpaymenthistory/{softtoken}/{phonenumber}', 'APIController@getPaymentHistory')->name('api.getpaymenthistory');
 
 Route::get('/getmaterials/{softtoken}', 'APIController@getMaterials')->name('api.getmaterials');
-Route::get('/getmaterials/single/{id}/{softtoken}', 'APIController@getSingleMaterial')->name('api.getsinglematerial');
+Route::get('/getmaterials/single/{softtoken}/{id}', 'APIController@getSingleMaterial')->name('api.getsinglematerial');
 
 Route::post('/addexamresult', 'APIController@addExamResult')->name('api.addexamresult');
 Route::get('/meritlist/{softtoken}/{course_id}/{exam_id}', 'APIController@getMeritList')->name('api.getmeritlist');

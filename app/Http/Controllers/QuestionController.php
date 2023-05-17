@@ -430,7 +430,11 @@ class QuestionController extends Controller
             "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
             ['716ffeb3-f6c2-4a4a-a253-710f339aa863'],
             $url = null, 
-            $data = array("type" => 'answer', "answer" => $answertext),
+            // $data = array("type" => 'answer', "answer" => $answertext),
+            array(
+                ["field" => "tag", "key" => "email", "relation" => "=", "value" => "email21@example.com"],
+                ["field" => "tag", "key" => "email", "relation" => "=", "value" => "email1@example.com"],
+            ),
             $buttons = null, 
             $schedule = null,
             $headings = $question->question,

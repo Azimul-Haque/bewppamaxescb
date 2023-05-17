@@ -515,7 +515,7 @@ class APIController extends Controller
                 return $material;
             });
             
-            $exam = Exam::findOrFail($id);
+            $material = Exam::findOrFail($id);
             $exam->participation++;
             $exam->save();
             

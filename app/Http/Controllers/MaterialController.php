@@ -101,6 +101,7 @@ class MaterialController extends Controller
         $material->save();
 
         Cache::forget('lecturematerials');
+        Cache::forget('singlelecturematerial' . $id);
         Session::flash('success', 'Material updated successfully!');
         return redirect()->back();
     }

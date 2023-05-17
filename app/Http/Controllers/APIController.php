@@ -515,10 +515,10 @@ class APIController extends Controller
                 return $material;
             });
             
-            $material = Exam::findOrFail($id);
-            $exam->participation++;
+            $exam = Exam::findOrFail($id);
+            $material->count++;
             $exam->save();
-            
+
             return response()->json([
                 'success' => true,
                 'material' => $material,

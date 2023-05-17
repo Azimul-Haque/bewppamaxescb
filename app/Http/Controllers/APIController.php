@@ -509,7 +509,7 @@ class APIController extends Controller
         {
             $material = Cache::remember('singlelecturematerial', 7 * 24 * 60 * 60, function () {
                 $material = Material::where('id', $id)
-                                     ->select('id', 'type', 'title', 'author', 'author_desc', 'content'. 'count')
+                                     ->select('id', 'type', 'title', 'author', 'author_desc', 'content', 'url', 'count')
                                      ->first();
 
                 // foreach($materials as $material) {

@@ -288,33 +288,32 @@
                                             <span aria-hidden="true">&times;</span>
                                           </button>
                                         </div>
-                                        <form method="post" action="{{ route('dashboard.questions.sendnotification', $question->id) }}">
+                                        
                                           <div class="modal-body">
-                                                @csrf
-                                                <div class="input-group mb-3">
-                                                    <input type="text"
-                                                           name="headings"
-                                                           class="form-control"
-                                                           placeholder="হেডিংস" required>
-                                                    <div class="input-group-append">
-                                                        <div class="input-group-text"><span class="fas fa-file-alt"></span></div>
-                                                    </div>
+                                            @csrf
+                                            <div class="input-group mb-3">
+                                                <input type="text"
+                                                       name="headings"
+                                                       class="form-control"
+                                                       placeholder="হেডিংস" required>
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text"><span class="fas fa-file-alt"></span></div>
                                                 </div>
-                                                <div class="input-group mb-3">
-                                                    <input type="text"
-                                                           name="message"
-                                                           class="form-control"
-                                                           placeholder="মেসেজ" required>
-                                                    <div class="input-group-append">
-                                                        <div class="input-group-text"><span class="fas fa-spa"></span></div>
-                                                    </div>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input type="text"
+                                                       name="message"
+                                                       class="form-control"
+                                                       placeholder="মেসেজ" required>
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text"><span class="fas fa-spa"></span></div>
                                                 </div>
+                                            </div>
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
                                             <button type="submit" class="btn btn-warning">দাখিল করুন</button>
                                           </div>
-                                        </form>
                                       </div>
                                     </div>
                                   </div>

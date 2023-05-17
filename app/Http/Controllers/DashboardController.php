@@ -960,7 +960,7 @@ class DashboardController extends Controller
                 $schedule = null,
                 $headings = $request->headings,
             );
-        } elseif($request->type == 'all') {
+        } elseif($request->type == 'update') {
 
         }
 

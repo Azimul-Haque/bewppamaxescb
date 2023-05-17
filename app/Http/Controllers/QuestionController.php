@@ -422,7 +422,7 @@ class QuestionController extends Controller
         //     $data = array("answer" => $charioteer->answer),
         //     $buttons = null, 
         //     $schedule = null,
-        //     $headings = $charioteer->question
+        //     $headings = $question->question,
         // );
 
         

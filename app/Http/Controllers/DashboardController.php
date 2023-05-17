@@ -870,10 +870,10 @@ class DashboardController extends Controller
                 "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
                 $user->onesignal_id,
                 $url = null, 
-                $data = array("answer" => $charioteer->answer),
+                $data = array("answer" => 'answer'),
                 $buttons = null, 
                 $schedule = null,
-                $headings = $charioteer->question
+                $headings = 'question'
             );
 
             Session::flash('success', 'Notification sent successfully!');

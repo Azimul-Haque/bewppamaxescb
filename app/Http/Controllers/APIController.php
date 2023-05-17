@@ -514,7 +514,7 @@ class APIController extends Controller
 
                 return $material;
             });
-            dd($material);
+            // dd($material);
             // return 'Test';
             return response()->json([
                 'success' => true,

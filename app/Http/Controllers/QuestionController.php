@@ -425,8 +425,6 @@ class QuestionController extends Controller
         //     $headings = $question->question,
         // );
 
-        
-
         OneSignal::sendNotificationToUser(
             "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
             ['716ffeb3-f6c2-4a4a-a253-710f339aa863'],

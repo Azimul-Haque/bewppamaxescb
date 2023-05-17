@@ -413,17 +413,7 @@ class QuestionController extends Controller
     public function sendNotificationQuestion($id)
     {
         $question = Question::find($id);
-        if($question->questionimage) {
-            $image_path = public_path('images/questions/'. $question->questionimage->image);
-            if(File::exists($image_path)) {
-                File::delete($image_path);
-            }
-            $question->questionimage->delete();
-        }
-        if($question->questionexplanation) {
-            $question->questionexplanation->delete();
-        }
-        $question->delete();
+        
 
         Session::flash('success', 'Question deleted successfully!');
         return redirect()->route('dashboard.questions');

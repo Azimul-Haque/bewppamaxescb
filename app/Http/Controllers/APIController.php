@@ -514,9 +514,9 @@ class APIController extends Controller
                 return $material;
             });            
             
-            $material = Material::findOrFail($id);
-            $material->count++;
-            $material->save();
+            $materialforsave = Material::findOrFail($id);
+            $materialforsave->count++;
+            $materialforsave->save();
 
             return response()->json([
                 'success' => true,

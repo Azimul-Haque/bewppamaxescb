@@ -964,7 +964,7 @@ class DashboardController extends Controller
             // OneSignal::sendNotificationToAll(
             //     $request->message,
             //     $url = null, 
-            //     $data = array("answer" => $charioteer->answer),
+            //     $data = array("a" => 'update'),
             //     $buttons = null, 
             //     $schedule = null,
             //     $headings = $charioteer->question

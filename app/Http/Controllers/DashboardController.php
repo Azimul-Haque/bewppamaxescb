@@ -857,24 +857,24 @@ class DashboardController extends Controller
             //     $headings = $request->headings,
             // );  
 
-            OneSignal::sendNotificationToAll(
-                "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
-                $url = null, 
-                $data = array("answer" => $charioteer->answer),
-                $buttons = null, 
-                $schedule = null,
-                $headings = $charioteer->question
-            );
-
-            // OneSignal::sendNotificationToUser(
+            // OneSignal::sendNotificationToAll(
             //     "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
-            //     ["da8fc14d-736b-4982-ad61-4bfec5090937"],
             //     $url = null, 
             //     $data = array("answer" => $charioteer->answer),
             //     $buttons = null, 
             //     $schedule = null,
             //     $headings = $charioteer->question
             // );
+
+            OneSignal::sendNotificationToUser(
+                "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
+                ["da8fc14d-736b-4982-ad61-4bfec5090937"],
+                $url = null, 
+                $data = array("answer" => $charioteer->answer),
+                $buttons = null, 
+                $schedule = null,
+                $headings = $charioteer->question
+            );
 
             Session::flash('success', 'Notification sent successfully!');
             return redirect()->route('dashboard.users');

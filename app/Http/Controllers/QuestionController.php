@@ -413,7 +413,7 @@ class QuestionController extends Controller
     public function sendNotificationQuestion($id)
     {
         $question = Question::findOrFail($id);
-        
+        $answertext = $question['option' . $question->answer];
         // LIVE HOILE ETA DEOA HOBE
         // LIVE HOILE ETA DEOA HOBE
         // OneSignal::sendNotificationToAll(
@@ -425,9 +425,7 @@ class QuestionController extends Controller
         //     $headings = $charioteer->question
         // );
 
-        $answertext = $question['option' . $question->answer];
         
-
 
         OneSignal::sendNotificationToUser(
             "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",

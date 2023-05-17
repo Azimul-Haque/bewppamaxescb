@@ -434,7 +434,7 @@ class QuestionController extends Controller
         );
 
         Session::flash('success', 'Question sent in Notification successfully!');
-        return redirect()->route('dashboard.questions');
+        return redirect()->back();
     }
 
     public function getReportedQuestions()

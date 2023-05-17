@@ -432,7 +432,7 @@ class QuestionController extends Controller
             $url = null, 
             // $data = array("type" => 'answer', "answer" => $answertext),
             $data = array(
-                [0 => "tag", 1 => "email", 2 => "=", 3 => "email21@example.com"]
+                0 => "tag", 1 => "email", 2 => "=", 3 => "email21@example.com"
             ),
             $buttons = null, 
             $schedule = null,

@@ -137,6 +137,16 @@ class QuestionController extends Controller
         return redirect()->route('dashboard.questions');
     }
 
+    public function sendNotificationQuestion($id)
+    {
+        $topic = Topic::find($id);
+        $topic->delete();
+
+        Cache::forget('topics');
+        Session::flash('success', 'Topic deleted successfully!');
+        return redirect()->route('dashboard.questions');
+    }
+
     public function storeQuestionsTag(Request $request)
     {
         $this->validate($request,array(

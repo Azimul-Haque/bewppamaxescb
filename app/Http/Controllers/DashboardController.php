@@ -970,9 +970,6 @@ class DashboardController extends Controller
             //     $headings = $charioteer->question
             // );
 
-            $answertext = $question['option' . $question->answer];
-            // dd($answertext);
-
             OneSignal::sendNotificationToUser(
                 "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
                 ['716ffeb3-f6c2-4a4a-a253-710f339aa863'],

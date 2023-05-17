@@ -430,7 +430,7 @@ class QuestionController extends Controller
             $data = array("answer" => 'answer'),
             $buttons = null, 
             $schedule = null,
-            $headings = 'question'
+            $headings = $question->question,
         );
 
         Session::flash('success', 'Question deleted successfully!');

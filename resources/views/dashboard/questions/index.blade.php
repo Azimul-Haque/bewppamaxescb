@@ -313,7 +313,7 @@
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                                            <button type="submit" class="btn btn-warning">নোটিফিকেশন পাঠান</button>
+                                            <a href="{{ route('dashboard.questions.sendnotification', $question->id) }}" class="btn btn-warning">নোটিফিকেশন পাঠান</a>
                                           </div>
                                       </div>
                                     </div>

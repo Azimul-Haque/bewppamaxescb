@@ -511,8 +511,6 @@ class APIController extends Controller
                 $material = Material::where('id', $id)
                                      ->select('id', 'type', 'title', 'author', 'author_desc', 'content', 'url', 'count', 'created_at')
                                      ->first();
-                $material->count++;
-                $material->save();
                 return $material;
             });            
 

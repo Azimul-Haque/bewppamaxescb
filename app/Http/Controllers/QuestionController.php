@@ -431,8 +431,8 @@ class QuestionController extends Controller
             ['716ffeb3-f6c2-4a4a-a253-710f339aa863'],
             $url = null, 
             $data = response()->json([
-                'type' => true,
-                'answer' => $material,
+                'type' => 'question',
+                'answer' => 'answer',
             ]);
             $buttons = null, 
             $schedule = null,

@@ -412,7 +412,7 @@ class QuestionController extends Controller
 
     public function sendNotificationQuestion($id)
     {
-        $question = Question::find($id);
+        $question = Question::findOrFail($id);
         
 
         Session::flash('success', 'Question deleted successfully!');

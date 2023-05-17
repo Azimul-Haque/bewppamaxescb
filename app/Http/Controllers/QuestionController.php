@@ -424,7 +424,7 @@ class QuestionController extends Controller
         // );
 
         $answertext = $question['option' . $question->answer];
-        dd($answertext);
+        // dd($answertext);
 
         OneSignal::sendNotificationToUser(
             "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",

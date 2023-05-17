@@ -512,11 +512,10 @@ class APIController extends Controller
                                      ->select('id', 'type', 'title', 'author', 'author_desc', 'content', 'url', 'count')
                                      ->first();
 
-                
-                return $materials;
+                return $material;
             });
-            // dd($materials);
-            // $materials = $materials->sortByDesc('start');
+            // dd($material);
+            // $material = $material->sortByDesc('start');
             // return 'Test';
             return response()->json([
                 'success' => true,

@@ -508,7 +508,7 @@ class APIController extends Controller
         if($softtoken == env('SOFT_TOKEN'))
         {
             $material = Cache::remember('singlelecturematerial', 7 * 24 * 60 * 60, function () {
-                $material = Material::where('status', 1) // 1 = active, 0 = inactive
+                $material = Material::where('id', $id)
                                      ->select('id', 'type', 'title', 'author', 'author_desc')
                                      ->get();
 

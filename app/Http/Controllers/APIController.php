@@ -503,7 +503,7 @@ class APIController extends Controller
         }
     }
 
-    public function getSingleMaterial($softtoken)
+    public function getSingleMaterial($softtoken, $id)
     {
         if($softtoken == env('SOFT_TOKEN'))
         {

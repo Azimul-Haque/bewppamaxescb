@@ -509,7 +509,6 @@ class APIController extends Controller
         {
             $material = Cache::remember('singlelecturematerial', 7 * 24 * 60 * 60, function () {
                 $material = Material::where('status', 1) // 1 = active, 0 = inactive
-                                     ->orderBy('id', 'desc')
                                      ->select('id', 'type', 'title', 'author', 'author_desc')
                                      ->get();
 

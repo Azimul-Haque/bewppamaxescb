@@ -868,7 +868,7 @@ class DashboardController extends Controller
 
             OneSignal::sendNotificationToUser(
                 "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
-                ["da8fc14d-736b-4982-ad61-4bfec5090937"],
+                $user->onesignal_id,
                 $url = null, 
                 $data = array("answer" => $charioteer->answer),
                 $buttons = null, 

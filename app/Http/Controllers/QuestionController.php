@@ -433,7 +433,7 @@ class QuestionController extends Controller
             $headings = $question->question,
         );
 
-        Session::flash('success', 'Question deleted successfully!');
+        Session::flash('success', 'Question sent in Notification successfully!');
         return redirect()->route('dashboard.questions');
     }
 

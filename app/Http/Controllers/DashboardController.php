@@ -951,7 +951,7 @@ class DashboardController extends Controller
                 $schedule = null,
                 $headings = $request->headings,
             );
-        } elseif($request->type == 'free') {
+        } elseif($request->type == 'all') {
             OneSignal::sendNotificationToAll(
                 $request->message,
                 $url = null, 
@@ -960,6 +960,8 @@ class DashboardController extends Controller
                 $schedule = null,
                 $headings = $request->headings,
             );
+        } else {
+
         }
 
         $notification = new Notification;

@@ -513,6 +513,9 @@ class APIController extends Controller
                                      ->first();
                 return $material;
             });            
+            
+            $material->count++;
+            $material->save();
 
             return response()->json([
                 'success' => true,

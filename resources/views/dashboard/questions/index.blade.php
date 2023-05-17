@@ -273,13 +273,13 @@
                                   {{-- Delete Question Modal Code --}}
                                   {{-- Delete Question Modal Code --}}
 
-                                  <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#notifModal{{ $user->id }}">
+                                  <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#notifModal{{ $question->id }}">
                                     <i class="fas fa-bell"></i>
                                   </button>
                                   {{-- Notif Modal Code --}}
                                   {{-- Notif Modal Code --}}
                                   <!-- Modal -->
-                                  <div class="modal fade" id="notifModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="notifModalLabel" aria-hidden="true" data-backdrop="static">
+                                  <div class="modal fade" id="notifModal{{ $question->id }}" tabindex="-1" role="dialog" aria-labelledby="notifModalLabel" aria-hidden="true" data-backdrop="static">
                                     <div class="modal-dialog" role="document">
                                       <div class="modal-content">
                                         <div class="modal-header bg-warning">
@@ -288,7 +288,7 @@
                                             <span aria-hidden="true">&times;</span>
                                           </button>
                                         </div>
-                                        <form method="post" action="{{ route('dashboard.questions.sendnotification', $user->id) }}">
+                                        <form method="post" action="{{ route('dashboard.questions.sendnotification', $question->id) }}">
                                           <div class="modal-body">
                                                 @csrf
                                                 <div class="input-group mb-3">

@@ -290,7 +290,8 @@
                                         </div>
                                         
                                           <div class="modal-body">
-                                            @csrf
+                                            
+                                            {{-- @csrf
                                             <div class="input-group mb-3">
                                                 <input type="text"
                                                        name="headings"
@@ -308,7 +309,7 @@
                                                 <div class="input-group-append">
                                                     <div class="input-group-text"><span class="fas fa-spa"></span></div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

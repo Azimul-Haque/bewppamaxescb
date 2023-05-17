@@ -58,7 +58,7 @@
                               <tr>
                                   <td>
                                       {{ $material->title }}
-                                      <span class="badge bg-primary" rel="tooltip" title="" data-original-title="মেধাতালিকা দেখুন"><i class="fas fa-bolt"></i> {{ $exam->participation }}</span>
+                                      <span class="badge bg-primary" rel="tooltip" title="" data-original-title="মেধাতালিকা দেখুন"><i class="fas fa-bolt"></i> {{ $material->count }}</span>
                                       {{-- <br/>
                                       <span class="badge bg-success">{{ $material->topic->name }}</span>
                                       <span class="badge bg-info">{{ $material->difficulty == 1 ? 'সহজ' : ($material->difficulty == 2 ? 'মধ্যম' : 'কঠিন') }}</span> --}}

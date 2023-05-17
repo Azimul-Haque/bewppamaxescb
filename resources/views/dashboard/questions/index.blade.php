@@ -273,6 +273,9 @@
                                   {{-- Delete Question Modal Code --}}
                                   {{-- Delete Question Modal Code --}}
 
+                                  <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#notifModal{{ $question->id }}">
+                                    <i class="fas fa-bell"></i>
+                                  </button>
                                   
                               </tr>
                           @endforeach

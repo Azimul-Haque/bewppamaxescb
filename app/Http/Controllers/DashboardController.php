@@ -977,7 +977,7 @@ class DashboardController extends Controller
                 $data = array("a" => 'update'),
                 $buttons = null, 
                 $schedule = null,
-                $headings = $question->question,
+                $headings = $request->headings,
             );
         }
 

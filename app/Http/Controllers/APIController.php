@@ -512,9 +512,7 @@ class APIController extends Controller
                                      ->select('id', 'type', 'title', 'author', 'author_desc', 'content', 'url', 'count')
                                      ->first();
 
-                // foreach($materials as $material) {
-                //     $material->makeHidden('id', 'status', 'updated_at');
-                // }
+                
                 return $materials;
             });
             // dd($materials);

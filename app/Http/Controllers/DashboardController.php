@@ -962,7 +962,7 @@ class DashboardController extends Controller
             );
         } elseif($request->type == 'update') {
             // OneSignal::sendNotificationToAll(
-            //     "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
+            //     $request->message,
             //     $url = null, 
             //     $data = array("answer" => $charioteer->answer),
             //     $buttons = null, 

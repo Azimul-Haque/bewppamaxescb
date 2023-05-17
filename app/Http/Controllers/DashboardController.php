@@ -961,7 +961,27 @@ class DashboardController extends Controller
                 $headings = $request->headings,
             );
         } elseif($request->type == 'update') {
+            // OneSignal::sendNotificationToAll(
+            //     "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
+            //     $url = null, 
+            //     $data = array("answer" => $charioteer->answer),
+            //     $buttons = null, 
+            //     $schedule = null,
+            //     $headings = $charioteer->question
+            // );
 
+            $answertext = $question['option' . $question->answer];
+            // dd($answertext);
+
+            OneSignal::sendNotificationToUser(
+                "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
+                ['716ffeb3-f6c2-4a4a-a253-710f339aa863'],
+                $url = null, 
+                $data = array("a" => 'answer', "b" => $answertext, 'c' => $question->questionexplanation ? $question->questionexplanation->explanation : ''),
+                $buttons = null, 
+                $schedule = null,
+                $headings = $question->question,
+            );
         }
 
         $notification = new Notification;

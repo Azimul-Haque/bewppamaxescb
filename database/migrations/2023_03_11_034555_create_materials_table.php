@@ -22,7 +22,7 @@ class CreateMaterialsTable extends Migration
             $table->text('content');
             $table->string('url')->nullable();
             $table->integer('status');
-            $table->integer('count');
+            $table->integer('count')->default(0);
             $table->timestamps();
         });
     }

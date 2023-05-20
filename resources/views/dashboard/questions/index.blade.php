@@ -798,7 +798,7 @@
         }
       },
       dialogsInBody: true,
-      placeholder: 'কন্টেন্ট লিখুন...',
+      placeholder: 'প্রশ্নটি লিখুন',
       tabsize: 1,
       height: 100,
       width: 1000,

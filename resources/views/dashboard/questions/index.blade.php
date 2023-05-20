@@ -603,7 +603,7 @@
                     @csrf
                     <div class="input-group mb-3">
                         <div id="questionsummernote" style="width100%"></div>
-                        <input type="hidden" id="question" name="question">
+                        <textarea type="hidden" id="question" name="question"></textarea>
                         {{-- <input type="text" id="question" name="question" class="form-control" value="{{ old('question') }}" placeholder="প্রশ্ন" required>
                         <div class="input-group-append">
                             <div class="input-group-text"><span class="far fa-question-circle"></span></div>
@@ -794,7 +794,7 @@
     $('#questionsummernote').summernote({
       callbacks: {
         onChange: function(contents, $editable) {
-          $("textarea#content").html(contents);
+          $("textarea#question").html(contents);
         }
       },
       dialogsInBody: true,

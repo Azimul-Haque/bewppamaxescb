@@ -50,7 +50,7 @@
                           @foreach($examquestions as $examquestion)
                               <tr>
                                   <td>
-                                      {{ $examquestion->question->question }}<br/>
+                                      {!! $examquestion->question->question !!}<br/>
                                       <span class="badge bg-success">{{ $examquestion->question->topic->name }}</span>
                                       @foreach($examquestion->question->tags as $tag)
                                         <span class="badge bg-primary">{{ $tag->name }}</span>

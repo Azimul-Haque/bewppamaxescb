@@ -81,7 +81,7 @@
                                             <div class="modal-body">
                                                 আপনি কি নিশ্চিতভাবে এই প্রশ্নটি অপসারণ করতে চান?<br/>
                                                 <center>
-                                                    <big><b>{{ $examquestion->question->question }}</b></big><br/>
+                                                    <big><b>{!! $examquestion->question->question !!}</b></big><br/>
                                                 </center>
                                             </div>
                                             <div class="modal-footer">

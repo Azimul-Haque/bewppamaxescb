@@ -242,6 +242,7 @@ class DashboardController extends Controller
                         $q->where('name', 'like', '%' . $search . '%');
                         $q->orWhere('mobile', 'like', '%' . $search . '%');
                         $q->orWhere('amount', 'like', '%' . $search . '%');
+                        $q->orWhere('store_amount', 'like', '%' . $search . '%');
                     })->paginate(15);
 
         return view('dashboard.payments.index')->withPayments($payments);

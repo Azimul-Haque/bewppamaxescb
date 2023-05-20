@@ -33,9 +33,11 @@ return array(
     'ed962a97bd972bc82007176b647d4e36' => $vendorDir . '/facade/ignition/src/helpers.php',
     '6124b4c8570aa390c21fafd04a26c69f' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
     'b6b991a57620e2fb6b2f66f03fe9ddc2' => $vendorDir . '/symfony/string/Resources/functions.php',
+    '2cffec82183ee1cea088009cef9a6fc3' => $vendorDir . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
     '4a1f389d6ce373bda9e57857d3b61c84' => $vendorDir . '/barryvdh/laravel-debugbar/src/helpers.php',
     'f18cc91337d49233e5754e93f3ed9ec3' => $vendorDir . '/laravelcollective/html/src/helpers.php',
     'c379e2a4ec3735f6c4915556c8c81813' => $vendorDir . '/rap2hpoutre/fast-excel/src/functions/fastexcel.php',
     'bca8bc0a43e3abe0c7d97e8537cba0d9' => $vendorDir . '/shipu/php-aamarpay-payment/src/helpers.php',
+    'cb61d74ad51d00867155534456b38b23' => $vendorDir . '/mews/purifier/src/helpers.php',
     '6d394c3a532652dafb4dd296ba6a3f0b' => $baseDir . '/app/Http/helpers.php',
 );

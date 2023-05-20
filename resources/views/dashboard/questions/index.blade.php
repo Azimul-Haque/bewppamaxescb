@@ -626,7 +626,7 @@
           <form method="post" action="{{ route('dashboard.questions.store') }}" enctype='multipart/form-data'>
               <div class="modal-body">
                     @csrf
-                    <textarea id="question" name="question"></textarea>
+                    <textarea id="questionsummernote" name="question"></textarea>
                     <div class="input-group mb-3">
                         {{-- <div id="questionsummernote" style="width100%"></div>
                         <textarea id="question" name="question" style="display: none;"></textarea> --}}

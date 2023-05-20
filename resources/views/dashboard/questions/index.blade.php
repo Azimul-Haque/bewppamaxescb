@@ -603,7 +603,7 @@
                     @csrf
                     <div class="input-group mb-3">
                         <div id="questionsummernote" style="width100%"></div>
-                        <textarea type="hidden" id="question" name="question"></textarea>
+                        <textarea id="question" name="question" style="display: none;"></textarea>
                         {{-- <input type="text" id="question" name="question" class="form-control" value="{{ old('question') }}" placeholder="প্রশ্ন" required>
                         <div class="input-group-append">
                             <div class="input-group-text"><span class="far fa-question-circle"></span></div>

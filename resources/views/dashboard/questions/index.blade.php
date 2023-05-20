@@ -204,11 +204,11 @@
 
                                       <script>
                                           $('#question{{ $question->id }}').summernote({
-                                            callbacks: {
-                                              onChange: function(contents, $editable) {
-                                                $("textarea#content").html(contents);
-                                              }
-                                            },
+                                            // callbacks: {
+                                            //   onChange: function(contents, $editable) {
+                                            //     $("textarea#content").html(contents);
+                                            //   }
+                                            // },
                                             dialogsInBody: true,
                                             placeholder: 'কন্টেন্ট লিখুন...',
                                             tabsize: 3,

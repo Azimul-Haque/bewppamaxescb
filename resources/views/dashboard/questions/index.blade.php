@@ -602,10 +602,12 @@
               <div class="modal-body">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="text" id="question" name="question" class="form-control" value="{{ old('question') }}" placeholder="প্রশ্ন" required>
+                        <div id="questionsummernote"></div>
+                        <input type="hidden" id="question" name="question">
+                        {{-- <input type="text" id="question" name="question" class="form-control" value="{{ old('question') }}" placeholder="প্রশ্ন" required>
                         <div class="input-group-append">
                             <div class="input-group-text"><span class="far fa-question-circle"></span></div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="row">
                         <div class="col-md-6">

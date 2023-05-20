@@ -191,7 +191,7 @@
                                       </div>
 
                                       <script>
-                                          $('#question{{ $question->id }}').summernote({
+                                          $('#question{{ $reportedquestion->question->id }}').summernote({
                                             // callbacks: {
                                             //   onChange: function(contents, $editable) {
                                             //     $("textarea#content").html(contents);

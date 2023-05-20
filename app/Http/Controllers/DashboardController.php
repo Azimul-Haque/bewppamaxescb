@@ -241,6 +241,7 @@ class DashboardController extends Controller
         $payments = Payment::where('trx_id', 'LIKE', "%$search%")->orWhereHas('User', function($q) use ($search){
                         $q->where('name', 'like', '%' . $search . '%');
                         $q->orWhere('mobile', 'like', '%' . $search . '%');
+                        $q->orWhere('amount', 'like', '%' . $search . '%');
                     })->paginate(15);
 
         return view('dashboard.payments.index')->withPayments($payments);

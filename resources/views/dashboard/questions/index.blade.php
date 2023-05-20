@@ -818,11 +818,11 @@
     //     } );
 
     $('#questionsummernote').summernote({
-      callbacks: {
-        onChange: function(contents, $editable) {
-          $("textarea#question").html(contents);
-        }
-      },
+      // callbacks: {
+      //   onChange: function(contents, $editable) {
+      //     $("textarea#question").html(contents);
+      //   }
+      // },
       dialogsInBody: true,
       placeholder: 'প্রশ্নটি লিখুন',
       tabsize: 1,

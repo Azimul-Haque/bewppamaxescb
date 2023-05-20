@@ -203,7 +203,7 @@
                                       </div>
 
                                       <script>
-                                          $('#summernote{{ $material->id }}').summernote({
+                                          $('#question{{ $question->id }}').summernote({
                                             callbacks: {
                                               onChange: function(contents, $editable) {
                                                 $("textarea#content").html(contents);
@@ -237,7 +237,7 @@
                                                       // console.error( error );
                                               } );
                                       </script>
-                                      
+
 <script type="text/javascript">
     $(document).ready( function() {
       $(document).on('change', '.btn-file :file', function() {

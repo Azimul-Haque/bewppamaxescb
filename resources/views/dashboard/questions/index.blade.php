@@ -95,7 +95,7 @@
                                                 <div class="modal-body">
                                                       @csrf
                                                       <div class="input-group mb-3">
-                                                          <textarea id="summernote{{ $material->id }}" name="question">{!! $question->question !!}</textarea>
+                                                          <textarea id="question{{ $question->id }}" name="question">{!! $question->question !!}</textarea>
                                                           {{-- <input type="text" name="question" class="form-control" value="{{ $question->question }}" placeholder="প্রশ্ন" required> --}}
                                                           <div class="input-group-append">
                                                               <div class="input-group-text"><span class="far fa-question-circle"></span></div>

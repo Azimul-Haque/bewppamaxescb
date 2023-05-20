@@ -189,6 +189,29 @@
                                           </div>
                                           </div>
                                       </div>
+
+                                      <script>
+                                          $('#question{{ $question->id }}').summernote({
+                                            // callbacks: {
+                                            //   onChange: function(contents, $editable) {
+                                            //     $("textarea#content").html(contents);
+                                            //   }
+                                            // },
+                                            dialogsInBody: true,
+                                            placeholder: 'কন্টেন্ট লিখুন...',
+                                            tabsize: 3,
+                                            height: 150,
+                                            toolbar: [
+                                              ['style', ['style']],
+                                              ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],
+                                              ['color', ['color']],
+                                              ['para', ['ul', 'ol', 'paragraph']],
+                                              ['table', ['table']],
+                                              ['insert', ['link', 'picture', 'video']],
+                                              ['view', ['fullscreen', 'codeview', 'help']]
+                                            ]
+                                          });
+                                      </script>
 <script type="text/javascript">
     $(document).ready( function() {
       $(document).on('change', '.btn-file :file', function() {

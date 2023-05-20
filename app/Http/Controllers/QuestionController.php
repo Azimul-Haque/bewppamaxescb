@@ -21,6 +21,7 @@ use File;
 use Session;
 use Artisan;
 use OneSignal;
+use Purifier;
 
 class QuestionController extends Controller
 {

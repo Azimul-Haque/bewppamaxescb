@@ -791,7 +791,7 @@
     //             console.error( error );
     //     } );
 
-    $('#summernote').summernote({
+    $('#questionsummernote').summernote({
       callbacks: {
         onChange: function(contents, $editable) {
           $("textarea#content").html(contents);
@@ -799,8 +799,8 @@
       },
       dialogsInBody: true,
       placeholder: 'কন্টেন্ট লিখুন...',
-      tabsize: 3,
-      height: 150,
+      tabsize: 1,
+      height: 100,
       toolbar: [
         ['style', ['style']],
         ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],

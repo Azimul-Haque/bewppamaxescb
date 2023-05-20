@@ -602,7 +602,7 @@
               <div class="modal-body">
                     @csrf
                     <div class="input-group mb-3">
-                        <div id="questionsummernote"></div>
+                        <div id="questionsummernote" style="width100%"></div>
                         <input type="hidden" id="question" name="question">
                         {{-- <input type="text" id="question" name="question" class="form-control" value="{{ old('question') }}" placeholder="প্রশ্ন" required>
                         <div class="input-group-append">

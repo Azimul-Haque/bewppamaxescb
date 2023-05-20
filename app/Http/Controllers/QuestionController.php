@@ -179,7 +179,7 @@ class QuestionController extends Controller
         // dd($request->file('image'));
         $this->validate($request,array(
             'topic_id'    => 'required|string|max:191',
-            'question'    => 'required|string|max:255',
+            'question'    => 'required',
             'option1'     => 'required|string|max:191',
             'option2'     => 'required|string|max:191',
             'option3'     => 'required|string|max:191',
@@ -321,7 +321,7 @@ class QuestionController extends Controller
         // dd($request->file('image'));
         $this->validate($request,array(
             'topic_id'    => 'required|string|max:191',
-            'question'    => 'required|string|max:255',
+            'question'    => 'required',
             'option1'     => 'required|string|max:191',
             'option2'     => 'required|string|max:191',
             'option3'     => 'required|string|max:191',

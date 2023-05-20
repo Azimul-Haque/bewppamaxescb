@@ -805,7 +805,7 @@
       toolbar: [
         ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],
         ['insert', ['link', 'picture']],
-        ['view', ['fullscreen', 'codeview']]
+        ['view', ['codeview']]
       ]
     });
 </script>

@@ -802,13 +802,9 @@
       tabsize: 1,
       height: 100,
       toolbar: [
-        ['style', ['style']],
         ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],
-        ['color', ['color']],
-        ['para', ['ul', 'ol', 'paragraph']],
-        ['table', ['table']],
-        ['insert', ['link', 'picture', 'video']],
-        ['view', ['fullscreen', 'codeview', 'help']]
+        ['insert', ['link', 'picture']],
+        ['view', ['fullscreen', 'codeview']]
       ]
     });
 </script>

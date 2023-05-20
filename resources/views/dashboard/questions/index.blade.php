@@ -223,19 +223,6 @@
                                               ['view', ['fullscreen', 'codeview', 'help']]
                                             ]
                                           });
-                                          // $('.multiple-select').select2({
-                                          //   // theme: 'bootstrap4',
-                                          // });
-                                          ClassicEditor
-                                              .create( document.querySelector( '#ckeditor{{ $material->id }}' ), {
-                                                placeholder: 'কন্টেন্ট লিখুন...',
-                                              } )
-                                              .then( editor => {
-                                                      // console.log( editor );
-                                              } )
-                                              .catch( error => {
-                                                      // console.error( error );
-                                              } );
                                       </script>
 
 <script type="text/javascript">

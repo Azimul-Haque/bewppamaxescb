@@ -82,7 +82,7 @@
                                               <form method="post" action="{{ route('dashboard.questions.update', $reportedquestion->question->id) }}" enctype='multipart/form-data'>
                                                 <div class="modal-body">
                                                       @csrf
-                                                      <textarea id="question{{ reportedquestion->question->id }}" name="question">{!! $question->question !!}</textarea>
+                                                      <textarea id="question{{ $reportedquestion->question->id }}" name="question">{!! $reportedquestion->question->question !!}</textarea>
                                                       {{-- <div class="input-group mb-3">
                                                           <input type="text" name="question" class="form-control" value="{{ $reportedquestion->question->question }}" placeholder="প্রশ্ন" required>
                                                           <div class="input-group-append">

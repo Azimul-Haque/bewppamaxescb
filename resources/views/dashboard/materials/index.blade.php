@@ -6,7 +6,16 @@
 <link href="{{ asset('css/select2-bootstrap4.min.css') }}" rel="stylesheet" />
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{ asset('js/select2.full.min.js') }}"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
+{{-- <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script> --}}
+<script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <style type="text/css">
   .select2-selection__choice{
       background-color: rgba(0, 123, 255) !important;
@@ -172,8 +181,8 @@
                                                       </div>
                                                       <div class="row">
                                                           <div class="col-md-12">
-                                                            {{-- <div class="ckeditor"></div> --}}
-                                                            <textarea id="ckeditor{{ $material->id }}" name="content">{!! $material->content !!}</textarea>
+                                                            <div class="ckeditor"></div>
+                                                            <textarea id="summernote{{ $material->id }}" name="content">{!! $material->content !!}</textarea>
                                                           </div>
                                                       </div>
                                                 </div>
@@ -188,6 +197,26 @@
                                       {{-- Edit Material Modal Code --}}
                                       {{-- Edit Material Modal Code --}}
                                       <script>
+                                          $('#summernote{{ $material->id }}').summernote({
+                                            callbacks: {
+                                              onChange: function(contents, $editable) {
+                                                $("textarea#content").html(contents);
+                                              }
+                                            },
+                                            dialogsInBody: true,
+                                            placeholder: 'কন্টেন্ট লিখুন...',
+                                            tabsize: 3,
+                                            height: 150,
+                                            toolbar: [
+                                              ['style', ['style']],
+                                              ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],
+                                              ['color', ['color']],
+                                              ['para', ['ul', 'ol', 'paragraph']],
+                                              ['table', ['table']],
+                                              ['insert', ['link', 'picture', 'video']],
+                                              ['view', ['fullscreen', 'codeview', 'help']]
+                                            ]
+                                          });
                                           // $('.multiple-select').select2({
                                           //   // theme: 'bootstrap4',
                                           // });
@@ -196,10 +225,10 @@
                                                 placeholder: 'কন্টেন্ট লিখুন...',
                                               } )
                                               .then( editor => {
-                                                      console.log( editor );
+                                                      // console.log( editor );
                                               } )
                                               .catch( error => {
-                                                      console.error( error );
+                                                      // console.error( error );
                                               } );
                                       </script>
           
@@ -327,7 +356,10 @@
                     <div class="row">
                         <div class="col-md-12">
                           {{-- <div class="ckeditor"></div> --}}
-                          <textarea id="ckeditor" name="content"></textarea>
+                          {{-- <textarea id="ckeditor" name="content"></textarea> --}}
+                          {{-- <input type="hidden" id="content" name="content"> --}}
+                          <textarea id="content" name="content" style="display:none;"></textarea>
+                          <div id="summernote"></div>
                         </div>
                     </div>
               </div>
@@ -355,18 +387,40 @@
     // $('.multiple-select').select2({
     //   // theme: 'bootstrap4',
     // });
-    ClassicEditor
-        .create( document.querySelector( '#ckeditor' ), {
-          placeholder: 'কন্টেন্ট লিখুন...',
-        })
-        .then( editor => {
-                console.log( editor );
-        })
-        .catch( error => {
-                console.error( error );
-        });
 
+    $('#summernote').summernote({
+      callbacks: {
+        onChange: function(contents, $editable) {
+          $("textarea#content").html(contents);
+        }
+      },
+      dialogsInBody: true,
+      placeholder: 'কন্টেন্ট লিখুন...',
+      tabsize: 3,
+      height: 150,
+      toolbar: [
+        ['style', ['style']],
+        ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'video']],
+        ['view', ['fullscreen', 'codeview', 'help']]
+      ]
+    });
 
+    ClassicEditor.create(document.querySelector( '#ckeditor' ), {
+      placeholder: 'কন্টেন্ট লিখুন...',
+      
+    })
+    .then( editor => {
+            // console.log( editor );
+      // editor.
+
+    })
+    .catch( error => {
+            // console.error( error );
+    });
 </script>
 <script type="text/javascript">
   // $(document).ready(function() {

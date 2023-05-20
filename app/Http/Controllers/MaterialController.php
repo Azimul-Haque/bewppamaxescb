@@ -43,7 +43,7 @@ class MaterialController extends Controller
 
     public function storeMaterial(Request $request)
     {
-        // dd($request->file('image'));
+        // dd($request->all());
         $this->validate($request,array(
             'type'    => 'required|integer',
             'title'    => 'required|string|max:255',

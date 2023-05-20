@@ -50,7 +50,7 @@
                           @foreach($reportedquestions as $reportedquestion)
                               <tr>
                                   <td>
-                                      {{ $reportedquestion->question->question }}<br/>
+                                      {!! $reportedquestion->question->question !!}<br/>
                                       <span class="badge bg-success">{{ $reportedquestion->question->topic->name }}</span>
                                       <span class="badge bg-info">{{ $reportedquestion->question->difficulty == 1 ? 'সহজ' : ($reportedquestion->question->difficulty == 2 ? 'মধ্যম' : 'কঠিন') }}</span>
                                       @foreach($reportedquestion->question->tags as $tag)

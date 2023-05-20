@@ -202,6 +202,42 @@
                                           </div>
                                       </div>
 <script type="text/javascript">
+    <script>
+        $('#summernote{{ $material->id }}').summernote({
+          callbacks: {
+            onChange: function(contents, $editable) {
+              $("textarea#content").html(contents);
+            }
+          },
+          dialogsInBody: true,
+          placeholder: 'কন্টেন্ট লিখুন...',
+          tabsize: 3,
+          height: 150,
+          toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+          ]
+        });
+        // $('.multiple-select').select2({
+        //   // theme: 'bootstrap4',
+        // });
+        ClassicEditor
+            .create( document.querySelector( '#ckeditor{{ $material->id }}' ), {
+              placeholder: 'কন্টেন্ট লিখুন...',
+            } )
+            .then( editor => {
+                    // console.log( editor );
+            } )
+            .catch( error => {
+                    // console.error( error );
+            } );
+    </script>
+    
     $(document).ready( function() {
       $(document).on('change', '.btn-file :file', function() {
         var input = $(this),

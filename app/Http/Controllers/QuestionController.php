@@ -436,7 +436,7 @@ class QuestionController extends Controller
             $data = array("a" => 'answer', "b" => $answertext, 'c' => $question->questionexplanation ? $question->questionexplanation->explanation : '', "d" => $question->question),
             $buttons = null, 
             $schedule = null,
-            $headings = strip_tags($question->question),
+            $headings = strip_tags($question->question) != '' strip_tags($question->question) : 'ছবিতে প্রশ্নটি দেখুন ও উত্তর করুন!',
         );
 
         Session::flash('success', 'Question sent in Notification successfully!');

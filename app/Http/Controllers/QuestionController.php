@@ -437,7 +437,7 @@ class QuestionController extends Controller
             $data = array("a" => 'answer', "b" => $answertext, 'c' => $question->questionexplanation ? $question->questionexplanation->explanation : '', "d" => $question->question),
             $buttons = null, 
             $schedule = null,
-            $headings = 
+            $headings = $strippedquestion,
         );
 
         Session::flash('success', 'Question sent in Notification successfully!');

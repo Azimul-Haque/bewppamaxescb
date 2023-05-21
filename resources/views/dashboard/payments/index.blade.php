@@ -47,7 +47,8 @@
                 @foreach($payments as $payment)
                 	<tr>
                     <td>
-                      {{ $payment->user->name }} <small>({{ $payment->user->payments->count() }} বার)</small><br/>
+                      <a href="{{ route('dashboard.user.single', $payment->user->id) }}">{{ $payment->user->name }}</a>
+                      <small>({{ $payment->user->payments->count() }} বার)</small><br/>
                       <small class="text-black-50">{{ $payment->user->mobile }}</small>
                     </td>
                     <td>{{ $payment->package->name }}</td>

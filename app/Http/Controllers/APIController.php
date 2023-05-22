@@ -614,7 +614,6 @@ class APIController extends Controller
             $categories = Cache::remember('examcategories', 21 * 24 * 60 * 60, function () {
                 $categories = Examcategory::where('status', 1) // 1 = active, 0 = inactive
                                      ->orderBy('id', 'desc')
-                                     ->select('id', 'name')
                                      ->get();
 
                 // foreach($categories as $material) {

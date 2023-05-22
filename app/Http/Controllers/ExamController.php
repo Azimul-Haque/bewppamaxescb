@@ -108,6 +108,7 @@ class ExamController extends Controller
         $category->name = $request->name;
         $category->save();
 
+        Cache::forget('examcategories');
         Session::flash('success', 'Category updated successfully!');
         return redirect()->route('dashboard.exams');
     }

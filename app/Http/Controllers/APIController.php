@@ -162,7 +162,7 @@ class APIController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $courses = Cache::remember('courses'.$coursetype, 7 * 24 * 60 * 60, function () use ($coursetype) {
+            $courses = Cache::remember('courses'.$coursetype, 10 * 24 * 60 * 60, function () use ($coursetype) {
                  $courses = Course::select('id', 'name')
                              ->where('status', 1) // take only active courses
                              ->where('type', $coursetype) // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT, 5 = QB
@@ -196,7 +196,7 @@ class APIController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $courseexams = Cache::remember('courseexams'.$id, 7 * 24 * 60 * 60, function () use ($id) {
+            $courseexams = Cache::remember('courseexams'.$id, 10 * 24 * 60 * 60, function () use ($id) {
                 $courseexams = Courseexam::select('course_id', 'exam_id')
                                      ->where('course_id', $id)
                                      ->orderBy('exam_id', 'desc')
@@ -235,7 +235,7 @@ class APIController extends Controller
                              ->first(); 
 
 
-            $courseexams = Cache::remember('courseexams'.$course->id, 7 * 24 * 60 * 60, function () use ($course) {
+            $courseexams = Cache::remember('courseexams'.$course->id, 10 * 24 * 60 * 60, function () use ($course) {
                 $courseexams = Courseexam::select('course_id', 'exam_id')
                                          ->where('course_id', $course->id)
                                          ->orderBy('exam_id', 'desc')
@@ -333,7 +333,7 @@ class APIController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $topics = Cache::remember('topics', 7 * 24 * 60 * 60, function () {
+            $topics = Cache::remember('topics', 10 * 24 * 60 * 60, function () {
                 $topics = Topic::all();
                 return $topics;
             });
@@ -479,7 +479,7 @@ class APIController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $materials = Cache::remember('lecturematerials', 7 * 24 * 60 * 60, function () {
+            $materials = Cache::remember('lecturematerials', 10 * 24 * 60 * 60, function () {
                 $materials = Material::where('status', 1) // 1 = active, 0 = inactive
                                      ->orderBy('id', 'desc')
                                      ->select('id', 'type', 'title', 'author', 'author_desc')
@@ -508,7 +508,7 @@ class APIController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $material = Cache::remember('singlelecturematerial' . $id, 7 * 24 * 60 * 60, function () use ($id) {
+            $material = Cache::remember('singlelecturematerial' . $id, 10 * 24 * 60 * 60, function () use ($id) {
                 $material = Material::where('id', $id)
                                      ->select('id', 'type', 'title', 'author', 'author_desc', 'content', 'url', 'count', 'created_at')
                                      ->first();
@@ -569,7 +569,7 @@ class APIController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $meritlists = Cache::remember('meritlist'.$course_id.$exam_id, 7 * 24 * 60 * 60, function () use ($course_id, $exam_id) {
+            $meritlists = Cache::remember('meritlist'.$course_id.$exam_id, 10 * 24 * 60 * 60, function () use ($course_id, $exam_id) {
                  $meritlists = Meritlist::where('course_id', $course_id)
                                         ->where('exam_id', $exam_id)
                                         ->get();
@@ -589,7 +589,7 @@ class APIController extends Controller
                  }
                  return $meritlists;
             });
-            $exam = Cache::remember('exam' . $exam_id, 7 * 24 * 60 * 60, function () use ($exam_id) {
+            $exam = Cache::remember('exam' . $exam_id, 10 * 24 * 60 * 60, function () use ($exam_id) {
                  $exam = Exam::select('name', 'participation', 'cutmark')->where('id', $exam_id)->first();
                  $exam->makeHidden('id', 'examcategory_id', 'duration');
                  return $exam;
@@ -611,7 +611,7 @@ class APIController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $categories = Cache::remember('examcategories', 7 * 24 * 60 * 60, function () {
+            $categories = Cache::remember('examcategories', 10 * 24 * 60 * 60, function () {
                 $categories = Examcategory::where('status', 1) // 1 = active, 0 = inactive
                                      ->orderBy('id', 'desc')
                                      ->select('id', 'type', 'title', 'author', 'author_desc')

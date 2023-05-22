@@ -612,13 +612,7 @@ class APIController extends Controller
         if($softtoken == env('SOFT_TOKEN'))
         {
             $categories = Cache::remember('examcategories', 21 * 24 * 60 * 60, function () {
-                $categories = Examcategory::where('status', 1) // 1 = active, 0 = inactive
-                                     ->orderBy('id', 'desc')
-                                     ->get();
-
-                // foreach($categories as $material) {
-                //     $material->makeHidden('id', 'status', 'updated_at');
-                // }
+                $categories = Examcategory::orderBy('id', 'desc')->get();
                 return $categories;
             });
             // dd($categories);

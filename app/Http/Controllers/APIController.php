@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Examcategory;
 use App\Question;
 use App\Course;
 use App\Courseexam;
@@ -598,6 +599,35 @@ class APIController extends Controller
                 'success' => true,
                 'meritlists' => $meritlists,
                 'exam' => $exam,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false
+            ]);
+        }
+    }
+
+    public function getCategories($softtoken)
+    {
+        if($softtoken == env('SOFT_TOKEN'))
+        {
+            $categories = Cache::remember('examcategories', 7 * 24 * 60 * 60, function () {
+                $categories = Examcategory::where('status', 1) // 1 = active, 0 = inactive
+                                     ->orderBy('id', 'desc')
+                                     ->select('id', 'type', 'title', 'author', 'author_desc')
+                                     ->get();
+
+                // foreach($categories as $material) {
+                //     $material->makeHidden('id', 'status', 'updated_at');
+                // }
+                return $categories;
+            });
+            // dd($categories);
+            // $categories = $categories->sortByDesc('start');
+            // return 'Test';
+            return response()->json([
+                'success' => true,
+                'categories' => $categories,
             ]);
         } else {
             return response()->json([

@@ -48,3 +48,4 @@ Route::get('/getmaterials/single/{softtoken}/{id}', 'APIController@getSingleMate
 Route::post('/addexamresult', 'APIController@addExamResult')->name('api.addexamresult');
 Route::get('/meritlist/{softtoken}/{course_id}/{exam_id}', 'APIController@getMeritList')->name('api.getmeritlist');
 Route::post('/reportquestion', 'APIController@reportQuestion')->name('api.reportquestion');
+Route::get('/getcategories/{softtoken}', 'APIController@getCategories')->name('api.getcategories');

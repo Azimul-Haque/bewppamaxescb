@@ -612,7 +612,7 @@ class APIController extends Controller
         if($softtoken == env('SOFT_TOKEN'))
         {
             $examcategories = Cache::remember('examcategories', 21 * 24 * 60 * 60, function () {
-                $examcategories = Examcategory::orderBy('id', 'desc')->get();
+                $examcategories = Examcategory::orderBy('id', 'asc')->get();
                 return $examcategories;
             });
             return response()->json([

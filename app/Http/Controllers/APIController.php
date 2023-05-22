@@ -615,9 +615,6 @@ class APIController extends Controller
                 $categories = Examcategory::orderBy('id', 'desc')->get();
                 return $categories;
             });
-            // dd($categories);
-            // $categories = $categories->sortByDesc('start');
-            // return 'Test';
             return response()->json([
                 'success' => true,
                 'categories' => $categories,

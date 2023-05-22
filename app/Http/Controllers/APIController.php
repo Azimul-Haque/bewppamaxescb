@@ -607,17 +607,17 @@ class APIController extends Controller
         }
     }
 
-    public function getCategories($softtoken)
+    public function getExamCategories($softtoken)
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $categories = Cache::remember('examcategories', 21 * 24 * 60 * 60, function () {
-                $categories = Examcategory::orderBy('id', 'desc')->get();
-                return $categories;
+            $examcategories = Cache::remember('examcategories', 21 * 24 * 60 * 60, function () {
+                $examcategories = Examcategory::orderBy('id', 'desc')->get();
+                return $examcategories;
             });
             return response()->json([
                 'success' => true,
-                'categories' => $categories,
+                'examcategories' => $examcategories,
             ]);
         } else {
             return response()->json([

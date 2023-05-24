@@ -59,7 +59,7 @@
                                   </td>
                                   <td>
                                     @if($examquestion->question->answer == 1)
-                                        {{ $examquestion->question->option1 }}
+                                        <big><b>{{ $examquestion->question->option1 }}</b></big>
                                     @else
                                         {{ $examquestion->question->option1 }}
                                     @endif

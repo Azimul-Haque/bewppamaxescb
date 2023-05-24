@@ -61,7 +61,7 @@
                                     @if($examquestion->question->answer == 1)
                                         {{ $examquestion->question->option1 }}
                                     @else
-
+                                        {{ $examquestion->question->option1 }}
                                     @endif
                                     {{ $examquestion->question->option1 }},
                                     {{ $examquestion->question->option2 }},

@@ -75,7 +75,13 @@
                                   </td>
                                   @if(Auth::user()->role == 'admin')
                                     <td>
-                                      <small>{{ date('d M, Y h:i a', strtotime($reportedquestion->updated_at)) }}</small><br/>
+                                      <small>
+                                        @if($reportedquestion->updated_at == $reportedquestion->created_at)
+                                        {{ date('d M, Y h:i a', strtotime($reportedquestion->updated_at)) }}
+                                        @else
+                                        <b>{{ date('d M, Y h:i a', strtotime($reportedquestion->updated_at)) }}</b>
+                                        @endif
+                                      </small><br/>
                                       <small>{{ date('d M, Y h:i a', strtotime($reportedquestion->created_at)) }}</small>
                                     </td>
                                   @endif

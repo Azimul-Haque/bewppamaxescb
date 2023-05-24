@@ -63,10 +63,22 @@
                                     @else
                                         {{ $examquestion->question->option1 }}
                                     @endif
-                                    {{ $examquestion->question->option1 }},
-                                    {{ $examquestion->question->option2 }},
-                                    {{ $examquestion->question->option3 }},
-                                    {{ $examquestion->question->option4 }}</td>
+                                    @if($examquestion->question->answer == 2)
+                                        <big><b>{{ $examquestion->question->option2 }}</b></big>
+                                    @else
+                                        {{ $examquestion->question->option2 }}
+                                    @endif
+                                    @if($examquestion->question->answer == 3)
+                                        <big><b>{{ $examquestion->question->option3 }}</b></big>
+                                    @else
+                                        {{ $examquestion->question->option3 }}
+                                    @endif
+                                    @if($examquestion->question->answer == 4)
+                                        <big><b>{{ $examquestion->question->option4 }}</b></big>
+                                    @else
+                                        {{ $examquestion->question->option4 }}
+                                    @endif
+                                  </td>
                                   <td align="right">
                                      {{--  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCategoryModal{{ $examquestion->id }}">
                                           <i class="far fa-edit"></i>

@@ -57,7 +57,7 @@
                                         <span class="badge bg-primary">{{ $tag->name }}</span>
                                       @endforeach
                                   </td>
-                              
+                                  <td>{{ $question->option1 }}, {{ $question->option2 }}, {{ $question->option3 }}, {{ $question->option4 }}</td>
                                   <td align="right" width="40%">
                                      {{--  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCategoryModal{{ $examquestion->id }}">
                                           <i class="far fa-edit"></i>

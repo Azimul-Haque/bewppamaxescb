@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reportedquestion extends Model
 {
+    public $timestamps = true;
+    
     public function question(){
         return $this->belongsTo('App\Question');
     }

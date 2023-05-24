@@ -121,6 +121,7 @@ class QuestionController extends Controller
 
         $topic = Topic::find($id);;
         $topic->name = $request->name;
+        $topic->updated_at = Carbon::now();
         $topic->save();
 
         Cache::forget('topics');

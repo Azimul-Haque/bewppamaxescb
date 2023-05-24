@@ -51,6 +51,9 @@
                                   <th width="20%">অপশনসমূহ</th>
                                   <th>ব্যবহারকারী</th>
                                   <th width="20%">বার্তা</th>
+                                  @if(Auth::user()->role == 'admin')
+                                    <th>হালনাগাদ সময়</th>
+                                  @endif
                                   <th width="10%">Action</th>
                               </tr>
                           </thead>
@@ -69,7 +72,10 @@
                                   <td>{{ $reportedquestion->question->option1 }}, {{ $reportedquestion->question->option2 }}, {{ $reportedquestion->question->option3 }}, {{ $reportedquestion->question->option4 }}</td>
                                   <td>
                                     <a href="{{ route('dashboard.users.single', $reportedquestion->user->id) }}">{{ $reportedquestion->user->name }}</a>
-                                  </td>                     
+                                  </td>
+                                  @if(Auth::user()->role == 'admin')
+                                    <th>হালনাগাদ সময়</th>
+                                  @endif
                                   <td>{{ $reportedquestion->message }}</td>                     
                                   <td>
                                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editQuestionModal{{ $reportedquestion->question->id }}">

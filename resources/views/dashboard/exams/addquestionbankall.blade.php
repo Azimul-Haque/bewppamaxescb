@@ -79,25 +79,25 @@
                                         @endforeach
                                     </td>
                                     <td>
-                                      @if($examquestion->question->answer == 1)
-                                          <big><b>{{ $examquestion->question->option1 }}</b></big>, 
+                                      @if($question->answer == 1)
+                                          <big><b>{{ $question->option1 }}</b></big>, 
                                       @else
-                                          {{ $examquestion->question->option1 }}, 
+                                          {{ $question->option1 }}, 
                                       @endif
-                                      @if($examquestion->question->answer == 2)
-                                          <big><b>{{ $examquestion->question->option2 }}</b></big>, 
+                                      @if($question->answer == 2)
+                                          <big><b>{{ $question->option2 }}</b></big>, 
                                       @else
-                                          {{ $examquestion->question->option2 }}, 
+                                          {{ $question->option2 }}, 
                                       @endif
-                                      @if($examquestion->question->answer == 3)
-                                          <big><b>{{ $examquestion->question->option3 }}</b></big>, 
+                                      @if($question->answer == 3)
+                                          <big><b>{{ $question->option3 }}</b></big>, 
                                       @else
-                                          {{ $examquestion->question->option3 }}, 
+                                          {{ $question->option3 }}, 
                                       @endif
-                                      @if($examquestion->question->answer == 4)
-                                          <big><b>{{ $examquestion->question->option4 }}</b></big>
+                                      @if($question->answer == 4)
+                                          <big><b>{{ $question->option4 }}</b></big>
                                       @else
-                                          {{ $examquestion->question->option4 }}
+                                          {{ $question->option4 }}
                                       @endif
                                     </td>
                                   </tr>

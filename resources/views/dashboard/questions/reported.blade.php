@@ -52,7 +52,7 @@
                                   <th>ব্যবহারকারী</th>
                                   <th>বার্তা</th>
                                   @if(Auth::user()->role == 'admin')
-                                    <th width="20%">হালনাগাদ সময়</th>
+                                    <th width="15%">হালনাগাদ সময়</th>
                                   @endif
                                   <th width="10%">Action</th>
                               </tr>

@@ -48,7 +48,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              
                                 @csrf
                                 @php
                                     $examquestionidarray = [];

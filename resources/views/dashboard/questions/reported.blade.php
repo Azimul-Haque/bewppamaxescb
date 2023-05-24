@@ -74,7 +74,7 @@
                                     <a href="{{ route('dashboard.users.single', $reportedquestion->user->id) }}">{{ $reportedquestion->user->name }}</a>
                                   </td>
                                   @if(Auth::user()->role == 'admin')
-                                    <td>হালনাগাদ সময়</td>
+                                    <td>{{ date('D M, Y h:i a', strtotime($reportedquestion->updated_at)) }}</td>
                                   @endif
                                   <td>{{ $reportedquestion->message }}</td>                     
                                   <td>

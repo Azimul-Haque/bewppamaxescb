@@ -115,7 +115,13 @@
                                                             </div>
                                                           </div>
                                                           <div class="col-md-6">
-                                                              <input type="text" name="option3" value="{{ $reportedquestion->question->option3 }}" class="form-control mb-3" placeholder="অপশন ৩" required>
+                                                            <div class="input-group mb-3">
+                                                                <input type="text" name="option3" value="{{ $reportedquestion->question->option3 }}" class="form-control mb-3" placeholder="অপশন ৩" required>
+                                                                <div class="input-group-append">
+                                                                    <div class="input-group-text"><small>অপশন ২</small></div>
+                                                                </div>
+                                                            </div>
+                                                              
                                                           </div>
                                                           <div class="col-md-6">
                                                               <input type="text" name="option4" value="{{ $reportedquestion->question->option4 }}" class="form-control mb-3" placeholder="অপশন ৪" required>

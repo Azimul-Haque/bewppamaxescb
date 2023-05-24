@@ -77,7 +77,7 @@
                                     <td>
                                       <small>
                                         {!! $reportedquestion->updated_at !!}
-                                        @if($reportedquestion->question->updated_at > $reportedquestion->updated_at)
+                                        @if($reportedquestion->question->updated_at > $reportedquestion->created_at)
                                           
                                           {{ date('d M, Y h:i a', strtotime($reportedquestion->updated_at)) }}
                                         @else

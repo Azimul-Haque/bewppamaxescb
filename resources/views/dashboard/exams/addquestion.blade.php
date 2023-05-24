@@ -20,7 +20,7 @@
     @section('page-header') {{ $exam->name }} @endsection
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">
                       <h3 class="card-title">প্রশ্নসমূহ ({{ $examquestions->count() }} টি প্রশ্ন)</h3>
@@ -101,7 +101,7 @@
                     <!-- /.card-body -->
                   </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
                       <h3 class="card-title">স্বয়ংক্রিয় প্রশ্ন প্রণয়ন</h3>

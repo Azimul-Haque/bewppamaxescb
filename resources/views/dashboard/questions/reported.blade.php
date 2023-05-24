@@ -79,7 +79,7 @@
                                         @if($reportedquestion->question->updated_at > $reportedquestion->created_at)
                                           <b>{{ date('d M, Y h:i a', strtotime($reportedquestion->question->updated_at)) }}</b>
                                         @else
-                                          <b>{{ date('d M, Y h:i a', strtotime($reportedquestion->question->updated_at)) }}</b>
+                                          {{ date('d M, Y h:i a', strtotime($reportedquestion->question->updated_at)) }}
                                         @endif
                                       </small><br/>
                                       <small>{{ date('d M, Y h:i a', strtotime($reportedquestion->created_at)) }}</small>

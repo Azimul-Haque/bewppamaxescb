@@ -77,6 +77,7 @@
                                     <td>
                                       <small>
                                         @if($reportedquestion->created_at == $reportedquestion->updated_at)
+                                          {{ $reportedquestion->created_at }}
                                           {{ date('d M, Y h:i a', strtotime($reportedquestion->updated_at)) }}
                                         @else
                                           <b>{{ date('d M, Y h:i a', strtotime($reportedquestion->updated_at)) }}</b>

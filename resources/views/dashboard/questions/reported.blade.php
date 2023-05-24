@@ -74,7 +74,10 @@
                                     <a href="{{ route('dashboard.users.single', $reportedquestion->user->id) }}">{{ $reportedquestion->user->name }}</a>
                                   </td>
                                   @if(Auth::user()->role == 'admin')
-                                    <td><small>{{ date('d M, Y h:i a', strtotime($reportedquestion->updated_at)) }}</small></td>
+                                    <td>
+                                      <small>{{ date('d M, Y h:i a', strtotime($reportedquestion->updated_at)) }}</small>
+                                      <small>{{ date('d M, Y h:i a', strtotime($reportedquestion->created_at)) }}</small>
+                                    </td>
                                   @endif
                                   <td>{{ $reportedquestion->message }}</td>                     
                                   <td>

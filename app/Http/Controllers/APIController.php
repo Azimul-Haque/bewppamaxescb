@@ -648,7 +648,7 @@ class APIController extends Controller
                 $reportedquestion->user_id = $user->id;
                 $reportedquestion->message = $request->message;
                 $reportedquestion->status = 0;
-                $reportedquestion->updated_at = Carbon::now();;
+                $reportedquestion->updated_at = Carbon::now();
                 $reportedquestion->save();
             } else {
 

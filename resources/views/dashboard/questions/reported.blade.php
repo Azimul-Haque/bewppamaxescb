@@ -50,10 +50,11 @@
                                   <th>উত্তর</th>
                                   <th width="20%">অপশনসমূহ</th>
                                   <th>ব্যবহারকারী</th>
-                                  <th width="20%">বার্তা</th>
+                                  <th>বার্তা</th>
                                   @if(Auth::user()->role == 'admin')
-                                    <th>হালনাগাদ সময়</th>
+                                    
                                   @endif
+                                  <th>হালনাগাদ সময়</th>
                                   <th width="10%">Action</th>
                               </tr>
                           </thead>

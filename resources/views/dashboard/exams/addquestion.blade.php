@@ -59,7 +59,7 @@
                                   </td>
                                   <td>
                                     @if()
-                                    @elseif()
+                                    @elseif($examquestion->question->answer == )
                                     {{ $examquestion->question->option1 }},
                                     {{ $examquestion->question->option2 }},
                                     {{ $examquestion->question->option3 }},

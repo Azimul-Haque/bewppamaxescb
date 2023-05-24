@@ -75,7 +75,7 @@
                                   </td>
                                   @if(Auth::user()->role == 'admin')
                                     <td>
-                                      <small>{{ date('d M, Y h:i a', strtotime($reportedquestion->updated_at)) }}</small>
+                                      <small>{{ date('d M, Y h:i a', strtotime($reportedquestion->updated_at)) }}</small><br/>
                                       <small>{{ date('d M, Y h:i a', strtotime($reportedquestion->created_at)) }}</small>
                                     </td>
                                   @endif

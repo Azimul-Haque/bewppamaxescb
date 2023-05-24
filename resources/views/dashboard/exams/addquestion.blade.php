@@ -43,7 +43,7 @@
                           <thead>
                               <tr>
                                   <th>প্রশ্ন</th>
-                                  <th>অপশনসমূহ</th>
+                                  <th width="35%">অপশনসমূহ</th>
                                   <th width="15%">Action</th>
                               </tr>
                           </thead>

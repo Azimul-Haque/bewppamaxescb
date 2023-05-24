@@ -73,6 +73,7 @@
                                   <td>
                                     <a href="{{ route('dashboard.users.single', $reportedquestion->user->id) }}">{{ $reportedquestion->user->name }}</a>
                                   </td>
+                                  <td>{{ $reportedquestion->message }}</td>
                                   @if(Auth::user()->role == 'admin')
                                     <td>
                                       <small>
@@ -82,8 +83,7 @@
                                       </small><br/>
                                       <small>{{ date('d M, Y h:i a', strtotime($reportedquestion->created_at)) }}</small>
                                     </td>
-                                  @endif
-                                  <td>{{ $reportedquestion->message }}</td>                     
+                                  @endif                   
                                   <td>
                                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editQuestionModal{{ $reportedquestion->question->id }}">
                                           <i class="far fa-edit"></i>

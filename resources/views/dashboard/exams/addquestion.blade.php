@@ -58,7 +58,7 @@
                                       @endforeach
                                   </td>
                                   <td>{{ $examquestion->question->option1 }}, {{ $examquestion->question->option2 }}, {{ $examquestion->question->option3 }}, {{ $examquestion->question->option4 }}</td>
-                                  <td align="right" width="40%">
+                                  <td align="right">
                                      {{--  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCategoryModal{{ $examquestion->id }}">
                                           <i class="far fa-edit"></i>
                                       </button> --}}

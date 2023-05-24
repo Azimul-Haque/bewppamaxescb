@@ -44,6 +44,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Question</th>
+                                    <th>Options</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -43,6 +43,7 @@
                           <thead>
                               <tr>
                                   <th>প্রশ্ন</th>
+                                  <th>অপশনসমূহ</th>
                                   <th>Action</th>
                               </tr>
                           </thead>

@@ -76,7 +76,6 @@
                                   @if(Auth::user()->role == 'admin')
                                     <td>
                                       <small>
-                                        {!! $reportedquestion->updated_at !!}
                                         @if($reportedquestion->question->updated_at > $reportedquestion->created_at)
                                           
                                           {{ date('d M, Y h:i a', strtotime($reportedquestion->question->updated_at)) }}

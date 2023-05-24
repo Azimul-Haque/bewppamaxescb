@@ -126,10 +126,9 @@
                                                             <div class="input-group mb-3">
                                                                 <input type="text" name="option4" value="{{ $reportedquestion->question->option4 }}" class="form-control mb-3" placeholder="অপশন ৪" required>
                                                                 <div class="input-group-append">
-                                                                    <div class="input-group-text"><small>অপশন ৩</small></div>
+                                                                    <div class="input-group-text"><small>অপশন ৪</small></div>
                                                                 </div>
                                                             </div>
-                                                              
                                                           </div>
                                                       </div>
                                                       <div class="row">

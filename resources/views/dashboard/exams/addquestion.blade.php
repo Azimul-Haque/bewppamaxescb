@@ -58,6 +58,8 @@
                                       @endforeach
                                   </td>
                                   <td>
+                                    @if()
+                                    @elseif()
                                     {{ $examquestion->question->option1 }},
                                     {{ $examquestion->question->option2 }},
                                     {{ $examquestion->question->option3 }},

@@ -59,19 +59,19 @@
                                   </td>
                                   <td>
                                     @if($examquestion->question->answer == 1)
-                                        <big><b>{{ $examquestion->question->option1 }}</b></big>
+                                        <big><b>{{ $examquestion->question->option1 }}</b></big>,
                                     @else
-                                        {{ $examquestion->question->option1 }}
+                                        {{ $examquestion->question->option1 }},
                                     @endif
                                     @if($examquestion->question->answer == 2)
-                                        <big><b>{{ $examquestion->question->option2 }}</b></big>
+                                        <big><b>{{ $examquestion->question->option2 }}</b></big>,
                                     @else
-                                        {{ $examquestion->question->option2 }}
+                                        {{ $examquestion->question->option2 }},
                                     @endif
                                     @if($examquestion->question->answer == 3)
-                                        <big><b>{{ $examquestion->question->option3 }}</b></big>
+                                        <big><b>{{ $examquestion->question->option3 }}</b></big>,
                                     @else
-                                        {{ $examquestion->question->option3 }}
+                                        {{ $examquestion->question->option3 }},
                                     @endif
                                     @if($examquestion->question->answer == 4)
                                         <big><b>{{ $examquestion->question->option4 }}</b></big>

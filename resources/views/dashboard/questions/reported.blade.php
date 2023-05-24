@@ -74,7 +74,7 @@
                                     <a href="{{ route('dashboard.users.single', $reportedquestion->user->id) }}">{{ $reportedquestion->user->name }}</a>
                                   </td>
                                   @if(Auth::user()->role == 'admin')
-                                    <td>
+                                    <td>ASDASD ASD 
                                       <small>
                                         {!! $reportedquestion->created_at !!}
                                         @if($reportedquestion->created_at == $reportedquestion->updated_at)

@@ -99,10 +99,20 @@
                                                       </div> --}}
                                                       <div class="row">
                                                           <div class="col-md-6">
-                                                              <input type="text" name="option1" value="{{ $reportedquestion->question->option1 }}" class="form-control mb-3" placeholder="অপশন ১" required>
+                                                            <div class="input-group mb-3">
+                                                                <input type="text" name="option1" value="{{ $reportedquestion->question->option1 }}" class="form-control" placeholder="অপশন ১" required>
+                                                                <div class="input-group-append">
+                                                                    <div class="input-group-text"><small>অপশন ১</small></div>
+                                                                </div>
+                                                            </div>
                                                           </div>
                                                           <div class="col-md-6">
-                                                              <input type="text" name="option2" value="{{ $reportedquestion->question->option2 }}" class="form-control mb-3" placeholder="অপশন ২" required>
+                                                            <div class="input-group mb-3">
+                                                                <input type="text" name="option2" value="{{ $reportedquestion->question->option2 }}" class="form-control mb-3" placeholder="অপশন ২" required>
+                                                                <div class="input-group-append">
+                                                                    <div class="input-group-text"><small>অপশন ২</small></div>
+                                                                </div>
+                                                            </div>
                                                           </div>
                                                           <div class="col-md-6">
                                                               <input type="text" name="option3" value="{{ $reportedquestion->question->option3 }}" class="form-control mb-3" placeholder="অপশন ৩" required>

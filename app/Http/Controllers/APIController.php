@@ -485,13 +485,13 @@ class APIController extends Controller
                                      ->select('id', 'type', 'title', 'author', 'author_desc')
                                      ->get();
 
-                // foreach($materials as $material) {
-                //     $material->makeHidden('id', 'status', 'updated_at');
-                // }
+                foreach($materials as $material) {
+                    $material->makeHidden('id', 'status', 'updated_at');
+                }
                 return $materials;
             });
             // dd($materials);
-            // $materials = $materials->sortByDesc('start');
+            $materials = $materials->sortByDesc('start');
             // return 'Test';
             return response()->json([
                 'success' => true,
@@ -503,6 +503,38 @@ class APIController extends Controller
             ]);
         }
     }
+
+    // ETA PORE USE KORA HOBE
+    // ETA PORE USE KORA HOBE
+    // ETA PORE USE KORA HOBE
+    // public function getMaterials($softtoken)
+    // {
+    //     if($softtoken == env('SOFT_TOKEN'))
+    //     {
+    //         $materials = Cache::remember('lecturematerials', 10 * 24 * 60 * 60, function () {
+    //             $materials = Material::where('status', 1) // 1 = active, 0 = inactive
+    //                                  ->orderBy('id', 'desc')
+    //                                  ->select('id', 'type', 'title', 'author', 'author_desc')
+    //                                  ->get();
+
+    //             // foreach($materials as $material) {
+    //             //     $material->makeHidden('id', 'status', 'updated_at');
+    //             // }
+    //             return $materials;
+    //         });
+    //         // dd($materials);
+    //         // $materials = $materials->sortByDesc('start');
+    //         // return 'Test';
+    //         return response()->json([
+    //             'success' => true,
+    //             'materials' => $materials,
+    //         ]);
+    //     } else {
+    //         return response()->json([
+    //             'success' => false
+    //         ]);
+    //     }
+    // }
 
     public function getSingleMaterial($softtoken, $id)
     {

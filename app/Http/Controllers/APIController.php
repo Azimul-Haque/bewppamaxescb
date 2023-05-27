@@ -486,7 +486,7 @@ class APIController extends Controller
                                      ->get();
 
                 foreach($materials as $material) {
-                    $material->makeHidden('id', 'status', 'updated_at');
+                    $material->makeHidden('id', 'status', 'updated_at'); // kichu id baad diye chalate hobe...
                 }
                 return $materials;
             });

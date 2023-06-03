@@ -537,9 +537,9 @@
                              name="thumbnail"
                              class="form-control"
                              value="{{ old('thumbnail') }}"
-                             placeholder="নাম" required>
+                             placeholder="থাম্বনেইল" required>
                       <div class="input-group-append">
-                          <div class="input-group-text"><span class="far fa-bookmark"></span></div>
+                          <div class="input-group-text"><span class="far fa-thumbnail"></span></div>
                       </div>
                   </div>
             </div>

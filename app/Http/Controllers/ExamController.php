@@ -103,7 +103,8 @@ class ExamController extends Controller
     public function updateExamCategory(Request $request, $id)
     {
         $this->validate($request,array(
-            'name' => 'required|string|max:191',
+            'name'          => 'required|string|max:191',
+            'thumbnail'     => 'required|string|max:191',
         ));
 
         $category = Examcategory::find($id);;

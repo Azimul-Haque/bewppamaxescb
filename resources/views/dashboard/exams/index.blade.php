@@ -343,6 +343,16 @@
                                                               <div class="input-group-text"><span class="far fa-bookmark"></span></div>
                                                           </div>
                                                       </div>
+                                                      <div class="input-group mb-3">
+                                                          <input type="text"
+                                                                 name="thumbnail"
+                                                                 class="form-control"
+                                                                 value="{{ old('thumbnail') }}"
+                                                                 placeholder="থাম্বনেইল" required>
+                                                          <div class="input-group-append">
+                                                              <div class="input-group-text"><span class="far fa-image"></span></div>
+                                                          </div>
+                                                      </div>
                                                   </div>
                                                   <div class="modal-footer">
                                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

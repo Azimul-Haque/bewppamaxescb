@@ -347,7 +347,7 @@
                                                           <input type="text"
                                                                  name="thumbnail"
                                                                  class="form-control"
-                                                                 value="{{ old('thumbnail') }}"
+                                                                 value="{{ $category->thumbnail }}"
                                                                  placeholder="থাম্বনেইল" required>
                                                           <div class="input-group-append">
                                                               <div class="input-group-text"><span class="far fa-image"></span></div>

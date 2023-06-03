@@ -92,7 +92,7 @@ class ExamController extends Controller
 
         $category = new Examcategory;
         $category->name = $request->name;
-        $category->name = $request->name;
+        $category->thumbnail = $request->thumbnail;
         $category->save();
 
         Cache::forget('examcategories');
@@ -109,6 +109,7 @@ class ExamController extends Controller
 
         $category = Examcategory::find($id);;
         $category->name = $request->name;
+        $category->thumbnail = $request->thumbnail;
         $category->save();
 
         Cache::forget('examcategories');

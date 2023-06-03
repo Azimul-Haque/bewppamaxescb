@@ -539,7 +539,7 @@
                              value="{{ old('thumbnail') }}"
                              placeholder="থাম্বনেইল" required>
                       <div class="input-group-append">
-                          <div class="input-group-text"><span class="far fa-file-photo-o"></span></div>
+                          <div class="input-group-text"><span class="far fa-image"></span></div>
                       </div>
                   </div>
             </div>

@@ -121,7 +121,6 @@ class QuestionController extends Controller
 
         $topic = Topic::find($id);;
         $topic->name = $request->name;
-        
         $topic->save();
 
         Cache::forget('topics');

@@ -486,7 +486,7 @@ class APIController extends Controller
                                      ->get();
 
                 foreach($materials as $material) {
-                    $material->makeHidden('id', 'status', 'updated_at');
+                    $material->makeHidden('status', 'updated_at'); // 'id', 
                 }
                 return $materials;
             });

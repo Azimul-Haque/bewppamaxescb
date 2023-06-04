@@ -660,7 +660,6 @@ class APIController extends Controller
 
     public function getQBCatWise($softtoken, $getexamcategory)
     {
-        $courseexams = collect();
         if($softtoken == env('SOFT_TOKEN'))
         {
             // $course = Course::select('id')
@@ -669,7 +668,7 @@ class APIController extends Controller
             //                  ->first();
             // UPORER TA THEKE ID ASBE 6, SETA HOCCHE QB ER COURSE ID
 
-            $allcatcourseexams = Cache::remember('questionbank'.$getexamcategory, 10 * 24 * 60 * 60, function () use ($getexamcategory) {
+            $courseexams = Cache::remember('questionbank'.$getexamcategory, 10 * 24 * 60 * 60, function () use ($getexamcategory) {
                 $allcatcourseexams = Courseexam::select('course_id', 'exam_id')
                                          ->where('course_id', 6) // MANUALLY BOSAY DILAM
                                          ->orderBy('exam_id', 'desc')

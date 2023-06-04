@@ -684,14 +684,14 @@ class APIController extends Controller
                         $courseexams->push($courseexam);
                     }
                 }
-                dd($courseexams);
+                // dd($courseexams);
                 return $courseexams;
             });
             // dd($courseexams);
 
             return response()->json([
                 'success' => true,
-                'exams' => $courseexams,
+                'exams' => $courseexamsreturn,
             ]);
         } else {
             return response()->json([

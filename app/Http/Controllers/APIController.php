@@ -660,6 +660,7 @@ class APIController extends Controller
 
     public function getQBCatWise($softtoken, $getexamcategory)
     {
+        $courseexams = collect();
         if($softtoken == env('SOFT_TOKEN'))
         {
             // $course = Course::select('id')
@@ -673,7 +674,7 @@ class APIController extends Controller
                                          ->where('course_id', 6) // MANUALLY BOSAY DILAM
                                          ->orderBy('exam_id', 'desc')
                                          ->get();
-                $courseexams = collect();
+                
                 foreach($allcatcourseexams as $courseexam) {
                     if($courseexam->exam->examcategory_id == $getexamcategory) {
                         $courseexam->name = $courseexam->exam->name;

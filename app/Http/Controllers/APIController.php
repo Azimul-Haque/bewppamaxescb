@@ -684,7 +684,7 @@ class APIController extends Controller
                         $courseexams->push($courseexam);
                     }
                 }
-                // dd($courseexams);
+                dd($courseexams);
                 return $courseexams;
             });
             // dd($courseexams);

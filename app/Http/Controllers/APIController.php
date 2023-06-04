@@ -668,9 +668,9 @@ class APIController extends Controller
             //                  ->first();
             // UPORER TA THEKE ID ASBE 6, SETA HOCCHE QB ER COURSE ID
 
-            $courseexams = collect();
+            // $courseexams = collect();
 
-            $allcatcourseexams = Cache::remember('questionbank'.$getexamcategory, 10 * 24 * 60 * 60, function () use ($getexamcategory) {
+            $courseexams = Cache::remember('questionbank'.$getexamcategory, 10 * 24 * 60 * 60, function () use ($getexamcategory) {
                 $allcatcourseexams = Courseexam::select('course_id', 'exam_id')
                                          ->where('course_id', 6) // MANUALLY BOSAY DILAM
                                          ->orderBy('exam_id', 'desc')

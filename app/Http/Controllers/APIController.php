@@ -669,7 +669,7 @@ class APIController extends Controller
             // UPORER TA THEKE ID ASBE 6, SETA HOCCHE QB ER COURSE ID
 
             $courseexams = Collect();
-            
+
             $allcatcourseexams = Cache::remember('questionbank'.$getexamcategory, 10 * 24 * 60 * 60, function () use ($getexamcategory) {
                 $allcatcourseexams = Courseexam::select('course_id', 'exam_id')
                                          ->where('course_id', 6) // MANUALLY BOSAY DILAM
@@ -683,7 +683,7 @@ class APIController extends Controller
                         $courseexam->questioncount = $courseexam->exam->examquestions->count();
                         $courseexam->syllabus = $courseexam->exam->syllabus ? $courseexam->exam->syllabus : 'N/A';
                         $courseexam->exam->makeHidden('id', 'name', 'examcategory_id', 'price_type', 'available_from', 'available_to', 'syllabus', 'created_at', 'updated_at', 'examquestions');
-                        $courseexams[] = 
+                        $courseexams[] = $courseexam;
                     }
                 }
                 return $courseexams;

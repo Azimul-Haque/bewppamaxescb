@@ -686,7 +686,7 @@ class APIController extends Controller
                         $courseexams[] = $courseexam;
                     }
                 }
-                dd($courseexams);
+                // dd($courseexams);
                 $courseexams = collect($courseexams);
                 return $courseexams;
             });

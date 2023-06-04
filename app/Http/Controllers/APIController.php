@@ -669,12 +669,12 @@ class APIController extends Controller
             // UPORER TA THEKE ID ASBE 6, SETA HOCCHE QB ER COURSE ID
 
             $courseexams = Cache::remember('questionbank'.$getexamcategory, 10 * 24 * 60 * 60, function () use ($getexamcategory) {
-                $allcatcourseexams = Courseexam::select('course_id', 'exam_id')
+                $courseexams = Courseexam::select('course_id', 'exam_id')
                                          ->where('course_id', 6) // MANUALLY BOSAY DILAM
                                          ->orderBy('exam_id', 'desc')
                                          ->get();
                 
-                foreach($allcatcourseexams as $courseexam) {
+                foreach($courseexams as $courseexam) {
                     if($courseexam->exam->examcategory_id == $getexamcategory) {
                         $courseexam->name = $courseexam->exam->name;
                         $courseexam->start = $courseexam->exam->available_from;

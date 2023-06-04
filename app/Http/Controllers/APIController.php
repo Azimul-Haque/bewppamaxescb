@@ -687,7 +687,6 @@ class APIController extends Controller
                     }
                 }
                 // dd($courseexams);
-                $courseexams = collect($courseexams);
                 return $courseexams;
             });
             // dd($courseexams);

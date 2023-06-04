@@ -658,7 +658,7 @@ class APIController extends Controller
         }
     }
 
-    public function getQBCatWise($softtoken, $coursetype, $getexamcategory)
+    public function getQBCatWise($softtoken, $getexamcategory)
     {
         if($softtoken == env('SOFT_TOKEN'))
         {

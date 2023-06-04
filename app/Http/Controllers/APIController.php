@@ -669,7 +669,7 @@ class APIController extends Controller
             // UPORER TA THEKE ID ASBE 6, SETA HOCCHE QB ER COURSE ID
 
 
-            $courseexams = Cache::remember('courseexams'.$course->id, 10 * 24 * 60 * 60, function () {
+            $courseexams = Cache::remember('courseexams'.$course->id, 10 * 24 * 60 * 60, function () use ($getexamcategory) {
                 $courseexams = Courseexam::select('course_id', 'exam_id')
                                          ->where('course_id', 6) // MANUALLY BOSAY DILAM
                                          ->orderBy('exam_id', 'desc')

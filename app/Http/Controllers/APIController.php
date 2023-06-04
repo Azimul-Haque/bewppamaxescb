@@ -662,6 +662,12 @@ class APIController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
+            $course = Course::select('id')
+                             ->where('status', 1) // take only active courses
+                             ->where('type', $coursetype) // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT, 5 = QB
+                             ->first(); 
+
+
             $courseexams = Cache::remember('courseexams'.$course->id, 10 * 24 * 60 * 60, function () use ($course) {
                 $courseexams = Courseexam::select('course_id', 'exam_id')
                                          ->where('course_id', $course->id)

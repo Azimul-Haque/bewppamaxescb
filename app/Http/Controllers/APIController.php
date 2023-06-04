@@ -639,7 +639,7 @@ class APIController extends Controller
         }
     }
 
-    public function getExamCategories($softtoken, $coursetype, $getexamcategory)
+    public function getExamCategories($softtoken)
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
@@ -658,24 +658,8 @@ class APIController extends Controller
         }
     }
 
-    public function getQBCatWise($softtoken)
+    public function getQBCatWise($softtoken, $coursetype, $getexamcategory)
     {
-        if($softtoken == env('SOFT_TOKEN'))
-        {
-            $examcategories = Cache::remember('examcategories', 21 * 24 * 60 * 60, function () {
-                $examcategories = Examcategory::orderBy('id', 'asc')->get();
-                return $examcategories;
-            });
-            return response()->json([
-                'success' => true,
-                'examcategories' => $examcategories,
-            ]);
-        } else {
-            return response()->json([
-                'success' => false
-            ]);
-        }
-
         if($softtoken == env('SOFT_TOKEN'))
         {
             $course = Course::select('id')

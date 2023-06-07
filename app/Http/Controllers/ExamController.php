@@ -204,7 +204,7 @@ class ExamController extends Controller
 
         Cache::forget('exam' . $id);
         foreach($exam->courseexams as $examdata) {
-            Cache::forget('')
+            Cache::forget('courseexams' . $examdata->course_id);
         }
         Session::flash('success', 'Exam updated successfully!');
         // return redirect()->route('dashboard.exams');

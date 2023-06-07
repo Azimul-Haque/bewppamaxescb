@@ -499,7 +499,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-3">
                             <div class="form-check-inline">
                               <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" name="all-time" value="yes">সব সময় এভেইলেবল

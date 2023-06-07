@@ -185,6 +185,7 @@ class ExamController extends Controller
         ));
 
         $exam = Exam::find($id);
+        $exam->courseexams
         $exam->examcategory_id = $request->examcategory_id;
         $exam->name = $request->name;
         $exam->duration = $request->duration;

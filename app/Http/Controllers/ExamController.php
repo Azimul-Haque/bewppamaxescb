@@ -153,11 +153,11 @@ class ExamController extends Controller
         $exam->price_type = 1; // paid
         $exam->cutmark = $request->cutmark;
         $exam->available_from = Carbon::parse($request->available_from);
+        $exam->available_to = Carbon::parse($request->available_to);
+        $exam->syllabus = nl2br($request->syllabus);
         if($request->alltimeavailability) {
             $exam->alltimeavailability = 1;
         }
-        $exam->available_to = Carbon::parse($request->available_to);
-        $exam->syllabus = nl2br($request->syllabus);
         $exam->save();
         
         Session::flash('success', 'Exam created successfully!');

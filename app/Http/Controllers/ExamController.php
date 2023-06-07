@@ -190,6 +190,9 @@ class ExamController extends Controller
         $exam->negativepercentage = $request->negativepercentage;
         $exam->price_type = 1;
         $exam->cutmark = $request->cutmark;
+        if($request->alltimeavailability) {
+            $exam->alltimeavailability = 1;
+        }
         $exam->available_from = Carbon::parse($request->available_from);
         $exam->available_to = Carbon::parse($request->available_to);
         $exam->syllabus = nl2br($request->syllabus);

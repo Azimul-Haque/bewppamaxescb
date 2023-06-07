@@ -179,6 +179,7 @@ class ExamController extends Controller
             'available_from'     => 'required|string|max:191',
             'available_to'       => 'required|string|max:191',
             'syllabus'           => 'required|string',
+            'alltimeavailability'           => 'register_permission_check_method',
         ));
 
         $exam = Exam::find($id);

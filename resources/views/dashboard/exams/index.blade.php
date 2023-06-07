@@ -502,7 +502,7 @@
                         <div class="col-md-12">
                             <div class="form-check-inline">
                               <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" value="">Option 1
+                                <input type="checkbox" class="form-check-input" value="">সব সময় এভেইলেবল
                               </label>
                             </div>
                         </div>

@@ -157,6 +157,8 @@ class ExamController extends Controller
         $exam->syllabus = nl2br($request->syllabus);
         if($request->alltimeavailability) {
             $exam->alltimeavailability = 1;
+        }else {
+            $exam->alltimeavailability = 0;
         }
         $exam->save();
         
@@ -195,6 +197,8 @@ class ExamController extends Controller
         $exam->syllabus = nl2br($request->syllabus);
         if($request->alltimeavailability) {
             $exam->alltimeavailability = 1;
+        } else {
+            $exam->alltimeavailability = 0;
         }
         $exam->save();
 

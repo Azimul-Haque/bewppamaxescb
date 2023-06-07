@@ -218,7 +218,7 @@
                                                         <div class="col-md-12 mb-3">
                                                             <div class="form-check-inline">
                                                               <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" name="alltimeavailability" value="1">সব সময় এভেইলেবল
+                                                                <input type="checkbox" class="form-check-input" name="alltimeavailability" value="1" @if($exam->alltimeavailability == 1) checked @endif>সব সময় এভেইলেবল
                                                               </label>
                                                             </div>
                                                         </div>

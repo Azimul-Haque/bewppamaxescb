@@ -500,8 +500,10 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="input-group mb-3">
-                                <textarea class="form-control" name="syllabus" style="height: 150px;" placeholder="সিলেবাস লিখুন (যদি থাকে)" required>N/A</textarea>
+                            <div class="form-check-inline">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" value="">Option 1
+                              </label>
                             </div>
                         </div>
                         <div class="col-md-12">

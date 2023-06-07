@@ -248,7 +248,7 @@ class APIController extends Controller
                     $courseexam->questioncount = $courseexam->exam->examquestions->count();
                     $courseexam->syllabus = $courseexam->exam->syllabus ? $courseexam->exam->syllabus : 'N/A';
                     $courseexam->alltimeavailability = $courseexam->exam->alltimeavailability;
-                    $courseexam->exam->makeHidden('id', 'name', 'examcategory_id', 'price_type', 'available_from', 'available_to', 'syllabus', 'created_at', 'updated_at', 'examquestions');
+                    $courseexam->exam->makeHidden('id', 'name', 'examcategory_id', 'price_type', 'available_from', 'available_to', 'syllabus', 'created_at', 'updated_at', 'examquestions', 'alltimeavailability');
                 }
                 return $courseexams;
             });

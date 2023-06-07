@@ -141,7 +141,7 @@ class ExamController extends Controller
             'available_from'     => 'required|string|max:191',
             'available_to'       => 'required|string|max:191',
             'syllabus'           => 'required|string',
-            'alltimeavailability'           => 'sometimes|string',
+            'alltimeavailability'           => 'sometimes',
         ));
 
         $exam = new Exam;

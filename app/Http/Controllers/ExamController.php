@@ -185,7 +185,6 @@ class ExamController extends Controller
         ));
 
         $exam = Exam::find($id);
-        dd($exam->courseexams);
         $exam->examcategory_id = $request->examcategory_id;
         $exam->name = $request->name;
         $exam->duration = $request->duration;
@@ -204,6 +203,9 @@ class ExamController extends Controller
         $exam->save();
 
         Cache::forget('exam' . $id);
+        foreach($exam->courseexams as $exam) {
+            
+        }
         Session::flash('success', 'Exam updated successfully!');
         // return redirect()->route('dashboard.exams');
         return redirect()->back();

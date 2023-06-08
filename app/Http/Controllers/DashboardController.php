@@ -966,25 +966,24 @@ class DashboardController extends Controller
         } elseif($request->type == 'update') {
             // LIVE HOILE ETA DEOA HOBE
             // LIVE HOILE ETA DEOA HOBE
-            // OneSignal::sendNotificationToAll(
-            //     $request->message,
-            //     $url = null, 
-            //     $data = array("a" => 'update'),
-            //     $buttons = null, 
-            //     $schedule = null,
-            //     $headings = $request->headings,
-            // );
-
-
-            OneSignal::sendNotificationToUser(
+            OneSignal::sendNotificationToAll(
                 $request->message,
-                ['716ffeb3-f6c2-4a4a-a253-710f339aa863'],
                 $url = null, 
                 $data = array("a" => 'update'),
                 $buttons = null, 
                 $schedule = null,
                 $headings = $request->headings,
             );
+
+            // OneSignal::sendNotificationToUser(
+            //     $request->message,
+            //     ['716ffeb3-f6c2-4a4a-a253-710f339aa863'],
+            //     $url = null, 
+            //     $data = array("a" => 'update'),
+            //     $buttons = null, 
+            //     $schedule = null,
+            //     $headings = $request->headings,
+            // );
         }
 
         $notification = new Notification;

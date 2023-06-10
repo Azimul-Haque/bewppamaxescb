@@ -98,9 +98,12 @@ class CourseController extends Controller
 
         $course = Course::findOrFail($id);
         dd($course->courseexams);
+        $newdate = Carbon::parse($request->available_from);
         foreach($course->courseexams as $exam) {
             $exam->available_from = Carbon::parse($request->available_from);
             $exam->save();
+
+            $newdate
         }
         $course->name = $request->name;
         $course->status = $request->status;

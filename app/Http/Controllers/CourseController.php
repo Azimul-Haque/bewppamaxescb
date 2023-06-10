@@ -98,7 +98,7 @@ class CourseController extends Controller
         // dd($course->courseexams);
         $newdate = Carbon::parse($request->available_from);
         foreach($course->courseexams as $exam) {
-            $exam->available_from = $newdate;
+            $exam->exam->available_from = $newdate;
             $exam->save();
 
             $newdate = $newdate->addDays($request->gapbetween);

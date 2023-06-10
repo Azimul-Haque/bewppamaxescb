@@ -129,17 +129,17 @@
                                         {{-- Edit Course Modal Code --}}
                                         {{-- Edit Course Modal Code --}}
 
-                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#editCourseModal{{ $course->id }}">
+                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#changeExamDatesModal{{ $course->id }}">
                                             <i class="far fa-calendar-check"></i>
                                         </button>
-                                        {{-- Edit Course Modal Code --}}
-                                        {{-- Edit Course Modal Code --}}
+                                        {{-- Change Exam Dates Modal Code --}}
+                                        {{-- Change Exam Dates Modal Code --}}
                                         <!-- Modal -->
-                                        <div class="modal fade" id="editCourseModal{{ $course->id }}" tabindex="-1" role="dialog" aria-labelledby="editCourseModalLabel" aria-hidden="true" data-backdrop="static">
+                                        <div class="modal fade" id="changeExamDatesModal{{ $course->id }}" tabindex="-1" role="dialog" aria-labelledby="changeExamDatesModalLabel" aria-hidden="true" data-backdrop="static">
                                             <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header bg-success">
-                                                  <h5 class="modal-title" id="editCourseModalLabel">কোর্স হালনাগাদ</h5>
+                                                  <h5 class="modal-title" id="changeExamDatesModalLabel">কোর্স হালনাগাদ</h5>
                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                       <span aria-hidden="true">&times;</span>
                                                   </button>
@@ -191,8 +191,8 @@
                                             </div>
                                             </div>
                                         </div>
-                                          {{-- Edit Course Modal Code --}}
-                                          {{-- Edit Course Modal Code --}}
+                                          {{-- Change Exam Dates Modal Code --}}
+                                          {{-- Change Exam Dates Modal Code --}}
         
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteCourseModal{{ $course->id }}" disabled>
                                         <i class="far fa-trash-alt"></i>

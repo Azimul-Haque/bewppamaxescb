@@ -94,6 +94,8 @@ class CourseController extends Controller
             'gapbetween'       => 'required'
         ));
 
+        // ekhan theke kaaj hobe...
+
         $course = Course::findOrFail($id);
         $course->name = $request->name;
         $course->status = $request->status;

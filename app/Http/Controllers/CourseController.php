@@ -108,7 +108,7 @@ class CourseController extends Controller
 
         Cache::forget('courseexams' . $id);
         Session::flash('success', 'Course updated successfully!');
-        return redirect()->route('dashboard.courses');
+        return redirect()->back();
     }
 
     public function deleteCourse($id)

@@ -100,16 +100,11 @@ class CourseController extends Controller
         dd($course->courseexams);
         $newdate = Carbon::parse($request->available_from);
         foreach($course->courseexams as $exam) {
-            $exam->available_from = Carbon::parse($request->available_from);
+            $exam->available_from = $newdate;
             $exam->save();
 
             $newdate = $newdate->addDays($request->gapbetween);
         }
-        $course->name = $request->name;
-        $course->status = $request->status;
-        $course->type = $request->type; // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT, 5 = QB
-        $course->priority = $request->priority;
-        $course->save();
 
         Cache::forget('courses' . $request->type);
         Session::flash('success', 'Course updated successfully!');

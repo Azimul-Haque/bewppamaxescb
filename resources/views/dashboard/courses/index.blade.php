@@ -197,11 +197,11 @@
                                             </div>
                                         </div>
                                         <script>
-                                            $("#available_from{{ $exam->id }}").datepicker({
+                                            $("#available_from{{ $course->id }}").datepicker({
                                               format: 'MM dd, yyyy',
                                               todayHighlight: true,
                                               autoclose: true,
-                                              container:'#editExamModal{{ $exam->id }}',
+                                              container:'#editExamModal{{ $course->id }}',
                                             });
                                         </script>
                                           {{-- Change Exam Dates Modal Code --}}

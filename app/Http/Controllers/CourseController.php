@@ -93,8 +93,9 @@ class CourseController extends Controller
             'available_from'   => 'required',
             'gapbetween'       => 'required'
         ));
-        // $course = Course::findOrFail($id);
-        dd($course->courseexams);
+
+        $course = Course::findOrFail($id);
+        // dd($course->courseexams);
         $newdate = Carbon::parse($request->available_from);
         foreach($course->courseexams as $exam) {
             $exam->available_from = $newdate;

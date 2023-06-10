@@ -95,10 +95,12 @@ class CourseController extends Controller
         ));
 
         // ekhan theke kaaj hobe...
-        // ekhan theke kaaj hobe... Carbon::parse($request->available_from);
 
         $course = Course::findOrFail($id);
         dd($course->courseexams);
+        foreach($course->courseexams as $exam) {
+            $exam->available_from = Carbon::parse($request->available_from);
+        }
         $course->name = $request->name;
         $course->status = $request->status;
         $course->type = $request->type; // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT, 5 = QB

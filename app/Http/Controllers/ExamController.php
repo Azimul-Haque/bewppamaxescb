@@ -231,6 +231,7 @@ class ExamController extends Controller
         $exam->available_from = Carbon::parse($oldexam->available_from);
         $exam->available_to = Carbon::parse($oldexam->available_to);
         $exam->syllabus = $oldexam->syllabus;
+        $exam->alltimeavailability = $oldexam->alltimeavailability;
         $exam->save();
 
         foreach($oldexam->examquestions as $oldexamquestion) {

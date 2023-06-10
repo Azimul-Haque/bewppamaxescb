@@ -198,6 +198,21 @@
                                         </div>
                                           {{-- Change Exam Dates Modal Code --}}
                                           {{-- Change Exam Dates Modal Code --}}
+
+                                          <script>
+                                              $("#available_from{{ $exam->id }}").datepicker({
+                                                format: 'MM dd, yyyy',
+                                                todayHighlight: true,
+                                                autoclose: true,
+                                                container:'#editExamModal{{ $exam->id }}',
+                                              });
+                                              $("#available_to{{ $exam->id }}").datepicker({
+                                                format: 'MM dd, yyyy',
+                                                todayHighlight: true,
+                                                autoclose: true,
+                                                container:'#editExamModal{{ $exam->id }}',
+                                              });
+                                          </script>
         
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteCourseModal{{ $course->id }}" disabled>
                                         <i class="far fa-trash-alt"></i>
@@ -317,12 +332,6 @@
     //     .catch( error => {
     //             console.error( error );
     //     } );
-    $("#available_from").datepicker({
-      format: 'MM dd, yyyy',
-      todayHighlight: true,
-      autoclose: true,
-      container:'#addExamModal',
-    });
 </script>
 <script type="text/javascript">
     $(document).ready( function() {

@@ -201,7 +201,7 @@
                                               format: 'MM dd, yyyy',
                                               todayHighlight: true,
                                               autoclose: true,
-                                              container:'#editExamModal{{ $course->id }}',
+                                              container:'#changeExamDatesModal{{ $course->id }}',
                                             });
                                         </script>
                                           {{-- Change Exam Dates Modal Code --}}

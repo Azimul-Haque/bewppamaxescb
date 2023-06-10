@@ -66,10 +66,10 @@
                                     মোট পরীক্ষাঃ {{ $course->courseexams->count() }} টি
                                   </td>
                                   <td>
-                                    <a href="{{ route('dashboard.courses.add.exam', $course->id) }}" class="btn btn-warning btn-sm" rel="tooltip" title="কোর্স হালনাগাদ করুন">
+                                    <a href="{{ route('dashboard.courses.add.exam', $course->id) }}" class="btn btn-warning btn-sm" rel="tooltip" title="কোর্স হালনাগাদ করুন" rel="tooltip" title="কোর্স হালনাগাদ করুন">
                                         <i class="fas fa-folder-plus"></i>
                                     </a>
-                                      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCourseModal{{ $course->id }}" পরীক্ষার তারিখসমূহ পরিবর্তন>
+                                      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCourseModal{{ $course->id }}">
                                           <i class="far fa-edit"></i>
                                       </button>
                                       {{-- Edit Course Modal Code --}}
@@ -134,7 +134,7 @@
                                         {{-- Edit Course Modal Code --}}
                                         {{-- Edit Course Modal Code --}}
 
-                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#changeExamDatesModal{{ $course->id }}" rel="tooltip" title="পরীক্ষার তারিখসমূহ পরিবর্তন করুন">
+                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#changeExamDatesModal{{ $course->id }}" rel="tooltip" title="কোর্স হালনাগাদ করুন">
                                             <i class="far fa-calendar-check"></i>
                                         </button>
                                         {{-- Change Exam Dates Modal Code --}}

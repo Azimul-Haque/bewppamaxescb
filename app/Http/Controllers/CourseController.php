@@ -106,7 +106,7 @@ class CourseController extends Controller
             $newdate = $newdate->addDays($request->gapbetween);
         }
 
-        Cache::forget('courses' . $request->type);
+        Cache::forget('courseexams' . $id);
         Session::flash('success', 'Course updated successfully!');
         return redirect()->route('dashboard.courses');
     }

@@ -204,8 +204,8 @@
                                               container:'#changeExamDatesModal{{ $course->id }}',
                                             });
                                         </script>
-                                          {{-- Change Exam Dates Modal Code --}}
-                                          {{-- Change Exam Dates Modal Code --}}
+                                        {{-- Change Exam Dates Modal Code --}}
+                                        {{-- Change Exam Dates Modal Code --}}
         
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteCourseModal{{ $course->id }}" disabled>
                                         <i class="far fa-trash-alt"></i>

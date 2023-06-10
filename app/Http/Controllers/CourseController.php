@@ -103,7 +103,7 @@ class CourseController extends Controller
             $exam->available_from = Carbon::parse($request->available_from);
             $exam->save();
 
-            $newdate
+            $newdate = $newdate->addDays($request->gapbetween);
         }
         $course->name = $request->name;
         $course->status = $request->status;

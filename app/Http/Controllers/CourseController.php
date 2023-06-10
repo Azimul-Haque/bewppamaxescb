@@ -90,7 +90,7 @@ class CourseController extends Controller
     {
         // dd($request->file('image'));
         $this->validate($request,array(
-            'name'   => 'required|string|max:191',
+            'available_from'   => 'required|string|max:191',
             'status' => 'required',
             'type' => 'required',
         ));

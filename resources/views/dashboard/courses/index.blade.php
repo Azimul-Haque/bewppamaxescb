@@ -69,7 +69,7 @@
                                     <a href="{{ route('dashboard.courses.add.exam', $course->id) }}" class="btn btn-warning btn-sm" rel="tooltip" title="কোর্স হালনাগাদ করুন">
                                         <i class="fas fa-folder-plus"></i>
                                     </a>
-                                      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCourseModal{{ $course->id }}">
+                                      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCourseModal{{ $course->id }}" পরীক্ষার তারিখসমূহ পরিবর্তন>
                                           <i class="far fa-edit"></i>
                                       </button>
                                       {{-- Edit Course Modal Code --}}

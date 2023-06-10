@@ -100,6 +100,7 @@ class CourseController extends Controller
         dd($course->courseexams);
         foreach($course->courseexams as $exam) {
             $exam->available_from = Carbon::parse($request->available_from);
+            $exam->save();
         }
         $course->name = $request->name;
         $course->status = $request->status;

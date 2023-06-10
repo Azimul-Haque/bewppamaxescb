@@ -129,7 +129,7 @@
                                         {{-- Edit Course Modal Code --}}
                                         {{-- Edit Course Modal Code --}}
         
-                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteCourseModal{{ $course->id }}">
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteCourseModal{{ $course->id }}" disabled>
                                         <i class="far fa-trash-alt"></i>
                                     </button>
                                   </td>

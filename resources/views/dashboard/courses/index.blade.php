@@ -159,7 +159,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="input-group mb-3">
-                                                        <input type="number" name="gapbetween" class="form-control" value="{{ $course->priority }}" placeholder="প্রায়োরিটি (যে সিরিয়ালে অ্যাপে দেখাবে)" required>
+                                                        <input type="number" name="gapbetween" class="form-control" placeholder="প্রতি দুই পরীক্ষায় যতদিন গ্যাপ থাকবে" required>
                                                         <div class="input-group-append">
                                                             <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
                                                         </div>

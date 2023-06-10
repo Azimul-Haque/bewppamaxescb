@@ -312,6 +312,12 @@
     //     .catch( error => {
     //             console.error( error );
     //     } );
+    $("#available_from").datepicker({
+      format: 'MM dd, yyyy',
+      todayHighlight: true,
+      autoclose: true,
+      container:'#addExamModal',
+    });
 </script>
 <script type="text/javascript">
     $(document).ready( function() {

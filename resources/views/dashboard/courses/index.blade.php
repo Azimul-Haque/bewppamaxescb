@@ -130,7 +130,7 @@
                                         {{-- Edit Course Modal Code --}}
 
                                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#editCourseModal{{ $course->id }}">
-                                            <i class="far fa-calendar-o"></i>
+                                            <i class="far fa-calendar-check"></i>
                                         </button>
                                         {{-- Edit Course Modal Code --}}
                                         {{-- Edit Course Modal Code --}}

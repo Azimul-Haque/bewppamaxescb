@@ -93,10 +93,7 @@ class CourseController extends Controller
             'available_from'   => 'required',
             'gapbetween'       => 'required'
         ));
-
-        // ekhan theke kaaj hobe...
-
-        $course = Course::findOrFail($id);
+        // $course = Course::findOrFail($id);
         dd($course->courseexams);
         $newdate = Carbon::parse($request->available_from);
         foreach($course->courseexams as $exam) {

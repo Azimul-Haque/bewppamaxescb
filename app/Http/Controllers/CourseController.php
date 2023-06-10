@@ -95,6 +95,7 @@ class CourseController extends Controller
         ));
 
         // ekhan theke kaaj hobe...
+        // ekhan theke kaaj hobe... Carbon::parse($request->available_from);
 
         $course = Course::findOrFail($id);
         dd($course->courseexams);

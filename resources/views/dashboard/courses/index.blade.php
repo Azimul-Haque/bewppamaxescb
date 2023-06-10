@@ -148,7 +148,7 @@
                                                   <div class="modal-body">
                                                     @csrf
                                                     <div class="input-group mb-3">
-                                                        <input type="text" name="available_from" id="available_from{{ $exam->id }}" value="{{ date('F d, Y', strtotime($exam->available_from)) }}" class="form-control" autocomplete="off" placeholder="চালু হবে" required>
+                                                        <input type="text" name="available_from" id="available_from" class="form-control" autocomplete="off" placeholder="চালু হবে" required>
                                                         <div class="input-group-append">
                                                             <div class="input-group-text"><span class="fas fa-calendar-check"></span></div>
                                                         </div>

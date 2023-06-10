@@ -128,6 +128,71 @@
                                       </div>
                                         {{-- Edit Course Modal Code --}}
                                         {{-- Edit Course Modal Code --}}
+
+                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#editCourseModal{{ $course->id }}">
+                                            <i class="far fa-edit"></i>
+                                        </button>
+                                        {{-- Edit Course Modal Code --}}
+                                        {{-- Edit Course Modal Code --}}
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="editCourseModal{{ $course->id }}" tabindex="-1" role="dialog" aria-labelledby="editCourseModalLabel" aria-hidden="true" data-backdrop="static">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-success">
+                                                  <h5 class="modal-title" id="editCourseModalLabel">কোর্স হালনাগাদ</h5>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                  </button>
+                                                </div>
+                                                <form method="post" action="{{ route('dashboard.courses.update', $course->id) }}" enctype='multipart/form-data'>
+                                                  <div class="modal-body">
+                                                    @csrf
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" name="name" class="form-control" value="{{ $course->name }}" placeholder="কোর্সের নাম" required>
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text"><span class="fas fa-layer-group"></span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                      <select name="status" class="form-control" required>
+                                                          <option selected="" disabled="" value="">স্ট্যাটাস</option>
+                                                          <option value="1" @if($course->status == 1) selected @endif>Active</option>
+                                                          <option value="0" @if($course->status == 0) selected @endif>In-active</option>
+                                                      </select>
+                                                      <div class="input-group-append">
+                                                          <div class="input-group-text"><span class="fas fa-star-half-alt"></span></div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                      <select name="type" class="form-control" required>
+                                                          <option selected="" disabled="" value="">ধরন</option>
+                                                          <option value="1" @if($course->type == 1) selected @endif>সাধারণ কোর্স</option>
+                                                          <option value="2" @if($course->type == 2) selected @endif>বিজেএস মডেল টেস্ট</option>
+                                                          <option value="3" @if($course->type == 3) selected @endif>বার মডেল টেস্ট</option>
+                                                          <option value="4" @if($course->type == 4) selected @endif>ফ্রি মডেল টেস্ট</option>
+                                                          <option value="5" @if($course->type == 5) selected @endif>প্রশ্ন ব্যাংক</option>
+                                                      </select>
+                                                      <div class="input-group-append">
+                                                          <div class="input-group-text"><span class="fas fa-tag"></span></div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <input type="number" name="priority" class="form-control" value="{{ $course->priority }}" placeholder="প্রায়োরিটি (যে সিরিয়ালে অ্যাপে দেখাবে)" required>
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                                                    <button type="submit" class="btn btn-success">দাখিল করুন</button>
+                                                  </div>
+                                              </form>
+                                            </div>
+                                            </div>
+                                        </div>
+                                          {{-- Edit Course Modal Code --}}
+                                          {{-- Edit Course Modal Code --}}
         
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteCourseModal{{ $course->id }}" disabled>
                                         <i class="far fa-trash-alt"></i>

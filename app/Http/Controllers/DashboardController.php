@@ -169,9 +169,8 @@ class DashboardController extends Controller
             $smsjsondata = json_encode($smsdata);
             $data= array(
                 'smsdata'=>"$smsjsondata",
-                // 'username'=>config('sms.username'),
-                // 'password'=>config('sms.password'),
-                'token'=>config('sms.gw_token'),
+                'username'=>config('sms.username'),
+                'password'=>config('sms.password'),
             );
             dd($users);
         } else {

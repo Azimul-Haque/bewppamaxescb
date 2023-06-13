@@ -133,6 +133,7 @@ class DashboardController extends Controller
         // $newusers = $users->filter(function ($value, $key) {
         //     return $value->payments_count > 0;
         // });
+        $finalusers = collect();
         foreach($users as $user) {
             $user
         }

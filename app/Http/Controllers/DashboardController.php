@@ -165,6 +165,7 @@ class DashboardController extends Controller
                     'message'=>"$encodedtext",
                 );
             }
+            $smsdata = array_values($smsdata);
             dd($users);
         } else {
             Session::flash('warning', 'অংক মেলেনি!');

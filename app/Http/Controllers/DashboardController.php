@@ -133,7 +133,9 @@ class DashboardController extends Controller
         // $newusers = $users->filter(function ($value, $key) {
         //     return $value->payments_count > 0;
         // });
-
+        foreach($users as $user) {
+            $user
+        }
         dd($users);
         return view('dashboard.users.index')
                     ->withUsers($users)

@@ -165,14 +165,14 @@ class DashboardController extends Controller
                     'message'=>"$encodedtext",
                 );
             }
-            $smsdata = array_values($smsdata);
+            // $smsdata = array_values($smsdata);
             $smsjsondata = json_encode($smsdata);
             $data= array(
                 'smsdata'=>"$smsjsondata",
                 'username'=>config('sms.username'),
                 'password'=>config('sms.password'),
             );
-            dd($data);
+            dd($smsdata);
             $ch = curl_init(); // Initialize cURL
             curl_setopt($ch, CURLOPT_URL,$url);
             curl_setopt($ch, CURLOPT_ENCODING, '');

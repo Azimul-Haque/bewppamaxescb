@@ -153,6 +153,7 @@ class DashboardController extends Controller
 
         } else {
             Session::flash('warning', 'অংক মেলেনি!');
+            return redirect()->back();
         }
         $users = User::select('name', 'mobile')
                      ->where('package_expiry_date', '<', Carbon::now())

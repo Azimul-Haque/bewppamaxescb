@@ -320,7 +320,7 @@
 	              মোট গ্রহণকারী: {{ $userscount }} জন<br/>
 	                @csrf
 	                <div class="input-group mb-3">
-	                	<textarea class="form-control" name="sms" style="min-height: 100px;" placeholder="বার্তা লিখুন"></textarea>
+	                	<textarea class="form-control" name="sms" style="min-height: 100px;" placeholder="বার্তা লিখুন" required></textarea>
 	                </div>
                   @php
                     $random1 = rand(1,10);

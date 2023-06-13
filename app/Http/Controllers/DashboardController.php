@@ -149,30 +149,6 @@ class DashboardController extends Controller
             'randtotalvisible'        => 'required|string|max:191',
             'sms'                     => 'required|string|max:191',
         ));
-
-        $paidusersids = DB::table('payments')->select('user_id')->groupBy('user_id')->get()->pluck('user_id')->toArray();
-        // dd($paidusersids);
-        $userscount = User::where('package_expiry_date', '<', Carbon::now())
-                          ->whereIn('id', $paidusersids)
-                          ->count();
-        $users = User::where('package_expiry_date', '<', Carbon::now())
-                     ->whereIn('id', $paidusersids)
-                     ->orderBy('package_expiry_date', 'asc')
-                     ->paginate(10);
-        
-        // dd($users);
-        return view('dashboard.users.expiredusers')
-                    ->withUsers($users)
-                    ->withUserscount($userscount);
-    }
-
-    public function sendExpiredSMS(Request $request)
-    {
-        $this->validate($request,array(
-            'randtotalhidden'         => 'required',
-            'randtotalvisible'        => 'required|string|max:191',
-            'sms'                     => 'required|string|max:191',
-        ));
         $users = User::select('name', 'mobile')
                      ->where('package_expiry_date', '<', Carbon::now())
                      ->whereIn('id', $paidusersids)

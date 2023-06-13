@@ -155,6 +155,7 @@ class DashboardController extends Controller
             Session::flash('warning', 'অংক মেলেনি!');
             return redirect()->back();
         }
+        $paidusersids = DB::table('payments')->select('user_id')->groupBy('user_id')->get()->pluck('user_id')->toArray();
         $users = User::select('name', 'mobile')
                      ->where('package_expiry_date', '<', Carbon::now())
                      ->whereIn('id', $paidusersids)

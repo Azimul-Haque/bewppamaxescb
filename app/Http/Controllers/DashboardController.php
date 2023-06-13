@@ -150,18 +150,17 @@ class DashboardController extends Controller
             'sms'                     => 'required|string|max:191',
         ));
         if($request->randtotalhidden == $request->randtotalvisible) {
-
+            $paidusersids = DB::table('payments')->select('user_id')->groupBy('user_id')->get()->pluck('user_id')->toArray();
+            $users = User::select('name', 'mobile')
+                         ->where('package_expiry_date', '<', Carbon::now())
+                         ->whereIn('id', $paidusersids)
+                         ->orderBy('package_expiry_date', 'asc')
+                         ->get();
+            dd($users);
         } else {
             Session::flash('warning', 'অংক মেলেনি!');
             return redirect()->back();
         }
-        $paidusersids = DB::table('payments')->select('user_id')->groupBy('user_id')->get()->pluck('user_id')->toArray();
-        $users = User::select('name', 'mobile')
-                     ->where('package_expiry_date', '<', Carbon::now())
-                     ->whereIn('id', $paidusersids)
-                     ->orderBy('package_expiry_date', 'asc')
-                     ->get();
-        dd($users);
 
         return redirect()->route('dashboard.users');
     }

@@ -324,7 +324,7 @@
 	                </div>
                   @php
                     $random1 = rand(1,10);
-                    $random2 = rand(1,10);
+                    $random2 = rand(1,20);
 
                     $randtotal = $random1 + $random2;
                     echo $random1;

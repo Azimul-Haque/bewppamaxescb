@@ -159,11 +159,11 @@ class DashboardController extends Controller
             
             foreach ($users as $user) {
                 $mobile_number = 0;
-                if(strlen($member->mobile) == 11) {
-                    $mobile_number = $member->mobile;
-                } elseif(strlen($member->mobile) > 11) {
-                    if (strpos($member->mobile, '+') !== false) {
-                        $mobile_number = substr($member->mobile, -11);
+                if(strlen($user->mobile) == 11) {
+                    $mobile_number = $user->mobile;
+                } elseif(strlen($user->mobile) > 11) {
+                    if (strpos($user->mobile, '+') !== false) {
+                        $mobile_number = substr($user->mobile, -11);
                     }
                 }
                 $numbersarray[] = $mobile_number;

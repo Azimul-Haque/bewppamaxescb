@@ -129,8 +129,7 @@ class DashboardController extends Controller
         $paidusersids = DB::table('payments')->select('user_id')->groupBy('user_id')->get()->pluck('user_id')->toArray();
         // dd($paidusersids);
         $userscount = User::where('package_expiry_date', '<', Carbon::now())->count();
-        $users = User::withCount('payments')
-                     ->where('package_expiry_date', '<', Carbon::now())
+        $users = User::where('package_expiry_date', '<', Carbon::now())
                      ->whereIn('id', $paidusersids)
                      ->orderBy('package_expiry_date', 'asc')
                      ->paginate(10);

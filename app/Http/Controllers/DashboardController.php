@@ -106,7 +106,7 @@ class DashboardController extends Controller
     public function getUsersSort()
     {
         // $users = User::where('name', '!=', null)->orderBy('id', 'asc')->get(10);
-
+        $userscount = Users::count();
         $users = User::withCount('meritlists')
                      ->orderBy('meritlists_count', 'desc')
                      ->paginate(10);

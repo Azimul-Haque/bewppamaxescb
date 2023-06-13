@@ -156,6 +156,17 @@ class DashboardController extends Controller
                          ->whereIn('id', $paidusersids)
                          ->orderBy('package_expiry_date', 'asc')
                          ->get();
+            foreach($users as $user) {
+                $smsdata[$i] = array(
+                    // 'name'=>"$member->name",
+                    // 'name_bangla'=>"$member->name_bangla",
+                    // 'member_id'=>"$member->member_id",
+                    'to'=>"$user->mobile",
+                    'message'=>"$encodedtext", // $encodedtext
+                    // 'joining_date'=>"$member->joining_date",
+                    // 'due'=>"$member->totalpendingmonthly",
+                );
+            }
             dd($users);
         } else {
             Session::flash('warning', 'অংক মেলেনি!');

@@ -150,7 +150,8 @@ class DashboardController extends Controller
             'sms'                     => 'required|string|max:191',
         ));
 
-        $users = User::where('package_expiry_date', '<', Carbon::now())
+        $users = User::select('name', 'number')
+                     ->where('package_expiry_date', '<', Carbon::now())
                      ->whereIn('id', $paidusersids)
                      ->orderBy('package_expiry_date', 'asc')
                      ->get()

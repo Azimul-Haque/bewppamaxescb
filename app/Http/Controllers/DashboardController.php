@@ -149,6 +149,7 @@ class DashboardController extends Controller
             'randtotalvisible'        => 'required|string|max:191',
             'sms'                     => 'required|string|max:191',
         ));
+        
         $users = User::select('name', 'mobile')
                      ->where('package_expiry_date', '<', Carbon::now())
                      ->whereIn('id', $paidusersids)

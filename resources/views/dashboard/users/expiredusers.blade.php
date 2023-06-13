@@ -327,7 +327,9 @@
                     $random2 = rand(1,10);
 
                     $randtotal = $random1 + $random2;
-                    echo $randtotal
+                    echo $$random1;
+                    echo $$random2;
+                    echo $randtotal;
                   @endphp
                   <div class="input-group mb-3">
                       <input type="text"

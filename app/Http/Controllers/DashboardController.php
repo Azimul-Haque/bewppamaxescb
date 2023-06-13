@@ -172,7 +172,7 @@ class DashboardController extends Controller
                 'username'=>config('sms.username'),
                 'password'=>config('sms.password'),
             );
-            dd($users);
+            dd($data);
             $ch = curl_init(); // Initialize cURL
             curl_setopt($ch, CURLOPT_URL,$url);
             curl_setopt($ch, CURLOPT_ENCODING, '');

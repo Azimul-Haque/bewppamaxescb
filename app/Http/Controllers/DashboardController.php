@@ -145,7 +145,7 @@ class DashboardController extends Controller
     public function sendExpiredSMS(Request $request)
     {
         $this->validate($request,array(
-            'name'                    => 'required|string|max:191',
+            'randtotalhidden'         => 'required',
             'tagline'                 => 'required|string|max:191',
             'duration'                => 'required|string|max:191',
             'numeric_duration'        => 'required|integer',

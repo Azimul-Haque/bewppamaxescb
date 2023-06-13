@@ -134,7 +134,7 @@ class DashboardController extends Controller
                      ->orderBy('package_expiry_date', 'asc')
                      ->paginate(10);
         
-        dd($users);
+        // dd($users);
         return view('dashboard.users.index')
                     ->withUsers($users)
                     ->withUserscount($userscount);

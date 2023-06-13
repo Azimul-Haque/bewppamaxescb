@@ -333,7 +333,7 @@
                   @endphp
                   <div class="input-group mb-3">
                       <input type="number"
-                             name="name"
+                             name="randtotalvisible"
                              class="form-control"
                              placeholder="{{ $random1 . ' + ' . $random2 . ' = ?' }}" required>
                       <div class="input-group-append">

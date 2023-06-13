@@ -150,9 +150,7 @@ class DashboardController extends Controller
             'sms'                     => 'required|string|max:191',
         ));
 
-        return view('dashboard.users.expiredusers')
-                    ->withUsers($users)
-                    ->withUserscount($userscount);
+        return redirect()->route('dashboard.users');
     }
 
     public function getUsersSearch($search)

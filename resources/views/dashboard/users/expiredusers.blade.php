@@ -317,7 +317,7 @@
           </div>
           <form method="post" action="{{ route('dashboard.users.store') }}">
 	          <div class="modal-body">
-	              মোট গ্রহণকারী: {{ $userscount }} জন
+	              মোট গ্রহণকারী: {{ $userscount }} জন<br/>
 	                @csrf
 
 	                <div class="input-group mb-3">

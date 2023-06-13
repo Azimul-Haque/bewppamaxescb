@@ -23,7 +23,7 @@
                 <button type="button" id="search-button" class="btn btn-default btn-sm" style="margin-left: 5px;">
                   <i class="fas fa-search"></i> খুঁজুন
                 </button>
-                <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#addUserModal" style="margin-left: 5px;">
+                <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#sendMessage" style="margin-left: 5px;">
                   <i class="fas fa-user-plus"></i> নতুন
                 </button>
               </form>
@@ -306,11 +306,11 @@
     {{-- Add User Modal Code --}}
     {{-- Add User Modal Code --}}
     <!-- Modal -->
-    <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal fade" id="sendMessage" tabindex="-1" role="dialog" aria-labelledby="sendMessageLabel" aria-hidden="true" data-backdrop="static">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header bg-success">
-            <h5 class="modal-title" id="addUserModalLabel">নতুন ব্যবহারকারী যোগ</h5>
+            <h5 class="modal-title" id="sendMessageLabel">নতুন ব্যবহারকারী যোগ</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

@@ -121,7 +121,7 @@ class DashboardController extends Controller
                     ->withUsers($users);
     }
 
-    public function getUsersSort()
+    public function getExpiredUsers()
     {
         // $users = User::where('name', '!=', null)->orderBy('id', 'asc')->get(10);
 

@@ -157,6 +157,9 @@ class DashboardController extends Controller
                          ->orderBy('package_expiry_date', 'asc')
                          ->get();
             foreach($users as $user) {
+                $text = 'Dear ' . $user->name . ', your monthly payment for the month ' . date('F, Y') . ' is already paid. Thank you. Customs and VAT Co-operative Society (CVCS). Login: https://cvcsbd.com/login';
+
+                $encodedtext = rawurlencode($text);
                 $smsdata[$i] = array(
                     // 'name'=>"$member->name",
                     // 'name_bangla'=>"$member->name_bangla",

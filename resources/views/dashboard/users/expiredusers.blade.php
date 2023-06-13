@@ -310,7 +310,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header bg-success">
-            <h5 class="modal-title" id="sendMessageLabel">নতুন ব্যবহারকারী যোগ</h5>
+            <h5 class="modal-title" id="sendMessageLabel">বার্তা পাঠান</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

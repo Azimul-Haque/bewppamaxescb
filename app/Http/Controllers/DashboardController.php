@@ -147,12 +147,7 @@ class DashboardController extends Controller
         $this->validate($request,array(
             'randtotalhidden'         => 'required',
             'randtotalvisible'        => 'required|string|max:191',
-            'duration'                => 'required|string|max:191',
-            'numeric_duration'        => 'required|integer',
-            'price'                   => 'required|integer',
-            'strike_price'            => 'required|integer',
-            'status'                  => 'required',
-            'suggested'               => 'required',
+            'sms'                     => 'required|string|max:191',
         ));
 
         return view('dashboard.users.expiredusers')

@@ -24,7 +24,7 @@
                   <i class="fas fa-search"></i> খুঁজুন
                 </button>
                 <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#sendMessage" style="margin-left: 5px;">
-                  <i class="fas fa-user-plus"></i> বার্তা পাঠান
+                  <i class="fas fa-envelope"></i> বার্তা পাঠান
                 </button>
               </form>
             	

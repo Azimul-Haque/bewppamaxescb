@@ -172,7 +172,13 @@ class DashboardController extends Controller
                 'username'=>config('sms.username'),
                 'password'=>config('sms.password'),
             );
-            dd($users);
+            $ch = curl_init(); // Initialize cURL
+            curl_setopt($ch, CURLOPT_URL,$url);
+            curl_setopt($ch, CURLOPT_ENCODING, '');
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $smsresult = curl_exec($ch);
+            
         } else {
             Session::flash('warning', 'অংক মেলেনি!');
             return redirect()->back();

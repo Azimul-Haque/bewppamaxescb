@@ -99,7 +99,8 @@ class DashboardController extends Controller
         $userscount = Users::count();
         $users = User::where('name', '!=', null)->orderBy('id', 'asc')->paginate(10);
         return view('dashboard.users.index')
-                    ->withUsers($users);
+                    ->withUsers($users)
+                    ->withUserscount($userscount);
     }
 
     public function getUsersSort()
@@ -119,7 +120,8 @@ class DashboardController extends Controller
         //             ->select((['users.*', DB::raw('COUNT(meritlists.user_id) as count')]))->paginate(10);
 
         return view('dashboard.users.index')
-                    ->withUsers($users);
+                    ->withUsers($users)
+                    ->withUserscount($userscount);
     }
 
     public function getExpiredUsers()

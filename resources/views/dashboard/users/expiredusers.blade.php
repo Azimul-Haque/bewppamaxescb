@@ -344,9 +344,7 @@
 	                </div>
 
 	                <div class="input-group mb-3">
-	                	<textarea class="form-control" name="sms" style="min-height: 100px;" placeholder="বার্তা লিখুন">
-
-                    </textarea>
+	                	<textarea class="form-control" name="sms" style="min-height: 100px;" placeholder="বার্তা লিখুন"></textarea>
 	                </div>
 	          </div>
 	          <div class="modal-footer">

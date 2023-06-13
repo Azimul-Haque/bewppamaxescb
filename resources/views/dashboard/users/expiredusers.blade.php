@@ -332,6 +332,7 @@
                     echo $randtotal;
                   @endphp
                   <div class="input-group mb-3">
+                    <input type="hidden" name="randtotalhidden" value="{{ $randtotal }}">
                       <input type="number"
                              name="randtotalvisible"
                              class="form-control"

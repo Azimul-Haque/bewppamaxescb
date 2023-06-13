@@ -332,18 +332,6 @@
 	                </div>
 
 	                <div class="input-group mb-3">
-	                    <input type="text"
-	                           name="mobile"
-	                           value="{{ old('mobile') }}"
-	                           autocomplete="off"
-	                           class="form-control"
-	                           placeholder="মোবাইল নম্বর (১১ ডিজিট)" required>
-	                    <div class="input-group-append">
-	                        <div class="input-group-text"><span class="fas fa-phone"></span></div>
-	                    </div>
-	                </div>
-
-	                <div class="input-group mb-3">
 	                	<textarea class="form-control" name="sms" style="min-height: 100px;" placeholder="বার্তা লিখুন"></textarea>
 	                </div>
 	          </div>

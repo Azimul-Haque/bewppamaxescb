@@ -327,9 +327,6 @@
                     $random2 = rand(1,20);
 
                     $randtotal = $random1 + $random2;
-                    echo $random1;
-                    echo $random2;
-                    echo $randtotal;
                   @endphp
                   <div class="input-group mb-3">
                     <input type="hidden" name="randtotalhidden" value="{{ $randtotal }}">

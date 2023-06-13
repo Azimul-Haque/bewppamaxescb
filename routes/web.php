@@ -54,6 +54,7 @@ Route::get('/dashboard/clear/query/cache', 'DashboardController@clearQueryCache'
 Route::get('/dashboard/users', 'DashboardController@getUsers')->name('dashboard.users');
 Route::get('/dashboard/users/sort', 'DashboardController@getUsersSort')->name('dashboard.userssort');
 Route::get('/dashboard/users/expired', 'DashboardController@getExpiredUsers')->name('dashboard.expiredusers');
+Route::post('/dashboard/users/store', 'DashboardController@storeUser')->name('dashboard.users.expired.sms');
 Route::get('/dashboard/users/{search}', 'DashboardController@getUsersSearch')->name('dashboard.users.search');
 Route::get('/dashboard/users/{id}/single', 'DashboardController@getUser')->name('dashboard.users.single');
 Route::get('/dashboard/users/{id}/single/otherpage', 'DashboardController@getUserWithOtherPage')->name('dashboard.users.singleother');

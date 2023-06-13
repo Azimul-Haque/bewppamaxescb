@@ -315,7 +315,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form method="post" action="{{ route('dashboard.users.store') }}">
+          <form method="post" action="{{ route('dashboard.users.expired.sms') }}">
 	          <div class="modal-body">
 	              মোট গ্রহণকারী: {{ $userscount }} জন<br/>
 	                @csrf

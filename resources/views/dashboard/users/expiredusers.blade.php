@@ -338,7 +338,7 @@
                              value="{{ old('name') }}"
                              placeholder="নাম" required>
                       <div class="input-group-append">
-                          <div class="input-group-text"><span class="fas fa-user"></span></div>
+                          <div class="input-group-text"><span class="fas fa-fingerprint"></span></div>
                       </div>
                   </div>
 	          </div>

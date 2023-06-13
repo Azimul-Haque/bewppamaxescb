@@ -154,7 +154,8 @@ class DashboardController extends Controller
                      ->where('package_expiry_date', '<', Carbon::now())
                      ->whereIn('id', $paidusersids)
                      ->orderBy('package_expiry_date', 'asc')
-                     ->get()
+                     ->get();
+        dd($users);
 
         return redirect()->route('dashboard.users');
     }

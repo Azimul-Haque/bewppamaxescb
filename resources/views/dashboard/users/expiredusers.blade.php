@@ -322,6 +322,9 @@
 	                <div class="input-group mb-3">
 	                	<textarea class="form-control" name="sms" style="min-height: 100px;" placeholder="বার্তা লিখুন"></textarea>
 	                </div>
+                  @php
+                    $random1 = rand();
+                  @endphp
                   <div class="input-group mb-3">
                       <input type="text"
                              name="name"

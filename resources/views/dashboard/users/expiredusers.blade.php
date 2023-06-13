@@ -335,7 +335,7 @@
                       <input type="number"
                              name="name"
                              class="form-control"
-                             placeholder="নাম" required>
+                             placeholder="{{ $random1 . ' + ' . $random2 . ' = ?' }}" required>
                       <div class="input-group-append">
                           <div class="input-group-text"><span class="fas fa-fingerprint"></span></div>
                       </div>

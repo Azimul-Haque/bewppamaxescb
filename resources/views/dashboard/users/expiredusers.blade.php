@@ -332,10 +332,9 @@
                     echo $randtotal;
                   @endphp
                   <div class="input-group mb-3">
-                      <input type="text"
+                      <input type="number"
                              name="name"
                              class="form-control"
-                             value="{{ old('name') }}"
                              placeholder="নাম" required>
                       <div class="input-group-append">
                           <div class="input-group-text"><span class="fas fa-fingerprint"></span></div>

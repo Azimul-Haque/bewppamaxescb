@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') ড্যাশবোর্ড | ব্যবহারকারীগণ @endsection
+@section('title') ড্যাশবোর্ড | মেয়াদোত্তীর্ণ ব্যবহারকারীগণ @endsection
 
 @section('third_party_stylesheets')
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/icheck-bootstrap@3.0.1/icheck-bootstrap.min.css">
@@ -7,11 +7,11 @@
 @endsection
 
 @section('content')
-	@section('page-header') ব্যবহারকারীগণ (মোট {{ bangla($userscount) }} জন) @endsection
+	@section('page-header') মেয়াদোত্তীর্ণ ব্যবহারকারীগণ (মোট {{ bangla($userscount) }} জন) @endsection
     <div class="container-fluid">
 		<div class="card">
           <div class="card-header">
-            <h3 class="card-title">ব্যবহারকারীগণ</h3>
+            <h3 class="card-title">মেয়াদোত্তীর্ণ ব্যবহারকারীগণ</h3>
             <small><a href="{{ route('dashboard.userssort')  }}" style="margin-left: 5px;">সর্বোচ্চ পরীক্ষার্থী</a></small>
             <small><a href="{{ route('dashboard.expiredusers')  }}" style="margin-left: 5px;">মেয়াদোত্তীর্ণ পরীক্ষার্থী</a></small>
 

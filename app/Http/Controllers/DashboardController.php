@@ -131,7 +131,7 @@ class DashboardController extends Controller
                       // ->where(function($query) {
                       //       $query->whereHas('payments');
                       //  })
-                     ->whereHas('payments');
+                     ->whereHas('payments')
                      ->orderBy('package_expiry_date', 'asc')
                      ->paginate(10);
 

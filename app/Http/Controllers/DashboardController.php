@@ -131,11 +131,11 @@ class DashboardController extends Controller
                      ->where('package_expiry_date', '<', Carbon::now())
                      ->orderBy('package_expiry_date', 'asc')
                      ->paginate(10);
-        $users = $users->filter(function ($value, $key) {
+        $newusers = $users->filter(function ($value, $key) {
             return $value->payments_count > 0;
         });
 
-        dd($users);
+        dd($newusers);
         return view('dashboard.users.index')
                     ->withUsers($users)
                     ->withUserscount($userscount);

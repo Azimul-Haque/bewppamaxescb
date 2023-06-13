@@ -132,7 +132,7 @@ class DashboardController extends Controller
                      ->filter(function ($value, $key) {
                         return $value->payments_count > 0;
                      })
-                     ->orderBy('package_expiry_date', 'asc');
+                     ->orderBy('package_expiry_date', 'asc')->paginate(10);
         // $newusers = $users->filter(function ($value, $key) {
         //     return $value->payments_count > 0;
         // });

@@ -199,7 +199,6 @@ class DashboardController extends Controller
             } else {
                 Session::flash('warning', 'দুঃখিত! SMS পাঠানো যায়নি!');
             }
-            
         } else {
             Session::flash('warning', 'অংক মেলেনি!');
             return redirect()->back();

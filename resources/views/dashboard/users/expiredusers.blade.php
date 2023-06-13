@@ -346,19 +346,6 @@
 	                <div class="input-group mb-3">
 	                	<textarea class="form-control" name="sms"></textarea>
 	                </div>
-
-
-	                <div class="input-group mb-3">
-	                    <input type="password"
-	                           name="password"
-	                           class="form-control"
-	                           autocomplete="off"
-	                           placeholder="পাসওয়ার্ড" required>
-	                    <div class="input-group-append">
-	                        <div class="input-group-text"><span class="fas fa-lock"></span></div>
-	                    </div>
-	                </div>
-	            
 	          </div>
 	          <div class="modal-footer">
 	            <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

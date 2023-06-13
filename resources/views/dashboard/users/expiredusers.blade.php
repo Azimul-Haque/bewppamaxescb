@@ -24,7 +24,7 @@
                   <i class="fas fa-search"></i> খুঁজুন
                 </button>
                 <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#sendMessage" style="margin-left: 5px;">
-                  <i class="fas fa-user-plus"></i> নতুন
+                  <i class="fas fa-user-plus"></i> বার্তা পাঠান
                 </button>
               </form>
             	
@@ -303,8 +303,8 @@
         {{ $users->links() }}
     </div>
 
-    {{-- Add User Modal Code --}}
-    {{-- Add User Modal Code --}}
+    {{-- Send SMS Modal Code --}}
+    {{-- Send SMS Modal Code --}}
     <!-- Modal -->
     <div class="modal fade" id="sendMessage" tabindex="-1" role="dialog" aria-labelledby="sendMessageLabel" aria-hidden="true" data-backdrop="static">
       <div class="modal-dialog" role="document">
@@ -378,8 +378,8 @@
         </div>
       </div>
     </div>
-    {{-- Add User Modal Code --}}
-    {{-- Add User Modal Code --}}
+    {{-- Send SMS Modal Code --}}
+    {{-- Send SMS Modal Code --}}
 @endsection
 
 @section('third_party_scripts')

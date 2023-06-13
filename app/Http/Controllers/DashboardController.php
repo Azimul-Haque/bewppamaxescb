@@ -144,17 +144,17 @@ class DashboardController extends Controller
 
     public function sendExpiredSMS(Request $request)
     {
-        $paidusersids = DB::table('payments')->select('user_id')->groupBy('user_id')->get()->pluck('user_id')->toArray();
-        // dd($paidusersids);
-        $userscount = User::where('package_expiry_date', '<', Carbon::now())
-                          ->whereIn('id', $paidusersids)
-                          ->count();
-        $users = User::where('package_expiry_date', '<', Carbon::now())
-                     ->whereIn('id', $paidusersids)
-                     ->orderBy('package_expiry_date', 'asc')
-                     ->paginate(10);
-        
-        // dd($users);
+        $this->validate($request,array(
+            'name'                    => 'required|string|max:191',
+            'tagline'                 => 'required|string|max:191',
+            'duration'                => 'required|string|max:191',
+            'numeric_duration'        => 'required|integer',
+            'price'                   => 'required|integer',
+            'strike_price'            => 'required|integer',
+            'status'                  => 'required',
+            'suggested'               => 'required',
+        ));
+
         return view('dashboard.users.expiredusers')
                     ->withUsers($users)
                     ->withUserscount($userscount);

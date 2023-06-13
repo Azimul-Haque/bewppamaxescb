@@ -128,7 +128,7 @@ class DashboardController extends Controller
     {
         // $users = User::where('name', '!=', null)->orderBy('id', 'asc')->get(10);
 
-        $users = User::where('end_time', '>=', Carbon::now())
+        $users = User::where('package_expiry_date', '>=', Carbon::now())
                      ->paginate(10);
 
         return view('dashboard.users.index')

@@ -166,6 +166,7 @@ class DashboardController extends Controller
                 );
             }
             $smsdata = array_values($smsdata);
+            $smsjsondata = json_encode($smsdata);
             dd($users);
         } else {
             Session::flash('warning', 'অংক মেলেনি!');

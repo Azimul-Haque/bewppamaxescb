@@ -128,8 +128,8 @@ class DashboardController extends Controller
     {
         $userscount = User::where('package_expiry_date', '<', Carbon::now())->count();
         $users = User::withCount('payments')
-                     // ->where('payments_count', 'asc')
-                     ->orderBy('payments_count', '>', 0)
+                     // ->where('payments_count', ''>', 0')
+                     ->orderBy('payments_count', 'asc')
                      // ->where('package_expiry_date', '<', Carbon::now())
                      // ->orderBy('package_expiry_date', 'asc')
                      ->paginate(10);

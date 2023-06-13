@@ -126,7 +126,7 @@ class DashboardController extends Controller
 
     public function getExpiredUsers()
     {
-        $paidusersids = DB::table('payments')->select('id')->groupBy('user_id')->get();
+        $paidusersids = DB::table('payments')->select('user_id')->groupBy('user_id')->get();
         dd($paidusersids);
         $userscount = User::where('package_expiry_date', '<', Carbon::now())->count();
         $users = User::withCount('payments')

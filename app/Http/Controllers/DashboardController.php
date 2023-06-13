@@ -126,7 +126,9 @@ class DashboardController extends Controller
 
     public function getExpiredUsers()
     {
-        $userscount = User::count();
+        $userscount = User::where('package_expiry_date', '<', Carbon::now())
+                     ->orderBy('package_expiry_date', 'asc')
+                     ->paginate(10);
         $users = User::where('package_expiry_date', '<', Carbon::now())
                      ->orderBy('package_expiry_date', 'asc')
                      ->paginate(10);

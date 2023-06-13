@@ -160,7 +160,7 @@ class DashboardController extends Controller
                 $text = 'Dear ' . $user->name . ', Test SMS';
 
                 $encodedtext = rawurlencode($text);
-                $smsdata[$i] = array(
+                $smsdata[] = array(
                     'to'=>"$user->mobile",
                     'message'=>"$encodedtext",
                 );

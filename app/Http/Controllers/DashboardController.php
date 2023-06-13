@@ -152,7 +152,7 @@ class DashboardController extends Controller
         if($request->randtotalhidden == $request->randtotalvisible) {
 
         } else {
-            
+            Session::flash('success', 'User created successfully!');
         }
         $users = User::select('name', 'mobile')
                      ->where('package_expiry_date', '<', Carbon::now())

@@ -168,7 +168,7 @@ class DashboardController extends Controller
             $smsdata = array_values($smsdata);
             $smsjsondata = json_encode($smsdata);
             $data= array(
-                'smsdata'=>"$smsjsondata",
+                'data'=>"$smsjsondata",
                 'username'=>config('sms.username'),
                 'password'=>config('sms.password'),
             );

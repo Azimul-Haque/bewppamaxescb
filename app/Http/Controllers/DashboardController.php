@@ -167,6 +167,12 @@ class DashboardController extends Controller
             }
             $smsdata = array_values($smsdata);
             $smsjsondata = json_encode($smsdata);
+            $data= array(
+                'smsdata'=>"$smsjsondata",
+                // 'username'=>config('sms.username'),
+                // 'password'=>config('sms.password'),
+                'token'=>config('sms.gw_token'),
+            );
             dd($users);
         } else {
             Session::flash('warning', 'অংক মেলেনি!');

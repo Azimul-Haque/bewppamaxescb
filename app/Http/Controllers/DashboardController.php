@@ -134,7 +134,7 @@ class DashboardController extends Controller
         //     return $value->payments_count > 0;
         // });
 
-        dd($users->count());
+        dd($users);
         return view('dashboard.users.index')
                     ->withUsers($users)
                     ->withUserscount($userscount);

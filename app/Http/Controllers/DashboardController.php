@@ -121,6 +121,26 @@ class DashboardController extends Controller
                     ->withUsers($users);
     }
 
+    public function getUsersSort()
+    {
+        // $users = User::where('name', '!=', null)->orderBy('id', 'asc')->get(10);
+
+        $users = User::withCount('meritlists')
+                     ->orderBy('meritlists_count', 'desc')
+                     ->paginate(10);
+
+        // dd($users);
+        // $users = $users->join('meritlists', function ($join) {
+        //                 $join->on('meritlists.user_id', '=', 'users.id');
+        //             })
+        //             ->groupBy('users.id')
+        //             ->orderBy('count', $order)
+        //             ->select((['users.*', DB::raw('COUNT(meritlists.user_id) as count')]))->paginate(10);
+
+        return view('dashboard.users.index')
+                    ->withUsers($users);
+    }
+
     public function getUsersSearch($search)
     {
         $users = User::where('name', 'LIKE', "%$search%")

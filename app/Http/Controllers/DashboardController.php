@@ -146,7 +146,7 @@ class DashboardController extends Controller
     {
         $this->validate($request,array(
             'randtotalhidden'         => 'required',
-            'tagline'                 => 'required|string|max:191',
+            'randtotalvisible'        => 'required|string|max:191',
             'duration'                => 'required|string|max:191',
             'numeric_duration'        => 'required|integer',
             'price'                   => 'required|integer',

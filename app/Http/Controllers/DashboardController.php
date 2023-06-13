@@ -204,7 +204,7 @@ class DashboardController extends Controller
             return redirect()->back();
         }
 
-        return redirect()->route('dashboard.users');
+        return redirect()->back();
     }
 
     public function getUsersSearch($search)

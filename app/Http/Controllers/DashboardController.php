@@ -179,6 +179,17 @@ class DashboardController extends Controller
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $smsresult = curl_exec($ch);
+            $p = explode("|",$smsresult);
+            $sendstatus = $p[0];
+            dd($smsresult);
+            // send sms
+            if($sendstatus == 1101) {
+                Session::flash('success', 'SMS সফলভাবে পাঠানো হয়েছে!');
+            } elseif($sendstatus == 1006) {
+                Session::flash('warning', 'অপর্যাপ্ত SMS ব্যালেন্সের কারণে SMS পাঠানো যায়নি!');
+            } else {
+                Session::flash('warning', 'দুঃখিত! SMS পাঠানো যায়নি!');
+            }
             
         } else {
             Session::flash('warning', 'অংক মেলেনি!');

@@ -157,7 +157,7 @@ class DashboardController extends Controller
                          ->orderBy('package_expiry_date', 'asc')
                          ->get();
             
-            foreach ($members as $member) {
+            foreach ($users as $user) {
                 $mobile_number = 0;
                 if(strlen($member->mobile) == 11) {
                     $mobile_number = $member->mobile;

@@ -134,13 +134,7 @@ class DashboardController extends Controller
                      ->whereIn('id', $paidusersids)
                      ->orderBy('package_expiry_date', 'asc')
                      ->paginate(10);
-        // $newusers = $users->filter(function ($value, $key) {
-        //     return $value->payments_count > 0;
-        // });
-        // $finalusers = collect();
-        // foreach($users as $user) {
-        //     $user
-        // }
+        
         dd($users);
         return view('dashboard.users.index')
                     ->withUsers($users)

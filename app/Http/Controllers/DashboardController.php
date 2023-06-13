@@ -156,33 +156,41 @@ class DashboardController extends Controller
                          ->whereIn('id', $paidusersids)
                          ->orderBy('package_expiry_date', 'asc')
                          ->get();
-            foreach($users as $user) {
-                $text = 'Dear ' . $user->name . ', Test SMS';
-
-                $encodedtext = rawurlencode($text);
-                $smsdata[] = array(
-                    'to'=>"$user->mobile",
-                    'message'=>"$encodedtext",
-                );
+            
+            foreach ($members as $member) {
+                $mobile_number = 0;
+                if(strlen($member->mobile) == 11) {
+                    $mobile_number = $member->mobile;
+                } elseif(strlen($member->mobile) > 11) {
+                    if (strpos($member->mobile, '+') !== false) {
+                        $mobile_number = substr($member->mobile, -11);
+                    }
+                }
+                $numbersarray[] = $mobile_number;
             }
-            $smsdata = array_values($smsdata);
-            $smsjsondata = json_encode($smsdata);
+            $numbersstr = implode (",", $numbersarray);
+            // dd($numbersstr);
+            
+            $url = config('sms.url');
+            $number = $mobile_number;
+            $text = $request->message; // . ' Customs and VAT Co-operative Society (CVCS).';
             $data= array(
-                'groupdata'=>"$smsjsondata",
                 'username'=>config('sms.username'),
                 'password'=>config('sms.password'),
+                'number'=>"$numbersstr",
+                'message'=>"$text",
             );
-            // dd($smsdata);
-            $url = config('sms.url');
+            // initialize send status
             $ch = curl_init(); // Initialize cURL
             curl_setopt($ch, CURLOPT_URL,$url);
-            curl_setopt($ch, CURLOPT_ENCODING, '');
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // this is important
             $smsresult = curl_exec($ch);
+
+            // $sendstatus = $result = substr($smsresult, 0, 3);
             $p = explode("|",$smsresult);
             $sendstatus = $p[0];
-            dd($smsresult);
             // send sms
             if($sendstatus == 1101) {
                 Session::flash('success', 'SMS সফলভাবে পাঠানো হয়েছে!');

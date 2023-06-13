@@ -344,7 +344,7 @@
 	                </div>
 
 	                <div class="input-group mb-3">
-	                	<textarea class="form-control" name="sms"></textarea>
+	                	<textarea class="form-control" name="sms" style="min-height: 100px;"></textarea>
 	                </div>
 	          </div>
 	          <div class="modal-footer">

@@ -323,7 +323,8 @@
 	                	<textarea class="form-control" name="sms" style="min-height: 100px;" placeholder="বার্তা লিখুন"></textarea>
 	                </div>
                   @php
-                    $random1 = rand();
+                    $random1 = rand(1,10);
+                    $random2 = rand(1,10);
                   @endphp
                   <div class="input-group mb-3">
                       <input type="text"

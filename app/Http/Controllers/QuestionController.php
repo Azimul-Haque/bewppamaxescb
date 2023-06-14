@@ -118,6 +118,8 @@ class QuestionController extends Controller
                              ->orderBy('id', 'desc')
                              ->paginate(10);
 
+                             Topic::find($topic_id)->posts()->where('id','>',10)->get();
+                             
         $topics = Topic::orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
 

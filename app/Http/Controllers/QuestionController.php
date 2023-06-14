@@ -40,7 +40,7 @@ class QuestionController extends Controller
         }
         
         $totalquestions = Question::count();
-        $questions = Question::orderBy('id', 'desc')->get()->chunk(300, function($questions){
+        $questions = Question::orderBy('id', 'desc')->get()->chunk(100, function($questions){
             //do whatever you would normally be doing with the rows you receive
             // $domain stuff
         });

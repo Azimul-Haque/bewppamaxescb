@@ -74,6 +74,7 @@ Route::post('/dashboard/packages/{id}/update', 'DashboardController@updatePackag
 Route::get('/dashboard/questions', 'QuestionController@getQuestions')->name('dashboard.questions');
 Route::get('/dashboard/questions/{search}', 'QuestionController@getQuestionsSearch')->name('dashboard.questions.search');
 Route::get('/dashboard/questions/topic/{id}', 'QuestionController@getQuestionsTopicBased')->name('dashboard.questionstopicbased');
+Route::get('/dashboard/questions/tag/{id}', 'QuestionController@getQuestionsTagBased')->name('dashboard.questionstagbased');
 Route::post('/dashboard/questions/store', 'QuestionController@storeQuestion')->name('dashboard.questions.store');
 Route::post('/dashboard/questions/excel/store', 'QuestionController@storeExcelQuestion')->name('dashboard.questions.excel.store');
 Route::post('/dashboard/questions/{id}/update', 'QuestionController@updateQuestion')->name('dashboard.questions.update');

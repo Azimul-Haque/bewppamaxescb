@@ -58,7 +58,7 @@
                               </tr>
                           </thead>
                           <tbody>
-                          @foreach($questions->chunk(10) as $question)
+                          @foreach($questions as $question)
                               <tr>
                                   <td>
                                       {!! $question->question !!}<br/>

@@ -500,7 +500,6 @@
                                   <td>
                                     <a href="{{ route('dashboard.questionstopicbased', $topic->id) }}">
                                       {{ $tag->name }} <small>({{ $tag->questions->count() }} টি প্রশ্ন)</small><br/>
-                                      <span class="badge bg-primary"><i class="fas fa-bolt"></i> {{ $topic->participation }}</span>
                                     </a>
                                       
                                   </td>

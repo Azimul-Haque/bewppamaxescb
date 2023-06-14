@@ -114,12 +114,14 @@ class QuestionController extends Controller
         }
         
         $totalquestions = Question::where('topic_id', $id)->count();
-        $questions = Question::where('topic_id', $id)
+        $questions = Tag::find($id)->questions()->orderBy('id', 'desc')
+
+         Question::where('topic_id', $id)
                              ->orderBy('id', 'desc')
                              ->paginate(10);
 
                              Topic::find($topic_id)->posts()->where('id','>',10)->get();
-                             
+
         $topics = Topic::orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
 

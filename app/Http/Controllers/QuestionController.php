@@ -40,8 +40,10 @@ class QuestionController extends Controller
         }
         
         $totalquestions = Question::count();
-        $questions = Question::orderBy('id', 'desc')->chunk(300);
-        dd($questions);
+        $questions = Question::orderBy('id', 'desc')->paginate(10)->chunk(300, function($domain){
+            //do whatever you would normally be doing with the rows you receive
+            // $domain stuff
+        });
         $topics = Topic::orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
 

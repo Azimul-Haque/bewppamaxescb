@@ -113,7 +113,7 @@ class QuestionController extends Controller
             abort(403, 'Access Denied');
         }
         
-        $totalquestions = Question::where('topic_id', $id)->count();
+        $totalquestions = Tag::find($id)->questions()->orderBy('id', 'desc')->count();
         $questions = Tag::find($id)->questions()->orderBy('id', 'desc')->paginate(10);
 
          // Question::where('topic_id', $id)

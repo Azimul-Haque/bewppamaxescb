@@ -41,6 +41,7 @@ class QuestionController extends Controller
         
         $totalquestions = Question::count();
         $questions = Question::orderBy('id', 'desc')->chunk(300);
+        dd($questions);
         $topics = Topic::orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
 

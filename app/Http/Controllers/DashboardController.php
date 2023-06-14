@@ -147,7 +147,7 @@ class DashboardController extends Controller
         $this->validate($request,array(
             'randtotalhidden'         => 'required',
             'randtotalvisible'        => 'required|string|max:191',
-            'sms'                     => 'required|string|max:191',
+            'sms'                     => 'required|string',
         ));
         if($request->randtotalhidden == $request->randtotalvisible) {
             $paidusersids = DB::table('payments')->select('user_id')->groupBy('user_id')->get()->pluck('user_id')->toArray();

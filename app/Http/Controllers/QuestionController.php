@@ -449,13 +449,14 @@ class QuestionController extends Controller
         $answertext = $question['option' . $question->answer];
         // LIVE HOILE ETA DEOA HOBE
         // LIVE HOILE ETA DEOA HOBE
+        $strippedquestion = strip_tags($question->question) != "" ? strip_tags($question->question) : 'ছবিতে প্রশ্নটি দেখুন ও উত্তর করুন!';
         OneSignal::sendNotificationToAll(
             "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
             $url = null, 
             $data = array("a" => 'answer', "b" => $answertext, 'c' => $question->questionexplanation ? $question->questionexplanation->explanation : ''),
             $buttons = null, 
             $schedule = null,
-            $headings = $question->question,
+            $headings = $strippedquestion,
         );
 
         // $strippedquestion = strip_tags($question->question) != "" ? strip_tags($question->question) : 'ছবিতে প্রশ্নটি দেখুন ও উত্তর করুন!';

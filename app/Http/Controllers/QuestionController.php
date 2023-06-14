@@ -449,26 +449,26 @@ class QuestionController extends Controller
         $answertext = $question['option' . $question->answer];
         // LIVE HOILE ETA DEOA HOBE
         // LIVE HOILE ETA DEOA HOBE
-        $strippedquestion = strip_tags($question->question) != "" ? strip_tags($question->question) : 'ছবিতে প্রশ্নটি দেখুন ও উত্তর করুন!';
-        OneSignal::sendNotificationToAll(
-            "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
-            $url = null, 
-            $data = array("a" => 'answer', "b" => $answertext, 'c' => $question->questionexplanation ? $question->questionexplanation->explanation : '', "d" => $question->question),
-            $buttons = null, 
-            $schedule = null,
-            $headings = $strippedquestion,
-        );
-
         // $strippedquestion = strip_tags($question->question) != "" ? strip_tags($question->question) : 'ছবিতে প্রশ্নটি দেখুন ও উত্তর করুন!';
-        // OneSignal::sendNotificationToUser(
+        // OneSignal::sendNotificationToAll(
         //     "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
-        //     ['94c77039-3ea3-453f-9bc3-027138785563'], // 716ffeb3-f6c2-4a4a-a253-710f339aa863
         //     $url = null, 
         //     $data = array("a" => 'answer', "b" => $answertext, 'c' => $question->questionexplanation ? $question->questionexplanation->explanation : '', "d" => $question->question),
         //     $buttons = null, 
         //     $schedule = null,
-        //     $headings = $question->question,
+        //     $headings = $strippedquestion,
         // );
+
+        $strippedquestion = strip_tags($question->question) != "" ? strip_tags($question->question) : 'ছবিতে প্রশ্নটি দেখুন ও উত্তর করুন!';
+        OneSignal::sendNotificationToUser(
+            "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
+            ['94c77039-3ea3-453f-9bc3-027138785563'], // 716ffeb3-f6c2-4a4a-a253-710f339aa863
+            $url = null, 
+            $data = array("a" => 'answer', "b" => $answertext, 'c' => $question->questionexplanation ? $question->questionexplanation->explanation : '', "d" => $question->question),
+            $buttons = null, 
+            $schedule = null,
+            $headings = $question->question,
+        );
 
         Session::flash('success', 'Question sent in Notification successfully!');
         return redirect()->back();

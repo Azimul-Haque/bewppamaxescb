@@ -449,9 +449,6 @@ class QuestionController extends Controller
         $answertext = $question['option' . $question->answer];
         // LIVE HOILE ETA DEOA HOBE
         // LIVE HOILE ETA DEOA HOBE
-        // LIVE HOILE ETA DEOA HOBE
-        // LIVE HOILE ETA DEOA HOBE
-        // LIVE HOILE ETA DEOA HOBE
         OneSignal::sendNotificationToAll(
             "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
             $url = null, 

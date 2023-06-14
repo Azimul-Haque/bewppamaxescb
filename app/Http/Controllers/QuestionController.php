@@ -462,15 +462,15 @@ class QuestionController extends Controller
         );
 
         $strippedquestion = strip_tags($question->question) != "" ? strip_tags($question->question) : 'ছবিতে প্রশ্নটি দেখুন ও উত্তর করুন!';
-        OneSignal::sendNotificationToUser(
-            "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
-            ['7198ee60-23a0-446e-ab00-2599f4add299'], // 716ffeb3-f6c2-4a4a-a253-710f339aa863
-            $url = null, 
-            $data = array("a" => 'answer', "b" => $answertext, 'c' => $question->questionexplanation ? $question->questionexplanation->explanation : '', "d" => $question->question),
-            $buttons = null, 
-            $schedule = null,
-            $headings = $strippedquestion,
-        );
+        // OneSignal::sendNotificationToUser(
+        //     "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
+        //     ['7198ee60-23a0-446e-ab00-2599f4add299'], // 716ffeb3-f6c2-4a4a-a253-710f339aa863
+        //     $url = null, 
+        //     $data = array("a" => 'answer', "b" => $answertext, 'c' => $question->questionexplanation ? $question->questionexplanation->explanation : '', "d" => $question->question),
+        //     $buttons = null, 
+        //     $schedule = null,
+        //     $headings = $strippedquestion,
+        // );
 
         Session::flash('success', 'Question sent in Notification successfully!');
         return redirect()->back();

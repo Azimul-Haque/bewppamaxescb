@@ -498,7 +498,7 @@
                           @foreach($tags as $tag)
                               <tr>
                                   <td>
-                                    <a href="{{ route('dashboard.questionstopicbased', $topic->id) }}">
+                                    <a href="{{ route('dashboard.questionstagbased', $tag->id) }}">
                                       {{ $tag->name }} <small>({{ $tag->questions->count() }} টি প্রশ্ন)</small><br/>
                                     </a>
                                       

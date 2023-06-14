@@ -452,14 +452,14 @@ class QuestionController extends Controller
         // LIVE HOILE ETA DEOA HOBE
         // LIVE HOILE ETA DEOA HOBE
         // LIVE HOILE ETA DEOA HOBE
-        // OneSignal::sendNotificationToAll(
-        //     "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
-        //     $url = null, 
-        //     $data = array("a" => 'answer', "b" => $answertext, 'c' => $question->questionexplanation ? $question->questionexplanation->explanation : ''),
-        //     $buttons = null, 
-        //     $schedule = null,
-        //     $headings = $question->question,
-        // );
+        OneSignal::sendNotificationToAll(
+            "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
+            $url = null, 
+            $data = array("a" => 'answer', "b" => $answertext, 'c' => $question->questionexplanation ? $question->questionexplanation->explanation : ''),
+            $buttons = null, 
+            $schedule = null,
+            $headings = $question->question,
+        );
 
         $strippedquestion = strip_tags($question->question) != "" ? strip_tags($question->question) : 'ছবিতে প্রশ্নটি দেখুন ও উত্তর করুন!';
         OneSignal::sendNotificationToUser(

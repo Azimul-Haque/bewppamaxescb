@@ -453,7 +453,7 @@ class QuestionController extends Controller
         // OneSignal::sendNotificationToAll(
         //     "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
         //     $url = null, 
-        //     $data = array("a" => 'answer', "b" => $answertext, 'c' => $question->questionexplanation ? $question->questionexplanation->explanation : ''),
+        //     $data = array("a" => 'answer', "b" => $answertext, 'c' => $question->questionexplanation ? $question->questionexplanation->explanation : '', "d" => $question->question),
         //     $buttons = null, 
         //     $schedule = null,
         //     $headings = $strippedquestion,

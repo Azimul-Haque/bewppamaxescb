@@ -40,7 +40,7 @@ class QuestionController extends Controller
         }
         
         $totalquestions = Question::count();
-        $questions = Question::orderBy('id', 'desc')->paginate(10)->chunk(300, function($domain){
+        $questions = Question::orderBy('id', 'desc')->paginate(10)->chunk(300, function($questions){
             //do whatever you would normally be doing with the rows you receive
             // $domain stuff
         });

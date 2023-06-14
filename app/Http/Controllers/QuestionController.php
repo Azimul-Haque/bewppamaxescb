@@ -461,7 +461,7 @@ class QuestionController extends Controller
             $headings = $question->question,
         );
 
-        $strippedquestion = strip_tags($question->question) != "" ? strip_tags($question->question) : 'ছবিতে প্রশ্নটি দেখুন ও উত্তর করুন!';
+        // $strippedquestion = strip_tags($question->question) != "" ? strip_tags($question->question) : 'ছবিতে প্রশ্নটি দেখুন ও উত্তর করুন!';
         // OneSignal::sendNotificationToUser(
         //     "উত্তর দেখতে নোটিফিকেশনে ক্লিক করুন",
         //     ['7198ee60-23a0-446e-ab00-2599f4add299'], // 716ffeb3-f6c2-4a4a-a253-710f339aa863

@@ -209,7 +209,7 @@ class DashboardController extends Controller
 
     public function getUsersSearch($search)
     {
-        $userscount = $users = User::where('name', 'LIKE', "%$search%")
+        $userscount = User::where('name', 'LIKE', "%$search%")
                      ->orWhere('email', 'LIKE', "%$search%")
                      ->orWhere('mobile', 'LIKE', "%$search%")
                      ->orWhere('uid', 'LIKE', "%$search%")

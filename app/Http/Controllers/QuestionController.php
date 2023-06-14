@@ -35,6 +35,7 @@ class QuestionController extends Controller
 
     public function getQuestions()
     {
+        ini_set('memory_limit', '-1');
         if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
             abort(403, 'Access Denied');
         }

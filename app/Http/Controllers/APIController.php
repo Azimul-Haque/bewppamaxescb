@@ -579,6 +579,10 @@ class APIController extends Controller
         {
             $user = User::where('mobile', substr($request->mobile, -11))->first();
 
+            $oldexamresultcheck = Meritlist::where('course_id', $course_id)
+                                   ->where('exam_id', $exam_id)
+                                   ->get();
+
             $examresult = new Meritlist;
             $examresult->course_id = $request->course_id;
             $examresult->exam_id = $request->exam_id;

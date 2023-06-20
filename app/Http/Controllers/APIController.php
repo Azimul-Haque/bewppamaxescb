@@ -585,6 +585,8 @@ class APIController extends Controller
                                            ->first();
 
             if($oldexamresultcheck) {
+                // add korbe na
+            } else {
                 $examresult = new Meritlist;
                 $examresult->course_id = $request->course_id;
                 $examresult->exam_id = $request->exam_id;

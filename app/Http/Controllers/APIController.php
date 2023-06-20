@@ -579,19 +579,22 @@ class APIController extends Controller
         {
             $user = User::where('mobile', substr($request->mobile, -11))->first();
 
-            $oldexamresultcheck = Meritlist::where('exam_id', $exam_id)
+            $oldexamresultcheck = Meritlist::where('course_id', $course_id)
+                                           ->where('exam_id', $exam_id)
                                            ->where('user_id', $user->id)
-                                           ->get();
+                                           ->first();
+                                           
+            if($oldexamresultcheck->count() > 0) {
+                $examresult = new Meritlist;
+                $examresult->course_id = $request->course_id;
+                $examresult->exam_id = $request->exam_id;
+                $examresult->user_id = $user->id;
+                $examresult->marks = $request->marks;
+                $examresult->save();
 
-            $examresult = new Meritlist;
-            $examresult->course_id = $request->course_id;
-            $examresult->exam_id = $request->exam_id;
-            $examresult->user_id = $user->id;
-            $examresult->marks = $request->marks;
-            $examresult->save();
-
-            Cache::forget('meritlist'.$request->course_id.$request->exam_id);
-            Cache::forget('exam'.$request->exam_id);
+                Cache::forget('meritlist'.$request->course_id.$request->exam_id);
+                Cache::forget('exam'.$request->exam_id);
+            }
 
             return response()->json([
                 'success' => true

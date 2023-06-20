@@ -581,6 +581,7 @@ class APIController extends Controller
 
             $oldexamresultcheck = Meritlist::where('exam_id', $exam_id)
                                            ->get();
+                                           ->get();
 
             $examresult = new Meritlist;
             $examresult->course_id = $request->course_id;

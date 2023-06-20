@@ -584,7 +584,7 @@ class APIController extends Controller
                                            ->where('user_id', $user->id)
                                            ->first();
 
-            if($oldexamresultcheck->count() < 1) {
+            if($oldexamresultcheck) {
                 $examresult = new Meritlist;
                 $examresult->course_id = $request->course_id;
                 $examresult->exam_id = $request->exam_id;

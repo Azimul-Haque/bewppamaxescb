@@ -134,7 +134,7 @@ class DashboardController extends Controller
         $users = User::where('package_expiry_date', '<', Carbon::now())
                      ->whereIn('id', $paidusersids)
                      ->orderBy('package_expiry_date', 'asc')
-                     ->paginate(10);
+                     ->get();
         
         // dd($users);
         $usermobiles = $users->pluck('mobile')->toArray();

@@ -138,7 +138,7 @@ class DashboardController extends Controller
         
         // dd($users);
         $usermobiles = $users->pluck('mobile')->toArray();
-        dd($usermobiles);
+        dd(implode(', ', $usermobiles));
         return view('dashboard.users.expiredusers')
                     ->withUsers($users)
                     ->withUserscount($userscount);

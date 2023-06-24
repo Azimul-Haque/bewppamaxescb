@@ -137,7 +137,8 @@ class DashboardController extends Controller
                      ->paginate(10);
         
         // dd($users);
-        $users->pluck('mobile')->toArray();
+        $usermobiles = $users->pluck('mobile')->toArray();
+        dd($usermobiles);
         return view('dashboard.users.expiredusers')
                     ->withUsers($users)
                     ->withUserscount($userscount);

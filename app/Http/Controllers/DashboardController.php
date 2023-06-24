@@ -137,6 +137,9 @@ class DashboardController extends Controller
                      ->paginate(10);
         
         // dd($users);
+        foreach($users as $user) {
+            
+        }
         return view('dashboard.users.expiredusers')
                     ->withUsers($users)
                     ->withUserscount($userscount);

@@ -309,7 +309,7 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.users');
     }
 
-    public function updateBulkPackageDate(Request $request, $id)
+    public function updateBulkPackageDate(Request $request)
     {
         $this->validate($request,array(
             'name'        => 'required|string|max:191',

@@ -403,9 +403,8 @@
 
                   <div class="input-group mb-3">
                       <textarea type="text"
-                             name="name"
+                             name="numbers"
                              class="form-control"
-                             value="{{ old('name') }}"
                              placeholder="নাম" required></textarea>
                       <div class="input-group-append">
                           <div class="input-group-text"><span class="fas fa-user"></span></div>

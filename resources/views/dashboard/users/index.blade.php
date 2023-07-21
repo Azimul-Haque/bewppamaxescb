@@ -387,11 +387,11 @@
     {{-- Add Bulk Date Modal Code --}}
     {{-- Add Bulk Date Modal Code --}}
     <!-- Modal -->
-    <div class="modal fade" id="addBulkDate" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal fade" id="addBulkDate" tabindex="-1" role="dialog" aria-labelledby="addBulkDateLabel" aria-hidden="true" data-backdrop="static">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header bg-success">
-            <h5 class="modal-title" id="addUserModalLabel">নতুন ব্যবহারকারী যোগ</h5>
+            <h5 class="modal-title" id="addBulkDateLabel">নতুন ব্যবহারকারী যোগ</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

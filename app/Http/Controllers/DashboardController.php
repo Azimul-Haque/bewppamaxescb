@@ -309,6 +309,38 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.users');
     }
 
+    public function updateBulkPackageDate(Request $request, $id)
+    {
+        $this->validate($request,array(
+            'name'        => 'required|string|max:191',
+            'mobile'      => 'required|string|max:191|unique:users,mobile,'.$id,
+            'role'        => 'required',
+            'packageexpirydate'        => 'required',
+            'uid'        => 'sometimes',
+            'onesignal_id'        => 'sometimes',
+            // 'sitecheck'   => 'sometimes',
+            'password'    => 'nullable|string|min:8|max:191',
+        ));
+
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->mobile = $request->mobile;
+        $user->role = $request->role;
+        $user->package_expiry_date = date('Y-m-d', strtotime($request->packageexpirydate)) . ' 23:59:59';
+        // if(!empty($request->sitecheck)) {
+        //     $user->sites = implode(',', $request->sitecheck);
+        // }
+        $user->uid = $request->uid;
+        $user->onesignal_id = $request->onesignal_id;
+        if(!empty($request->password)) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+
+        Session::flash('success', 'User updated successfully!');
+        return redirect()->route('dashboard.users');
+    }
+
     public function deleteUser($id)
     {
         $user = User::find($id);

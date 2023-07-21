@@ -318,12 +318,13 @@ class DashboardController extends Controller
 
         $numbersarray = explode(',', $request->numbers);
 
-        $counter = 1;
+        $counter = 0;
         foreach($numbersarray as $number) {
             $user = User::where('mobile', '%LIKE%', $numbersarray)->first();
             if($user) {
                 $user->package_expiry_date = date('Y-m-d', strtotime($request->packageexpirydatebulk)) . ' 23:59:59';
                 $user->save();
+                $counter++;
             }
         }
 

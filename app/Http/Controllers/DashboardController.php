@@ -321,7 +321,7 @@ class DashboardController extends Controller
         $counter = 0;
         foreach($numbersarray as $number) {
             $user = User::where('mobile', '%LIKE%', $number)->first();
-            dd($user);
+            dd($number);
             if($user) {
                 $user->package_expiry_date = date('Y-m-d', strtotime($request->packageexpirydatebulk)) . ' 23:59:59';
                 $user->save();

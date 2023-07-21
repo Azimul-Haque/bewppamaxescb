@@ -396,7 +396,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form method="post" action="{{ route('dashboard.users.store') }}">
+          <form method="post" action="{{ route('dashboard.users.bulk.package.update') }}">
             <div class="modal-body">
               
                   @csrf

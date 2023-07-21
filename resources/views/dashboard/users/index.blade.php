@@ -402,11 +402,11 @@
                   @csrf
 
                   <div class="input-group mb-3">
-                      <input type="text"
+                      <textarea type="text"
                              name="name"
                              class="form-control"
                              value="{{ old('name') }}"
-                             placeholder="নাম" required>
+                             placeholder="নাম" required></textarea>
                       <div class="input-group-append">
                           <div class="input-group-text"><span class="fas fa-user"></span></div>
                       </div>

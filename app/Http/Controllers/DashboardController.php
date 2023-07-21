@@ -328,7 +328,7 @@ class DashboardController extends Controller
             }
         }
 
-        Session::flash('success', 'User updated successfully!');
+        Session::flash('success', $counter . ' Users updated successfully!');
         return redirect()->route('dashboard.users');
     }
 

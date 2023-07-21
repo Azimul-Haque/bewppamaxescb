@@ -316,6 +316,7 @@ class DashboardController extends Controller
             'packageexpirydate'        => 'required',
         ));
 
+        $numbersarray = explode(',', $request->numbers);
         $user = User::find($id);
         $user->name = $request->name;
         $user->mobile = $request->mobile;

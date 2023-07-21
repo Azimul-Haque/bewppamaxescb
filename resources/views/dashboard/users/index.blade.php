@@ -414,7 +414,6 @@
                   <div class="input-group mb-3">
                       <input type="text"
                              name="packageexpirydate"
-                             value="{{ date('F d, Y', strtotime($user->package_expiry_date)) }}"
                              autocomplete="off"
                              class="form-control"
                              placeholder="প্যাকেজের মেয়াদ বৃদ্ধি" required>

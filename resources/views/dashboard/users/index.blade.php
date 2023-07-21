@@ -433,6 +433,13 @@
     </div>
     {{-- Add Bulk Date Modal Code --}}
     {{-- Add Bulk Date Modal Code --}}
+    <script>
+      $("#packageexpirydate").datepicker({
+        format: 'MM dd, yyyy',
+        todayHighlight: true,
+        autoclose: true,
+      });
+    </script>
 @endsection
 
 @section('third_party_scripts')

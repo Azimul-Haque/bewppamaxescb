@@ -312,14 +312,8 @@ class DashboardController extends Controller
     public function updateBulkPackageDate(Request $request)
     {
         $this->validate($request,array(
-            'numbers'        => 'required|string',
-            'mobile'      => 'required|string|max:191|unique:users,mobile,'.$id,
-            'role'        => 'required',
+            'numbers'                  => 'required',
             'packageexpirydate'        => 'required',
-            'uid'        => 'sometimes',
-            'onesignal_id'        => 'sometimes',
-            // 'sitecheck'   => 'sometimes',
-            'password'    => 'nullable|string|min:8|max:191',
         ));
 
         $user = User::find($id);

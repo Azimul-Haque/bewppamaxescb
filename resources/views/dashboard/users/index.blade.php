@@ -414,6 +414,7 @@
                   <div class="input-group mb-3">
                       <input type="text"
                              name="packageexpirydatebulk"
+                             id="packageexpirydatebulk" 
                              autocomplete="off"
                              class="form-control"
                              placeholder="প্যাকেজের মেয়াদ বৃদ্ধি" required>
@@ -433,9 +434,7 @@
     </div>
     {{-- Add Bulk Date Modal Code --}}
     {{-- Add Bulk Date Modal Code --}}
-    <script type="text/javascript" src="{{ asset('js/jquery-for-dp.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
     <script>
       $("#packageexpirydatebulk").datepicker({
         format: 'MM dd, yyyy',

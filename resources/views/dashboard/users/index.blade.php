@@ -405,7 +405,7 @@
                       <textarea type="text"
                              name="numbers"
                              class="form-control"
-                             placeholder="নাম" required></textarea>
+                             placeholder="নাম্বারসমূহ দিন (কমা সেপারেটেড)" required></textarea>
                       <div class="input-group-append">
                           <div class="input-group-text"><span class="fas fa-user"></span></div>
                       </div>

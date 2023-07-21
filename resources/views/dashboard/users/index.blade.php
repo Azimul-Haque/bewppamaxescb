@@ -384,10 +384,10 @@
     {{-- Add User Modal Code --}}
     {{-- Add User Modal Code --}}
 
-    {{-- Add User Modal Code --}}
-    {{-- Add User Modal Code --}}
+    {{-- Add Bulk Date Modal Code --}}
+    {{-- Add Bulk Date Modal Code --}}
     <!-- Modal -->
-    <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal fade" id="addBulkDate" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true" data-backdrop="static">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header bg-success">
@@ -459,8 +459,8 @@
         </div>
       </div>
     </div>
-    {{-- Add User Modal Code --}}
-    {{-- Add User Modal Code --}}
+    {{-- Add Bulk Date Modal Code --}}
+    {{-- Add Bulk Date Modal Code --}}
 @endsection
 
 @section('third_party_scripts')

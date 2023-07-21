@@ -318,6 +318,7 @@ class DashboardController extends Controller
 
         $numbersarray = explode(',', $request->numbers);
 
+        $counter = 1;
         foreach($numbersarray as $number) {
             $user = User::find($id);
             $user->package_expiry_date = date('Y-m-d', strtotime($request->packageexpirydatebulk)) . ' 23:59:59';

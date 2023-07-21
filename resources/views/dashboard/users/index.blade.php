@@ -23,7 +23,7 @@
                 <button type="button" id="search-button" class="btn btn-default btn-sm" style="margin-left: 5px;">
                   <i class="fas fa-search"></i> খুঁজুন
                 </button>
-                <button type="button" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#addUserModal" style="margin-left: 5px;">
+                <button type="button" class="btn btn-info btn-sm"  data-toggle="modal" data-target="#addUserModal" style="margin-left: 5px;">
                   <i class="fas fa-calendar-alt"></i> বাল্ক মেয়াদ বাড়ান
                 </button>
                 <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#addUserModal" style="margin-left: 5px;">

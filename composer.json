@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.2.5|^8.2.4",
         "barryvdh/laravel-debugbar": "^3.7",
         "berkayk/onesignal-laravel": "^1.0",
         "fideloper/proxy": "^4.2",

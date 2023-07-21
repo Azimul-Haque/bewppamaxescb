@@ -323,6 +323,7 @@ class DashboardController extends Controller
             $user = User::find($id);
             $user->package_expiry_date = date('Y-m-d', strtotime($request->packageexpirydatebulk)) . ' 23:59:59';
             $user->save();
+            
         }
 
         Session::flash('success', 'User updated successfully!');

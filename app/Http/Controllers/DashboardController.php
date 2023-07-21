@@ -312,8 +312,8 @@ class DashboardController extends Controller
     public function updateBulkPackageDate(Request $request)
     {
         $this->validate($request,array(
-            'numbers'                  => 'required',
-            'packageexpirydate'        => 'required',
+            'numbers'                      => 'required',
+            'packageexpirydatebulk'        => 'required',
         ));
 
         $numbersarray = explode(',', $request->numbers);

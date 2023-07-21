@@ -24,7 +24,7 @@
                   <i class="fas fa-search"></i> খুঁজুন
                 </button>
                 <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#addUserModal" style="margin-left: 5px;">
-                  <i class="fas fa-calendar-week"></i> নতুন
+                  <i class="fas fa-calendar-alt"></i> নতুন
                 </button>
                 <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#addUserModal" style="margin-left: 5px;">
                   <i class="fas fa-user-plus"></i> নতুন

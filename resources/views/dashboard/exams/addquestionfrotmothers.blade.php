@@ -101,7 +101,10 @@
       var y = otherexamids;
       var removeItem = rowid;
 
-      y.splice( $.inArray(removeItem,y) ,1 );
+      var i = $.inArray(removeItem,y);
+      if (i >= 0){
+          y.splice(i, 1);
+      }
       $('#otherexamids').val(y);
     }
 </script>

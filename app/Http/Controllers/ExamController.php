@@ -336,7 +336,7 @@ class ExamController extends Controller
             }
         }
         // dd($request->all());
-        Session::flash('success', 'Questions have been cleared!');
+        Session::flash('success', 'প্রশ্ন হালনাগাদ করা হয়েছে!');
         return redirect()->back();
     }
 

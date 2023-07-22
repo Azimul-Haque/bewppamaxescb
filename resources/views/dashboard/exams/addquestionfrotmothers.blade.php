@@ -93,10 +93,10 @@
       var y = $('#otherexamids').val().split(",").map(Number);
       var removeItem = rowid;
 
-      y = jQuery.grep(y, function(value) {
+      otherexamids = jQuery.grep(y, function(value) {
         return value != removeItem;
       });
-      $('#otherexamids').val(y);
+      $('#otherexamids').val(otherexamids);
     }
 </script>
 @endsection

@@ -102,7 +102,7 @@
       var removeItem = rowid;
 
       y.splice( $.inArray(removeItem,y) ,1 );
-      $('#otherexamids').val(latestotherexamids);
+      $('#otherexamids').val(y);
     }
 </script>
 @endsection

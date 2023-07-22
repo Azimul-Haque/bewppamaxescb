@@ -36,6 +36,7 @@
                         @endforeach
                       </select><br/>
                       <form method="post" action="{{ route('dashboard.exams.question.from.others.store') }}">
+                        <table id="selectedquestionlist"></table>
                           
                       </form>
                     </div>

@@ -335,7 +335,7 @@ class ExamController extends Controller
                 $examquestion->save();
             }
         }
-        dd($request->all());
+        // dd($request->all());
     }
 
     public function addQuestionToExamTopic($topic_id, $id)

@@ -320,7 +320,7 @@ class ExamController extends Controller
         $otherexamids = explode(',', $request->otherexamids);
 
         foreach($otherexamids as $examid) {
-            $exam = Exam::findOrFail($id);
+            $selectedexam = Exam::findOrFail($id);
         }
         dd($request->all());
     }

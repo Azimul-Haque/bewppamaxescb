@@ -91,7 +91,7 @@
     });
     function removeRow(tableid) {
       console.log(tableid);
-      $(tableid).remove();
+      $(tableid).hide();
     }
 </script>
 @endsection

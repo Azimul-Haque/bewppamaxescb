@@ -98,7 +98,7 @@
     function removeRow(rowid) {
       // console.log(rowid);
       $('#tablerow' + rowid).remove();
-      otherexamids.splice(otherexamids.indexOf(rowid), 1);
+      otherexamids = otherexamids.splice(otherexamids.indexOf(rowid), 1);
       $('#otherexamids').val(otherexamids);
     }
 </script>

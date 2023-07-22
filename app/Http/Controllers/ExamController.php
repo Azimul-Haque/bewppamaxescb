@@ -326,7 +326,8 @@ class ExamController extends Controller
                                         ->inRandomOrder()
                                         ->limit($request->$nameofthevariable)
                                         ->get();
-            dd($selectedexamquestions);
+            
+            // dd($selectedexamquestions);
         }
         dd($request->all());
     }

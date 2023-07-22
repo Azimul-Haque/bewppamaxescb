@@ -35,7 +35,7 @@
                             <option value="{{ $exam->name }},{{ $exam->id }}">{{ $exam->name }}</option>
                         @endforeach
                       </select><br/>
-                      <form method="post" action="{{ route('dashboard.exams.question.from.others.store') }}">
+                      <form method="post" action="{{ route('dashboard.exams.question.from.others.store', $exam->id) }}">
                         <table id="selectedquestionlist"></table><br/>
                         <button type="submit" class="btn btn-success" style="float: right;">দাখিল করুন</button>
                       </form>

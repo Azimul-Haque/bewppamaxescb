@@ -30,7 +30,6 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                       <select class="form-control select2" data-placeholder="পরীক্ষার নাম">
-                        
                         @foreach ($exams as $exam)
                             <option value="{{ $exam->id }}">{{ $exam->name }}</option>
                         @endforeach

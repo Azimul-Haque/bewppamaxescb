@@ -93,7 +93,7 @@
     });
     function removeRow(rowid) {
       console.log(rowid);
-      $(rowid).hide();
+      $(rowid).remove();
     }
 </script>
 @endsection

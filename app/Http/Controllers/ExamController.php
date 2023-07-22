@@ -320,7 +320,7 @@ class ExamController extends Controller
         $otherexamids = explode(',', $request->otherexamids);
 
         foreach($otherexamids as $examid) {
-
+            
         }
         dd($request->all());
     }

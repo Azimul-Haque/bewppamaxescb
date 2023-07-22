@@ -82,8 +82,8 @@
     //     } );
     $('#questionsetselect').change(function() {
       const selectarray = $(this).val().split(',');
-      console.log(selectarray[0]);
-      console.log(selectarray[1]);
+      // console.log(selectarray[0]);
+      // console.log(selectarray[1]);
       var appendhtml = '<tr id="tablerow'+selectarray[1]+'">';
       appendhtml += '<td width="70%">' + selectarray[0] + '</td>';
       appendhtml += '<td width="20%"><input type="number" class="form-control" name="questionamount'+selectarray[1]+'" placeholder="প্রশ্নের সংখ্যা"></td>';
@@ -92,7 +92,7 @@
       $('#selectedquestionlist').append(appendhtml);
     });
     function removeRow(rowid) {
-      console.log(rowid);
+      // console.log(rowid);
       $('#tablerow' + rowid).remove();
     }
 </script>

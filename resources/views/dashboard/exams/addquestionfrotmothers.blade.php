@@ -39,6 +39,7 @@
                         @csrf
                         <table id="selectedquestionlist"></table><br/>
                         <input type="hidden" name="examid" value="{{ $exam->id }}">
+                        <input type="text" name="examids[]">
                         <button type="submit" class="btn btn-success" style="float: right;">দাখিল করুন</button>
                       </form>
                     </div>

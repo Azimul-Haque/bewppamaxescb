@@ -82,7 +82,7 @@
       console.log(selectarray[0]);
       console.log(selectarray[1]);
       var appendhtml = '<table><tr>';
-      appendhtml += '<td width="65%">' + selectarray[0] + '</td>';
+      appendhtml += '<td width="70%">' + selectarray[0] + '</td>';
       appendhtml += '<td width="20%"><input class="form-control" name="" placeholder="প্রশ্নের সংখ্যা"></td>';
       appendhtml += '<td align="right"><button class="btn btn-success btn-sm">X</button</td>';
       appendhtml += '</tr></table>';

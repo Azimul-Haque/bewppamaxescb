@@ -336,6 +336,7 @@ class ExamController extends Controller
             }
         }
         // dd($request->all());
+        Session::flash('success', 'Questions have been cleared!');
         return redirect()->back();
     }
 

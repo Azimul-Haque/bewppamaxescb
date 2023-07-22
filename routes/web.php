@@ -104,6 +104,7 @@ Route::get('/dashboard/exams/{id}/delete', 'ExamController@deleteExam')->name('d
 Route::get('/dashboard/exams/add/question/{id}', 'ExamController@addQuestionToExam')->name('dashboard.exams.add.question');
 Route::post('/dashboard/exams/clear/questions', 'ExamController@clearExamQuestions')->name('dashboard.exams.question.clear');
 Route::get('/dashboard/exams/add/question/bank/all/{id}', 'ExamController@addQuestionToExamAll')->name('dashboard.exams.add.question.all');
+Route::get('/dashboard/exams/add/question/bank/all/{id}', 'ExamController@addQuestionToExamAll')->name('dashboard.exams.add.question.all');
 Route::get('/dashboard/exams/add/question/bank/topic/{topic_id}/{id}', 'ExamController@addQuestionToExamTopic')->name('dashboard.exams.add.question.topic');
 Route::get('/dashboard/exams/add/question/bank/search/{id}/{search}', 'ExamController@addQuestionToExamSearch')->name('dashboard.exams.add.question.search');
 Route::post('/dashboard/exams/add/question/store', 'ExamController@storeExamQuestion')->name('dashboard.exams.question.store');

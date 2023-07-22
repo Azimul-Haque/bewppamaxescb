@@ -27,8 +27,8 @@
                           <form method="post" action="{{ route('dashboard.exams.question.from.others.store') }}">
                               <select name="examids" class="form-control select2" data-placeholder="পরীক্ষার নাম">
                                 
-                                @foreach ($tags as $tag)
-                                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                @foreach ($exams as $exam)
+                                    <option value="{{ $exam->id }}">{{ $exam->name }}</option>
                                 @endforeach
                               </select>
                           </form>

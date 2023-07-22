@@ -32,7 +32,7 @@
                         <button type="button" class="btn btn-warning btn-sm"  data-toggle="modal" data-target="#addTAGQuestionModal">
                             <i class="fas fa-tags"></i> ট্যাগ থেকে প্রশ্ন
                         </button>
-                        <a href="{{ route('dashboard.exams.add.question.all', $exam->id) }}" class="btn btn-info btn-sm"  {{-- data-toggle="modal" data-target="#addExamQuestionModal" --}}>
+                        <a href="{{ route('dashboard.exams.add.question.from.others', $exam->id) }}" class="btn btn-info btn-sm"  {{-- data-toggle="modal" data-target="#addExamQuestionModal" --}}>
                             <i class="fas fa-copy"></i> অন্য প্রশ্নপত্র থেকে
                         </a>
                         <a href="{{ route('dashboard.exams.add.question.all', $exam->id) }}" class="btn btn-success btn-sm"  {{-- data-toggle="modal" data-target="#addExamQuestionModal" --}}>

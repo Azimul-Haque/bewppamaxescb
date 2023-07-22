@@ -37,7 +37,7 @@
                       </select><br/>
                       <form method="post" action="{{ route('dashboard.exams.question.from.others.store') }}">
                         <table id="selectedquestionlist"></table>
-                          
+                        <button class="btn btn-success">দাখিল করুন</button>
                       </form>
                     </div>
                     <!-- /.card-body -->

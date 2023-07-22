@@ -78,7 +78,7 @@
     //             console.error( error );
     //     } );
     $('#questionsetselect').change(function() {
-      const array = string.split(',');
+      const selectarray = $(this).val().split(',');
       console.log($(this).val());
     });
 </script>

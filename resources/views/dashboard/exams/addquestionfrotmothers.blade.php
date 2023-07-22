@@ -82,8 +82,8 @@
       console.log(selectarray[0]);
       console.log(selectarray[1]);
       var appendhtml = '<table><tr>';
-      appendhtml += '<td>' + selectarray[0] + '</td>';
-      appendhtml += '<td><input class="form-control" name=""></td>';
+      appendhtml += '<td width="60%">' + selectarray[0] + '</td>';
+      appendhtml += '<td width="25%"><input class="form-control" name=""></td>';
       appendhtml += '<td><button>X</button</td>';
       appendhtml += '</tr></table>';
       $('#selectedquestionlist').append(appendhtml);

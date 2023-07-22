@@ -313,10 +313,7 @@ class ExamController extends Controller
     public function storeQuestionFromOthers($request, $id)
     {
         $exam = Exam::findOrFail($id);
-        $examquestions = Examquestion::where('exam_id', $exam->id)
-                                     ->orderBy('question_id', 'asc')
-                                     ->get();
-        $exams = Exam::all();
+        
         
         return view('dashboard.exams.addquestionfrotmothers')
                                     ->withExam($exam)

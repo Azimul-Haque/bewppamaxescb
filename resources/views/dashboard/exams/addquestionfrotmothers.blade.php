@@ -81,6 +81,7 @@
       const selectarray = $(this).val().split(',');
       console.log(selectarray[0]);
       console.log(selectarray[1]);
+      $('#selectedquestionlist').
     });
 </script>
 @endsection

@@ -81,6 +81,7 @@
     //     .catch( error => {
     //             console.error( error );
     //     } );
+    otherexamids = [];
     $('#questionsetselect').change(function() {
       const selectarray = $(this).val().split(',');
       // console.log(selectarray[0]);
@@ -91,6 +92,7 @@
       appendhtml += '<td align="right"><button type="button" class="btn btn-danger btn-sm" onclick="removeRow('+selectarray[1]+')"><i class="far fa-trash-alt"></i></button</td>';
       appendhtml += '</tr>';
       $('#selectedquestionlist').append(appendhtml);
+
     });
     function removeRow(rowid) {
       // console.log(rowid);

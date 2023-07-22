@@ -326,8 +326,14 @@ class ExamController extends Controller
                                         ->inRandomOrder()
                                         ->limit($request->$nameofthevariable)
                                         ->get();
-            
+
             // dd($selectedexamquestions);
+            foreach($selectedexamquestions as $selectedexamquestion) {
+                $examquestion = new Examquestion;
+                $examquestion->exam_id = $exam->id;
+                $examquestion->question_id = $oldexamquestion->question_id;
+                $examquestion->save();
+            }
         }
         dd($request->all());
     }

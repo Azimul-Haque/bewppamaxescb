@@ -70,18 +70,10 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.4/underscore-umd-min.js"></script>
 <script>
+    var otherexamids = [];
     $('.select2').select2({
       // theme: 'bootstrap4',
     });
-    // ClassicEditor
-    //     .create( document.querySelector( '.summernote' ) )
-    //     .then( editor => {
-    //             console.log( editor );
-    //     } )
-    //     .catch( error => {
-    //             console.error( error );
-    //     } );
-    var otherexamids = [];
     $('#questionsetselect').change(function() {
       const selectarray = $(this).val().split(',');
       // console.log(selectarray[0]);

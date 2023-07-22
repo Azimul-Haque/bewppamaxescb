@@ -301,7 +301,7 @@ class ExamController extends Controller
         $exam = Exam::findOrFail($id);
         $exams = Exam::all();
         
-        return view('dashboard.exams.addquestionbankall')
+        return view('dashboard.exams.addquestionfrotmothers')
                                     ->withExam($exam)
                                     ->withExamquestions($examquestions)
                                     ->withTopics($topics)

@@ -26,14 +26,9 @@
                       <div class="card-tools">
                           <form method="post" action="{{ route('dashboard.exams.question.from.others.store') }}">
                               <select name="examids" class="form-control select2" data-placeholder="পরীক্ষার নাম">
-                                @php
-                                  $tag_array = [];
-                                  foreach($question->tags as $tag) {
-                                    $tag_array[] = $tag->id;
-                                  } 
-                                @endphp
+                                
                                 @foreach ($tags as $tag)
-                                    <option value="{{ $tag->id }}" @if(in_array($tag->id, $tag_array)) selected @endif>{{ $tag->name }}</option>
+                                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                                 @endforeach
                               </select>
                           </form>

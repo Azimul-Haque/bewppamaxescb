@@ -314,11 +314,7 @@ class ExamController extends Controller
     {
         $exam = Exam::findOrFail($id);
         
-        
-        return view('dashboard.exams.addquestionfrotmothers')
-                                    ->withExam($exam)
-                                    ->withExams($exams)
-                                    ->withExamquestions($examquestions);
+        dd($request->all());
     }
 
     public function addQuestionToExamTopic($topic_id, $id)

@@ -336,6 +336,7 @@ class ExamController extends Controller
             }
         }
         // dd($request->all());
+        return redirect()->back();
     }
 
     public function addQuestionToExamTopic($topic_id, $id)

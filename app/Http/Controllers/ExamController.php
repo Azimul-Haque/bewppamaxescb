@@ -303,10 +303,7 @@ class ExamController extends Controller
         
         return view('dashboard.exams.addquestionfrotmothers')
                                     ->withExam($exam)
-                                    ->withExamquestions($examquestions)
-                                    ->withTopics($topics)
-                                    ->withQuestions($questions)
-                                    ->withTotalquestions($totalquestions);
+                                    ->withExams($exams);
     }
 
     public function addQuestionToExamTopic($topic_id, $id)

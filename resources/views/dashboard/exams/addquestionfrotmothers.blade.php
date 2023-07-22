@@ -84,7 +84,7 @@
       var appendhtml = '<table><tr>';
       appendhtml += '<td width="60%">' + selectarray[0] + '</td>';
       appendhtml += '<td width="25%"><input class="form-control" name=""></td>';
-      appendhtml += '<td align="right"><button class="btn btn-success btn-xs">X</button</td>';
+      appendhtml += '<td align="right"><button class="btn btn-success btn-sm">X</button</td>';
       appendhtml += '</tr></table>';
       $('#selectedquestionlist').append(appendhtml);
     });

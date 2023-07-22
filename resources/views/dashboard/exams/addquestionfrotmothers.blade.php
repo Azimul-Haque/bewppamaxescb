@@ -90,7 +90,7 @@
       $('#selectedquestionlist').append(appendhtml);
     });
     function removeRow(tableid) {
-      console.log('clicked!');
+      console.log(tableid);
       $('#' + tableid).remove();
     }
 </script>

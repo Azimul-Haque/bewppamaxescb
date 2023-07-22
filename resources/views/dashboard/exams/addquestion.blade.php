@@ -33,7 +33,7 @@
                             <i class="fas fa-tags"></i> ট্যাগ থেকে প্রশ্ন
                         </button>
                         <a href="{{ route('dashboard.exams.add.question.all', $exam->id) }}" class="btn btn-success btn-sm"  {{-- data-toggle="modal" data-target="#addExamQuestionModal" --}}>
-                            <i class="fas fa-tasks"></i> অন্য প্রশ্ন 
+                            <i class="fas fa-tasks"></i> অন্য প্রশ্নপত্র থেকে
                         </a>
                         <a href="{{ route('dashboard.exams.add.question.all', $exam->id) }}" class="btn btn-success btn-sm"  {{-- data-toggle="modal" data-target="#addExamQuestionModal" --}}>
                             <i class="fas fa-tasks"></i> প্রশ্ন হালনাগাদ করুন

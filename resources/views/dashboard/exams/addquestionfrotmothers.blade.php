@@ -35,7 +35,7 @@
                                 @foreach ($tags as $tag)
                                     <option value="{{ $tag->id }}" @if(in_array($tag->id, $tag_array)) selected @endif>{{ $tag->name }}</option>
                                 @endforeach
-                            </select>
+                              </select>
                           </form>
                       </div>
                     </div>

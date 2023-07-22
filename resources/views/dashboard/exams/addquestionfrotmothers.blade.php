@@ -24,7 +24,7 @@
                     <div class="card-header">
                       <h3 class="card-title">প্রশ্নপত্র থেকে এড করুন</h3>
                       <div class="card-tools">
-                          <form method="post" action="{{ route('dashboard.exams.question.store') }}">
+                          <form method="post" action="{{ route('dashboard.exams.question.from.others.store') }}">
                               <select name="tags_ids[]" class="form-control multiple-select" multiple="multiple" data-placeholder="ট্যাগ">
                                 @php
                                   $tag_array = [];

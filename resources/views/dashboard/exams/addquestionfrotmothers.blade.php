@@ -36,6 +36,7 @@
                         @endforeach
                       </select><br/>
                       <form method="post" action="{{ route('dashboard.exams.question.from.others.store', $exam->id) }}">
+                        @csrf
                         <table id="selectedquestionlist"></table><br/>
                         <button type="submit" class="btn btn-success" style="float: right;">দাখিল করুন</button>
                       </form>

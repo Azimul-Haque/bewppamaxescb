@@ -33,7 +33,6 @@
                     </div>
                     <!-- /.card-body -->
                   </div>
-                  {{ $questions->links() }}
             </div>
             <div class="col-md-3">
                 <div class="card">

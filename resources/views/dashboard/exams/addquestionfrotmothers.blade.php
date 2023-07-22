@@ -24,7 +24,19 @@
                     <div class="card-header">
                       <h3 class="card-title">প্রশ্নপত্র থেকে এড করুন</h3>
                       <div class="card-tools">
-                          
+                          <form>
+                              <select name="tags_ids[]" class="form-control multiple-select" multiple="multiple" data-placeholder="ট্যাগ">
+                                @php
+                                  $tag_array = [];
+                                  foreach($question->tags as $tag) {
+                                    $tag_array[] = $tag->id;
+                                  } 
+                                @endphp
+                                @foreach ($tags as $tag)
+                                    <option value="{{ $tag->id }}" @if(in_array($tag->id, $tag_array)) selected @endif>{{ $tag->name }}</option>
+                                @endforeach
+                            </select>
+                          </form>
                       </div>
                     </div>
                     <!-- /.card-header -->

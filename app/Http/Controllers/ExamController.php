@@ -321,9 +321,9 @@ class ExamController extends Controller
 
         foreach($otherexamids as $examid) {
             $nameofthevariable = 'questionamount' . $examid;
-            dd($request->$nameofthevariable);
+            // dd($request->$nameofthevariable);
             $selectedexam = Examquestion::where('exam_id', $examid)
-                                        ->random(10);
+                                        ->random($request->$nameofthevariable);
         }
         dd($request->all());
     }

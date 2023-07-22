@@ -81,6 +81,8 @@
       const selectarray = $(this).val().split(',');
       console.log(selectarray[0]);
       console.log(selectarray[1]);
+      var appendhtml = '<table><tr>';
+      var appendhtml .= '<td>' + selectarray[0] + '</td>';
       $('#selectedquestionlist').append('<p>' + selectarray[0] + '</p>')
     });
 </script>

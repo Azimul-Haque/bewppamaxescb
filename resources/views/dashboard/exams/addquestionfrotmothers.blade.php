@@ -19,7 +19,7 @@
     @endsection
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">
                       <h3 class="card-title">প্রশ্নপত্র থেকে এড করুন</h3>
@@ -42,7 +42,7 @@
                     <!-- /.card-body -->
                   </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="card">
                     <div class="card-header">
                       <h3 class="card-title">প্রশ্নের হিসাব</h3>

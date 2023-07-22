@@ -321,7 +321,7 @@ class ExamController extends Controller
 
         foreach($otherexamids as $examid) {
             $nameofthevariable = 'questionamount' . $examid;
-            dd($request->$nameofthevariable);
+            dd($request->'questionamount' . $examid);
             // $selectedexam = Examquestion::where('exam_id', $examid)
         }
         dd($request->all());

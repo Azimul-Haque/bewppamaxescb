@@ -44,25 +44,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body p-0">
-                      <table class="table">
-                          <thead>
-                              <tr>
-                                  <th>Topic</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                          @foreach($topics as $topic)
-                              <tr>
-                                  <td>
-                                    <a href="{{ route('dashboard.exams.add.question.topic', [$topic->id, $exam->id]) }}">
-                                      {{ $topic->name }} <small>({{ $topic->questions->count() }} টি প্রশ্ন)</small>
-                                      <span class="badge bg-primary"><i class="fas fa-bolt"></i> {{ $topic->participation }}</span>
-                                    </a>
-                                  </td>
-                              </tr>
-                          @endforeach
-                          </tbody>
-                      </table>
+                      
                     </div>
                     <!-- /.card-body -->
                   </div>

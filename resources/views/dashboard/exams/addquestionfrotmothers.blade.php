@@ -88,5 +88,8 @@
       appendhtml += '</tr></table>';
       $('#selectedquestionlist').append(appendhtml);
     });
+    function removeRow(tableid) {
+
+    }
 </script>
 @endsection

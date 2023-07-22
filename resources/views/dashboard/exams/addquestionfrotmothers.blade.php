@@ -90,7 +90,7 @@
     function removeRow(rowid) {
       // console.log(rowid);
       $('#tablerow' + rowid).remove();
-      var y = $('#otherexamids').val();
+      var y = JSON.parse($('#otherexamids').val());
       var removeItem = rowid;
 
       y = jQuery.grep(y, function(value) {

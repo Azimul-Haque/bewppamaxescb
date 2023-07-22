@@ -81,7 +81,7 @@
     //     .catch( error => {
     //             console.error( error );
     //     } );
-    otherexamids = [];
+    var otherexamids = [];
     $('#questionsetselect').change(function() {
       const selectarray = $(this).val().split(',');
       // console.log(selectarray[0]);

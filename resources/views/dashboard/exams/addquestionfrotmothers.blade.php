@@ -85,7 +85,7 @@
       appendhtml += '<td>' + selectarray[0] + '</td>';
       appendhtml += '<td><input class="form-control" name=""></td>';
       appendhtml += '<td><button>X</button</td>';
-      appendhtml += '</tr>/<table>';
+      appendhtml += '</tr></table>';
       $('#selectedquestionlist').append(appendhtml);
     });
 </script>

@@ -77,8 +77,8 @@
     //     .catch( error => {
     //             console.error( error );
     //     } );
-</script>
-<script type="text/javascript">
-    
+    $('#questionsetselect').change(function() {
+      
+    });
 </script>
 @endsection

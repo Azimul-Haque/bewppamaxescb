@@ -323,7 +323,7 @@ class ExamController extends Controller
             $nameofthevariable = 'questionamount' . $examid;
             // dd($request->$nameofthevariable);
             $selectedexam = Examquestion::where('exam_id', $examid)
-                                        ->random($request->$nameofthevariable);
+                                        ->inRandomOrder()->limit($request->$nameofthevariable)->get();
         }
         dd($request->all());
     }

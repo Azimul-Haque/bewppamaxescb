@@ -98,6 +98,10 @@
     function removeRow(rowid) {
       // console.log(rowid);
       $('#tablerow' + rowid).remove();
+      var y = [1, 2, 3]
+      var removeItem = 2;
+
+      y.splice( $.inArray(removeItem,y) ,1 );
     }
 </script>
 @endsection

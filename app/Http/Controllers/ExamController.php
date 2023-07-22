@@ -330,7 +330,7 @@ class ExamController extends Controller
             // dd($selectedexamquestions);
             foreach($selectedexamquestions as $selectedexamquestion) {
                 $examquestion = new Examquestion;
-                $examquestion->exam_id = $examid;
+                $examquestion->exam_id = $id;
                 $examquestion->question_id = $selectedexamquestion->question_id;
                 $examquestion->save();
             }

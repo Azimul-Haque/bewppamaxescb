@@ -100,11 +100,10 @@
       $('#tablerow' + rowid).remove();
       var y = otherexamids;
       var removeItem = rowid;
-      console.log(rowid);
-      var i = $.inArray(removeItem,y);
-      if (i >= 0){
-          y.splice(i, 1);
-      }
+
+      y = jQuery.grep(y, function(value) {
+        return value != removeItem;
+      });
       $('#otherexamids').val(y);
     }
 </script>

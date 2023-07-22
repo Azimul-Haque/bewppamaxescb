@@ -15,7 +15,7 @@
 @endsection
 
 @section('content')
-    @section('page-header') <b><a href="{{ route('dashboard.exams.add.question', $exam->id) }}">{{ $exam->name }} <small>({{ $examquestions->count() }} টি প্রশ্ন)</small></a></b> / প্রশ্নব্যাংক থেকে বাছাই করুন
+    @section('page-header') <b><a href="{{ route('dashboard.exams.add.question', $exam->id) }}">{{ $exam->name }} <small>({{ $examquestions->count() }} টি প্রশ্ন)</small></a></b> প্রশ্নব্যাংক থেকে বাছাই করুন
     @endsection
     <div class="container-fluid">
         <div class="row">

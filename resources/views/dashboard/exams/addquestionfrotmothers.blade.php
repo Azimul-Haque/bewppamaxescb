@@ -89,7 +89,7 @@
       $('#selectedquestionlist').append(appendhtml);
     });
     function removeRow(tableid) {
-
+      $('#' + tableid).remove();
     }
 </script>
 @endsection

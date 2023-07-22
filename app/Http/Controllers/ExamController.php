@@ -310,7 +310,7 @@ class ExamController extends Controller
                                     ->withExamquestions($examquestions);
     }
 
-    public function storeQuestionFromOthers($request, $id)
+    public function storeQuestionFromOthers(Request $request, $id)
     {
         $exam = Exam::findOrFail($id);
         

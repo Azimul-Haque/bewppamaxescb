@@ -29,13 +29,13 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                      <select class="form-control select2" data-placeholder="পরীক্ষার নাম">
+                      <select class="form-control select2" id="questionsetselect" data-placeholder="পরীক্ষার নাম">
                         <option value="" selected disabled>পরীক্ষার নাম</option>
                         @foreach ($exams as $exam)
                             <option value="{{ $exam->name }},{{ $exam->id }}">{{ $exam->name }}</option>
                         @endforeach
                       </select><br/>
-                      <form method="post" id="selectedquestionlist" action="{{ route('dashboard.exams.question.from.others.store') }}">
+                      <form method="post" action="{{ route('dashboard.exams.question.from.others.store') }}">
                           
                       </form>
                     </div>

@@ -78,7 +78,7 @@
     //             console.error( error );
     //     } );
     $('#questionsetselect').change(function() {
-      
+      console.log('changed');
     });
 </script>
 @endsection

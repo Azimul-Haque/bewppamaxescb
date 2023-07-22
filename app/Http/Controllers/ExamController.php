@@ -318,7 +318,7 @@ class ExamController extends Controller
         ));
         
         $exam = Exam::findOrFail($id);
-        $myArray = explode(',', $myString);
+        $otherexamids = explode(',', $myString);
         dd($request->all());
     }
 

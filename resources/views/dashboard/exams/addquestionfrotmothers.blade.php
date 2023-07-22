@@ -25,7 +25,7 @@
                       <h3 class="card-title">প্রশ্নপত্র থেকে এড করুন</h3>
                       <div class="card-tools">
                           <form method="post" action="{{ route('dashboard.exams.question.from.others.store') }}">
-                              <select name="tags_ids[]" class="form-control multiple-select" data-placeholder="পরীক্ষার নাম">
+                              <select name="tags_ids[]" class="form-control select2" data-placeholder="পরীক্ষার নাম">
                                 @php
                                   $tag_array = [];
                                   foreach($question->tags as $tag) {
@@ -70,7 +70,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.4/underscore-umd-min.js"></script>
 <script>
-    $('.multiple-select').select2({
+    $('.select2').select2({
       // theme: 'bootstrap4',
     });
     // ClassicEditor

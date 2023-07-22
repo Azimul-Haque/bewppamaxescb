@@ -92,7 +92,8 @@
       appendhtml += '<td align="right"><button type="button" class="btn btn-danger btn-sm" onclick="removeRow('+selectarray[1]+')"><i class="far fa-trash-alt"></i></button</td>';
       appendhtml += '</tr>';
       $('#selectedquestionlist').append(appendhtml);
-
+      otherexamids.push(selectarray[1]);
+      $('#otherexamids').val(otherexamids);
     });
     function removeRow(rowid) {
       // console.log(rowid);

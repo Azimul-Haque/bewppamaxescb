@@ -98,7 +98,10 @@
     function removeRow(rowid) {
       // console.log(rowid);
       $('#tablerow' + rowid).remove();
-      latestotherexamids = otherexamids.splice(otherexamids.indexOf(rowid), 1);
+      var y = otherexamids;
+      var removeItem = rowid;
+
+      y.splice( $.inArray(removeItem,y) ,1 );
       $('#otherexamids').val(latestotherexamids);
     }
 </script>

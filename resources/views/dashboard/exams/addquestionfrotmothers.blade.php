@@ -24,19 +24,19 @@
                     <div class="card-header">
                       <h3 class="card-title">প্রশ্নপত্র থেকে এড করুন</h3>
                       <div class="card-tools">
-                          <form method="post" action="{{ route('dashboard.exams.question.from.others.store') }}">
-                              <select name="examids" class="form-control select2" data-placeholder="পরীক্ষার নাম">
-                                
-                                @foreach ($exams as $exam)
-                                    <option value="{{ $exam->id }}">{{ $exam->name }}</option>
-                                @endforeach
-                              </select>
-                          </form>
+                          
                       </div>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body p-0">
-                    
+                      <form method="post" action="{{ route('dashboard.exams.question.from.others.store') }}">
+                          <select name="examids" class="form-control select2" data-placeholder="পরীক্ষার নাম">
+                            
+                            @foreach ($exams as $exam)
+                                <option value="{{ $exam->id }}">{{ $exam->name }}</option>
+                            @endforeach
+                          </select>
+                      </form>
                     </div>
                     <!-- /.card-body -->
                   </div>

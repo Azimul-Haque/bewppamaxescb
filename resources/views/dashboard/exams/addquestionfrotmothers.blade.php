@@ -83,6 +83,7 @@
       console.log(selectarray[1]);
       var appendhtml = '<table><tr>';
       var appendhtml .= '<td>' + selectarray[0] + '</td>';
+      var appendhtml .= '<td><input class="form-control" name=""></td>';
       $('#selectedquestionlist').append('<p>' + selectarray[0] + '</p>')
     });
 </script>

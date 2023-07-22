@@ -88,7 +88,7 @@
       appendhtml += '</tr></table>';
       $('#selectedquestionlist').append(appendhtml);
     });
-    function removeRow(tableid) {
+    removeRow(tableid) {
       console.log('clicked!');
       $('#' + tableid).remove();
     }

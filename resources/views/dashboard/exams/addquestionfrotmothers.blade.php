@@ -22,7 +22,7 @@
             <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">প্রশ্নপত্র থেকে এড করুন</h3>
+                      <h3 class="card-title">প্রশ্নপত্র থেকে যোগ করুন</h3>
                       <div class="card-tools">
                           
                       </div>

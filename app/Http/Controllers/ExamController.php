@@ -316,9 +316,9 @@ class ExamController extends Controller
             'examid'          => 'required',
             'otherexamids'    => 'required',
         ));
-        
+
         $exam = Exam::findOrFail($id);
-        $otherexamids = explode(',', $myString);
+        $otherexamids = explode(',', $request->otherexamids);
         dd($request->all());
     }
 

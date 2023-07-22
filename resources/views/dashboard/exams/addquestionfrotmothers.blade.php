@@ -28,7 +28,7 @@
                       </div>
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body p-0">
+                    <div class="card-body">
                       <form method="post" action="{{ route('dashboard.exams.question.from.others.store') }}">
                           <select name="examids" class="form-control select2" data-placeholder="পরীক্ষার নাম">
                             

@@ -313,7 +313,6 @@ class ExamController extends Controller
     public function storeQuestionFromOthers(Request $request, $id)
     {
         $this->validate($request,array(
-            'examid'          => 'required',
             'otherexamids'    => 'required',
         ));
 

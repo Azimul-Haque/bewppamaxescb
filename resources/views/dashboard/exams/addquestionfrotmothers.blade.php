@@ -19,19 +19,12 @@
     @endsection
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title"><a href="{{ route('dashboard.exams.add.question.all', $exam->id) }}">প্রশ্নব্যাংক (মোটঃ {{ $totalquestions }})</a></h3>
+                      <h3 class="card-title">প্রশ্নপত্র থেকে এড করুন</h3>
                       <div class="card-tools">
-                          <form class="form-inline form-group-lg" action="">
-                            <div class="form-group">
-                              <input type="search-param" class="form-control form-control-sm" placeholder="প্রশ্ন খুঁজুন" id="search-param" required>
-                            </div>
-                            <button type="button" id="search-button" class="btn btn-default btn-sm" style="margin-left: 5px;">
-                              <i class="fas fa-search"></i> খুঁজুন
-                            </button>
-                          </form>
+                          
                       </div>
                     </div>
                     <!-- /.card-header -->

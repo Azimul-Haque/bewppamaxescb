@@ -78,6 +78,7 @@
     //             console.error( error );
     //     } );
     $('#questionsetselect').change(function() {
+      const array = string.split(',');
       console.log($(this).val());
     });
 </script>

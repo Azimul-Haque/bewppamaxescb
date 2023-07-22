@@ -320,6 +320,7 @@ class ExamController extends Controller
         $otherexamids = explode(',', $request->otherexamids);
 
         foreach($otherexamids as $examid) {
+            $nameofthevariable = 'questionamount' . $examid
             dd($request->questionamount . $examid);
             // $selectedexam = Examquestion::where('exam_id', $examid)
         }

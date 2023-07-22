@@ -38,7 +38,6 @@
                       <form method="post" action="{{ route('dashboard.exams.question.from.others.store', $exam->id) }}">
                         @csrf
                         <table id="selectedquestionlist"></table><br/>
-                        <input type="hidden" name="examid" value="{{ $exam->id }}">
                         <input type="text" id="otherexamids" name="otherexamids">
                         <button type="submit" class="btn btn-success" style="float: right;">দাখিল করুন</button>
                       </form>

@@ -299,6 +299,7 @@ class ExamController extends Controller
     public function addQuestionFromOthers($id)
     {
         $exam = Exam::findOrFail($id);
+        $exams = Exam::all();
         $examquestions = Examquestion::where('exam_id', $exam->id)
                                      ->orderBy('question_id', 'asc')
                                      ->get();

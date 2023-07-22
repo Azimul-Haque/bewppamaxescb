@@ -81,11 +81,11 @@
       const selectarray = $(this).val().split(',');
       console.log(selectarray[0]);
       console.log(selectarray[1]);
-      var appendhtml = '<table><tr id="tablerow'+selectarray[1]+'">';
+      var appendhtml = '<tr id="tablerow'+selectarray[1]+'">';
       appendhtml += '<td width="70%">' + selectarray[0] + '</td>';
       appendhtml += '<td width="20%"><input class="form-control" name="" placeholder="প্রশ্নের সংখ্যা"></td>';
       appendhtml += '<td align="right"><button type="button" class="btn btn-success btn-sm" onclick="removeRow(tablerow'+selectarray[1]+')">X</button</td>';
-      appendhtml += '</tr></table>';
+      appendhtml += '</tr>';
       $('#selectedquestionlist').append(appendhtml);
     });
     function removeRow(tableid) {

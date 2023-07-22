@@ -34,7 +34,7 @@
                         @foreach ($exams as $exam)
                             <option value="{{ $exam->name }},{{ $exam->id }}">{{ $exam->name }}</option>
                         @endforeach
-                      </select>
+                      </select><br/>
                       <form method="post" id="selectedquestionlist" action="{{ route('dashboard.exams.question.from.others.store') }}">
                           
                       </form>

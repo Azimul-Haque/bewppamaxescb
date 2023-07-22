@@ -85,7 +85,7 @@
       var appendhtml = '<tr id="tablerow'+selectarray[1]+'">';
       appendhtml += '<td width="70%">' + selectarray[0] + '</td>';
       appendhtml += '<td width="20%"><input class="form-control" name="questionamount'+selectarray[1]+'" placeholder="প্রশ্নের সংখ্যা"></td>';
-      appendhtml += '<td align="right"><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(tablerow'+selectarray[1]+')">x</button</td>';
+      appendhtml += '<td align="right"><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(tablerow'+selectarray[1]+')"><i class="far fa-trash-alt"></i></button</td>';
       appendhtml += '</tr>';
       appendhtml += '<input type="hidden" name="examid" value="'+selectarray[1]+'">';
       $('#selectedquestionlist').append(appendhtml);

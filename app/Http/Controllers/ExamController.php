@@ -309,8 +309,8 @@ class ExamController extends Controller
                                     ->withExams($exams)
                                     ->withExamquestions($examquestions);
     }
-    
-    public function storeQuestionFromOthers($id)
+
+    public function storeQuestionFromOthers($request)
     {
         $exam = Exam::findOrFail($id);
         $examquestions = Examquestion::where('exam_id', $exam->id)

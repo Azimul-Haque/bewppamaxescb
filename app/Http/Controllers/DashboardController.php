@@ -1025,7 +1025,7 @@ class DashboardController extends Controller
         $smsresult = curl_exec($ch);
         $p = explode("|",$smsresult);
         $sendstatus = $p[0];
-        dd($smsresult);
+        dd($p);
         // send sms
         if($sendstatus == 1101) {
             Session::flash('success', 'SMS সফলভাবে পাঠানো হয়েছে!');

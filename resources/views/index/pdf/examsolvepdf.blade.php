@@ -40,7 +40,7 @@
 <body>
   <htmlpageheader name="page-header">
     <img src="{{ public_path('images/logo.png') }}" style="height: 40px; width: auto;">
-  </htmlpageheader><br/>
+  </htmlpageheader>
   <h2 align="center">
   Test    
   </h2>

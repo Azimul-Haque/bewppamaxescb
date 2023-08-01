@@ -250,7 +250,7 @@ class IndexController extends Controller
 
     // Generate PDF...
 
-    public function getExamPDF($softtoken, $examid)
+    public function getExamSolvePDF($softtoken, $examid)
     {
         if($softtoken == env('SOFT_TOKEN'))
         {

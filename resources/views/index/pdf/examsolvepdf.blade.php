@@ -33,6 +33,9 @@
   </style>
 </head>
 <body>
+  <htmlpageheader name="page-header">
+    Your Header Content
+  </htmlpageheader>
   <h2 align="center">
     <img src="{{ public_path('images/logo.png') }}" style="height: 60px; width: auto;">
   </h2>

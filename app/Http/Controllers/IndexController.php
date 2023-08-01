@@ -241,9 +241,15 @@ class IndexController extends Controller
         // } 
     }
 
-
-
     public function paymentCancelApp(Request $request)
+    {
+        Session::flash('info','পেমেন্টটি ক্যানসেল করা হয়েছে!');
+    }
+
+
+    // Generate PDF...
+
+    public function getExamPDF(Request $request)
     {
         Session::flash('info','পেমেন্টটি ক্যানসেল করা হয়েছে!');
     }

@@ -258,7 +258,7 @@ class IndexController extends Controller
 
             $pdf = PDF::loadView('index.pdf.examsolvepdf', ['exam' => $exam);
             $fileName = 'Single-Exam-Solve-Sheet' . $exam->id . '.pdf';
-            return $pdf->download($fileName); // download
+            return $pdf->stream($fileName); // download/stream
         } else {
             return response()->json([
                 'success' => false

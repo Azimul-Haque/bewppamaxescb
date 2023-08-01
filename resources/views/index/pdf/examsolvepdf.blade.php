@@ -42,7 +42,7 @@
   </p>
   
   <div class="" style="padding-top: 0px;">
-    <t{{-- able class="">
+    {{-- <table class="">
       <tr>
         <th class="graybackground" width="35%">দপ্তরের নাম</th>
         <th class="graybackground">সদস্য সংখ্যা</th>

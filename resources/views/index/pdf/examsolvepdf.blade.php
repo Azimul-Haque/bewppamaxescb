@@ -35,7 +35,7 @@
 <body>
   <htmlpageheader name="page-header">
     <img src="{{ public_path('images/logo.png') }}" style="height: 60px; width: auto;">
-  </htmlpageheader>
+  </htmlpageheader><br/>
 {{--   <h2 align="center">
     
   </h2> --}}

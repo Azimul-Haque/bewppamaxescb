@@ -18,7 +18,7 @@ class Exam extends Model
         return $this->hasOne('App\Course');
     }
 
-    public function Courseexams(){
+    public function courseexams(){
         return $this->hasMany('App\Courseexam');
     }
 

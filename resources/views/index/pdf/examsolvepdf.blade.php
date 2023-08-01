@@ -26,7 +26,7 @@
     background-size: cover;              
     background-repeat: no-repeat;
     background-position: center center;
-    margin: 85px 60px 85px 60px;
+    margin: 90px 60px 90px 60px;
   }
   .page-header,
   .page-header-space {

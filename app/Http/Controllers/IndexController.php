@@ -16,6 +16,8 @@ use App\Due;
 use App\Temppayment;
 use App\Payment;
 
+use App\Exam;
+
 use Carbon\Carbon;
 use DB;
 use Hash;

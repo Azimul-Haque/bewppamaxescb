@@ -42,7 +42,7 @@
   </p>
   
   <div class="" style="padding-top: 0px;">
-    <table class="">
+    <t{{-- able class="">
       <tr>
         <th class="graybackground" width="35%">দপ্তরের নাম</th>
         <th class="graybackground">সদস্য সংখ্যা</th>
@@ -51,7 +51,11 @@
         <th class="graybackground">মোট মাসিক কিস্তি বকেয়া<br/>({{ bangla(date('F, Y')) }} পর্যন্ত)</th>
       </tr>
 
-      
+      @php
+        $intotalmembers = 0;
+        $intotalmontlypaid = 0;
+        $intotalmontlydues = 0;
+      @endphp
       @foreach($branch_array as $branch)
         <tr>
           <td>{{ $branch['name'] }}</td>
@@ -74,7 +78,7 @@
         <th class="graybackground">৳ {{-- {{ bangla($intotalmontlypaid) }} --}} {{ bangla($totalapproved->totalamount) }}</th>
         <th class="graybackground">৳ {{ bangla($intotalmontlydues) }}</th>
       </tr>
-    </table>
+    </table> --}}
   </div>
  
   <htmlpagefooter name="page-footer">

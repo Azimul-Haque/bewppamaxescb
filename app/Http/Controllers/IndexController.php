@@ -267,10 +267,10 @@ class IndexController extends Controller
             });
             
             // dd($courses);
-            return response()->json([
-                'success' => true,
-                'courses' => $courses,
-            ]);
+            // return response()->json([
+            //     'success' => true,
+            //     'courses' => $courses,
+            // ]);
         } else {
             return response()->json([
                 'success' => false

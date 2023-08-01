@@ -254,7 +254,7 @@ class IndexController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $exam = findOrFail($examid);
+            $exam = Exam::findOrFail($examid);
 
             $pdf = PDF::loadView('index.pdf.examsolvepdf', ['exam' => $exam]);
             $fileName = 'Single-Exam-Solve-Sheet' . $exam->id . '.pdf';

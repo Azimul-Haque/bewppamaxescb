@@ -41,9 +41,9 @@
   <htmlpageheader name="page-header">
     <img src="{{ public_path('images/logo.png') }}" style="height: 40px; width: auto;">
   </htmlpageheader>
-  <h2 align="center">
-  Test    
-  </h2>
+  {{-- <h2 align="center">
+    Test    
+  </h2> --}}
   <p align="center" style="padding-top: 0px;">
     <span style="font-size: 20px;">পরীক্ষা - {{ $exam['name'] }}</span><br/>
   </p>

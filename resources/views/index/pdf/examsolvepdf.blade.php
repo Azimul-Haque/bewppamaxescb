@@ -22,7 +22,7 @@
   @page {
     header: page-header;
     footer: page-footer;
-    background-image: url({{ public_path('images/cvcs_background.png') }});
+    background-image: url({{ public_path('images/logo.png') }});
     background-size: cover;              
     background-repeat: no-repeat;
     background-position: center center;

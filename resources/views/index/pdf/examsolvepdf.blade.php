@@ -34,8 +34,7 @@
 </head>
 <body>
   <h2 align="center">
-    <img src="{{ public_path('images/logo.png') }}" style="height: 80px; width: auto;"><br/>
-    কাস্টমস এন্ড ভ্যাট কো-অপারেটিভ সোসাইটি
+    <img src="{{ public_path('images/logo.png') }}" style="height: 80px; width: auto;">
   </h2>
   <p align="center" style="padding-top: -20px;">
     <span style="font-size: 20px;">দপ্তরভিত্তিক পরিশোধ-বকেয়া রিপোর্ট</span><br/>

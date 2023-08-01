@@ -48,6 +48,7 @@
     44 => 'App\\Providers\\AuthServiceProvider',
     45 => 'App\\Providers\\EventServiceProvider',
     46 => 'App\\Providers\\RouteServiceProvider',
+    47 => 'niklasravnsborg\\LaravelPdf\\PdfServiceProvider',
   ),
   'eager' => 
   array (
@@ -83,6 +84,7 @@
     29 => 'App\\Providers\\AuthServiceProvider',
     30 => 'App\\Providers\\EventServiceProvider',
     31 => 'App\\Providers\\RouteServiceProvider',
+    32 => 'niklasravnsborg\\LaravelPdf\\PdfServiceProvider',
   ),
   'deferred' => 
   array (

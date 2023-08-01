@@ -257,7 +257,7 @@ class IndexController extends Controller
             $exam = findOrFail($examid);
 
             $pdf = PDF::loadView('index.pdf.examsolvepdf', ['exam' => $exam);
-            $fileName = 'CVCS_Branch_Members_Details_Report.pdf';
+            $fileName = 'Single-Exam-Solve-Sheet.pdf';
             return $pdf->download($fileName); // download
         } else {
             return response()->json([

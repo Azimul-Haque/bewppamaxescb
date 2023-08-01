@@ -26,7 +26,7 @@
     background-size: cover;              
     background-repeat: no-repeat;
     background-position: center center;
-    margin: 85px 60px 85px 60px;
+    margin: 80px 60px 80px 60px;
   }
   .page-header,
   .page-header-space {
@@ -39,7 +39,7 @@
 </head>
 <body>
   <htmlpageheader name="page-header">
-    <img src="{{ public_path('images/logo.png') }}" style="height: 60px; width: auto;">
+    <img src="{{ public_path('images/logo.png') }}" style="height: 50px; width: auto;">
     <hr/>
   </htmlpageheader>
   {{-- <h2 align="center">

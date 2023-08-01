@@ -34,11 +34,11 @@
 </head>
 <body>
   <htmlpageheader name="page-header">
-    Your Header Content
-  </htmlpageheader>
-  <h2 align="center">
     <img src="{{ public_path('images/logo.png') }}" style="height: 60px; width: auto;">
-  </h2>
+  </htmlpageheader>
+{{--   <h2 align="center">
+    
+  </h2> --}}
   <p align="center" style="padding-top: -20px;">
     <span style="font-size: 20px;">পরীক্ষা - {{ $exam['name'] }}</span><br/>
   </p>

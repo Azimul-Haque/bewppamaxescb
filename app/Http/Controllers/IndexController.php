@@ -249,7 +249,7 @@ class IndexController extends Controller
 
     // Generate PDF...
 
-    public function getExamPDF(Request $request)
+    public function getExamPDF($request)
     {
         Session::flash('info','পেমেন্টটি ক্যানসেল করা হয়েছে!');
     }

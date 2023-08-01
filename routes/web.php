@@ -26,7 +26,7 @@ Route::post('/payment/app/confirm', 'IndexController@paymentSuccessApp')->name('
 Route::get('/payment/app/cancel', 'IndexController@paymentCancelApp')->name('index.payment.cancel.app');
 
 // PDFs
-Route::get('/single/exam/pdf/{softtoken}/{examid}', 'IndexController@getExamPDF')->name('index.single.exam.pdf');
+Route::get('/single/exam/pdf/{softtoken}/{examid}', 'IndexController@getExamSolvePDF')->name('index.single.exam.solve.pdf');
 
 // Clear Route
 Route::get('/clear', ['as'=>'clear','uses'=>'IndexController@clear']);

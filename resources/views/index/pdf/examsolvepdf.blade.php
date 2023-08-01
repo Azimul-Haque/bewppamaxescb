@@ -27,6 +27,7 @@
     background-repeat: no-repeat;
     background-position: center center;
   }
+  .page-header,
   .page-header-space {
     height: 250px;
   }

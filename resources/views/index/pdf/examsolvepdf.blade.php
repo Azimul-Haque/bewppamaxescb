@@ -51,11 +51,7 @@
         <th class="graybackground">মোট মাসিক কিস্তি বকেয়া<br/>({{ bangla(date('F, Y')) }} পর্যন্ত)</th>
       </tr>
 
-      @php
-        $intotalmembers = 0;
-        $intotalmontlypaid = 0;
-        $intotalmontlydues = 0;
-      @endphp
+      
       @foreach($branch_array as $branch)
         <tr>
           <td>{{ $branch['name'] }}</td>

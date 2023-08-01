@@ -40,7 +40,7 @@
 <body>
   <htmlpageheader name="page-header">
     <img src="{{ public_path('images/logo.png') }}" style="height: 50px; width: auto;">
-    <div style="border-top: 1px dotted red;"></div>
+    <div style="border-top: 1px dashed green;"></div>
   </htmlpageheader>
   {{-- <h2 align="center">
     Test    

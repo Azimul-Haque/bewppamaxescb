@@ -25,6 +25,8 @@ Route::post('/payment/success', 'IndexController@paymentSuccess')->name('index.p
 Route::post('/payment/app/confirm', 'IndexController@paymentSuccessApp')->name('index.payment.success.app');
 Route::get('/payment/app/cancel', 'IndexController@paymentCancelApp')->name('index.payment.cancel.app');
 
+// PDFs
+
 // Clear Route
 Route::get('/clear', ['as'=>'clear','uses'=>'IndexController@clear']);
 
@@ -187,6 +189,7 @@ Route::get('/dashboard/creditors/due/{id}/delete', 'DashboardController@deleteCr
 
 Route::get('/dashboard/expenses/{transactiondate}/{user}', 'ExpenseController@getTodaysExpenseList')->name('dashboard.expenses.getlist');
 Route::get('/dashboard/deposit/{transactiondate}/{user}', 'ExpenseController@getTodaysDepositList')->name('dashboard.deposit.getlist');
+
 
 // COMPONENTS
 Route::get('/dashboard/components', 'DashboardController@getComponents')->name('dashboard.components');

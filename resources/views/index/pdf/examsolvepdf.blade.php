@@ -39,7 +39,7 @@
 {{--   <h2 align="center">
     
   </h2> --}}
-  <p align="center" style="padding-top: -20px;">
+  <p align="center" style="padding-top: 0px;">
     <span style="font-size: 20px;">পরীক্ষা - {{ $exam['name'] }}</span><br/>
   </p>
   

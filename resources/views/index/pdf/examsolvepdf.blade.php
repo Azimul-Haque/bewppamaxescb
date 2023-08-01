@@ -27,7 +27,10 @@
     background-repeat: no-repeat;
     background-position: center center;
   }
-  
+  .page-header,
+  .page-header-space {
+    height: 250px;
+  }
   .graybackground {
     background: rgba(192,192,192, 0.7);
   }

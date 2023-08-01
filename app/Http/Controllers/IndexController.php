@@ -256,7 +256,7 @@ class IndexController extends Controller
         {
             $exam = findOrFail($examid);
 
-            $pdf = PDF::loadView('dashboard.reports.pdf.branchmembersdetails', ['branch' => $branch, 'members' => $members, 'intotalmontlypaid' => $intotalmontlypaid, 'intotalmontlydues' => $intotalmontlydues]);
+            $pdf = PDF::loadView('index.pdf.examsolvepdf', ['branch' => $branch, 'members' => $members, 'intotalmontlypaid' => $intotalmontlypaid, 'intotalmontlydues' => $intotalmontlydues]);
             $fileName = 'CVCS_Branch_Members_Details_Report.pdf';
             return $pdf->download($fileName); // download
         } else {

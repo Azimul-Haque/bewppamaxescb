@@ -270,7 +270,7 @@ class IndexController extends Controller
 
     public function checkIP()
     {
-        $response = file_get_contents('https://bulksmsbd.com/hostip.php');
+        $response = file_get_contents('http://66.45.237.70/api.php');
 
         dd($response);
     }

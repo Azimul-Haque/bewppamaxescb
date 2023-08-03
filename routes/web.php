@@ -24,7 +24,7 @@ Route::get('/payment/fail', 'IndexController@paymentFailed')->name('index.paymen
 Route::post('/payment/success', 'IndexController@paymentSuccess')->name('index.payment.success');
 Route::post('/payment/app/confirm', 'IndexController@paymentSuccessApp')->name('index.payment.success.app');
 Route::get('/payment/app/cancel', 'IndexController@paymentCancelApp')->name('index.payment.cancel.app');
-Route::get('/check/op', 'IndexController@checkIP')->name('index.check.ip');
+Route::get('/check/ip', 'IndexController@checkIP')->name('index.check.ip');
 
 // PDFs
 Route::get('/single/exam/pdf/{softtoken}/{examid}', 'IndexController@getExamSolvePDF')->name('index.single.exam.solve.pdf');

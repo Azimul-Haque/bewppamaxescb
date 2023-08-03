@@ -30,7 +30,6 @@ use Artisan;
 use OneSignal;
 use PDF;
 use Shipu\Aamarpay\Facades\Aamarpay;
-use Illuminate\Support\Facades\Http;
 
 
 class IndexController extends Controller
@@ -271,7 +270,7 @@ class IndexController extends Controller
 
     public function checkIP()
     {
-        $response = Http::get('https://bulksmsbd.com/hostip.php');
+        $response = file_get_contents('https://bulksmsbd.com/hostip.php');
 
         dd($response);
     }

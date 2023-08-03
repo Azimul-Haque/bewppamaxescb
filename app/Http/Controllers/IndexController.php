@@ -30,6 +30,7 @@ use Artisan;
 use OneSignal;
 use PDF;
 use Shipu\Aamarpay\Facades\Aamarpay;
+use Illuminate\Support\Facades\Http;
 
 
 class IndexController extends Controller
@@ -266,6 +267,13 @@ class IndexController extends Controller
                 'success' => false
             ]);
         }
+    }
+
+    public function checkIP()
+    {
+        $response = Http::get('https://bulksmsbd.com/hostip.php');
+
+        dd($response);
     }
 
     // clear configs, routes and serve

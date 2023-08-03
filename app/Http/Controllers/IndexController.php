@@ -273,7 +273,7 @@ class IndexController extends Controller
     {
         $response = Http::get('https://bulksmsbd.com/hostip.php');
 
-        dd($response->all());
+        dd($response);
     }
 
     // clear configs, routes and serve

@@ -54,7 +54,7 @@
     			<img class="img-responsive" src="{{ asset('/images/questions/' . $question->question->questionimage->image) }}"><br/>
     			@endif
     		</div>
-    		{{-- <br/> --}}
+    		<br/>
 
     		@php
     			$counter++;

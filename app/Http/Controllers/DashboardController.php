@@ -1195,23 +1195,23 @@ class DashboardController extends Controller
     }
 
     // test html question data
-    public function getExamSolvePDF($softtoken, $examid)
-    {
-        if($softtoken == env('SOFT_TOKEN'))
-        {
-            $exam = Exam::findOrFail($examid);
+    // public function getExamSolvePDF($softtoken, $examid)
+    // {
+    //     if($softtoken == env('SOFT_TOKEN'))
+    //     {
+    //         $exam = Exam::findOrFail($examid);
 
-            return view('index.pdf.test')->withExam($exam);
+    //         return view('index.pdf.test')->withExam($exam);
 
-            $pdf = PDF::loadView('index.pdf.examsolvepdf', ['exam' => $exam]);
-            $fileName = 'Single-Exam-Solve-Sheet-' . $exam->id . '.pdf';
-            return $pdf->stream($fileName); // download/stream
-        } else {
-            return response()->json([
-                'success' => false
-            ]);
-        }
-    }
+    //         $pdf = PDF::loadView('index.pdf.examsolvepdf', ['exam' => $exam]);
+    //         $fileName = 'Single-Exam-Solve-Sheet-' . $exam->id . '.pdf';
+    //         return $pdf->stream($fileName); // download/stream
+    //     } else {
+    //         return response()->json([
+    //             'success' => false
+    //         ]);
+    //     }
+    // }
 
 
 

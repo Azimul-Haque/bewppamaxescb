@@ -23,12 +23,12 @@
     		<h4>{!! $question->question->question !!}</h4>
     		<table>
     			<tr>
-    				<td style="padding-right: 20px;">(ক) </td>
-    				<td>(খ)</td>
+    				<td style="padding-right: 20px;">(ক) {{ $question->question->option1 }}</td>
+    				<td>(খ) {{ $question->question->option1 }}</td>
     			</tr>
     			<tr>
-    				<td style="padding-right: 20px;">(গ)</td>
-    				<td>(ঘ)</td>
+    				<td style="padding-right: 20px;">(গ) {{ $question->question->option1 }}</td>
+    				<td>(ঘ) {{ $question->question->option1 }}</td>
     			</tr>
     		</table>
     		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>

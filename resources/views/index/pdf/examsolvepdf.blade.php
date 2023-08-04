@@ -50,7 +50,7 @@
   </p>
   <div style="padding-top: 0px; text-align: center;">
     <p style="font-size: 20px;"><b>{{ $exam['name'] }}</b></p>
-    <p style="">পূর্ণমান - {{ bangla($exam['examquestions']->count() * $exam['qsweight']) }}, কাটমার্ক - {{ bangla($exam['cutmark']) }}, সময় - {{ bangla($exam['duration']) }} মিনিট
+    <p style="margin-top: -150px; position: relative;">পূর্ণমান - {{ bangla($exam['examquestions']->count() * $exam['qsweight']) }}, কাটমার্ক - {{ bangla($exam['cutmark']) }}, সময় - {{ bangla($exam['duration']) }} মিনিট
     </p> 
   </div>
   

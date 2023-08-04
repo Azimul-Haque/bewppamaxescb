@@ -258,7 +258,7 @@ class IndexController extends Controller
         {
             $exam = Exam::findOrFail($examid);
 
-            return view('index.pdf.test')->withExam($exam);
+            // return view('index.pdf.test')->withExam($exam);
 
             $pdf = PDF::loadView('index.pdf.examsolvepdf', ['exam' => $exam]);
             $fileName = 'Single-Exam-Solve-Sheet-' . $exam->id . '.pdf';

@@ -59,7 +59,7 @@
   @foreach($exam['examquestions'] as $question)
     <div style="margin-bottom: 15px;">
       <h4><b>{{ bangla($counter) }}. {!! $question->question->question !!}</b></h4>
-      <table>
+      <table cellspacing="0" cellpadding="0">
         <tr>
           <td style="padding-right: 20px;">(ক) {{ $question->question->option1 }}</td>
           <td>(খ) {{ $question->question->option2 }}</td>

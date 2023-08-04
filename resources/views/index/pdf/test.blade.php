@@ -23,38 +23,39 @@
     		$counter = 1;
     	@endphp
     	@foreach($exam->examquestions as $question)
-    		<h4><b>{{ bangla($counter) }}. {!! $question->question->question !!}</b></h4>
-    		<table>
-    			<tr>
-    				<td style="padding-right: 20px;">(ক) {{ $question->question->option1 }}</td>
-    				<td>(খ) {{ $question->question->option2 }}</td>
-    				<td></td>
-    			</tr>
-    			<tr>
-    				<td style="padding-right: 40px;">(গ) {{ $question->question->option3 }}</td>
-    				<td style="padding-right: 40px;">(ঘ) {{ $question->question->option4 }}</td>
-    				<td>
-    					@if($question->question->answer == 1)
-    						<b>উত্তর:</b> {{ $question->question->option1 }}
-    					@elseif($question->question->answer == 2)
-    						<b>উত্তর:</b> {{ $question->question->option2 }}
-    					@elseif($question->question->answer == 3)
-    						<b>উত্তর:</b> {{ $question->question->option3 }}
-    					@elseif($question->question->answer == 4)
-    						<b>উত্তর:</b> {{ $question->question->option4 }}
-    					@endif
-    				</td>
-    			</tr>
-    		</table><br/>
-    		<div style="background: #E8FFF3; padding: 10px;">
-    			@if($question->question->questionexplanation)
-    				<p><b>ব্যাখ্যা:</b> {{ $question->question->questionexplanation->explanation }}</p>
-    			@endif
-    			@if($question->question->questionimage)
-    			<img class="img-responsive" src="{{ asset('/images/questions/' . $question->question->questionimage->image) }}"><br/>
-    			@endif
+    		<div>
+    			<h4><b>{{ bangla($counter) }}. {!! $question->question->question !!}</b></h4>
+    			<table>
+    				<tr>
+    					<td style="padding-right: 20px;">(ক) {{ $question->question->option1 }}</td>
+    					<td>(খ) {{ $question->question->option2 }}</td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td style="padding-right: 40px;">(গ) {{ $question->question->option3 }}</td>
+    					<td style="padding-right: 40px;">(ঘ) {{ $question->question->option4 }}</td>
+    					<td>
+    						@if($question->question->answer == 1)
+    							<b>উত্তর:</b> {{ $question->question->option1 }}
+    						@elseif($question->question->answer == 2)
+    							<b>উত্তর:</b> {{ $question->question->option2 }}
+    						@elseif($question->question->answer == 3)
+    							<b>উত্তর:</b> {{ $question->question->option3 }}
+    						@elseif($question->question->answer == 4)
+    							<b>উত্তর:</b> {{ $question->question->option4 }}
+    						@endif
+    					</td>
+    				</tr>
+    			</table>
+    			<div style="background: #E8FFF3; padding: 10px;">
+    				@if($question->question->questionexplanation)
+    					<p><b>ব্যাখ্যা:</b> {{ $question->question->questionexplanation->explanation }}</p>
+    				@endif
+    				@if($question->question->questionimage)
+    				<img class="img-responsive" src="{{ asset('/images/questions/' . $question->question->questionimage->image) }}"><br/>
+    				@endif
+    			</div>
     		</div>
-    		<br/>
 
     		@php
     			$counter++;

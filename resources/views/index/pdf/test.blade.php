@@ -52,7 +52,7 @@
     					<p><b>ব্যাখ্যা:</b> {{ $question->question->questionexplanation->explanation }}</p>
     				@endif
     				@if($question->question->questionimage)
-    				<img class="img-responsive" src="{{ asset('/images/questions/' . $question->question->questionimage->image) }}"><br/>
+    				<img class="img-responsive" src="{{ asset('/images/questions/' . $question->question->questionimage->image) }}">
     				@endif
     			</div>
     		</div>

@@ -19,8 +19,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+    	@php
+    		$counter = 1;
+    	@endphp
     	@foreach($exam->examquestions as $question)
-    		<h4><b>{!! $question->question->question !!}</b></h4>
+    		<h4><b>{{ bangla($counter) }}. {!! $question->question->question !!}</b></h4>
     		<table>
     			<tr>
     				<td style="padding-right: 20px;">(ক) {{ $question->question->option1 }}</td>

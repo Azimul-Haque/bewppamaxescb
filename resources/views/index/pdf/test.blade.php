@@ -36,7 +36,7 @@
     			<tr>
     				<td style="padding-right: 20px;"></td>
     				<td>
-    					@(if$question->question->option4)
+    					@if($question->question->option4)
 
     					@endif
     					{{ $question->question->option4 }}

@@ -45,12 +45,12 @@
     					@endif
     				</td>
     			</tr>
-    		</table>
-    		<p>
+    		</table><br/>
+    		<div style="background: lightblue;">
     			@if($question->question->questionexplanation)
     				<b>ব্যাখ্যা:</b> {{ $question->question->questionexplanation->explanation }}
     			@endif
-    		</p>
+    		</div>
     		@if($question->question->questionimage)
     		<img class="img-responsive" src="{{ asset('/images/questions/' . $question->question->questionimage->image) }}"><br/>
     		@endif

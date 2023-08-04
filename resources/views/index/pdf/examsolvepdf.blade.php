@@ -57,7 +57,7 @@
     $counter = 1;
   @endphp
   @foreach($exam['examquestions'] as $question)
-    <div style="margin-bottom: 15px;">
+    <div >
       <h4><b>{{ bangla($counter) }}. {!! $question->question->question !!}</b></h4>
       <table>
         <tr>

@@ -21,7 +21,16 @@
     <div class="col-md-12">
     	@foreach($exam->examquestions as $question)
     		<h4>{{ $question->question->question }}</h4>
-    		<p>(ক)</p>
+    		<table>
+    			<tr>
+    				<td>(ক)</td>
+    				<td>(খ)</td>
+    			</tr>
+    			<tr>
+    				<td>(গ)</td>
+    				<td>(ঘ)</td>
+    			</tr>
+    		</table>
     		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
     	@endforeach
     </div>

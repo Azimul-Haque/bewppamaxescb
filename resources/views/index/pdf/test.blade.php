@@ -36,6 +36,10 @@
     		</table><br/>
     		<p>ব্যাখ্যা: {{ $question->question->questionexplanation ? $question->question->questionexplanation->explanation : '' }}</p>
     		<br/>
+
+    		@php
+    			$counter++;
+    		@endphp
     	@endforeach
     </div>
   </div>

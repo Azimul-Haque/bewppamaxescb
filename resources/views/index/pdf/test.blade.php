@@ -43,7 +43,6 @@
     					@elseif($question->question->answer == 4)
     						{{ $question->question->option4 }}
     					@endif
-    					
     				</td>
     			</tr>
     		</table><br/>

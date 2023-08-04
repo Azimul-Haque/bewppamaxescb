@@ -36,8 +36,13 @@
     			<tr>
     				<td style="padding-right: 20px;"></td>
     				<td>
-    					@if($question->question->option4)
+    					@if($question->question->answer == 1)
 
+    					@elseif($question->question->answer == 2)
+
+    					@elseif($question->question->answer == 3)
+
+    					@elseif($question->question->answer == 4)
     					@endif
     					{{ $question->question->option4 }}
     				</td>

@@ -32,6 +32,7 @@
     			</tr>
     		</table><br/>
     		<p>ব্যাখ্যা: {{ $question->question->questionexplanation ? $question->question->questionexplanation->explanation : '' }}</p>
+    		<br/>
     	@endforeach
     </div>
   </div>

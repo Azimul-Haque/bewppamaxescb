@@ -46,7 +46,11 @@
     				</td>
     			</tr>
     		</table><br/>
-    		<p>{{ $question->question->questionexplanation ? $question->question->questionexplanation->explanation : '' }}</p>
+    		<p>
+    			@if($question->question->questionexplanation)
+    				{{ $question->question->questionexplanation->explanation }}
+    			@endif
+    		</p>
     		@if($question->question->questionimage)
     		<img class="img-responsive" src="{{ asset('/images/questions/' . $question->question->questionimage->image) }}"><br/>
     		@endif

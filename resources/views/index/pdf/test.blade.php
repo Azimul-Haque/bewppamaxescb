@@ -20,10 +20,10 @@
   <div class="row">
     <div class="col-md-12">
     	@foreach($exam->examquestions as $question)
-    		<h4>{{ $question->question->question }}</h4>
+    		<h4>{!! $question->question->question !!}</h4>
     		<table>
     			<tr>
-    				<td style="padding-right: 20px;">(ক)</td>
+    				<td style="padding-right: 20px;">(ক) </td>
     				<td>(খ)</td>
     			</tr>
     			<tr>

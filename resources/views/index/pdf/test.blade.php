@@ -13,7 +13,7 @@
 
 <div class="jumbotron text-center">
   <h1>{{ $exam->name }}</h1>
-  <p>Resize this responsive page to see the effect!</p> 
+  <p>পূর্ণমান - {{ $exam }}</p> 
 </div>
   
 <div class="container">

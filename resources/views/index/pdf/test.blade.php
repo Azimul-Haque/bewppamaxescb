@@ -33,6 +33,10 @@
     				<td style="padding-right: 20px;">(গ) {{ $question->question->option3 }}</td>
     				<td>(ঘ) {{ $question->question->option4 }}</td>
     			</tr>
+    			<tr>
+    				<td style="padding-right: 20px;"></td>
+    				<td>(ঘ) {{ $question->question->option4 }}</td>
+    			</tr>
     		</table><br/>
     		<p><b>ব্যাখ্যা:</b> {{ $question->question->questionexplanation ? $question->question->questionexplanation->explanation : '' }}</p>
     		@if($question->question->questionimage)

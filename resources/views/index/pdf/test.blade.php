@@ -48,7 +48,7 @@
     		</table><br/>
     		<p>
     			@if($question->question->questionexplanation)
-    				<b>ব্যাখ্যা</b>{{ $question->question->questionexplanation->explanation }}
+    				<b>ব্যাখ্যা:</b> {{ $question->question->questionexplanation->explanation }}
     			@endif
     		</p>
     		@if($question->question->questionimage)

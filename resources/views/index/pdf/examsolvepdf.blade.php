@@ -45,9 +45,9 @@
   {{-- <h2 align="center">
     Test    
   </h2> --}}
-  {{-- <p align="center" style="padding-top: 0px;">
+  <p align="center" style="padding-top: 0px;">
     <span style="font-size: 20px;">পরীক্ষা - {{ $exam['name'] }}</span><br/>
-  </p> --}}
+  </p>
   <div style="padding-top: 0px; text-align: center;">
     <p style="position: relative;">পূর্ণমান - {{ bangla($exam['examquestions']->count() * $exam['qsweight']) }}, কাটমার্ক - {{ bangla($exam['cutmark']) }}, সময় - {{ bangla($exam['duration']) }} মিনিট
     </p> 

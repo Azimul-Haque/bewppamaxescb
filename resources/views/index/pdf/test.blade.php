@@ -13,7 +13,7 @@
 
 <div class="jumbotron text-center">
   <h1>{{ $exam->name }}</h1>
-  <p>পূর্ণমান - {{ $exam }}</p> 
+  <p>পূর্ণমান - {{ $exam->examquestions->count() }}</p> 
 </div>
   
 <div class="container">

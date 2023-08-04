@@ -7,7 +7,7 @@
     font-family: 'kalpurush', sans-serif;
   }
 
-  table {
+  /*table {
       border-collapse: collapse;
       width: 100%;
   }
@@ -18,7 +18,7 @@
     padding: 4px;
     font-family: 'kalpurush', sans-serif;
     font-size: 13px;
-  }
+  }*/
   @page {
     header: page-header;
     footer: page-footer;

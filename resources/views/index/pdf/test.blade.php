@@ -23,7 +23,7 @@
     		<h4>{{ $question->question->question }}</h4>
     		<table>
     			<tr>
-    				<td style="margin-left: 20px;">(ক)</td>
+    				<td style="padding-left: 20px;">(ক)</td>
     				<td>(খ)</td>
     			</tr>
     			<tr>

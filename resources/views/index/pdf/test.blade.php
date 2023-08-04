@@ -20,7 +20,7 @@
   <div class="row">
     <div class="col-md-12">
     	@foreach($exam->examquestions as $question)
-    		<h4>Column 1</h4>
+    		<h4>{{ $question->question }}</h4>
     		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
     		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
     	@endforeach

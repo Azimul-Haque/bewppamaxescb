@@ -35,6 +35,9 @@
     			</tr>
     		</table><br/>
     		<p><b>ব্যাখ্যা:</b> {{ $question->question->questionexplanation ? $question->question->questionexplanation->explanation : '' }}</p>
+    		@if($question->question->questionimages)
+
+    		@endif
     		<br/>
 
     		@php

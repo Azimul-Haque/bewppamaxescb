@@ -48,8 +48,11 @@
   <p align="center" style="padding-top: 0px;">
     <span style="font-size: 20px;">পরীক্ষা - {{ $exam['name'] }}</span><br/>
   </p>
-  <h1><b>{{ $exam['name'] }}</b></h1>
-  <p>পূর্ণমান - {{ bangla($exam['examquestions']->count() * $exam['qsweight']) }}, কাটমার্ক - {{ bangla($exam['cutmark']) }}, সময় - {{ bangla($exam['duration']) }} মিনিট</p> 
+  <div>
+    <h1><b>{{ $exam['name'] }}</b></h1>
+    <p>পূর্ণমান - {{ bangla($exam['examquestions']->count() * $exam['qsweight']) }}, কাটমার্ক - {{ bangla($exam['cutmark']) }}, সময় - {{ bangla($exam['duration']) }} মিনিট
+    </p> 
+  </div>
   
   <div class="" >  
     সত্যক সারণি

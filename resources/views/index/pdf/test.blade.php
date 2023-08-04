@@ -48,7 +48,7 @@
     		</table><br/>
     		<div style="background: #E8FFF3; padding: 10px;">
     			@if($question->question->questionexplanation)
-    				<p style="padding-bottom: 10px;"><b>ব্যাখ্যা:</b> {{ $question->question->questionexplanation->explanation }}</p><br/>
+    				<p style="padding-bottom: 10px;"><b>ব্যাখ্যা:</b> {{ $question->question->questionexplanation->explanation }}</p>
     			@endif
     			@if($question->question->questionimage)
     			<img class="img-responsive" src="{{ asset('/images/questions/' . $question->question->questionimage->image) }}"><br/>

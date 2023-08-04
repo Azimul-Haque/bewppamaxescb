@@ -27,7 +27,7 @@
     				<td>(খ)</td>
     			</tr>
     			<tr>
-    				<td>(গ)</td>
+    				<td style="padding-left: 20px;">(গ)</td>
     				<td>(ঘ)</td>
     			</tr>
     		</table>

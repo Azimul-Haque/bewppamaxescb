@@ -30,7 +30,7 @@
     				<td style="padding-right: 20px;">(গ) {{ $question->question->option3 }}</td>
     				<td>(ঘ) {{ $question->question->option4 }}</td>
     			</tr>
-    		</table>
+    		</table><br/>
     		<p>ব্যাখ্যা: {{ $question->question->questionexplanation ? $question->question->questionexplanation->explanation : '' }}</p>
     	@endforeach
     </div>

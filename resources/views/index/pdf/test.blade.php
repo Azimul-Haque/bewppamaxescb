@@ -35,13 +35,13 @@
     				<td>(ঘ) {{ $question->question->option4 }}</td>
     				<td style="padding-right: 20px;">
     					@if($question->question->answer == 1)
-    						{{ $question->question->option1 }}
+    						<b>উত্তর:</b> {{ $question->question->option1 }}
     					@elseif($question->question->answer == 2)
-    						{{ $question->question->option2 }}
+    						<b>উত্তর:</b> {{ $question->question->option2 }}
     					@elseif($question->question->answer == 3)
-    						{{ $question->question->option3 }}
+    						<b>উত্তর:</b> {{ $question->question->option3 }}
     					@elseif($question->question->answer == 4)
-    						{{ $question->question->option4 }}
+    						<b>উত্তর:</b> {{ $question->question->option4 }}
     					@endif
     				</td>
     			</tr>

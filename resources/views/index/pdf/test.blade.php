@@ -37,14 +37,15 @@
     				<td style="padding-right: 20px;"></td>
     				<td>
     					@if($question->question->answer == 1)
-
+    						{{ $question->question->option1 }}
     					@elseif($question->question->answer == 2)
-
+    						{{ $question->question->option2 }}
     					@elseif($question->question->answer == 3)
-
+    						{{ $question->question->option3 }}
     					@elseif($question->question->answer == 4)
+    						{{ $question->question->option4 }}
     					@endif
-    					{{ $question->question->option4 }}
+    					
     				</td>
     			</tr>
     		</table><br/>

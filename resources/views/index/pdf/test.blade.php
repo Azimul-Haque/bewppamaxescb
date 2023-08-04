@@ -13,7 +13,7 @@
 
 <div class="jumbotron text-center">
   <h1>{{ $exam->name }}</h1>
-  <p>পূর্ণমান - {{ $exam->examquestions->count() * $exam->qsweight }}</p> 
+  <p>পূর্ণমান - {{ $exam->examquestions->count() * $exam->qsweight }}, সময় - {{ $exam->durat }}</p> 
 </div>
   
 <div class="container">

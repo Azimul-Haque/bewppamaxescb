@@ -36,7 +36,7 @@
     		</table><br/>
     		<p><b>ব্যাখ্যা:</b> {{ $question->question->questionexplanation ? $question->question->questionexplanation->explanation : '' }}</p>
     		@if($question->question->questionimage)
-    		<img class="img-responsive" src="{{ asset('/images/questions/' . $question->question->questionimages->image) }}" >
+    		<img class="img-responsive" src="{{ asset('/images/questions/' . $question->question->questionimages->image) }}">
     		@endif
     		<br/>
 

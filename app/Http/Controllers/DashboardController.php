@@ -1194,6 +1194,7 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.notifications');
     }
 
+    // test html question data
     public function getExamSolvePDF($softtoken, $examid)
     {
         if($softtoken == env('SOFT_TOKEN'))

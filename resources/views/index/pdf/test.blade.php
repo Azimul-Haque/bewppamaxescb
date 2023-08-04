@@ -50,10 +50,10 @@
     			@if($question->question->questionexplanation)
     				<b>ব্যাখ্যা:</b> {{ $question->question->questionexplanation->explanation }}
     			@endif
+    			@if($question->question->questionimage)
+    			<img class="img-responsive" src="{{ asset('/images/questions/' . $question->question->questionimage->image) }}"><br/>
+    			@endif
     		</div>
-    		@if($question->question->questionimage)
-    		<img class="img-responsive" src="{{ asset('/images/questions/' . $question->question->questionimage->image) }}"><br/>
-    		@endif
     		<br/>
 
     		@php

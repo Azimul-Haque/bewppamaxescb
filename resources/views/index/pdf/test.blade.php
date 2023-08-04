@@ -20,7 +20,7 @@
   <div class="row">
     <div class="col-md-12">
     	@foreach($exam->examquestions as $question)
-    		<h4>{!! $question->question->question !!}</h4>
+    		<h4><b>{!! $question->question->question !!}</b></h4>
     		<table>
     			<tr>
     				<td style="padding-right: 20px;">(ক) {{ $question->question->option1 }}</td>

@@ -31,7 +31,7 @@
     				<td>(ঘ) {{ $question->question->option4 }}</td>
     			</tr>
     		</table>
-    		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    		<p>ব্যাখ্যা: {{ $question->question->option2 }}</p>
     	@endforeach
     </div>
   </div>

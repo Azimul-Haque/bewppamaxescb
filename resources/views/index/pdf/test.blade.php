@@ -24,11 +24,11 @@
     		<table>
     			<tr>
     				<td style="padding-right: 20px;">(ক) {{ $question->question->option1 }}</td>
-    				<td>(খ) {{ $question->question->option1 }}</td>
+    				<td>(খ) {{ $question->question->option2 }}</td>
     			</tr>
     			<tr>
-    				<td style="padding-right: 20px;">(গ) {{ $question->question->option1 }}</td>
-    				<td>(ঘ) {{ $question->question->option1 }}</td>
+    				<td style="padding-right: 20px;">(গ) {{ $question->question->option3 }}</td>
+    				<td>(ঘ) {{ $question->question->option4 }}</td>
     			</tr>
     		</table>
     		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>

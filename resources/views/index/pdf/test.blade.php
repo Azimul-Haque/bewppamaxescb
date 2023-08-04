@@ -45,7 +45,7 @@
     					@endif
     				</td>
     			</tr>
-    		</table><br/>
+    		</table>
     		<p>
     			@if($question->question->questionexplanation)
     				<b>ব্যাখ্যা:</b> {{ $question->question->questionexplanation->explanation }}

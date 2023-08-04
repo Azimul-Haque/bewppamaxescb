@@ -28,13 +28,11 @@
     			<tr>
     				<td style="padding-right: 20px;">(ক) {{ $question->question->option1 }}</td>
     				<td>(খ) {{ $question->question->option2 }}</td>
+    				<td></td>
     			</tr>
     			<tr>
     				<td style="padding-right: 20px;">(গ) {{ $question->question->option3 }}</td>
     				<td>(ঘ) {{ $question->question->option4 }}</td>
-    			</tr>
-    			<tr>
-    				<td style="padding-right: 20px;"></td>
     				<td>
     					@if($question->question->answer == 1)
     						{{ $question->question->option1 }}

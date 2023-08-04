@@ -46,7 +46,7 @@
     				</td>
     			</tr>
     		</table><br/>
-    		<div style="background: lightblue;">
+    		<div style="background: #E8FFF3;">
     			@if($question->question->questionexplanation)
     				<b>ব্যাখ্যা:</b> {{ $question->question->questionexplanation->explanation }}
     			@endif

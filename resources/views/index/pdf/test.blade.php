@@ -36,13 +36,13 @@
     					<td style="padding-right: 40px;">(ঘ) {{ $question->question->option4 }}</td>
     					<td>
     						@if($question->question->answer == 1)
-    							<b>উত্তর:</b> {{ $question->question->option1 }}
+    							<b>উত্তর: {{ $question->question->option1 }}</b>
     						@elseif($question->question->answer == 2)
-    							<b>উত্তর:</b> {{ $question->question->option2 }}
+    							<b>উত্তর: {{ $question->question->option2 }}</b>
     						@elseif($question->question->answer == 3)
-    							<b>উত্তর:</b> {{ $question->question->option3 }}
+    							<b>উত্তর: {{ $question->question->option3 }}</b>
     						@elseif($question->question->answer == 4)
-    							<b>উত্তর:</b> {{ $question->question->option4 }}
+    							<b>উত্তর: {{ $question->question->option4 }}</b>
     						@endif
     					</td>
     				</tr>

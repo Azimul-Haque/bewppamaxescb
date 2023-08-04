@@ -35,7 +35,12 @@
     			</tr>
     			<tr>
     				<td style="padding-right: 20px;"></td>
-    				<td>(ঘ) {{ $question->question->option4 }}</td>
+    				<td>
+    					@(if$question->question->option4)
+
+    					@endif
+    					{{ $question->question->option4 }}
+    				</td>
     			</tr>
     		</table><br/>
     		<p><b>ব্যাখ্যা:</b> {{ $question->question->questionexplanation ? $question->question->questionexplanation->explanation : '' }}</p>

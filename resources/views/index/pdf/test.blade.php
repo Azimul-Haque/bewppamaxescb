@@ -31,8 +31,8 @@
     				<td></td>
     			</tr>
     			<tr>
-    				<td style="padding-right: 20px;">(গ) {{ $question->question->option3 }}</td>
-    				<td style="padding-right: 20px;">(ঘ) {{ $question->question->option4 }}</td>
+    				<td style="padding-right: 40px;">(গ) {{ $question->question->option3 }}</td>
+    				<td style="padding-right: 40px;">(ঘ) {{ $question->question->option4 }}</td>
     				<td>
     					@if($question->question->answer == 1)
     						<b>উত্তর:</b> {{ $question->question->option1 }}

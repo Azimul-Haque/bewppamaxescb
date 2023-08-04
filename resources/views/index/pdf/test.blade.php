@@ -38,7 +38,7 @@
     		@if($question->question->questionimage)
     		<img class="img-responsive" src="{{ asset('/images/questions/' . $question->question->questionimage->image) }}">
     		@endif
-    		<br/>
+    		<br/><br/>
 
     		@php
     			$counter++;

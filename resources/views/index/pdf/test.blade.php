@@ -33,7 +33,7 @@
     			<tr>
     				<td style="padding-right: 20px;">(গ) {{ $question->question->option3 }}</td>
     				<td style="padding-right: 20px;">(ঘ) {{ $question->question->option4 }}</td>
-    				<td >
+    				<td>
     					@if($question->question->answer == 1)
     						<b>উত্তর:</b> {{ $question->question->option1 }}
     					@elseif($question->question->answer == 2)

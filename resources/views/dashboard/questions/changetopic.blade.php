@@ -145,77 +145,9 @@
                                   </td>
                               
                                   <td align="right" width="40%">
-                                      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editTopicModal{{ $topic->id }}">
-                                          <i class="far fa-edit"></i>
-                                      </button>
-                                      {{-- Edit Topic Modal Code --}}
-                                      {{-- Edit Topic Modal Code --}}
-                                      <!-- Modal -->
-                                      <div class="modal fade" id="editTopicModal{{ $topic->id }}" tabindex="-1" role="dialog" aria-labelledby="editTopicModalLabel" aria-hidden="true" data-backdrop="static">
-                                          <div class="modal-dialog" role="document">
-                                          <div class="modal-content">
-                                              <div class="modal-header bg-warning">
-                                              <h5 class="modal-title" id="editTopicModalLabel">টপিক হালনাগাদ</h5>
-                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                              </button>
-                                              </div>
-                                              <form method="post" action="{{ route('dashboard.questions.topic.update', $topic->id) }}">
-                                                  <div class="modal-body">
-                                                      @csrf
-                                                      <div class="input-group mb-3">
-                                                          <input type="text"
-                                                                  name="name"
-                                                                  class="form-control"
-                                                                  value="{{ $topic->name }}"
-                                                                  placeholder="নাম" required>
-                                                          <div class="input-group-append">
-                                                              <div class="input-group-text"><span class="far fa-bookmark"></span></div>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                                                  <button type="submit" class="btn btn-warning">দাখিল করুন</button>
-                                                  </div>
-                                              </form>
-                                          </div>
-                                          </div>
-                                      </div>
-                                      {{-- Edit Topic Modal Code --}}
-                                      {{-- Edit Topic Modal Code --}}
-          
-                                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteTopicModal{{ $topic->id }}" disabled>
-                                          <i class="far fa-trash-alt"></i>
-                                      </button>
+                                      
                                   </td>
-                                  {{-- Delete Topic Modal Code --}}
-                                  {{-- Delete Topic Modal Code --}}
-                                  <!-- Modal -->
-                                  <div class="modal fade" id="deleteTopicModal{{ $topic->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteTopicModalLabel" aria-hidden="true" data-backdrop="static">
-                                      <div class="modal-dialog" role="document">
-                                      <div class="modal-content">
-                                          <div class="modal-header bg-danger">
-                                          <h5 class="modal-title" id="deleteTopicModalLabel">টপিক ডিলেট</h5>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                          </button>
-                                          </div>
-                                          <div class="modal-body">
-                                          আপনি কি নিশ্চিতভাবে এই টপিকটি ডিলেট করতে চান?<br/>
-                                          <center>
-                                              <big><b>{{ $topic->name }}</b></big><br/>
-                                          </center>
-                                          </div>
-                                          <div class="modal-footer">
-                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                                          <a href="{{ route('dashboard.questions.topic.delete', $topic->id) }}" class="btn btn-danger">ডিলেট করুন</a>
-                                          </div>
-                                      </div>
-                                      </div>
-                                  </div>
-                                  {{-- Delete Topic Modal Code --}}
-                                  {{-- Delete Topic Modal Code --}}
+                                  
                               </tr>
                           @endforeach
                           </tbody>

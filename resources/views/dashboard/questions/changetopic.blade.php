@@ -118,7 +118,8 @@
                                           <div class="modal-body">
                                                 @csrf
                                                 <b>প্রশ্ন:</b> {!! $question->question !!}<br/><br/>
-                                                নির্ধারিত নতুন টপিক - <span style="font-weight: bold;" id="newtopic{{ $question->id }}">{{ $question->topic->name }}</span>
+                                                নির্ধারিত নতুন টপিক - <span style="font-weight: bold;" id="newtopic{{ $question->id }}">{{ $question->topic->name }}</span><br/><br/>
+                                                আপনি কি নিশ্চিতভাবে এই প্রশ্নটির 'টপিক' হালনাগাদ করতে চান?
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

@@ -119,7 +119,7 @@
                                             <div class="modal-body">
                                                   @csrf
                                                   <b>প্রশ্ন:</b> {!! $question->question !!}<br/>
-                                                  নির্ধারিত নতুন টপিক - <span id="newtopic{{ $question->id }}"></span>
+                                                  নির্ধারিত নতুন টপিক - <span id="newtopic{{ $question->id }}">{{ $question->topic->name }}</span>
                                             </div>
                                             <div class="modal-footer">
                                               <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
@@ -136,7 +136,7 @@
                             </form>
                             <script type="text/javascript">
                               $("#topicchangeid{{ $question->id }}").change(function (){
-                                
+
                                 $("#newtopic{{ $question->id }}").text($("#topicchangeid{{ $question->id }} :selected").text());
                               });
                             </script>

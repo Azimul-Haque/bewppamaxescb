@@ -115,7 +115,7 @@
                                                   <span aria-hidden="true">&times;</span>
                                               </button>
                                             </div>
-                                            <form method="post" action="{{ route('dashboard.questions.update', $question->id) }}" enctype='multipart/form-data'>
+                                            <form method="post" action="{{ route('dashboard.questions.updatechangetopicbased', $question->id) }}">
                                               <div class="modal-body">
                                                     @csrf
                                                     <textarea id="question{{ $question->id }}" name="question">{!! $question->question !!}</textarea><br/>
@@ -139,10 +139,6 @@
                                     </div>
                                     </td>
                                 </tr>
-                              <form method="post" action="{{ route('dashboard.questions.updatechangetopicbased', $question->id) }}">
-                                @csrf
-                                <button type="submit" class="btn btn-success btn-sm">দাখিল করুন</button>
-                              </form>
                           @endforeach
                           </tbody>
                       </table>

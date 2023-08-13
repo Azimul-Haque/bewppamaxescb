@@ -117,13 +117,7 @@
                                             <form method="post" action="{{ route('dashboard.questions.updatechangetopicbased', $question->id) }}">
                                               <div class="modal-body">
                                                     @csrf
-                                                    <textarea id="question{{ $question->id }}" name="question">{!! $question->question !!}</textarea><br/>
-                                                    {{-- <div class="input-group mb-3">
-                                                        <input type="text" name="question" class="form-control" value="{{ $question->question }}" placeholder="প্রশ্ন" required>
-                                                        <div class="input-group-append">
-                                                            <div class="input-group-text"><span class="far fa-question-circle"></span></div>
-                                                        </div>
-                                                    </div> --}}
+                                                    <b>প্রশ্ন:</b> {!! $question->question !!}<br/>
                                               </div>
                                               <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

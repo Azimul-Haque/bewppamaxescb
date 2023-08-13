@@ -56,7 +56,7 @@
                           </thead>
                           <tbody>
                           @foreach($questions as $question)
-                              
+                              <form method="post" action="{{ route('dashboard.questions.updatechangetopicbased', $question->id) }}">
                                 <tr>
                                     <td>
                                         {!! $question->question !!}<br/>
@@ -114,7 +114,7 @@
                                                   <span aria-hidden="true">&times;</span>
                                               </button>
                                             </div>
-                                            <form method="post" action="{{ route('dashboard.questions.updatechangetopicbased', $question->id) }}">
+                                            
                                               <div class="modal-body">
                                                     @csrf
                                                     <b>প্রশ্ন:</b> {!! $question->question !!}<br/>

@@ -102,12 +102,11 @@
                                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updateTopicQuestionModal{{ $question->id }}">
                                           দাখিল করুন
                                       </button>
-                                      
+                                    </td>
+                                </tr>
                               <form method="post" action="{{ route('dashboard.questions.updatechangetopicbased', $question->id) }}">
                                 @csrf
                                 <button type="submit" class="btn btn-success btn-sm">দাখিল করুন</button>
-                                    </td>
-                                </tr>
                               </form>
                           @endforeach
                           </tbody>

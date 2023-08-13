@@ -138,7 +138,7 @@
                           @foreach($topics as $topic)
                               <tr>
                                   <td>
-                                    <a href="{{ route('dashboard.changetopicbased', $topic->id) }}">
+                                    <a href="{{ route('dashboard.questions.changetopicbased', $topic->id) }}">
                                       {{ $topic->name }} <small>({{ $topic->questions->count() }} টি প্রশ্ন)</small>
                                       <span class="badge bg-primary"><i class="fas fa-bolt"></i> {{ $topic->participation }}</span>
                                     </a>

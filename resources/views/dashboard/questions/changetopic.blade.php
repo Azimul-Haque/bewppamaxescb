@@ -56,10 +56,10 @@
                               <tr>
                                   <td>
                                       {!! $question->question !!}<br/>
-                                      <span class="badge bg-success">{{ $question->topic->name }}</span>
-                                      <span class="badge bg-info">{{ $question->difficulty == 1 ? 'সহজ' : ($question->difficulty == 2 ? 'মধ্যম' : 'কঠিন') }}</span>
+                                      <span class="badge bg-success smtext">{{ $question->topic->name }}</span>
+                                      <span class="badge bg-info smtext">{{ $question->difficulty == 1 ? 'সহজ' : ($question->difficulty == 2 ? 'মধ্যম' : 'কঠিন') }}</span>
                                       @foreach($question->tags as $tag)
-                                        <span class="badge bg-primary">{{ $tag->name }}</span>
+                                        <span class="badge bg-primary smtext">{{ $tag->name }}</span>
                                       @endforeach
                                   </td>
                                   <td>{{ $question->answer }}</td>

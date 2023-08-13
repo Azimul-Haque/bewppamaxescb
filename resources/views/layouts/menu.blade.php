@@ -67,6 +67,12 @@
         <p>রিপোর্টেড প্রশ্নসমূহ</p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{ route('dashboard.questions.changetopic') }}" class="nav-link {{ Request::is('dashboard/reported') ? 'active' : '' }} {{ Request::is('dashboard/reported/*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-flag"></i>
+        <p>রিপোর্টেড প্রশ্নসমূহ</p>
+    </a>
+</li>
 @endif
 
 @if(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')

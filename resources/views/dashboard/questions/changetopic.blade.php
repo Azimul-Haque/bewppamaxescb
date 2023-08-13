@@ -34,7 +34,7 @@
                             <div class="form-group">
                               <input type="search-param" class="form-control form-control-sm" placeholder="প্রশ্ন খুঁজুন" id="search-param" required>
                             </div>
-                            <button type="button" id="search-button" class="btn btn-default btn-sm" style="margin-left: 5px;">
+                            <button type="button" id="search-button" class="btn btn-success btn-sm" style="margin-left: 5px;">
                               <i class="fas fa-search"></i> খুঁজুন
                             </button>
                           </form>

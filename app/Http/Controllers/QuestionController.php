@@ -198,10 +198,10 @@ class QuestionController extends Controller
         $topics = Topic::orderBy('id', 'asc')->get();
         // $tags = Tag::orderBy('id', 'asc')->get();
 
-        return view('dashboard.questions.index')
+        return view('dashboard.questions.changetopic')
                     ->withQuestions($questions)
                     ->withTopics($topics)
-                    ->withTags($tags)
+                    // ->withTags($tags)
                     ->withTotalquestions($totalquestions);
     }
 

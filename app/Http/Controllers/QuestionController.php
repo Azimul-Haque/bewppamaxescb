@@ -189,7 +189,7 @@ class QuestionController extends Controller
         ));
 
         $question             = Question::findOrFail($id);
-        $question->topic_id   = $request->topic_id;
+        $question->topic_id   = $request->topicchangeid;
         $question->question   = $request->question;
         $question->option1    = $request->option1;
         $question->option2    = $request->option2;

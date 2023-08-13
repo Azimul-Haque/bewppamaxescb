@@ -136,7 +136,7 @@
                             </form>
                             <script type="text/javascript">
                               function changeVal() {
-
+                                $('#newtopic')
                               }
                             </script>
                           @endforeach

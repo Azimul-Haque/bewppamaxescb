@@ -64,7 +64,7 @@
                                   </td>
                                   <td>{{ $question->answer }}</td>
                                   <td>
-                                    {{ $question->option1 }}, {{ $question->option2 }}, {{ $question->option3 }}, {{ $question->option4 }}
+                                    {{-- {{ $question->option1 }}, {{ $question->option2 }}, {{ $question->option3 }}, {{ $question->option4 }} --}}
                                     @if($question->answer == 1)
                                         <big><b>{{ $question->option1 }}</b></big>, 
                                     @else

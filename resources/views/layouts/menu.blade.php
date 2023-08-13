@@ -69,7 +69,7 @@
 </li>
 <li class="nav-item">
     <a href="{{ route('dashboard.questions.changetopic') }}" class="nav-link {{ Request::is('dashboard/change/topic') ? 'active' : '' }} {{ Request::is('dashboard/change/topic/*') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-flag"></i>
+        <i class="nav-icon fas fa-bookmark"></i>
         <p>টপিক পরিবর্তন</p>
     </a>
 </li>

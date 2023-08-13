@@ -56,7 +56,7 @@
                           </thead>
                           <tbody>
                           @foreach($questions as $question)
-                              <form method="post" action="">
+                              <form method="post" action="{{ route('dashboard.questions.update', $question->id) }}" enctype='multipart/form-data'>
                                 @csrf
                                 <tr>
                                     <td>

@@ -76,7 +76,7 @@
                                     @if($question->answer == 2)
                                         <big><b>{{ $question->option2 }}</b></big>, 
                                     @else
-                                        {{ $question->option2 }}, 
+                                        {{ $question->option2 }},<br/> 
                                     @endif
                                     @if($question->answer == 3)
                                         <big><b>{{ $question->option3 }}</b></big>, 

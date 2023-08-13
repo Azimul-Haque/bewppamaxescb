@@ -193,7 +193,7 @@ class QuestionController extends Controller
         $question->save();
 
         Session::flash('success', 'Topic updated successfully!');
-        return redirect()->route('dashboard.questions');
+        return redirect()->back();
     }
 
 

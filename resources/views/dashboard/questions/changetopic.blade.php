@@ -124,7 +124,7 @@
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
                                                 <button type="submit" class="btn btn-success">দাখিল করুন</button>
                                               </div>
-                                          </form>
+                                          
                                         </div>
                                         </div>
                                     </div>
@@ -132,6 +132,7 @@
                                     {{-- Update Topic Modal Code --}}
                                   </td>
                                 </tr>
+                              </form>  
                           @endforeach
                           </tbody>
                       </table>

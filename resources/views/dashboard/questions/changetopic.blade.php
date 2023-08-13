@@ -68,6 +68,9 @@
                                   <td>
                                     <select class="form-control" name="topicchangeid">
                                       <option selected disabled>টপিক সিলেক্ট করুন</option>
+                                      @foreach()
+                                        
+                                      @endforeach
                                     </select>
                                   </td>
                                   <td>

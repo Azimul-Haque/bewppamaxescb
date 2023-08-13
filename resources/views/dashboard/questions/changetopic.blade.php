@@ -98,7 +98,7 @@
                                     </select>
                                   </td>
                                   <td>
-                                    <button class="btn btn-success btn-sm"></button>
+                                    <button class="btn btn-success btn-sm">দাখিল করুন</button>
                                   </td>
                               </tr>
                           @endforeach

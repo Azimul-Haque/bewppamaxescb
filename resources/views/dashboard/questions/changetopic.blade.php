@@ -78,49 +78,6 @@
                               
                                   <td>
                                       
-
-                                      
-
-
-                                      {{-- Edit Question Modal Code --}}
-                                      {{-- Edit Question Modal Code --}}
-          
-                                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteQuestionModal{{ $question->id }}" disabled>
-                                          <i class="far fa-trash-alt"></i>
-                                      </button>
-                                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#notifModal{{ $question->id }}">
-                                        <i class="fas fa-bell"></i>
-                                      </button>
-                                  </td>
-                                  {{-- Delete Question Modal Code --}}
-                                  {{-- Delete Question Modal Code --}}
-                                  <!-- Modal -->
-                                  <div class="modal fade" id="deleteQuestionModal{{ $question->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteQuestionModalLabel" aria-hidden="true" data-backdrop="static">
-                                      <div class="modal-dialog" role="document">
-                                      <div class="modal-content">
-                                          <div class="modal-header bg-danger">
-                                          <h5 class="modal-title" id="deleteQuestionModalLabel">প্রশ্ন ডিলেট</h5>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                          </button>
-                                          </div>
-                                          <div class="modal-body">
-                                            আপনি কি নিশ্চিতভাবে এই প্রশ্নটি ডিলেট করতে চান?<br/><br/>
-                                            <center>
-                                                <big><b>{{ $question->question }}</b></big>
-                                            </center>
-                                          </div>
-                                          <div class="modal-footer">
-                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                                          <a href="{{ route('dashboard.questions.delete', $question->id) }}" class="btn btn-danger">ডিলেট করুন</a>
-                                          </div>
-                                      </div>
-                                      </div>
-                                  </div>
-                                  {{-- Delete Question Modal Code --}}
-                                  {{-- Delete Question Modal Code --}}
-
-                                  
                                   {{-- Notif Modal Code --}}
                                   {{-- Notif Modal Code --}}
                                   <!-- Modal -->

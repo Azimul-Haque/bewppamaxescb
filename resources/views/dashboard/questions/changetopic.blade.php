@@ -133,7 +133,12 @@
                                   {{-- Update Topic Modal Code --}}
                                 </td>
                               </tr>
-                            </form>  
+                            </form>
+                            <script type="text/javascript">
+                              function changeVal(id) {
+                                
+                              }
+                            </script>
                           @endforeach
                           </tbody>
                       </table>

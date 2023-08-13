@@ -266,7 +266,7 @@
     $(document).ready( function() {
       $(document).on('click', '#search-button', function() {
         if($('#search-param').val() != '') {
-          var urltocall = '{{ route('dashboard.questions') }}' +  '/' + $('#search-param').val().replace(/\\|\//g, '%');
+          var urltocall = '{{ route('dashboard.questions.changetopicsearch') }}' +  '/' + $('#search-param').val().replace(/\\|\//g, '%');
           location.href= urltocall;
         } else {
           $('#search-param').css({ "border": '#FF0000 2px solid'});
@@ -279,7 +279,7 @@
       $("#search-param").keyup(function(e) {
         if(e.which == 13) {
           if($('#search-param').val() != '') {
-            var urltocall = '{{ route('dashboard.questions') }}' +  '/' + $('#search-param').val().replace(/\\|\//g, '%');
+            var urltocall = '{{ route('dashboard.questions.changetopicsearch') }}' +  '/' + $('#search-param').val().replace(/\\|\//g, '%');
             location.href= urltocall;
           } else {
             $('#search-param').css({ "border": '#FF0000 2px solid'});

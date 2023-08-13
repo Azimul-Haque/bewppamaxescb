@@ -88,9 +88,9 @@
                       <h3 class="card-title">টপিকসমূহ</h3>
           
                       <div class="card-tools">
-                          <button type="button" class="btn btn-warning btn-sm"  data-toggle="modal" data-target="#addTopicModal">
+                          {{-- <button type="button" class="btn btn-warning btn-sm"  data-toggle="modal" data-target="#addTopicModal">
                               <i class="fas fa-plus-circle"></i> নতুন টপিক
-                          </button>
+                          </button> --}}
                       </div>
                     </div>
                     <!-- /.card-header -->

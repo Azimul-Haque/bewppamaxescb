@@ -192,7 +192,7 @@ class QuestionController extends Controller
         $question->topic_id   = $request->topicchangeid;
         $question->save();
 
-        Session::flash('success', 'Topic updated successfully!');
+        Session::flash('success', 'সফলভাবে আপডেট করা হয়েছে, যাচাই করে দেখুন!');
         return redirect()->back();
     }
 

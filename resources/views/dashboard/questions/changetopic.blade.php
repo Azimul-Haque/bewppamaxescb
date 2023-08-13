@@ -56,83 +56,83 @@
                           </thead>
                           <tbody>
                           @foreach($questions as $question)
-                              <form method="post" action="{{ route('dashboard.questions.updatechangetopicbased', $question->id) }}">
-                                <tr>
-                                    <td>
-                                        {!! $question->question !!}<br/>
-                                        <span class="badge bg-success smtext">{{ $question->topic->name }}</span>
-                                        {{-- <span class="badge bg-info smtext">{{ $question->difficulty == 1 ? 'সহজ' : ($question->difficulty == 2 ? 'মধ্যম' : 'কঠিন') }}</span> --}}
-                                        {{-- @foreach($question->tags as $tag)
-                                          <span class="badge bg-primary smtext">{{ $tag->name }}</span>
-                                        @endforeach --}}
-                                    </td>
-                                    
-                                    <td>
-                                      {{-- {{ $question->option1 }}, {{ $question->option2 }}, {{ $question->option3 }}, {{ $question->option4 }} --}}
-                                      @if($question->answer == 1)
-                                          <big><b>{{ $question->option1 }}</b></big>, 
-                                      @else
-                                          {{ $question->option1 }}, 
-                                      @endif
-                                      @if($question->answer == 2)
-                                          <big><b>{{ $question->option2 }}</b></big>, 
-                                      @else
-                                          {{ $question->option2 }},
-                                      @endif<br/> 
-                                      @if($question->answer == 3)
-                                          <big><b>{{ $question->option3 }}</b></big>, 
-                                      @else
-                                          {{ $question->option3 }}, 
-                                      @endif
-                                      @if($question->answer == 4)
-                                          <big><b>{{ $question->option4 }}</b></big>
-                                      @else
-                                          {{ $question->option4 }}
-                                      @endif
-                                    </td>                              
-                                    <td>
-                                      <select class="form-control form-control-sm" name="topicchangeid">
-                                        <option selected disabled>টপিক সিলেক্ট করুন</option>
-                                        @foreach($topics as $topic)
-                                          <option value="{{ $topic->id }}" @if($topic->id == $question->topic->id) selected @endif>{{ $topic->name }}</option>
-                                        @endforeach
-                                      </select>
-                                    </td>
-                                    <td>
-                                      <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#updateTopicQuestionModal{{ $question->id }}">
-                                          দাখিল করুন
-                                      </button>
-                                      {{-- Update Topic Modal Code --}}
-                                      {{-- Update Topic Modal Code --}}
-                                      <!-- Modal -->
-                                      <div class="modal fade" id="updateTopicQuestionModal{{ $question->id }}" tabindex="-1" role="dialog" aria-labelledby="updateTopicQuestionModalLabel" aria-hidden="true" data-backdrop="static">
-                                        <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header bg-success">
-                                              <h5 class="modal-title" id="updateTopicQuestionModalLabel">প্রশ্ন হালনাগাদ</h5>
-                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                              </button>
-                                            </div>
-                                            
-                                              <div class="modal-body">
-                                                    @csrf
-                                                    <b>প্রশ্ন:</b> {!! $question->question !!}<br/>
-                                                    নির্ধারিত নতুন টপিক - 
-                                              </div>
-                                              <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                                                <button type="submit" class="btn btn-success">দাখিল করুন</button>
-                                              </div>
-                                          
-                                        </div>
-                                        </div>
-                                    </div>
-                                    {{-- Update Topic Modal Code --}}
-                                    {{-- Update Topic Modal Code --}}
+                            <form method="post" action="{{ route('dashboard.questions.updatechangetopicbased', $question->id) }}">
+                              <tr>
+                                  <td>
+                                      {!! $question->question !!}<br/>
+                                      <span class="badge bg-success smtext">{{ $question->topic->name }}</span>
+                                      {{-- <span class="badge bg-info smtext">{{ $question->difficulty == 1 ? 'সহজ' : ($question->difficulty == 2 ? 'মধ্যম' : 'কঠিন') }}</span> --}}
+                                      {{-- @foreach($question->tags as $tag)
+                                        <span class="badge bg-primary smtext">{{ $tag->name }}</span>
+                                      @endforeach --}}
                                   </td>
-                                </tr>
-                              </form>  
+                                  
+                                  <td>
+                                    {{-- {{ $question->option1 }}, {{ $question->option2 }}, {{ $question->option3 }}, {{ $question->option4 }} --}}
+                                    @if($question->answer == 1)
+                                        <big><b>{{ $question->option1 }}</b></big>, 
+                                    @else
+                                        {{ $question->option1 }}, 
+                                    @endif
+                                    @if($question->answer == 2)
+                                        <big><b>{{ $question->option2 }}</b></big>, 
+                                    @else
+                                        {{ $question->option2 }},
+                                    @endif<br/> 
+                                    @if($question->answer == 3)
+                                        <big><b>{{ $question->option3 }}</b></big>, 
+                                    @else
+                                        {{ $question->option3 }}, 
+                                    @endif
+                                    @if($question->answer == 4)
+                                        <big><b>{{ $question->option4 }}</b></big>
+                                    @else
+                                        {{ $question->option4 }}
+                                    @endif
+                                  </td>                              
+                                  <td>
+                                    <select class="form-control form-control-sm" name="topicchangeid">
+                                      <option selected disabled>টপিক সিলেক্ট করুন</option>
+                                      @foreach($topics as $topic)
+                                        <option value="{{ $topic->id }}" @if($topic->id == $question->topic->id) selected @endif>{{ $topic->name }}</option>
+                                      @endforeach
+                                    </select>
+                                  </td>
+                                  <td>
+                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#updateTopicQuestionModal{{ $question->id }}">
+                                        দাখিল করুন
+                                    </button>
+                                    {{-- Update Topic Modal Code --}}
+                                    {{-- Update Topic Modal Code --}}
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="updateTopicQuestionModal{{ $question->id }}" tabindex="-1" role="dialog" aria-labelledby="updateTopicQuestionModalLabel" aria-hidden="true" data-backdrop="static">
+                                      <div class="modal-dialog modal-lg" role="document">
+                                      <div class="modal-content">
+                                          <div class="modal-header bg-success">
+                                            <h5 class="modal-title" id="updateTopicQuestionModalLabel">প্রশ্ন হালনাগাদ</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                          
+                                            <div class="modal-body">
+                                                  @csrf
+                                                  <b>প্রশ্ন:</b> {!! $question->question !!}<br/>
+                                                  নির্ধারিত নতুন টপিক - 
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                                              <button type="submit" class="btn btn-success">দাখিল করুন</button>
+                                            </div>
+                                        
+                                      </div>
+                                      </div>
+                                  </div>
+                                  {{-- Update Topic Modal Code --}}
+                                  {{-- Update Topic Modal Code --}}
+                                </td>
+                              </tr>
+                            </form>  
                           @endforeach
                           </tbody>
                       </table>

@@ -115,17 +115,15 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                           </div>
-                                          
-                                            <div class="modal-body">
-                                                  @csrf
-                                                  <b>প্রশ্ন:</b> {!! $question->question !!}<br/>
-                                                  নির্ধারিত নতুন টপিক - <span id="newtopic{{ $question->id }}">{{ $question->topic->name }}</span>
-                                            </div>
-                                            <div class="modal-footer">
-                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                                              <button type="submit" class="btn btn-success">দাখিল করুন</button>
-                                            </div>
-                                        
+                                          <div class="modal-body">
+                                                @csrf
+                                                <b>প্রশ্ন:</b> {!! $question->question !!}<br/>
+                                                নির্ধারিত নতুন টপিক - <span id="newtopic{{ $question->id }}">{{ $question->topic->name }}</span>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                                            <button type="submit" class="btn btn-success">দাখিল করুন</button>
+                                          </div>
                                       </div>
                                       </div>
                                   </div>

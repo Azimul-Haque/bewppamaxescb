@@ -18,7 +18,7 @@
       background-color: rgba(0, 123, 255) !important;
   }
   .smtext {
-    font-size: 12px;
+    font-size: 11px;
   }
 </style>
 @endsection

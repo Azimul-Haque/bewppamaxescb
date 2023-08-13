@@ -97,6 +97,7 @@ Route::get('/dashboard/questions/tag/{id}/delete', 'QuestionController@deleteQue
 Route::get('/dashboard/reported/questions', 'QuestionController@getReportedQuestions')->name('dashboard.questions.reported');
 Route::get('/dashboard/reported/questions/{search}', 'QuestionController@getReportedQuestionsSearch')->name('dashboard.questions.reported.search');
 Route::get('/dashboard/reported/questions/{id}/delete', 'QuestionController@deleteReportedQuestionsSearch')->name('dashboard.questions.reported.delete');
+Route::get('/dashboard/questions/change/topic', 'QuestionController@getChangeQuestions')->name('dashboard.questions.changetopic');
 
 Route::get('/dashboard/exams', 'ExamController@getExams')->name('dashboard.exams');
 Route::get('/dashboard/exams/{search}', 'ExamController@getExamsSearch')->name('dashboard.exams.search');

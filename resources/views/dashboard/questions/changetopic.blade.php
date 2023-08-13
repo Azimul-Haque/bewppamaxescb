@@ -56,7 +56,8 @@
                           </thead>
                           <tbody>
                           @foreach($questions as $question)
-                              <form>
+                              <form method="post" action="">
+                                @csrf
                                 <tr>
                                     <td>
                                         {!! $question->question !!}<br/>

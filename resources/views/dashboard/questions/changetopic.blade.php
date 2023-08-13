@@ -99,7 +99,7 @@
                                       </select>
                                     </td>
                                     <td>
-                                      <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#updateTopicQuestionModal{{ $question->id }}">
+                                      <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#updateTopicQuestionModal{{ $question->id }}">
                                           দাখিল করুন
                                       </button>
                                       {{-- Update Topic Modal Code --}}

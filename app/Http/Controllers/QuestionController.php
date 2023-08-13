@@ -163,12 +163,13 @@ class QuestionController extends Controller
         }
         
         $totalquestions = Question::count();
-        $questions = Question::orderBy('id', 'desc')->paginate(10);
-        // $questions = Question::orderBy('id', 'desc')->get()->chunk(200, function($questions){
-        //     //do whatever you would normally be doing with the rows you receive
-        //     // $domain stuff
-        // });
-        // dd($questions);
+        $questions = Question::where('question', 'LIKE', "%$search%")
+                             ->orWhere('option1', 'LIKE', "%$search%")
+                             ->orWhere('option2', 'LIKE', "%$search%")
+                             ->orWhere('option3', 'LIKE', "%$search%")
+                             ->orWhere('option4', 'LIKE', "%$search%")
+                             ->orderBy('id', 'desc')
+                             ->paginate(10);
         $topics = Topic::orderBy('id', 'asc')->get();
         // $tags = Tag::orderBy('id', 'asc')->get();
 

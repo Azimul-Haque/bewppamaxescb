@@ -196,7 +196,7 @@ class QuestionController extends Controller
                              ->paginate(10);
 
         $topics = Topic::orderBy('id', 'asc')->get();
-        $tags = Tag::orderBy('id', 'asc')->get();
+        // $tags = Tag::orderBy('id', 'asc')->get();
 
         return view('dashboard.questions.index')
                     ->withQuestions($questions)

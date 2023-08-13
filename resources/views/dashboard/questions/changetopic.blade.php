@@ -136,7 +136,7 @@
                             </form>
                             <script type="text/javascript">
                               function changeVal() {
-                                $('#newtopic')
+                                $('#newtopic{{ $question->topic_id }}')
                               }
                             </script>
                           @endforeach

@@ -102,6 +102,41 @@
                                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updateTopicQuestionModal{{ $question->id }}">
                                           দাখিল করুন
                                       </button>
+
+                                      {{-- Update Topic Modal Code --}}
+                                      {{-- Update Topic Modal Code --}}
+                                      <!-- Modal -->
+                                      <div class="modal fade" id="editQuestionModal{{ $question->id }}" tabindex="-1" role="dialog" aria-labelledby="editQuestionModalLabel" aria-hidden="true" data-backdrop="static">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header bg-success">
+                                              <h5 class="modal-title" id="editQuestionModalLabel">প্রশ্ন হালনাগাদ</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <form method="post" action="{{ route('dashboard.questions.update', $question->id) }}" enctype='multipart/form-data'>
+                                              <div class="modal-body">
+                                                    @csrf
+                                                    <textarea id="question{{ $question->id }}" name="question">{!! $question->question !!}</textarea><br/>
+                                                    {{-- <div class="input-group mb-3">
+                                                        <input type="text" name="question" class="form-control" value="{{ $question->question }}" placeholder="প্রশ্ন" required>
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text"><span class="far fa-question-circle"></span></div>
+                                                        </div>
+                                                    </div> --}}
+                                                    
+                                                    
+                                                    
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                                                <button type="submit" class="btn btn-success">দাখিল করুন</button>
+                                              </div>
+                                          </form>
+                                        </div>
+                                        </div>
+                                    </div>
                                     </td>
                                 </tr>
                               <form method="post" action="{{ route('dashboard.questions.updatechangetopicbased', $question->id) }}">

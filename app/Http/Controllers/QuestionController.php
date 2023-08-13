@@ -130,7 +130,7 @@ class QuestionController extends Controller
                     ->withTotalquestions($totalquestions);
     }
 
-    public function getChangeQuestions($id)
+    public function getChangeTopicQuestions($id)
     {
         ini_set('memory_limit', '-1');
         if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'volunteer')) {
@@ -148,7 +148,7 @@ class QuestionController extends Controller
         // $tags = Tag::orderBy('id', 'asc')->get();
 
         // dd($questions);
-        return view('dashboard.questions.index')
+        return view('dashboard.questions.changetopic')
                     ->withQuestions($questions)
                     ->withTopics($topics)
                     // ->withTags($tags)

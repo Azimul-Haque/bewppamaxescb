@@ -182,7 +182,7 @@ class QuestionController extends Controller
                     ->withTotalquestions($totalquestions);
     }
 
-    public function postChangeTopicQuestions(Request $request)
+    public function postChangeTopicQuestions(Request $request, $id)
     {
         $this->validate($request,array(
             'name'        => 'required|string|max:191',

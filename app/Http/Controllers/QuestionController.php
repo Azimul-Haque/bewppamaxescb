@@ -190,17 +190,9 @@ class QuestionController extends Controller
 
         $question             = Question::findOrFail($id);
         $question->topic_id   = $request->topicchangeid;
-        $question->question   = $request->question;
-        $question->option1    = $request->option1;
-        $question->option2    = $request->option2;
-        $question->option3    = $request->option3;
-        $question->option4    = $request->option4;
-        $question->answer     = $request->answer;
-        $question->difficulty = $request->difficulty;
         $question->save();
 
-        Cache::forget('topics');
-        Session::flash('success', 'Topic created successfully!');
+        Session::flash('success', 'Topic updated successfully!');
         return redirect()->route('dashboard.questions');
     }
 

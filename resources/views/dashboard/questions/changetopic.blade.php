@@ -117,7 +117,7 @@
                                           </div>
                                           <div class="modal-body">
                                                 @csrf
-                                                <b>প্রশ্ন:</b> {!! $question->question !!}<br/>
+                                                <b>প্রশ্ন:</b> {!! $question->question !!}<br/><br/>
                                                 নির্ধারিত নতুন টপিক - <span id="newtopic{{ $question->id }}">{{ $question->topic->name }}</span>
                                           </div>
                                           <div class="modal-footer">

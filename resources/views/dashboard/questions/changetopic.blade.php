@@ -144,9 +144,7 @@
                                     </a>
                                   </td>
                               
-                                  <td align="right" width="40%">
-                                      
-                                  </td>
+                               
                                   
                               </tr>
                           @endforeach

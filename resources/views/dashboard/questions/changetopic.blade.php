@@ -68,8 +68,8 @@
                                   <td>
                                     <select class="form-control" name="topicchangeid">
                                       <option selected disabled>টপিক সিলেক্ট করুন</option>
-                                      @foreach()
-                                        
+                                      @foreach($topics as $topic)
+                                        <option value=""></option>
                                       @endforeach
                                     </select>
                                   </td>

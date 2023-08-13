@@ -65,14 +65,7 @@
                                         <span class="badge bg-primary smtext">{{ $tag->name }}</span>
                                       @endforeach
                                   </td>
-                                  <td>
-                                    <select class="form-control" name="topicchangeid">
-                                      <option selected disabled>টপিক সিলেক্ট করুন</option>
-                                      @foreach($topics as $topic)
-                                        <option value="{{ $topic->id }}" @if($topic->id == $question->topic->id) selected @endif>{{ $topic->name }}</option>
-                                      @endforeach
-                                    </select>
-                                  </td>
+                                  
                                   <td>
                                     {{-- {{ $question->option1 }}, {{ $question->option2 }}, {{ $question->option3 }}, {{ $question->option4 }} --}}
                                     @if($question->answer == 1)
@@ -96,7 +89,14 @@
                                         {{ $question->option4 }}
                                     @endif
                                   </td>                              
-                                      
+                                  <td>
+                                    <select class="form-control" name="topicchangeid">
+                                      <option selected disabled>টপিক সিলেক্ট করুন</option>
+                                      @foreach($topics as $topic)
+                                        <option value="{{ $topic->id }}" @if($topic->id == $question->topic->id) selected @endif>{{ $topic->name }}</option>
+                                      @endforeach
+                                    </select>
+                                  </td>
                                 
                               </tr>
                           @endforeach

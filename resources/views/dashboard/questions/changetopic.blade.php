@@ -100,7 +100,7 @@
                                       </select>
                                     </td>
                                     <td>
-                                      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editQuestionModal{{ $question->id }}">
+                                      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updateTopicQuestionModal{{ $question->id }}">
                                           দাখিল করুন
                                       </button>
                                       <button type="submit" class="btn btn-success btn-sm">দাখিল করুন</button>

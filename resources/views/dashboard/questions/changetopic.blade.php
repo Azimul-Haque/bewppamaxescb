@@ -97,7 +97,9 @@
                                       @endforeach
                                     </select>
                                   </td>
-                                
+                                  <td>
+                                    
+                                  </td>
                               </tr>
                           @endforeach
                           </tbody>

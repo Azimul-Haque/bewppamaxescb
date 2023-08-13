@@ -65,7 +65,11 @@
                                         <span class="badge bg-primary smtext">{{ $tag->name }}</span>
                                       @endforeach
                                   </td>
-                                  <td>{{ $question->answer }}</td>
+                                  <td>
+                                    <select class="form-control" name="topicchangeid">
+                                      <option selected disabled>টপিক সিলেক্ট করুন</option>
+                                    </select>
+                                  </td>
                                   <td>
                                     {{-- {{ $question->option1 }}, {{ $question->option2 }}, {{ $question->option3 }}, {{ $question->option4 }} --}}
                                     @if($question->answer == 1)

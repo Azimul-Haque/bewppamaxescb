@@ -170,7 +170,7 @@ class QuestionController extends Controller
                              ->orWhere('option4', 'LIKE', "%$search%")
                              ->orderBy('id', 'desc')
                              ->paginate(10);
-                             
+
         $topics = Topic::orderBy('id', 'asc')->get();
         // $tags = Tag::orderBy('id', 'asc')->get();
 
@@ -179,6 +179,29 @@ class QuestionController extends Controller
                     ->withQuestions($questions)
                     ->withTopics($topics)
                     // ->withTags($tags)
+                    ->withTotalquestions($totalquestions);
+    }
+
+    
+    public function getChangeTopicQuestionsBased($id)
+    {
+        ini_set('memory_limit', '-1');
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
+            abort(403, 'Access Denied');
+        }
+        
+        $totalquestions = Question::where('topic_id', $id)->count();
+        $questions = Question::where('topic_id', $id)
+                             ->orderBy('id', 'desc')
+                             ->paginate(10);
+
+        $topics = Topic::orderBy('id', 'asc')->get();
+        $tags = Tag::orderBy('id', 'asc')->get();
+
+        return view('dashboard.questions.index')
+                    ->withQuestions($questions)
+                    ->withTopics($topics)
+                    ->withTags($tags)
                     ->withTotalquestions($totalquestions);
     }
 

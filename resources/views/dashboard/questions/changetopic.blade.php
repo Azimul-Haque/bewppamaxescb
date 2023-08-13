@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') ড্যাশবোর্ড | প্রশ্নব্যাংক @endsection
+@section('title') ড্যাশবোর্ড | টপিক পরিবর্তন | প্রশ্নব্যাংক @endsection
 
 @section('third_party_stylesheets')
 <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
@@ -21,13 +21,13 @@
 @endsection
 
 @section('content')
-    @section('page-header') প্রশ্নব্যাংক @endsection
+    @section('page-header') টপিক পরিবর্তন | প্রশ্নব্যাংক @endsection
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">প্রশ্নব্যাংক </h3><span style="margin-left: 5px;">(মোটঃ {{ $totalquestions }} টি প্রশ্ন)</span>
+                      <h3 class="card-title">টপিক পরিবর্তন | প্রশ্নব্যাংক </h3><span style="margin-left: 5px;">(মোটঃ {{ $totalquestions }} টি প্রশ্ন)</span>
           
                       <div class="card-tools">
                           <form class="form-inline form-group-lg" action="">

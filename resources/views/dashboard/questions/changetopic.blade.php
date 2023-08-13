@@ -119,7 +119,7 @@
                                             <div class="modal-body">
                                                   @csrf
                                                   <b>প্রশ্ন:</b> {!! $question->question !!}<br/>
-                                                  নির্ধারিত নতুন টপিক - 
+                                                  নির্ধারিত নতুন টপিক - <span id="newtopic{{ $question->topic_id }}"></span>
                                             </div>
                                             <div class="modal-footer">
                                               <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
@@ -136,7 +136,7 @@
                             </form>
                             <script type="text/javascript">
                               function changeVal() {
-                                
+
                               }
                             </script>
                           @endforeach

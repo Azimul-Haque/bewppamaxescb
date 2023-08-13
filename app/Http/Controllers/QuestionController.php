@@ -155,6 +155,31 @@ class QuestionController extends Controller
                     ->withTotalquestions($totalquestions);
     }
 
+    public function getChangeTopicQuestionsSearch()
+    {
+        ini_set('memory_limit', '-1');
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'volunteer')) {
+            abort(403, 'Access Denied');
+        }
+        
+        $totalquestions = Question::count();
+        $questions = Question::orderBy('id', 'desc')->paginate(10);
+        // $questions = Question::orderBy('id', 'desc')->get()->chunk(200, function($questions){
+        //     //do whatever you would normally be doing with the rows you receive
+        //     // $domain stuff
+        // });
+        // dd($questions);
+        $topics = Topic::orderBy('id', 'asc')->get();
+        // $tags = Tag::orderBy('id', 'asc')->get();
+
+        // dd($questions);
+        return view('dashboard.questions.changetopic')
+                    ->withQuestions($questions)
+                    ->withTopics($topics)
+                    // ->withTags($tags)
+                    ->withTotalquestions($totalquestions);
+    }
+
     public function storeQuestionsTopic(Request $request)
     {
         $this->validate($request,array(

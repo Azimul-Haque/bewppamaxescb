@@ -137,7 +137,7 @@
                             <script type="text/javascript">
                               $("#topicchangeid{{ $question->id }}").change(function (){
                                 
-                                $("#newtopic{{ $question->id }}").text($("#topicchangeid{{ $question->id }}").val());
+                                $("#newtopic{{ $question->id }}").text($("#topicchangeid{{ $question->id }} :selected").text());
                               });
                             </script>
                           @endforeach

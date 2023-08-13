@@ -130,7 +130,7 @@ class QuestionController extends Controller
                     ->withTotalquestions($totalquestions);
     }
 
-    public function getChangeTopicQuestions($id)
+    public function getChangeTopicQuestions()
     {
         ini_set('memory_limit', '-1');
         if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'volunteer')) {

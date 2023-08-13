@@ -124,9 +124,6 @@
                                                             <div class="input-group-text"><span class="far fa-question-circle"></span></div>
                                                         </div>
                                                     </div> --}}
-                                                    
-                                                    
-                                                    
                                               </div>
                                               <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

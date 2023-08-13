@@ -50,7 +50,7 @@ class DashboardController extends Controller
         if(Auth::user()->role == 'user') {
             abort(403, 'Access Denied');
         } elseif(Auth::user()->role == 'volunteer') {
-            echo 'ase';
+            // echo 'ase';
             return redirect()->route('dashboard.questions.reported');
         }
 

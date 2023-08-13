@@ -69,7 +69,7 @@
                                     <select class="form-control" name="topicchangeid">
                                       <option selected disabled>টপিক সিলেক্ট করুন</option>
                                       @foreach($topics as $topic)
-                                        <option value="{{ $topic->id }}">{{ $topic->name }}</option>
+                                        <option value="{{ $topic->id }}" @if($topic->id == $question->topic->id) selected @endif>{{ $topic->name }}</option>
                                       @endforeach
                                     </select>
                                   </td>

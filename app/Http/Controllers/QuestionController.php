@@ -137,18 +137,17 @@ class QuestionController extends Controller
             abort(403, 'Access Denied');
         }
         
-        $totalquestions = Question::where('question', 'LIKE', "%$search%")->count();
-        $questions = Question::where('question', 'LIKE', "%$search%")
-                             ->orWhere('option1', 'LIKE', "%$search%")
-                             ->orWhere('option2', 'LIKE', "%$search%")
-                             ->orWhere('option3', 'LIKE', "%$search%")
-                             ->orWhere('option4', 'LIKE', "%$search%")
-                             ->orderBy('id', 'desc')
-                             ->paginate(10);
+        $totalquestions = Question::count();
+        $questions = Question::orderBy('id', 'desc')->paginate(10);
+        // $questions = Question::orderBy('id', 'desc')->get()->chunk(200, function($questions){
+        //     //do whatever you would normally be doing with the rows you receive
+        //     // $domain stuff
+        // });
+        // dd($questions);
         $topics = Topic::orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
 
-        Session::flash('success', $totalquestions . ' টি প্রশ্ন পাওয়া গিয়েছে!');
+        // dd($questions);
         return view('dashboard.questions.index')
                     ->withQuestions($questions)
                     ->withTopics($topics)

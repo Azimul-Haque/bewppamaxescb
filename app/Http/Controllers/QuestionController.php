@@ -133,7 +133,7 @@ class QuestionController extends Controller
     public function getChangeQuestions($id)
     {
         ini_set('memory_limit', '-1');
-        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'volunteer')) {
             abort(403, 'Access Denied');
         }
         

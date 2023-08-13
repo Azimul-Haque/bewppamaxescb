@@ -182,8 +182,8 @@ class QuestionController extends Controller
                     ->withTotalquestions($totalquestions);
     }
 
-    
-    public function getChangeTopicQuestionsBased($id)
+
+    public function getChangeTopicQuestionsTopicBased($id)
     {
         ini_set('memory_limit', '-1');
         if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'volunteer')) {

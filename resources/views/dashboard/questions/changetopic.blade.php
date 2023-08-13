@@ -78,53 +78,7 @@
                               
                                   <td>
                                       
-                                  {{-- Notif Modal Code --}}
-                                  {{-- Notif Modal Code --}}
-                                  <!-- Modal -->
-                                  <div class="modal fade" id="notifModal{{ $question->id }}" tabindex="-1" role="dialog" aria-labelledby="notifModalLabel" aria-hidden="true" data-backdrop="static">
-                                    <div class="modal-dialog" role="document">
-                                      <div class="modal-content">
-                                        <div class="modal-header bg-warning">
-                                          <h5 class="modal-title" id="notifModalLabel">নোটিফিকেশন পাঠান</h5>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                          </button>
-                                        </div>
-                                        
-                                          <div class="modal-body">
-                                            আপনি কি নিশ্চিতভাবে এই প্রশ্নটি নোটিফিকেশনে পাঠাতে চান?<br/><br/>
-                                            <center>
-                                                <big><b>{!! $question->question !!}</b></big>
-                                            </center>
-                                            {{-- @csrf
-                                            <div class="input-group mb-3">
-                                                <input type="text"
-                                                       name="headings"
-                                                       class="form-control"
-                                                       placeholder="হেডিংস" required>
-                                                <div class="input-group-append">
-                                                    <div class="input-group-text"><span class="fas fa-file-alt"></span></div>
-                                                </div>
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input type="text"
-                                                       name="message"
-                                                       class="form-control"
-                                                       placeholder="মেসেজ" required>
-                                                <div class="input-group-append">
-                                                    <div class="input-group-text"><span class="fas fa-spa"></span></div>
-                                                </div>
-                                            </div> --}}
-                                          </div>
-                                          <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                                            <a href="{{ route('dashboard.questions.sendnotification', $question->id) }}" class="btn btn-warning">নোটিফিকেশন পাঠান</a>
-                                          </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  {{-- Notif Modal Code --}}
-                                  {{-- Notif Modal Code --}}
+                                
                               </tr>
                           @endforeach
                           </tbody>

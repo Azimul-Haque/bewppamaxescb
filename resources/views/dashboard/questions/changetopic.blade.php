@@ -56,8 +56,7 @@
                           </thead>
                           <tbody>
                           @foreach($questions as $question)
-                              <form method="post" action="{{ route('dashboard.questions.updatechangetopicbased', $question->id) }}">
-                                @csrf
+                              
                                 <tr>
                                     <td>
                                         {!! $question->question !!}<br/>
@@ -106,6 +105,8 @@
                                       <button type="submit" class="btn btn-success btn-sm">দাখিল করুন</button>
                                     </td>
                                 </tr>
+                              <form method="post" action="{{ route('dashboard.questions.updatechangetopicbased', $question->id) }}">
+                                @csrf
                               </form>
                           @endforeach
                           </tbody>

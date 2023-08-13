@@ -162,7 +162,7 @@ class QuestionController extends Controller
             abort(403, 'Access Denied');
         }
         
-        $totalquestions = Question::count();
+        $totalquestions = Question::where('question', 'LIKE', "%$search%")->count();
         $questions = Question::where('question', 'LIKE', "%$search%")
                              ->orWhere('option1', 'LIKE', "%$search%")
                              ->orWhere('option2', 'LIKE', "%$search%")

@@ -135,9 +135,9 @@
                               </tr>
                             </form>
                             <script type="text/javascript">
-                              function changeVal() {
+                              $('#topicchangeid{{ $question->id }}').change({
                                 $('#newtopic{{ $question->id }}').text(this.val());
-                              }
+                              })
                             </script>
                           @endforeach
                           </tbody>

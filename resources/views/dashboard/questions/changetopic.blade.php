@@ -135,7 +135,7 @@
                               </tr>
                             </form>
                             <script type="text/javascript">
-                              function changeVal(id) {
+                              function changeVal() {
                                 
                               }
                             </script>

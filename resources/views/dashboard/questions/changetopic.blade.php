@@ -63,7 +63,29 @@
                                       @endforeach
                                   </td>
                                   <td>{{ $question->answer }}</td>
-                                  <td>{{ $question->option1 }}, {{ $question->option2 }}, {{ $question->option3 }}, {{ $question->option4 }}</td>
+                                  <td>
+                                    {{ $question->option1 }}, {{ $question->option2 }}, {{ $question->option3 }}, {{ $question->option4 }}
+                                    @if($examquestion->question->answer == 1)
+                                        <big><b>{{ $examquestion->question->option1 }}</b></big>, 
+                                    @else
+                                        {{ $examquestion->question->option1 }}, 
+                                    @endif
+                                    @if($examquestion->question->answer == 2)
+                                        <big><b>{{ $examquestion->question->option2 }}</b></big>, 
+                                    @else
+                                        {{ $examquestion->question->option2 }}, 
+                                    @endif
+                                    @if($examquestion->question->answer == 3)
+                                        <big><b>{{ $examquestion->question->option3 }}</b></big>, 
+                                    @else
+                                        {{ $examquestion->question->option3 }}, 
+                                    @endif
+                                    @if($examquestion->question->answer == 4)
+                                        <big><b>{{ $examquestion->question->option4 }}</b></big>
+                                    @else
+                                        {{ $examquestion->question->option4 }}
+                                    @endif
+                                  </td>
                                   {{-- <td>
                                       <div class="progress progress-xs">
                                           <div class="progress-bar progress-bar-danger" style="width: 55%"></div>

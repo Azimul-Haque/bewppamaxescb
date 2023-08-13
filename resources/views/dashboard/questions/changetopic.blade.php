@@ -143,9 +143,6 @@
                                       <span class="badge bg-primary"><i class="fas fa-bolt"></i> {{ $topic->participation }}</span>
                                     </a>
                                   </td>
-                              
-                               
-                                  
                               </tr>
                           @endforeach
                           </tbody>

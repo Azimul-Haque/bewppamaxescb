@@ -118,7 +118,7 @@
                                               <div class="modal-body">
                                                     @csrf
                                                     <b>প্রশ্ন:</b> {!! $question->question !!}<br/>
-                                                    
+                                                    নির্ধারিত নতুন টপিক - 
                                               </div>
                                               <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

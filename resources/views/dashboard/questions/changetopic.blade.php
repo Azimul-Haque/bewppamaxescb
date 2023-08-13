@@ -17,6 +17,9 @@
   .select2-selection__choice{
       background-color: rgba(0, 123, 255) !important;
   }
+  .smtext {
+    font-size: 10px;
+  }
 </style>
 @endsection
 

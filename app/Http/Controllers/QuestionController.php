@@ -145,13 +145,13 @@ class QuestionController extends Controller
         // });
         // dd($questions);
         $topics = Topic::orderBy('id', 'asc')->get();
-        $tags = Tag::orderBy('id', 'asc')->get();
+        // $tags = Tag::orderBy('id', 'asc')->get();
 
         // dd($questions);
         return view('dashboard.questions.index')
                     ->withQuestions($questions)
                     ->withTopics($topics)
-                    ->withTags($tags)
+                    // ->withTags($tags)
                     ->withTotalquestions($totalquestions);
     }
 

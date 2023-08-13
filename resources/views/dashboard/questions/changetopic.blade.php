@@ -68,27 +68,28 @@
                                   </td>
                                   
                                   <td>
-                                    {{-- {{ $question->option1 }}, {{ $question->option2 }}, {{ $question->option3 }}, {{ $question->option4 }} --}}
-                                    @if($question->answer == 1)
-                                        <big><b>{{ $question->option1 }}</b></big>, 
-                                    @else
-                                        {{ $question->option1 }}, 
-                                    @endif
-                                    @if($question->answer == 2)
-                                        <big><b>{{ $question->option2 }}</b></big>, 
-                                    @else
-                                        {{ $question->option2 }},
-                                    @endif<br/> 
-                                    @if($question->answer == 3)
-                                        <big><b>{{ $question->option3 }}</b></big>, 
-                                    @else
-                                        {{ $question->option3 }}, 
-                                    @endif
-                                    @if($question->answer == 4)
-                                        <big><b>{{ $question->option4 }}</b></big>
-                                    @else
-                                        {{ $question->option4 }}
-                                    @endif
+                                    <small>
+                                      @if($question->answer == 1)
+                                          <big><b>{{ $question->option1 }}</b></big>, 
+                                      @else
+                                          {{ $question->option1 }}, 
+                                      @endif
+                                      @if($question->answer == 2)
+                                          <big><b>{{ $question->option2 }}</b></big>, 
+                                      @else
+                                          {{ $question->option2 }},
+                                      @endif<br/> 
+                                      @if($question->answer == 3)
+                                          <big><b>{{ $question->option3 }}</b></big>, 
+                                      @else
+                                          {{ $question->option3 }}, 
+                                      @endif
+                                      @if($question->answer == 4)
+                                          <big><b>{{ $question->option4 }}</b></big>
+                                      @else
+                                          {{ $question->option4 }}
+                                      @endif
+                                    </small>
                                   </td>                              
                                   <td>
                                     <select class="form-control form-control-sm" name="topicchangeid">

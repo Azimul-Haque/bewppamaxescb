@@ -682,7 +682,7 @@ class APIController extends Controller
             $courseexamsreturn = Cache::remember('questionbank'.$getexamcategory, 10 * 24 * 60 * 60, function () use ($getexamcategory) {
                 $allcatcourseexams = Courseexam::select('course_id', 'exam_id')
                                          ->where('course_id', 6) // MANUALLY BOSAY DILAM
-                                         ->orderBy('id', 'desc') // DESC, aage exam_id chilo, pore eta priority variable diye kora hobe
+                                         ->orderBy('id', 'desc') // DESC, aage exam_id chilo, pore eta priority variable diye kora hobe,apatoto id diye kaaj choltese...
                                          ->get();
                 $courseexams = collect();
                 foreach($allcatcourseexams as $courseexam) {

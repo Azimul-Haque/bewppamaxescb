@@ -116,6 +116,24 @@
             </script> --}}
         </div>
 
+        <div class="text-center margin-ten no-margin-bottom about-author text-left bg-gray">
+            <div class="blog-comment text-left clearfix no-margin">
+                <!-- author image -->
+                <a class="comment-avtar no-margin-top"><img src="{{ asset('images/users/'.$blog->user->image) }}" alt=""></a>
+                <!-- end author image -->
+                <!-- author text -->
+                <div class="comment-text overflow-hidden position-relative">
+                    <h5 class="widget-title">About The Author</h5>
+                    <a href="{{ route('blogger.profile', $blog->user->unique_key) }}"><p class="blog-date no-padding-top">{{ $blog->user->name }}</p></a>
+                    <p class="about-author-text no-margin">
+                        {{ $blog->user->designation }}<br/>
+                        {{ $blog->user->email }}
+                    </p>
+                </div>
+                <!-- end author text -->
+            </div>
+        </div>
+
     </section>
 
     <!-- Share Modal -->

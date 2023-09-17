@@ -5,7 +5,7 @@
 
 @endsection
 
-@section('content')
+@section('content-s')
     test<br/>
     test<br/>
     test<br/>

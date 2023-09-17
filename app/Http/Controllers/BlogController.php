@@ -228,7 +228,7 @@ class BlogController extends Controller {
         // SEO factor
         $name = ucwords(str_replace("-", " ", $name));
         // SEO factor
-        $categories = Category::all();
+        $categories = Blogcategory::all();
         $populars = Blog::orderBy('views', 'desc')->get()->take(5);
         $archives = DB::table('blogs')
                         ->select("created_at", DB::raw('count(*) as total'))
@@ -242,7 +242,7 @@ class BlogController extends Controller {
         }elseif($name == 'Biography') {
           $blogs = Blog::whereIn('category_id', [13,14,15,16,17,18,10])->orderBy('id', 'desc')->paginate(7);
         } else {
-          $category = Category::where('name', $name)->first();
+          $category = Blogcategory::where('name', $name)->first();
           $blogs = Blog::where('category_id', $category->id)->orderBy('id', 'desc')->paginate(7);
         }
         
@@ -255,7 +255,7 @@ class BlogController extends Controller {
     }
 
     public function getMonthWise($date) {
-        $categories = Category::all();
+        $categories = Blogcategory::all();
         $populars = Blog::orderBy('views', 'desc')->get()->take(5);
         $archives = DB::table('blogs')
                         ->select("created_at", DB::raw('count(*) as total'))

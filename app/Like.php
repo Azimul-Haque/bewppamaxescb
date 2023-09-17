@@ -9,6 +9,6 @@ class Like extends Model
     public $timestamps = false;
 
     public function blogs() {
-      return $this->hasMany('App\Blog');
+      return $this->hasOne('App\Blog');
     } 
 }

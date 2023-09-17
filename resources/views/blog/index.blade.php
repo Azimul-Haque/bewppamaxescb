@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    
+    test
 @endsection
 
 @section('third_party_scripts')

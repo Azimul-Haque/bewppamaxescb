@@ -16,7 +16,12 @@
             font-size: 30px;
             font-weight: bold;
             color: #000000;
-
+        }
+        .separator-line {
+            height: 2px;
+            margin: 0 auto;
+            width: 30px;
+            margin: 7% auto;
         }
     </style>
 @endsection

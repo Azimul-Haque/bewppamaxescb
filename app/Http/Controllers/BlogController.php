@@ -18,6 +18,6 @@ use Artisan;
 class BlogController extends Controller
 {
     public function index() {
-
+        
     }
 }

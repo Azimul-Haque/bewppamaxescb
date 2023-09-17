@@ -45,7 +45,7 @@
             color: #000;
             background-color: transparent;
         }
-        .widget-posts li {
+        /*.widget-posts li {
             padding: 10px 0;
         }
         .widget-posts-details {
@@ -54,7 +54,7 @@
             top: -4px;
             font-size: 12px;
             line-height: 14px;
-        }
+        }*/
     </style>
 @endsection
 

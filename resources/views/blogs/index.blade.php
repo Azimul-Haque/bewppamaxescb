@@ -16,9 +16,11 @@
             <!-- end post image -->
             <div class="blog-details">
                 <div class="blog-date">Posted by <a href="{{ route('blogger.profile', $blog->user->id) }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | <a href="{{ route('blog.categorywise', $blog->blogcategory->name) }}">{{ $blog->blogcategory->name }}</a> </div>
-                <div class="blog-title"><a href="{{ route('blog.single', $blog->slug) }}">
-                    {{ $blog->title }}
-                </a></div>
+                <div class="blog-title">
+                    <a href="{{ route('blog.single', $blog->slug) }}">
+                        {{ $blog->title }}
+                    </a>
+                </div>
                 <div style="text-align: justify;">
                     @if(strlen(strip_tags($blog->body))>600)
                         {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+500))."... " }}

@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-sm-8">@yield('content-s')</div>
-            <div class="col-md-3 col-sm-4 col-md-offset-1 sidebar xs-margin-top-ten">
+            <div class="col-md-3 col-sm-4 col-md-offset-1 sidebar ">
                 @include('partials._blog_sidebar')
             </div>
         </div>

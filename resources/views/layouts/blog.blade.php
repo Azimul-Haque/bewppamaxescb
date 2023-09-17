@@ -12,6 +12,11 @@
         .col-md-offset-1 {
             margin-left: 8.33333333%;
         }
+        .blog-title, .blog-title a {
+            font-size: 18px;
+            font-weight: bold;
+            
+        }
     </style>
 @endsection
 

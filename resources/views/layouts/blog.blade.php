@@ -1,7 +1,9 @@
 @extends('layouts.index')
 @section('title') @yield('title-secondary') @endsection
 
-@yield('third_party_stylesheets-s')
+@section('third_party_stylesheets')
+    @yield('third_party_stylesheets-s')
+@endsection
 
 @section('content')
     <div class="container">
@@ -19,5 +21,8 @@
     </div>
 @endsection
 
-@yield('third_party_scripts-s')
+@section('third_party_scripts')
+    @yield('third_party_scripts-s')
+@endsection
+
 @include('partials._messages')

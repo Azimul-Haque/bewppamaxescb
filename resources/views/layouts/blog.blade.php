@@ -76,6 +76,6 @@
     </section>
 @endsection
 
-@section('third_party_stylesheets')
+@section('third_party_scripts')
     @yield('third_party_scripts-s')
 @endsection

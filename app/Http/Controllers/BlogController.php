@@ -101,7 +101,7 @@ class BlogController extends Controller {
 
     public function getBlogPost($slug, Request $request)
     {
-        $categories = Category::all();
+        $categories = Blogcategory::all();
         $blog = Blog::where('slug', $slug)->first();
         $blog->views++;
         $blog->save();

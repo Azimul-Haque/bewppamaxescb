@@ -37,7 +37,7 @@
                 </a><br/>
                 <a href="{{ route('blog.single', $popular->slug) }}" class="overflowellipsis">{{ $popular->title }}</a>
                 <small class="overflowellipsis">{{ $popular->user->name }} - {{ date('F d', strtotime($popular->created_at)) }}</small>
-            </li>
+            </li><br/>
             @endforeach
         </ul>
     </div>

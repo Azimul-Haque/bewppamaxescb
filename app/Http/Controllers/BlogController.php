@@ -18,6 +18,6 @@ use Artisan;
 class BlogController extends Controller
 {
     public function index() {
-        return view('index.index')->withPackages($packages);
+        return view('blog.index');
     }
 }

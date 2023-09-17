@@ -45,6 +45,9 @@
             color: #000;
             background-color: transparent;
         }
+        .widget-posts li {
+            padding: 10px 0;
+        }
     </style>
 @endsection
 

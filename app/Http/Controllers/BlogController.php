@@ -224,7 +224,7 @@ class BlogController extends Controller {
         }
     }
 
-    public function getCategoryWise($name) 
+    public function getCategoryWise($name)
     {
         // SEO factor
         $name = ucwords(str_replace("-", " ", $name));

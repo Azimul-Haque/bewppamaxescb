@@ -33,6 +33,7 @@ class BlogController extends Controller {
                         ->get();
                         //dd($archives);
         $blogs = Blog::orderBy('id', 'desc')->paginate(7);
+        dd($blogs);
         return view('blogs.index')
                   ->withBlogs($blogs)
                   ->withCategories($categories)

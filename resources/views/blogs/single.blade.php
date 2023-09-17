@@ -214,7 +214,7 @@
               } else {
                 $('#like_span').text(data.likes +' Like');
                 $('#like_icon').css('color', '');
-                $('#like_icon').attr('class', 'fas fa-heart');
+                $('#like_icon').attr('class', 'far fa-heart');
               }
           });
         }

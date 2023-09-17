@@ -55,11 +55,7 @@
             font-size: 12px;
             line-height: 14px;
         }*/
-        .overflowellipsis {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
+        
     </style>
 @endsection
 

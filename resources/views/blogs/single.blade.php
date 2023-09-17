@@ -95,8 +95,8 @@
                 <i class="fa fa-heart-o" id="like_icon"></i>
                 <span id="like_span">{{ $blog->likes }} Like(s)</span>
             </a>
-            <a href="#" class="blog-like"><i class="fa fa-eye"></i> {{ $blog->views }} View(s)</a>
-            <a href="#" class="blog-share" data-toggle="modal" data-target="#shareModal" title="Click to Share this Article!"><i class="fa fa-share-alt"></i>Share</a>
+            <a href="#" class="blog-like"><i class="fas fa-eye"></i> {{ $blog->views }} View(s)</a>
+            <a href="#" class="blog-share" data-toggle="modal" data-target="#shareModal" title="Click to Share this Article!"><i class="fas fa-share-alt"></i>Share</a>
             {{-- <a href="#" class="comment"><i class="fa fa-comment-o"></i><span class="fb-comments-count" data-href="{{ Request::url() }}"></span> comment(s)</a> --}}
             {{-- <a href="#" class="comment"><i class="fa fa-comment-o"></i>
             <span id="comment_count"></span> comment(s)</a>

@@ -244,7 +244,7 @@ class BlogController extends Controller {
           $blogs = Blog::whereIn('blogcategory_id', [13,14,15,16,17,18,10])->orderBy('id', 'desc')->paginate(7);
         } else {
           $category = Blogcategory::where('name', $name)->first();
-          dd($category);
+          dd($name);
           $blogs = Blog::where('blogcategory_id', $category->id)->orderBy('id', 'desc')->paginate(7);
         }
         

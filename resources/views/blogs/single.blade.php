@@ -55,7 +55,7 @@
     <section style="padding-top: 150px; padding-bottom: 50px;">
         <h2 class="blog-details-headline text-black">{{ $blog->title }}</h2>
         <div class="blog-date no-padding-top">Posted by <a href="{{ route('blogger.profile', $blog->user->id) }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | <a href="{{ route('blog.categorywise', str_replace(" ", "-", $blog->blogcategory->name)) }}">{{ $blog->blogcategory->name }}</a> </div>
-        {{-- strtolower() টা সমাধান করা লাগবে --} }
+        {{-- strtolower() টা সমাধান করা লাগবে --}}
         @if($blog->featured_image != null)
             <div class="blog-image margin-eight"><img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;"></div>
         @endif

@@ -1,5 +1,5 @@
 @extends('layouts.blog')
-@section('title-secondary') {{ $blog->title }} | ব্লগ-Blog | BCS Exam - বিসিএস পরীক্ষা | বিসিএস-সহ সরকারি চাকরির পরীক্ষার প্রস্তুতির জন্য সেরা অনলাইন প্ল্যাটফর্ম @endsection
+@section('title-secondary') {{ $blog->title }} - BCS Exam - বিসিএস পরীক্ষা @endsection
 
 @section('third_party_stylesheets-s')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">

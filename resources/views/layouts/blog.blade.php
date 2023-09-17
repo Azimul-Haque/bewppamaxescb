@@ -52,7 +52,7 @@
             position: relative;
             overflow: hidden;
             top: -4px;
-            font-size: 11px;
+            font-size: 12px;
             line-height: 14px;
         }
     </style>

@@ -134,6 +134,16 @@
             </div>
         </div> --}}
 
+        <div class="blog-comment-main xs-no-padding-top">
+            <h5 class="widget-title">Article Comments</h5>
+            <div class="row">
+                <div class="col-md-12">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="fb-comments" data-href="{{ Request::url() }}" data-width="100%" data-numposts="5"></div>
+
     </section>
 
     <!-- Share Modal -->

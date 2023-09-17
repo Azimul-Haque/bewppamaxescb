@@ -35,6 +35,7 @@
             font-size: 11px;
             padding: 2px 14px;
             letter-spacing: 1px;
+            border-radius: 0px;
         }
         .highlight-button {
             border: 2px solid #000;

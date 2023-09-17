@@ -24,5 +24,3 @@
 @section('third_party_stylesheets')
     @yield('third_party_scripts-s')
 @endsection
-
-@include('partials._messages')

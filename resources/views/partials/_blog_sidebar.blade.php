@@ -18,7 +18,7 @@
             @endforeach
         </ul>
     </div>
-</div>
+</div><hr/>
 <!-- end widget  -->
 <!-- widget  -->
 <div class="widget">

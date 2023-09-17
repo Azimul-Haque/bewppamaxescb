@@ -28,7 +28,7 @@ Route::get('/check/ip', 'IndexController@checkIP')->name('index.check.ip');
 
 // blog
 // Route::get('/blog', 'BlogController@index')->name('blog.index');
-Route::get('/blog/{slug}', 'BlogController@getSingle')->name('blog.single');
+Route::get('/blog/{slug}', 'BlogController@getSingle')->name('blogs.single');
 
 Route::resource('blogs','BlogController');
 Route::get('blogger/profile/{unique_key}',['as' => 'blogger.profile', 'uses' => 'BlogController@getBloggerProfile']);

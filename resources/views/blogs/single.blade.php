@@ -210,11 +210,11 @@
               if(data.status == 'liked') {
                 $('#like_span').text(data.likes +' Liked');
                 $('#like_icon').css('color', 'red');
-                $('#like_icon').attr('class', 'far fa-heart');
+                $('#like_icon').attr('class', 'fas fa-heart');
               } else {
                 $('#like_span').text(data.likes +' Like');
                 $('#like_icon').css('color', '');
-                $('#like_icon').attr('class', 'far fa-heart');
+                $('#like_icon').attr('class', 'fas fa-heart');
               }
           });
         }

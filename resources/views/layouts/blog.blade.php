@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12" style="background-color: #;">
+            <div class="col-md-12" style="background-color: #F4F4F4;">
             </div>
         </div>
     </div>

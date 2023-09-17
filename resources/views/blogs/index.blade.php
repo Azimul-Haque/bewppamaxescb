@@ -6,7 +6,12 @@
 @endsection
 
 @section('content-s')
-    <section style="padding-top: 150px; padding-bottom: 50px; background-color: #FFFFFF;"></section>
+    <section style="padding-top: 150px; padding-bottom: 50px; background-color: #FFFFFF;">
+        Test<br/>
+        Test<br/>
+        Test<br/>
+        Test<br/>
+    </section>
 @endsection
 
 @section('third_party_scripts-s')

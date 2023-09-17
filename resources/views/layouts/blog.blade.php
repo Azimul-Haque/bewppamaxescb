@@ -9,6 +9,9 @@
             overflow: hidden;
             background: rgb(161, 161, 161);
         }
+        .col-md-offset-1 {
+            margin-left: 8.33333333%;
+        }
     </style>
 @endsection
 

@@ -92,7 +92,7 @@
 
         <div>
             <a href="#!" class="blog-like" onclick="likeBlog({{ $blog->id }})" title="Click to Like/Unlike!">
-                <i class="far fa-heart" id="like_icon"></i>
+                <i class="fas fa-heart" id="like_icon"></i>
                 <span id="like_span">{{ $blog->likes }} Like(s)</span>
             </a>
             <a href="#" class="blog-like"><i class="fas fa-eye"></i> {{ $blog->views }} View(s)</a>

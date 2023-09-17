@@ -6,17 +6,17 @@
 @endsection
 
 @section('content')
-    test
-    test
-    test
-    test
-    test
-    test
-    test
-    test
-    test
-    test
-    test
+    test<br/>
+    test<br/>
+    test<br/>
+    test<br/>
+    test<br/>
+    test<br/>
+    test<br/>
+    test<br/>
+    test<br/>
+    test<br/>
+    test<br/>
 @endsection
 
 @section('third_party_scripts')

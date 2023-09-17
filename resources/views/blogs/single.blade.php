@@ -198,7 +198,7 @@
         function likeBlog(blog_id) {
           // console.log(user_id +','+ blog_id);
           $.get(window.location.protocol + "//" + window.location.host + "/like/" + blog_id, function(data, status){
-              //console.log("Data: " + data + "\nStatus: " + status);
+              console.log("Data: " + data + "\nStatus: " + status);
               checkLiked();
           });
         }

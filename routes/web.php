@@ -30,6 +30,8 @@ Route::get('/check/ip', 'IndexController@checkIP')->name('index.check.ip');
 Route::get('/blog', 'BlogController@index')->name('blog.index');
 Route::get('/blog/{slug}', 'BlogController@getSingle')->name('blog.single');
 
+Route::resource('blogs','BlogController');
+
 // PDFs
 Route::get('/single/exam/pdf/{softtoken}/{examid}', 'IndexController@getExamSolvePDF')->name('index.single.exam.solve.pdf');
 

@@ -14,11 +14,6 @@
                     @include('partials._blog_sidebar')
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12" style="background-color: #F4F4F4;">
-                    Latest Blog
-                </div>
-            </div>
         </div>
     </section>
 @endsection

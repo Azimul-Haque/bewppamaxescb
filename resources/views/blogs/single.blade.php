@@ -2,7 +2,6 @@
 @section('title-secondary') {{ $blog->title }} - BCS Exam - বিসিএস পরীক্ষা @endsection
 
 @section('third_party_stylesheets-s')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
     @if($blog->featured_image != null)
         <meta property="og:image" content="{{ asset('images/blogs/'.$blog->featured_image) }}" />
     @else

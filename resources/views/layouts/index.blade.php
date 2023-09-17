@@ -58,6 +58,9 @@
                 <li class="nav-item">
                   <a class="" href="{{ route('index.index')  }}/#services">Services</a>
                 </li>
+                <li class="nav-item">
+                  <a class="" href="{{ route('blogs.index')  }}">Blogs</a>
+                </li>
 
                 <li class="nav-item">
                   <a class="" href="{{ route('index.index')  }}/#pricing">Pricing</a>

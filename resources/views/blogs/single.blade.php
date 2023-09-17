@@ -178,5 +178,45 @@
 @endsection
 
 @section('third_party_scripts-s')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.note-video-clip').each(function() {
+                var tmp = $(this).parent().html();
+                $(this).parent().html('<div class="youtibecontainer">'+tmp+'</div>');
+            });
+            $('.note-video-clip').addClass('youtubeiframe');
+            $('.note-video-clip').removeAttr('width');
+            $('.note-video-clip').removeAttr('height');
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            checkLiked();
+        });
 
+        // like or dislike
+        function likeBlog(blog_id) {
+          //console.log(user_id +','+ blog_id);
+          $.get(window.location.protocol + "//" + window.location.host + "/like/" + blog_id, function(data, status){
+              //console.log("Data: " + data + "\nStatus: " + status);
+              checkLiked();
+          });
+        }
+
+        // check liked or not, based on cookies
+        function checkLiked() {
+          $.get(window.location.protocol + "//" + window.location.host + "/check/like/" + {{ $blog->id }}, function(data, status){
+              // console.log(data.cookie);
+              if(data.status == 'liked') {
+                $('#like_span').text(data.likes +' Liked');
+                $('#like_icon').css('color', 'red');
+                $('#like_icon').attr('class', 'fa fa-heart');
+              } else {
+                $('#like_span').text(data.likes +' Like');
+                $('#like_icon').css('color', '');
+                $('#like_icon').attr('class', 'fa fa-heart-o');
+              }
+          });
+        }
+    </script>
 @endsection

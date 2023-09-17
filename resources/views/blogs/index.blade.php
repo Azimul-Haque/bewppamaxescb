@@ -11,7 +11,7 @@
         <div class="blog-listing blog-listing-classic no-margin-top wow fadeIn">
             <!-- post image -->
             @if($blog->featured_image != null)
-                <div class="blog-image"><a href="{{ route('blog.single', $blog->slug) }}"><img class="img-responsive" src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;" /></a></div><br/>
+                <div><a class="blog-image" href="{{ route('blog.single', $blog->slug) }}"><img class="img-responsive" src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;" /></a></div><br/>
             @endif
             <!-- end post image -->
             <div class="blog-details">

@@ -1,4 +1,4 @@
-sidebar  -->
+<!-- sidebar -->
 <!-- widget  -->
 <div class="widget">
     <form>
@@ -61,4 +61,4 @@ sidebar  -->
     </div>
 </div>
 <!-- end widget  -->
-<!-- end sidebar 
+<!-- end sidebar -->

@@ -246,7 +246,7 @@ class BlogController extends Controller {
           $category = Blogcategory::where('name', $name)->first();
           $blogs = Blog::where('blogcategory_id', $category->id)->orderBy('id', 'desc')->paginate(7);
         }
-        
+        dd($category);
         return view('blogs.categorywise')
                   ->withName($name)
                   ->withBlogs($blogs)

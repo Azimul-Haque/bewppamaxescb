@@ -3,7 +3,7 @@
 
 @section('third_party_stylesheets')
     @yield('third_party_stylesheets-s')
-
+    <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/font-awesome/css/font-awesome.min.css') }}">
     <style type="text/css">
         .blog-image {
             overflow: hidden;

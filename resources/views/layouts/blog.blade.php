@@ -31,6 +31,19 @@
             letter-spacing: 2px;
             margin-right: 25px;
         }
+        .btn.btn-small {
+            font-size: 11px;
+            padding: 2px 14px;
+            letter-spacing: 1px;
+        }
+        .highlight-button {
+            border: 2px solid #000;
+            display: inline-block;
+            padding: 8px 20px 9px;
+            font-size: 12px;
+            color: #000;
+            background-color: transparent;
+        }
     </style>
 @endsection
 

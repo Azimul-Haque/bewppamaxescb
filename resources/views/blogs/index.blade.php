@@ -29,8 +29,8 @@
                 <div class="separator-line bg-black no-margin-lr margin-four"></div>
                 <div>
                     <a href="#!" class="blog-like"><i class="far fa-heart"></i> {{ $blog->likes }} Like(s)</a>
-                    <a href="#!" class="comment"><i class="far fa-comment"></i>
-                    <span id="comment_count{{ $blog->id }}"></span>
+                    <a href="#!" class="comment"><i class="far fa-comment"></i><br/>
+                    <span id="comment_count{{ $blog->id }}"></span><br/>
                      comment(s)</a>
                 </div>
                 <a class="highlight-button btn btn-small xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Read More »</a>

@@ -28,7 +28,7 @@
                 </div>
                 <div class="separator-line bg-black no-margin-lr margin-four"></div>
                 <div style="margin-bottom: 10px;">
-                    <a href="#!" class="blog-like"><i class="far fa-heart"></i> {{ $blog->likes }} Like(s)</a>
+                    <a href="#!" class="blog-like"><i class="far fa-heart"></i> {{ $blog->likes }} Like(s)</a><br/>
                     <a href="#!" class="comment"><i class="far fa-comment"></i>
                     <span id="comment_count{{ $blog->id }}"></span>
                      comment(s)</a>

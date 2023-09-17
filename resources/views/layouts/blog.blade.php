@@ -1,5 +1,5 @@
 @extends('layouts.index')
-@yield('title-secondary')
+@section('title') @yield('title-secondary') @endsection
 
 @yield('third_party_stylesheets')
 

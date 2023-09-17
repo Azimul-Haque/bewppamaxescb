@@ -29,7 +29,7 @@
                 <div class="separator-line bg-black no-margin-lr margin-four"></div>
                 <div>
                     <a href="#!" class="blog-like"><i class="far fa-heart"></i>{{ $blog->likes }} Like(s)</a>
-                    <a href="#!" class="comment"><i class="fa fa-comment-o"></i>
+                    <a href="#!" class="comment"><i class="far fa-comment"></i>
                     <span id="comment_count{{ $blog->id }}"></span>
                      comment(s)</a>
                 </div>

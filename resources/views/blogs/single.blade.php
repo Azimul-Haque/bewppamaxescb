@@ -88,6 +88,8 @@
             @endif
             {{-- solved the strong, em and p problem --}}
         </div>
+        <hr/>
+        
 
     </section>
 @endsection

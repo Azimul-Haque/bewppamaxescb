@@ -33,7 +33,7 @@
                     <span id="comment_count{{ $blog->id }}"></span>
                      comment(s)</a>
                 </div>
-                <a class="highlight-button btn btn-small xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Read More</a>
+                <a class="highlight-button btn btn-small xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Read More »</a>
             </div>
         </div>
         <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>

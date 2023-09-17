@@ -15,6 +15,7 @@
         .blog-title, .blog-title a {
             font-size: 30px;
             font-weight: bold;
+            color: #000000;
 
         }
     </style>

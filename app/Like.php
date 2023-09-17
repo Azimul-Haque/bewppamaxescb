@@ -8,7 +8,7 @@ class Like extends Model
 {
     public $timestamps = false;
 
-    public function blogs() {
-      return $this->hasOne('App\Blog');
+    public function blog() {
+      return $this->belongsTo('App\Blog');
     } 
 }

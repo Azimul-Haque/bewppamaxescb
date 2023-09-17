@@ -26,7 +26,7 @@
             margin: 1% auto;
         }
         .blog-like, .blog-share, .comment {
-            font-size: 10px;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-right: 25px;

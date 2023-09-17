@@ -177,6 +177,7 @@
 @endsection
 
 @section('third_party_scripts-s')
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('.note-video-clip').each(function() {

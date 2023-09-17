@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    function index() {
-        
+    public function index() {
+
     }
 }

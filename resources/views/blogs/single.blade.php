@@ -58,8 +58,10 @@
         <div class="blog-date no-padding-top">Posted by <a href="{{ route('blogger.profile', $blog->user->id) }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | <a href="{{ route('blog.categorywise', strtolower(str_replace(" ", "-", $blog->blogcategory->name))) }}">{{ $blog->blogcategory->name }}</a> </div>
 
         @if($blog->featured_image != null)
-                        <div class="blog-image margin-eight"><img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;"></div>
-                    @endif
+            <div class="blog-image margin-eight"><img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;"></div>
+        @endif
+
+        
     </section>
 @endsection
 

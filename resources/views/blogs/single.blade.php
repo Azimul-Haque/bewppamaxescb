@@ -54,7 +54,7 @@
     }(document, 'script', 'facebook-jssdk'));</script>
     {{-- facebook comment plugin --}}
     <section style="padding-top: 150px; padding-bottom: 50px;">
-        
+        <h2 class="blog-details-headline text-black">{{ $blog->title }}</h2>
     </section>
 @endsection
 

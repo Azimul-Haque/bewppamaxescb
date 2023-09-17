@@ -28,7 +28,7 @@ Route::get('/check/ip', 'IndexController@checkIP')->name('index.check.ip');
 
 // blog
 Route::get('/blog', 'BlogController@index')->name('blogs.index');
-Route::get('/blog', 'BlogController@index')->name('blogs.single');
+Route::get('/blog/{slug}', 'BlogController@getSingle')->name('blogs.single');
 
 // PDFs
 Route::get('/single/exam/pdf/{softtoken}/{examid}', 'IndexController@getExamSolvePDF')->name('index.single.exam.solve.pdf');

@@ -167,6 +167,7 @@
               <div class="footer-widget f-link">
                 <h5>Links</h5>
                 <ul>
+                  <li><a href="{{ route('blogs.index') }}">Blogs</a></li>
                   <li><a href="{{ route('index.terms-and-conditions') }}">Terms & Conditions</a></li>
                   <li><a href="{{ route('index.privacy-policy') }}">Privacy Policy</a></li>
                   <li><a href="{{ route('index.refund-policy') }}">Refund Policy</a></li>

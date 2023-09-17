@@ -21,7 +21,7 @@
             height: 2px;
             margin: 0 auto;
             width: 30px;
-            margin: 2% auto;
+            margin: 1% auto;
         }
     </style>
 @endsection

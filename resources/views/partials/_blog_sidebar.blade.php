@@ -35,7 +35,7 @@
                     <img src="{{ asset('images/600x315.png') }}" alt=""/>
                     @endif
                 </a><br/>
-                <a href="{{ route('blog.single', $popular->slug) }}" class="overflowellipsis" style="font-size: 12px;">{{ $popular->title }}</a>
+                <a href="{{ route('blog.single', $popular->slug) }}" class="overflowellipsis" style="font-size: 14px;">{{ $popular->title }}</a>
                 <small class="overflowellipsis">{{ $popular->user->name }} - {{ date('F d', strtotime($popular->created_at)) }}</small>
             </li><br/>
             @endforeach

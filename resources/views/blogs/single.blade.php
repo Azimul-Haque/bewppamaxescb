@@ -116,7 +116,7 @@
             </script> --}}
         </div>
 
-        <div class="text-center margin-ten no-margin-bottom about-author text-left bg-gray">
+        {{-- <div class="text-center margin-ten no-margin-bottom about-author text-left bg-gray">
             <div class="blog-comment text-left clearfix no-margin">
                 <!-- author image -->
                 <a class="comment-avtar no-margin-top"><img src="{{ asset('images/users/'.$blog->user->image) }}" alt=""></a>
@@ -132,7 +132,7 @@
                 </div>
                 <!-- end author text -->
             </div>
-        </div>
+        </div> --}}
 
     </section>
 

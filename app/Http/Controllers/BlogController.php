@@ -227,8 +227,8 @@ class BlogController extends Controller {
     public function getCategoryWise($name)
     {
         // SEO factor
-        dd(str_replace("-", " ", $name));
-        $name = ucwords(str_replace("-", " ", $name));
+        // dd(str_replace("-", " ", $name));
+        $name = str_replace("-", " ", $name);
         // SEO factor
         $categories = Blogcategory::all();
         $populars = Blog::orderBy('views', 'desc')->get()->take(5);

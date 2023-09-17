@@ -229,6 +229,7 @@ class BlogController extends Controller {
         // SEO factor
         // dd(str_replace("-", " ", $name));
         $name = str_replace("-", " ", $name);
+        // ucwords(str) টা সমাধান করা লাগবে...
         // SEO factor
         $categories = Blogcategory::all();
         $populars = Blog::orderBy('views', 'desc')->get()->take(5);

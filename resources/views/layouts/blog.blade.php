@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    <section style="background-color: #F4F4F4;">
+    <section style="background-color: #FAFAFA;">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-8">@yield('content-s')</div>

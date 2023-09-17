@@ -27,7 +27,7 @@ Route::get('/payment/app/cancel', 'IndexController@paymentCancelApp')->name('ind
 Route::get('/check/ip', 'IndexController@checkIP')->name('index.check.ip');
 
 // blog
-Route::get('/blog', 'BlogController@index')->name('blog.index');
+// Route::get('/blog', 'BlogController@index')->name('blog.index');
 Route::get('/blog/{slug}', 'BlogController@getSingle')->name('blog.single');
 
 Route::resource('blogs','BlogController');

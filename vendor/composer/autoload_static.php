@@ -558,6 +558,7 @@ class ComposerStaticInitd99be2aa22b662638be63ef18831ea06
 
     public static $classMap = array (
         'App\\Balance' => __DIR__ . '/../..' . '/app/Balance.php',
+        'App\\Blogcategory' => __DIR__ . '/../..' . '/app/Blogcategory.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Course' => __DIR__ . '/../..' . '/app/Course.php',
@@ -577,6 +578,7 @@ class ComposerStaticInitd99be2aa22b662638be63ef18831ea06
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\BkashController' => __DIR__ . '/../..' . '/app/Http/Controllers/BkashController.php',
+        'App\\Http\\Controllers\\BlogController' => __DIR__ . '/../..' . '/app/Http/Controllers/BlogController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CourseController' => __DIR__ . '/../..' . '/app/Http/Controllers/CourseController.php',
         'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',

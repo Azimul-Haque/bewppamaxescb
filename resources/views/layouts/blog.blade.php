@@ -48,6 +48,13 @@
         .widget-posts li {
             padding: 10px 0;
         }
+        .widget-posts-details {
+            position: relative;
+            overflow: hidden;
+            top: -4px;
+            font-size: 11px;
+            line-height: 14px;
+        }
     </style>
 @endsection
 

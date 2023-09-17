@@ -71,7 +71,7 @@ class BlogController extends Controller {
         $blog->title       = $request->title;
         $blog->user_id     = Auth::user()->id;
         $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '_',$request->title).time();
-        $blog->category_id = $request->category_id;
+        $blog->blogcategory_id = $request->blogcategory_id;
         $blog->body        = Purifier::clean($request->body, 'youtube');
         
         // image upload

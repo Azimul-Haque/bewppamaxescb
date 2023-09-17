@@ -3,6 +3,13 @@
 
 @section('third_party_stylesheets')
     @yield('third_party_stylesheets-s')
+
+    <style type="text/css">
+        .blog-image {
+            overflow: hidden;
+            background: rgb(161, 161, 161);
+        }
+    </style>
 @endsection
 
 @section('content')

@@ -15,6 +15,7 @@ sidebar  -->
         <ul class="category-list">
             @foreach($categories as $category)
             <li><a href="{{ route('blog.categorywise', str_replace(" ", "-", $category->name)) }}">{{ $category->name }} <span> / {{ $category->blogs->count() }}</span></a></li>
+            {{-- strtolower() টা ক্লিয়ার করা লাগবে --}}
             @endforeach
         </ul>
     </div>

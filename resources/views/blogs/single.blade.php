@@ -89,7 +89,32 @@
             {{-- solved the strong, em and p problem --}}
         </div>
         <hr/>
-        
+
+        <div>
+            <a href="#!" class="blog-like" onclick="likeBlog({{ $blog->id }})" title="Click to Like/Unlike!">
+                <i class="fa fa-heart-o" id="like_icon"></i>
+                <span id="like_span">{{ $blog->likes }} Like(s)</span>
+            </a>
+            <a href="#" class="blog-like"><i class="fa fa-eye"></i> {{ $blog->views }} View(s)</a>
+            <a href="#" class="blog-share" data-toggle="modal" data-target="#shareModal" title="Click to Share this Article!"><i class="fa fa-share-alt"></i>Share</a>
+            {{-- <a href="#" class="comment"><i class="fa fa-comment-o"></i><span class="fb-comments-count" data-href="{{ Request::url() }}"></span> comment(s)</a> --}}
+            {{-- <a href="#" class="comment"><i class="fa fa-comment-o"></i>
+            <span id="comment_count"></span> comment(s)</a>
+            <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
+            <script type="text/javascript">
+                $.ajax({
+                    url: "https://graph.facebook.com/v2.2/?fields=share{comment_count}&id={{ Request::url() }}",
+                    dataType: "jsonp",
+                    success: function(data) {
+                        if(data.share) {
+                            $('#comment_count').text(data.share.comment_count);
+                        } else {
+                            $('#comment_count').text(0);
+                        }
+                    }
+                });
+            </script> --}}
+        </div>
 
     </section>
 @endsection

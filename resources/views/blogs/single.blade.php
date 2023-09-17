@@ -19,10 +19,10 @@
     <meta property="fb:app_id" content="163879201229487">
     <meta property="og:type" content="article">
     <!-- Open Graph - Article -->
-    <meta name="article:section" content="{{ $blog->category->name }}">
+    <meta name="article:section" content="{{ $blog->blogcategory->name }}">
     <meta name="article:published_time" content="{{ $blog->created_at}}">
     <meta name="article:author" content="{{ Request::url('blogger/profile/'.$blog->user->unique_key) }}">
-    <meta name="article:tag" content="{{ $blog->category->name }}">
+    <meta name="article:tag" content="{{ $blog->blogcategory->name }}">
     <meta name="article:modified_time" content="{{ $blog->updated_at}}">
 
     <style type="text/css">

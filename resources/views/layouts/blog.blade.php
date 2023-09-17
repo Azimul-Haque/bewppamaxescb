@@ -13,7 +13,7 @@
         </div>
         <div class="row">
             <div class="col-md-12" style="background-color: #F4F4F4;">
-                asd
+                Latest Blog
             </div>
         </div>
     </div>

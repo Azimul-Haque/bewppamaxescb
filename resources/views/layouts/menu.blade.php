@@ -109,9 +109,9 @@
 
 @if(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')
 <li class="nav-item">
-    <a href="{{ route('dashboard.materials') }}" class="nav-link {{ Request::is('dashboard/materials') ? 'active' : '' }} {{ Request::is('dashboard/materials/*') ? 'active' : '' }}">
+    <a href="{{ route('dashboard.materials') }}" class="nav-link {{ Request::is('dashboard/blogs') ? 'active' : '' }} {{ Request::is('dashboard/blogs/*') ? 'active' : '' }}">
         <i class="nav-icon far fa-file-alt"></i>
-        <p>ম্যাটেরিয়ালসমূহ</p>
+        <p>ব্লগসমূহ</p>
     </a>
 </li>
 @endif

@@ -1234,10 +1234,8 @@ class DashboardController extends Controller
         
         $totalblogs = Blog::where('title', 'LIKE', "%$search%")->count();
         $questions = Blog::where('title', 'LIKE', "%$search%")
-                             ->orWhere('option1', 'LIKE', "%$search%")
-                             ->orWhere('option2', 'LIKE', "%$search%")
-                             ->orWhere('option3', 'LIKE', "%$search%")
-                             ->orWhere('option4', 'LIKE', "%$search%")
+                             ->orWhere('body', 'LIKE', "%$search%")
+                             ->orWhere('slug', 'LIKE', "%$search%")
                              ->orderBy('id', 'desc')
                              ->paginate(10);
         $topics = Topic::orderBy('id', 'asc')->get();

@@ -64,7 +64,7 @@
 @endsection
 
 @section('content')
-    <section style="padding-top: 100px; padding-bottom: 50px;background-color: #FFFFFF; height: 150px;">
+    <section style="padding-top: 120px; padding-bottom: 50px;background-color: #FFFFFF; height: 150px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">ASDASd</div>

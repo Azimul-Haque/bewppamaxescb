@@ -1233,13 +1233,12 @@ class DashboardController extends Controller
     {
         
         $totalblogs = Blog::where('title', 'LIKE', "%$search%")->count();
-        $questions = Blog::where('title', 'LIKE', "%$search%")
+        $blogs = Blog::where('title', 'LIKE', "%$search%")
                              ->orWhere('body', 'LIKE', "%$search%")
                              ->orWhere('slug', 'LIKE', "%$search%")
                              ->orderBy('id', 'desc')
                              ->paginate(10);
-        $topics = Topic::orderBy('id', 'asc')->get();
-        $tags = Tag::orderBy('id', 'asc')->get();
+        $blogcategories = Blogcategory::orderBy('id', 'asc')->get();
 
         Session::flash('success', $totalblogs . ' টি প্রশ্ন পাওয়া গিয়েছে!');
         return view('dashboard.questions.index')

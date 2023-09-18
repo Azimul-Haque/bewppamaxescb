@@ -388,9 +388,9 @@
               <div class="modal-body">
                     @csrf
                     <input type="text" name="title" value="{{ old('title') }}" class="form-control mb-3" placeholder="ব্লগ শিরোনাম *" required>
-                    <textarea id="questionsummernote" name="question"></textarea>
+                    <textarea id="bodysummernote" name="body"></textarea>
                     <div class="input-group mb-3">
-                        {{-- <div id="questionsummernote" style="width100%"></div>
+                        {{-- <div id="bodysummernote" style="width100%"></div>
                         <textarea id="question" name="question" style="display: none;"></textarea> --}}
                         {{-- <input type="text" id="question" name="question" class="form-control" value="{{ old('question') }}" placeholder="প্রশ্ন" required>
                         <div class="input-group-append">
@@ -535,14 +535,14 @@
     //             console.error( error );
     //     } );
 
-    $('#questionsummernote').summernote({
+    $('#bodysummernote').summernote({
       // callbacks: {
       //   onChange: function(contents, $editable) {
       //     $("textarea#question").html(contents);
       //   }
       // },
       dialogsInBody: true,
-      placeholder: 'প্রশ্নটি লিখুন',
+      placeholder: 'ব্লগ লিখুন',
       tabsize: 1,
       height: 100,
       width: 1000,

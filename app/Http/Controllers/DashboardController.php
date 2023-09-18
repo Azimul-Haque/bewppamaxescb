@@ -1280,36 +1280,23 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.blogs');
     }
 
-    public function deleteBlog(Request $request)
+    public function deleteBlog($id)
     {
-        $this->validate($request,array(
-            'title'          => 'required|max:255|unique:blogs,title',
-            'body'           => 'required',
-            'blogcategory_id'    => 'required|integer',
-            'featured_image'  => 'sometimes|image|max:300'
-        ));
+        $blog = Blog::findOrFail($id);
 
-        //store to DB
-        $blog              = new Blog();
-        $blog->title       = $request->title;
-        $blog->user_id     = Auth::user()->id;
-        $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '_',$request->title).time();
-        $blog->blogcategory_id = $request->blogcategory_id;
-        $blog->body        = Purifier::clean($request->body, 'youtube');
-        
-        // image upload
-        if($request->hasFile('featured_image')) {
-            $image      = $request->file('featured_image');
-            $filename   = str_replace(['?',':', '\\', '/', '*', ' '], '_',$request->title).time() .'.' . $image->getClientOriginalExtension();
-            $location   = public_path('images/blogs/'. $filename);
-            Image::make($image)->resize(600, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
-            $blog->featured_image = $filename;
+        $image_path = public_path('images/blogs/'. $blog->featured_image);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
         }
+        $blog->delete();
 
-        $blog->save();
-
-        Session::flash('success', 'Blog created successfully!');
-        return redirect()->route('dashboard.blogs');
+        Session::flash('success', 'Deleted Successfully!');
+        //redirect
+        if(Auth::user()->role == 'admin') {
+            return redirect()->route('dashboard.blogs');
+        } else {
+            return redirect()->route('dashboard.blogs.personal');
+        }
     }
 
     public function storeBlogCategory(Request $request)

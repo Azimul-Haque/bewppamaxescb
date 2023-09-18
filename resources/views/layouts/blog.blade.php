@@ -64,7 +64,7 @@
 @endsection
 
 @section('content')
-    <section style="background-color: #FFFFFF;">
+    <section style="background-color: #FFFFFF; height: 20px;">
         ASDASD
     </section>
     <section style="background-color: #FAFAFA;">

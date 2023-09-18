@@ -21,13 +21,13 @@
 @endsection
 
 @section('content')
-    @section('page-header') প্রশ্নব্যাংক @endsection
+    @section('page-header') ব্লগসমূহ @endsection
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">প্রশ্নব্যাংক </h3><span style="margin-left: 5px;">(মোটঃ {{ $totalquestions }} টি প্রশ্ন)</span>
+                      <h3 class="card-title">ব্লগসমূহ </h3><span style="margin-left: 5px;">(মোটঃ {{ $totalquestions }} টি প্রশ্ন)</span>
           
                       <div class="card-tools">
                           <form class="form-inline form-group-lg" action="">

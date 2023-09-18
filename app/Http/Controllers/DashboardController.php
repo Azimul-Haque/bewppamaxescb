@@ -1220,7 +1220,7 @@ class DashboardController extends Controller
     {
         $totalblogs = Blog::count();
         $blogs = Blog::orderBy('id', 'desc')->paginate(10);
-        $topics = Topic::orderBy('id', 'asc')->get();
+        $Blogcategory = Blogcategory::orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
 
         // dd($questions);

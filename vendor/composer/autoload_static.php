@@ -37,9 +37,9 @@ class ComposerStaticInitd99be2aa22b662638be63ef18831ea06
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
-        'cb61d74ad51d00867155534456b38b23' => __DIR__ . '/..' . '/mews/purifier/src/helpers.php',
         'c379e2a4ec3735f6c4915556c8c81813' => __DIR__ . '/..' . '/rap2hpoutre/fast-excel/src/functions/fastexcel.php',
         'bca8bc0a43e3abe0c7d97e8537cba0d9' => __DIR__ . '/..' . '/shipu/php-aamarpay-payment/src/helpers.php',
+        'cb61d74ad51d00867155534456b38b23' => __DIR__ . '/..' . '/mews/purifier/src/helpers.php',
         '6d394c3a532652dafb4dd296ba6a3f0b' => __DIR__ . '/../..' . '/app/Http/helpers.php',
     );
 

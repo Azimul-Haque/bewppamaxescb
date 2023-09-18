@@ -6,7 +6,7 @@
 @endsection
 
 @section('header-s')
-    {{ $name }}
+    {{ $archivedate }}
 @endsection
 
 @section('content-s')

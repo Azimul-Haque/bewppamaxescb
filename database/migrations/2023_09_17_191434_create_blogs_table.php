@@ -18,7 +18,7 @@ class CreateBlogsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('title');
             $table->string('featured_image')->nullable();
-            $table->text('body');
+            $table->mediumText('body');
             $table->string('slug')->unique();
             $table->integer('likes')->unsigned();
             $table->integer('views')->unsigned();

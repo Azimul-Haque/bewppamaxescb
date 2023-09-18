@@ -27,9 +27,8 @@ Route::get('/payment/app/cancel', 'IndexController@paymentCancelApp')->name('ind
 Route::get('/check/ip', 'IndexController@checkIP')->name('index.check.ip');
 
 // blog
-// Route::get('/blog', 'BlogController@index')->name('blog.index');
-
-Route::resource('blogs','BlogController');
+Route::get('/blogs', 'BlogController@index')->name('blogs.index');
+// Route::resource('blogs','BlogController');
 Route::get('blog/{slug}',['as' => 'blog.single', 'uses' => 'BlogController@getBlogPost']);
 Route::get('blog/author/{id}',['as' => 'blogger.profile', 'uses' => 'BlogController@getBloggerProfile']);
 Route::get('/like/{blog_id}',['as' => 'blog.like', 'uses' => 'BlogController@likeBlogAPI']);

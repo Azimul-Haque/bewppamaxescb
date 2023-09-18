@@ -387,7 +387,7 @@
           <form method="post" action="{{ route('dashboard.blogs.store') }}" enctype='multipart/form-data'>
               <div class="modal-body">
                     @csrf
-                    <input type="text" name="title" value="{{ old('title') }}" class="form-control mb-3" placeholder="শিরোনাম" required>
+                    <input type="text" name="title" value="{{ old('title') }}" class="form-control mb-3" placeholder="ব্লগ শিরোনাম *" required>
                     <textarea id="questionsummernote" name="question"></textarea>
                     <div class="input-group mb-3">
                         {{-- <div id="questionsummernote" style="width100%"></div>

@@ -1250,13 +1250,30 @@ class DashboardController extends Controller
     public function storeBlog(Request $request)
     {
         $this->validate($request,array(
-            'name'        => 'required|string|max:191',
+            'title'          => 'required|max:255|unique:blogs,title',
+            'body'           => 'required',
+            'blogcategory_id'    => 'required|integer',
+            'featured_image' => 'sometimes|image|max:300'
         ));
 
-        $blogcategory = new Blogcategory;
-        $blogcategory->name = $request->name;
-        $blogcategory->save();
+        //store to DB
+        $blog              = new Blog();
+        $blog->title       = $request->title;
+        $blog->user_id     = Auth::user()->id;
+        $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '_',$request->title).time();
+        $blog->blogcategory_id = $request->blogcategory_id;
+        $blog->body        = Purifier::clean($request->body, 'youtube');
+        
+        // image upload
+        if($request->hasFile('featured_image')) {
+            $image      = $request->file('featured_image');
+            $filename   = str_replace(['?',':', '\\', '/', '*', ' '], '_',$request->title).time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('images/blogs/'. $filename);
+            Image::make($image)->resize(600, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            $blog->featured_image = $filename;
+        }
 
+        $blog->save();
         Session::flash('success', 'Blog Category created successfully!');
         return redirect()->route('dashboard.blogs');
     }

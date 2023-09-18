@@ -64,6 +64,9 @@
 @endsection
 
 @section('content')
+    <section style="background-color: #FFFFFF;">
+        ASDASD
+    </section>
     <section style="background-color: #FAFAFA;">
         <div class="container">
             <div class="row">

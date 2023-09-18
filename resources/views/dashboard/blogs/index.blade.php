@@ -390,20 +390,6 @@
                     <input type="text" name="title" value="{{ old('title') }}" class="form-control mb-3" placeholder="ব্লগ শিরোনাম *" required>
                     <textarea id="bodysummernote" name="body"></textarea>
                     <div class="row">
-                        <div class="col-md-6">
-                            <input type="text" name="option1" value="{{ old('option1') }}" class="form-control mb-3" placeholder="অপশন ১" required>
-                        </div>
-                        <div class="col-md-6">
-                            <input type="text" name="option2" value="{{ old('option2') }}" class="form-control mb-3" placeholder="অপশন ২" required>
-                        </div>
-                        <div class="col-md-6">
-                            <input type="text" name="option3" value="{{ old('option3') }}" class="form-control mb-3" placeholder="অপশন ৩" required>
-                        </div>
-                        <div class="col-md-6">
-                            <input type="text" name="option4" value="{{ old('option4') }}" class="form-control mb-3" placeholder="অপশন ৪" required>
-                        </div>
-                    </div>
-                    <div class="row">
                       <div class="col-md-6">
                         <div class="input-group mb-3">
                             <select name="answer" class="form-control" required>

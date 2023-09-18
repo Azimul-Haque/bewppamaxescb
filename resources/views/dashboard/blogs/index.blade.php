@@ -389,14 +389,6 @@
                     @csrf
                     <input type="text" name="title" value="{{ old('title') }}" class="form-control mb-3" placeholder="ব্লগ শিরোনাম *" required>
                     <textarea id="bodysummernote" name="body"></textarea>
-                    <div class="input-group mb-3">
-                        {{-- <div id="bodysummernote" style="width100%"></div>
-                        <textarea id="question" name="question" style="display: none;"></textarea> --}}
-                        {{-- <input type="text" id="question" name="question" class="form-control" value="{{ old('question') }}" placeholder="প্রশ্ন" required>
-                        <div class="input-group-append">
-                            <div class="input-group-text"><span class="far fa-question-circle"></span></div>
-                        </div> --}}
-                    </div>
                     <div class="row">
                         <div class="col-md-6">
                             <input type="text" name="option1" value="{{ old('option1') }}" class="form-control mb-3" placeholder="অপশন ১" required>

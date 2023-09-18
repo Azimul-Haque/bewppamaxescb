@@ -10,6 +10,8 @@ use App\Payment;
 use App\Message;
 use App\Notification;
 use App\Exam;
+use App\Blog;
+use App\Blogcategory;
 
 use Carbon\Carbon;
 use DB;
@@ -1215,7 +1217,7 @@ class DashboardController extends Controller
 
 
     public function getBlogs() {
-        
+
     }
 
 

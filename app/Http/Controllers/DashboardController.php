@@ -1233,7 +1233,7 @@ class DashboardController extends Controller
     {
         
         $totalblogs = Blog::where('title', 'LIKE', "%$search%")->count();
-        $questions = Blog::where('question', 'LIKE', "%$search%")
+        $questions = Blog::where('title', 'LIKE', "%$search%")
                              ->orWhere('option1', 'LIKE', "%$search%")
                              ->orWhere('option2', 'LIKE', "%$search%")
                              ->orWhere('option3', 'LIKE', "%$search%")

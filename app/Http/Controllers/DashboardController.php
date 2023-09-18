@@ -1320,6 +1320,7 @@ class DashboardController extends Controller
         $blog->save();
 
         Session::flash('success', 'Article updated successfully!');
+        return redirect()->route('dashboard.blogs');
     }
 
     public function deleteBlog($id)

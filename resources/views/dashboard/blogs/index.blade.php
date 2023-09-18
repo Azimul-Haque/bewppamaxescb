@@ -485,7 +485,7 @@
       //   }
       // },
       dialogsInBody: true,
-      placeholder: 'ব্লগ লিখুন *',
+      placeholder: 'কন্টেন্ট লিখুন *',
       tabsize: 1,
       height: 300,
       toolbar: [

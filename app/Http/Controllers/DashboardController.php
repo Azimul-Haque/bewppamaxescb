@@ -1217,7 +1217,22 @@ class DashboardController extends Controller
 
 
     public function getBlogs() {
-        
+        $totalquestions = Question::count();
+        $questions = Question::orderBy('id', 'desc')->paginate(10);
+        // $questions = Question::orderBy('id', 'desc')->get()->chunk(200, function($questions){
+        //     //do whatever you would normally be doing with the rows you receive
+        //     // $domain stuff
+        // });
+        // dd($questions);
+        $topics = Topic::orderBy('id', 'asc')->get();
+        $tags = Tag::orderBy('id', 'asc')->get();
+
+        // dd($questions);
+        return view('dashboard.questions.index')
+                    ->withQuestions($questions)
+                    ->withTopics($topics)
+                    ->withTags($tags)
+                    ->withTotalquestions($totalquestions);
     }
 
 

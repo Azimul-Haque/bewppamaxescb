@@ -831,7 +831,6 @@
       placeholder: 'প্রশ্নটি লিখুন',
       tabsize: 1,
       height: 100,
-      width: 1000,
       toolbar: [
         ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],
         ['insert', ['link', 'picture']],

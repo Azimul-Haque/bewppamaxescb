@@ -1240,7 +1240,7 @@ class DashboardController extends Controller
                              ->paginate(10);
         $blogcategories = Blogcategory::orderBy('id', 'asc')->get();
 
-        Session::flash('success', $totalblogs . ' টি প্রশ্ন পাওয়া গিয়েছে!');
+        Session::flash('success', $totalblogs . ' টি ব্লগ পাওয়া গিয়েছে!');
         return view('dashboard.blogs.index')
                     ->withBlogs($blogs)
                     ->withBlogcategories($blogcategories)

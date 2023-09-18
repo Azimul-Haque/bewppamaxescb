@@ -2409,8 +2409,8 @@
         },
         {
             "name": "mews/purifier",
-            "version": "3.4.0",
-            "version_normalized": "3.4.0.0",
+            "version": "3.4.1",
+            "version_normalized": "3.4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mewebstudio/Purifier.git",
@@ -2484,7 +2484,7 @@
             ],
             "support": {
                 "issues": "https://github.com/mewebstudio/Purifier/issues",
-                "source": "https://github.com/mewebstudio/Purifier/tree/3.4.0"
+                "source": "https://github.com/mewebstudio/Purifier/tree/3.4.1"
             },
             "install-path": "../mews/purifier"
         },

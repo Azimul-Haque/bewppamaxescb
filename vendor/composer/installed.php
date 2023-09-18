@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '53393bf7b3c59ba9832f6125dfd0d902acf869a8',
+    'reference' => '901ac76313657d835367e2fcbbec5dc4680c7257',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -467,7 +467,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '53393bf7b3c59ba9832f6125dfd0d902acf869a8',
+      'reference' => '901ac76313657d835367e2fcbbec5dc4680c7257',
     ),
     'laravel/tinker' => 
     array (
@@ -534,8 +534,8 @@
     ),
     'mews/purifier' => 
     array (
-      'pretty_version' => '3.4.0',
-      'version' => '3.4.0.0',
+      'pretty_version' => '3.4.1',
+      'version' => '3.4.1.0',
       'aliases' => 
       array (
       ),

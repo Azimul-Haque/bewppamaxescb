@@ -1291,7 +1291,6 @@ class DashboardController extends Controller
         $blog->delete();
 
         Session::flash('success', 'Deleted Successfully!');
-        //redirect
         return redirect()->route('dashboard.blogs');
     }
 

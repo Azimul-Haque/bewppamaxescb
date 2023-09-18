@@ -1280,6 +1280,55 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.blogs');
     }
 
+    public function updateBlog(Request $request, $id)
+    {
+        $blog = Blog::findOrFail($id);
+
+        $this->validate($request,array(
+            'title'          => 'required|max:255',
+            'slug'           => 'required|max:255|unique:blogs,slug,'.$blog->id,
+            'body'           => 'required',
+            'category_id'    => 'required|integer',
+            'featured_image' => 'sometimes|image|max:300'
+        ));
+
+        //update to DB
+        $blog->title       = $request->title;
+        // $blog->user_id     = Auth::user()->id;
+        if($blog->slug == $request->slug) {
+
+        } else {
+            $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->slug)) . '-' .time();
+        }
+        $blog->category_id = $request->category_id;
+        $blog->body        = Purifier::clean($request->body, 'youtube');
+        
+        // image upload
+        if($request->hasFile('featured_image')) {
+            $image_path = public_path('images/blogs/'. $blog->featured_image);
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
+            $image      = $request->file('featured_image');
+            $filename   = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->slug)) . '-' .time() . '.' . $image->getClientOriginalExtension();
+            $location   = public_path('images/blogs/'. $filename);
+            // Image::make($image)->resize(600, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            Image::make($image)->fit(600, 315)->save($location);
+            $blog->featured_image = $filename;
+        }
+
+        $blog->save();
+
+        Session::flash('success', 'Article updated successfully!');
+        //redirect
+        if(Auth::user()->role == 'admin') {
+            return redirect()->route('dashboard.blogs');
+        } else {
+            return redirect()->route('dashboard.blogs.personal');
+        }
+        
+    }
+
     public function deleteBlog($id)
     {
         $blog = Blog::findOrFail($id);

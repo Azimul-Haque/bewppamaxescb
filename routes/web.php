@@ -167,7 +167,7 @@ Route::post('/dashboard/blogs/store', 'DashboardController@storeBlog')->name('da
 Route::post('/dashboard/blogs/{id}/update', 'DashboardController@updateBlog')->name('dashboard.blogs.update');
 Route::post('/dashboard/blogs/category/store', 'DashboardController@storeBlogCategory')->name('dashboard.blogs.blogcategory.store');
 Route::post('/dashboard/blogs/category/{id}/update', 'DashboardController@updateBlogCategory')->name('dashboard.blogs.blogcategory.update');
-Route::get('/dashboard/blogs/{id}/delete', 'DashboardController@updateBlogCategory')->name('dashboard.blogs.delete');
+Route::get('/dashboard/blogs/{id}/delete', 'DashboardController@deleteBlog')->name('dashboard.blogs.delete');
 
 
 

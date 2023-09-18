@@ -1225,8 +1225,7 @@ class DashboardController extends Controller
         // dd($questions);
         return view('dashboard.questions.index')
                     ->withBlogs($blogs)
-                    ->withTopics($topics)
-                    ->withTags($tags)
+                    ->withBlogcategories($blogcategories)
                     ->withTotalblogs($totalblogs);
     }
 

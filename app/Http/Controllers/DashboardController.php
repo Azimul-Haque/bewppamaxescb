@@ -1320,13 +1320,6 @@ class DashboardController extends Controller
         $blog->save();
 
         Session::flash('success', 'Article updated successfully!');
-        //redirect
-        if(Auth::user()->role == 'admin') {
-            return redirect()->route('dashboard.blogs');
-        } else {
-            return redirect()->route('dashboard.blogs.personal');
-        }
-        
     }
 
     public function deleteBlog($id)

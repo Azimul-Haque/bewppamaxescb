@@ -67,7 +67,10 @@
     <section style="padding-top: 150px; padding-bottom: 60px;background-color: #FFFFFF; height: 100px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">@yield('header-s')</div>
+                <div class="col-md-12">
+                    <h3>Sd asd</h3>
+                    <h2>Sd asd</h2>
+                </div>
             </div>
         </div>
     </section>

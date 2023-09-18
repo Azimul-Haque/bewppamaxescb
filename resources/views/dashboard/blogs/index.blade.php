@@ -87,7 +87,7 @@
                                                 <div class="modal-body">
                                                   @csrf
                                                   <input type="text" name="title" value="{{ $blog->title }}" class="form-control mb-3" placeholder="ব্লগ শিরোনাম *" required>
-                                                  <textarea id="bodysummernote" name="body"></textarea>
+                                                  <textarea id="bodysummernote" name="body">{{ $blog->body }}</textarea>
                                                   <br/>
                                                   <div class="row">
                                                       <div class="col-md-6">

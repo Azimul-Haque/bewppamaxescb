@@ -64,7 +64,7 @@
 @endsection
 
 @section('content')
-    <section style="background-color: #FFFFFF; height: 100px;">
+    <section style="padding-top: 150px; padding-bottom: 50px;background-color: #FFFFFF; height: 100px;">
         ASDASD
     </section>
     <section style="background-color: #FAFAFA;">

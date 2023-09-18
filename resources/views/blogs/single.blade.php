@@ -41,6 +41,10 @@
     </style>
 @endsection
 
+@section('header-s')
+ব্লগসমূহ
+@endsection
+
 @section('content-s')
     {{-- facebook comment plugin --}}
     <div id="fb-root"></div>

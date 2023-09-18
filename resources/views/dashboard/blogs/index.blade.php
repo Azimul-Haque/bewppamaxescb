@@ -187,7 +187,7 @@
                                             dialogsInBody: true,
                                             placeholder: 'কন্টেন্ট লিখুন...',
                                             tabsize: 3,
-                                            height: 150,
+                                            height: 300,
                                             toolbar: [
                                               ['style', ['style']],
                                               ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],

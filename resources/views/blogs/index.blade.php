@@ -6,7 +6,7 @@
 @endsection
 
 @section('header-s')
-ব্লগসমূহ
+    ব্লগসমূহ
 @endsection
 
 @section('content-s')

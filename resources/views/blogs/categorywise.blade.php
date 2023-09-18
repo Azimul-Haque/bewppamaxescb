@@ -6,7 +6,7 @@
 @endsection
 
 @section('header-s')
-ব্লগসমূহ
+    {{ $name }}
 @endsection
 
 @section('content-s')

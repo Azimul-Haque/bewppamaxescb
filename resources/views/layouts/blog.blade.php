@@ -65,7 +65,11 @@
 
 @section('content')
     <section style="padding-top: 150px; padding-bottom: 50px;background-color: #FFFFFF; height: 100px;">
-        ASDASD
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">ASDASd</div>
+            </div>
+        </div>
     </section>
     <section style="background-color: #FAFAFA;">
         <div class="container">

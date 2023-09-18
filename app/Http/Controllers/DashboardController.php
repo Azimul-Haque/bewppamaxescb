@@ -1231,10 +1231,6 @@ class DashboardController extends Controller
 
     public function getBlogsSearch($search)
     {
-        ini_set('memory_limit', '-1');
-        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
-            abort(403, 'Access Denied');
-        }
         
         $totalquestions = Question::where('question', 'LIKE', "%$search%")->count();
         $questions = Question::where('question', 'LIKE', "%$search%")

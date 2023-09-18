@@ -162,7 +162,7 @@ Route::get('/dashboard/notifications/delete/{id}', 'DashboardController@deleteNo
 Route::post('/dashboard/notifications/send/again', 'DashboardController@sendAgainNotification')->name('dashboard.notifications.sendagain');
 
 Route::get('/dashboard/blogs', 'DashboardController@getBlogs')->name('dashboard.blogs');
-Route::get('/dashboard/blogs/{search}', 'DashboardController@getBlogsSearch')->name('dashboard.blogs');
+Route::get('/dashboard/blogs/{search}', 'DashboardController@getBlogsSearch')->name('dashboard.blogs.search');
 
 
 

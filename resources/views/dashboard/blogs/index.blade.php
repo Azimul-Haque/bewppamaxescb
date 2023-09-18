@@ -389,7 +389,7 @@
                     @csrf
                     <input type="text" name="title" value="{{ old('title') }}" class="form-control mb-3" placeholder="ব্লগ শিরোনাম *" required>
                     <textarea id="bodysummernote" name="body"></textarea>
-    
+                    <br/>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="input-group mb-3">

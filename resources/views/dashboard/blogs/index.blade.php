@@ -407,7 +407,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="image">ছবি (প্রয়োজনে)</label>
-                                <input type="file" id="image" name="image" accept="image/*">
+                                <input type="file" id="image" name="featured_image" accept="image/*">
                             </div>
                             <center>
                                 <img src="{{ asset('images/placeholder.png')}}" id='img-upload' style="width: 250px; height: auto;" class="img-responsive" />

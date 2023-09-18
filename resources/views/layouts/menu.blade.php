@@ -107,6 +107,13 @@
 </li>
 @endif
 
+<li class="nav-item">
+    <a href="{{ route('dashboard.notifications') }}" class="nav-link {{ Request::is('dashboard/notifications') ? 'active' : '' }} {{ Request::is('dashboard/notification/*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-bell"></i>
+        <p>নোটিফিকেশন</p>
+    </a>
+</li>
+
 {{-- <li class="nav-item">
     <a href="{{ route('dashboard.components') }}" class="nav-link {{ Request::is('dashboard/components') ? 'active' : '' }}">
         <i class="nav-icon fas fa-laptop-code"></i>

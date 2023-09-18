@@ -64,12 +64,11 @@
 @endsection
 
 @section('content')
-    <section style="background-color: #FFFFFF; height: 20px;">
+    <section style="background-color: #FFFFFF; height: 50px;">
         ASDASD
     </section>
     <section style="background-color: #FAFAFA;">
         <div class="container">
-            ASDASD
             <div class="row">
                 <div class="col-md-8 col-sm-8">@yield('content-s')</div>
                 <div class="col-md-3 col-sm-4 col-md-offset-1 sidebar" style="padding-top: 150px; padding-bottom: 50px;">

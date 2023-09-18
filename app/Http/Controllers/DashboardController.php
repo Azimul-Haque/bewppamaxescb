@@ -23,6 +23,7 @@ use Session;
 use Artisan;
 // use Redirect;
 use OneSignal;
+use Purifier;
 use Cache;
 
 class DashboardController extends Controller

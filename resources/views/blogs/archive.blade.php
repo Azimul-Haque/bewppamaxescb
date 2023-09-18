@@ -5,6 +5,10 @@
     
 @endsection
 
+@section('header-s')
+    {{ $name }}
+@endsection
+
 @section('content-s')
     <section style="padding-top: 50px; padding-bottom: 50px;">
         @foreach ($blogs as $blog)

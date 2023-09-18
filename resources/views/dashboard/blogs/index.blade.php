@@ -266,7 +266,7 @@
                                           <div class="modal-body">
                                             আপনি কি নিশ্চিতভাবে এই ব্লগটি ডিলেট করতে চান?<br/><br/>
                                             <center>
-                                                <big><b>{{ $blog->question }}</b></big>
+                                                <big><b>{{ $blog->title }}</b></big>
                                             </center>
                                           </div>
                                           <div class="modal-footer">

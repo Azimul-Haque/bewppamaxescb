@@ -250,9 +250,6 @@
                                       <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteBlogModal{{ $blog->id }}" disabled>
                                           <i class="far fa-trash-alt"></i>
                                       </button>
-                                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#notifModal{{ $blog->id }}">
-                                        <i class="fas fa-bell"></i>
-                                      </button>
                                   </td>
                                   {{-- Delete Blog Modal Code --}}
                                   {{-- Delete Blog Modal Code --}}

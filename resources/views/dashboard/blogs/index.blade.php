@@ -58,7 +58,8 @@
                           @foreach($blogs as $blog)
                               <tr>
                                   <td>
-                                      {{ $blog->title }}<br/>
+                                      <a href="">{{ $blog->title }}</a>
+                                      <br/>
                                       <span class="badge bg-success">{{ $blog->blogcategory->name }}</span>
                                       {{-- @foreach($blog->tags as $tag)
                                         <span class="badge bg-primary">{{ $tag->name }}</span>

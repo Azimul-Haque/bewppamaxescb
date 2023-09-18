@@ -110,7 +110,12 @@
                                                               <input type="file" id="image" name="featured_image" accept="image/*">
                                                           </div>
                                                           <center>
+                                                            @if($blog->featured_image != null)
+                                                                <div class="blog-image margin-eight"><img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;"></div><br/>
+                                                                <img src="{{ asset('images/placeholder.png')}}" id='img-upload' style="width: 250px; height: auto;" class="img-responsive" />
+                                                            @else
                                                               <img src="{{ asset('images/placeholder.png')}}" id='img-upload' style="width: 250px; height: auto;" class="img-responsive" />
+                                                            @endif
                                                           </center>
                                                       </div>
                                                   </div>    

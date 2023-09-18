@@ -389,36 +389,8 @@
                     @csrf
                     <input type="text" name="title" value="{{ old('title') }}" class="form-control mb-3" placeholder="ব্লগ শিরোনাম *" required>
                     <textarea id="bodysummernote" name="body"></textarea>
+    
                     <div class="row">
-                      <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <select name="answer" class="form-control" required>
-                                <option selected="" disabled="" value="">সঠিক উত্তর</option>
-                                <option value="1">অপশন ১</option>
-                                <option value="2">অপশন ২</option>
-                                <option value="3">অপশন ৩</option>
-                                <option value="4">অপশন ৪</option>
-                            </select>
-                            <div class="input-group-append">
-                                <div class="input-group-text"><span class="far fa-check-circle"></span></div>
-                            </div>
-                        </div>    
-                      </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <select name="difficulty" class="form-control" required>
-                                    <option selected="" disabled="" value="">ডিফিকাল্টি লেভেল</option>
-                                    <option value="1" selected>সহজ</option>
-                                    <option value="2">মধ্যম</option>
-                                    <option value="3">কঠিন</option>
-                                </select>
-                                <div class="input-group-append">
-                                    <div class="input-group-text"><span class="fas fa-star-half-alt"></span></div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-md-6">
                             <div class="input-group mb-3">
                                 <select name="blogcategory_id" class="form-control" required>

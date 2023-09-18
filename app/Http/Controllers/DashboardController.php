@@ -1262,8 +1262,8 @@ class DashboardController extends Controller
         $blog              = new Blog();
         $blog->title       = $request->title;
         $blog->user_id     = Auth::user()->id;
-        dd($request->slug);
-        if($request->slug != null) {
+        // dd($request->slug);
+        if(isset$request->slug) {
             $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->slug));
         } else {
             $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->slug)) . '-' .time();

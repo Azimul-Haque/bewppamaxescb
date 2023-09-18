@@ -87,13 +87,14 @@
                                                 <div class="modal-body">
                                                   @csrf
                                                   <input type="text" name="title" value="{{ $blog->title }}" class="form-control mb-3" placeholder="ব্লগ শিরোনাম *" required>
+                                                  <input type="text" name="slug" value="{{ old('slug') }}" class="form-control mb-3" placeholder="ব্লগ স্লাগ (Optional)">
                                                   <textarea id="bodysummernote{{ $blog->id }}" name="body">{{ $blog->body }}</textarea>
                                                   <br/>
                                                   <div class="row">
                                                       <div class="col-md-6">
                                                           <div class="input-group mb-3">
                                                               <select name="blogcategory_id" class="form-control" required>
-                                                                  <option selected="" disabled="" value="">ক্যাটাগরি (বিষয়)</option>
+                                                                  <option selected="" disabled="" value="">ক্যাটাগরি</option>
                                                                   @foreach ($blogcategories as $blogcategory)
                                                                       <option value="{{ $blogcategory->id }}" @if($blogcategory->id == $blog->blogcategory_id) selected @endif>{{ $blogcategory->name }}</option>
                                                                   @endforeach
@@ -339,7 +340,7 @@
                         <div class="col-md-6">
                             <div class="input-group mb-3">
                                 <select name="blogcategory_id" class="form-control" required>
-                                    <option selected="" disabled="" value="">ক্যাটাগরি (বিষয়)</option>
+                                    <option selected="" disabled="" value="">ক্যাটাগরি</option>
                                     @foreach ($blogcategories as $blogcategory)
                                         <option value="{{ $blogcategory->id }}">{{ $blogcategory->name }}</option>
                                     @endforeach

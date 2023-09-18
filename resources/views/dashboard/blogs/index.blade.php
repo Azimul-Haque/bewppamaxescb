@@ -58,7 +58,7 @@
                           @foreach($blogs as $blog)
                               <tr>
                                   <td>
-                                      <a href="">{{ $blog->title }}</a>
+                                      <a href="{{ route('blogs.single', $blog->slug) }}">{{ $blog->title }}</a>
                                       <br/>
                                       <span class="badge bg-success">{{ $blog->blogcategory->name }}</span>
                                       {{-- @foreach($blog->tags as $tag)

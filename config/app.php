@@ -240,6 +240,7 @@ return [
         'Aamarpay'   =>  Shipu\Aamarpay\Facades\Aamarpay::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class,
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
 
     ],
 

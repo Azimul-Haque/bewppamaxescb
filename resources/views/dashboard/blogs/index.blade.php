@@ -185,7 +185,7 @@
                                             //   }
                                             // },
                                             dialogsInBody: true,
-                                            placeholder: 'কন্টেন্ট লিখুন...',
+                                            placeholder: 'কন্টেন্ট লিখুন *',
                                             tabsize: 3,
                                             height: 300,
                                             toolbar: [

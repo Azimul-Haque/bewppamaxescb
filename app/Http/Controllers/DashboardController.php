@@ -1232,8 +1232,8 @@ class DashboardController extends Controller
     public function getBlogsSearch($search)
     {
         
-        $totalblogs = Question::where('question', 'LIKE', "%$search%")->count();
-        $questions = Question::where('question', 'LIKE', "%$search%")
+        $totalblogs = Blog::where('title', 'LIKE', "%$search%")->count();
+        $questions = Blog::where('question', 'LIKE', "%$search%")
                              ->orWhere('option1', 'LIKE', "%$search%")
                              ->orWhere('option2', 'LIKE', "%$search%")
                              ->orWhere('option3', 'LIKE', "%$search%")

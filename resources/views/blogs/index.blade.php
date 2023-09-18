@@ -5,6 +5,10 @@
     
 @endsection
 
+@section('header-s')
+ব্লগসমূহ
+@endsection
+
 @section('content-s')
     <section style="padding-top: 50px; padding-bottom: 50px;">
         @foreach ($blogs as $blog)

@@ -1292,11 +1292,7 @@ class DashboardController extends Controller
 
         Session::flash('success', 'Deleted Successfully!');
         //redirect
-        if(Auth::user()->role == 'admin') {
-            return redirect()->route('dashboard.blogs');
-        } else {
-            return redirect()->route('dashboard.blogs.personal');
-        }
+        return redirect()->route('dashboard.blogs');
     }
 
     public function storeBlogCategory(Request $request)

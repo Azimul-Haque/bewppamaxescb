@@ -1229,7 +1229,7 @@ class DashboardController extends Controller
                     ->withTotalblogs($totalblogs);
     }
 
-    public function getQuestionsSearch($search)
+    public function getBlogsSearch($search)
     {
         ini_set('memory_limit', '-1');
         if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {

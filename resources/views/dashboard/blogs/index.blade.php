@@ -85,88 +85,35 @@
                                               </div>
                                               <form method="post" action="{{ route('dashboard.blogs.update', $blog->id) }}" enctype='multipart/form-data'>
                                                 <div class="modal-body">
-                                                      @csrf
-                                                      <textarea id="question{{ $blog->id }}" name="question">{{ $blog->title }}</textarea><br/>
-                                                      
-                                                      <div class="row">
-                                                          <div class="col-md-6">
-                                                              <input type="text" name="option1" value="{{ $blog->option1 }}" class="form-control mb-3" placeholder="অপশন ১" required>
-                                                          </div>
-                                                          <div class="col-md-6">
-                                                              <input type="text" name="option2" value="{{ $blog->option2 }}" class="form-control mb-3" placeholder="অপশন ২" required>
-                                                          </div>
-                                                          <div class="col-md-6">
-                                                              <input type="text" name="option3" value="{{ $blog->option3 }}" class="form-control mb-3" placeholder="অপশন ৩" required>
-                                                          </div>
-                                                          <div class="col-md-6">
-                                                              <input type="text" name="option4" value="{{ $blog->option4 }}" class="form-control mb-3" placeholder="অপশন ৪" required>
-                                                          </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-md-6">
+                                                  @csrf
+                                                  <input type="text" name="title" value="{{ old('title') }}" class="form-control mb-3" placeholder="ব্লগ শিরোনাম *" required>
+                                                  <textarea id="bodysummernote" name="body"></textarea>
+                                                  <br/>
+                                                  <div class="row">
+                                                      <div class="col-md-6">
                                                           <div class="input-group mb-3">
-                                                              <select name="answer" class="form-control" required>
-                                                                  <option selected="" disabled="" value="">সঠিক উত্তর</option>
-                                                                  <option value="1" @if($blog->answer == 1) selected @endif>অপশন ১</option>
-                                                                  <option value="2" @if($blog->answer == 2) selected @endif>অপশন ২</option>
-                                                                  <option value="3" @if($blog->answer == 3) selected @endif>অপশন ৩</option>
-                                                                  <option value="4" @if($blog->answer == 4) selected @endif>অপশন ৪</option>
+                                                              <select name="blogcategory_id" class="form-control" required>
+                                                                  <option selected="" disabled="" value="">ক্যাটাগরি (বিষয়)</option>
+                                                                  @foreach ($blogcategories as $blogcategory)
+                                                                      <option value="{{ $blogcategory->id }}">{{ $blogcategory->name }}</option>
+                                                                  @endforeach
                                                               </select>
                                                               <div class="input-group-append">
-                                                                  <div class="input-group-text"><span class="far fa-check-circle"></span></div>
+                                                                  <div class="input-group-text"><span class="fas fa-bookmark"></span></div>
                                                               </div>
-                                                          </div>
-                                                        </div>
-                                                        
-                                                      </div>
-                                                      <div class="row">
-                                                          <div class="col-md-6">
-                                                              <div class="input-group mb-3">
-                                                                  <select name="difficulty" class="form-control" required>
-                                                                      <option selected="" disabled="" value="">ডিফিকাল্টি লেভেল</option>
-                                                                      <option value="1" @if($blog->difficulty == 1) selected @endif>সহজ</option>
-                                                                      <option value="2" @if($blog->difficulty == 2) selected @endif>মধ্যম</option>
-                                                                      <option value="3" @if($blog->difficulty == 3) selected @endif>কঠিন</option>
-                                                                  </select>
-                                                                  <div class="input-group-append">
-                                                                      <div class="input-group-text"><span class="fas fa-star-half-alt"></span></div>
-                                                                  </div>
-                                                              </div>
-                                                          </div>
-                                                          <div class="col-md-6">
-                                                              <div class="input-group mb-3">
-                                                                  <select name="topic_id" class="form-control" required>
-                                                                      <option selected="" disabled="" value="">ক্যাটাগরি (বিষয়)</option>
-                                                                      @foreach ($blogcategories as $blogcategory)
-                                                                          <option value="{{ $blogcategory->id }}" @if($blog->topic_id == $blogcategory->id) selected @endif>{{ $blogcategory->name }}</option>
-                                                                      @endforeach
-                                                                  </select>
-                                                                  <div class="input-group-append">
-                                                                      <div class="input-group-text"><span class="fas fa-bookmark"></span></div>
-                                                                  </div>
-                                                              </div>
-                                                          </div>
-                                                          <div class="col-md-6">
-                                                              <div class="form-group ">
-                                                                  <label for="image">ছবি (প্রয়োজনে)</label>
-                                                                  <input type="file" id="image{{ $blog->id }}" name="image" accept="image/*">
-                                                              </div>
-                                                              <center>
-                                                                  <?php
-                                                                    if($blog->questionimage) {
-                                                                        $currentimage = asset('images/questions/' . $blog->questionimage->image);
-                                                                    } else {
-                                                                        $currentimage = asset('images/placeholder.png');
-                                                                    }
-                                                                  ?>
-                                                                  <img src="{{ $currentimage }}" id='img-upload{{ $blog->id }}' style="width: 250px; height: auto;" class="img-responsive" />
-                                                              </center>
-                                                          </div>
-                                                          <div class="col-md-6">
-                                                              <label for="explanation">ব্যাখ্যা (প্রয়োজনে)</label><br/>
-                                                              <textarea class="form-control summernote" name="explanation" id="explanation" placeholder="ব্যাখ্যা" style="width: 100%; height: 220px;">{{ $blog->questionexplanation ? $blog->questionexplanation->explanation : '' }}</textarea>
                                                           </div>
                                                       </div>
+                                                      <div class="col-md-6">
+                                                          <div class="form-group">
+                                                              <label for="image">ছবি (প্রয়োজনে)</label>
+                                                              <input type="file" id="image" name="featured_image" accept="image/*">
+                                                          </div>
+                                                          <center>
+                                                              <img src="{{ asset('images/placeholder.png')}}" id='img-upload' style="width: 250px; height: auto;" class="img-responsive" />
+                                                          </center>
+                                                      </div>
+                                                  </div>    
+                                                      
                                                 </div>
                                                 <div class="modal-footer">
                                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

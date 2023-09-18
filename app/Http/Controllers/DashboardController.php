@@ -1267,6 +1267,7 @@ class DashboardController extends Controller
             $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->slug));
         } else {
             $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->title)) . '-' .time();
+        }
         $blog->blogcategory_id = $request->blogcategory_id;
         $blog->body        = Purifier::clean($request->body, 'youtube');
         

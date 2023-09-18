@@ -1247,8 +1247,50 @@ class DashboardController extends Controller
                     ->withTotalblogs($totalblogs);
     }
 
+    public function storeBlog(Request $request)
+    {
+        $this->validate($request,array(
+            'name'        => 'required|string|max:191',
+        ));
+
+        $blogcategory = new Blogcategory;
+        $blogcategory->name = $request->name;
+        $blogcategory->save();
+
+        Session::flash('success', 'Blog Category created successfully!');
+        return redirect()->route('dashboard.blogs');
+    }
+
+    public function storeBlogCategory(Request $request)
+    {
+        $this->validate($request,array(
+            'name'        => 'required|string|max:191',
+        ));
+
+        $blogcategory = new Blogcategory;
+        $blogcategory->name = $request->name;
+        $blogcategory->save();
+
+        Session::flash('success', 'Blog Category created successfully!');
+        return redirect()->route('dashboard.blogs');
+    }
+
+    public function updateBlogCategory(Request $request, $id)
+    {
+        $this->validate($request,array(
+            'name' => 'required|string|max:191',
+        ));
+
+        $blogcategory = Blogcategory::find($id);;
+        $blogcategory->name = $request->name;
+        $blogcategory->save();
+
+        Session::flash('success', 'Blog Category updated successfully!');
+        return redirect()->route('dashboard.blogs');
+    }
 
 
+    
 
     public function getComponents()
     {

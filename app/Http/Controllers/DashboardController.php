@@ -1261,7 +1261,7 @@ class DashboardController extends Controller
         $blog              = new Blog();
         $blog->title       = $request->title;
         $blog->user_id     = Auth::user()->id;
-        $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-',$request->title).time();
+        $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-',$request->title). '-' .time();
         $blog->blogcategory_id = $request->blogcategory_id;
         $blog->body        = Purifier::clean($request->body, 'youtube');
         

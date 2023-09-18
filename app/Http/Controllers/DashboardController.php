@@ -1229,6 +1229,32 @@ class DashboardController extends Controller
                     ->withTotalblogs($totalblogs);
     }
 
+    public function getQuestionsSearch($search)
+    {
+        ini_set('memory_limit', '-1');
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
+            abort(403, 'Access Denied');
+        }
+        
+        $totalquestions = Question::where('question', 'LIKE', "%$search%")->count();
+        $questions = Question::where('question', 'LIKE', "%$search%")
+                             ->orWhere('option1', 'LIKE', "%$search%")
+                             ->orWhere('option2', 'LIKE', "%$search%")
+                             ->orWhere('option3', 'LIKE', "%$search%")
+                             ->orWhere('option4', 'LIKE', "%$search%")
+                             ->orderBy('id', 'desc')
+                             ->paginate(10);
+        $topics = Topic::orderBy('id', 'asc')->get();
+        $tags = Tag::orderBy('id', 'asc')->get();
+
+        Session::flash('success', $totalquestions . ' টি প্রশ্ন পাওয়া গিয়েছে!');
+        return view('dashboard.questions.index')
+                    ->withQuestions($questions)
+                    ->withTopics($topics)
+                    ->withTags($tags)
+                    ->withTotalquestions($totalquestions);
+    }
+
 
 
 

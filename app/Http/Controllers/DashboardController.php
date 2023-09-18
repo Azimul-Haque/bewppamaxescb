@@ -1274,7 +1274,8 @@ class DashboardController extends Controller
         }
 
         $blog->save();
-        Session::flash('success', 'Blog Category created successfully!');
+
+        Session::flash('success', 'Blog created successfully!');
         return redirect()->route('dashboard.blogs');
     }
 

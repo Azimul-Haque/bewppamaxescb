@@ -95,7 +95,7 @@
                                                               <select name="blogcategory_id" class="form-control" required>
                                                                   <option selected="" disabled="" value="">ক্যাটাগরি (বিষয়)</option>
                                                                   @foreach ($blogcategories as $blogcategory)
-                                                                      <option value="{{ $blogcategory->id }}" @if($blogcategory->id) @endif>{{ $blogcategory->name }}</option>
+                                                                      <option value="{{ $blogcategory->id }}" @if($blogcategory->id == $blog->blogcategory->id) @endif>{{ $blogcategory->name }}</option>
                                                                   @endforeach
                                                               </select>
                                                               <div class="input-group-append">

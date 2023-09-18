@@ -1232,7 +1232,7 @@ class DashboardController extends Controller
     public function getBlogsSearch($search)
     {
         
-        $totalquestions = Question::where('question', 'LIKE', "%$search%")->count();
+        $totalblogs = Question::where('question', 'LIKE', "%$search%")->count();
         $questions = Question::where('question', 'LIKE', "%$search%")
                              ->orWhere('option1', 'LIKE', "%$search%")
                              ->orWhere('option2', 'LIKE', "%$search%")
@@ -1243,12 +1243,12 @@ class DashboardController extends Controller
         $topics = Topic::orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
 
-        Session::flash('success', $totalquestions . ' টি প্রশ্ন পাওয়া গিয়েছে!');
+        Session::flash('success', $totalblogs . ' টি প্রশ্ন পাওয়া গিয়েছে!');
         return view('dashboard.questions.index')
                     ->withQuestions($questions)
                     ->withTopics($topics)
                     ->withTags($tags)
-                    ->withTotalquestions($totalquestions);
+                    ->withTotalblogs($totalblogs);
     }
 
 

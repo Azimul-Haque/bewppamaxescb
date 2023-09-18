@@ -42,7 +42,7 @@
 @endsection
 
 @section('header-s')
-ব্লগসমূহ
+{{ $blog->title }}
 @endsection
 
 @section('content-s')

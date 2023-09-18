@@ -1288,7 +1288,7 @@ class DashboardController extends Controller
             'title'          => 'required|max:255',
             'slug'           => 'required|max:255|unique:blogs,slug,'.$blog->id,
             'body'           => 'required',
-            'category_id'    => 'required|integer',
+            'blogcategory_id'    => 'required|integer',
             'featured_image' => 'sometimes|image|max:300'
         ));
 
@@ -1300,7 +1300,7 @@ class DashboardController extends Controller
         } else {
             $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->slug)) . '-' .time();
         }
-        $blog->category_id = $request->category_id;
+        $blog->blogcategory_id = $request->blogcategory_id;
         $blog->body        = Purifier::clean($request->body, 'youtube');
         
         // image upload

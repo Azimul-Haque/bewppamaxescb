@@ -542,9 +542,9 @@
       //   }
       // },
       dialogsInBody: true,
-      placeholder: 'ব্লগ লিখুন',
+      placeholder: 'ব্লগ লিখুন *',
       tabsize: 1,
-      height: 100,
+      height: 300,
       toolbar: [
         ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],
         ['insert', ['link', 'picture']],

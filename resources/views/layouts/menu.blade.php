@@ -110,7 +110,7 @@
 @if(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')
 <li class="nav-item">
     <a href="{{ route('dashboard.blogs') }}" class="nav-link {{ Request::is('dashboard/blogs') ? 'active' : '' }} {{ Request::is('dashboard/blogs/*') ? 'active' : '' }}">
-        <i class="nav-icon far fa-file-alt"></i>
+        <i class="nav-icon far fa-pencil"></i>
         <p>ব্লগসমূহ</p>
     </a>
 </li>

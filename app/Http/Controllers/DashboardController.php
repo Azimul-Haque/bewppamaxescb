@@ -1223,7 +1223,7 @@ class DashboardController extends Controller
         $blogcategories = Blogcategory::orderBy('id', 'asc')->get();
 
         // dd($questions);
-        return view('dashboard.questions.index')
+        return view('dashboard.blogs.index')
                     ->withBlogs($blogs)
                     ->withBlogcategories($blogcategories)
                     ->withTotalblogs($totalblogs);

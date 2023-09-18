@@ -75,7 +75,7 @@
                                       {{-- Edit Blog Modal Code --}}
                                       <!-- Modal -->
                                       <div class="modal fade" id="editBlogModal{{ $blog->id }}" tabindex="-1" role="dialog" aria-labelledby="editBlogModalLabel" aria-hidden="true" data-backdrop="static">
-                                          <div class="modal-dialog modal-lg" role="document">
+                                          <div class="modal-dialog modal-xl" role="document">
                                           <div class="modal-content">
                                               <div class="modal-header bg-success">
                                                 <h5 class="modal-title" id="editBlogModalLabel">ব্লগ হালনাগাদ</h5>
@@ -376,7 +376,7 @@
     {{-- Add Blog Modal Code --}}
     <!-- Modal -->
     <div class="modal fade" id="addBlogModal" tabindex="-1" role="dialog" aria-labelledby="addBlogModalLabel" aria-hidden="true" data-backdrop="static">
-      <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
           <div class="modal-header bg-success">
             <h5 class="modal-title" id="addBlogModalLabel">নতুন ব্লগ যোগ</h5>

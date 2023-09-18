@@ -1266,7 +1266,7 @@ class DashboardController extends Controller
         if(isset($request->slug)) {
             $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->slug));
         } else {
-            $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->slug)) . '-' .time();
+            $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->title)) . '-' .time();
         }
         $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-',$request->title). '-' .time();
         $blog->blogcategory_id = $request->blogcategory_id;

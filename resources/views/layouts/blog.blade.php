@@ -68,7 +68,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h4>Sd asd</h4>
+                    <h4>@yield('header-s')</h4>
                 </div>
             </div>
         </div>

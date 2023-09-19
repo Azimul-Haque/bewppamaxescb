@@ -42,14 +42,14 @@
 			                        {{ strip_tags($blog->body) }} <a class="highlight-button xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Read More »</a>
 			                    @endif
 			                </div>
+			                </br>
 			                <small style="margin-bottom: 10px;">
 			                    <a href="#!" class="blog-like"><i class="far fa-heart"></i> {{ $blog->likes }} Like(s)</a>
 			                    <a href="#!" class="comment"><i class="far fa-comment"></i>
 			                    <span id="comment_count{{ $blog->id }}"></span>
 			                     comment(s)</a>
 			                </small>
-			                </br>
-			                </br>
+			                
 			            </div>
 			        </div>
 			        {{-- <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>

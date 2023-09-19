@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<section style="padding-top: 150px; padding-bottom: 60px;background-color: #FFFFFF; height: 100px; border-bottom: 1px solid #F4F4F4;">
+<section style="padding-top: 150px; padding-bottom: 60px;background-color: #F4F4F4; height: 100px; border-bottom: 1px solid #F4F4F4;">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

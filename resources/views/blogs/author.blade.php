@@ -15,7 +15,7 @@
             </div>
         </div>
     </section>
-    <section style="background-color: #FAFAFA;">px; background-color: #FAFAFA;">
+    <section style="background-color: #FAFAFA;">
     <div class="container">
 	    <div class="row">
 	      <div class="col-md-12 col-12">

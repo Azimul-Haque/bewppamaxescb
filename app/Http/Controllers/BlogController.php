@@ -169,7 +169,7 @@ class BlogController extends Controller {
 
     public function getBloggerProfile($id)
     {
-        $blogger = User::where('unique_key', $unique_key)->first();
+        $blogger = User::find($id);
         $blogger->setRelation('blogs', $blogger->blogs()->orderBy('id', 'desc')->paginate(6));
         return view('blogs.blogger')->withBlogger($blogger);
     }

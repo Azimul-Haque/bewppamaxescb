@@ -19,7 +19,7 @@
     <div class="container">
 	    <div class="row">
 	    	@foreach($blogger->blogs as $blog)
-		     	<div class="col-md-12 col-12">
+		     	<div class="col-md-4">
 					asd
 		    	</div>
 	    	@endforeach

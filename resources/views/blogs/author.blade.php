@@ -43,13 +43,13 @@
 			                    @endif
 			                </div>
 			                <div class="separator-line bg-black no-margin-lr margin-four"></div>
+			                <a class="highlight-button xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Read More »</a>
 			                <small style="margin-bottom: 10px;">
 			                    <a href="#!" class="blog-like"><i class="far fa-heart"></i> {{ $blog->likes }} Like(s)</a>
 			                    <a href="#!" class="comment"><i class="far fa-comment"></i>
 			                    <span id="comment_count{{ $blog->id }}"></span>
 			                     comment(s)</a>
 			                </small></br>
-			                <a class="highlight-button xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Read More »</a>
 			                </br>
 			            </div>
 			        </div>

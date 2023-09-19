@@ -6,7 +6,16 @@
 @endsection
 
 @section('content')
-<section style="padding-top: 150px; padding-bottom: 50px; background-color: #FAFAFA;">
+	<section style="padding-top: 150px; padding-bottom: 60px;background-color: #FFFFFF; height: 100px; border-bottom: 1px solid #F4F4F4;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>@yield('header-s')</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background-color: #FAFAFA;">px; background-color: #FAFAFA;">
     <div class="container">
 	    <div class="row">
 	      <div class="col-md-12 col-12">

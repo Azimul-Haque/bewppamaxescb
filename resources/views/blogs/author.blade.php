@@ -18,9 +18,9 @@
 <section style="background-color: #FAFAFA; padding-top: 20px; padding-bottom: 50px;">
     <div class="container">
 	    <div class="row">
-	      <div class="col-md-12 col-12">
-			asd
-	      </div>
+	     	<div class="col-md-12 col-12">
+				asd
+	    	</div>
 	  	</div>
   	</div>
 </section>

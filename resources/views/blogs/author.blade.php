@@ -5,6 +5,11 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
 	      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
 	      crossorigin="anonymous"/>
+	 <style type="text/css">
+	 	.blog-box {
+	 		
+	 	}
+	 </style>
 @endsection
 
 @section('content')
@@ -22,7 +27,7 @@
 	    <div class="row">
 	    	@foreach($blogger->blogs as $blog)
 		     	<div class="col-md-4">
-					<div class="blog-listing blog-listing-classic no-margin-top wow fadeIn" style="padding: 20px; margin-bottom: 20px; background-color: #FFFFFF; border-radius: 5px; border: 1px solid #EEEEEE; min-height: 460px;">
+					<div class="blog-listing blog-listing-classic no-margin-top wow fadeIn blog-box" style="padding: 20px; margin-bottom: 20px; background-color: #FFFFFF; border-radius: 5px; border: 1px solid #EEEEEE; min-height: 460px;">
 			            <!-- post image -->
 			            @if($blog->featured_image != null)
 			                <div><a class="blog-image" href="{{ route('blog.single', $blog->slug) }}"><img class="img-responsive" src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;" /></a></div><br/>

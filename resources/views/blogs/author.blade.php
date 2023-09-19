@@ -64,11 +64,7 @@
 			        </script>
 		    	</div>
 	    	@endforeach
-	    	<div class="col-md-12">
-	    		<center>
-	    			{{ $blogger->blogs->links() }}
-	    		</center>
-	    	</div>
+	    	{{ $blogger->blogs->links() }}
 	  	</div>
   	</div>
 </section>

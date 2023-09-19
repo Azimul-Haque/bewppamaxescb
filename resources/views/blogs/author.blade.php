@@ -49,14 +49,13 @@
 			                    @else
 			                        {{ strip_tags($blog->body) }} <a class="highlight-button xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Read More »</a>
 			                    @endif
-			                </div>
+			                </div><br/>
 			                <small style="margin-top: 20px; margin-bottom: 20px;">
 			                    <a href="#!" class="blog-like" style="color: gray; margin-right: 20px;"><i class="far fa-heart"></i> {{ $blog->likes }} Like(s)</a>
 			                    <a href="#!" class="comment" style="color: gray;"><i class="far fa-comment"></i>
 			                    <span id="comment_count{{ $blog->id }}"></span>
 			                     comment(s)</a>
 			                </small>
-			                
 			            </div>
 			        </div>
 			        {{-- <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>

@@ -171,7 +171,7 @@ class BlogController extends Controller {
     {
         $blogger = User::find($id);
         $blogger->setRelation('blogs', $blogger->blogs()->orderBy('id', 'desc')->paginate(6));
-        return view('blogs.blogger')->withBlogger($blogger);
+        return view('blogs.author')->withBlogger($blogger);
     }
 
     public function likeBlogAPI($blog_id)

@@ -37,12 +37,11 @@
 			                </h5>
 			                <div style="text-align: justify;">
 			                    @if(strlen(strip_tags($blog->body))>300)
-			                        {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200))."... " }}
+			                        {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200))."... " }} <a class="highlight-button xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Read More »</a>
 			                    @else
-			                        {{ strip_tags($blog->body) }}
+			                        {{ strip_tags($blog->body) }} <a class="highlight-button xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Read More »</a>
 			                    @endif
 			                </div>
-			                <div class="separator-line bg-black no-margin-lr margin-four"></div>
 			                </br>
 			                <small style="margin-bottom: 10px;">
 			                    <a href="#!" class="blog-like"><i class="far fa-heart"></i> {{ $blog->likes }} Like(s)</a>

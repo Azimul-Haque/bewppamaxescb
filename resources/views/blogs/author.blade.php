@@ -47,7 +47,7 @@
 			                    <span id="comment_count{{ $blog->id }}"></span>
 			                     comment(s)</a>
 			                </div>
-			                <a class="" href="{{ route('blog.single', $blog->slug) }}">Read More »</a>
+			                <a class="highlight-button btn btn-small xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Read More »</a>
 			                </br>
 			            </div>
 			        </div>

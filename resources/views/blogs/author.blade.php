@@ -17,12 +17,12 @@
         </div>
     </div>
 </section>
-<section style="background-color: #FAFAFA; padding-top: 20px; padding-bottom: 50px;">
+<section style="background-color: #F4F4F4; padding-top: 20px; padding-bottom: 50px;">
     <div class="container">
 	    <div class="row">
 	    	@foreach($blogger->blogs as $blog)
 		     	<div class="col-md-4">
-					<div class="blog-listing blog-listing-classic no-margin-top wow fadeIn" style="padding: 20px; margin-bottom: 20px; background-color: #F4F4F4; border-radius: 5px; border: 1px solid #F1F1F1; min-height: 460px;">
+					<div class="blog-listing blog-listing-classic no-margin-top wow fadeIn" style="padding: 20px; margin-bottom: 20px; background-color: #FFFFFF; border-radius: 5px; border: 1px solid #F1F1F1; min-height: 460px;">
 			            <!-- post image -->
 			            @if($blog->featured_image != null)
 			                <div><a class="blog-image" href="{{ route('blog.single', $blog->slug) }}"><img class="img-responsive" src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;" /></a></div><br/>

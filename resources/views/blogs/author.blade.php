@@ -28,11 +28,11 @@
 			            <!-- end post image -->
 			            <div class="blog-details">
 			                <small class="blog-date"><a href="{{ route('blogger.profile', $blog->user->id) }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | <a href="{{ route('blog.categorywise', str_replace(" ", "-", $blog->blogcategory->name)) }}">{{ $blog->blogcategory->name }}</a> </small>
-			                <h4>
+			                <h5>
 			                    <a href="{{ route('blog.single', $blog->slug) }}">
 			                        {{ $blog->title }}
 			                    </a>
-			                </h4>
+			                </h5>
 			                <div style="text-align: justify;">
 			                    @if(strlen(strip_tags($blog->body))>300)
 			                        {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200))."... " }}

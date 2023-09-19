@@ -22,7 +22,7 @@
 	    <div class="row">
 	    	@foreach($blogger->blogs as $blog)
 		     	<div class="col-md-4">
-					<div class="blog-listing blog-listing-classic no-margin-top wow fadeIn" style="padding: 10px; background-color: Red">
+					<div class="blog-listing blog-listing-classic no-margin-top wow fadeIn" style="padding: 50px; background-color: Red">
 			            <!-- post image -->
 			            @if($blog->featured_image != null)
 			                <div><a class="blog-image" href="{{ route('blog.single', $blog->slug) }}"><img class="img-responsive" src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;" /></a></div><br/>

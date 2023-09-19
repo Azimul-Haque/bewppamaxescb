@@ -35,7 +35,7 @@
 			                </div>
 			                <div style="text-align: justify;">
 			                    @if(strlen(strip_tags($blog->body))>400)
-			                        {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+500))."... " }}
+			                        {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+350))."... " }}
 			                    @else
 			                        {{ strip_tags($blog->body) }}
 			                    @endif

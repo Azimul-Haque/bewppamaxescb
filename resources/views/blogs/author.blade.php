@@ -48,7 +48,7 @@
 			                    <a href="#!" class="comment"><i class="far fa-comment"></i>
 			                    <span id="comment_count{{ $blog->id }}"></span>
 			                     comment(s)</a>
-			                </small>
+			                </small></br>
 			                <a class="highlight-button btn btn-small xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Read More »</a>
 			                </br>
 			            </div>

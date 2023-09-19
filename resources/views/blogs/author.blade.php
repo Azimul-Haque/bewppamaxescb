@@ -50,7 +50,6 @@
 			                        {{ strip_tags($blog->body) }} <a class="highlight-button xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Read More »</a>
 			                    @endif
 			                </div>
-			                </br>
 			                <small style="margin-bottom: 10px;">
 			                    <a href="#!" class="blog-like" style="color: gray; margin-right: 20px;"><i class="far fa-heart"></i> {{ $blog->likes }} Like(s)</a>
 			                    <a href="#!" class="comment" style="color: gray;"><i class="far fa-comment"></i>

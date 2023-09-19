@@ -29,7 +29,7 @@
 			            <div class="blog-details">
 			                <small class="blog-date"><a href="{{ route('blogger.profile', $blog->user->id) }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | <a href="{{ route('blog.categorywise', str_replace(" ", "-", $blog->blogcategory->name)) }}">{{ $blog->blogcategory->name }}</a> </small>
 			                <h5>
-			                    <a href="{{ route('blog.single', $blog->slug) }}">
+			                    <a href="{{ route('blog.single', $blog->slug) }}" style="color: #000000;">
 			                        {{ $blog->title }}
 			                    </a>
 			                </h5>

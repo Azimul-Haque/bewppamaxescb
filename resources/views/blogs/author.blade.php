@@ -21,7 +21,7 @@
 	    	@foreach($blogger->blogs as $blog)
 		     	<div class="col-md-4" style="background: Red;">
 					asd
-		    	</div>
+		    	</div><br/>
 	    	@endforeach
 	  	</div>
   	</div>

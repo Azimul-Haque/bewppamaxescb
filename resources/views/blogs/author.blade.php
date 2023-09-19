@@ -43,7 +43,7 @@
 			                    @endif
 			                </div>
 			                </br>
-			                <small style="margin-bottom: 10px; color: gray;">
+			                <small style="margin-bottom: 10px;">
 			                    <a href="#!" class="blog-like"><i class="far fa-heart"></i> {{ $blog->likes }} Like(s)</a>
 			                    <a href="#!" class="comment"><i class="far fa-comment"></i>
 			                    <span id="comment_count{{ $blog->id }}"></span>

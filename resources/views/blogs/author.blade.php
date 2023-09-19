@@ -64,7 +64,7 @@
 			        </script>
 		    	</div>
 	    	@endforeach
-	    	{{ $blogger->blogs->links() }}
+	    	<center>{{ $blogger->blogs->links() }}</center>
 	  	</div>
   	</div>
 </section>

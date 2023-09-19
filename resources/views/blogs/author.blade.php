@@ -23,6 +23,7 @@
 					asd
 		    	</div>
 	    	@endforeach
+	    	{{ $blogs->links() }}
 	  	</div>
   	</div>
 </section>

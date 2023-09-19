@@ -167,7 +167,7 @@ class BlogController extends Controller {
         //
     }
 
-    public function getBloggerProfile($unique_key)
+    public function getBloggerProfile($id)
     {
         $blogger = User::where('unique_key', $unique_key)->first();
         $blogger->setRelation('blogs', $blogger->blogs()->orderBy('id', 'desc')->paginate(6));

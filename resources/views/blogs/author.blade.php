@@ -8,6 +8,7 @@
 	 <style type="text/css">
 	 	.blog-box:hover {
 	 		border: 1px solid #000000;
+	 		background-color: #000000;
 	 	}
 	 </style>
 @endsection

@@ -49,6 +49,7 @@
 			                     comment(s)</a>
 			                </small>
 			                </br>
+			                </br>
 			            </div>
 			        </div>
 			        <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>

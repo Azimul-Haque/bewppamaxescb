@@ -49,7 +49,7 @@
 			                    <a href="#!" class="comment"><i class="far fa-comment"></i>
 			                    <span id="comment_count{{ $blog->id }}"></span>
 			                     comment(s)</a>
-			                </small></br>
+			                </small>
 			                </br>
 			            </div>
 			        </div>

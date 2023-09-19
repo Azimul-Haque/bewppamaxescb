@@ -52,7 +52,7 @@
 			                </br>
 			            </div>
 			        </div>
-			        <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
+			        {{-- <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
 			        <script type="text/javascript">
 			            // $.ajax({
 			            //     url: "https://graph.facebook.com/v2.2/?fields=share{comment_count}&id={{ url('/blog/'.$blog->slug) }}",
@@ -61,7 +61,7 @@
 			            //         $('#comment_count{{ $blog->id }}').text(data.share.comment_count);
 			            //     }
 			            // });
-			        </script>
+			        </script> --}}
 		    	</div>
 	    	@endforeach
 	    	{{ $blogger->blogs->links() }}

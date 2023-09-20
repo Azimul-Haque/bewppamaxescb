@@ -1274,7 +1274,7 @@ class DashboardController extends Controller
         // image upload
         if($request->hasFile('featured_image')) {
             $image      = $request->file('featured_image');
-            $filename   = str_replace(['?',':', '\\', '/', '*', ' '], '_',$request->title).time() .'.' . $image->getClientOriginalExtension();
+            $filename   = str_replace(['?',':', '\\', '/', '*', ' '], '_',$request->title).time() .'.' . "webp";
             $location   = public_path('images/blogs/'. $filename);
             Image::make($image)->resize(600, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
             $blog->featured_image = $filename;
@@ -1316,7 +1316,7 @@ class DashboardController extends Controller
                 File::delete($image_path);
             }
             $image      = $request->file('featured_image');
-            $filename   = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->slug)) . '-' .time() . '.' . $image->getClientOriginalExtension();
+            $filename   = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->slug)) . '-' .time() . '.' . "webp";
             $location   = public_path('images/blogs/'. $filename);
             // Image::make($image)->resize(600, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
             Image::make($image)->fit(600, 315)->save($location);

@@ -1308,7 +1308,7 @@ class DashboardController extends Controller
         }
         $blog->blogcategory_id = $request->blogcategory_id;
         // $blog->body        = Purifier::clean($request->body, 'youtube');
-        $blog->body        = Purifier::clean($request->body, 'youtube');
+        $blog->body        = $request->body;
         
         // image upload
         if($request->hasFile('featured_image')) {

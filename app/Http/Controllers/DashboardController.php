@@ -1307,7 +1307,7 @@ class DashboardController extends Controller
             $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->slug));
         }
         $blog->blogcategory_id = $request->blogcategory_id;
-        $blog->body        = Purifier::clean($request->body, 'youtube');
+        $blog->body        = $request->body;
         
         // image upload
         if($request->hasFile('featured_image')) {

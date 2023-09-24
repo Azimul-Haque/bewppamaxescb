@@ -8,14 +8,14 @@
         <meta property="og:image" content="{{ asset('images/abc.png') }}" />
     @endif
 
-    <meta property="og:title" content="{{ $blog->title }} | {{ $blog->user->name }}"/>
-    <meta name="description" property="og:description" content="{{ substr(strip_tags($blog->body), 0, 200) }}" />
+    <meta property="og:title" content="{{ $blog->title }}"/>
+    <meta name="description" property="og:description" content="{{ mb_substr(strip_tags($blog->body), 0, 200) }}..." />
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="{{ Request::url() }}" />
-    <meta property="og:site_name" content="TenX">
+    <meta property="og:site_name" content="BCS Exam Aid">
     <meta property="og:locale" content="en_US">
     <meta property="fb:admins" content="100001596964477">
-    <meta property="fb:app_id" content="163879201229487">
+    <meta property="fb:app_id" content="1471913530260781">
     <meta property="og:type" content="article">
     <!-- Open Graph - Article -->
     <meta name="article:section" content="{{ $blog->blogcategory->name }}">

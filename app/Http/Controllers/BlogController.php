@@ -78,7 +78,7 @@ class BlogController extends Controller {
         // image upload
         if($request->hasFile('featured_image')) {
             $image      = $request->file('featured_image');
-            $filename   = str_replace(['?',':', '\\', '/', '*', ' '], '_',$request->title).time() .'.' . $image->getClientOriginalExtension();
+            $filename   = str_replace(['?',':', '\\', '/', '*', ' '], '_',$request->slug).time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('images/blogs/'. $filename);
             Image::make($image)->resize(600, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
             $blog->featured_image = $filename;

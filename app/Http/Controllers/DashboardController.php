@@ -1266,7 +1266,7 @@ class DashboardController extends Controller
         if(isset($request->slug)) {
             $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->slug));
         } else {
-            $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->slug)) . '-' .time();
+            $blog->slug        = str_replace(['?',':', '\\', '/', '*', ' '], '-', strtolower($request->title)) . '-' .time();
         }
         $blog->blogcategory_id = $request->blogcategory_id;
         $blog->body        = Purifier::clean($request->body, 'youtube');
@@ -1274,7 +1274,7 @@ class DashboardController extends Controller
         // image upload
         if($request->hasFile('featured_image')) {
             $image      = $request->file('featured_image');
-            $filename   = str_replace(['?',':', '\\', '/', '*', ' '], '_',$request->title).time() .'.' . "webp";
+            $filename   = str_replace(['?',':', '\\', '/', '*', ' '], '_',$request->slug).time() .'.' . "webp";
             $location   = public_path('images/blogs/'. $filename);
             Image::make($image)->resize(600, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
             $blog->featured_image = $filename;

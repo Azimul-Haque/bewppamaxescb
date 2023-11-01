@@ -1248,6 +1248,8 @@ class DashboardController extends Controller
                     ->withTotalblogs($totalblogs);
     }
 
+    
+
     public function storeBlog(Request $request)
     {
         $this->validate($request,array(

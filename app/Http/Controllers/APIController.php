@@ -36,21 +36,22 @@ class APIController extends Controller
 
     private function generateOTP($mobile, $softtoken)
     {
-        if($softtoken == env('SOFT_TOKEN'))
-        $pool = '0123456789';
-        $otp = substr(str_shuffle(str_repeat($pool, 4)), 0, 4);
+        if($softtoken == env('SOFT_TOKEN')) {
+            $pool = '0123456789';
+            $otp = substr(str_shuffle(str_repeat($pool, 4)), 0, 4);
 
-        // Userotp Table Lagbe
-        // Userotp Table Lagbe
-        // Userotp Table Lagbe
+            // Userotp Table Lagbe
+            // Userotp Table Lagbe
+            // Userotp Table Lagbe
 
-        // Userotp::where('mobile', $mobile)->delete();        
+            // Userotp::where('mobile', $mobile)->delete();        
 
-        // $newOTP = new Userotp();
-        // $newOTP->mobile = $mobile;
-        // $newOTP->otp = $otp;
-        // $newOTP->save();
-        return $otp;
+            // $newOTP = new Userotp();
+            // $newOTP->mobile = $mobile;
+            // $newOTP->otp = $otp;
+            // $newOTP->save();
+            return $otp;
+        }
     }
 
     public function loginOrCreate(Request $request) {

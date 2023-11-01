@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/testapi', 'APIController@test')->name('api.test');
 
+Route::post('/sendotp', 'APIController@generateOTP')->name('api.sendotp');
 Route::post('/loginorcreate', 'APIController@loginOrCreate')->name('api.loginorcreate');
 
 Route::get('/checkuid/{softtoken}/{phonenumber}', 'APIController@checkUid')->name('api.checkuid');

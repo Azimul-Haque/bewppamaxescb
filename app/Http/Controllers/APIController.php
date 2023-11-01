@@ -50,7 +50,7 @@ class APIController extends Controller
             // $newOTP->mobile = $mobile;
             // $newOTP->otp = $otp;
             // $newOTP->save();
-            return $otp;
+            // return $otp;
         }
     }
 

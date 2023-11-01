@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Repositories\userRepository;
+
 use App\User;
 use App\Examcategory;
 use App\Question;

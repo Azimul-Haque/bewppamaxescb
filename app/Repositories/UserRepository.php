@@ -4,8 +4,8 @@ namespace App\Repositories;
 
 use Illuminate\Http\Request;
 
-use App\Models\User;
-use App\Models\Userotp;
+use App\User;
+// use App\Models\Userotp;
 use App\Workers\UserTokenHandler;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;

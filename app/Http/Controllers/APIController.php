@@ -36,6 +36,11 @@ class APIController extends Controller
 
     private function generateOTP(Request $request)
     {
+        $this->validate($request,array(
+            'mobile'         => 'required',
+            'softtoken'      => 'required|max:191'
+        ));
+
         if($request->softtoken == env('SOFT_TOKEN')) {
             $pool = '0123456789';
             $otp = substr(str_shuffle(str_repeat($pool, 4)), 0, 4);

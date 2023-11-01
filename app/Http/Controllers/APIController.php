@@ -74,9 +74,9 @@ class APIController extends Controller
             if($sendstatus == 1101) {
                 Session::flash('success', 'SMS সফলভাবে পাঠানো হয়েছে!');
             } elseif($sendstatus == 1006) {
-                Session::flash('warning', 'অপর্যাপ্ত SMS ব্যালেন্সের কারণে SMS পাঠানো যায়নি!');
+                // Session::flash('warning', 'অপর্যাপ্ত SMS ব্যালেন্সের কারণে SMS পাঠানো যায়নি!');
             } else {
-                Session::flash('warning', 'দুঃখিত! SMS পাঠানো যায়নি!');
+                // Session::flash('warning', 'দুঃখিত! SMS পাঠানো যায়নি!');
             }
 
             // Userotp Table Lagbe

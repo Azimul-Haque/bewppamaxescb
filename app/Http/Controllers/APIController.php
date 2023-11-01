@@ -96,6 +96,8 @@ class APIController extends Controller
             // $newOTP->save();
 
             return $otp;
+        } else {
+            return 'Invalid Soft Token';
         }
     }
 

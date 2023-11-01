@@ -32,6 +32,8 @@ class APIController extends Controller
          dd('name');
     }
 
+    
+
     public function checkUid($softtoken, $phonenumber)
     {
         $user = User::where('mobile', substr($phonenumber, -11))->first();

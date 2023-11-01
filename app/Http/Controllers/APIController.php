@@ -32,7 +32,9 @@ class APIController extends Controller
          dd('name');
     }
 
-    
+    public function loginOrCreate(Request $request) {
+        
+    }
 
     public function checkUid($softtoken, $phonenumber)
     {

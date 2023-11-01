@@ -41,11 +41,11 @@ class APIController extends Controller
             $otp = substr(str_shuffle(str_repeat($pool, 4)), 0, 4);
 
             $mobile_number = 0;
-            if(strlen($user->mobile) == 11) {
-                $mobile_number = $user->mobile;
-            } elseif(strlen($user->mobile) > 11) {
-                if (strpos($user->mobile, '+') !== false) {
-                    $mobile_number = substr($user->mobile, -11);
+            if(strlen($request->mobile) == 11) {
+                $mobile_number = $request->mobile;
+            } elseif(strlen($request->mobile) > 11) {
+                if (strpos($request->mobile, '+') !== false) {
+                    $mobile_number = substr($request->mobile, -11);
                 }
             }
 

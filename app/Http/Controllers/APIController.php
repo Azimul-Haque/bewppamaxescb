@@ -34,8 +34,9 @@ class APIController extends Controller
          dd('name');
     }
 
-    private function generateOTP($mobile)
+    private function generateOTP($mobile, $softtoken)
     {
+        if($softtoken == env('SOFT_TOKEN'))
         $pool = '0123456789';
         $otp = substr(str_shuffle(str_repeat($pool, 4)), 0, 4);
 

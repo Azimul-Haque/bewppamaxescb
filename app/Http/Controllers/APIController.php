@@ -82,6 +82,11 @@ class APIController extends Controller
             // Userotp Table Lagbe
             // Userotp Table Lagbe
             // Userotp Table Lagbe
+            // Userotp Table Lagbe
+            // Userotp Table Lagbe
+            // Userotp Table Lagbe
+            // Userotp Table Lagbe
+            // Userotp Table Lagbe
 
             // Userotp::where('mobile', $mobile)->delete();        
 

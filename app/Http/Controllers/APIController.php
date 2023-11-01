@@ -33,7 +33,13 @@ class APIController extends Controller
     }
 
     public function loginOrCreate(Request $request) {
-        
+        $user = $this->userRepository->login($request->validated());
+
+        if ($user) {
+            return response()->json($user, 200);
+        } else {
+            return response()->json(['message' => 'Invalild Credentials'], 401);
+        }
     }
 
     public function checkUid($softtoken, $phonenumber)

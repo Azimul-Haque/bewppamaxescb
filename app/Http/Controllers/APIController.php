@@ -34,7 +34,7 @@ class APIController extends Controller
          dd('name');
     }
 
-    public function loginOrCreate(Request $request) {
+    public function generateOTP(Request $request) {
         $user = $this->userRepository->login($request->validated());
 
         if ($user) {

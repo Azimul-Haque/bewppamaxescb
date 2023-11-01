@@ -34,7 +34,7 @@ class APIController extends Controller
          dd('name');
     }
 
-    private function generateOTP(Request $request)
+    public function generateOTP(Request $request)
     {
         $this->validate($request,array(
             'mobile'         => 'required',

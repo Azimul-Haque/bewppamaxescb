@@ -34,14 +34,17 @@ class APIController extends Controller
          dd('name');
     }
 
-    public function generateOTP(Request $request) {
-        $user = $this->userRepository->login($request->validated());
+    private function generateOTP($mobile)
+    {
+        $pool = '0123456789';
+        $otp = substr(str_shuffle(str_repeat($pool, 4)), 0, 4);
+        Userotp::where('mobile', $mobile)->delete();
 
-        if ($user) {
-            return response()->json($user, 200);
-        } else {
-            return response()->json(['message' => 'Invalild Credentials'], 401);
-        }
+        $newOTP = new Userotp();
+        $newOTP->mobile = $mobile;
+        $newOTP->otp = $otp;
+        $newOTP->save();
+        return $otp;
     }
 
     public function loginOrCreate(Request $request) {

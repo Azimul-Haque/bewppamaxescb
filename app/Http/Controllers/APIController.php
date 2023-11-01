@@ -95,7 +95,7 @@ class APIController extends Controller
             // $newOTP->otp = $otp;
             // $newOTP->save();
 
-            // return $otp;
+            return $otp;
         }
     }
 

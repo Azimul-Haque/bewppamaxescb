@@ -51,7 +51,7 @@ class APIController extends Controller
 
             $url = config('sms.url');
             $number = $mobile_number;
-            $text = $request->message;
+            $text = $otp . ' is your OTP for BCS Exam Aid App.';
             
             $data= array(
                 'username'=>config('sms.username'),
@@ -78,7 +78,7 @@ class APIController extends Controller
             } else {
                 Session::flash('warning', 'দুঃখিত! SMS পাঠানো যায়নি!');
             }
-            
+
             // Userotp Table Lagbe
             // Userotp Table Lagbe
             // Userotp Table Lagbe

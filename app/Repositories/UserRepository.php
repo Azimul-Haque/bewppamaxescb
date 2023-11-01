@@ -6,8 +6,14 @@ use Illuminate\Http\Request;
 
 use App\User;
 // use App\Models\Userotp;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+use Hash;
+use Carbon\Carbon;
+use DB;
+use OneSignal;
+use Cache;
+
+// use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\Hash;
 
 class UserRepository
 {

@@ -20,6 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/testapi', 'APIController@test')->name('api.test');
 
+Route::post('/loginorcreate', [\App\Http\Controllers\API\UserController::class, 'authorizeUserLogin']);
+
 Route::get('/checkuid/{softtoken}/{phonenumber}', 'APIController@checkUid')->name('api.checkuid');
 Route::get('/checkpackagevalidity/{softtoken}/{phonenumber}', 'APIController@checkPackageValidity')->name('api.checkpackagevalidity');
 Route::post('/adduser', 'APIController@addUser')->name('api.adduser');

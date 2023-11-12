@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Repositories\userRepository;
 
 use App\User;
+use App\Userotp;
 use App\Examcategory;
 use App\Question;
 use App\Course;

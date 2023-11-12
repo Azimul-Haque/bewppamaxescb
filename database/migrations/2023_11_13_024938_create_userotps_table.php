@@ -15,6 +15,8 @@ class CreateUserotpsTable extends Migration
     {
         Schema::create('userotps', function (Blueprint $table) {
             $table->id();
+            $table->string('mobile');
+            $table->string('otp');
             $table->timestamps();
         });
     }

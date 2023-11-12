@@ -83,7 +83,7 @@ class UserRepository
                 'success' => false,
                 'message' => 'Invalid OTP',
             ];
-            // throw new \Exception('Invalid OTP');
+            throw new \Exception('Invalid OTP');
         }
 
         // }

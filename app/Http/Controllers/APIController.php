@@ -96,7 +96,7 @@ class APIController extends Controller
             Userotp::where('mobile', $mobile)->delete();
 
             $newOTP = new Userotp();
-            $newOTP->mobile = $mobile;
+            $newOTP->mobile = $number;
             $newOTP->otp = $otp;
             $newOTP->save();
 

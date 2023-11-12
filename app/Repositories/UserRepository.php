@@ -35,7 +35,7 @@ class UserRepository
                     $this->deleteOTP($request['mobile']);
                     // $userTokenHandler = new UserTokenHandler();
                     // $user = $userTokenHandler->regenerateUserToken($user);
-                    $user->load('roles');
+                    // $user->load('roles');
                     return [
                         'success' => true,
                         'user' => $user,

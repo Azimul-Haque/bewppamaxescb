@@ -72,11 +72,11 @@ class UserRepository
                 // $userTokenHandler = new UserTokenHandler();
                 // $user = $userTokenHandler->regenerateUserToken($user);
                 // $user->load('roles');
-                // return [
-                //     'success' => true,
-                //     'user' => $user,
-                //     'message' => 'রেজিস্ট্রেশন সফল হয়েছে!',
-                // ];
+                return [
+                    'success' => true,
+                    'user' => $user,
+                    'message' => 'রেজিস্ট্রেশন সফল হয়েছে!',
+                ];
             }
         }  else {
             return [

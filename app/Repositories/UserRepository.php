@@ -20,72 +20,72 @@ class UserRepository
 
     public function login(array $request)
     {
-        if(!isset($request['otp'])) {
-            $otp = $this->generateOTP($request['mobile']);
-            // ekhane SMS gateway bose...
-            return 'OTP created successfully. Your OTP is ' . $otp;
-        }
-        else {
-            $user = User::where('mobile', $request['mobile'])->first();
-            $userotp = Userotp::where('mobile', $request['mobile'])->firstOrFail();
-            if($userotp->otp == $request['otp']) {
-                if ($user) {
-                    // $user->is_verified = 1;
-                    // $user->save();
-                    $this->deleteOTP($request['mobile']);
-                    // $userTokenHandler = new UserTokenHandler();
-                    // $user = $userTokenHandler->regenerateUserToken($user);
-                    // $user->load('roles');
+        // if(!isset($request['otp'])) {
+        //     $otp = $this->generateOTP($request['mobile']);
+        //     // ekhane SMS gateway bose...
+        //     return 'OTP created successfully. Your OTP is ' . $otp;
+        // }
+        // else {
+        $user = User::where('mobile', $request['mobile'])->first();
+        $userotp = Userotp::where('mobile', $request['mobile'])->firstOrFail();
+        if($userotp->otp == $request['otp']) {
+            if ($user) {
+                // $user->is_verified = 1;
+                // $user->save();
+                $this->deleteOTP($request['mobile']);
+                // $userTokenHandler = new UserTokenHandler();
+                // $user = $userTokenHandler->regenerateUserToken($user);
+                // $user->load('roles');
+                return [
+                    'success' => true,
+                    'user' => $user,
+                    'message' => 'লগইন সফল হয়েছে!',
+                ];
+                // if($user && Hash::check($request['password'], $user->password)){
+                //     $userTokenHandler = new UserTokenHandler();
+                //     $user = $userTokenHandler->regenerateUserToken($user);
+                //     $user->load('roles');
+                //     return $user;
+                // }
+            } else {
+                $newUser = new User();
+                DB::beginTransaction();
+                try {
+                    $newUser->mobile = $request['mobile'];
+                    $newUser->password = Hash::make('secret123');
+                    $newUser->save();
+                    $newUser->assignRole('general');
+                } catch (\Exception $e) {
+                    DB::rollBack();
+                    // throw new \Exception($e->getMessage());
                     return [
-                        'success' => true,
-                        'user' => $user,
-                        'message' => 'লগইন সফল হয়েছে!',
-                    ];
-                    // if($user && Hash::check($request['password'], $user->password)){
-                    //     $userTokenHandler = new UserTokenHandler();
-                    //     $user = $userTokenHandler->regenerateUserToken($user);
-                    //     $user->load('roles');
-                    //     return $user;
-                    // }
-                } else {
-                    $newUser = new User();
-                    DB::beginTransaction();
-                    try {
-                        $newUser->mobile = $request['mobile'];
-                        $newUser->password = Hash::make('secret123');
-                        $newUser->save();
-                        $newUser->assignRole('general');
-                    } catch (\Exception $e) {
-                        DB::rollBack();
-                        // throw new \Exception($e->getMessage());
-                        return [
-                            'success' => false,
-                            'message' => 'দুঃখিত! আবার চেষ্টা করুন।',
-                        ];
-                    }
-                    DB::commit();
-                    $user = User::where('mobile', $request['mobile'])->first();
-                    $user->is_verified = 1;
-                    $user->save();
-                    $this->deleteOTP($request['mobile']);
-                    $userTokenHandler = new UserTokenHandler();
-                    $user = $userTokenHandler->regenerateUserToken($user);
-                    $user->load('roles');
-                    return [
-                        'success' => true,
-                        'user' => $user,
-                        'message' => 'রেজিস্ট্রেশন সফল হয়েছে!',
+                        'success' => false,
+                        'message' => 'দুঃখিত! আবার চেষ্টা করুন।',
                     ];
                 }
-            }  else {
+                DB::commit();
+                $user = User::where('mobile', $request['mobile'])->first();
+                $user->is_verified = 1;
+                $user->save();
+                $this->deleteOTP($request['mobile']);
+                $userTokenHandler = new UserTokenHandler();
+                $user = $userTokenHandler->regenerateUserToken($user);
+                $user->load('roles');
                 return [
-                    'success' => false,
-                    'message' => 'Invalid OTP',
+                    'success' => true,
+                    'user' => $user,
+                    'message' => 'রেজিস্ট্রেশন সফল হয়েছে!',
                 ];
-                // throw new \Exception('Invalid OTP');
             }
-
+        }  else {
+            return [
+                'success' => false,
+                'message' => 'Invalid OTP',
+            ];
+            // throw new \Exception('Invalid OTP');
         }
+
+        // }
         return null;
     }
 

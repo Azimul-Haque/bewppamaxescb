@@ -85,15 +85,6 @@ class APIController extends Controller
                 // Session::flash('warning', 'দুঃখিত! SMS পাঠানো যায়নি!');
             }
 
-            // Userotp Table Lagbe
-            // Userotp Table Lagbe
-            // Userotp Table Lagbe
-            // Userotp Table Lagbe
-            // Userotp Table Lagbe
-            // Userotp Table Lagbe
-            // Userotp Table Lagbe
-            // Userotp Table Lagbe
-
             Userotp::where('mobile', $number)->delete();
 
             $newOTP = new Userotp();

@@ -93,12 +93,12 @@ class APIController extends Controller
             // Userotp Table Lagbe
             // Userotp Table Lagbe
 
-            // Userotp::where('mobile', $mobile)->delete();        
+            Userotp::where('mobile', $mobile)->delete();
 
-            // $newOTP = new Userotp();
-            // $newOTP->mobile = $mobile;
-            // $newOTP->otp = $otp;
-            // $newOTP->save();
+            $newOTP = new Userotp();
+            $newOTP->mobile = $mobile;
+            $newOTP->otp = $otp;
+            $newOTP->save();
 
             return $otp;
         } else {

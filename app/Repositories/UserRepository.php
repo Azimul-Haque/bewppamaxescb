@@ -30,11 +30,11 @@ class UserRepository
             $userotp = Userotp::where('mobile', $request['mobile'])->firstOrFail();
             if($userotp->otp == $request['otp']) {
                 if ($user) {
-                    $user->is_verified = 1;
-                    $user->save();
+                    // $user->is_verified = 1;
+                    // $user->save();
                     $this->deleteOTP($request['mobile']);
-                    $userTokenHandler = new UserTokenHandler();
-                    $user = $userTokenHandler->regenerateUserToken($user);
+                    // $userTokenHandler = new UserTokenHandler();
+                    // $user = $userTokenHandler->regenerateUserToken($user);
                     $user->load('roles');
                     return [
                         'success' => true,

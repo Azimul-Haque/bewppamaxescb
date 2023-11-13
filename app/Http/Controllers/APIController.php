@@ -98,8 +98,8 @@ class APIController extends Controller
         }
     }
 
-    public function loginOrCreate(Request $request) {
-        
+    public function loginOrCreate(Request $request)
+    {    
         $user = User::where('mobile', $request['mobile'])->first();
         $userotp = Userotp::where('mobile', $request['mobile'])->first();
         if($userotp->otp == $request['otp']) {

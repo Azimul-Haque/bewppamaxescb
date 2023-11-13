@@ -159,7 +159,6 @@ class APIController extends Controller
             throw new \Exception('Invalid OTP');
         }
 
-        // }
         return null;
 
         // $user = $this->userRepository->login($request->validated());

@@ -86,7 +86,6 @@ class UserRepository
             throw new \Exception('Invalid OTP');
         }
 
-        // }
         return null;
     }
 

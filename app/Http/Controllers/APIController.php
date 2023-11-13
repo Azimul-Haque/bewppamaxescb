@@ -145,14 +145,14 @@ class APIController extends Controller
                 // $userTokenHandler = new UserTokenHandler();
                 // $user = $userTokenHandler->regenerateUserToken($user);
                 // $user->load('roles');
-                return [
+                $userdata = [
                     'success' => true,
                     'user' => $user,
                     'message' => 'রেজিস্ট্রেশন সফল হয়েছে!',
                 ];
             }
         }  else {
-            return [
+            $userdata = [
                 'success' => false,
                 'message' => 'Invalid OTP',
             ];

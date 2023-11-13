@@ -142,7 +142,6 @@ class APIController extends Controller
                 }
                 DB::commit();
                 $user = User::where('mobile', $request['mobile'])->first();
-                $user->is_verified = 1;
                 $user->save();
                 $this->deleteOTP($request['mobile']);
                 $userTokenHandler = new UserTokenHandler();

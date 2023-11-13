@@ -159,13 +159,12 @@ class APIController extends Controller
             throw new \Exception('Invalid OTP');
         }
 
-        return null;
-
         // if ($user) {
         //     return response()->json($user, 200);
         // } else {
         //     return response()->json(['message' => 'Invalild Credentials'], 401);
         // }
+        return null;
     }
 
     public function deleteOTP($mobile)

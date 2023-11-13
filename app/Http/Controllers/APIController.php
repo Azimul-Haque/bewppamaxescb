@@ -156,7 +156,7 @@ class APIController extends Controller
                 'success' => false,
                 'message' => 'Invalid OTP',
             ];
-            throw new \Exception('Invalid OTP');
+            // throw new \Exception('Invalid OTP');
         }
 
         if ($userdata) {

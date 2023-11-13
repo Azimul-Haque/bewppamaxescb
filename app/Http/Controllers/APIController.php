@@ -161,7 +161,7 @@ class APIController extends Controller
 
         // }
         return null;
-        
+
         // $user = $this->userRepository->login($request->validated());
 
         // if ($user) {
@@ -169,6 +169,11 @@ class APIController extends Controller
         // } else {
         //     return response()->json(['message' => 'Invalild Credentials'], 401);
         // }
+    }
+
+    public function deleteOTP($mobile)
+    {
+        Userotp::where('mobile', $mobile)->delete();
     }
 
     public function checkUid($softtoken, $phonenumber)

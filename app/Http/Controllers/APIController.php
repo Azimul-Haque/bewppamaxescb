@@ -161,8 +161,6 @@ class APIController extends Controller
 
         return null;
 
-        // $user = $this->userRepository->login($request->validated());
-
         // if ($user) {
         //     return response()->json($user, 200);
         // } else {

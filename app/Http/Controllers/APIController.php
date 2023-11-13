@@ -126,7 +126,7 @@ class APIController extends Controller
                 //     return $user;
                 // }
             } else {
-                // $newUser = new User();
+                $newUser = new User();
                 // DB::beginTransaction();
                 // try {
                 //     $newUser->mobile = $request['mobile'];

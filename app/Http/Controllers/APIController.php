@@ -59,6 +59,10 @@ class APIController extends Controller
             $number = $mobile_number;
             $text = $otp . ' is your OTP for BCS Exam Aid App.';
             
+            // TEXT MESSAGE OTP
+            // TEXT MESSAGE OTP
+            // TEXT MESSAGE OTP
+            
             // $data= array(
             //     'username'=>config('sms.username'),
             //     'password'=>config('sms.password'),

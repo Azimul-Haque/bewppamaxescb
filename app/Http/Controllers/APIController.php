@@ -62,7 +62,7 @@ class APIController extends Controller
             // TEXT MESSAGE OTP
             // TEXT MESSAGE OTP
             // TEXT MESSAGE OTP
-            
+
             // $data= array(
             //     'username'=>config('sms.username'),
             //     'password'=>config('sms.password'),
@@ -158,7 +158,7 @@ class APIController extends Controller
         }  else {
             $userdata = [
                 'success' => false,
-                'message' => 'Invalid OTP',
+                'message' => 'সঠিক OTP প্রদান করুন!',
             ];
             // throw new \Exception('Invalid OTP');
         }

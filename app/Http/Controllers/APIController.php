@@ -144,9 +144,6 @@ class APIController extends Controller
                 $user = User::where('mobile', $request['mobile'])->first();
                 $user->save();
                 $this->deleteOTP($request['mobile']);
-                $userTokenHandler = new UserTokenHandler();
-                $user = $userTokenHandler->regenerateUserToken($user);
-                $user->load('roles');
                 $userdata = [
                     'success' => true,
                     'user' => $user,

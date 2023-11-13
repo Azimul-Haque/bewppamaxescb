@@ -127,28 +127,28 @@ class APIController extends Controller
                 // }
             } else {
                 $newUser = new User();
-                // DB::beginTransaction();
-                // try {
-                //     $newUser->mobile = $request['mobile'];
-                //     $newUser->password = Hash::make('secret123');
-                //     $newUser->save();
-                //     $newUser->assignRole('general');
-                // } catch (\Exception $e) {
-                //     DB::rollBack();
-                //     // throw new \Exception($e->getMessage());
-                //     $userdata = [
-                //         'success' => false,
-                //         'message' => 'দুঃখিত! আবার চেষ্টা করুন।',
-                //     ];
-                // }
-                // DB::commit();
-                // $user = User::where('mobile', $request['mobile'])->first();
-                // $user->is_verified = 1;
-                // $user->save();
-                // $this->deleteOTP($request['mobile']);
-                // $userTokenHandler = new UserTokenHandler();
-                // $user = $userTokenHandler->regenerateUserToken($user);
-                // $user->load('roles');
+                DB::beginTransaction();
+                try {
+                    $newUser->mobile = $request['mobile'];
+                    $newUser->password = Hash::make('secret123');
+                    $newUser->save();
+                    $newUser->assignRole('general');
+                } catch (\Exception $e) {
+                    DB::rollBack();
+                    // throw new \Exception($e->getMessage());
+                    $userdata = [
+                        'success' => false,
+                        'message' => 'দুঃখিত! আবার চেষ্টা করুন।',
+                    ];
+                }
+                DB::commit();
+                $user = User::where('mobile', $request['mobile'])->first();
+                $user->is_verified = 1;
+                $user->save();
+                $this->deleteOTP($request['mobile']);
+                $userTokenHandler = new UserTokenHandler();
+                $user = $userTokenHandler->regenerateUserToken($user);
+                $user->load('roles');
                 $userdata = [
                     'success' => true,
                     'user' => $user,

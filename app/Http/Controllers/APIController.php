@@ -159,8 +159,8 @@ class APIController extends Controller
             throw new \Exception('Invalid OTP');
         }
 
-        if ($user) {
-            return response()->json($user, 200);
+        if ($userdata) {
+            return response()->json($userdata, 200);
         } else {
             return response()->json(['message' => 'Invalild Credentials'], 401);
         }

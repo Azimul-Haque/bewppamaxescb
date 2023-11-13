@@ -130,6 +130,7 @@ class APIController extends Controller
                 DB::beginTransaction();
                 try {
                     $newUser->mobile = $request['mobile'];
+                    $newUser->name = 'No Name';
                     $newUser->password = Hash::make('secret123');
                     $newUser->save();
                 } catch (\Exception $e) {

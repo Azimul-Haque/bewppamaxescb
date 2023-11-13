@@ -132,7 +132,6 @@ class APIController extends Controller
                     $newUser->mobile = $request['mobile'];
                     $newUser->password = Hash::make('secret123');
                     $newUser->save();
-                    $newUser->assignRole('general');
                 } catch (\Exception $e) {
                     DB::rollBack();
                     // throw new \Exception($e->getMessage());

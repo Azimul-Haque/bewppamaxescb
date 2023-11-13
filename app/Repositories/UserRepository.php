@@ -28,7 +28,7 @@ class UserRepository
         // }
         // else {
         $user = User::where('mobile', $request['mobile'])->first();
-        $userotp = Userotp::where('mobile', $request['mobile'])->firstOrFail();
+        $userotp = Userotp::where('mobile', $request['mobile'])->first();
         if($userotp->otp == $request['otp']) {
             if ($user) {
                 // $user->is_verified = 1;

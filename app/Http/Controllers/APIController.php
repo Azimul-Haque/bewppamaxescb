@@ -110,7 +110,7 @@ class APIController extends Controller
                 // $userTokenHandler = new UserTokenHandler();
                 // $user = $userTokenHandler->regenerateUserToken($user);
                 // $user->load('roles');
-                $userdata =  [
+                $userdata = [
                     'success' => true,
                     'user' => $user,
                     'message' => 'লগইন সফল হয়েছে!',
@@ -132,7 +132,7 @@ class APIController extends Controller
                 // } catch (\Exception $e) {
                 //     DB::rollBack();
                 //     // throw new \Exception($e->getMessage());
-                //     return [
+                //     $userdata = [
                 //         'success' => false,
                 //         'message' => 'দুঃখিত! আবার চেষ্টা করুন।',
                 //     ];

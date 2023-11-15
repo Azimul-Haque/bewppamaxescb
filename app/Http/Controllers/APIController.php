@@ -54,6 +54,9 @@ class APIController extends Controller
                     $mobile_number = substr($request->mobile, -11);
                 }
             }
+
+            // FOR PLAY CONSOLE TESTING PURPOSE
+            // FOR PLAY CONSOLE TESTING PURPOSE
             if($mobile_number == '01751398392') {
                 $otp = '4321';
             }

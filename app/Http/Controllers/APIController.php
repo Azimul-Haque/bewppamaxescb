@@ -139,9 +139,7 @@ class APIController extends Controller
                     $newUser->mobile = $request['mobile'];
                     $newUser->name = 'No Name';
                     $package_expiry_date = Carbon::now()->addDays(1)->format('Y-m-d') . ' 23:59:59';
-                    // dd($package_expiry_date);
                     $newUser->package_expiry_date = $package_expiry_date;
-                    $user->name = $request->name;
                     $user->role = 'user';
                     $newUser->password = Hash::make('secret123');
                     $newUser->save();

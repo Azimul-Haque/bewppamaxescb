@@ -135,6 +135,7 @@ class APIController extends Controller
                 $newUser = new User();
                 DB::beginTransaction();
                 try {
+                    $newUser->uid = $request['mobile'];
                     $newUser->mobile = $request['mobile'];
                     $newUser->name = 'No Name';
                     $newUser->password = Hash::make('secret123');

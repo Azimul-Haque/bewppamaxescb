@@ -140,7 +140,7 @@ class APIController extends Controller
                     $newUser->name = 'No Name';
                     $package_expiry_date = Carbon::now()->addDays(1)->format('Y-m-d') . ' 23:59:59';
                     $newUser->package_expiry_date = $package_expiry_date;
-                    $user->role = 'user';
+                    $newUser->role = 'user';
                     $newUser->password = Hash::make('secret123');
                     $newUser->save();
                 } catch (\Exception $e) {

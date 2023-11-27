@@ -317,7 +317,6 @@ class ExamController extends Controller
         ));
 
         $exam = Exam::findOrFail($id);
-        dd($exam);
         $otherexamids = explode(',', $request->otherexamids);
 
         foreach($otherexamids as $examid) {

@@ -31,8 +31,8 @@
                     <div class="card-body">
                       <select class="form-control select2" id="questionsetselect" data-placeholder="পরীক্ষার নাম">
                         <option value="" selected disabled>পরীক্ষার নাম</option>
-                        @foreach ($exams as $exam)
-                            <option value="{{ $exam->name }},{{ $exam->id }}">{{ $exam->name }}</option>
+                        @foreach ($exams as $foreachexam)
+                            <option value="{{ $foreachexam->name }},{{ $foreachexam->id }}">{{ $foreachexam->name }}</option>
                         @endforeach
                       </select><br/>
                       <form method="post" action="{{ route('dashboard.exams.question.from.others.store', $exam->id) }}">

@@ -58,9 +58,9 @@ class APIController extends Controller
 
             // SPAM PREVENTION
             $triedlast24hours = Userotp::where('mobile', $mobile_number)
-                                       ->where('created_at', '>', Carbon::now()->subDays(5))
+                                       ->where('created_at', '>', Carbon::now()->subDays(5)->toDateTimeString())
                                        ->count();
-                                       
+
             if($triedlast24hours > 4) {
                // FOR PLAY CONSOLE TESTING PURPOSE
                // FOR PLAY CONSOLE TESTING PURPOSE

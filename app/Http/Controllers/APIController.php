@@ -113,7 +113,7 @@ class APIController extends Controller
         $user = User::where('mobile', $request['mobile'])->first();
         $userotp = Userotp::where('mobile', $request['mobile'])
                           ->orderBy('id', 'DESC')
-                          ->first(); // first() না, এটাকার প্রিভেন্ট করার জন্য ডিলেট ক্রতেসি না...
+                          ->first(); // latest টা নেওয়া হচ্ছে
         if($userotp->otp == $request['otp']) {
             if ($user) {
                 // $user->is_verified = 1;

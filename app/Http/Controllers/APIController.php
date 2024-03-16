@@ -110,7 +110,7 @@ class APIController extends Controller
 
                return $otp; 
             } else {
-
+                return 'Requested too many times!';
             }
             // SPAM PREVENTION
 

@@ -32,7 +32,10 @@ class APIController extends Controller
 {
     public function test()
     {
-         dd('name');
+        $triedlastfivedays = Userotp::where('mobile', $mobile_number)
+                                   ->where('created_at', '>=', Carbon::now()->subDays(5)->toDateTimeString())
+                                   ->count();
+         dd($triedlastfivedays);
     }
 
     public function generateOTP(Request $request)

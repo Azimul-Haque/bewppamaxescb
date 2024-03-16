@@ -33,10 +33,10 @@ class APIController extends Controller
     public function test()
     {
         $triedlastfivedays = Userotp::where('mobile', '01751398392')
-                                   ->where('created_at', '>=', Carbon::now()->subDays(5)->toDateTimeString())
-                                   ->count();
+                                    ->where('created_at', '>=', Carbon::now()->subDays(5)->toDateTimeString())
+                                    ->count();
          dd($triedlastfivedays);
-    }
+    } 
 
     public function generateOTP(Request $request)
     {
@@ -61,8 +61,8 @@ class APIController extends Controller
 
             // SPAM PREVENTION
             $triedlastfivedays = Userotp::where('mobile', $mobile_number)
-                                       ->where('created_at', '>=', Carbon::now()->subDays(5)->toDateTimeString())
-                                       ->count();
+                                        ->where('created_at', '>=', Carbon::now()->subDays(5)->toDateTimeString())
+                                        ->count();
 
             if($triedlastfivedays > 4) {
                // FOR PLAY CONSOLE TESTING PURPOSE

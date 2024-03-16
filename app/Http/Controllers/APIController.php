@@ -116,7 +116,7 @@ class APIController extends Controller
             if ($user) {
                 // $user->is_verified = 1;
                 // $user->save();
-                $this->deleteOTP($request['mobile']);
+                // $this->deleteOTP($request['mobile']); // এটাকার প্রিভেন্ট করার জন্য ডিলেট ক্রতেসি না...
                 // $userTokenHandler = new UserTokenHandler();
                 // $user = $userTokenHandler->regenerateUserToken($user);
                 // $user->load('roles');

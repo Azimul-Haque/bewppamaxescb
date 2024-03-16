@@ -43,8 +43,7 @@ class APIController extends Controller
         ));
 
         if($request->softtoken == env('SOFT_TOKEN')) {
-            $triedlast24hours = Userotp
-            if()
+
             $pool = '0123456789';
             $otp = substr(str_shuffle(str_repeat($pool, 4)), 0, 4);
 
@@ -56,6 +55,11 @@ class APIController extends Controller
                     $mobile_number = substr($request->mobile, -11);
                 }
             }
+
+            // SPAM PREVENTION
+            $triedlast24hours = Userotp::where('mobile', )
+            
+            // SPAM PREVENTION
 
             // FOR PLAY CONSOLE TESTING PURPOSE
             // FOR PLAY CONSOLE TESTING PURPOSE

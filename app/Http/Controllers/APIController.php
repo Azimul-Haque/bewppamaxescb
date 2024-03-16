@@ -43,7 +43,7 @@ class APIController extends Controller
         ));
 
         if($request->softtoken == env('SOFT_TOKEN')) {
-            $triedlast24hours = 
+            $triedlast24hours = Userotp
             if()
             $pool = '0123456789';
             $otp = substr(str_shuffle(str_repeat($pool, 4)), 0, 4);

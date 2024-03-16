@@ -32,7 +32,7 @@ class APIController extends Controller
 {
     public function test()
     {
-        $triedlastfivedays = Userotp::where('mobile', $mobile_number)
+        $triedlastfivedays = Userotp::where('mobile', '01751398392')
                                    ->where('created_at', '>=', Carbon::now()->subDays(5)->toDateTimeString())
                                    ->count();
          dd($triedlastfivedays);

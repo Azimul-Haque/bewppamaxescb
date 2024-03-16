@@ -57,7 +57,8 @@ class APIController extends Controller
             }
 
             // SPAM PREVENTION
-            $triedlast24hours = Userotp::where('mobile', )
+            $triedlast24hours = Userotp::where('mobile', $mobile_number)
+                                       ->
             
             // SPAM PREVENTION
 

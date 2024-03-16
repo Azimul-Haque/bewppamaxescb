@@ -64,7 +64,7 @@ class APIController extends Controller
                                         ->where('created_at', '>=', Carbon::now()->subDays(5)->toDateTimeString())
                                         ->count();
 
-            if($triedlastfivedays < 5) {
+            if($triedlastfivedays <= 4) {
                // FOR PLAY CONSOLE TESTING PURPOSE
                // FOR PLAY CONSOLE TESTING PURPOSE
                if($mobile_number == '01751398392') {

@@ -114,7 +114,6 @@ class APIController extends Controller
                 return 'Requested too many times!';
             }
             // SPAM PREVENTION
-
             
         } else {
             return 'Invalid Soft Token';

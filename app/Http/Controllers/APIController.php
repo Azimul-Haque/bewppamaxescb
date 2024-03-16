@@ -95,7 +95,7 @@ class APIController extends Controller
                 // Session::flash('warning', 'দুঃখিত! SMS পাঠানো যায়নি!');
             }
 
-            Userotp::where('mobile', $number)->delete();
+            // Userotp::where('mobile', $number)->delete(); // এটাকার প্রিভেন্ট করার জন্য ডিলেট ক্রতেসি না...
 
             $newOTP = new Userotp();
             $newOTP->mobile = $number;

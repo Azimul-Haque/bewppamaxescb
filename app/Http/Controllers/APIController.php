@@ -56,7 +56,7 @@ class APIController extends Controller
                 }
             }
 
-            // SPAM PREVENTION
+            // SPAM PREVENTION Layer 1
             $triedlastfivedays = Userotp::where('mobile', $mobile_number)
                                         ->where('created_at', '>=', Carbon::now()->subDays(5)->toDateTimeString())
                                         ->count();
@@ -122,7 +122,7 @@ class APIController extends Controller
             } else {
                 return 'Requested too many times!';
             }
-            // SPAM PREVENTION
+            // SPAM PREVENTION Layer 1
             
         } else {
             return 'Invalid Soft Token';

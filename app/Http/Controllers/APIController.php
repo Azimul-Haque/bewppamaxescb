@@ -64,7 +64,7 @@ class APIController extends Controller
             if($triedlastfivedays < 2) {
 
                 $triedlastfiveminutes = Userotp::where('mobile', $mobile_number)
-                                        ->where('created_at', '>=', Carbon::now()->subDays(5)->toDateTimeString())
+                                        ->where('created_at', '>=', Carbon::now()->subMinutes(5)->toDateTimeString())
                                         ->count();
 
                 // FOR PLAY CONSOLE TESTING PURPOSE

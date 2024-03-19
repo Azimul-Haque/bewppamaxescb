@@ -62,7 +62,7 @@ class APIController extends Controller
                                         ->count();
 
             if($triedlastfivedays < 2) {
-
+                // SPAM PREVENTION Layer 1
                 $triedlastfiveminutes = Userotp::where('mobile', $mobile_number)
                                         ->where('created_at', '>=', Carbon::now()->subMinutes(5)->toDateTimeString())
                                         ->count();
@@ -119,6 +119,7 @@ class APIController extends Controller
                 } else {
                     return 'Requested within 5 minutes!';
                 }
+                // SPAM PREVENTION Layer 2
             } else {
                 return 'Requested too many times!';
             }

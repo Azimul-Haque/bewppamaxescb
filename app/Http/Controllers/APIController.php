@@ -116,6 +116,8 @@ class APIController extends Controller
                     $newOTP->save();
 
                     return $otp; 
+                } else {
+                    return 'Requested too many times!';
                 }
             } else {
                 return 'Requested too many times!';

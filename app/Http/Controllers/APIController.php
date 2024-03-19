@@ -117,7 +117,7 @@ class APIController extends Controller
 
                     return $otp; 
                 } else {
-                    return 'Requested too many times!';
+                    return 'Requested within 5 minutes!';
                 }
             } else {
                 return 'Requested too many times!';

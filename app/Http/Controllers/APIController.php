@@ -62,54 +62,59 @@ class APIController extends Controller
                                         ->count();
 
             if($triedlastfivedays < 2) {
-               // FOR PLAY CONSOLE TESTING PURPOSE
-               // FOR PLAY CONSOLE TESTING PURPOSE
-               if($mobile_number == '01751398392') {
+
+                $triedlastfiveminutes = Userotp::where('mobile', $mobile_number)
+                                        ->where('created_at', '>=', Carbon::now()->subDays(5)->toDateTimeString())
+                                        ->count();
+
+                // FOR PLAY CONSOLE TESTING PURPOSE
+                // FOR PLAY CONSOLE TESTING PURPOSE
+                if($mobile_number == '01751398392') {
                    $otp = env('SMS_GATEWAY_PLAY_CONSOLE_TEST_OTP');
-               }
+                }
 
-               $url = config('sms.url');
-               $number = $mobile_number;
-               $text = $otp . ' is your OTP for BCS Exam Aid App.';
-               
-               // TEXT MESSAGE OTP
-               // TEXT MESSAGE OTP
-               // TEXT MESSAGE OTP
+                $url = config('sms.url');
+                $number = $mobile_number;
+                $text = $otp . ' is your OTP for BCS Exam Aid App.';
 
-               $data= array(
+                // TEXT MESSAGE OTP
+                // TEXT MESSAGE OTP
+                // TEXT MESSAGE OTP
+
+                $data= array(
                    'username'=>config('sms.username'),
                    'password'=>config('sms.password'),
                    'number'=>"$number",
                    'message'=>"$text",
-               );
+                );
 
-               // initialize send status
-               $ch = curl_init(); // Initialize cURL
-               curl_setopt($ch, CURLOPT_URL,$url);
-               curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-               curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-               curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // this is important
-               $smsresult = curl_exec($ch);
-               $p = explode("|",$smsresult);
-               $sendstatus = $p[0];
-               // dd($smsresult);
-               // send sms
-               if($sendstatus == 1101) {
+                // initialize send status
+                $ch = curl_init(); // Initialize cURL
+                curl_setopt($ch, CURLOPT_URL,$url);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // this is important
+                $smsresult = curl_exec($ch);
+                $p = explode("|",$smsresult);
+                $sendstatus = $p[0];
+                // dd($smsresult);
+                // send sms
+                if($sendstatus == 1101) {
                    // Session::flash('success', 'SMS সফলভাবে পাঠানো হয়েছে!');
-               } elseif($sendstatus == 1006) {
+                } elseif($sendstatus == 1006) {
                    // Session::flash('warning', 'অপর্যাপ্ত SMS ব্যালেন্সের কারণে SMS পাঠানো যায়নি!');
-               } else {
+                } else {
                    // Session::flash('warning', 'দুঃখিত! SMS পাঠানো যায়নি!');
-               }
+                }
 
-               // Userotp::where('mobile', $number)->delete(); // এটাকার প্রিভেন্ট করার জন্য ডিলেট ক্রতেসি না...
+                // Userotp::where('mobile', $number)->delete(); // এটাকার প্রিভেন্ট করার জন্য ডিলেট ক্রতেসি না...
 
-               $newOTP = new Userotp();
-               $newOTP->mobile = $number;
-               $newOTP->otp = $otp;
-               $newOTP->save();
+                $newOTP = new Userotp();
+                $newOTP->mobile = $number;
+                $newOTP->otp = $otp;
+                $newOTP->save();
 
-               return $otp; 
+                return $otp; 
             } else {
                 return 'Requested too many times!';
             }

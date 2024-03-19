@@ -67,6 +67,9 @@ class APIController extends Controller
                                         ->where('created_at', '>=', Carbon::now()->subMinutes(5)->toDateTimeString())
                                         ->count();
 
+                if($triedlastfiveminutes < 1) {
+                    
+                }
                 // FOR PLAY CONSOLE TESTING PURPOSE
                 // FOR PLAY CONSOLE TESTING PURPOSE
                 if($mobile_number == '01751398392') {

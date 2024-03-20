@@ -76,7 +76,7 @@ class APIController extends Controller
 
                     $url = config('sms.url');
                     $number = $mobile_number;
-                    $text = $otp . ' is your pin for BCS Exam Aid App. ';
+                    $text = $otp . ' is your pin for BCS Exam Aid App.';
 
                     // TEXT MESSAGE OTP
                     // TEXT MESSAGE OTP

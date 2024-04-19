@@ -214,5 +214,59 @@
             
         }
     });
+
+
+    var ctx = document.getElementById('lineChart').getContext('2d');
+    var lineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: {!! $daysforchartc !!},
+            datasets: [
+            {
+                label: 'ব্যবহারকারী সংখ্যা',
+                borderColor: "#3e95cd",
+                fill: true,
+                data: {!! $totalusersforchartc !!},
+                borderWidth: 2,
+                borderColor: "rgba(0,165,91,1)",
+                borderCapStyle: 'butt',
+                pointBorderColor: "rgba(0,165,91,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(0,165,91,1)",
+                pointHoverBorderColor: "rgba(0,165,91,1)",
+                pointHoverBorderWidth: 2,
+                pointRadius: 5,
+                pointHitRadius: 10,
+            },
+            {
+                label: 'ক্রমবর্ধমান ব্যবহারকারী সংখ্যা',
+                borderColor: "#112E8A",
+                fill: true,
+                data: {!! $totaluserscumulitiveforchartc !!},
+                borderWidth: 2,
+                borderColor: "rgba(17,46,138,1)",
+                borderCapStyle: 'butt',
+                pointBorderColor: "rgba(17,46,138,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(17,46,138,1)",
+                pointHoverBorderColor: "rgba(17,46,138,1)",
+                pointHoverBorderWidth: 2,
+                pointRadius: 5,
+                pointHitRadius: 10,
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            
+        }
+    });
   </script>
 @endsection

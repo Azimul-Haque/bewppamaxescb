@@ -74,14 +74,14 @@ class DashboardController extends Controller
                                 ->where(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"), "=", Carbon::now()->format('Y-m'))
                                 // ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"))
                                 ->first();
-        $lastsevenmonthscollection = DB::table('payments')
-                                    ->select('created_at', DB::raw('SUM(amount) as totalamount'))
-                                    ->where('is_archieved', '=', 0)
-                                    ->where('payment_status', '=', 1)
-                                    ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"))
-                                    ->orderBy('created_at', 'DESC')
-                                    ->take(12)
-                                    ->get();
+        // $last14da = DB::table('payments')
+        //                             ->select('created_at', DB::raw('SUM(amount) as totalamount'))
+        //                             ->where('is_archieved', '=', 0)
+        //                             ->where('payment_status', '=', 1)
+        //                             ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"))
+        //                             ->orderBy('created_at', 'DESC')
+        //                             ->take(12)
+        //                             ->get();
 
         return view('dashboard.index')->withTotalusers($totalusers)
                                       ->withTotalpayment($totalpayment)

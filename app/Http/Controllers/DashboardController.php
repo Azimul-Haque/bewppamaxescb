@@ -63,7 +63,7 @@ class DashboardController extends Controller
 
         $totalexamsattendedtoday = Meritlist::whereDay('created_at', Carbon::today())->count();
 
-        dd(now()->day);
+        // dd(Carbon::today());
 
         $totalpayment = Payment::sum('amount');
         // $totalbalance = Balance::sum('amount');

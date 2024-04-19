@@ -143,7 +143,7 @@
           <div class="col-md-6">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">ক্রমবর্ধমান ব্যবহারকারী যোগদানের হার</h3>
+                <h3 class="card-title">ক্রমবর্ধমান ব্যবহারকারী সংখ্যা</h3>
                 <div class="card-tools">
                   <small>সর্বশেষ দুই সপ্তাহ</small>
                 </div>

@@ -88,7 +88,7 @@ class DashboardController extends Controller
 
         $totalusersforchartc = [];
         foreach ($last14daysusersdaily as $key => $days) {
-            $totalusersforchartc[] = $days->totalamount;
+            $totalusersforchartc[] = $days->totalusers;
         }
         $totalusersforchartc = json_encode(array_reverse($totalusersforchartc));
         dd($totalusersforchartc);

@@ -180,7 +180,7 @@
                 borderColor: "rgba(0,165,91,1)",
                 borderCapStyle: 'butt',
                 pointBorderColor: "rgba(0,165,91,1)",
-                pointBackgroundColor: "#fff",
+                pointBackgroundColor: "#25AFF3",
                 pointBorderWidth: 1,
                 pointHoverRadius: 5,
                 pointHoverBackgroundColor: "rgba(0,165,91,1)",

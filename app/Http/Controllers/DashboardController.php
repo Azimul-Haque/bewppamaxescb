@@ -95,12 +95,9 @@ class DashboardController extends Controller
         $totaluserscumulitiveforchartc = [];
         $cumulitiveusersprimary = 0;
         foreach ($last14daysusersdaily as $key => $days) {
-            $totaluserscumulitiveforchartc[] = $days->totalusers + $cumulitiveusersprimary;
-            $cumulitiveusersprimary = $days->totalusers + $cumulitiveusersprimary;
 
             $cumulitiveusersprimary += $days->totalusers;
-            $total[] = $runningSum;
-            // dd($cumulitiveusersprimary);
+            $totaluserscumulitiveforchartc[] = $cumulitiveusersprimary;
         }
         $totaluserscumulitiveforchartc = json_encode($totaluserscumulitiveforchartc);
         dd($totalusersforchartc);

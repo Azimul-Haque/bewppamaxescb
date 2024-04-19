@@ -120,6 +120,7 @@
             </div>
             {{-- Modal Code --}}
             {{-- Modal Code --}}
+            <br/>
           </div>
         </div>
         <div class="row">

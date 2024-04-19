@@ -147,7 +147,7 @@
 @section('third_party_scripts')
   <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js "></script>
   <script type="text/javascript">
-    var ctx = document.getElementById('myChart').getContext('2d');
+    var ctx = document.getElementById('lineChart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {

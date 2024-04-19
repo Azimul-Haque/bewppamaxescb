@@ -97,7 +97,8 @@ class DashboardController extends Controller
                                       ->withTotalpayment($totalpayment)
                                       ->withTotalmonthlypayment($totalmonthlypayment)
                                       ->withTotalexamsattendedtoday($totalexamsattendedtoday)
-                                      ->withLast14daysusersdaily($last14daysusersdaily);
+                                      ->withLast14daysusersdaily($daysforchartc)
+                                      ->withTotalusersforchartc($totalusersforchartc);
                                     // ->withTotalbalance($totalbalance)
                                     // ->withTotalexpense($totalexpense)
                                     // ->withTodaystotalexpense($todaystotalexpense)

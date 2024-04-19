@@ -76,8 +76,6 @@ class DashboardController extends Controller
                                 ->first();
         $last14daysusersdaily = DB::table('users')
                                     ->select('created_at', DB::raw('SUM(amount) as totalamount'))
-                                    ->where('is_archieved', '=', 0)
-                                    ->where('payment_status', '=', 1)
                                     ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m-%d')"))
                                     ->orderBy('created_at', 'DESC')
                                     ->take(14)

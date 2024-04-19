@@ -173,7 +173,7 @@
                 pointHitRadius: 10,
             },
             {
-                label: 'C ব্যবহারকারী সংখ্যা',
+                label: 'ক্রমবর্ধমান ব্যবহারকারী সংখ্যা',
                 borderColor: "#112E8A",
                 fill: true,
                 data: {!! $totaluserscumulitiveforchartc !!},

@@ -125,7 +125,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-6">
             <div class="card card-success">
               <div class="card-header">
                 <h3 class="card-title">ব্যবহারকারী যোগদানের হার</h3>
@@ -140,7 +140,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4"></div>
+          <div class="col-md-6"></div>
         </div>
     </div>
 @endsection

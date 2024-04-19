@@ -45,7 +45,7 @@
               <div class="inner">
                 <h4>{{ 0 }}</h4>
 
-                <p>আজ মোট পরীক্ষায়  অংশগ্রহণ</p>
+                <p>আজ মোট পরীক্ষায়  অংশগ্রহণ (@php date('F d, Y') @endphp)</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>

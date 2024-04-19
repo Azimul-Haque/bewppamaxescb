@@ -96,7 +96,7 @@ class DashboardController extends Controller
         foreach ($last14daysusersdaily as $key => $days) {
             $totalusersforchartc2[] = $days->totalusers;
         }
-        $totalusersforchartc2 = json_encode($totalusersforchartc);
+        $totalusersforchartc2 = json_encode($totalusersforchartc2);
         // dd($totalusersforchartc);
 
         return view('dashboard.index')->withTotalusers($totalusers)

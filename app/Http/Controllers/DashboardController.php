@@ -74,16 +74,14 @@ class DashboardController extends Controller
                                 ->where(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"), "=", Carbon::now()->format('Y-m'))
                                 // ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"))
                                 ->first();
-        // $todaystotalexpense = DB::table('expenses')
-        //                         ->select(DB::raw("DATE_FORMAT(created_at, '%Y-%m-%d') as created_at"), DB::raw('SUM(amount) as totalamount'))
-        //                         ->where(DB::raw("DATE_FORMAT(created_at, '%Y-%m-%d')"), "=", Carbon::now()->format('Y-m-d'))
-        //                         ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m-%d')"))
-        //                         ->first();
-        // $todaystotaldeposit = DB::table('balances')
-        //                         ->select(DB::raw("DATE_FORMAT(created_at, '%Y-%m-%d') as created_at"), DB::raw('SUM(amount) as totalamount'))
-        //                         ->where(DB::raw("DATE_FORMAT(created_at, '%Y-%m-%d')"), "=", Carbon::now()->format('Y-m-d'))
-        //                         ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m-%d')"))
-        //                         ->first();
+        $lastsevenmonthscollection = DB::table('payments')
+                                    ->select('created_at', DB::raw('SUM(amount) as totalamount'))
+                                    ->where('is_archieved', '=', 0)
+                                    ->where('payment_status', '=', 1)
+                                    ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"))
+                                    ->orderBy('created_at', 'DESC')
+                                    ->take(12)
+                                    ->get();
 
         return view('dashboard.index')->withTotalusers($totalusers)
                                       ->withTotalpayment($totalpayment)

@@ -80,7 +80,7 @@ class DashboardController extends Controller
                                     ->orderBy('created_at', 'DESC')
                                     ->take(14)
                                     ->get();
-        // dd($last14daysusersdaily);
+        dd($last14daysusersdaily);
                                     
         return view('dashboard.index')->withTotalusers($totalusers)
                                       ->withTotalpayment($totalpayment)

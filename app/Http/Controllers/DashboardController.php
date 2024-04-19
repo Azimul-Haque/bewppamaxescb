@@ -61,7 +61,7 @@ class DashboardController extends Controller
         // $totalsites = Site::count();
         $totalusers = User::count();
 
-        $totalexamsattendedtoday = Meritlist::whereDay('created_at', Carbon::today())->get();
+        $totalexamsattendedtoday = Meritlist::whereDate('created_at', Carbon::today())->get();
 
         dd($totalexamsattendedtoday);
 

@@ -98,7 +98,7 @@ class DashboardController extends Controller
             $totaluserscumulitiveforchartc[] = $days->totalusers + $cumulitiveusersprimary;
             $cumulitiveusersprimary = $days->totalusers + $cumulitiveusersprimary;
 
-            $cumulitiveusersprimary += $number;
+            $cumulitiveusersprimary += $days->totalusers;
             $total[] = $runningSum;
             // dd($cumulitiveusersprimary);
         }

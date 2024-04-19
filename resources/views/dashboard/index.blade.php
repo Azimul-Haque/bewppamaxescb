@@ -151,7 +151,7 @@
     var lineChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'Asdasd', 'Ferwer'],
             datasets: [{
                 data: [12, 19, 3, 5, 2, 3],
                 label: '',

@@ -43,7 +43,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h4>{{ $totalexamsattendedtoday }} জন</h4>
+                <h4>{{ $totalexamsattendedtoday }} বার</h4>
 
                 <p>আজ মোট পরীক্ষায়  অংশগ্রহণ ({{ date("F d, Y") }})</p>
               </div>

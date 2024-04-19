@@ -216,31 +216,12 @@
     });
 
 
-    var ctx = document.getElementById('lineChart').getContext('2d');
+    var ctx = document.getElementById('lineChart2').getContext('2d');
     var lineChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: {!! $daysforchartc !!},
-            datasets: [
-            {
-                label: 'ব্যবহারকারী সংখ্যা',
-                borderColor: "#3e95cd",
-                fill: true,
-                data: {!! $totalusersforchartc !!},
-                borderWidth: 2,
-                borderColor: "rgba(0,165,91,1)",
-                borderCapStyle: 'butt',
-                pointBorderColor: "rgba(0,165,91,1)",
-                pointBackgroundColor: "#fff",
-                pointBorderWidth: 1,
-                pointHoverRadius: 5,
-                pointHoverBackgroundColor: "rgba(0,165,91,1)",
-                pointHoverBorderColor: "rgba(0,165,91,1)",
-                pointHoverBorderWidth: 2,
-                pointRadius: 5,
-                pointHitRadius: 10,
-            },
-            {
+            datasets: [{
                 label: 'ক্রমবর্ধমান ব্যবহারকারী সংখ্যা',
                 borderColor: "#112E8A",
                 fill: true,

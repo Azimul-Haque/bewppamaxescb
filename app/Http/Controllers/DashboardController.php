@@ -80,11 +80,11 @@ class DashboardController extends Controller
                                     ->orderBy('created_at', 'DESC')
                                     ->take(14)
                                     ->get();
-        $monthsforchartc = [];
+        $daysforchartc = [];
         foreach ($lastsevenmonthscollection as $key => $months) {
-            $monthsforchartc[] = date_format(date_create($months->created_at), "M Y");
+            $daysforchartc[] = date_format(date_create($months->created_at), "M Y");
         }
-        $monthsforchartc = json_encode(array_reverse($monthsforchartc));
+        $daysforchartc = json_encode(array_reverse($daysforchartc));
 
         // $totalsforchartc = [];
         // foreach ($lastsevenmonthscollection as $key => $months) {

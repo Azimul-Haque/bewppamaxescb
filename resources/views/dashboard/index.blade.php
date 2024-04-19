@@ -173,7 +173,7 @@
             },
             {
                 label: 'ব্যবহারকারী সংখ্যা',
-                borderColor: "#3e95cd",
+                borderColor: "#25AFF3",
                 fill: true,
                 data: {!! $totalusersforchartc !!},
                 borderWidth: 2,

@@ -75,7 +75,7 @@ class DashboardController extends Controller
                                 // ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"))
                                 ->first();
         $last14daysusersdaily = DB::table('users')
-                                    ->select('created_at', DB::raw('SUM(amount) as totalamount'))
+                                    ->select('created_at', DB::raw('SUM(amount) as totalusers'))
                                     ->where('is_archieved', '=', 0)
                                     ->where('payment_status', '=', 1)
                                     ->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"))

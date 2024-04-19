@@ -176,6 +176,14 @@
                 y: {
                     beginAtZero: true
                 }
+            },
+            legend: {
+                    display: false
+            },
+            elements: {
+                line: {
+                    tension: 0
+                }
             }
         }
     });

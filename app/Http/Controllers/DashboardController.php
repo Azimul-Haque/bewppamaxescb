@@ -60,6 +60,8 @@ class DashboardController extends Controller
         // $totalsites = Site::count();
         $totalusers = User::count();
 
+        $totalexamsattendedtoday = User::count();
+
         $totalpayment = Payment::sum('amount');
         // $totalbalance = Balance::sum('amount');
         // $totalexpense = Expense::sum('amount');

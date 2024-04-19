@@ -152,12 +152,12 @@
     var lineChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: {{ $daysforchartc }},
+            labels: {!! $daysforchartc !!},
             datasets: [{
                 label: '',
                 borderColor: "#3e95cd",
                 fill: true,
-                data: {{ $totalusersforchartc }},
+                data: {!! $totalusersforchartc !!},
                 borderWidth: 2,
                 borderColor: "rgba(0,165,91,1)",
                 borderCapStyle: 'butt',

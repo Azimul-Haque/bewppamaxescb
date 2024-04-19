@@ -87,11 +87,11 @@ class DashboardController extends Controller
         $daysforchartc = json_encode(array_reverse($daysforchartc));
 
         $totalusersforchartc = [];
-        foreach ($last14daysusersdaily as $key => $months) {
-            $totalusersforchartc[] = $months->totalamount;
+        foreach ($last14daysusersdaily as $key => $days) {
+            $totalusersforchartc[] = $days->totalamount;
         }
         $totalusersforchartc = json_encode(array_reverse($totalusersforchartc));
-        dd($daysforchartc);
+        dd($totalusersforchartc);
 
         return view('dashboard.index')->withTotalusers($totalusers)
                                       ->withTotalpayment($totalpayment)

@@ -157,7 +157,7 @@
             {
                 label: 'ব্যবহারকারী সংখ্যা',
                 borderColor: "#3e95cd",
-                fill: false,
+                fill: true,
                 data: {!! $totalusersforchartc !!},
                 borderWidth: 2,
                 borderColor: "rgba(0,165,91,1)",
@@ -175,7 +175,7 @@
             {
                 label: 'C ব্যবহারকারী সংখ্যা',
                 borderColor: "#25AFF3",
-                fill: false,
+                fill: true,
                 data: {!! $totalusersforchartc2 !!},
                 borderWidth: 2,
                 borderColor: "rgba(0,165,91,1)",

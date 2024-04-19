@@ -148,7 +148,7 @@
   <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js "></script>
   <script type="text/javascript">
     var ctx = document.getElementById('lineChart').getContext('2d');
-    var myChart = new Chart(ctx, {
+    var lineChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],

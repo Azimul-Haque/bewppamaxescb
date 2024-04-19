@@ -100,8 +100,8 @@ class DashboardController extends Controller
             $totaluserscumulitiveforchartc[] = $cumulitiveusersprimary;
         }
         $totaluserscumulitiveforchartc = json_encode($totaluserscumulitiveforchartc);
-        // dd($totalusersforchartc);
-// 
+        dd($totatotaluserscumulitiveforchartclusersforchartc);
+
         return view('dashboard.index')->withTotalusers($totalusers)
                                       ->withTotalpayment($totalpayment)
                                       ->withTotalmonthlypayment($totalmonthlypayment)

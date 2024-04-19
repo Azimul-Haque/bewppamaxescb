@@ -12,6 +12,7 @@ use App\Notification;
 use App\Exam;
 use App\Blog;
 use App\Blogcategory;
+use App\Meritlist;
 
 use Carbon\Carbon;
 use DB;

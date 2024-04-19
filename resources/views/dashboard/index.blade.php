@@ -154,7 +154,7 @@
         data: {
             labels: {!! $daysforchartc !!},
             datasets: [{
-                label: '',
+                label: 'ব্যবহারকারী সংখ্যা',
                 borderColor: "#3e95cd",
                 fill: true,
                 data: {!! $totalusersforchartc !!},

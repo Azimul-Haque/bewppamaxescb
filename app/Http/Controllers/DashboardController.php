@@ -80,8 +80,19 @@ class DashboardController extends Controller
                                     ->orderBy('created_at', 'DESC')
                                     ->take(14)
                                     ->get();
+        $monthsforchartc = [];
+        foreach ($lastsevenmonthscollection as $key => $months) {
+            $monthsforchartc[] = date_format(date_create($months->created_at), "M Y");
+        }
+        $monthsforchartc = json_encode(array_reverse($monthsforchartc));
+
+        // $totalsforchartc = [];
+        // foreach ($lastsevenmonthscollection as $key => $months) {
+        //     $totalsforchartc[] = $months->totalamount;
+        // }
+        // $totalsforchartc = json_encode(array_reverse($totalsforchartc));
         dd($last14daysusersdaily);
-                                    
+
         return view('dashboard.index')->withTotalusers($totalusers)
                                       ->withTotalpayment($totalpayment)
                                       ->withTotalmonthlypayment($totalmonthlypayment)

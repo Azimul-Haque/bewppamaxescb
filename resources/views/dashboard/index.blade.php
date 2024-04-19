@@ -45,7 +45,7 @@
               <div class="inner">
                 <h4>{{ 0 }}</h4>
 
-                <p>মোট পরীক্ষার্থী</p>
+                <p>আজকের মোট পরীক্ষার্থী</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>

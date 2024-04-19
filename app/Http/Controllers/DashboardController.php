@@ -87,7 +87,8 @@ class DashboardController extends Controller
 
         return view('dashboard.index')->withTotalusers($totalusers)
                                       ->withTotalpayment($totalpayment)
-                                      ->withTotalmonthlypayment($totalmonthlypayment);
+                                      ->withTotalmonthlypayment($totalmonthlypayment)
+                                      ->withTotalexamsattendedtoday($totalexamsattendedtoday);
                                     // ->withTotalbalance($totalbalance)
                                     // ->withTotalexpense($totalexpense)
                                     // ->withTodaystotalexpense($todaystotalexpense)

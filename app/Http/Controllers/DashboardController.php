@@ -92,11 +92,11 @@ class DashboardController extends Controller
         }
         $totalusersforchartc = json_encode(array_reverse($totalusersforchartc));
 
-        $totalusersforchartc2 = [];
+        $totaluserscumulitiveforchartc = [];
         foreach ($last14daysusersdaily as $key => $days) {
-            $totalusersforchartc2[] = $days->totalusers;
+            $totaluserscumulitiveforchartc[] = $days->totalusers;
         }
-        $totalusersforchartc2 = json_encode($totalusersforchartc2);
+        $totaluserscumulitiveforchartc = json_encode($totaluserscumulitiveforchartc);
         // dd($totalusersforchartc);
 
         return view('dashboard.index')->withTotalusers($totalusers)
@@ -105,7 +105,7 @@ class DashboardController extends Controller
                                       ->withTotalexamsattendedtoday($totalexamsattendedtoday)
                                       ->withDaysforchartc($daysforchartc)
                                       ->withTotalusersforchartc($totalusersforchartc)
-                                      ->withTotalusersforchartc2($totalusersforchartc2);
+                                      ->withTotaluserscumulitiveforchartc($totaluserscumulitiveforchartc);
                                     // ->withTotalbalance($totalbalance)
                                     // ->withTotalexpense($totalexpense)
                                     // ->withTodaystotalexpense($todaystotalexpense)

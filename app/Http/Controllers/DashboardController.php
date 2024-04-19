@@ -63,7 +63,7 @@ class DashboardController extends Controller
 
         $totalexamsattendedtoday = Meritlist::whereDate('created_at', Carbon::today())->count();
 
-        // dd($totalexamsattendedtoday);
+        
 
         $totalpayment = Payment::sum('amount');
         // $totalbalance = Balance::sum('amount');
@@ -80,7 +80,8 @@ class DashboardController extends Controller
                                     ->orderBy('created_at', 'DESC')
                                     ->take(14)
                                     ->get();
-
+        // dd($last14daysusersdaily);
+                                    
         return view('dashboard.index')->withTotalusers($totalusers)
                                       ->withTotalpayment($totalpayment)
                                       ->withTotalmonthlypayment($totalmonthlypayment)

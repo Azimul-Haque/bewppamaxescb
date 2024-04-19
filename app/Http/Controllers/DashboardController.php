@@ -81,8 +81,8 @@ class DashboardController extends Controller
                                     ->take(14)
                                     ->get();
         $daysforchartc = [];
-        foreach ($last14daysusersdaily as $key => $months) {
-            $daysforchartc[] = date_format(date_create($months->created_at), "M Y");
+        foreach ($last14daysusersdaily as $key => $days) {
+            $daysforchartc[] = date_format(date_create($days->created_at), "M Y");
         }
         $daysforchartc = json_encode(array_reverse($daysforchartc));
 

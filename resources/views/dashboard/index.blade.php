@@ -174,7 +174,7 @@
             },
             {
                 label: 'C ব্যবহারকারী সংখ্যা',
-                borderColor: "#000",
+                borderColor: "#24ACF2",
                 fill: true,
                 data: {!! $totalusersforchartc2 !!},
                 borderWidth: 2,

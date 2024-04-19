@@ -91,7 +91,7 @@ class DashboardController extends Controller
             $totalusersforchartc[] = $days->totalusers;
         }
         $totalusersforchartc = json_encode(array_reverse($totalusersforchartc));
-        dd($totalusersforchartc);
+        // dd($totalusersforchartc);
 
         return view('dashboard.index')->withTotalusers($totalusers)
                                       ->withTotalpayment($totalpayment)

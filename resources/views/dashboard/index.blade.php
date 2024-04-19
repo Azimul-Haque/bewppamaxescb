@@ -130,7 +130,7 @@
               <div class="card-header">
                 <h3 class="card-title">ব্যবহারকারী যোগদানের হার</h3>
                 <div class="card-tools">
-                  <span class="box-tools pull-right text-muted">সর্বশেষ দুই সপ্তাহ</span>
+                  <small>সর্বশেষ দুই সপ্তাহ</small>
                 </div>
               </div>
               <div class="card-body">

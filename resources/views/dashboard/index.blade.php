@@ -121,6 +121,7 @@
             {{-- Modal Code --}}
             {{-- Modal Code --}}
             <br/>
+            <br/>
           </div>
         </div>
         <div class="row">

@@ -172,7 +172,7 @@
                 pointHitRadius: 10,
             },
             {
-                label: 'ব্যবহারকারী সংখ্যা',
+                label: 'C ব্যবহারকারী সংখ্যা',
                 borderColor: "#25AFF3",
                 fill: true,
                 data: {!! $totalusersforchartc !!},

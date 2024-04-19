@@ -60,7 +60,7 @@ class DashboardController extends Controller
         // $totalsites = Site::count();
         $totalusers = User::count();
 
-        $totalexamsattendedtoday = Meritlist::whereDay('created_at', now()->day)->
+        $totalexamsattendedtoday = Meritlist::whereDay('created_at', now()->day)->count();
 
         $totalpayment = Payment::sum('amount');
         // $totalbalance = Balance::sum('amount');

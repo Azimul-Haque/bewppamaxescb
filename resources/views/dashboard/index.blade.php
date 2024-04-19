@@ -145,7 +145,7 @@
 @endsection
 
 @section('third_party_scripts')
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
+  <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js "></script>
   <script type="text/javascript">
     //-------------
     //- LINE CHART -

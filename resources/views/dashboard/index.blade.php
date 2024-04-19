@@ -178,7 +178,7 @@
                 fill: true,
                 data: {!! $totalusersforchartc2 !!},
                 borderWidth: 2,
-                borderColor: "rgba(0,165,91,1)",
+                borderColor: "rgba(36,172,242,1)",
                 borderCapStyle: 'butt',
                 pointBorderColor: "rgba(0,165,91,1)",
                 pointBackgroundColor: "#fff",

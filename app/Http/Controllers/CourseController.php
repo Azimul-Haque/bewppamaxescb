@@ -105,7 +105,7 @@ class CourseController extends Controller
     
             if($request->oldwordtoreplace != '' && $request->newwordtoreplace != '' || $request->oldwordtoreplace != null && $request->newwordtoreplace != null) {
                 dd($request->oldwordtoreplace);
-                str_replace($request->oldwordtoreplace, replace, subject)
+                str_replace($request->oldwordtoreplace, $request->newwordtoreplace, subject)
             }
             $courseexam->exam->save();
             $newdate = $newdate->addDays($request->gapbetween);

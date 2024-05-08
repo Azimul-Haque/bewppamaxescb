@@ -104,7 +104,7 @@ class CourseController extends Controller
             $courseexam->exam->available_to = $newdate;
     
             if($request->oldwordtoreplace != '' && $request->newwordtoreplace != '' || $request->oldwordtoreplace != null && $request->newwordtoreplace != null) {
-                dd($courseexam->exam->name);
+                // dd($courseexam->exam->name);
                 str_replace($request->oldwordtoreplace, $request->newwordtoreplace, $courseexam->exam->name);
             }
             $courseexam->exam->save();

@@ -134,7 +134,7 @@
                                         {{-- Edit Course Modal Code --}}
                                         {{-- Edit Course Modal Code --}}
 
-                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#changeExamDatesModal{{ $course->id }}" rel="tooltip" title="পরীক্ষার তারিখসমূহ হালনাগাদ করুন">
+                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#changeExamDatesModal{{ $course->id }}" rel="tooltip" title="পরীক্ষার তথ্য হালনাগাদ করুন">
                                             <i class="far fa-calendar-check"></i>
                                         </button>
                                         {{-- Change Exam Dates Modal Code --}}
@@ -144,7 +144,7 @@
                                             <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header bg-info">
-                                                  <h5 class="modal-title" id="changeExamDatesModalLabel">পরীক্ষার তারিখসমূহ পরিবর্তন</h5>
+                                                  <h5 class="modal-title" id="changeExamDatesModalLabel">পরীক্ষার তথ্য পরিবর্তন</h5>
                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                       <span aria-hidden="true">&times;</span>
                                                   </button>

@@ -28,7 +28,7 @@
                       <tr>
                         <th>ধরন</th>
                         <th>নোটিফিকেশন</th>
-                        <th>স্ময়</th>
+                        <th>সময়</th>
                         <th>Action</th>
                       </tr>
                     </thead>

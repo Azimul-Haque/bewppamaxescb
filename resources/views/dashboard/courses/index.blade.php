@@ -165,13 +165,13 @@
                                                         </div>
                                                     </div>
                                                     <div class="input-group mb-3">
-                                                        <input type="text" name="oldwordtoreplace" class="form-control" placeholder="পূর্বের যে শব্দটি রিপ্লেস করতে চান" required>
+                                                        <input type="text" name="oldwordtoreplace" class="form-control" placeholder="পূর্বের যে শব্দটি রিপ্লেস করতে চান">
                                                         <div class="input-group-append">
                                                             <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
                                                         </div>
                                                     </div>
                                                     <div class="input-group mb-3">
-                                                        <input type="text" name="newwordtoreplace" class="form-control" placeholder="যে শব্দ নতুন করে বসাতে চান" required>
+                                                        <input type="text" name="newwordtoreplace" class="form-control" placeholder="যে শব্দ নতুন করে বসাতে চান">
                                                         <div class="input-group-append">
                                                             <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
                                                         </div>

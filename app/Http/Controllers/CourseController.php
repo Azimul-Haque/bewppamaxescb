@@ -107,7 +107,7 @@ class CourseController extends Controller
             // $newdate = $newdate->addDays($request->gapbetween);
 
             dd($request->oldwordtoreplace);
-            if($request->oldwordtoreplace != '' && $request->newwordtoreplace != '') {
+            if($request->oldwordtoreplace != '' && $request->newwordtoreplace != '' || $request->oldwordtoreplace != null && $request->newwordtoreplace != null) {
 
             }
         }

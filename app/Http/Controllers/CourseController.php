@@ -106,7 +106,9 @@ class CourseController extends Controller
 
             $newdate = $newdate->addDays($request->gapbetween);
 
-            if($request->oldwordtoreplace != '' && $request->newwordtoreplace != '')
+            if($request->oldwordtoreplace != '' && $request->newwordtoreplace != '') {
+                
+            }
         }
 
         Cache::forget('courseexams' . $id);

@@ -90,10 +90,10 @@ class CourseController extends Controller
     {
         // dd($request->file('image'));
         $this->validate($request,array(
-            'available_from'   => 'required',
-            'gapbetween'       => 'required',
-            'oldwordtoreplace'       => 'sometimes',
-            'newwordtoreplace'       => 'sometimes',
+            'available_from'     => 'required',
+            'gapbetween'         => 'required',
+            'oldwordtoreplace'   => 'sometimes',
+            'newwordtoreplace'   => 'sometimes',
         ));
 
         $course = Course::findOrFail($id);

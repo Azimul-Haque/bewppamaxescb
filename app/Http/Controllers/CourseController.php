@@ -102,14 +102,12 @@ class CourseController extends Controller
         foreach($course->courseexams as $courseexam) {
             $courseexam->exam->available_from = $newdate;
             $courseexam->exam->available_to = $newdate;
-            $courseexam->exam->save();
-
-            $newdate = $newdate->addDays($request->gapbetween);
-
-            
+    
             if($request->oldwordtoreplace != '' && $request->newwordtoreplace != '' || $request->oldwordtoreplace != null && $request->newwordtoreplace != null) {
                 dd($request->oldwordtoreplace);
             }
+            $courseexam->exam->save();
+            $newdate = $newdate->addDays($request->gapbetween);
         }
 
         Cache::forget('courseexams' . $id);

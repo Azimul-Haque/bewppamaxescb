@@ -170,6 +170,12 @@
                                                             <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
                                                         </div>
                                                     </div>
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" name="wordtoreplace" class="form-control" placeholder="যে শব্দ নতুন করে বসাতে চান" required>
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
+                                                        </div>
+                                                    </div>
                                                   </div>
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

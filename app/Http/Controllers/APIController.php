@@ -405,8 +405,8 @@ class APIController extends Controller
                 $courseexams = Courseexam::select('course_id', 'exam_id')
                                      ->where('course_id', $id)
                                      ->orderBy('exam_id', 'desc')
-                                     ->join('exams', 'exams.id', '=', 'courseexams.exam_id')
-                                     ->orderBy('exams.available_from')
+                                     // ->join('exams', 'exams.id', '=', 'courseexams.exam_id')
+                                     // ->orderBy('exams.available_from')
                                      // ->select('courseexams.*')
                                      ->get();
 

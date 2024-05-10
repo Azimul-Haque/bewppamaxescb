@@ -407,7 +407,7 @@ class APIController extends Controller
                                      ->orderBy('exam_id', 'desc')
                                      ->join('exams', 'exams.id', '=', 'courseexams.exam_id')
                                      ->orderBy('exams.available_from')
-                                     ->select('courseexams.*')
+                                     // ->select('courseexams.*')
                                      ->get();
 
                 foreach($courseexams as $courseexam) {

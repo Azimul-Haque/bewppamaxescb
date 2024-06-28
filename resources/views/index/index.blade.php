@@ -484,7 +484,7 @@
                   <div class="section-title text-center">
                     <span> Get in Touch </span>
                     <h2>
-                      Ready to Get Started
+                      Account/Info Delete Request
                     </h2>
                     <p>
                       Send us messages.

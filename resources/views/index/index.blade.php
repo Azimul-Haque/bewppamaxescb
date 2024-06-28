@@ -492,7 +492,8 @@
                   </div>
                 </div>
               </div>
-              <form action="#" class="contact-form">
+              <form method="post" action="{{ route('index.account.deletion.request') }}" class="contact-form">
+                @csrf
                 <div class="row">
                   <div class="col-md-6">
                     <input type="text" name="name" id="name" placeholder="Name" required />
@@ -506,12 +507,12 @@
                     <input type="text" name="phone" id="phone" placeholder="Phone" required />
                   </div>
                   <div class="col-md-6">
-                    <input type="text" name="subject" id="email" placeholder="Subject" required />
+                    <input type="text" name="subject" id="email" placeholder="Specify the types of data" required />
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-12">
-                    <textarea name="message" id="message" placeholder="Type Message" rows="5"></textarea>
+                    <textarea name="message" id="message" placeholder="Type Message (The reason you would like to delete your data. We are happy to help)" rows="5"></textarea>
                   </div>
                 </div>
                 <div class="row">

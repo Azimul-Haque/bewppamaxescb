@@ -25,6 +25,7 @@ Route::post('/payment/success', 'IndexController@paymentSuccess')->name('index.p
 Route::post('/payment/app/confirm', 'IndexController@paymentSuccessApp')->name('index.payment.success.app');
 Route::get('/payment/app/cancel', 'IndexController@paymentCancelApp')->name('index.payment.cancel.app');
 Route::get('/check/ip', 'IndexController@checkIP')->name('index.check.ip');
+Route::post('/account/deletion/request', 'IndexController@requestACDelete')->name('index.account.deletion.request');
 
 // blog
 Route::get('/blogs', 'BlogController@index')->name('blogs.index');

@@ -44,16 +44,16 @@
                 @foreach($examstoday as $exam)
                 	<tr>
                     <td>
-                      <a href="{{ route('dashboard.users.single', $payment->user->id) }}">{{ $payment->user->name }}</a>
-                      <small>({{ $payment->user->payments->count() }} বার)</small><br/>
-                      <small class="text-black-50">{{ $payment->user->mobile }}</small>
+                      <a href="{{ route('dashboard.users.single', $exam->user->id) }}">{{ $exam->user->name }}</a>
+                      <small>({{ $exam->user->payments->count() }} বার)</small><br/>
+                      <small class="text-black-50">{{ $exam->user->mobile }}</small>
                     </td>
-                    <td>{{ $payment->package->name }}</td>
-                    <td>{{ $payment->payment_status == 1 ? 'Successfull' : 'Failed' }}</td>
-                    <td>{{ $payment->card_type }}</td>
-                    <td>{{ $payment->trx_id }}</td>
-                    <td><b>৳ {{ $payment->store_amount }}</b> <small>(৳ {{ $payment->amount }})</small></td>
-                		<td>{{ date('F d, Y h:i A', strtotime($payment->created_at)) }}</td>
+                    <td>{{ $exam->package->name }}</td>
+                    <td>{{ $exam->payment_status == 1 ? 'Successfull' : 'Failed' }}</td>
+                    <td>{{ $exam->card_type }}</td>
+                    <td>{{ $exam->trx_id }}</td>
+                    <td><b>৳ {{ $exam->store_amount }}</b> <small>(৳ {{ $exam->amount }})</small></td>
+                		<td>{{ date('F d, Y h:i A', strtotime($exam->created_at)) }}</td>
                 	</tr>
                 @endforeach
               </tbody>
@@ -61,7 +61,7 @@
           </div>
           <!-- /.card-body -->
         </div>
-        {{ $payments->links() }}
+        {{ $examstoday->links() }}
     </div>
 @endsection
 

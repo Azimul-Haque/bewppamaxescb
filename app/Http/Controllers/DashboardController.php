@@ -401,7 +401,7 @@ class DashboardController extends Controller
     {
         $examstoday = Meritlist::whereDate('created_at', Carbon::today())->paginate(15);
         
-        return view('dashboard.exams.examstoday')->withPayments($payments);
+        return view('dashboard.exams.examstoday')->withExamstoday($examstoday);
     }
 
     public function storePackage(Request $request)

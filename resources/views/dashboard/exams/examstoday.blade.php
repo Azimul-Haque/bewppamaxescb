@@ -6,11 +6,11 @@
 @endsection
 
 @section('content')
-	@section('page-header') পেমেন্ট @endsection
+	@section('page-header') আজ মোট পরীক্ষায় অংশগ্রহণ @endsection
     <div class="container-fluid">
 		<div class="card">
           <div class="card-header">
-            <h3 class="card-title">পেমেন্ট তালিকা</h3>
+            <h3 class="card-title">আজ মোট পরীক্ষায় অংশগ্রহণ তালিকা</h3>
 
             <div class="card-tools">
             	{{-- <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#addPackageModal" title="" rel="tooltip" data-original-title="পেমেন্ট যোগ করুন">

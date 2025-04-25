@@ -41,7 +41,7 @@
                 </thead>
               </thead>
               <tbody>
-                @foreach($payments as $payment)
+                @foreach($examstoday as $exam)
                 	<tr>
                     <td>
                       <a href="{{ route('dashboard.users.single', $payment->user->id) }}">{{ $payment->user->name }}</a>

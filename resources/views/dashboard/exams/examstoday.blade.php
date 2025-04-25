@@ -44,8 +44,8 @@
                 @foreach($examstoday as $exam)
                 	<tr>
                     <td>
-                      <a href="{{ route('dashboard.exams.add.question', $exam->exam->id) }}">{{ $exam->exam->name }}</a>
-                      <small>({{ $exam->course->name }})</small><br/>
+                      <a href="{{ route('dashboard.exams.add.question', $exam->exam->id) }}">{{ $exam->exam->name }}</a><br/>
+                      <small>({{ $exam->course->name }})</small>
                     </td>
                     <td>{{ $exam->user->name }}</td>
                     <td>{{ $exam->payment_status == 1 ? 'Successfull' : 'Failed' }}</td>

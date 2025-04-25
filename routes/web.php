@@ -83,6 +83,9 @@ Route::post('/dashboard/users/{id}/single/sms', 'DashboardController@sendSingleS
 Route::get('/dashboard/payments', 'DashboardController@getPayments')->name('dashboard.payments');
 Route::get('/dashboard/payments/{search}', 'DashboardController@getPaymentsSearch')->name('dashboard.payments.search');
 
+
+Route::get('/dashboard/examstoday', 'DashboardController@getExamsToday')->name('dashboard.examstoday');
+
 Route::get('/dashboard/packages', 'DashboardController@getPackages')->name('dashboard.packages');
 Route::post('/dashboard/packages/store', 'DashboardController@storePackage')->name('dashboard.packages.store');
 Route::post('/dashboard/packages/{id}/update', 'DashboardController@updatePackage')->name('dashboard.packages.update');

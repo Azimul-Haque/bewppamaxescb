@@ -48,7 +48,7 @@
                       <small>{{ $exam->course->name }}</small>
                     </td>
                     <td><a href="{{ route('dashboard.users.single', $exam->user->id) }}">{{ $exam->user->name }}</a></td>
-                    <td>{{ $exam->payment_status == 1 ? 'Successfull' : 'Failed' }}</td>
+                    <td>{{ $exam->marks }}</td>
                 		<td>{{ date('F d, Y h:i A', strtotime($exam->created_at)) }}</td>
                 	</tr>
                 @endforeach

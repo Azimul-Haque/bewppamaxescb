@@ -21,6 +21,32 @@
 @endsection
 
 @section('content')
+    <div class="modal fade" id="offerModalMain" data-bs-backdrop="static">
+      <div class="modal-dialog modal-lg modal-success">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">NSI নিয়োগের প্রস্তুতি এখানেই!</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <b>BCS Exam Aid</b> অ্যাপ এ <b>NSI নিয়োগ</b>-এর ৪৫টি পরীক্ষার কোর্স করুন। ইন্সটল করতে নিচের বাটনে ক্লিক করুন!
+
+            <div class="button">
+              {{-- <a href="javascript:void(0)" class="btn primary-btn">Get Started</a> --}}
+              <a href='https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs' target="_blank"><img alt='Get it on Google Play' class="img-responsive" style="max-width: 250px; width: auto;" src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">বন্ধ করুন</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Start header Area -->
     <section id="hero-area" class="header-area header-eight">
       <div class="container">
@@ -544,5 +570,15 @@
 @endsection
 
 @section('third_party_scripts')
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+        setTimeout(function() {
+            // Open the modal
+            $('#offerModalMain').modal('show');
+        }, 500); // 1000ms = 1 second
+    });
+  </script>
 
 @endsection

@@ -44,7 +44,7 @@
                 @foreach($examstoday as $exam)
                 	<tr>
                     <td>
-                      <a href="{{ route('dashboard.users.single', $exam->exam->id) }}">{{ $exam->exam->name }}</a>
+                      <a href="{{ route('dashboard.exams.single', $exam->exam->id) }}">{{ $exam->exam->name }}</a>
                       <small>({{ $exam->user->payments->count() }} বার)</small><br/>
                     </td>
                     <td>{{ $exam->user->name }}</td>

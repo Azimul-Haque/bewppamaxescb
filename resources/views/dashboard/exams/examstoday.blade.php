@@ -49,9 +49,6 @@
                     </td>
                     <td><a href="{{ route('dashboard.users.single', $exam->user->id) }}">{{ $exam->user->name }}</a></td>
                     <td>{{ $exam->payment_status == 1 ? 'Successfull' : 'Failed' }}</td>
-                    <td>{{ $exam->card_type }}</td>
-                    <td>{{ $exam->trx_id }}</td>
-                    <td><b>৳ {{ $exam->store_amount }}</b> <small>(৳ {{ $exam->amount }})</small></td>
                 		<td>{{ date('F d, Y h:i A', strtotime($exam->created_at)) }}</td>
                 	</tr>
                 @endforeach

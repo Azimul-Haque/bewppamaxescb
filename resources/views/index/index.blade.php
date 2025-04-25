@@ -39,6 +39,7 @@
               <a href='https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs' target="_blank"><img alt='Get it on Google Play' class="img-responsive" style="max-width: 250px; width: auto;" src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
             </div>
           </div>
+          আ
           <!-- Modal footer -->
           <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">বন্ধ করুন</button>

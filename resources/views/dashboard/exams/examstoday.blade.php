@@ -48,7 +48,7 @@
                       <small>({{ $exam->user->payments->count() }} বার)</small><br/>
                       <small class="text-black-50">{{ $exam->user->mobile }}</small>
                     </td>
-                    <td>{{ $exam->package->name }}</td>
+                    <td>{{ $exam->exam->name }}</td>
                     <td>{{ $exam->payment_status == 1 ? 'Successfull' : 'Failed' }}</td>
                     <td>{{ $exam->card_type }}</td>
                     <td>{{ $exam->trx_id }}</td>

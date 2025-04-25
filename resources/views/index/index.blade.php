@@ -32,7 +32,7 @@
           </div>
           <!-- Modal body -->
           <div class="modal-body">
-            <b>BCS Exam Aid</b> অ্যাপ এ <b>NSI নিয়োগ</b>-এর ৪৫টি পরীক্ষার কোর্স করুন। অ্যাপ্টি ইন্সটল করতে নিচের বাটনে ক্লিক করুন!
+            <b>BCS Exam Aid</b> অ্যাপ এ <b>NSI নিয়োগ</b>-এর ৪৫টি পরীক্ষার কোর্স করুন। অ্যাপ্টি ইন্সটল করতে নিচের প্লে স্টোর বাটনে ক্লিক করুন!
 
             <div class="button">
               {{-- <a href="javascript:void(0)" class="btn primary-btn">Get Started</a> --}}

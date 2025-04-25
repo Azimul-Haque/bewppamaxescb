@@ -47,7 +47,7 @@
                       <a href="{{ route('dashboard.exams.add.question', $exam->exam->id) }}">{{ $exam->exam->name }}</a><br/>
                       <small>{{ $exam->course->name }}</small>
                     </td>
-                    <td><a href="{{ route('dashboard.exams.add.question', $exam->exam->id) }}">{{ $exam->user->name }}</a></td>
+                    <td><a href="{{ route('dashboard.users.single', $exam->user->id) }}">{{ $exam->user->name }}</a></td>
                     <td>{{ $exam->payment_status == 1 ? 'Successfull' : 'Failed' }}</td>
                     <td>{{ $exam->card_type }}</td>
                     <td>{{ $exam->trx_id }}</td>

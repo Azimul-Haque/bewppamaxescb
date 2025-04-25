@@ -38,7 +38,7 @@
               {{-- <a href="javascript:void(0)" class="btn primary-btn">Get Started</a> --}}
               <a href='https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs' target="_blank"><img alt='Get it on Google Play' class="img-responsive" style="max-width: 250px; width: auto;" src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
             </div>
-            <a href="" title="NSI Job Circular Blog">NSI নিয়োগ ২০২৫ সংক্রান্ত </a>
+            <a href="" title="NSI Job Circular Blog">NSI নিয়োগ ২০২৫: পরীক্ষার ধাপ, প্রস্তুতি ও গুরুত্বপূর্ণ তথ্য</a>
           </div>
           <!-- Modal footer -->
           <div class="modal-footer">

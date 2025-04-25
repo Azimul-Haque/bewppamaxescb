@@ -46,7 +46,6 @@
                     <td>
                       <a href="{{ route('dashboard.users.single', $exam->user->id) }}">{{ $exam->user->name }}</a>
                       <small>({{ $exam->user->payments->count() }} বার)</small><br/>
-                      <small class="text-black-50">{{ $exam->user->mobile }}</small>
                     </td>
                     <td>{{ $exam->exam->name }}</td>
                     <td>{{ $exam->payment_status == 1 ? 'Successfull' : 'Failed' }}</td>

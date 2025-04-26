@@ -295,4 +295,9 @@ class IndexController extends Controller
         Session::flush();
         return 'Config and Route Cached. All Cache Cleared';
     }
+
+    public function redirectPlayStore()
+    {
+        return redirect('https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs');
+    }
 }

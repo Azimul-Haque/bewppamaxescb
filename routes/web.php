@@ -26,6 +26,7 @@ Route::post('/payment/app/confirm', 'IndexController@paymentSuccessApp')->name('
 Route::get('/payment/app/cancel', 'IndexController@paymentCancelApp')->name('index.payment.cancel.app');
 Route::get('/check/ip', 'IndexController@checkIP')->name('index.check.ip');
 Route::post('/account/deletion/request', 'IndexController@requestACDelete')->name('index.account.deletion.request');
+Route::get('/redirect/playstore', 'IndexController@redirectPlayStore')->name('index.redirect.playstore');
 
 // blog
 Route::get('/blogs', 'BlogController@index')->name('blogs.index');

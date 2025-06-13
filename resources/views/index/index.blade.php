@@ -491,7 +491,7 @@
               /* text-align: center; */
               z-index: 0;
           }
-          .pricing-style-fourteen:hover {
+          .blogs-style-fourteen:hover {
             box-shadow: var(--shadow-4);
           }
           .blogs-style-fourteen .blog-image img {

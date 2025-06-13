@@ -463,7 +463,7 @@
                   </h6>
                 </div>
                 <div class="table-content" style="padding-top: 10px;">
-                  <p>বিসিএস পরীক্ষার জন্য সেরা প্রস্তুতির কৌশল ও টিপস জানতে আমাদের এই ব্লগ পোস্টটি পড়ুন...</p>
+                  <p>{{ $blog->body }}</p>
                 </div>
                 <div class="light-rounded-buttons" style="margin-top: 20px;">
                   <a href="{{ route('blog.single', 'example-blog-post-1') }}" class="btn primary-btn-outline">

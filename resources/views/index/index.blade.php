@@ -458,7 +458,7 @@
               <div class="pricing-style-fourteen"> {{-- Reusing pricing box style for consistent look --}}
                 <div class="table-head" style="padding-bottom: 0px;">
                   @if($blog->featured_image != null)
-                      <a class="blog-image" href="{{ route('blog.single', $blog->slug) }}"><img class="img-responsive" src="" alt="" style="width: 100%;" />
+                      <a class="blog-image" href="{{ route('blog.single', $blog->slug) }}">
                       <img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="{{ $blog->title }}" class="img-fluid mb-3"></a>
                   @endif
                   

@@ -455,7 +455,7 @@
         <div class="row">
           @foreach($blogs as $blog)
             <div class="col-lg-4 col-md-6 col-12">
-                <div class="pricing-style-fourteen"> {{-- Reusing pricing box style for consistent look --}}
+                <div class="blogs-style-fourteen"> {{-- Reusing pricing box style for consistent look --}}
                   <a class="blog-image" href="{{ route('blog.single', $blog->slug) }}">
                       <img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="{{ $blog->title }}" class="img-fluid blog-image-full-width">
                   </a>
@@ -481,6 +481,18 @@
             </div>
           @endforeach
         </div>
+        <style>
+          .pricing-style-fourteen {
+              border: 1px solid var(--light-1);
+              border-radius: 10px;
+              margin-top: 30px;
+              background-color: var(--white);
+              transition: all 0.4s ease;
+              /* padding: 50px 35px; */
+              /* text-align: center; */
+              z-index: 0;
+          }
+        </style>
 
         <div class="row">
           <div class="col-12 text-center mt-5">

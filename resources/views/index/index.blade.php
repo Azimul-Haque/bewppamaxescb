@@ -493,7 +493,8 @@
               z-index: 0;
           }
           .blogs-style-fourteen .blog-image {
-            
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
           }
         </style>
 

@@ -492,7 +492,7 @@
               /* text-align: center; */
               z-index: 0;
           }
-          .blogs-style-fourteen .blog-image {
+          .blogs-style-fourteen .blog-image img {
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
           }

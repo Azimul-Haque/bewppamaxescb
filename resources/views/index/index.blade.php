@@ -457,6 +457,9 @@
             <div class="col-lg-4 col-md-6 col-12">
               <div class="pricing-style-fourteen"> {{-- Reusing pricing box style for consistent look --}}
                 <div class="table-head" style="padding-bottom: 0px;">
+                  @if($blog->featured_image != null)
+                      <div><a class="blog-image" href="{{ route('blog.single', $blog->slug) }}"><img class="img-responsive" src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;" /></a></div><br/>
+                  @endif
                   <img src="{{ asset('images/blog/blog-image-1.jpg') }}" alt="{{ $blog->title }}" class="img-fluid mb-3">
                   <h6 class="title" style="font-size: 20px; text-align: left;">
                       <a href="{{ route('blog.single', $blog->slug) }}" style="color: inherit; text-decoration: none;">{{ $blog->title }}</a>

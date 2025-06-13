@@ -473,7 +473,7 @@
                             @endif
                         </p>
                     </div>
-                    <div class="light-rounded-buttons" style="margin-top: 20px; padding-bottom: 20px;">
+                    <div class="light-rounded-buttons" style="margin-top: 20px; margin-bottom: 40px;">
                       <center><a href="{{ route('blog.single', $blog->slug) }}" class="btn primary-btn-outline">বিস্তারিত পড়ুন</a></center>
                     </div>
                 </div>

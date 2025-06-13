@@ -459,7 +459,7 @@
                 <div class="table-head" style="padding-bottom: 0px;">
                   @if($blog->featured_image != null)
                       <a class="blog-image" href="{{ route('blog.single', $blog->slug) }}">
-                      <img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="{{ $blog->title }}" class="img-fluid mb-3"></a>
+                      <img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="{{ $blog->title }}" class="img-fluid blog-image-full-width"></a>
                   @endif
                   
                   <h6 class="title" style="font-size: 20px; text-align: left;">

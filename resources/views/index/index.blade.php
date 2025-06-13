@@ -482,7 +482,7 @@
           @endforeach
         </div>
         <style>
-          .pricing-style-fourteen {
+          .blogs-style-fourteen {
               border: 1px solid var(--light-1);
               border-radius: 10px;
               margin-top: 30px;

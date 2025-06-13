@@ -456,10 +456,11 @@
           @foreach($blogs as $blog)
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="pricing-style-fourteen"> {{-- Reusing pricing box style for consistent look --}}
+                  <a class="blog-image" href="{{ route('blog.single', $blog->slug) }}">
+                      <img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="{{ $blog->title }}" class="img-fluid blog-image-full-width">
+                  </a>
                     <div class="table-head" style="padding: 0;"> @if($blog->featured_image != null)
-                            <a class="blog-image" href="{{ route('blog.single', $blog->slug) }}">
-                                <img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="{{ $blog->title }}" class="img-fluid blog-image-full-width">
-                            </a>
+                            
                         @endif
                         <h6 class="title" style="font-size: 20px; text-align: left; padding: 20px 20px 0px 20px;"> <a href="{{ route('blog.single', $blog->slug) }}" style="color: inherit; text-decoration: none;">{{ $blog->title }}</a>
                         </h6>

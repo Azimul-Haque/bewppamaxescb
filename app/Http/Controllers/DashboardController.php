@@ -1343,7 +1343,8 @@ class DashboardController extends Controller
             $image      = $request->file('featured_image');
             $filename   = str_replace(['?',':', '\\', '/', '*', ' '], '_',$request->slug).time() .'.' . "webp";
             $location   = public_path('images/blogs/'. $filename);
-            Image::make($image)->resize(600, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            // Image::make($image)->resize(600, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+            Image::make($image)->fit(600, 315)->save($location);
             $blog->featured_image = $filename;
         }
 

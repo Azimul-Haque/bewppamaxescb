@@ -15,6 +15,7 @@ use App\Creditor;
 use App\Due;
 use App\Temppayment;
 use App\Payment;
+use App\Blog;
 
 use App\Exam;
 
@@ -54,8 +55,11 @@ class IndexController extends Controller
         // return redirect('https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs');
         
         $packages = Package::where('status', 1)->get();
+        $blogs = Blog::orderBy('id', 'desc')->get()->take(3);
 
-        return view('index.index')->withPackages($packages);
+        return view('index.index')
+                    ->withPackages($packages)
+                    ->withBlogs($blogs);
     }
 
     public function termsAndConditions()

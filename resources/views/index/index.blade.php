@@ -459,7 +459,7 @@
                 <div class="table-head" style="padding-bottom: 0px;">
                   <img src="{{ asset('images/blog/blog-image-1.jpg') }}" alt="Blog Image 1" class="img-fluid mb-3">
                   <h6 class="title" style="font-size: 20px; text-align: left;">
-                      <a href="{{ route('blog.single', 'example-blog-post-1') }}" style="color: inherit; text-decoration: none;">{{ $blog->title }}</a>
+                      <a href="{{ route('blog.single', $blog->slug) }}" style="color: inherit; text-decoration: none;">{{ $blog->title }}</a>
                   </h6>
                 </div>
                 <div class="table-content" style="padding-top: 10px;">
@@ -470,7 +470,7 @@
                   @endif
                 </div>
                 <div class="light-rounded-buttons" style="margin-top: 20px;">
-                  <a href="{{ route('blog.single', 'example-blog-post-1') }}" class="btn primary-btn-outline">
+                  <a href="{{ route('blog.single', $blog->slug) }}" class="btn primary-btn-outline">
                     বিস্তারিত পড়ুন
                   </a>
                 </div>

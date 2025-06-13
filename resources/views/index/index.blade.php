@@ -472,7 +472,7 @@
                             @endif
                         </p>
                     </div>
-                    <div class="light-rounded-buttons" style="margin-top: 20px; "> <a href="{{ route('blog.single', $blog->slug) }}" class="btn primary-btn-outline">
+                    <div class="light-rounded-buttons" style="margin-top: 20px;"> <a href="{{ route('blog.single', $blog->slug) }}" class="btn primary-btn-outline">
                             বিস্তারিত পড়ুন
                         </a>
                     </div>

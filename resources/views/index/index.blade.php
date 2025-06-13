@@ -463,7 +463,11 @@
                   </h6>
                 </div>
                 <div class="table-content" style="padding-top: 10px;">
-                  <p>{{ $blog->body }}</p>
+                  @if(strlen(strip_tags($blog->body))>600)
+                      {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+500))."... " }}
+                  @else
+                      {{ strip_tags($blog->body) }}
+                  @endif
                 </div>
                 <div class="light-rounded-buttons" style="margin-top: 20px;">
                   <a href="{{ route('blog.single', 'example-blog-post-1') }}" class="btn primary-btn-outline">

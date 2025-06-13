@@ -456,7 +456,7 @@
           @foreach($blogs as $blog)
             <div class="col-lg-4 col-md-6 col-12">
               <div class="pricing-style-fourteen"> {{-- Reusing pricing box style for consistent look --}}
-                <div class="table-head" style="padding-bottom: 0px;">
+                <div class="table-head" style="padding: 0px;">
                   @if($blog->featured_image != null)
                       <a class="blog-image" href="{{ route('blog.single', $blog->slug) }}">
                       <img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="{{ $blog->title }}" class="img-fluid blog-image-full-width"></a>

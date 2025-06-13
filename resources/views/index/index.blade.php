@@ -477,47 +477,6 @@
               </div>
             </div>
           @endforeach
-          
-
-          {{-- Example Blog Post 2 --}}
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="pricing-style-fourteen">
-              <div class="table-head" style="padding-bottom: 0px;">
-                <img src="{{ asset('images/blog/blog-image-2.jpg') }}" alt="Blog Image 2" class="img-fluid mb-3">
-                <h6 class="title" style="font-size: 20px; text-align: left;">
-                    <a href="{{ route('blog.single', 'example-blog-post-2') }}" style="color: inherit; text-decoration: none;">সরকারি চাকরির পরীক্ষার জন্য সাধারণ জ্ঞান</a>
-                </h6>
-              </div>
-              <div class="table-content" style="padding-top: 10px;">
-                <p>সরকারি চাকরির পরীক্ষায় সাধারণ জ্ঞান অংশে ভালো করার জন্য গুরুত্বপূর্ণ তথ্যাদি...</p>
-              </div>
-              <div class="light-rounded-buttons" style="margin-top: 20px;">
-                <a href="{{ route('blog.single', 'example-blog-post-2') }}" class="btn primary-btn-outline">
-                  বিস্তারিত পড়ুন
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {{-- Example Blog Post 3 --}}
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="pricing-style-fourteen">
-              <div class="table-head" style="padding-bottom: 0px;">
-                <img src="{{ asset('images/blog/blog-image-3.jpg') }}" alt="Blog Image 3" class="img-fluid mb-3">
-                <h6 class="title" style="font-size: 20px; text-align: left;">
-                    <a href="{{ route('blog.single', 'example-blog-post-3') }}" style="color: inherit; text-decoration: none;">গণিত শর্টকাট টেকনিক: চাকরির পরীক্ষার জন্য</a>
-                </h6>
-              </div>
-              <div class="table-content" style="padding-top: 10px;">
-                <p>গণিত অংশে দ্রুত সমাধান করার জন্য কিছু কার্যকর শর্টকাট কৌশল শিখুন...</p>
-              </div>
-              <div class="light-rounded-buttons" style="margin-top: 20px;">
-                <a href="{{ route('blog.single', 'example-blog-post-3') }}" class="btn primary-btn-outline">
-                  বিস্তারিত পড়ুন
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="row">

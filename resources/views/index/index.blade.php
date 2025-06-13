@@ -490,6 +490,7 @@
               /* padding: 50px 35px; */
               /* text-align: center; */
               z-index: 0;
+              min-height: 530px;
           }
           .blogs-style-fourteen:hover {
             box-shadow: var(--shadow-4);

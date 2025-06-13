@@ -492,6 +492,9 @@
               /* text-align: center; */
               z-index: 0;
           }
+          .blogs-style-fourteen .blog-image {
+            
+          }
         </style>
 
         <div class="row">

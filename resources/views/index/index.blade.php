@@ -462,7 +462,7 @@
                       <a href="{{ route('blog.single', 'example-blog-post-1') }}" style="color: inherit; text-decoration: none;">{{ $blog->title }}</a>
                   </h6>
                 </div>
-                <div class="table-content" style="padding-top: 10px;">
+                <div class="" style="padding-top: 10px;">
                   @if(strlen(strip_tags($blog->body))>200)
                       {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200))."... " }}
                   @else

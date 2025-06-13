@@ -459,7 +459,7 @@
                 <div class="table-head" style="padding-bottom: 0px;">
                   <img src="{{ asset('images/blog/blog-image-1.jpg') }}" alt="Blog Image 1" class="img-fluid mb-3">
                   <h6 class="title" style="font-size: 20px; text-align: left;">
-                      <a href="{{ route('blog.single', 'example-blog-post-1') }}" style="color: inherit; text-decoration: none;">বিসিএস প্রস্তুতির ১০টি গুরুত্বপূর্ণ টিপস</a>
+                      <a href="{{ route('blog.single', 'example-blog-post-1') }}" style="color: inherit; text-decoration: none;">{{ $blog->title }}</a>
                   </h6>
                 </div>
                 <div class="table-content" style="padding-top: 10px;">

@@ -455,30 +455,28 @@
         <div class="row">
           @foreach($blogs as $blog)
             <div class="col-lg-4 col-md-6 col-12">
-              <div class="pricing-style-fourteen"> {{-- Reusing pricing box style for consistent look --}}
-                <div class="table-head" style="padding: 0px;">
-                  @if($blog->featured_image != null)
-                      <a class="blog-image" href="{{ route('blog.single', $blog->slug) }}">
-                      <img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="{{ $blog->title }}" class="img-fluid blog-image-full-width"></a>
-                  @endif
-                  
-                  <h6 class="title" style="font-size: 20px; text-align: left;">
-                      <a href="{{ route('blog.single', $blog->slug) }}" style="color: inherit; text-decoration: none;">{{ $blog->title }}</a>
-                  </h6>
+                <div class="pricing-style-fourteen"> {{-- Reusing pricing box style for consistent look --}}
+                    <div class="table-head" style="padding: 0;"> @if($blog->featured_image != null)
+                            <a class="blog-image" href="{{ route('blog.single', $blog->slug) }}">
+                                <img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="{{ $blog->title }}" class="img-fluid blog-image-full-width">
+                            </a>
+                        @endif
+                        <h6 class="title" style="font-size: 20px; text-align: left; padding: 20px 20px 0px 20px;"> <a href="{{ route('blog.single', $blog->slug) }}" style="color: inherit; text-decoration: none;">{{ $blog->title }}</a>
+                        </h6>
+                    </div>
+                    <div class="table-content" style="padding-top: 10px;">
+                        <p style="padding: 0px 20px;"> @if(strlen(strip_tags($blog->body))>200)
+                                {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200))."... " }}
+                            @else
+                                {{ strip_tags($blog->body) }}
+                            @endif
+                        </p>
+                    </div>
+                    <div class="light-rounded-buttons" style="margin-top: 20px; padding-bottom: 20px;"> <a href="{{ route('blog.single', $blog->slug) }}" class="btn primary-btn-outline">
+                            বিস্তারিত পড়ুন
+                        </a>
+                    </div>
                 </div>
-                <div class="table-content" style="padding-top: 10px;">
-                  @if(strlen(strip_tags($blog->body))>200)
-                      {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200))."... " }}
-                  @else
-                      {{ strip_tags($blog->body) }}
-                  @endif
-                </div>
-                <div class="light-rounded-buttons" style="margin-top: 20px;">
-                  <a href="{{ route('blog.single', $blog->slug) }}" class="btn primary-btn-outline">
-                    বিস্তারিত পড়ুন
-                  </a>
-                </div>
-              </div>
             </div>
           @endforeach
         </div>

@@ -491,6 +491,9 @@
               /* text-align: center; */
               z-index: 0;
           }
+          .pricing-style-fourteen:hover {
+            box-shadow: var(--shadow-4);
+          }
           .blogs-style-fourteen .blog-image img {
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;

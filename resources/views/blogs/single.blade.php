@@ -27,7 +27,7 @@
     <meta name="article:published_time" content="{{ $blog->created_at}}">
     <meta name="article:author" content="{{ Request::url('blogger/profile/'.$blog->user->unique_key) }}">
     <meta name="article:tag" content="{{ $blog->blogcategory->name }}">
-    <meta name="article:modified_time" content="{{ $blog->updated_at}}">
+    <meta name="article:modified_time" content="{{ $blog->updated_at }}">
 
     <!-- Structured data JSON-LD (optional but highly recommended) -->
     <script type="application/ld+json">
@@ -43,7 +43,7 @@
           "name": "{{ $blog->user->name ?? 'এ. এইচ. এম. আজিমুল হক' }}"
         },
         "datePublished": "{{ $published_date ?? now()->toIso8601String() }}",
-        "dateModified": "{{ $modified_date ?? now()->toIso8601String() }}"
+        "dateModified": "{{ $blog->updated_at ?? now()->toIso8601String() }}"
         }
     </script>
 

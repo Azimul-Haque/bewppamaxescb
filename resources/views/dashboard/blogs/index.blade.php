@@ -91,10 +91,10 @@
                                                   <input type="text" name="slug" value="{{ $blog->slug }}" class="form-control mb-3" placeholder="ব্লগ স্লাগ (Optional)" required>
                                                   <div class="row">
                                                       <div class="col-md-6">
-                                                        <input type="text" name="keywords" value="{{ old('keywords') }}" class="form-control mb-3" placeholder="SEO keywords (Optional)">
+                                                        <input type="text" name="keywords" value="{{ $blog->keywords }}" class="form-control mb-3" placeholder="SEO keywords (Optional)">
                                                       </div>
                                                       <div class="col-md-6">
-                                                        <input type="text" name="description" value="{{ old('description') }}" class="form-control mb-3" placeholder="SEO Description (Optional)">
+                                                        <input type="text" name="description" value="{{ $blog->description }}" class="form-control mb-3" placeholder="SEO Description (Optional)">
                                                       </div>
                                                   </div>
                                                   <textarea id="bodysummernote{{ $blog->id }}" name="body">{{ $blog->body }}</textarea>

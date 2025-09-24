@@ -36,7 +36,7 @@
         "@type": "Article",
         "headline": "{{ $blog->title }}",
         "description": "og:description" content="{{ mb_substr(strip_tags($blog->body), 0, 200) }}...",
-        "image": "{{ $og_image_url ?? asset('default_og_image.jpg') }}",
+        "image": "{{ $blog->featured_image ?? asset('default_og_image.jpg') }}",
         "url": "{{ url()->current() }}",
         "author": {
           "@type": "Person",

@@ -13,7 +13,7 @@
     // এখানে কাজ হবে
     <meta name="keywords" content="{{ $blog->keywords ?? 'BCS, বিসিএস, bcs book list, bcs book suggestion, BCS Preparation Books, বিসিএস প্রিলিমিনারি বই তালিকা, বিসিএস বই তালিকা, বিসিএস লিখিত বই তালিকা, bcs preliminary book list, bcs written book list, বিসিএস প্রিলিমিনারি পরীক্ষার সিলেবাস, বিসিএস পরীক্ষার সিলেবাস' }}">
     <meta property="og:title" content="{{ $blog->title }}"/>
-    <meta name="description" property="og:description" content="{{ {{ $blog->description ?? mb_substr(strip_tags($blog->body), 0, 200) }} }}..." />
+    <meta name="description" property="og:description" content="{{ $blog->description ?? mb_substr(strip_tags($blog->body), 0, 200) }}" />
     <meta name="og:description" content="{{ mb_substr(strip_tags($blog->body), 0, 200) }}..." />
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="{{ Request::url() }}" />

@@ -23,6 +23,8 @@ class CreateBlogsTable extends Migration
             $table->integer('likes')->unsigned();
             $table->integer('views')->unsigned();
             $table->integer('blogcategory_id')->unsigned()->nullable();
+            $table->string('keywords');
+            $table->string('description');
             $table->timestamps();
         });
     }

@@ -7,10 +7,7 @@
     @else
         <meta property="og:image" content="{{ asset('images/abc.png') }}" />
     @endif
-    // এখানে কাজ হবে
-    // এখানে কাজ হবে
-    // এখানে কাজ হবে
-    // এখানে কাজ হবে
+    
     <meta name="keywords" content="{{ $blog->keywords ? $blog->keywords : 'BCS, বিসিএস, bcs book list, bcs book suggestion, BCS Preparation Books, বিসিএস প্রিলিমিনারি বই তালিকা, বিসিএস বই তালিকা, বিসিএস লিখিত বই তালিকা, bcs preliminary book list, bcs written book list, বিসিএস প্রিলিমিনারি পরীক্ষার সিলেবাস, বিসিএস পরীক্ষার সিলেবাস' }}">
     <meta property="og:title" content="{{ $blog->title }}"/>
     <meta property="og:description" content="{{ $blog->description ? $blog->description : mb_substr(strip_tags($blog->body), 0, 200) }}" />

@@ -1339,6 +1339,7 @@ class DashboardController extends Controller
         }
         $blog->blogcategory_id = $request->blogcategory_id;
         $blog->body        = Purifier::clean($request->body, 'youtube');
+
         
         // image upload
         if($request->hasFile('featured_image')) {
@@ -1365,7 +1366,9 @@ class DashboardController extends Controller
             'slug'           => 'required|max:255|unique:blogs,slug,'.$blog->id,
             'body'           => 'required',
             'blogcategory_id'    => 'required|integer',
-            'featured_image' => 'sometimes|image|max:500'
+            'featured_image' => 'sometimes|image|max:500',
+            'keywords' => 'sometimes',
+            'description' => 'sometimes',
         ));
 
         //update to DB

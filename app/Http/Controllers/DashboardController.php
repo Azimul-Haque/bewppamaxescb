@@ -1322,7 +1322,9 @@ class DashboardController extends Controller
             'slug'           => 'sometimes|max:255|unique:blogs,slug',
             'body'           => 'required',
             'blogcategory_id'    => 'required|integer',
-            'featured_image'  => 'sometimes|image|max:500'
+            'featured_image'  => 'sometimes|image|max:500',
+            'keywords' => 'sometimes',
+            'description' => 'sometimes',
         ));
 
         //store to DB

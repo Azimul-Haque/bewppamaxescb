@@ -339,6 +339,30 @@
                     @csrf
                     <input type="text" name="title" value="{{ old('title') }}" class="form-control mb-3" placeholder="ব্লগ শিরোনাম *" required>
                     <input type="text" name="slug" value="{{ old('slug') }}" class="form-control mb-3" placeholder="ব্লগ স্লাগ (Optional)">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <select name="blogcategory_id" class="form-control" required>
+                                    <option selected="" disabled="" value="">ক্যাটাগরি</option>
+                                    @foreach ($blogcategories as $blogcategory)
+                                        <option value="{{ $blogcategory->id }}">{{ $blogcategory->name }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><span class="fas fa-bookmark"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="image">ছবি (প্রয়োজনে)</label>
+                                <input type="file" id="image" name="featured_image" accept="image/*">
+                            </div>
+                            <center>
+                                <img src="{{ asset('images/placeholder.png')}}" id='img-upload' style="width: 250px; height: auto;" class="img-responsive" />
+                            </center>
+                        </div>
+                    </div>
                     <textarea id="bodysummernote" name="body"></textarea>
                     <br/>
                     <div class="row">

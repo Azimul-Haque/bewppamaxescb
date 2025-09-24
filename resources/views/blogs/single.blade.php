@@ -34,7 +34,7 @@
         {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "{{ $title }}",
+        "headline": "{{ $blog->title }}",
         "description": "{{ $meta_description }}",
         "image": "{{ $og_image_url ?? asset('default_og_image.jpg') }}",
         "url": "{{ url()->current() }}",

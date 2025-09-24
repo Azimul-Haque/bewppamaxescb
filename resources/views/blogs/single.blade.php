@@ -40,7 +40,7 @@
         "url": "{{ url()->current() }}",
         "author": {
           "@type": "Person",
-          "name": "{{ $blog->user->name ?? 'Author' }}"
+          "name": "{{ $blog->user->name ?? 'এ. এইচ. এম. আজিমুল হক' }}"
         },
         "datePublished": "{{ $published_date ?? now()->toIso8601String() }}",
         "dateModified": "{{ $modified_date ?? now()->toIso8601String() }}"

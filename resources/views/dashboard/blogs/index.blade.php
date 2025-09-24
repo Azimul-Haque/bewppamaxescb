@@ -344,13 +344,7 @@
                           <input type="text" name="slug" value="{{ old('slug') }}" class="form-control mb-3" placeholder="ব্লগ স্লাগ (Optional)">
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="image">ছবি (প্রয়োজনে)</label>
-                                <input type="file" id="image" name="featured_image" accept="image/*">
-                            </div>
-                            <center>
-                                <img src="{{ asset('images/placeholder.png')}}" id='img-upload' style="width: 250px; height: auto;" class="img-responsive" />
-                            </center>
+                          <input type="text" name="slug" value="{{ old('slug') }}" class="form-control mb-3" placeholder="ব্লগ স্লাগ (Optional)">
                         </div>
                     </div>
                     <textarea id="bodysummernote" name="body"></textarea>

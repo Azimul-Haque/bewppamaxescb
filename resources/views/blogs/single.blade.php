@@ -40,7 +40,7 @@
         "url": "{{ url()->current() }}",
         "author": {
           "@type": "Person",
-          "name": "{{ $author_name ?? 'Author' }}"
+          "name": "{{ $blog->user->unique_key ?? 'Author' }}"
         },
         "datePublished": "{{ $published_date ?? now()->toIso8601String() }}",
         "dateModified": "{{ $modified_date ?? now()->toIso8601String() }}"

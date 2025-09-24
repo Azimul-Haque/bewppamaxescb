@@ -22,6 +22,7 @@
     <meta property="fb:admins" content="100001596964477">
     <meta property="fb:app_id" content="1471913530260781">
     <meta property="og:type" content="article">
+    <meta property="og:image:alt" content="{{ $blog->title }}" />
     <link rel="canonical" href="{{ url()->current() }}">
     <!-- Open Graph - Article -->
     <meta name="article:section" content="{{ $blog->blogcategory->name }}">

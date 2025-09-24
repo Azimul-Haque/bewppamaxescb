@@ -341,10 +341,10 @@
                     <input type="text" name="slug" value="{{ old('slug') }}" class="form-control mb-3" placeholder="ব্লগ স্লাগ (Optional)">
                     <div class="row">
                         <div class="col-md-6">
-                          <input type="text" name="keywords" value="{{ old('slug') }}" class="form-control mb-3" placeholder="ব্লগ স্লাগ (Optional)">
+                          <input type="text" name="keywords" value="{{ old('keywords') }}" class="form-control mb-3" placeholder="ব্লগ স্লাগ (Optional)">
                         </div>
                         <div class="col-md-6">
-                          <input type="text" name="description" value="{{ old('slug') }}" class="form-control mb-3" placeholder="ব্লগ স্লাগ (Optional)">
+                          <input type="text" name="description" value="{{ old('description') }}" class="form-control mb-3" placeholder="ব্লগ স্লাগ (Optional)">
                         </div>
                     </div>
                     <textarea id="bodysummernote" name="body"></textarea>

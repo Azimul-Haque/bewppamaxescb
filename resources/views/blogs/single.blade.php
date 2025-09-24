@@ -29,6 +29,24 @@
     <meta name="article:tag" content="{{ $blog->blogcategory->name }}">
     <meta name="article:modified_time" content="{{ $blog->updated_at}}">
 
+    <!-- Structured data JSON-LD (optional but highly recommended) -->
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ $title }}",
+        "description": "{{ $meta_description }}",
+        "image": "{{ $og_image_url ?? asset('default_og_image.jpg') }}",
+        "url": "{{ url()->current() }}",
+        "author": {
+          "@type": "Person",
+          "name": "{{ $author_name ?? 'Author' }}"
+        },
+        "datePublished": "{{ $published_date ?? now()->toIso8601String() }}",
+        "dateModified": "{{ $modified_date ?? now()->toIso8601String() }}"
+        }
+    </script>
+
     <style type="text/css">
         .youtibecontainer {
             position: relative;

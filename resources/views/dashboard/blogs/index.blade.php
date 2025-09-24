@@ -341,17 +341,7 @@
                     <input type="text" name="slug" value="{{ old('slug') }}" class="form-control mb-3" placeholder="ব্লগ স্লাগ (Optional)">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <select name="blogcategory_id" class="form-control" required>
-                                    <option selected="" disabled="" value="">ক্যাটাগরি</option>
-                                    @foreach ($blogcategories as $blogcategory)
-                                        <option value="{{ $blogcategory->id }}">{{ $blogcategory->name }}</option>
-                                    @endforeach
-                                </select>
-                                <div class="input-group-append">
-                                    <div class="input-group-text"><span class="fas fa-bookmark"></span></div>
-                                </div>
-                            </div>
+                          <input type="text" name="slug" value="{{ old('slug') }}" class="form-control mb-3" placeholder="ব্লগ স্লাগ (Optional)">
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">

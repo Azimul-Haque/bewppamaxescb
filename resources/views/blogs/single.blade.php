@@ -36,7 +36,7 @@
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "{{ $blog->title }}",
-        "description": "{{ mb_substr(strip_tags($blog->body), 0, 200) }}",
+        "description": "{{ $blog->description ?? mb_substr(strip_tags($blog->body), 0, 200) }}",
         "image": "{{ asset('images/blogs/'.$blog->featured_image) ?? asset('images/abc.png') }}",
         "url": "{{ url()->current() }}",
         "author": {

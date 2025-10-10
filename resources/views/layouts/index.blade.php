@@ -8,16 +8,29 @@
   @if (!Request::is('blogs', 'blogs/*', 'blog', 'blog/*'))
     <meta name="description" content="BCS Exam Aid বাংলাদেশ সিভিল সার্ভিস (BCS) পরীক্ষা এবং অন্যান্য সরকারি চাকরি (NSI, দুদক, বাংলাদেশ ব্যাংক, অন্যান্য ব্যাংক, প্রাথমিক শিক্ষক নিয়োগ) পরীক্ষার প্রস্তুতির জন্য সেরা ডেডিকেটেড অনলাইন প্ল্যাটফর্ম। Developed By A. H. M. Azimul Haque.">
     <meta name="keywords" content="BCS, Bangladesh Civil Service, NSI, দুদক, বাংলাদেশ ব্যাংক, অন্যান্য ব্যাংক, প্রাথমিক শিক্ষক নিয়োগ, Primary Exam, Job Circular, Bank Job Circular, Bank Job Exam, BCS Circular, বিসিএস পরীক্ষা, বার কাউন্সিল পরীক্ষা, জুডিশিয়াল পরীক্ষা, Judicial Exam, bcs book list, bcs book suggestion, BCS Preparation Books, বিসিএস প্রিলিমিনারি বই তালিকা, বিসিএস বই তালিকা, বিসিএস লিখিত বই তালিকা, bcs preliminary book list, bcs written book list, বিসিএস প্রিলিমিনারি পরীক্ষার সিলেবাস, বিসিএস পরীক্ষার সিলেবাস">
+
+    <meta property="og:image" content="{{ asset('images/bcs-exam-aid-banner.png') }}" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{ Request::url() }}" />
+    <meta property="og:site_name" content="BCS Exam Aid">
+    <meta property="og:locale" content="en_US">
+    <meta property="fb:admins" content="100001596964477">
+    <meta property="fb:app_id" content="1471913530260781">
+    <meta property="og:type" content="website">
+    <meta property="og:image:alt" content="BCS Exam Aid" />
+    <link rel="canonical" href="{{ url()->current() }}">
   @endif
   @yield('meta-data')
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="mobile-web-app-capable" content="yes">
-  <link rel="icon" sizes="192x192" href="{{ asset('images/favicon.png') }}">
+  <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('images/favicon.png') }}">
   <meta name="theme-color" content="#155BD5">
   <meta name="msapplication-navbutton-color" content="#155BD5">
   <meta name="apple-mobile-web-app-status-bar-style" content="#155BD5">
   <meta name="author" content="A. H. M. Azimul Haque">
+
+
   <!--====== Title ======-->
   {{-- <title>BCS Exam Aid</title> --}}
   <title>@yield('title')</title>
@@ -37,6 +50,27 @@
   <link rel="stylesheet" href="{{ asset('vendor/frontend/css/glightbox.min.css') }}" />
 
   <link rel="stylesheet" href="{{ asset('vendor/frontend/css/style.css') }}" />
+
+  <!-- Structured data JSON-LD (optional but highly recommended) -->
+  @if (!Request::is('blogs', 'blogs/*', 'blog', 'blog/*'))
+    <script type="application/ld+json">
+      {
+      "@context": "https://schema.org",
+      "@type": "Website",
+      "headline": "BCS Exam Aid",
+      "description": "BCS Exam Aid - বিসিএস ও সরকারি চাকরির সেরা প্ল্যাটফর্ম",
+      "image": "{{ asset('images/bcs-exam-aid-banner.png') }}",
+      "url": "{{ url()->current() }}",
+      "author": {
+        "@type": "Person",
+        "name": "A. H. M. Azimul Haque"
+      },
+      // "datePublished": "{{ $blog->created_at ?? now()->toIso8601String() }}",
+      // "dateModified": "{{ $blog->updated_at ?? now()->toIso8601String() }}"
+      }
+  </script>
+  @endif
+  
   @yield('third_party_stylesheets')
 </head>
 

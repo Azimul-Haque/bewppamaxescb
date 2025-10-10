@@ -63,9 +63,10 @@
       "image": "{{ asset('images/bcs-exam-aid-banner.png') }}",
       "url": "{{ url()->current() }}",
       "author": {
-        "@type": "Person",
-        "name": "A. H. M. Azimul Haque"
-      },}
+          "@type": "Person",
+          "name": "A. H. M. Azimul Haque"
+        },
+      }
   </script>
   @endif
   

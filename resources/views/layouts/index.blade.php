@@ -65,7 +65,7 @@
       "author": {
           "@type": "Person",
           "name": "A. H. M. Azimul Haque"
-        },
+        }
       }
   </script>
   @endif

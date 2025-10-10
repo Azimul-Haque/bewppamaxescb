@@ -19,6 +19,7 @@
     <meta property="og:type" content="website">
     <meta property="og:image:alt" content="BCS Exam Aid" />
     <link rel="canonical" href="{{ url()->current() }}">
+    <meta name="facebook-domain-verification" content="zzjvr4zbhetww7xikfwoq0rlpu6u09" />
   @endif
   @yield('meta-data')
 

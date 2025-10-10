@@ -156,7 +156,7 @@
         <h5 class="social-title">Follow Us On</h5>
         <ul>
           <li>
-            <a href="https://www.facebook.com/BJS-Bar-Council-Online-Exam-106986888695432/"><i class="lni lni-facebook-filled"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100094040247109"><i class="lni lni-facebook-filled"></i></a>
           </li>
           <li>
             <a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a>

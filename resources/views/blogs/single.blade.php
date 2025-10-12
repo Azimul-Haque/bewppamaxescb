@@ -1,11 +1,11 @@
 @extends('layouts.blog')
-@section('title-secondary') {{ $blog->title }} - BCS Exam - বিসিএস পরীক্ষা @endsection
+@section('title-secondary') {{ $blog->title }} - BCS Exam Aid- বিসিএস পরীক্ষা @endsection
 
 @section('third_party_stylesheets-s')
     @if($blog->featured_image != null)
         <meta property="og:image" content="{{ asset('images/blogs/'.$blog->featured_image) }}" />
     @else
-        <meta property="og:image" content="{{ asset('images/abc.png') }}" />
+        <meta property="og:image" content="{{ asset('images/bcs-exam-aid-banner.png') }}" />
     @endif
     
     <meta name="keywords" content="{{ $blog->keywords ? $blog->keywords : 'BCS, বিসিএস, bcs book list, bcs book suggestion, BCS Preparation Books, বিসিএস প্রিলিমিনারি বই তালিকা, বিসিএস বই তালিকা, বিসিএস লিখিত বই তালিকা, bcs preliminary book list, bcs written book list, বিসিএস প্রিলিমিনারি পরীক্ষার সিলেবাস, বিসিএস পরীক্ষার সিলেবাস' }}">
@@ -39,7 +39,7 @@
         "@type": "Article",
         "headline": "{{ $blog->title }}",
         "description": "{{ $blog->description ?? mb_substr(strip_tags($blog->body), 0, 200) }}",
-        "image": "{{ asset('images/blogs/'.$blog->featured_image) ?? asset('images/abc.png') }}",
+        "image": "{{ asset('images/blogs/'.$blog->featured_image) ?? asset('images/bcs-exam-aid-banner.png') }}",
         "url": "{{ url()->current() }}",
         "author": {
           "@type": "Person",

@@ -17,6 +17,10 @@ class CreateTopicsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('participation')->default(0);
+            $table->foreignId('parent_id')->nullable()->constrained('topics')->cascadeOnDelete();
+
+            // Prevent duplicate siblings with the same name
+            $table->unique(['parent_id', 'name']);
         });
     }
 

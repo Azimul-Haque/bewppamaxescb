@@ -624,7 +624,7 @@ class QuestionController extends Controller
 
     public function getFullPathAttribute()
     {
-        $topics = Topic::where('parent_id', null) as $topic
+        $topics = Topic::where('parent_id', null)->get();
         foreach($topics as $topic) {
             $path = collect([$topic->name]);
             $parent = $topic->parent;

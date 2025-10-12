@@ -20,6 +20,10 @@
     <meta property="fb:app_id" content="1471913530260781">
     <meta property="og:type" content="article">
     <meta property="og:image:alt" content="{{ $blog->title }}" />
+    <meta property="og:image:width" content="1025" />
+    <meta property="og:image:height" content="542" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="{{ url()->current() }}">
     <!-- Open Graph - Article -->
     <meta name="article:section" content="{{ $blog->blogcategory->name }}">

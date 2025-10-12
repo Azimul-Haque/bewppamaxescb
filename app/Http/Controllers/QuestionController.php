@@ -633,7 +633,7 @@ class QuestionController extends Controller
             //     $path->prepend($parent->name);
             //     $parent = $parent->parent;
             // }
-            // echo $path->join(' → ') + '<br/>';
+            // echo $path->join(' → ') . '<br/>';
         }
         
     }

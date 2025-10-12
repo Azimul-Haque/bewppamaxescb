@@ -621,4 +621,19 @@ class QuestionController extends Controller
         Session::flash('success', 'প্রশনটি সমাধান করা হয়েছে!');
         return redirect()->back();
     }
+
+    public function getFullPathAttribute()
+    {
+        $topics = Topic::all();
+        foreach($topics as $topic) {
+            $path = collect([$topic->name]);
+            $parent = $topic->parent;
+            while ($parent) {
+                $path->prepend($parent->name);
+                $parent = $parent->parent;
+            }
+            echo $path->join(' → ') + '<br/>';
+        }
+        
+    }
 }

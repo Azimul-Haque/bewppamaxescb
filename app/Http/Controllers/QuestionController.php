@@ -626,14 +626,13 @@ class QuestionController extends Controller
     {
         $topics = Topic::all();
         foreach($topics as $topic) {
-            echo $topic->name . '<br/>';
-            // $path = collect([$topic->name]);
-            // $parent = $topic->parent;
-            // while ($parent) {
-            //     $path->prepend($parent->name);
-            //     $parent = $parent->parent;
-            // }
-            // echo $path->join(' → ') . '<br/>';
+            $path = collect([$topic->name]);
+            $parent = $topic->parent;
+            while ($parent) {
+                $path->prepend($parent->name);
+                $parent = $parent->parent;
+            }
+            echo $path->join(' → ') . '<br/>';
         }
         
     }

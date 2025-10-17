@@ -47,7 +47,7 @@ class QuestionController extends Controller
         //     // $domain stuff
         // });
         // dd($questions);
-        $topics = Topic::orderBy('id', 'asc')->get();
+        $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
 
         // dd($questions);
@@ -624,7 +624,9 @@ class QuestionController extends Controller
 
     public function getFullPathAttribute()
     {
-        $topics = Topic::where('parent_id', null)->get();
+        $topics = Topic::get();
+
+        echo '<table>';
         foreach($topics as $topic) {
             $path = collect([$topic->name]);
             $parent = $topic->parent;
@@ -632,8 +634,9 @@ class QuestionController extends Controller
                 $path->prepend($parent->name);
                 $parent = $parent->parent;
             }
-            echo $path->join(' → ') . '<br/>';
+            echo '<tr><td>' . $path->join(' → ') . '</td><td>' . $topic->id . '</td></tr>';
         }
+        echo '<table>';
         
     }
 }

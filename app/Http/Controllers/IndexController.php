@@ -291,12 +291,12 @@ class IndexController extends Controller
 
     public function redirectPlayStore()
     {
-        return view('index.apistatus.blade');
+        return redirect('https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs');
     }
 
     public function getAPIStatus()
     {
-        return redirect('https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs');
+        return view('index.apistatus.blade');
     }
 
     // clear configs, routes and serve

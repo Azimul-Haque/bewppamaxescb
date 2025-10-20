@@ -8,7 +8,7 @@
     <script type="application/ld+json">
         {
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": "Website",
         "headline": "{{ $blog->title }}",
         "description": "{{ $blog->description ?? mb_substr(strip_tags($blog->body), 0, 200) }}",
         "image": "{{ asset('images/blogs/'.$blog->featured_image) ?? asset('images/bcs-exam-aid-banner.png') }}",

@@ -299,6 +299,11 @@ class IndexController extends Controller
         return view('index.apistatus');
     }
 
+    public function getDocumentation()
+    {
+        return view('index.apistatus');
+    }
+
     // clear configs, routes and serve
     public function clear()
     {

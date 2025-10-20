@@ -2,67 +2,7 @@
 @section('title') Privacy Policy | BCS Exam AID | বিসিএস-সহ সরকারি চাকরির পরীক্ষার প্রস্তুতির জন্য সেরা অনলাইন প্ল্যাটফর্ম @endsection
 
 @section('third_party_stylesheets')
-	<style>
-	        body {
-	            font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
-	            background-color: #f8f9fa;
-	        }
-	        .header-bg {
-	            background-color: #007bff; /* Primary Blue */
-	            color: white;
-	            padding: 40px 0;
-	            border-radius: 0 0 15px 15px;
-	            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	        }
-	        .feature-card {
-	            border-radius: 10px;
-	            transition: transform 0.3s, box-shadow 0.3s;
-	        }
-	        .feature-card:hover {
-	            transform: translateY(-5px);
-	            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-	        }
-	        .icon-circle {
-	            width: 60px;
-	            height: 60px;
-	            border-radius: 50%;
-	            background-color: #e9f5ff;
-	            color: #007bff;
-	            display: inline-flex;
-	            align-items: center;
-	            justify-content: center;
-	            font-size: 2rem;
-	            margin-bottom: 15px;
-	        }
-	        .sidebar {
-	            background-color: #f0f4f7;
-	            border-right: 1px solid #dee2e6;
-	        }
-	        .sidebar-link {
-	            transition: background-color 0.2s;
-	            border-radius: 5px;
-	        }
-	        .sidebar-link:hover {
-	            background-color: #e2e6ea;
-	        }
-	        .section-anchor {
-	            padding-top: 70px; /* Offset for fixed header */
-	            margin-top: -70px;
-	        }
-	    </style>
-	    <!-- Lucide Icons (Inline SVG replacement for Font Awesome) -->
-	    <script>
-	        tailwind.config = {
-	            theme: {
-	                extend: {
-	                    colors: {
-	                        'primary-bcs': '#007bff',
-	                        'secondary-bcs': '#6c757d',
-	                    }
-	                }
-	            }
-	        }
-	    </script>
+	
 @endsection
 
 @section('content')

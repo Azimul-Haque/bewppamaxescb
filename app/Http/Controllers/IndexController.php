@@ -291,7 +291,7 @@ class IndexController extends Controller
 
     public function redirectPlayStore()
     {
-        return view('index.index')
+        return view('index.apistatus.blade')
     }
 
     public function getAPIStatus()

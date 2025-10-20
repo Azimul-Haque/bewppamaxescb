@@ -289,6 +289,16 @@ class IndexController extends Controller
         return redirect()->route('index.index');
     }
 
+    public function redirectPlayStore()
+    {
+        return redirect('https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs');
+    }
+
+    public function getAPIStatus()
+    {
+        return redirect('https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs');
+    }
+
     // clear configs, routes and serve
     public function clear()
     {
@@ -302,8 +312,5 @@ class IndexController extends Controller
         return 'Config and Route Cached. All Cache Cleared';
     }
 
-    public function redirectPlayStore()
-    {
-        return redirect('https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs');
-    }
+    
 }

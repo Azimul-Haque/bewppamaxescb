@@ -62,10 +62,6 @@
 
         <div class="text-center mt-5 pt-3">
             <button class="btn btn-lg btn-primary shadow-sm" onclick="checkAllStatuses()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-clockwise me-2" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .917-.119 6 6 0 1 1-2.96 4.98l-.11-.005A6 6 0 0 1 8 10a5 5 0 0 1 0-7z"/>
-                  <path d="M8 1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V2a.5.5 0 0 1 .5-.5z"/>
-                </svg>
                 Refresh Status
             </button>
             <p class="text-muted mt-3 small">Last check: <span id="last-updated" class="fw-semibold">N/A</span></p>

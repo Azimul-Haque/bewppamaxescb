@@ -14,11 +14,9 @@
         "image": "{{ asset('images/bcs-exam-aid-banner.png') }}",
         "url": "{{ url()->current() }}",
         "author": {
-          "@type": "Person",
-          "name": "{{ $blog->user->name ?? 'এ. এইচ. এম. আজিমুল হক' }}"
-        },
-        "datePublished": "{{ $blog->created_at ?? now()->toIso8601String() }}",
-        "dateModified": "{{ $blog->updated_at ?? now()->toIso8601String() }}"
+              "@type": "Person",
+              "name": "{{  'এ. এইচ. এম. আজিমুল হক' }}"
+            }
         }
     </script>
 @endsection

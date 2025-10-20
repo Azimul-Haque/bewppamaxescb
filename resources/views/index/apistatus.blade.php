@@ -8,6 +8,14 @@
     <meta name="keywords" content="BCS, Bangladesh Civil Service, NSI, দুদক, বাংলাদেশ ব্যাংক, অন্যান্য ব্যাংক, প্রাথমিক শিক্ষক নিয়োগ, Primary Exam, Job Circular, Bank Job Circular, Bank Job Exam, BCS Circular, বিসিএস পরীক্ষা, বার কাউন্সিল পরীক্ষা, জুডিশিয়াল পরীক্ষা, Judicial Exam, bcs book list, bcs book suggestion, BCS Preparation Books, বিসিএস প্রিলিমিনারি বই তালিকা, বিসিএস বই তালিকা, বিসিএস লিখিত বই তালিকা, bcs preliminary book list, bcs written book list, বিসিএস প্রিলিমিনারি পরীক্ষার সিলেবাস, বিসিএস পরীক্ষার সিলেবাস">
     <!-- Load Bootstrap v5.0.1 CSS from CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-+0n0xVW2eSR5OomGNYDnhZAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('images/favicon.png') }}">
+  <meta name="theme-color" content="#155BD5">
+  <meta name="msapplication-navbutton-color" content="#155BD5">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#155BD5">
+  <meta name="author" content="A. H. M. Azimul Haque">
     <!-- Custom styling for better presentation and font -->
     <style>
         body {

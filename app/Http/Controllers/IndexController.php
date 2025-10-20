@@ -291,7 +291,7 @@ class IndexController extends Controller
 
     public function redirectPlayStore()
     {
-        return redirect('https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs');
+        return view('index.index')
     }
 
     public function getAPIStatus()

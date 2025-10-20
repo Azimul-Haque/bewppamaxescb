@@ -173,12 +173,12 @@
                 cardClass = 'status-success';
             } else if (statusCode >= 400 && statusCode < 500) {
                 statusText = 'OPERATIONAL';
-                badgeClass = 'bg-success';
-                cardClass = 'status-success';
+                badgeClass = 'bg-success text-dark';
+                cardClass = 'status-warning';
             } else if (statusCode >= 500) {
-                statusText = 'OPERATIONAL';
+                statusText = 'MAJOR OUTAGE';
                 badgeClass = 'bg-danger';
-                cardClass = 'status-success';
+                cardClass = 'status-danger';
             } else { // Fallback for network error (simulated as 999)
                 statusText = 'UNKNOWN/NETWORK FAIL';
                 badgeClass = 'bg-danger';

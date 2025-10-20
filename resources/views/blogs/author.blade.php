@@ -15,7 +15,7 @@
         "url": "{{ url()->current() }}",
         "author": {
               "@type": "Person",
-              "name": "{{  {{ $blogger->name }} ?? 'এ. এইচ. এম. আজিমুল হক' }}"
+              "name": "{{  $blogger->name ?? 'এ. এইচ. এম. আজিমুল হক' }}"
             }
         }
     </script>

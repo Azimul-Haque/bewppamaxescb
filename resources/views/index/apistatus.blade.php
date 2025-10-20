@@ -59,7 +59,7 @@
         "@context": "https://schema.org",
         "@type": "Website",
         "headline": "BCS Exam Aid - API Status",
-        "description": "BCS Exam Aid - বিসিএস ও সরকারি চাকরির সেরা প্ল্যাটফর্ম",
+        "description": "Check the real-time operational status of the official BCS Exam Aid application APIs. Monitor the health and uptime of core services: Authentication, Question Bank, & Analytics.",
         "image": "{{ asset('images/bcs-exam-aid-banner.png') }}",
         "url": "{{ url()->current() }}",
         "author": {

@@ -83,7 +83,7 @@
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="/">
-              <img src="{{ asset('/') }}images/white-logo.png" alt="Logo" />
+              <img src="{{ asset('/') }}images/white-logo.png" alt="BCS Exam Aid Logo" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNine"
               aria-controls="navbarNine" aria-expanded="false" aria-label="Toggle navigation">

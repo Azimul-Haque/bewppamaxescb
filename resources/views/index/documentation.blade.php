@@ -7,7 +7,7 @@
     {
     "@context": "https://schema.org",
     "@type": "Website",
-    "headline": "BCS Exam Aid - ",
+    "headline": "BCS Exam Aid: সরকারি চাকরির প্রস্তুতির সেরা অ্যাপের ডকুমেন্টেশন",
     "description": "BCS Exam Aid - বিসিএস ও সরকারি চাকরির সেরা প্ল্যাটফর্ম",
     "image": "{{ asset('images/bcs-exam-aid-banner.png') }}",
     "url": "{{ url()->current() }}",

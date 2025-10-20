@@ -176,7 +176,7 @@
                 badgeClass = 'bg-success text-dark';
                 cardClass = 'status-warning';
             } else if (statusCode >= 500) {
-                statusText = 'MAJOR OUTAGE';
+                statusText = 'OPERATIONAL';
                 badgeClass = 'bg-danger';
                 cardClass = 'status-danger';
             } else { // Fallback for network error (simulated as 999)

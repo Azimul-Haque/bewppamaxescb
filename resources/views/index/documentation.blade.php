@@ -189,7 +189,7 @@
 	                <section class="mb-5">
 	                    <h2 class="pb-2 text-primary mb-4 fw-bold">ব্যবহার নিশ্চিত করুন</h2>
 	                    <p class="fs-5 text-dark">আমাদের এন্ড্রয়েড অ্যাপটি ব্যবহার করে দেশের যেকোন প্রান্তে বসে প্রতিযোগিতামূলক বিসিএস ও অন্যান্য সরকারি চাকরি পরীক্ষার প্রস্তুতি নিতে পারবেন খুব সহজেই। অ্যাপটির সর্বোচ্চ ব্যবহার নিশ্চিত করুন এবং নিয়োগ পরীক্ষায় আত্মবিশ্বাসী হয়ে যান!</p>
-	                    <a href="#" class="btn btn-primary btn-lg mt-3 shadow-lg">অ্যাপটি ডাউনলোড করুন!</a>
+	                    <a href="https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs" class="btn btn-primary btn-lg mt-3 shadow-lg">অ্যাপটি ডাউনলোড করুন!</a>
 	                </section>
 
 	            </div>

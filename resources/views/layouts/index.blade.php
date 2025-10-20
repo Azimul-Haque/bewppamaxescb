@@ -223,7 +223,7 @@
                 <h5>Support</h5>
                 <ul>
                   <li><a href="#pricing">Pricing</a></li>
-                  <li><a href="javascript:void(0)">Documentation</a></li>
+                  <li><a href="{{ route('index.documentation') }}">Documentation</a></li>
                   <li><a href="javascript:void(0)">Guides</a></li>
                   <li><a href="{{ route('index.api.status') }}">API Status</a></li>
                 </ul>

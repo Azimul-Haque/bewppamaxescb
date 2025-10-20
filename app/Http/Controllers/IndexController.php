@@ -306,4 +306,9 @@ class IndexController extends Controller
     {
         return redirect('https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs');
     }
+
+    public function getAPIStatus()
+    {
+        return redirect('https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs');
+    }
 }

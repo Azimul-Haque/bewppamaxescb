@@ -171,8 +171,8 @@
                 badgeClass = 'bg-success';
                 cardClass = 'status-success';
             } else if (statusCode >= 400 && statusCode < 500) {
-                statusText = 'DEGRADED';
-                badgeClass = 'bg-warning text-dark';
+                statusText = 'OPERATIONAL';
+                badgeClass = 'bg-success text-dark';
                 cardClass = 'status-warning';
             } else if (statusCode >= 500) {
                 statusText = 'MAJOR OUTAGE';

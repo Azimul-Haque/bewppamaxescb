@@ -10,7 +10,7 @@
         "@context": "https://schema.org",
         "@type": "Website",
         "headline": "বিসিএস এক্সাম এইড - ব্লগ তালিকা",
-        "description": "{{ $blog->description ?? mb_substr(strip_tags($blog->body), 0, 200) }}",
+        "description": "বিসিএস এক্সাম এইড এর ব্লগ তালিকায় পাচ্ছেন শীর্ষ ক্যাডারদের দ্বারা লিখিত বিসিএস ও সরকারি সংক্রান্ত গুরুত্বপূর্ণ টিপস, সাজেশন ও জব মার্কেটের তথ্য!",
         "image": "{{ asset('images/blogs/'.$blog->featured_image) ?? asset('images/bcs-exam-aid-banner.png') }}",
         "url": "{{ url()->current() }}",
         "author": {

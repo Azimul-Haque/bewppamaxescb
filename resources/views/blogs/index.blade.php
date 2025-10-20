@@ -9,7 +9,7 @@
         {
         "@context": "https://schema.org",
         "@type": "Website",
-        "headline": "{{ $blog->title }}",
+        "headline": "বিসিএস এক্সাম এইড - ব্লগ তালিকা",
         "description": "{{ $blog->description ?? mb_substr(strip_tags($blog->body), 0, 200) }}",
         "image": "{{ asset('images/blogs/'.$blog->featured_image) ?? asset('images/bcs-exam-aid-banner.png') }}",
         "url": "{{ url()->current() }}",

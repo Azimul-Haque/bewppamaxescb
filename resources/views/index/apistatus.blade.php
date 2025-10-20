@@ -59,7 +59,7 @@
         "@context": "https://schema.org",
         "@type": "Website",
         "headline": "BCS Exam Aid - API Status",
-        "description": "Check the real-time operational status of the official BCS Exam Aid application APIs. Monitor the health and uptime of core services: Authentication, Question Bank, & Analytics.",
+        "description": "Check the real-time operational status of the official BCS Exam Aid application APIs. Monitor the health and uptime of core services,",
         "image": "{{ asset('images/bcs-exam-aid-banner.png') }}",
         "url": "{{ url()->current() }}",
         "author": {

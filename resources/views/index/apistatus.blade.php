@@ -53,7 +53,6 @@
         .status-danger { border-left-color: #dc3545 !important; }
         .status-secondary { border-left-color: #6c757d !important; }
     </style>
-    @if (!Request::is('blogs', 'blogs/*', 'blog', 'blog/*'))
       <script type="application/ld+json">
         {
         "@context": "https://schema.org",

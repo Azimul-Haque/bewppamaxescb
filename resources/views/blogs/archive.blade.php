@@ -9,13 +9,13 @@
         {
         "@context": "https://schema.org",
         "@type": "Website",
-        "headline": "বিসিএস এক্সাম এইড - ব্লগ - {{ $blogger->name }}",
+        "headline": "বিসিএস এক্সাম এইড - ব্লগ - {{ $archivedate }}",
         "description": "{{ $blogger->name }}-এর লেখা বিসিএস এক্সাম এইডের সকল ব্লগ পাচ্ছেন এই পাতায়। বিসিএস ও সরকারি চাকরির পূর্ণান্নগ প্রস্তুতি হোক এখানেই!",
         "image": "{{ asset('images/bcs-exam-aid-banner.png') }}",
         "url": "{{ url()->current() }}",
         "author": {
               "@type": "Person",
-              "name": "{{  $blogger->name ?? 'এ. এইচ. এম. আজিমুল হক' }}"
+              "name": "{{  'এ. এইচ. এম. আজিমুল হক' }}"
             }
         }
     </script>

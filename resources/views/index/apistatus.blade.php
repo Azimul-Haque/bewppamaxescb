@@ -57,7 +57,9 @@
 
     <div class="header-section mb-5">
         <div class="container text-center">
-            <img src="{{ asset('/') }}images/white-logo.png" alt="BCS Exam Aid Logo" />
+            <a class="navbar-brand" href="/">
+              <img src="{{ asset('/') }}images/white-logo.png" alt="BCS Exam Aid Logo" />
+            </a>
             <h1 class="display-5 fw-bold">BCS Exam Aid - API Status</h1>
             <p class="lead">Monitoring core services for a seamless BCS preparation experience.</p>
         </div>

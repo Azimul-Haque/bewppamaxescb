@@ -53,7 +53,7 @@
   <link rel="stylesheet" href="{{ asset('vendor/frontend/css/style.css') }}" />
 
   <!-- Structured data JSON-LD (optional but highly recommended) -->
-  @if (!Request::is('blogs', 'blogs/*', 'blog', 'blog/*'))
+  @if (!Request::is('blogs', 'blogs/*', 'blog', 'blog/*', 'documentation'))
     <script type="application/ld+json">
       {
       "@context": "https://schema.org",

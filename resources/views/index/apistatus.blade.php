@@ -53,6 +53,21 @@
         .status-danger { border-left-color: #dc3545 !important; }
         .status-secondary { border-left-color: #6c757d !important; }
     </style>
+    @if (!Request::is('blogs', 'blogs/*', 'blog', 'blog/*'))
+      <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Website",
+        "headline": "BCS Exam Aid",
+        "description": "BCS Exam Aid - বিসিএস ও সরকারি চাকরির সেরা প্ল্যাটফর্ম",
+        "image": "{{ asset('images/bcs-exam-aid-banner.png') }}",
+        "url": "{{ url()->current() }}",
+        "author": {
+            "@type": "Person",
+            "name": "A. H. M. Azimul Haque"
+          }
+        }
+    </script>
 </head>
 <body>
 

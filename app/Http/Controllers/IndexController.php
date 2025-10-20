@@ -296,7 +296,7 @@ class IndexController extends Controller
 
     public function getAPIStatus()
     {
-        return view('index.apistatus.blade');
+        return view('index.apistatus');
     }
 
     // clear configs, routes and serve

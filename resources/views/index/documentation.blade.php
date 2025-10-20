@@ -2,7 +2,23 @@
 @section('title') Privacy Policy | BCS Exam AID | বিসিএস-সহ সরকারি চাকরির পরীক্ষার প্রস্তুতির জন্য সেরা অনলাইন প্ল্যাটফর্ম @endsection
 
 @section('third_party_stylesheets')
-	
+	<!-- Structured data JSON-LD (optional but highly recommended) -->
+	@if (!Request::is('blogs', 'blogs/*', 'blog', 'blog/*', 'documentation'))
+	  <script type="application/ld+json">
+	    {
+	    "@context": "https://schema.org",
+	    "@type": "Website",
+	    "headline": "BCS Exam Aid",
+	    "description": "BCS Exam Aid - বিসিএস ও সরকারি চাকরির সেরা প্ল্যাটফর্ম",
+	    "image": "{{ asset('images/bcs-exam-aid-banner.png') }}",
+	    "url": "{{ url()->current() }}",
+	    "author": {
+	        "@type": "Person",
+	        "name": "A. H. M. Azimul Haque"
+	      }
+	    }
+	</script>
+	@endif
 @endsection
 
 @section('content')

@@ -8,7 +8,7 @@
     "@context": "https://schema.org",
     "@type": "Website",
     "headline": "BCS Exam Aid: সরকারি চাকরির প্রস্তুতির সেরা অ্যাপের ডকুমেন্টেশন",
-    "description": "BCS Exam Aid - বিসিএস ও সরকারি চাকরির সেরা প্ল্যাটফর্ম",
+    "description": "পূর্ণাঙ্গ কোর্স, মডেল টেস্ট, প্রশ্নব্যাংক ও শীর্ষ ক্যাডারদের তৈরি ভিডিও-পিডিএফ লেকচার ম্যাটেরিয়াল। সব পরীক্ষার প্রস্তুতির বিস্তারিত গাইড।",
     "image": "{{ asset('images/bcs-exam-aid-banner.png') }}",
     "url": "{{ url()->current() }}",
     "author": {

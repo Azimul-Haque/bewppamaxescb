@@ -76,7 +76,7 @@
                 Refresh Status
             </button>
             <p class="text-muted mt-3 small">Last check: <span id="last-updated" class="fw-semibold">N/A</span></p>
-            <p class="text-muted small">All times are local.</p>
+            <!-- <p class="text-muted small">All times are local.</p> -->
         </div>
     </div>
 

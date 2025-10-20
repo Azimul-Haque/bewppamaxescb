@@ -93,7 +93,7 @@
                 name: 'Question Bank & Categories API', 
                 endpoint: '/api/v1/questions', 
                 description: 'Provides access to the BCS preparation question database.',
-                mockCode: 500, // Simulating a server error for demonstration
+                mockCode: 200, // Simulating a server error for demonstration
                 latency: 1500 
             },
             { 

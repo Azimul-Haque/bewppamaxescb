@@ -40,8 +40,8 @@ class QuestionController extends Controller
             abort(403, 'Access Denied');
         }
         
-        $totalquestions = Question::count();
-        $totalQuestions = Cache::remember('total_questions_count', 
+        // $totalquestions = Question::count(); 
+        $totalquestions = Cache::remember('total_questions_count', 
             86400, // Cache TTL of 24 hours (60s * 60m * 24h)
             function () {
                 // This is the heavy operation, only run when necessary

@@ -41,6 +41,13 @@ class QuestionController extends Controller
         }
         
         $totalquestions = Question::count();
+        $totalQuestions = Cache::remember('total_questions_count', 
+            86400, // Cache TTL of 24 hours (60s * 60m * 24h)
+            function () {
+                // This is the heavy operation, only run when necessary
+                return Question::count();
+            }
+        );
         $questions = Question::orderBy('id', 'desc')->simplePaginate(10);
         // $questions = Question::orderBy('id', 'desc')->get()->chunk(200, function($questions){
         //     //do whatever you would normally be doing with the rows you receive

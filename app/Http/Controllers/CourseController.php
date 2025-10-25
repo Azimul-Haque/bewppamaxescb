@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Topic;
-use App\Exam;
-use App\Course;
-use App\Courseexam;
+use App\Models\Topic;
+use App\Models\Exam;
+use App\Models\Course;
+use App\Models\Courseexam;
 
 use Carbon\Carbon;
 use DB;

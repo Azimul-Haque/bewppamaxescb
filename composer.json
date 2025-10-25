@@ -14,7 +14,7 @@
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
-        "infyomlabs/laravel-ui-adminlte": "^2.0",
+        "infyomlabs/laravel-ui-adminlte": "^3.0",
         "intervention/image": "^2.5",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",

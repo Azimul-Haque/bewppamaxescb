@@ -509,9 +509,7 @@
                                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editTagModal{{ $tag->id }}">
                                           <i class="far fa-edit"></i>
                                       </button>
-                                      {{-- Edit Tag Modal Code --}}
-                                      {{-- Edit Tag Modal Code --}}
-                                      <!-- Modal -->
+                                      
                                       <div class="modal fade" id="editTagModal{{ $tag->id }}" tabindex="-1" role="dialog" aria-labelledby="editTagModalLabel" aria-hidden="true" data-backdrop="static">
                                           <div class="modal-dialog" role="document">
                                           <div class="modal-content">
@@ -543,16 +541,13 @@
                                           </div>
                                           </div>
                                       </div>
-                                      {{-- Edit Tag Modal Code --}}
-                                      {{-- Edit Tag Modal Code --}}
+                                      
           
                                       <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteTagModal{{ $tag->id }}" disabled>
                                           <i class="far fa-trash-alt"></i>
                                       </button>
                                   </td>
-                                  {{-- Delete Tag Modal Code --}}
-                                  {{-- Delete Tag Modal Code --}}
-                                  <!-- Modal -->
+                                  
                                   <div class="modal fade" id="deleteTagModal{{ $tag->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteTagModalLabel" aria-hidden="true" data-backdrop="static">
                                       <div class="modal-dialog" role="document">
                                       <div class="modal-content">
@@ -575,8 +570,7 @@
                                       </div>
                                       </div>
                                   </div>
-                                  {{-- Delete Tag Modal Code --}}
-                                  {{-- Delete Tag Modal Code --}}
+                                  
                               </tr>
                           @endforeach --}}
                           </tbody>

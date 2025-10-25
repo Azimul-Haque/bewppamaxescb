@@ -571,7 +571,7 @@ class QuestionController extends Controller
             abort(403, 'Access Denied');
         }
 
-        $reportedquestions = Reportedquestion::orderBy('created_at', 'desc')->where('status', 0)->paginate(10);
+        $reportedquestions = Reportedquestion::orderBy('created_at', 'desc')->where('status', 0)->cursorPaginate(10);
 
         $totalreportedquestions  = Reportedquestion::where('status', 0)->count();
         $topics = Topic::orderBy('id', 'asc')->get();
@@ -597,7 +597,7 @@ class QuestionController extends Controller
                         $q->orWhere('option3', 'LIKE', "%$search%");
                         $q->orWhere('option4', 'LIKE', "%$search%");
                         $q->orderBy('id', 'desc');
-                    })->where('status', 0)->paginate(10);
+                    })->where('status', 0)->cursorPaginate(10);
 
         $topics = Topic::orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();

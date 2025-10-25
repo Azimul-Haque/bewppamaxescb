@@ -48,7 +48,11 @@ class QuestionController extends Controller
             }
         );
         $questions = Question::orderBy('id', 'desc')->simplePaginate(10);
-        
+        // $questions = Question::orderBy('id', 'desc')->get()->chunk(200, function($questions){
+        //     //do whatever you would normally be doing with the rows you receive
+        //     // $domain stuff
+        // });
+        // dd($questions);
         $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get(); // EKAHNE KAAJ ACHE
         $tags = Tag::orderBy('id', 'asc')->get();
 

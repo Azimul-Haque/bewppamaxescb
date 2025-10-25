@@ -134,7 +134,7 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                           <select name="tags_ids[]" class="form-control multiple-select" multiple="multiple" data-placeholder="ট্যাগ">
-                                                            {{-- @php
+                                                            @php
                                                               $tag_array = [];
                                                               foreach($question->tags as $tag) {
                                                                 $tag_array[] = $tag->id;
@@ -142,7 +142,7 @@
                                                             @endphp
                                                             @foreach ($tags as $tag)
                                                                 <option value="{{ $tag->id }}" @if(in_array($tag->id, $tag_array)) selected @endif>{{ $tag->name }}</option>
-                                                            @endforeach --}}
+                                                            @endforeach
                                                         </select>
                                                         </div>
                                                       </div>

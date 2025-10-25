@@ -4,20 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User;
-use App\Package;
+use App\Models\User;
+use App\Models\Package;
 
-use App\Balance;
-use App\Site;
-use App\Category;
-use App\Expense;
-use App\Creditor;
-use App\Due;
-use App\Temppayment;
-use App\Payment;
-use App\Blog;
+use App\Models\Balance;
+use App\Models\Site;
+use App\Models\Category;
+use App\Models\Expense;
+use App\Models\Creditor;
+use App\Models\Due;
+use App\Models\Temppayment;
+use App\Models\Payment;
+use App\Models\Blog;
 
-use App\Exam;
+use App\Models\Exam;
 
 use Carbon\Carbon;
 use DB;

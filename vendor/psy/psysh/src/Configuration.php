@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2023 Justin Hileman
+ * (c) 2012-2025 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,6 +14,7 @@ namespace Psy;
 use Psy\Exception\DeprecatedException;
 use Psy\Exception\RuntimeException;
 use Psy\ExecutionLoop\ProcessForker;
+use Psy\Formatter\SignatureFormatter;
 use Psy\Output\OutputPager;
 use Psy\Output\ShellOutput;
 use Psy\Output\Theme;
@@ -47,7 +48,7 @@ class Configuration
     const VERBOSITY_VERY_VERBOSE = 'very_verbose';
     const VERBOSITY_DEBUG = 'debug';
 
-    private static $AVAILABLE_OPTIONS = [
+    private const AVAILABLE_OPTIONS = [
         'codeCleaner',
         'colorMode',
         'configDir',
@@ -59,6 +60,7 @@ class Configuration
         'formatterStyles',
         'historyFile',
         'historySize',
+        'implicitUse',
         'interactiveMode',
         'manualDbFile',
         'pager',
@@ -76,62 +78,64 @@ class Configuration
         'useTabCompletion',
         'useUnicode',
         'verbosity',
+        'warmAutoload',
         'warnOnMultipleConfigs',
         'yolo',
     ];
 
-    private $defaultIncludes;
-    private $configDir;
-    private $dataDir;
-    private $runtimeDir;
-    private $configFile;
-    /** @var string|false */
+    private ?array $defaultIncludes = null;
+    private ?string $configDir = null;
+    private ?string $dataDir = null;
+    private ?string $runtimeDir = null;
+    private ?string $configFile = null;
+    /** @var string|false|null */
     private $historyFile;
-    private $historySize;
-    private $eraseDuplicates;
-    private $manualDbFile;
-    private $hasReadline;
-    private $useReadline;
-    private $useBracketedPaste;
-    private $hasPcntl;
-    private $usePcntl;
-    private $newCommands = [];
-    private $pipedInput;
-    private $pipedOutput;
-    private $rawOutput = false;
-    private $requireSemicolons = false;
-    private $strictTypes = false;
-    private $useUnicode;
-    private $useTabCompletion;
-    private $newMatchers = [];
-    private $errorLoggingLevel = \E_ALL;
-    private $warnOnMultipleConfigs = false;
-    private $colorMode = self::COLOR_MODE_AUTO;
-    private $interactiveMode = self::INTERACTIVE_MODE_AUTO;
-    private $updateCheck;
-    private $startupMessage;
-    private $forceArrayIndexes = false;
+    private int $historySize = 0;
+    private ?bool $eraseDuplicates = null;
+    private ?string $manualDbFile = null;
+    private bool $hasReadline;
+    private ?bool $useReadline = null;
+    private bool $useBracketedPaste = false;
+    private bool $hasPcntl;
+    private ?bool $usePcntl = null;
+    private array $newCommands = [];
+    private ?bool $pipedInput = null;
+    private ?bool $pipedOutput = null;
+    private bool $rawOutput = false;
+    private bool $requireSemicolons = false;
+    private bool $strictTypes = false;
+    private ?bool $useUnicode = null;
+    private ?bool $useTabCompletion = null;
+    private array $newMatchers = [];
+    private ?array $autoloadWarmers = null;
+    private $implicitUse = false;
+    private int $errorLoggingLevel = \E_ALL;
+    private bool $warnOnMultipleConfigs = false;
+    private string $colorMode = self::COLOR_MODE_AUTO;
+    private string $interactiveMode = self::INTERACTIVE_MODE_AUTO;
+    private ?string $updateCheck = null;
+    private ?string $startupMessage = null;
+    private bool $forceArrayIndexes = false;
     /** @deprecated */
-    private $formatterStyles = [];
-    private $verbosity = self::VERBOSITY_NORMAL;
-    private $yolo = false;
-    /** @var Theme */
-    private $theme;
+    private array $formatterStyles = [];
+    private string $verbosity = self::VERBOSITY_NORMAL;
+    private bool $yolo = false;
+    private ?Theme $theme = null;
 
     // services
-    private $readline;
-    /** @var ShellOutput */
-    private $output;
-    private $shell;
-    private $cleaner;
-    private $pager;
-    private $manualDb;
-    private $presenter;
-    private $autoCompleter;
-    private $checker;
+    private ?Readline\Readline $readline = null;
+    private ?ShellOutput $output = null;
+    private ?Shell $shell = null;
+    private ?CodeCleaner $cleaner = null;
+    /** @var string|OutputPager|false|null */
+    private $pager = null;
+    private ?\PDO $manualDb = null;
+    private ?Presenter $presenter = null;
+    private ?AutoCompleter $autoCompleter = null;
+    private ?Checker $checker = null;
     /** @deprecated */
-    private $prompt;
-    private $configPaths;
+    private ?string $prompt = null;
+    private ConfigPaths $configPaths;
 
     /**
      * Construct a Configuration instance.
@@ -217,6 +221,11 @@ class Configuration
             if (self::getOptionFromInput($input, ['raw-output'], ['-r'])) {
                 $config->setRawOutput(true);
             }
+        }
+
+        // Handle --warm-autoload
+        if (self::getOptionFromInput($input, ['warm-autoload'])) {
+            $config->setWarmAutoload(true);
         }
 
         // Handle --yolo
@@ -310,9 +319,14 @@ class Configuration
                     return self::VERBOSITY_VERY_VERBOSE;
                 case '3':
                 case 'vv': // `-vvv`
+                case 'vvv':
+                case 'vvvv':
+                case 'vvvvv':
+                case 'vvvvvv':
+                case 'vvvvvvv':
                     return self::VERBOSITY_DEBUG;
                 default: // implicitly normal, config file default wins
-                    return;
+                    return null;
             }
         }
 
@@ -337,6 +351,8 @@ class Configuration
         if ($input->hasParameterOption('-v', true) || $input->hasParameterOption('--verbose=1', true) || $input->hasParameterOption('--verbose', true)) {
             return self::VERBOSITY_VERBOSE;
         }
+
+        return null;
     }
 
     /**
@@ -371,6 +387,8 @@ class Configuration
             new InputOption('self-update', 'u', InputOption::VALUE_NONE, 'Update to the latest version'),
 
             new InputOption('yolo', null, InputOption::VALUE_NONE, 'Run PsySH with minimal input validation. You probably don\'t want this.'),
+            new InputOption('warm-autoload', null, InputOption::VALUE_NONE, 'Enable autoload warming for better tab completion.'),
+            new InputOption('info', null, InputOption::VALUE_NONE, 'Display PsySH environment and configuration info.'),
         ];
     }
 
@@ -435,6 +453,8 @@ class Configuration
 
             return $files[0];
         }
+
+        return null;
     }
 
     /**
@@ -452,6 +472,8 @@ class Configuration
         if (@\is_file($localConfig)) {
             return $localConfig;
         }
+
+        return null;
     }
 
     /**
@@ -461,7 +483,7 @@ class Configuration
      */
     public function loadConfig(array $options)
     {
-        foreach (self::$AVAILABLE_OPTIONS as $option) {
+        foreach (self::AVAILABLE_OPTIONS as $option) {
             if (isset($options[$option])) {
                 $method = 'set'.\ucfirst($option);
                 $this->$method($options[$option]);
@@ -618,17 +640,19 @@ class Configuration
     /**
      * Get the shell's temporary directory location.
      *
-     * Defaults to  `/psysh` inside the system's temp dir unless explicitly
+     * Defaults to `/psysh` inside the system's temp dir unless explicitly
      * overridden.
      *
      * @throws RuntimeException if no temporary directory is set and it is not possible to create one
+     *
+     * @param bool $create False to suppress directory creation if it does not exist
      */
-    public function getRuntimeDir(): string
+    public function getRuntimeDir($create = true): string
     {
         $runtimeDir = $this->configPaths->runtimeDir();
 
-        if (!\is_dir($runtimeDir)) {
-            if (!@\mkdir($runtimeDir, 0700, true)) {
+        if ($create) {
+            if (!@ConfigPaths::ensureDir($runtimeDir)) {
                 throw new RuntimeException(\sprintf('Unable to create PsySH runtime directory. Make sure PHP is able to write to %s in order to continue.', \dirname($runtimeDir)));
             }
         }
@@ -652,7 +676,7 @@ class Configuration
      * Defaults to `/history` inside the shell's base config dir unless
      * explicitly overridden.
      */
-    public function getHistoryFile(): string
+    public function getHistoryFile(): ?string
     {
         if (isset($this->historyFile)) {
             return $this->historyFile;
@@ -669,7 +693,12 @@ class Configuration
             $this->setHistoryFile($files[0]);
         } else {
             // fallback: create our own history file
-            $this->setHistoryFile($this->configPaths->currentConfigDir().'/psysh_history');
+            $configDir = $this->configPaths->currentConfigDir();
+            if ($configDir === null) {
+                return null;
+            }
+
+            $this->setHistoryFile($configDir.'/psysh_history');
         }
 
         return $this->historyFile;
@@ -702,7 +731,7 @@ class Configuration
      */
     public function setEraseDuplicates(bool $value)
     {
-        $this->eraseDuplicates = (bool) $value;
+        $this->eraseDuplicates = $value;
     }
 
     /**
@@ -808,7 +837,7 @@ class Configuration
             $this->readline = new $className(
                 $this->getHistoryFile(),
                 $this->getHistorySize(),
-                $this->getEraseDuplicates()
+                $this->getEraseDuplicates() ?? false
             );
         }
 
@@ -1018,7 +1047,11 @@ class Configuration
      */
     public function setErrorLoggingLevel($errorLoggingLevel)
     {
-        $this->errorLoggingLevel = (\E_ALL | \E_STRICT) & $errorLoggingLevel;
+        if (\PHP_VERSION_ID < 80400) {
+            $this->errorLoggingLevel = (\E_ALL | \E_STRICT) & $errorLoggingLevel;
+        } else {
+            $this->errorLoggingLevel = \E_ALL & $errorLoggingLevel;
+        }
     }
 
     /**
@@ -1056,7 +1089,7 @@ class Configuration
     public function getCodeCleaner(): CodeCleaner
     {
         if (!isset($this->cleaner)) {
-            $this->cleaner = new CodeCleaner(null, null, null, $this->yolo(), $this->strictTypes());
+            $this->cleaner = new CodeCleaner(null, null, null, $this->yolo(), $this->strictTypes(), $this->implicitUse);
         }
 
         return $this->cleaner;
@@ -1097,6 +1130,8 @@ class Configuration
      */
     public function setTabCompletion(bool $useTabCompletion)
     {
+        @\trigger_error('`setTabCompletion` is deprecated; call `setUseTabCompletion` instead.', \E_USER_DEPRECATED);
+
         $this->setUseTabCompletion($useTabCompletion);
     }
 
@@ -1118,6 +1153,8 @@ class Configuration
      */
     public function getTabCompletion(): bool
     {
+        @\trigger_error('`getTabCompletion` is deprecated; call `useTabCompletion` instead.', \E_USER_DEPRECATED);
+
         return $this->useTabCompletion();
     }
 
@@ -1162,7 +1199,7 @@ class Configuration
             // output stream to figure out if it's piped or not, so create it
             // first, then update after we have a stream.
             $decorated = $this->getOutputDecorated();
-            if ($decorated !== null) {
+            if ($decorated !== null && $this->output !== null) {
                 $this->output->setDecorated($decorated);
             }
         }
@@ -1249,6 +1286,18 @@ class Configuration
                 $this->pager = $pager;
             } elseif ($less = $this->configPaths->which('less')) {
                 // check for the presence of less...
+
+                // n.b. The busybox less implementation is a bit broken, so
+                // let's not use it by default.
+                //
+                // See https://github.com/bobthecow/psysh/issues/778
+                if (@\is_link($less)) {
+                    $link = @\readlink($less);
+                    if ($link !== false && \strpos($link, 'busybox') !== false) {
+                        return false;
+                    }
+                }
+
                 $this->pager = $less.' -R -F -X';
             }
         }
@@ -1283,6 +1332,8 @@ class Configuration
      */
     public function getTabCompletionMatchers(): array
     {
+        @\trigger_error('`getTabCompletionMatchers` is no longer used.', \E_USER_DEPRECATED);
+
         return [];
     }
 
@@ -1317,12 +1368,166 @@ class Configuration
     }
 
     /**
+     * Configure autoload warming.
+     *
+     * @param bool|array $config False to disable, true for defaults, or array for custom config
+     */
+    public function setWarmAutoload($config): void
+    {
+        if (!\is_bool($config) && !\is_array($config)) {
+            throw new \InvalidArgumentException('warmAutoload must be a boolean or configuration array');
+        }
+
+        // Parse and store warmers immediately
+        $this->autoloadWarmers = $this->parseWarmAutoloadConfig($config);
+    }
+
+    /**
+     * Get configured autoload warmers.
+     *
+     * If no warmers are explicitly configured, returns a default ComposerAutoloadWarmer
+     * with smart settings that work for most projects.
+     *
+     * To disable autoload warming, set 'warmAutoload' to false.
+     *
+     * @return TabCompletion\AutoloadWarmer\AutoloadWarmerInterface[]
+     */
+    public function getAutoloadWarmers(): array
+    {
+        if ($this->autoloadWarmers === null) {
+            $this->autoloadWarmers = $this->parseWarmAutoloadConfig(false);
+        }
+
+        return $this->autoloadWarmers;
+    }
+
+    /**
+     * Parse warmAutoload configuration into autoload warmers.
+     *
+     * Accepts three types of configuration:
+     * - true: Enable with default ComposerAutoloadWarmer
+     * - false: Disable warming entirely (default)
+     * - array: Custom configuration for ComposerAutoloadWarmer and/or custom warmers
+     *
+     * When a config array is provided:
+     * - Empty array [] disables warming
+     * - 'warmers' key provides custom warmer instances
+     * - Other keys configure a ComposerAutoloadWarmer (implicitly enables)
+     * - Both can be combined: custom warmers + configured ComposerAutoloadWarmer
+     *
+     * @param bool|array $config Configuration value
+     *
+     * @return TabCompletion\AutoloadWarmer\AutoloadWarmerInterface[]
+     */
+    private function parseWarmAutoloadConfig($config): array
+    {
+        // false = disable entirely
+        if ($config === false) {
+            return [];
+        }
+
+        // true = use default ComposerAutoloadWarmer
+        if ($config === true) {
+            return [new TabCompletion\AutoloadWarmer\ComposerAutoloadWarmer()];
+        }
+
+        // array = custom configuration
+        if (!\is_array($config)) {
+            throw new \InvalidArgumentException('warmAutoload must be a boolean or configuration array');
+        }
+
+        $warmers = [];
+
+        // Extract explicit warmers if provided
+        if (isset($config['warmers'])) {
+            $explicitWarmers = $config['warmers'];
+            if (!\is_array($explicitWarmers)) {
+                throw new \InvalidArgumentException('warmAutoload[\'warmers\'] must be an array');
+            }
+
+            foreach ($explicitWarmers as $warmer) {
+                if (!$warmer instanceof TabCompletion\AutoloadWarmer\AutoloadWarmerInterface) {
+                    throw new \InvalidArgumentException('Autoload warmers must implement AutoloadWarmerInterface');
+                }
+                $warmers[] = $warmer;
+            }
+
+            unset($config['warmers']);
+        }
+
+        // If there are remaining config options, create a ComposerAutoloadWarmer with them
+        if (!empty($config)) {
+            $warmers[] = new TabCompletion\AutoloadWarmer\ComposerAutoloadWarmer($config);
+        }
+
+        return $warmers;
+    }
+
+    /**
+     * Set implicit use statement configuration.
+     *
+     * Automatically adds use statements for unqualified class references when
+     * a single, non-ambiguous match is found among currently defined classes,
+     * interfaces, and traits within the configured namespaces.
+     *
+     * Works great with autoload warming (--warm-autoload) to pre-load classes
+     * for better resolution. Also works with dynamically defined classes.
+     *
+     * Examples:
+     *
+     *     // Disable implicit use (default)
+     *     $config->setImplicitUse(false);
+     *
+     *     // Enable for specific namespaces
+     *     $config->setImplicitUse([
+     *         'includeNamespaces' => ['App\\', 'Domain\\'],
+     *     ]);
+     *
+     *     // Enable with exclusions
+     *     $config->setImplicitUse([
+     *         'includeNamespaces' => ['App\\'],
+     *         'excludeNamespaces' => ['App\\Legacy\\'],
+     *     ]);
+     *
+     * Note: At least one of includeNamespaces or excludeNamespaces must be provided.
+     * If neither is provided, implicit use effectively does nothing.
+     *
+     * @param false|array $config False to disable, or array with includeNamespaces/excludeNamespaces
+     */
+    public function setImplicitUse($config): void
+    {
+        if ($config === false) {
+            $this->implicitUse = false;
+
+            return;
+        }
+
+        if (!\is_array($config)) {
+            throw new \InvalidArgumentException('implicitUse must be false or a configuration array with includeNamespaces and/or excludeNamespaces');
+        }
+
+        $this->implicitUse = $config;
+    }
+
+    /**
+     * Get implicit use configuration.
+     *
+     * @return bool|array Implicit use configuration
+     */
+    public function getImplicitUse()
+    {
+        return $this->implicitUse;
+    }
+
+    /**
      * @deprecated Use `addMatchers` instead
      *
      * @param array $matchers
      */
     public function addTabCompletionMatchers(array $matchers)
     {
+        @\trigger_error('`addTabCompletionMatchers` is deprecated; call `addMatchers` instead.', \E_USER_DEPRECATED);
+
         $this->addMatchers($matchers);
     }
 
@@ -1366,6 +1571,9 @@ class Configuration
         $this->shell = $shell;
         $this->doAddCommands();
         $this->doAddMatchers();
+
+        // Configure SignatureFormatter for hyperlinks
+        SignatureFormatter::setManualDb($this->getManualDb());
     }
 
     /**
@@ -1379,6 +1587,9 @@ class Configuration
     public function setManualDbFile(string $filename)
     {
         $this->manualDbFile = (string) $filename;
+
+        // Reconfigure SignatureFormatter with new manual database
+        SignatureFormatter::setManualDb($this->getManualDb());
     }
 
     /**
@@ -1401,6 +1612,8 @@ class Configuration
 
             return $this->manualDbFile = $files[0];
         }
+
+        return null;
     }
 
     /**
@@ -1623,7 +1836,12 @@ class Configuration
      */
     public function getUpdateCheckCacheFile()
     {
-        return ConfigPaths::touchFileWithMkdir($this->configPaths->currentConfigDir().'/update_check.json');
+        $configDir = $this->configPaths->currentConfigDir();
+        if ($configDir === null) {
+            return false;
+        }
+
+        return ConfigPaths::touchFileWithMkdir($configDir.'/update_check.json');
     }
 
     /**

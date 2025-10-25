@@ -44,6 +44,10 @@ trait AuthenticatesUsers
         }
 
         if ($this->attemptLogin($request)) {
+            if ($request->hasSession()) {
+                $request->session()->put('auth.password_confirmed_at', time());
+            }
+
             return $this->sendLoginResponse($request);
         }
 
@@ -80,7 +84,7 @@ trait AuthenticatesUsers
     protected function attemptLogin(Request $request)
     {
         return $this->guard()->attempt(
-            $this->credentials($request), $request->filled('remember')
+            $this->credentials($request), $request->boolean('remember')
         );
     }
 
@@ -150,7 +154,7 @@ trait AuthenticatesUsers
      */
     public function username()
     {
-        return 'mobile';
+        return 'email';
     }
 
     /**
@@ -173,7 +177,7 @@ trait AuthenticatesUsers
 
         return $request->wantsJson()
             ? new JsonResponse([], 204)
-            : redirect('/dashboard');
+            : redirect('/');
     }
 
     /**

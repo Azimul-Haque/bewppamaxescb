@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User;
-use App\Package;
-use App\Payment;
-use App\Message;
-use App\Notification;
-use App\Exam;
-use App\Blog;
-use App\Blogcategory;
-use App\Meritlist;
+use App\Models\User;
+use App\Models\Package;
+use App\Models\Payment;
+use App\Models\Message;
+use App\Models\Notification;
+use App\Models\Exam;
+use App\Models\Blog;
+use App\Models\Blogcategory;
+use App\Models\Meritlist;
 
 use Carbon\Carbon;
 use DB;

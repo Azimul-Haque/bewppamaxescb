@@ -22,6 +22,7 @@ use Session;
 use Artisan;
 use OneSignal;
 use Purifier;
+use Cache;
 
 class QuestionController extends Controller
 {

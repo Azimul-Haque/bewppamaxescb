@@ -53,7 +53,7 @@ class QuestionController extends Controller
         //     // $domain stuff
         // });
         // dd($questions);
-        $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get();
+        $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get(); // EKAHNE KAAJ ACHE
         $tags = Tag::orderBy('id', 'asc')->get();
 
         // dd($questions);

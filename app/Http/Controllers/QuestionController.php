@@ -42,7 +42,7 @@ class QuestionController extends Controller
         
         // $totalquestions = Question::count(); 
         $totalquestions = Cache::remember('total_questions_count', 
-            7 * 24 * 60 * 60 // Cache TTL of 7 days
+            7 * 24 * 60 * 60, // Cache TTL of 7 days
             function () {
                 return Question::count();
             }

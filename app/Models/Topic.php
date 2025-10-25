@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +9,7 @@ class Topic extends Model
     public $timestamps = false;
     
     public function questions(){
-        return $this->hasMany('App\Question');
+        return $this->hasMany('App\Models\Question');
     }
 
     public function parent()  { 

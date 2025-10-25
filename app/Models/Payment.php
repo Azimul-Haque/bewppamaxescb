@@ -1,16 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Payment extends Model
 {
     public function user() {
-      return $this->belongsTo('App\User');
+      return $this->belongsTo('App\Models\User');
     }
 
     public function package() {
-      return $this->belongsTo('App\Package');
+      return $this->belongsTo('App\Models\Package');
     }
 }

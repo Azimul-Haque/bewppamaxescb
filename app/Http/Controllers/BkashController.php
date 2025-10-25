@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\User;
-use App\Package;
-use App\Payment;
+use App\Models\User;
+use App\Models\Package;
+use App\Models\Payment;
 
 use Carbon\Carbon;
 use DB;

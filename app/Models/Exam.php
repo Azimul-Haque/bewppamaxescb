@@ -1,28 +1,28 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Exam extends Model
 {
     public function examcategory(){
-        return $this->belongsTo('App\Examcategory');
+        return $this->belongsTo('App\Models\Examcategory');
     }
 
     public function examquestions(){
-        return $this->hasMany('App\Examquestion');
+        return $this->hasMany('App\Models\Examquestion');
     }
 
     public function course(){
-        return $this->hasOne('App\Course');
+        return $this->hasOne('App\Models\Course');
     }
 
     public function courseexams(){
-        return $this->hasMany('App\Courseexam');
+        return $this->hasMany('App\Models\Courseexam');
     }
 
     public function meritlists(){
-        return $this->hasMany('App\Meritlist');
+        return $this->hasMany('App\Models\Meritlist');
     }
 }

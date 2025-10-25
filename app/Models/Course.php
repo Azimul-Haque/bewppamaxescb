@@ -1,16 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
     public function Courseexams(){
-        return $this->hasMany('App\Courseexam');
+        return $this->hasMany('App\Models\Courseexam');
     }
 
     public function meritlists(){
-        return $this->hasMany('App\Meritlist');
+        return $this->hasMany('App\Models\Meritlist');
     }
 }

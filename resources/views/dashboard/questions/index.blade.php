@@ -65,9 +65,9 @@
                                       <span class="badge bg-success">{{ $question->topic->name }}</span>
                                       <!-- <span class="badge bg-info">{{ $question->difficulty == 1 ? 'সহজ' : ($question->difficulty == 2 ? 'মধ্যম' : 'কঠিন') }}</span> -->
                                       <br/>
-                                      {{-- @foreach($question->tags as $tag)
+                                      @foreach($question->tags as $tag)
                                         <span class="badge bg-primary">{{ $tag->name }}</span>
-                                      @endforeach --}}
+                                      @endforeach
                                   </td>
                                   <td>{{ $question->answer }}</td>
                                   <td>{{ $question->option1 }}, {{ $question->option2 }}, {{ $question->option3 }}, {{ $question->option4 }}</td>

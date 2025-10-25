@@ -6,21 +6,21 @@ use Illuminate\Http\Request;
 
 use App\Repositories\userRepository;
 
-use App\User;
-use App\Userotp;
-use App\Examcategory;
-use App\Question;
-use App\Course;
-use App\Courseexam;
-use App\Exam;
-use App\Examquestion;
-use App\Topic;
-use App\Package;
-use App\Temppayment;
-use App\Message;
-use App\Material;
-use App\Meritlist;
-use App\Reportedquestion;
+use App\Models\User;
+use App\Models\Userotp;
+use App\Models\Examcategory;
+use App\Models\Question;
+use App\Models\Course;
+use App\Models\Courseexam;
+use App\Models\Exam;
+use App\Models\Examquestion;
+use App\Models\Topic;
+use App\Models\Package;
+use App\Models\Temppayment;
+use App\Models\Message;
+use App\Models\Material;
+use App\Models\Meritlist;
+use App\Models\Reportedquestion;
 
 use Hash;
 use Carbon\Carbon;

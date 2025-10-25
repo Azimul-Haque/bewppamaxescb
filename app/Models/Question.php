@@ -29,4 +29,21 @@ class Question extends Model
     public function reportedquestions(){
         return $this->hasMany('App\Models\Reportedquestion');
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // 1. Clear the cache when a new Question is created
+        static::created(function () {
+            Cache::forget('total_questions_count');
+        });
+
+        // 2. Clear the cache when a Question is deleted
+        static::deleted(function () {
+            Cache::forget('total_questions_count');
+        });
+        
+        // You may also want to do this on 'updated' if you track soft-deletes
+    }
 }

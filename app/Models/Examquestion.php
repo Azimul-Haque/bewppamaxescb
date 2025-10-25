@@ -1,16 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Examquestion extends Model
 {
     public function exam(){
-        return $this->belongsTo('App\Exam');
+        return $this->belongsTo('App\Models\Exam');
     }
 
     public function question(){
-        return $this->belongsTo('App\Question');
+        return $this->belongsTo('App\Models\Question');
     }
 }

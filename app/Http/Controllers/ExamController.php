@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Rap2hpoutre\FastExcel\FastExcel;
 
-use App\Topic;
-use App\Tag;
-use App\Exam;
-use App\Examcategory;
-use App\Examquestion;
-use App\Question;
-use App\Meritlist;
+use App\Models\Topic;
+use App\Models\Tag;
+use App\Models\Exam;
+use App\Models\Examcategory;
+use App\Models\Examquestion;
+use App\Models\Question;
+use App\Models\Meritlist;
 
 use Carbon\Carbon;
 use DB;

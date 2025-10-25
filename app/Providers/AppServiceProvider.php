@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Schema; // IMPORTANT: Needed for Schema::defaultStringLength(191)
-use Illuminate\Pagination\Paginator;  // CRITICAL: Needed for Paginator::useBootstrap()
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,8 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        
-        // This method call now works because Paginator is imported above.
-        Paginator::useBootstrap(); 
+        Paginator::useBootstrap();
     }
 }

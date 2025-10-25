@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Cache;
 
 class Question extends Model
 {
+    use HasFactory;
+    
     public function topic(){
         return $this->belongsTo('App\Models\Topic');
     }

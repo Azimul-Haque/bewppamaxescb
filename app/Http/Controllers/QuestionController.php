@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Rap2hpoutre\FastExcel\FastExcel;
 
-use App\Question;
-use App\Questionimage;
-use App\Questionexplanation;
-use App\Topic;
-use App\Tag;
-use App\Reportedquestion;
+use App\Models\Question;
+use App\Models\Questionimage;
+use App\Models\Questionexplanation;
+use App\Models\Topic;
+use App\Models\Tag;
+use App\Models\Reportedquestion;
 
 use Carbon\Carbon;
 use DB;

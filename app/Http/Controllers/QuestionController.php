@@ -209,7 +209,7 @@ class QuestionController extends Controller
         $totalquestions = Question::where('topic_id', $id)->count();
         $questions = Question::where('topic_id', $id)
                              ->orderBy('id', 'desc')
-                             ->paginate(10);
+                             ->cursorPaginate(10);
 
         $topics = Topic::orderBy('id', 'asc')->get();
         // $tags = Tag::orderBy('id', 'asc')->get();

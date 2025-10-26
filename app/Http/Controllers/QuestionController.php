@@ -636,7 +636,7 @@ class QuestionController extends Controller
                 $path->prepend($parent->name);
                 $parent = $parent->parent;
             }
-            echo '<tr><td>' . $path->join(' → ') . '</td><td>' . $topic->id . '</td></tr>';
+            echo '<tr><td>' . $path->join('→') . '</td><td>' . $topic->id . '</td></tr>';
         }
         echo '<table>';
         

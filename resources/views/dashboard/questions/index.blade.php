@@ -925,50 +925,50 @@
     
     // Configure AJAX to fetch search results
     ajax: {
-        transport: function (params, success, failure) {
-          const query = params.data.q; 
-          
-          // CRITICAL: Capture the search term for use in templateResult highlighting
-          // This uses the guaranteed global variable declared in the <head>
-          currentSearchQuery = query; 
-          
-          // Execute the mock API call
-          mockFetchTopics(query)
-              .then(data => {
-                  success(data);
-              })
-              .catch(error => {
-                  console.error("Error fetching data:", error);
-                  failure(error);
-              });
-          
-          return null; // Return value is null as we handle the request via promise
-        },
-        // This is the Laravel route you set up: POST /api/search/topics
-        url: '/api/search/topics/Rifat.Admin.2022',
-        dataType: 'json',
-        delay: 250, // Wait 250ms after the user stops typing
-        type: 'GET',
-
-        // Function to send the search term to the server
-        data: function (params) {
-            return {
-                q: params.term // 'q' matches the name of the request input in your Laravel controller
-            };
-        },
+      transport: function (params, success, failure) {
+        const query = params.data.q; 
         
-        // Function to process the response from the server
-        processResults: function (data) {
-            // Select2 expects an object with a 'results' key containing an array of {id, text} objects.
-            const processedResults = data.results.map(item => ({
-                id: item.id,
-                text: item.text // Use the full path as the display text
-            }));
-            
-            return {
-                results: processedResults
-            };
-        },
+        // CRITICAL: Capture the search term for use in templateResult highlighting
+        // This uses the guaranteed global variable declared in the <head>
+        currentSearchQuery = query; 
+        
+        // Execute the mock API call
+        mockFetchTopics(query)
+            .then(data => {
+                success(data);
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+                failure(error);
+            });
+        
+        return null; // Return value is null as we handle the request via promise
+      },
+      // This is the Laravel route you set up: POST /api/search/topics
+      url: '/api/search/topics/Rifat.Admin.2022',
+      dataType: 'json',
+      delay: 250, // Wait 250ms after the user stops typing
+      type: 'GET',
+
+      // Function to send the search term to the server
+      data: function (params) {
+          return {
+              q: params.term // 'q' matches the name of the request input in your Laravel controller
+          };
+      },
+      
+      // Function to process the response from the server
+      processResults: function (data) {
+          // Select2 expects an object with a 'results' key containing an array of {id, text} objects.
+          const processedResults = data.results.map(item => ({
+              id: item.id,
+              text: item.text // Use the full path as the display text
+          }));
+          
+          return {
+              results: processedResults
+          };
+      },
     },
 
     templateResult: function (data) {

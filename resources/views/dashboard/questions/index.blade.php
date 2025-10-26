@@ -998,19 +998,6 @@
         // Log or use topicId for your application logic (e.g., submitting a form)
         console.log("Selected ID:", topicId); 
     });
-
-    .on('select2:select', function(e) {
-        
-        
-        // Update the output area
-        $('#selected-id-output').text(topicId + ' - ' + topicText);
-
-    }) // End of select2:select handler
-    // --- END CRITICAL SECTION ---
-    .on('select2:clear', function(e) {
-        // Handler for when the user clicks the 'X' clear button
-        $('#selected-id-output').text('None');
-    });
   });
 </script>
 @endsection

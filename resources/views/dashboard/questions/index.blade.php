@@ -990,10 +990,6 @@
 
     $('#topic-select').on('select2:select', function (e) {
         const data = e.params.data;
-        $('#selected-id-output').text(data.id);
-    });
-
-    .on('select2:select', function(e) {
         // The 'e' object contains the event data
         const selectedData = e.params.data; 
 
@@ -1003,6 +999,10 @@
 
         // Log or use topicId for your application logic (e.g., submitting a form)
         console.log("Selected ID:", topicId); 
+    });
+
+    .on('select2:select', function(e) {
+        
         
         // Update the output area
         $('#selected-id-output').text(topicId + ' - ' + topicText);

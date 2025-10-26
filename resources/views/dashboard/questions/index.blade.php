@@ -930,17 +930,7 @@
         
         // CRITICAL: Capture the search term for use in templateResult highlighting
         // This uses the guaranteed global variable declared in the <head>
-        currentSearchQuery = query; 
-        
-        // Execute the mock API call
-        mockFetchTopics(query)
-            .then(data => {
-                success(data);
-            })
-            .catch(error => {
-                console.error("Error fetching data:", error);
-                failure(error);
-            });
+        currentSearchQuery = query;
         
         return null; // Return value is null as we handle the request via promise
       },

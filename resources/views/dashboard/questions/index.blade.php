@@ -694,7 +694,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="input-group mb-3">
-                                <select name="topic_id" class="form-control topic-select" required>
+                                <select name="topic_id" class="form-control topic-select" id="topic-select" required>
                                     {{-- <option selected="" disabled="" value="">টপিক (বিষয়)</option> --}}
                                     {{-- @foreach ($topics as $topic)
                                         <option value="{{ $topic->id }}">{{ $topic->name }}</option>
@@ -912,7 +912,7 @@
     });
 </script>
 <script>
-  $('.topic-select').select2({
+  $('#topic-select').select2({
     placeholder: 'Search topics (e.g., "headphones", "science")',
     minimumInputLength: 2, 
     allowClear: true,
@@ -953,7 +953,7 @@
         }
         
         // Get the query from the Select2 search field
-        const query = $('.topic-select').data('select2').$dropdown.find('.select2-search__field').val();
+        const query = $('#topic-select').data('select2').$dropdown.find('.select2-search__field').val();
         const text = data.text;
         
         if (!query) {

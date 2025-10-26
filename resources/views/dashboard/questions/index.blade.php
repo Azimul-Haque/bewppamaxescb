@@ -996,6 +996,8 @@
       const topicId = selectedData.id; 
       const topicText = selectedData.text;
 
+      $('#selected-id-output').text(topicId);
+
       // Log or use topicId for your application logic (e.g., submitting a form)
       console.log("Selected ID:", topicId); 
   });

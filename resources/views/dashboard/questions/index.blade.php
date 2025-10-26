@@ -947,11 +947,11 @@
             }));
             
             return {
-                results: processedResults
+                data: processedResults
             };
         },
     },
-    
+
     templateResult: function (data) {
         // Skip rendering for placeholders like 'Searching...'
         if (data.loading || !data.text) { return data.text; }

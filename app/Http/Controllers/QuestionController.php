@@ -648,8 +648,6 @@ class QuestionController extends Controller
     {
         $requiredSecret = env("TOPIC_PATH_SECRET");
 
-        return $requiredSecret;
-
         // STEP 1: Security check to ensure the URL is being hit by an authorized user
         if (empty($requiredSecret) || $secret !== $requiredSecret) {
             // Log this attempt and return a generic error

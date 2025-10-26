@@ -987,6 +987,32 @@
         
         return $result;
     }
+
+    $('#topic-select').on('select2:select', function (e) {
+        const data = e.params.data;
+        $('#selected-id-output').text(data.id);
+    });
+
+    .on('select2:select', function(e) {
+        // The 'e' object contains the event data
+        const selectedData = e.params.data; 
+
+        // Access the ID using e.params.data.id
+        const topicId = selectedData.id; 
+        const topicText = selectedData.text;
+
+        // Log or use topicId for your application logic (e.g., submitting a form)
+        console.log("Selected ID:", topicId); 
+        
+        // Update the output area
+        $('#selected-id-output').text(topicId + ' - ' + topicText);
+
+    }) // End of select2:select handler
+    // --- END CRITICAL SECTION ---
+    .on('select2:clear', function(e) {
+        // Handler for when the user clicks the 'X' clear button
+        $('#selected-id-output').text('None');
+    });
   });
 </script>
 @endsection

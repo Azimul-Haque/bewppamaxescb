@@ -932,19 +932,37 @@
       delay: 250, // Wait 250ms after the user stops typing
       type: 'GET',
 
-      // Function to send the search term to the server
+      // In a live environment, use this:
       data: function (params) {
+          // CRITICAL FIX: Capture the search term here where it is available
+          lastSearchQuery = params.term; 
+          
           return {
-              q: params.term // 'q' matches the name of the request input in your Laravel controller
+              q: params.term // Sent to server
           };
       },
       
-      // Function to process the response from the server
+      // FOR DEMONSTRATION ONLY: Overriding 'transport' to use mock data
+      // REMOVE this entire 'transport' block in your live code
+      transport: function (params, success, failure) {
+          const query = params.data.q || '';
+          if (query.length >= 3) {
+              // Simulate network delay
+              setTimeout(() => {
+                  success(mockApiCall(query));
+              }, 250);
+          } else {
+              success({ results: [] });
+          }
+          return null; 
+      },
+      // END DEMO BLOCK
+      
       processResults: function (data) {
-          // Select2 expects an object with a 'results' key containing an array of {id, text} objects.
+          // Simplified processing, exactly as you had it
           const processedResults = data.results.map(item => ({
               id: item.id,
-              text: item.text // Use the full path as the display text
+              text: item.text 
           }));
           
           return {

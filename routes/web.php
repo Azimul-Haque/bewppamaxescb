@@ -112,7 +112,7 @@ Route::post('/dashboard/questions/tag/{id}/update', 'QuestionController@updateQu
 Route::get('/dashboard/questions/tag/{id}/delete', 'QuestionController@deleteQuestionsTag')->name('dashboard.questions.tag.delete');
 
 Route::get('/dashboard/topics/pivotlist', 'QuestionController@getFullPathAttribute')->name('dashboard.topics.pivotlist');
-Route::get('/cache/rebuild/{secret}', 'QuestionController@getFullPathAttribute')->name('dashboard.topics.pivotlist');
+Route::get('/cache/rebuild/{secret}', 'QuestionController@rebuildTopicsCache')->name('dashboard.topics.requild.cache');
 
 Route::get('/dashboard/reported/questions', 'QuestionController@getReportedQuestions')->name('dashboard.questions.reported');
 Route::get('/dashboard/reported/questions/{search}', 'QuestionController@getReportedQuestionsSearch')->name('dashboard.questions.reported.search');

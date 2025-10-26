@@ -70,7 +70,7 @@
                                   <td>
                                       {!! $question->question !!}<br/>
                                       <span class="badge bg-success">{{ $question->topic->name }}</span>
-                                      <span class="badge bg-success">{{ $question->topic->name }}</span>
+                                      <span class="badge bg-success">{{ $question->topic->full_path }}</span>
                                       {{-- <span class="badge bg-info">{{ $question->difficulty == 1 ? 'সহজ' : ($question->difficulty == 2 ? 'মধ্যম' : 'কঠিন') }}</span> --}}
                                       <br/>
                                       @foreach($question->tags as $tag)

@@ -942,22 +942,6 @@
             };
         },
       
-      // FOR DEMONSTRATION ONLY: Overriding 'transport' to use mock data
-      // REMOVE this entire 'transport' block in your live code
-      transport: function (params, success, failure) {
-          const query = params.data.q || '';
-          if (query.length >= 3) {
-              // Simulate network delay
-              setTimeout(() => {
-                  success(mockApiCall(query));
-              }, 250);
-          } else {
-              success({ results: [] });
-          }
-          return null; 
-      },
-      // END DEMO BLOCK
-      
       processResults: function (data) {
           // Simplified processing, exactly as you had it
           const processedResults = data.results.map(item => ({

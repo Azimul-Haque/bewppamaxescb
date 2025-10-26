@@ -934,13 +934,13 @@
 
       // In a live environment, use this:
       data: function (params) {
-          // CRITICAL FIX: Capture the search term here where it is available
-          lastSearchQuery = params.term; 
-          
-          return {
-              q: params.term // Sent to server
-          };
-      },
+            // CRITICAL: Capture the search term here before it's sent
+            lastSearchQuery = params.term; 
+            
+            return {
+                q: params.term // Sent to your server
+            };
+        },
       
       // FOR DEMONSTRATION ONLY: Overriding 'transport' to use mock data
       // REMOVE this entire 'transport' block in your live code

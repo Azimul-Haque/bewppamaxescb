@@ -714,34 +714,7 @@ class QuestionController extends Controller
         ], 200);
     }
 
-    public function searchTopics(Request $request)
-    {
-        $query = $request->input('q');
-        
-        if (empty($query) || strlen($query) < 3) {
-            // Respect the minimum input length set in the frontend
-            return response()->json(['results' => []]);
-        }
-        
-        // 1. Get the full cached data
-        $cachedData = Cache::get(self::CACHE_KEY, []);
-
-        $lowerQuery = strtolower($query);
-
-        // 2. Filter the cached array
-        $results = array_filter($cachedData, function ($item) use ($lowerQuery) {
-            // Check if the lowercase query exists in the lowercase text path
-            return str_contains(strtolower($item['text']), $lowerQuery);
-        });
-        
-        // 3. Re-index the array and limit results for performance
-        $results = array_values($results);
-        $results = array_slice($results, 0, 50); // Limit to top 50 matches
-
-        return response()->json([
-            'query' => $query,
-            'results' => $results,
-            'count' => count($results)
-        ]);
-    }
+    // searchTopic is placed under APIController
+    // searchTopic is placed under APIController
+    // searchTopic is placed under APIController
 }

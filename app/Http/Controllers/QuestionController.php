@@ -75,7 +75,7 @@ class QuestionController extends Controller
                              ->orWhere('option4', 'LIKE', "%$search%")
                              ->orderBy('id', 'desc')
                              ->cursorPaginate(10);
-        $topics = Topic::orderBy('id', 'asc')->get();
+        $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
 
         Session::flash('success', $totalquestions . ' টি প্রশ্ন পাওয়া গিয়েছে!');
@@ -98,7 +98,7 @@ class QuestionController extends Controller
                              ->orderBy('id', 'desc')
                              ->cursorPaginate(10);
 
-        $topics = Topic::orderBy('id', 'asc')->get();
+        $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
 
         return view('dashboard.questions.index')
@@ -122,7 +122,7 @@ class QuestionController extends Controller
          //                     ->orderBy('id', 'desc')
          //                     ->paginate(10);
 
-        $topics = Topic::orderBy('id', 'asc')->get();
+        $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
 
         return view('dashboard.questions.index')
@@ -146,7 +146,7 @@ class QuestionController extends Controller
         //     // $domain stuff
         // });
         // dd($questions);
-        $topics = Topic::orderBy('id', 'asc')->get();
+        $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get();
         // $tags = Tag::orderBy('id', 'asc')->get();
 
         // dd($questions);
@@ -173,7 +173,7 @@ class QuestionController extends Controller
                              ->orderBy('id', 'desc')
                              ->cursorPaginate(10);
 
-        $topics = Topic::orderBy('id', 'asc')->get();
+        $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get();
         // $tags = Tag::orderBy('id', 'asc')->get();
 
         // dd($questions);
@@ -211,7 +211,7 @@ class QuestionController extends Controller
                              ->orderBy('id', 'desc')
                              ->cursorPaginate(10);
 
-        $topics = Topic::orderBy('id', 'asc')->get();
+        $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get();
         // $tags = Tag::orderBy('id', 'asc')->get();
 
         return view('dashboard.questions.changetopic')
@@ -574,7 +574,7 @@ class QuestionController extends Controller
         $reportedquestions = Reportedquestion::orderBy('created_at', 'desc')->where('status', 0)->cursorPaginate(10);
 
         $totalreportedquestions  = Reportedquestion::where('status', 0)->count();
-        $topics = Topic::orderBy('id', 'asc')->get();
+        $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
         
         return view('dashboard.questions.reported')
@@ -599,7 +599,7 @@ class QuestionController extends Controller
                         $q->orderBy('id', 'desc');
                     })->where('status', 0)->cursorPaginate(10);
 
-        $topics = Topic::orderBy('id', 'asc')->get();
+        $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();
         
         Session::flash('success', $reportedquestions->count() . ' টি রিপোর্টেড প্রশ্ন পাওয়া গিয়েছে!');

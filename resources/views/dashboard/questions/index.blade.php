@@ -687,7 +687,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="input-group mb-3">
-                                <select name="topic_id" class="form-control" required>
+                                <select name="topic_id" class="form-control topic-select" required>
                                     <option selected="" disabled="" value="">টপিক (বিষয়)</option>
                                     @foreach ($topics as $topic)
                                         <option value="{{ $topic->id }}">{{ $topic->name }}</option>

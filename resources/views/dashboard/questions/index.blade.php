@@ -907,7 +907,7 @@
 <script>
   $(document).ready(function() {
       // Initialize Select2 on the <select> element
-      $('.topic-select').select2({
+      $('.topic-select').select2({ 
           // Placeholder text when nothing is selected/searched
           placeholder: 'Search topics (e.g., "headphones", "science")',
           // Ensure a search box is always visible

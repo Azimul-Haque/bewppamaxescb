@@ -904,4 +904,94 @@
 
     });
 </script>
+<script>
+  $(document).ready(function() {
+      // Initialize Select2 on the <select> element
+      $('.topic-select').select2({
+          // Placeholder text when nothing is selected/searched
+          placeholder: 'Search topics (e.g., "headphones", "science")',
+          // Ensure a search box is always visible
+          minimumInputLength: 2, 
+          // Set to true to allow multiple selections, false for single
+          allowClear: true,
+          
+          // Configure AJAX to fetch search results
+          ajax: {
+              // This is the Laravel route you set up: POST /api/search/topics
+              url: '/api/search/topics',
+              dataType: 'json',
+              delay: 250, // Wait 250ms after the user stops typing
+              type: 'POST', 
+              
+              // Function to send the search term to the server
+              data: function (params) {
+                  return {
+                      q: params.term // 'q' matches the name of the request input in your Laravel controller
+                  };
+              },
+              
+              // Function to process the response from the server
+              processResults: function (data) {
+                  // The server returns an object { query, results: [{id, text}, ...], count }
+                  // Select2 expects an object with a 'results' key containing an array of {id, text} objects.
+                  const processedResults = data.results.map(item => ({
+                      id: item.id,
+                      text: item.text // Use the full path as the display text
+                  }));
+                  
+                  return {
+                      results: processedResults
+                  };
+              },
+              
+              // IMPORTANT: In a real Laravel application, you must handle CSRF tokens
+              // beforeSend: function (xhr) {
+              //     xhr.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
+              // }
+          },
+          
+          // --- Customizing result rendering (optional but highly recommended) ---
+          templateResult: function (data) {
+              if (data.loading) {
+                  return data.text;
+              }
+              
+              const query = $('#topic-select').data('select2').$dropdown.find('.select2-search__field').val();
+              const text = data.text;
+              
+              if (!query) {
+                  return text;
+              }
+              
+              // Highlight the search term within the result path
+              const regex = new RegExp(query, 'gi');
+              const highlightedText = text.replace(regex, (match) => 
+                  `<span class="search-term-highlight">${match}</span>`
+              );
+
+              // Display the ID next to the text for context
+              const $result = $(
+                  `<div class="flex flex-col">
+                      <span class="text-xs font-medium text-gray-500">ID: ${data.id}</span>
+                      <span class="text-base">${highlightedText}</span>
+                  </div>`
+              );
+              
+              return $result;
+          }
+      });
+
+      // Handle the selection event to update the display
+      $('#topic-select').on('select2:select', function (e) {
+          const data = e.params.data;
+          $('#selected-id-output').text(data.id);
+      });
+      
+      // Handle the clear event
+      $('#topic-select').on('select2:unselect', function (e) {
+          $('#selected-id-output').text('---');
+      });
+
+  });
+</script>
 @endsection

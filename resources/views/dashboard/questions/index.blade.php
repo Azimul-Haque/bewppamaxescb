@@ -17,6 +17,11 @@
   .select2-selection__choice{
       background-color: rgba(0, 123, 255) !important;
   }
+  .select2-search--dropdown .select2-search__field {
+      pointer-events: auto !important;
+      opacity: 1 !important;
+      cursor: text !important;
+  }
 </style>
 @endsection
 

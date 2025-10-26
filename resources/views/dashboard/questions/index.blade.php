@@ -907,7 +907,7 @@
 <script>
   $(document).ready(function() {
       // Initialize Select2 on the <select> element
-      $('#topic-select').select2({
+      $('.topic-select').select2({
           // Placeholder text when nothing is selected/searched
           placeholder: 'Search topics (e.g., "headphones", "science")',
           // Ensure a search box is always visible
@@ -956,7 +956,7 @@
                   return data.text;
               }
               
-              const query = $('#topic-select').data('select2').$dropdown.find('.select2-search__field').val();
+              const query = $('.topic-select').data('select2').$dropdown.find('.select2-search__field').val();
               const text = data.text;
               
               if (!query) {

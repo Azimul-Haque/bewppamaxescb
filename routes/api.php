@@ -55,4 +55,4 @@ Route::get('/getexamcategories/{softtoken}', 'APIController@getExamCategories')-
 Route::get('/getquestionbank/exams/{softtoken}/{getexamcategory}', 'APIController@getQBCatWise')->name('api.getquestionbank.exams');
 
 // for dashboard
-Route::get('/search/topics/{softtoken}', 'QuestionController@searchTopics')->name('api.search.topics');
+Route::get('/search/topics/{softtoken}', 'APIController@searchTopics')->name('api.search.topics');

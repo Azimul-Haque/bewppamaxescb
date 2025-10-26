@@ -647,6 +647,8 @@ class QuestionController extends Controller
 
     public function rebuildTopicsCache(string $secret)
     {
+        $requiredSecret = env("TOPIC_PATH_SECRET");
+        
         // STEP 1: Security check to ensure the URL is being hit by an authorized user
         if ($secret !== self::SECRET_KEY) {
             // Log this attempt and return a generic error

@@ -989,8 +989,6 @@
     }
 
     $('#topic-select').on('select2:select', function (e) {
-        const data = e.params.data;
-        // The 'e' object contains the event data
         const selectedData = e.params.data; 
 
         // Access the ID using e.params.data.id

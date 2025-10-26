@@ -926,7 +926,7 @@
     // Configure AJAX to fetch search results
     ajax: {
         // This is the Laravel route you set up: POST /api/search/topics
-        url: '/api/search/topics',
+        url: '/api/search/topics/Rifat.Admin.2022',
         dataType: 'json',
         delay: 250, // Wait 250ms after the user stops typing
         type: 'POST', 

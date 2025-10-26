@@ -970,6 +970,6 @@
         
         return $result;
     }
-});
+  });
 </script>
 @endsection

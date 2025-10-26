@@ -26,6 +26,9 @@
       opacity: 1 !important;
       cursor: text !important;
   }
+  .select2-container--open {
+      z-index: 999999 !important;
+  }
 </style>
 @endsection
 

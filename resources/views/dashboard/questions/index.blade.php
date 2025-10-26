@@ -925,15 +925,6 @@
     
     // Configure AJAX to fetch search results
     ajax: {
-      transport: function (params, success, failure) {
-        const query = params.data.q; 
-        
-        // CRITICAL: Capture the search term for use in templateResult highlighting
-        // This uses the guaranteed global variable declared in the <head>
-        currentSearchQuery = query;
-        
-        return null; // Return value is null as we handle the request via promise
-      },
       // This is the Laravel route you set up: POST /api/search/topics
       url: '/api/search/topics/Rifat.Admin.2022',
       dataType: 'json',

@@ -643,7 +643,6 @@ class QuestionController extends Controller
     }
 
     protected const CACHE_KEY = 'denormalized_topic_paths';
-    protected const SECRET_KEY = env("TOPIC_PATH_SECRET");
 
     public function rebuildTopicsCache(string $secret)
     {

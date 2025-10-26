@@ -980,18 +980,6 @@
               return $result;
           }
       });
-
-      // Handle the selection event to update the display
-      $('#topic-select').on('select2:select', function (e) {
-          const data = e.params.data;
-          $('#selected-id-output').text(data.id);
-      });
-      
-      // Handle the clear event
-      $('#topic-select').on('select2:unselect', function (e) {
-          $('#selected-id-output').text('---');
-      });
-
   });
 </script>
 @endsection

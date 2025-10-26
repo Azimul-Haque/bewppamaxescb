@@ -20,14 +20,9 @@
       background-color: rgba(0, 123, 255) !important;
   }
   .select2-search--dropdown .select2-search__field {
-      /* Ensures the input field can receive mouse events and focus */
       pointer-events: auto !important;
-      /* Ensures it's not disabled by any conflicting style */
       opacity: 1 !important;
       cursor: text !important;
-  }
-  .select2-container--open {
-      z-index: 999999 !important;
   }
 </style>
 @endsection

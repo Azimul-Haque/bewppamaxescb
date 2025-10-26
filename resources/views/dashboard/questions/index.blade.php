@@ -929,7 +929,7 @@
         url: '/api/search/topics/Rifat.Admin.2022',
         dataType: 'json',
         delay: 250, // Wait 250ms after the user stops typing
-        type: 'POST', 
+        type: 'GET', 
         
         // Function to send the search term to the server
         data: function (params) {

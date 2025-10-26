@@ -960,7 +960,7 @@
         if (data.loading || !data.text) { return data.text; }
         
         // Use the safe external variable
-        const query = currentSearchQuery;
+        const query = lastSearchQuery;
         const text = data.text;
         
         if (!query) { return text; }

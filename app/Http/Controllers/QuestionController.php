@@ -716,12 +716,6 @@ class QuestionController extends Controller
     {
         $query = $request->input('q');
         
-        // Return nothing if the query is empty
-        if (empty($query)) {
-            return response()->json([], 200);
-        }
-
-        $query = $request->get('q');
         if (empty($query) || strlen($query) < 3) {
             // Respect the minimum input length set in the frontend
             return response()->json(['results' => []]);

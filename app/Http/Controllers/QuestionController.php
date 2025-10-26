@@ -647,7 +647,7 @@ class QuestionController extends Controller
     public function rebuildTopicsCache(string $secret)
     {
         $requiredSecret = env("TOPIC_PATH_SECRET");
-        
+
         // STEP 1: Security check to ensure the URL is being hit by an authorized user
         if (empty($requiredSecret) || $secret !== $requiredSecret) {
             // Log this attempt and return a generic error
@@ -689,5 +689,26 @@ class QuestionController extends Controller
         
         // Return a successful, informative response
         return response("Cache successfully rebuilt! **$count** topic paths were generated and stored in the cache key **" . self::CACHE_KEY . "**.", 200);
+    }
+
+    public function readTopicsCache()
+    {
+        // Retrieve the data from the cache. Returns null if the key doesn't exist.
+        $cachedData = Cache::get(self::CACHE_KEY);
+
+        if ($cachedData === null) {
+            return response('The topic path cache is empty or has expired.', 200);
+        }
+
+        $count = count($cachedData);
+
+        // You can return the data as JSON for easy inspection
+        return response()->json([
+            'status' => 'success',
+            'cache_key' => self::CACHE_KEY,
+            'item_count' => $count,
+            'data_sample' => array_slice($cachedData, 0, 10), // Show first 10 items
+            'full_data' => $cachedData, // Show all data
+        ], 200);
     }
 }

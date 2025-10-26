@@ -720,6 +720,12 @@ class QuestionController extends Controller
         if (empty($query)) {
             return response()->json([], 200);
         }
+
+        $query = $request->get('q');
+        if (empty($query) || strlen($query) < 3) {
+            // Respect the minimum input length set in the frontend
+            return response()->json(['results' => []]);
+        }
         
         // 1. Get the full cached data
         $cachedData = Cache::get(self::CACHE_KEY, []);

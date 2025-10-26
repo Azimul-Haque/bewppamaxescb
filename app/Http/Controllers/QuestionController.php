@@ -652,7 +652,7 @@ class QuestionController extends Controller
         if (empty($requiredSecret) || $secret !== $requiredSecret) {
             // Log this attempt and return a generic error
             logger()->warning('Unauthorized attempt to rebuild cache.', ['ip' => request()->ip()]);
-            return response('Unauthorized.', 401);
+            return response('Unauthorized.', 403);
         }
 
         // --- Start Cache Generation Logic ---

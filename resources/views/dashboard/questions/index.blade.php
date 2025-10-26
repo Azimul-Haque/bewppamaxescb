@@ -918,7 +918,7 @@
 
   $('#topic-select').select2({
     placeholder: 'Search topics (e.g., "headphones", "science")',
-    minimumInputLength: 2, 
+    minimumInputLength: 3, 
     allowClear: true,
 
     dropdownParent: $('body'), 
@@ -951,7 +951,7 @@
             };
         },
     },
-    
+
     templateResult: function (data) {
         // Skip rendering for placeholders like 'Searching...'
         if (data.loading || !data.text) { return data.text; }

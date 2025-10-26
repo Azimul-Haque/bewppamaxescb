@@ -711,4 +711,35 @@ class QuestionController extends Controller
             'full_data' => $cachedData, // Show all data
         ], 200);
     }
+
+    public function searchTopics(Request $request)
+    {
+        $query = $request->input('q');
+        
+        // Return nothing if the query is empty
+        if (empty($query)) {
+            return response()->json([], 200);
+        }
+        
+        // 1. Get the full cached data
+        $cachedData = Cache::get(self::CACHE_KEY, []);
+
+        $lowerQuery = strtolower($query);
+
+        // 2. Filter the cached array
+        $results = array_filter($cachedData, function ($item) use ($lowerQuery) {
+            // Check if the lowercase query exists in the lowercase text path
+            return str_contains(strtolower($item['text']), $lowerQuery);
+        });
+        
+        // 3. Re-index the array and limit results for performance
+        $results = array_values($results);
+        $results = array_slice($results, 0, 50); // Limit to top 50 matches
+
+        return response()->json([
+            'query' => $query,
+            'results' => $results,
+            'count' => count($results)
+        ]);
+    }
 }

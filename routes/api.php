@@ -53,6 +53,6 @@ Route::get('/meritlist/{softtoken}/{course_id}/{exam_id}', 'APIController@getMer
 Route::post('/reportquestion', 'APIController@reportQuestion')->name('api.reportquestion');
 Route::get('/getexamcategories/{softtoken}', 'APIController@getExamCategories')->name('api.getexamcategories');
 Route::get('/getquestionbank/exams/{softtoken}/{getexamcategory}', 'APIController@getQBCatWise')->name('api.getquestionbank.exams');
-Route::get('//api/search/topics', 'APIController@getQBCatWise')->name('api.getquestionbank.exams');
 
 // for dashboard
+Route::get('//api/search/topics', 'APIController@getQBCatWise')->name('api.getquestionbank.exams');

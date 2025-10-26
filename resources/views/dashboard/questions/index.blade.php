@@ -921,6 +921,8 @@
     placeholder: 'Search topics (e.g., "headphones", "science")',
     minimumInputLength: 2, 
     allowClear: true,
+
+    dropdownParent: $('body'), 
     
     // Configure AJAX to fetch search results
     ajax: {

@@ -35,7 +35,7 @@ class Topic extends Model
         }
 
         // Join the path elements with the ' → ' separator
-        return $path->join(' → ');
+        return $path->join('→');
     }
     
 }

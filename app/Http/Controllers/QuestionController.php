@@ -643,5 +643,5 @@ class QuestionController extends Controller
     }
 
     protected const CACHE_KEY = 'denormalized_topic_paths';
-    protected const SECRET_KEY = config('');
+    protected const SECRET_KEY = env('topic_path_secret');
 }

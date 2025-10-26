@@ -952,31 +952,31 @@
         },
     },
     
-    // Customizing result rendering
     templateResult: function (data) {
-        if (data.loading) {
-            return data.text;
-        }
+        // Skip rendering for placeholders like 'Searching...'
+        if (data.loading || !data.text) { return data.text; }
         
-        // Get the query from the Select2 search field
-        const query = $('#topic-select').data('select2').$dropdown.find('.select2-search__field').val();
+        // Use the safe external variable
+        const query = currentSearchQuery;
         const text = data.text;
         
-        if (!query) {
-            return text;
-        }
+        if (!query) { return text; }
         
-        // Highlight the search term within the result path
-        const regex = new RegExp(query, 'gi');
+        // Highlight the search term logic
+        const escapedQuery = query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        const regex = new RegExp(escapedQuery, 'gi');
+        
+        // Check if text is a string before calling replace
+        if (typeof text !== 'string') { return data.text; }
+
         const highlightedText = text.replace(regex, (match) => 
-            `<span class="search-term-highlight">${match}</span>`
+            `<span class="bg-yellow-200 font-bold p-0.5 rounded">${match}</span>`
         );
 
-        // Display the ID next to the text for context
         const $result = $(
-            `<div class="flex flex-col">
+            `<div class="flex flex-col py-1">
                 <span class="text-xs font-medium text-gray-500">ID: ${data.id}</span>
-                <span class="text-base">${highlightedText}</span>
+                <span class="text-base text-gray-900">${highlightedText}</span>
             </div>`
         );
         

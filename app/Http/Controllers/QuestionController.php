@@ -676,7 +676,7 @@ class QuestionController extends Controller
             // 3. Store the ID and the full path string (e.g., 'Category A → Sub B → Topic Name')
             $cachedPaths[] = [
                 'id' => $topic->id,
-                'text' => $path->join(' → '),
+                'text' => $path->join('→'),
             ];
         }
 

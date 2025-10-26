@@ -917,6 +917,10 @@
     });
 </script>
 <script>
+  $('#addQuesitonModal').on('hidden.bs.modal', function () {
+       // Restore the original enforceFocus if needed, or simply leave it as is if only this component uses modals.
+  });
+
   $('#topic-select').select2({
     placeholder: 'Search topics (e.g., "headphones", "science")',
     minimumInputLength: 2, 

@@ -972,14 +972,16 @@
         // Check if text is a string before calling replace
         if (typeof text !== 'string') { return data.text; }
 
+        // Use a Bootstrap-friendly highlight color (e.g., a primary background)
         const highlightedText = text.replace(regex, (match) => 
-            `<span class="bg-yellow-200 font-bold p-0.5 rounded">${match}</span>`
+            `<span class="bg-warning text-dark font-weight-bold px-1 rounded">${match}</span>`
         );
 
+        // Final HTML structure for the dropdown item
         const $result = $(
-            `<div class="flex flex-col py-1">
-                <span class="text-xs font-medium text-gray-500">ID: ${data.id}</span>
-                <span class="text-base text-gray-900">${highlightedText}</span>
+            `<div class="d-flex flex-column py-1">
+                <small class="text-muted">ID: ${data.id}</small>
+                <span class="text-dark">${highlightedText}</span>
             </div>`
         );
         

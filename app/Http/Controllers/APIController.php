@@ -965,6 +965,16 @@ class APIController extends Controller
         ]);
     }
 
+    protected const CACHE_KEY = 'denormalized_topic_paths';
+
+
+
+
+
+
+
+
+
 
     public function testNotification()
     {

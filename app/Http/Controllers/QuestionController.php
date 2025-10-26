@@ -650,7 +650,7 @@ class QuestionController extends Controller
         $requiredSecret = env("TOPIC_PATH_SECRET");
         
         // STEP 1: Security check to ensure the URL is being hit by an authorized user
-        if ($secret !== self::SECRET_KEY) {
+        if (empty($requiredSecret) || $secret !== $requiredSecret) {
             // Log this attempt and return a generic error
             logger()->warning('Unauthorized attempt to rebuild cache.', ['ip' => request()->ip()]);
             return response('Unauthorized.', 401);

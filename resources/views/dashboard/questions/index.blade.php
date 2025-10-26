@@ -929,14 +929,15 @@
         url: '/api/search/topics/Rifat.Admin.2022',
         dataType: 'json',
         delay: 250, // Wait 250ms after the user stops typing
-        type: 'GET', 
-        
+        type: 'GET',
+
         // Function to send the search term to the server
         data: function (params) {
             return {
                 q: params.term // 'q' matches the name of the request input in your Laravel controller
             };
         },
+        currentSearchQuery = query;
         
         // Function to process the response from the server
         processResults: function (data) {

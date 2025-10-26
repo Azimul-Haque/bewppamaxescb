@@ -925,7 +925,7 @@
     
     // Configure AJAX to fetch search results
     ajax: {
-      transport: function (params, success, failure) {
+        transport: function (params, success, failure) {
           const query = params.data.q; 
           
           // CRITICAL: Capture the search term for use in templateResult highlighting

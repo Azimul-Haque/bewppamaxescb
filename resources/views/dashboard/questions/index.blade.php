@@ -937,7 +937,7 @@
                 q: params.term // 'q' matches the name of the request input in your Laravel controller
             };
         },
-        currentSearchQuery: q;
+        currentSearchQuery: q,
         
         // Function to process the response from the server
         processResults: function (data) {

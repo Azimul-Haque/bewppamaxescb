@@ -925,43 +925,26 @@
     
     // Configure AJAX to fetch search results
     ajax: {
+      
       // This is the Laravel route you set up: POST /api/search/topics
       url: '/api/search/topics/Rifat.Admin.2022',
       dataType: 'json',
       delay: 250, // Wait 250ms after the user stops typing
       type: 'GET',
 
-      // In a live environment, use this:
+      // Function to send the search term to the server
       data: function (params) {
-          // CRITICAL FIX: Capture the search term here where it is available
-          lastSearchQuery = params.term; 
-          
           return {
-              q: params.term // Sent to server
+              q: params.term // 'q' matches the name of the request input in your Laravel controller
           };
       },
       
-      // FOR DEMONSTRATION ONLY: Overriding 'transport' to use mock data
-      // REMOVE this entire 'transport' block in your live code
-      transport: function (params, success, failure) {
-          const query = params.data.q || '';
-          if (query.length >= 3) {
-              // Simulate network delay
-              setTimeout(() => {
-                  success(mockApiCall(query));
-              }, 250);
-          } else {
-              success({ results: [] });
-          }
-          return null; 
-      },
-      // END DEMO BLOCK
-      
+      // Function to process the response from the server
       processResults: function (data) {
-          // Simplified processing, exactly as you had it
+          // Select2 expects an object with a 'results' key containing an array of {id, text} objects.
           const processedResults = data.results.map(item => ({
               id: item.id,
-              text: item.text 
+              text: item.text // Use the full path as the display text
           }));
           
           return {
@@ -975,7 +958,7 @@
         if (data.loading || !data.text) { return data.text; }
         
         // Use the safe external variable
-        const query = lastSearchQuery;
+        const query = currentSearchQuery;
         const text = data.text;
         
         if (!query) { return text; }

@@ -953,7 +953,7 @@
         }
         
         // Get the query from the Select2 search field
-        const query = $('#topic-select').data('select2').$dropdown.find('.select2-search__field').val();
+        const query = $('.topic-select').data('select2').$dropdown.find('.select2-search__field').val();
         const text = data.text;
         
         if (!query) {

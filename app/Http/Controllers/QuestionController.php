@@ -644,4 +644,49 @@ class QuestionController extends Controller
 
     protected const CACHE_KEY = 'denormalized_topic_paths';
     protected const SECRET_KEY = env('TOPIC_PATH_SECRET');
+
+    public function rebuildTopicsCache(string $secret)
+    {
+        // STEP 1: Security check to ensure the URL is being hit by an authorized user
+        if ($secret !== self::SECRET_KEY) {
+            // Log this attempt and return a generic error
+            logger()->warning('Unauthorized attempt to rebuild cache.', ['ip' => request()->ip()]);
+            return response('Unauthorized.', 401);
+        }
+
+        // --- Start Cache Generation Logic ---
+
+        // 1. Fetch all topics, eager loading the parent relationship for efficiency
+        $topics = Topic::with('parent')->get();
+        $cachedPaths = [];
+
+        // 2. Iterate and build the full path for each topic
+        foreach ($topics as $topic) {
+            $path = collect([$topic->name]);
+            $parent = $topic->parent;
+
+            // Loop up the hierarchy until the top parent is reached
+            while ($parent) {
+                $path->prepend($parent->name);
+                // Continue moving up the tree
+                $parent = $parent->parent; 
+            }
+
+            // 3. Store the ID and the full path string (e.g., 'Category A → Sub B → Topic Name')
+            $cachedPaths[] = [
+                'id' => $topic->id,
+                'text' => $path->join(' → '),
+            ];
+        }
+
+        // 4. Store the entire array in the cache permanently, overwriting the old one
+        Cache::forever(self::CACHE_KEY, $cachedPaths);
+        
+        // --- End Cache Generation Logic ---
+
+        $count = count($cachedPaths);
+        
+        // Return a successful, informative response
+        return response("Cache successfully rebuilt! **$count** topic paths were generated and stored in the cache key **" . self::CACHE_KEY . "**.", 200);
+    }
 }

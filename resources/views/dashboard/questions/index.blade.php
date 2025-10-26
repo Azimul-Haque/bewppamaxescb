@@ -911,7 +911,7 @@
           // Placeholder text when nothing is selected/searched
           placeholder: 'Search topics (e.g., "headphones", "science")',
           // Ensure a search box is always visible
-          minimumInputLength: 2, 
+          minimumInputLength: 3, 
           // Set to true to allow multiple selections, false for single
           allowClear: true,
           

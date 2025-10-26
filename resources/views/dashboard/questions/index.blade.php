@@ -987,17 +987,17 @@
         
         return $result;
     }
+  });
 
-    $('#topic-select').on('select2:select', function (e) {
-        const selectedData = e.params.data; 
+  $('#topic-select').on('select2:select', function (e) {
+      const selectedData = e.params.data; 
 
-        // Access the ID using e.params.data.id
-        const topicId = selectedData.id; 
-        const topicText = selectedData.text;
+      // Access the ID using e.params.data.id
+      const topicId = selectedData.id; 
+      const topicText = selectedData.text;
 
-        // Log or use topicId for your application logic (e.g., submitting a form)
-        console.log("Selected ID:", topicId); 
-    });
+      // Log or use topicId for your application logic (e.g., submitting a form)
+      console.log("Selected ID:", topicId); 
   });
 </script>
 @endsection

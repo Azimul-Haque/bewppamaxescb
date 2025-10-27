@@ -68,7 +68,7 @@
                                   </td>
                                   
                                   <td>
-                                    <small>
+                                    <span>
                                       @if($question->answer == 1)
                                           <big><b>{{ $question->option1 }}</b></big>, 
                                       @else
@@ -89,7 +89,7 @@
                                       @else
                                           {{ $question->option4 }}
                                       @endif
-                                    </small>
+                                    </span>
                                   </td>                              
                                   <td width="50%">
                                     <select class="form-control form-control-sm topic-select-field" name="topicchangeid" id="topicchangeid{{ $question->id }}" data-saved-id="{{ $question->id }}" data-saved-text="{{ $question->topic->full_path ?? '' }}" style="width: 100%;">

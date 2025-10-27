@@ -170,7 +170,7 @@
                                                           </div>
                                                           <div class="col-md-6">
                                                               <div class="input-group mb-3">
-                                                                  <select name="topic_id" id="topic-select{{ $question->id }}" data-saved-id="{{ $question->id }}" data-saved-text="{{ $question->topic->full_path ?? '' }}" class="form-control topic-select-field" required>
+                                                                  <select name="topic_id" id="topic-select-{{ $question->id }}" data-saved-id="{{ $question->id }}" data-saved-text="{{ $question->topic->full_path ?? '' }}" class="form-control topic-select-field" required>
                                                                       {{-- <option selected="" disabled="" value="">টপিক (বিষয়)</option>
                                                                       @foreach ($topics as $topic)
                                                                           <option value="{{ $topic->id }}" @if($question->topic_id == $topic->id) selected @endif>{{ $topic->name }}</option>

@@ -944,7 +944,7 @@
   // 1. PRE-LOAD: Must run before Select2 is initialized
   preloadSelect2Value($topicSelect);
 
-  $('#topic-select').select2({
+  $topicSelect.select2({
     placeholder: 'Search topics (e.g., "headphones", "science")',
     minimumInputLength: 3, 
     allowClear: true,

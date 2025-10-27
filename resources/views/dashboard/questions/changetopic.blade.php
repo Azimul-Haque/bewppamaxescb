@@ -92,7 +92,7 @@
                                     </small>
                                   </td>                              
                                   <td>
-                                    <select class="form-control form-control-sm topic-select-field" name="topicchangeid" id="topicchangeid{{ $question->id }}" data-saved-id="{{ $question->id }}" data-saved-text="{{ $question->topic->full_path ?? '' }}">
+                                    <select class="form-control form-control-sm topic-select-field" name="topicchangeid" id="topicchangeid{{ $question->id }}" data-saved-id="{{ $question->id }}" data-saved-text="{{ $question->topic->full_path ?? '' }}" style="width: 100%;">
                                       {{-- <option selected disabled>টপিক সিলেক্ট করুন</option>
                                       @foreach($topics as $topic)
                                         <option value="{{ $topic->id }}" @if($topic->id == $question->topic_id) selected @endif>{{ $topic->name }}</option>

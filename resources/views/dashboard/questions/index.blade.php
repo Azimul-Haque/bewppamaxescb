@@ -171,10 +171,10 @@
                                                           <div class="col-md-6">
                                                               <div class="input-group mb-3">
                                                                   <select name="topic_id" class="form-control" required>
-                                                                      <option selected="" disabled="" value="">টপিক (বিষয়)</option>
+                                                                      {{-- <option selected="" disabled="" value="">টপিক (বিষয়)</option>
                                                                       @foreach ($topics as $topic)
                                                                           <option value="{{ $topic->id }}" @if($question->topic_id == $topic->id) selected @endif>{{ $topic->name }}</option>
-                                                                      @endforeach
+                                                                      @endforeach --}}
                                                                   </select>
                                                                   <div class="input-group-append">
                                                                       <div class="input-group-text"><span class="fas fa-bookmark"></span></div>

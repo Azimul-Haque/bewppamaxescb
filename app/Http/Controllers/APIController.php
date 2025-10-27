@@ -979,6 +979,8 @@ class APIController extends Controller
         // 1. Get the full cached data
         $cachedData = Cache::get(self::CACHE_KEY, []);
 
+        dd($cachedData);
+
         $lowerQuery = strtolower($query);
 
         // 2. Filter the cached array

@@ -1029,12 +1029,6 @@
       }
   }
 
-  const $topicSelect = $('#topic-select');
-          
-  // 1. PRE-LOAD: Must run before Select2 is initialized
-  preloadSelect2Value($topicSelect);
-
-
   // --- KEY CHANGE: Iterate over a class instead of a single ID ---
   $('.topic-select-field').each(function() {
       // Get the current element being processed in the loop

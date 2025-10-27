@@ -170,7 +170,7 @@
                                                           </div>
                                                           <div class="col-md-6">
                                                               <div class="input-group mb-3">
-                                                                  <select name="topic_id" id="topic-select{{ $question->id }}" data-qid="{{ $question->id }}" class="form-control topic-select-edit" required>
+                                                                  <select name="topic_id" id="topic-select" data-qid="{{ $question->id }}" class="form-control topic-select-edit" required>
                                                                       {{-- <option selected="" disabled="" value="">টপিক (বিষয়)</option>
                                                                       @foreach ($topics as $topic)
                                                                           <option value="{{ $topic->id }}" @if($question->topic_id == $topic->id) selected @endif>{{ $topic->name }}</option>
@@ -918,95 +918,6 @@
   });
 
   $('#topic-select').select2({
-    placeholder: 'Search topics (e.g., "headphones", "science")',
-    minimumInputLength: 3, 
-    allowClear: true,
-
-    dropdownParent: $('body'), 
-    
-    // Configure AJAX to fetch search results
-    ajax: {
-      
-      // This is the Laravel route you set up: POST /api/search/topics
-      url: '/api/search/topics/Rifat.Admin.2022',
-      dataType: 'json',
-      delay: 250, // Wait 250ms after the user stops typing
-      type: 'GET',
-
-      // In a live environment, use this:
-      data: function (params) {
-            // CRITICAL: Capture the search term here before it's sent
-            lastSearchQuery = params.term; 
-            
-            return {
-                q: params.term // Sent to your server
-            };
-        },
-      
-      processResults: function (data) {
-          // Simplified processing, exactly as you had it
-          const processedResults = data.results.map(item => ({
-              id: item.id,
-              text: item.text 
-          }));
-          
-          return {
-              results: processedResults
-          };
-      },
-    },
-
-    templateResult: function (data) {
-        // Skip rendering for placeholders like 'Searching...'
-        if (data.loading || !data.text) { return data.text; }
-        
-        // Use the safe external variable
-        const query = lastSearchQuery;
-        const text = data.text;
-        
-        if (!query) { return text; }
-        
-        // Highlight the search term logic
-        const escapedQuery = query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-        const regex = new RegExp(escapedQuery, 'gi');
-        
-        // Check if text is a string before calling replace
-        if (typeof text !== 'string') { return data.text; }
-
-        // Use a Bootstrap-friendly highlight color (e.g., a primary background)
-        const highlightedText = text.replace(regex, (match) => 
-            `<span class="bg-warning text-dark font-weight-bold px-1 rounded">${match}</span>`
-        );
-
-        // Final HTML structure for the dropdown item
-        const $result = $(
-            `<div class="d-flex flex-column py-1">
-                <small class="text-muted">ID: ${data.id}</small>
-                <span class="text-dark">${highlightedText}</span>
-            </div>`
-        );
-        
-        return $result;
-    }
-  });
-
-  $('#topic-select').on('select2:select', function (e) {
-      const selectedData = e.params.data; 
-
-      // Access the ID using e.params.data.id
-      const topicId = selectedData.id; 
-      const topicText = selectedData.text;
-
-      $('#topic-select').val(topicId);
-
-      // Log or use topicId for your application logic (e.g., submitting a form)
-      console.log("Selected ID:", topicId); 
-  });
-
-  // EDIT form
-  // EDIT form
-  // EDIT form
-  $('.topic-select-edit').select2({
     placeholder: 'Search topics (e.g., "headphones", "science")',
     minimumInputLength: 3, 
     allowClear: true,

@@ -1036,6 +1036,9 @@
   $('.topic-select-field').each(function() {
       // Get the current element being processed in the loop
       const $topicSelect = $(this);
+
+      const $closestModal = $topicSelect.closest('.modal');
+      const dropdownParent = $closestModal.length ? $closestModal : $('body');
       
       // 1. PRE-LOAD: Must run before Select2 is initialized
       preloadSelect2Value($topicSelect);

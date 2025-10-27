@@ -988,7 +988,7 @@
         // Final HTML structure for the dropdown item
         const $result = $(
             `<div class="d-flex flex-column py-1">
-                <small class="text-muted">ID: ${data.id}</small>
+                {{-- <small class="text-muted">ID: ${data.id}</small> --}}
                 <span class="text-dark">${highlightedText}</span>
             </div>`
         );

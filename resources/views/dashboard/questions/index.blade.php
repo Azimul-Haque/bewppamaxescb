@@ -991,7 +991,8 @@
         const query = lastSearchQuery;
         const text = data.text;
         
-        if (!query) { return text; }
+        {{-- if (!query) { return text; } --}}
+        if (!query || typeof text !== 'string') { return data.text; }
         
         // Highlight the search term logic
         const escapedQuery = query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');

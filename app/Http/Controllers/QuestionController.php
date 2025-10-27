@@ -135,7 +135,7 @@ class QuestionController extends Controller
     public function getChangeTopicQuestions()
     {
         ini_set('memory_limit', '-1');
-        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'volunteer')) {
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager') {
             abort(403, 'Access Denied');
         }
         
@@ -155,7 +155,7 @@ class QuestionController extends Controller
     public function getChangeTopicQuestionsSearch($search)
     {
         ini_set('memory_limit', '-1');
-        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'volunteer')) {
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager') {
             abort(403, 'Access Denied');
         }
         
@@ -197,7 +197,7 @@ class QuestionController extends Controller
     public function getChangeTopicQuestionsTopicBased($id)
     {
         ini_set('memory_limit', '-1');
-        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'volunteer')) {
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager') {
             abort(403, 'Access Denied');
         }
         
@@ -562,7 +562,7 @@ class QuestionController extends Controller
 
     public function getReportedQuestions()
     {
-        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'volunteer')) {
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager') {
             abort(403, 'Access Denied');
         }
 
@@ -581,7 +581,7 @@ class QuestionController extends Controller
 
     public function getReportedQuestionsSearch($search)
     {
-        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'volunteer')) {
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager') {
             abort(403, 'Access Denied');
         }
 
@@ -607,7 +607,7 @@ class QuestionController extends Controller
 
     public function deleteReportedQuestionsSearch($id)
     {
-        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'volunteer')) {
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager') {
             abort(403, 'Access Denied');
         }
 

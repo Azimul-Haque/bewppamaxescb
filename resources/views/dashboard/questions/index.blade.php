@@ -93,7 +93,7 @@
                                       {{-- Edit Question Modal Code --}}
                                       <!-- Modal -->
                                       <div class="modal fade" id="editQuestionModal{{ $question->id }}" role="dialog" aria-labelledby="editQuestionModalLabel" aria-hidden="true" data-backdrop="static">
-                                          <div class="modal-dialog modal-lg" role="document">
+                                          <div class="modal-dialog modal-xl" role="document">
                                           <div class="modal-content">
                                               <div class="modal-header bg-success">
                                                 <h5 class="modal-title" id="editQuestionModalLabel">প্রশ্ন হালনাগাদ</h5>

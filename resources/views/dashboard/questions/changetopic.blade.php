@@ -91,7 +91,7 @@
                                       @endif
                                     </small>
                                   </td>                              
-                                  <td width="40%">
+                                  <td width="30%">
                                     <select class="form-control form-control-sm topic-select-field" name="topicchangeid" id="topicchangeid{{ $question->id }}" data-saved-id="{{ $question->id }}" data-saved-text="{{ $question->topic->full_path ?? '' }}" style="width: 100%;">
                                       {{-- <option selected disabled>টপিক সিলেক্ট করুন</option>
                                       @foreach($topics as $topic)

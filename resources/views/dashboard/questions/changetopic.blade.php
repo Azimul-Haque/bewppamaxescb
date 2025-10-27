@@ -68,7 +68,7 @@
                                   </td>
                                   
                                   <td>
-                                    <span>
+                                    <span style="font-size: 12px;">
                                       @if($question->answer == 1)
                                           <big><b>{{ $question->option1 }}</b></big>, 
                                       @else

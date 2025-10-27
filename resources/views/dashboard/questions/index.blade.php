@@ -1039,7 +1039,7 @@
 
       // 2. INITIALIZE SELECT2 on the current element
       $topicSelect.select2({
-          placeholder: 'Search topics (e.g., "headphones", "science")',
+          placeholder: 'টপিক খুঁজুন (বাংলা, চর্যাপদ, Shakespeare ইত্যাদি)',
           minimumInputLength: 3, 
           allowClear: true,
           dropdownParent: $('body'), 

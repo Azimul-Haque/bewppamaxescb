@@ -918,31 +918,7 @@
   });
 
   let lastSearchQuery = ''; 
-  /**
-   * Reads saved data attributes from the <select> element and
-   * manually pre-populates it for Select2 initialization.
-   */
-  function preloadSelect2Value($selectElement) {
-      const savedId = $selectElement.data('saved-id');
-      const savedText = $selectElement.data('saved-text');
-
-      // Check if data exists (this prevents running on 'add' forms)
-      if (savedId && savedText) {
-          // Create a new Option element
-          const option = new Option(savedText, savedId, true, true);
-          
-          // Append it to the <select>
-          $selectElement.append(option);
-          
-          // Set the value (Select2 will use this when it initializes)
-          $selectElement.val(savedId).trigger('change');
-      }
-  }
-
-  const $topicSelect = $('#topic-select');
-          
-  // 1. PRE-LOAD: Must run before Select2 is initialized
-  preloadSelect2Value($topicSelect);
+  
 
   $('#topic-select').select2({
     placeholder: 'টপিক খুঁজুন (বাংলা, চর্যাপদ, Shakespeare ইত্যাদি)',

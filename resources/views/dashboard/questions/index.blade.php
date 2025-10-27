@@ -1007,83 +1007,109 @@
       console.log("Selected ID:", topicId); 
   });
 
-  $(document).ready(function() {
-    // --- KEY CHANGE: Iterate over a class instead of a single ID ---
-    $('.topic-select-field').each(function() {
-        // Get the current element being processed in the loop
-        const $topicSelect = $(this);
-        
-        // 1. PRE-LOAD: Must run before Select2 is initialized
-        preloadSelect2Value($topicSelect);
 
-        // 2. INITIALIZE SELECT2 on the current element
-        $topicSelect.select2({
-            placeholder: 'Search topics (e.g., "headphones", "science")',
-            minimumInputLength: 3, 
-            allowClear: true,
-            dropdownParent: $('body'), 
-            
-            // Configure AJAX to fetch search results
-            ajax: {
-                // Your URL remains the same, as it is a general search endpoint
-                url: '/api/search/topics/Rifat.Admin.2022',
-                dataType: 'json',
-                delay: 250, 
-                type: 'GET',
+  /**
+   * Reads saved data attributes from the <select> element and
+   * manually pre-populates it for Select2 initialization.
+   */
+  function preloadSelect2Value($selectElement) {
+      const savedId = $selectElement.data('saved-id');
+      const savedText = $selectElement.data('saved-text');
 
-                data: function (params) {
-                    // CRITICAL: lastSearchQuery is global and safe to update here
-                    lastSearchQuery = params.term; 
-                    return { q: params.term };
-                },
-                
-                processResults: function (data) {
-                    const processedResults = data.results.map(item => ({
-                        id: item.id,
-                        text: item.text 
-                    }));
-                    return { results: processedResults };
-                },
-            },
+      // Check if data exists (this prevents running on 'add' forms)
+      if (savedId && savedText) {
+          // Create a new Option element
+          const option = new Option(savedText, savedId, true, true);
+          
+          // Append it to the <select>
+          $selectElement.append(option);
+          
+          // Set the value (Select2 will use this when it initializes)
+          $selectElement.val(savedId).trigger('change');
+      }
+  }
 
-            templateResult: function (data) {
-                if (data.loading || !data.text) { return data.text; }
-                
-                const query = lastSearchQuery;
-                const text = data.text;
-                
-                if (!query || typeof text !== 'string') { return data.text; }
+  const $topicSelect = $('#topic-select');
+          
+  // 1. PRE-LOAD: Must run before Select2 is initialized
+  preloadSelect2Value($topicSelect);
 
-                const escapedQuery = query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-                const regex = new RegExp(escapedQuery, 'gi');
-                
-                const highlightedText = text.replace(regex, (match) => 
-                    `<span class="bg-warning text-dark font-weight-bold px-1 rounded">${match}</span>`
-                );
 
-                const $result = $(
-                    `<div class="d-flex flex-column py-1">
-                        <small class="text-muted">ID: ${data.id}</small>
-                        <span class="text-dark">${highlightedText}</span>
-                    </div>`
-                );
-                
-                return $result;
-            }
-        });
+  // --- KEY CHANGE: Iterate over a class instead of a single ID ---
+  $('.topic-select-field').each(function() {
+      // Get the current element being processed in the loop
+      const $topicSelect = $(this);
+      
+      // 1. PRE-LOAD: Must run before Select2 is initialized
+      preloadSelect2Value($topicSelect);
 
-        // 3. SELECTION HANDLER attached to the current element ($topicSelect)
-        $topicSelect.on('select2:select', function (e) {
-            const selectedData = e.params.data; 
-            const topicId = selectedData.id; 
+      // 2. INITIALIZE SELECT2 on the current element
+      $topicSelect.select2({
+          placeholder: 'Search topics (e.g., "headphones", "science")',
+          minimumInputLength: 3, 
+          allowClear: true,
+          dropdownParent: $('body'), 
+          
+          // Configure AJAX to fetch search results
+          ajax: {
+              // Your URL remains the same, as it is a general search endpoint
+              url: '/api/search/topics/Rifat.Admin.2022',
+              dataType: 'json',
+              delay: 250, 
+              type: 'GET',
 
-            // Ensure the underlying field value is set for form submission
-            $topicSelect.val(topicId).trigger('change');
+              data: function (params) {
+                  // CRITICAL: lastSearchQuery is global and safe to update here
+                  lastSearchQuery = params.term; 
+                  return { q: params.term };
+              },
+              
+              processResults: function (data) {
+                  const processedResults = data.results.map(item => ({
+                      id: item.id,
+                      text: item.text 
+                  }));
+                  return { results: processedResults };
+              },
+          },
 
-            console.log("Selected ID for current element:", topicId); 
-        });
-    }); // End .each() loop
-});
+          templateResult: function (data) {
+              if (data.loading || !data.text) { return data.text; }
+              
+              const query = lastSearchQuery;
+              const text = data.text;
+              
+              if (!query || typeof text !== 'string') { return data.text; }
+
+              const escapedQuery = query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+              const regex = new RegExp(escapedQuery, 'gi');
+              
+              const highlightedText = text.replace(regex, (match) => 
+                  `<span class="bg-warning text-dark font-weight-bold px-1 rounded">${match}</span>`
+              );
+
+              const $result = $(
+                  `<div class="d-flex flex-column py-1">
+                      <small class="text-muted">ID: ${data.id}</small>
+                      <span class="text-dark">${highlightedText}</span>
+                  </div>`
+              );
+              
+              return $result;
+          }
+      });
+
+      // 3. SELECTION HANDLER attached to the current element ($topicSelect)
+      $topicSelect.on('select2:select', function (e) {
+          const selectedData = e.params.data; 
+          const topicId = selectedData.id; 
+
+          // Ensure the underlying field value is set for form submission
+          $topicSelect.val(topicId).trigger('change');
+
+          console.log("Selected ID for current element:", topicId); 
+      });
+  }); // End .each() loop
 
 </script>
 @endsection

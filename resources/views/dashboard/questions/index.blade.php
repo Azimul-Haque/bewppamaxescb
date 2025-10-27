@@ -1048,7 +1048,7 @@
           placeholder: 'টপিক খুঁজুন (বাংলা, চর্যাপদ, Shakespeare ইত্যাদি)',
           minimumInputLength: 3, 
           allowClear: true,
-          dropdownParent: $('body'), 
+          dropdownParent: dropdownParent, 
           
           // Configure AJAX to fetch search results
           ajax: {

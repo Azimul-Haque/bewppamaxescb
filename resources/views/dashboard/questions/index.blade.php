@@ -944,7 +944,7 @@
   // 1. PRE-LOAD: Must run before Select2 is initialized
   preloadSelect2Value($topicSelect);
 
-  $topicSelect.select2({
+  $('#topic-select').select2({
     placeholder: 'টপিক খুঁজুন (বাংলা, চর্যাপদ, Shakespeare ইত্যাদি)',
     minimumInputLength: 3, 
     allowClear: true,

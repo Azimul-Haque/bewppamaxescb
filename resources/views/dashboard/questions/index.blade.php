@@ -92,7 +92,7 @@
                                       {{-- Edit Question Modal Code --}}
                                       {{-- Edit Question Modal Code --}}
                                       <!-- Modal -->
-                                      <div class="modal fade" id="editQuestionModal{{ $question->id }}" tabindex="-1" role="dialog" aria-labelledby="editQuestionModalLabel" aria-hidden="true" data-backdrop="static">
+                                      <div class="modal fade" id="editQuestionModal{{ $question->id }}" role="dialog" aria-labelledby="editQuestionModalLabel" aria-hidden="true" data-backdrop="static">
                                           <div class="modal-dialog modal-lg" role="document">
                                           <div class="modal-content">
                                               <div class="modal-header bg-success">

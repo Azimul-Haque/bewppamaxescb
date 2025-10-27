@@ -999,7 +999,7 @@
         const regex = new RegExp(escapedQuery, 'gi');
         
         // Check if text is a string before calling replace
-        if (typeof text !== 'string') { return data.text; }
+        {{-- if (typeof text !== 'string') { return data.text; } --}}
 
         // Use a Bootstrap-friendly highlight color (e.g., a primary background)
         const highlightedText = text.replace(regex, (match) => 

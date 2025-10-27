@@ -918,7 +918,6 @@
   });
 
   let lastSearchQuery = ''; 
-  
 
   $('#topic-select').select2({
     placeholder: 'টপিক খুঁজুন (বাংলা, চর্যাপদ, Shakespeare ইত্যাদি)',
@@ -1001,7 +1000,7 @@
       const topicId = selectedData.id; 
       const topicText = selectedData.text;
 
-      $topicSelect.val(topicId);
+      $('#topic-select').val(topicId);
 
       // Log or use topicId for your application logic (e.g., submitting a form)
       console.log("Selected ID:", topicId); 

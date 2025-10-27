@@ -939,6 +939,11 @@
       }
   }
 
+  const $topicSelect = $('#topic-select');
+          
+  // 1. PRE-LOAD: Must run before Select2 is initialized
+  preloadSelect2Value($topicSelect);
+
   $('#topic-select').select2({
     placeholder: 'Search topics (e.g., "headphones", "science")',
     minimumInputLength: 3, 

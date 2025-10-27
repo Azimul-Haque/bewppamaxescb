@@ -945,7 +945,7 @@
   preloadSelect2Value($topicSelect);
 
   $topicSelect.select2({
-    placeholder: 'Search topics (e.g., "headphones", "science")',
+    placeholder: 'টপিক খুঁজুন (বাংলা, চর্যাপদ, Shakespeare ইত্যাদি)',
     minimumInputLength: 3, 
     allowClear: true,
 

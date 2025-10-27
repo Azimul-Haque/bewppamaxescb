@@ -962,13 +962,13 @@
 
       // In a live environment, use this:
       data: function (params) {
-            // CRITICAL: Capture the search term here before it's sent
-            lastSearchQuery = params.term; 
-            
-            return {
-                q: params.term // Sent to your server
-            };
-        },
+          // CRITICAL: Capture the search term here before it's sent
+          lastSearchQuery = params.term; 
+          
+          return {
+              q: params.term // Sent to your server
+          };
+      },
       
       processResults: function (data) {
           // Simplified processing, exactly as you had it

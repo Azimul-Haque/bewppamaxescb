@@ -699,7 +699,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="input-group mb-3">
-                                <select name="topic_id" class="form-control topic-select" id="topic-select" required>
+                                <select name="topic_id" class="form-control topic-select" id="topic-select" style="width: 100%;" required>
                                     {{-- <option selected="" disabled="" value="">টপিক (বিষয়)</option> --}}
                                     {{-- @foreach ($topics as $topic)
                                         <option value="{{ $topic->id }}">{{ $topic->name }}</option>

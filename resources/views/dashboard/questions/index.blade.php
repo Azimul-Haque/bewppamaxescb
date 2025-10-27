@@ -917,7 +917,9 @@
     });
 </script>
 <script>
-  
+  $('#addQuesitonModal').on('hidden.bs.modal', function () {
+       // Restore the original enforceFocus if needed, or simply leave it as is if only this component uses modals.
+  });
 
   let lastSearchQuery = ''; 
 

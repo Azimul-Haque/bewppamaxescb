@@ -1006,7 +1006,7 @@
   // EDIT form
   // EDIT form
   // EDIT form
-  $('#topic-select').select2({
+  $('.topic-select-edit').select2({
     placeholder: 'Search topics (e.g., "headphones", "science")',
     minimumInputLength: 3, 
     allowClear: true,

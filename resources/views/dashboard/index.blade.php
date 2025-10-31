@@ -28,7 +28,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h4>{{ $totalmonthlypayment->totalamount ? $totalmonthlypayment->totalamount : 0 }}<sup style="font-size: 20px">৳</sup></h4>
+                <h4>{{ $totalmonthlypayment->totalamount ? ceil($totalmonthlypayment->totalamount) : 0 }}<sup style="font-size: 20px">৳</sup></h4>
 
                 <p>মাসিক আয় ({{ date('F Y') }})</p>
               </div>

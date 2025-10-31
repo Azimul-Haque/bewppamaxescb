@@ -13,7 +13,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h4>{{ $totalpayment }}<sup style="font-size: 20px">৳</sup></h4>
+                <h4>{{ ceil($totalpayment) }}<sup style="font-size: 20px">৳</sup></h4>
 
                 <p>মোট আয়</p>
               </div>

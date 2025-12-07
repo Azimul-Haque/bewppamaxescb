@@ -1000,11 +1000,7 @@ class APIController extends Controller
 
     public function getParentWiseTopics($parent_id)
     {
-        // Get the parent_id from the request, defaults to null for the root level
         $parentId = $parent_id;
-
-        // Fetch topics where parent_id matches the query parameter
-        // Use a simple select to keep the payload clean
         $topics = Topic::select('id', 'name', 'parent_id')
             ->where('parent_id', $parentId)
             ->get();

@@ -998,7 +998,7 @@ class APIController extends Controller
         ]);
     }
 
-    public function getParentWiseTopics($parent_id)
+    public function getParentWiseTopics($softtoken, $parent_id)
     {
         return $parent_id;
         $parentId = $parent_id;

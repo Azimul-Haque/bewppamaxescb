@@ -130,7 +130,7 @@
             <div class="modal fade" id="loadTopicCacheModal" tabindex="-1" role="dialog" aria-labelledby="clearQueryCacheModalLabel" aria-hidden="true" data-backdrop="static">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header bg-warning">
+                    <div class="modal-header bg-success">
                     <h5 class="modal-title" id="clearQueryCacheModalLabel">টপিক ক্যাশ লোড</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -141,7 +141,7 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                    <a href="{{ route('dashboard.clearquerycache') }}" class="btn btn-warning">টপিক ক্যাশ লোড করুন</a>
+                    <a href="{{ route('dashboard.clearquerycache') }}" class="btn btn-success">টপিক ক্যাশ লোড করুন</a>
                     </div>
                 </div>
                 </div>

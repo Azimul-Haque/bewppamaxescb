@@ -141,7 +141,7 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                    <a href="{{ route('dashboard.clearquerycache') }}" class="btn btn-success">টপিক ক্যাশ লোড করুন</a>
+                    <a href="{{ route('dashboard.topics.requild.cache') }}" class="btn btn-success">টপিক ক্যাশ লোড করুন</a>
                     </div>
                 </div>
                 </div>

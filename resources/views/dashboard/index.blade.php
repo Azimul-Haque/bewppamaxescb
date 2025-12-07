@@ -122,7 +122,7 @@
             {{-- Modal Code --}}
 
             <button class="btn btn-warning" data-toggle="modal" data-target="#clearQueryCacheModal">
-              <i class="fas fa-tools"></i> সকল কোয়েরি ক্যাশ (API) ক্লিয়ার করুন
+              <i class="fas fa-tools"></i> টপিক ক্যাশ লোড করুন
             </button>
             {{-- Modal Code --}}
             {{-- Modal Code --}}

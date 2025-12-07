@@ -1000,32 +1000,18 @@ class APIController extends Controller
 
     public function getParentWiseTopics(Request $request)
     {
-        $query = $request->input('q');
-        
-        if (empty($query) || strlen($query) < 3) {
-            // Respect the minimum input length set in the frontend
-            return response()->json(['results' => []]);
-        }
-        
-        // 1. Get the full cached data
-        $cachedData = Cache::get(self::CACHE_KEY, []);
+        // Get the parent_id from the request, defaults to null for the root level
+        $parentId = $request->query('parent_id');
 
-        $lowerQuery = strtolower($query);
+        // Fetch topics where parent_id matches the query parameter
+        // Use a simple select to keep the payload clean
+        $topics = Topic::select('id', 'name', 'parent_id')
+            ->where('parent_id', $parentId)
+            ->get();
 
-        // 2. Filter the cached array
-        $results = array_filter($cachedData, function ($item) use ($lowerQuery) {
-            // Check if the lowercase query exists in the lowercase text path
-            return str_contains(strtolower($item['text']), $lowerQuery);
-        });
-        
-        // 3. Re-index the array and limit results for performance
-        $results = array_values($results);
-        $results = array_slice($results, 0, 50); // Limit to top 50 matches
-
+        // Return a clean JSON response
         return response()->json([
-            'query' => $query,
-            'results' => $results,
-            'count' => count($results)
+            'topics' => $topics
         ]);
     }
 

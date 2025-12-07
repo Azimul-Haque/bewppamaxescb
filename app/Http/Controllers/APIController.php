@@ -1000,22 +1000,24 @@ class APIController extends Controller
 
     public function getParentWiseTopics($softtoken, $parent_id)
     {
-        $parentId = $parent_id;
-        
-        $cacheKey = 'topics_parent_' . ($parentId ?? 'root');
+        if($softtoken == env('SOFT_TOKEN')) {
+            $parentId = $parent_id;
             
-        $cacheDuration = 10 * 24 * 60 * 60; 
+            $cacheKey = 'topics_parent_' . ($parentId ?? 'root');
+                
+            $cacheDuration = 10 * 24 * 60 * 60; 
 
-        $topics = Cache::remember($cacheKey, $cacheDuration, function () use ($parentId) {
-            
-            return Topic::select('id', 'name', 'parent_id')
-                ->where('parent_id', $parentId)
-                ->get();
-        });
+            $topics = Cache::remember($cacheKey, $cacheDuration, function () use ($parentId) {
+                
+                return Topic::select('id', 'name', 'parent_id')
+                    ->where('parent_id', $parentId)
+                    ->get();
+            });
 
-        return response()->json([
-            'topics' => $topics
-        ]);
+            return response()->json([
+                'topics' => $topics
+            ]);
+        }
     }
 
 

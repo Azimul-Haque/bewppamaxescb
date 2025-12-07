@@ -684,6 +684,8 @@ class QuestionController extends Controller
         
         // Return a successful, informative response
         return response("Cache successfully rebuilt! **$count** topic paths were generated and stored in the cache key **" . self::CACHE_KEY . "**.", 200);
+        Session::flash('success', 'সকল কোয়েরি ক্যাশ মুছে দেওয়া হয়েছে!');
+        return redirect()->route('dashboard.index');
     }
 
     public function readTopicsCache()

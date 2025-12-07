@@ -1000,6 +1000,7 @@ class APIController extends Controller
 
     public function getParentWiseTopics($parent_id)
     {
+        return $parent_id;
         $parentId = $parent_id;
         
         $cacheKey = 'topics_parent_' . ($parentId ?? 'root');

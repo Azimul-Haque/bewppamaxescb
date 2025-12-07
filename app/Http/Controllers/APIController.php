@@ -1001,14 +1001,25 @@ class APIController extends Controller
     public function getParentWiseTopics($parent_id)
     {
         $parentId = $parent_id;
-        $topics = Topic::select('id', 'name', 'parent_id')
-            ->where('parent_id', $parentId)
-            ->get();
+        
+        $cacheKey = 'topics_parent_' . ($parentId ?? 'root');
+            
+            // 3. Define the cache duration (e.g., 60 minutes).
+            $cacheDuration = 60 * 60; 
 
-        // Return a clean JSON response
-        return response()->json([
-            'topics' => $topics
-        ]);
+            // 4. Use Cache::remember to fetch data from the cache or the database.
+            $topics = Cache::remember($cacheKey, $cacheDuration, function () use ($parentId) {
+                // This closure only runs if the data is NOT in the cache.
+                
+                return Topic::select('id', 'name', 'parent_id')
+                    ->where('parent_id', $parentId)
+                    ->get();
+            });
+
+            // 5. Return the clean JSON response.
+            return response()->json([
+                'topics' => $topics
+            ]);
     }
 
 

@@ -1006,7 +1006,6 @@ class APIController extends Controller
             
         $cacheDuration = 10 * 24 * 60 * 60; 
 
-        // 4. Use Cache::remember to fetch data from the cache or the database.
         $topics = Cache::remember($cacheKey, $cacheDuration, function () use ($parentId) {
             // This closure only runs if the data is NOT in the cache.
             

@@ -1001,7 +1001,7 @@ class APIController extends Controller
     public function getParentWiseTopics($parent_id)
     {
         // Get the parent_id from the request, defaults to null for the root level
-        $parentId = $request->query('parent_id');
+        $parentId = $parent_id;
 
         // Fetch topics where parent_id matches the query parameter
         // Use a simple select to keep the payload clean

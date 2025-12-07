@@ -1002,6 +1002,10 @@ class APIController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN')) {
             $parentId = $parent_id;
+
+            if($parentId == 0) {
+                $parentId = null;
+            }
             
             $cacheKey = 'topics_parent_' . ($parentId ?? 'root');
                 

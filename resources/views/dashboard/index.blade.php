@@ -122,7 +122,7 @@
             {{-- Modal Code --}}
 
             <button class="btn btn-success" data-toggle="modal" data-target="#loadTopicCacheModal">
-              <i class="fas fa-tools"></i> টপিক ক্যাশ লোড করুন
+              <i class="fas fa-"></i> টপিক ক্যাশ লোড করুন
             </button>
             {{-- Modal Code --}}
             {{-- Modal Code --}}

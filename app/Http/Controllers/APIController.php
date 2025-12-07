@@ -1004,22 +1004,22 @@ class APIController extends Controller
         
         $cacheKey = 'topics_parent_' . ($parentId ?? 'root');
             
-            // 3. Define the cache duration (e.g., 60 minutes).
-            $cacheDuration = 60 * 60; 
+        // 3. Define the cache duration (e.g., 60 minutes).
+        $cacheDuration = 60 * 60; 
 
-            // 4. Use Cache::remember to fetch data from the cache or the database.
-            $topics = Cache::remember($cacheKey, $cacheDuration, function () use ($parentId) {
-                // This closure only runs if the data is NOT in the cache.
-                
-                return Topic::select('id', 'name', 'parent_id')
-                    ->where('parent_id', $parentId)
-                    ->get();
-            });
+        // 4. Use Cache::remember to fetch data from the cache or the database.
+        $topics = Cache::remember($cacheKey, $cacheDuration, function () use ($parentId) {
+            // This closure only runs if the data is NOT in the cache.
+            
+            return Topic::select('id', 'name', 'parent_id')
+                ->where('parent_id', $parentId)
+                ->get();
+        });
 
-            // 5. Return the clean JSON response.
-            return response()->json([
-                'topics' => $topics
-            ]);
+        // 5. Return the clean JSON response.
+        return response()->json([
+            'topics' => $topics
+        ]);
     }
 
 

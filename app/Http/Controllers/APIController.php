@@ -1007,14 +1007,12 @@ class APIController extends Controller
         $cacheDuration = 10 * 24 * 60 * 60; 
 
         $topics = Cache::remember($cacheKey, $cacheDuration, function () use ($parentId) {
-            // This closure only runs if the data is NOT in the cache.
             
             return Topic::select('id', 'name', 'parent_id')
                 ->where('parent_id', $parentId)
                 ->get();
         });
 
-        // 5. Return the clean JSON response.
         return response()->json([
             'topics' => $topics
         ]);

@@ -998,7 +998,7 @@ class APIController extends Controller
         ]);
     }
 
-    public function getParentWiseTopics(Request $request)
+    public function getParentWiseTopics($parent_id)
     {
         // Get the parent_id from the request, defaults to null for the root level
         $parentId = $request->query('parent_id');

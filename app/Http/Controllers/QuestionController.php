@@ -683,7 +683,7 @@ class QuestionController extends Controller
         $count = count($cachedPaths);
         
         // Return a successful, informative response
-        return response("Cache successfully rebuilt! **$count** topic paths were generated and stored in the cache key **" . self::CACHE_KEY . "**.", 200);
+        // return response("Cache successfully rebuilt! **$count** topic paths were generated and stored in the cache key **" . self::CACHE_KEY . "**.", 200);
         Session::flash('success', "Cache successfully rebuilt! **$count** topic paths were generated and stored in the cache key **");
         return redirect()->route('dashboard.index');
     }

@@ -121,7 +121,7 @@
             {{-- Modal Code --}}
             {{-- Modal Code --}}
 
-            <button class="btn btn-warning" data-toggle="modal" data-target="#clearQueryCacheModal">
+            <button class="btn btn-success" data-toggle="modal" data-target="#clearQueryCacheModal">
               <i class="fas fa-tools"></i> টপিক ক্যাশ লোড করুন
             </button>
             {{-- Modal Code --}}

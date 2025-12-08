@@ -1062,8 +1062,8 @@ class APIController extends Controller
 
         // 2. Caching Setup (Cache questions for a specific topic_id)
         $cacheKey = "questions_topic_{$topicId}";
-        // Cache duration: 1 hour (assuming questions don't change often)
-        $cacheDuration = 60 * 60; 
+        // Cache duration: 10 days
+        $cacheDuration = 10 * 24 * 60 * 60; 
 
         $topicquestions = Cache::remember($cacheKey, $cacheDuration, function () use ($topicId) {
             

@@ -1024,7 +1024,7 @@ class APIController extends Controller
         }
     }
 
-    public function getTopicExamQuestions($softtoken, $topic_id)
+    public function getTopicWiseQuestions($softtoken, $topic_id)
     {
         if($softtoken == env('SOFT_TOKEN'))
         {

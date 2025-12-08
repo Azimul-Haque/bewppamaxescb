@@ -1000,8 +1000,6 @@ class APIController extends Controller
 
     public function getParentWiseTopics($softtoken, $parent_id)
     {
-        // ... token and parentId initialization ...
-
         $cacheKey = 'topics_parent_aggregated_' . ($parentId ?? 'root');
         $cacheDuration = 30 * 24 * 60 * 60; // Long cache time, as this is expensive
 

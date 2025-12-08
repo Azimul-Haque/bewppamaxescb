@@ -1024,6 +1024,40 @@ class APIController extends Controller
         }
     }
 
+    public function getTopicExamQuestions($softtoken, $id)
+    {
+        if($softtoken == env('SOFT_TOKEN'))
+        {
+            $topicquestions = Question::where('topic_id', $id)->orderBy(DB::raw('RAND()'))
+                                      ->take(20)
+                                      ->get();
+
+            foreach($topicquestions as $topicquestion) {
+                // dd($topicquestion);
+                if($topicquestion->questionexplanation) {
+                    $topicquestion->explanation = $topicquestion->questionexplanation->explanation;
+                }if($topicquestion->questionimage) {
+                    $topicquestion->image = $topicquestion->questionimage->image;
+                }
+                $topicquestion = $topicquestion->makeHidden(['topic_id', 'difficulty', 'created_at', 'updated_at', 'questionexplanation', 'questionimage']);
+            }
+            // dd($topicquestions);
+
+            $topic = Topic::findOrFail($id);
+            $topic->participation++;
+            $topic->save();
+
+            return response()->json([
+                'success' => true,
+                'questions' => $topicquestions,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false
+            ]);
+        }
+    }
+
 
 
 

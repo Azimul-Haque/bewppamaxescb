@@ -38,20 +38,36 @@ class Topic extends Model
         return $path->join('→');
     }
 
-    public function getTotalQuestionsRecursive()
+    public function getTotalQuestionCountAggregated(): int
     {
-        // If it's a leaf node, return the local question count
-        if ($this->children->isEmpty()) {
-            // Use a dynamic property if withCount was run, or run count()
-            return $this->questions()->count(); 
-        }
+        // 1. Get the IDs of all descendants (children, grandchildren, etc.).
+        // This is the simplest way without using a dedicated Tree package (like Nested Set).
+        $descendantIds = $this->getDescendantIds([$this->id]);
         
-        // If it's a parent, sum the counts from its children
-        $total = 0;
-        foreach ($this->children as $child) {
-            $total += $child->getTotalQuestionsRecursive();
+        // 2. Count all questions where the topic_id is in the list of descendant IDs.
+        return DB::table('questions')
+                 ->whereIn('topic_id', $descendantIds)
+                 ->count();
+    }
+
+    /**
+     * Helper to recursively collect all descendant IDs.
+     */
+    protected function getDescendantIds(array $currentIds): array
+    {
+        $children = $this->children()->whereIn('parent_id', $currentIds)->get();
+
+        if ($children->isEmpty()) {
+            return $currentIds;
         }
-        return $total;
+
+        $childIds = $children->pluck('id')->toArray();
+        $currentIds = array_merge($currentIds, $childIds);
+        
+        // Recursively call for the next level
+        return $this->children()->whereIn('parent_id', $childIds)->get()->reduce(function ($carry, $item) {
+            return array_merge($carry, $this->getDescendantIds([$item->id]));
+        }, $currentIds);
     }
     
 }

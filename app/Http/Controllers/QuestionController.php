@@ -437,7 +437,7 @@ class QuestionController extends Controller
 
     public function updateQuestion(Request $request, $id)
     {
-        // dd($request->file('image'));
+        dd($request->topic_id);
         $this->validate($request,array(
             'topic_id'    => 'required|string|max:191',
             'question'    => 'required',

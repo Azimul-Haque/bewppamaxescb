@@ -1009,12 +1009,12 @@ class APIController extends Controller
             
             $cacheKey = 'topics_parent_' . ($parentId ?? 'root');
                 
-            $cacheDuration = 10 * 24 * 60 * 60; 
+            $cacheDuration = 30 * 24 * 60 * 60; 
 
             $topics = Cache::remember($cacheKey, $cacheDuration, function () use ($parentId) {
                 
                 return Topic::select('id', 'name', 'parent_id')
-                    ->where('parent_id', $parentId)
+                    ->where('parent_id', $parent_id)
                     ->get();
             });
 

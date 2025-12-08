@@ -1029,7 +1029,9 @@ class APIController extends Controller
     public function getParentWiseTopics($softtoken, $parent_id)
     {
         if ($softtoken == env('SOFT_TOKEN')) {
-            $parentId = $parent_id == 0 ? null : $parent_id;
+            if($parentId == 0) {
+                $parentId = null;
+            }
 
             $cacheKey = 'topics_parent_dynamic_aggregated_' . ($parentId ?? 'root');
             $cacheDuration = 30 * 24 * 60 * 60; 

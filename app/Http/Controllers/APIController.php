@@ -1054,49 +1054,49 @@ class APIController extends Controller
     // }
 
     public function getTopicWiseQuestions(string $softtoken, int $topicId)
-        {
-            // 1. Token Validation
-            if($softtoken !== env('SOFT_TOKEN')) {
-                return response()->json(['success' => false], 401);
-            }
-
-            // 2. Caching Setup (Cache questions for a specific topic_id)
-            $cacheKey = "questions_topic_{$topicId}";
-            // Cache duration: 1 hour (assuming questions don't change often)
-            $cacheDuration = 60 * 60; 
-
-            $topicquestions = Cache::remember($cacheKey, $cacheDuration, function () use ($topicId) {
-                
-                // Eager load the explanation and image relationships to avoid N+1 queries
-                $questions = Question::with(['questionexplanation', 'questionimage'])
-                    ->where('topic_id', $topicId)
-                    ->inRandomOrder() // Replaces orderBy(DB::raw('RAND()')) for better readability
-                    ->take(20) // Limit to 20 questions
-                    ->get();
-                
-                // Map and structure the data for the API response
-                return $questions->map(function ($question) {
-                    // Attach nested data directly to the main question object
-                    $question->explanation = $question->questionexplanation->explanation ?? null;
-                    $question->image = $question->questionimage->image ?? null;
-
-                    // Hide unnecessary pivot columns for a clean payload
-                    return $question->makeHidden([
-                        'topic_id', 
-                        'difficulty', 
-                        'created_at', 
-                        'updated_at', 
-                        'questionexplanation', // The original relationship objects
-                        'questionimage'
-                    ])->toArray(); // Convert to array for final JSON
-                })->values()->all(); // Ensure keys are reset for a JSON array
-            });
-
-            return response()->json([
-                'success' => true,
-                'questions' => $topicquestions,
-            ]);
+    {
+        // 1. Token Validation
+        if($softtoken !== env('SOFT_TOKEN')) {
+            return response()->json(['success' => false], 401);
         }
+
+        // 2. Caching Setup (Cache questions for a specific topic_id)
+        $cacheKey = "questions_topic_{$topicId}";
+        // Cache duration: 1 hour (assuming questions don't change often)
+        $cacheDuration = 60 * 60; 
+
+        $topicquestions = Cache::remember($cacheKey, $cacheDuration, function () use ($topicId) {
+            
+            // Eager load the explanation and image relationships to avoid N+1 queries
+            $questions = Question::with(['questionexplanation', 'questionimage'])
+                ->where('topic_id', $topicId)
+                ->inRandomOrder() // Replaces orderBy(DB::raw('RAND()')) for better readability
+                ->take(20) // Limit to 20 questions
+                ->get();
+            
+            // Map and structure the data for the API response
+            return $questions->map(function ($question) {
+                // Attach nested data directly to the main question object
+                $question->explanation = $question->questionexplanation->explanation ?? null;
+                $question->image = $question->questionimage->image ?? null;
+
+                // Hide unnecessary pivot columns for a clean payload
+                return $question->makeHidden([
+                    'topic_id', 
+                    'difficulty', 
+                    'created_at', 
+                    'updated_at', 
+                    'questionexplanation', // The original relationship objects
+                    'questionimage'
+                ])->toArray(); // Convert to array for final JSON
+            })->values()->all(); // Ensure keys are reset for a JSON array
+        });
+
+        return response()->json([
+            'success' => true,
+            'questions' => $topicquestions,
+        ]);
+    }
 
 
 

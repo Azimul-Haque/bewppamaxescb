@@ -39,19 +39,19 @@ class Topic extends Model
     }
 
     public function getTotalQuestionsRecursive()
-{
-    // If it's a leaf node, return the local question count
-    if ($this->children->isEmpty()) {
-        // Use a dynamic property if withCount was run, or run count()
-        return $this->questions()->count(); 
+    {
+        // If it's a leaf node, return the local question count
+        if ($this->children->isEmpty()) {
+            // Use a dynamic property if withCount was run, or run count()
+            return $this->questions()->count(); 
+        }
+        
+        // If it's a parent, sum the counts from its children
+        $total = 0;
+        foreach ($this->children as $child) {
+            $total += $child->getTotalQuestionsRecursive();
+        }
+        return $total;
     }
-    
-    // If it's a parent, sum the counts from its children
-    $total = 0;
-    foreach ($this->children as $child) {
-        $total += $child->getTotalQuestionsRecursive();
-    }
-    return $total;
-}
     
 }

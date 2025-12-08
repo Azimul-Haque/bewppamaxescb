@@ -1041,11 +1041,6 @@ class APIController extends Controller
                 }
                 $topicquestion = $topicquestion->makeHidden(['topic_id', 'difficulty', 'created_at', 'updated_at', 'questionexplanation', 'questionimage']);
             }
-            // dd($topicquestions);
-
-            $topic = Topic::findOrFail($topic_id);
-            $topic->participation++;
-            $topic->save();
 
             return response()->json([
                 'success' => true,

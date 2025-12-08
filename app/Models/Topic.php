@@ -44,6 +44,8 @@ class Topic extends Model
         // 1. Get the IDs of all descendants (children, grandchildren, etc.).
         // This is the simplest way without using a dedicated Tree package (like Nested Set).
         $descendantIds = $this->getDescendantIds([$this->id]);
+
+        dd($descendantIds);
         
         // 2. Count all questions where the topic_id is in the list of descendant IDs.
         return DB::table('questions')

@@ -1015,9 +1015,10 @@ class APIController extends Controller
                 
                 return Topic::select('id', 'name', 'parent_id')
                     ->where('parent_id', $parentId)
+                    ->withCount('questions')
                     ->get();
             });
-            
+
 
             return response()->json([
                 'topics' => $topics

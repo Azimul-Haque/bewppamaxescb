@@ -1029,6 +1029,8 @@ class APIController extends Controller
     public function getParentWiseTopics($softtoken, $parent_id)
     {
         if ($softtoken == env('SOFT_TOKEN')) {
+            $parentId = $parent_id;
+
             if($parentId == 0) {
                 $parentId = null;
             }

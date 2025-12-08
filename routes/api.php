@@ -57,4 +57,4 @@ Route::get('/getquestionbank/exams/{softtoken}/{getexamcategory}', 'APIControlle
 // for dashboard
 Route::get('/search/topics/{softtoken}', 'APIController@searchTopics')->name('api.search.topics');
 Route::get('/gettopics/parentwise/{softtoken}/{parent_id}', 'APIController@getParentWiseTopics')->name('api.parentwise.topics');
-Route::get('/gettopicwise/questions/{softtoken}/{parent_id}', 'APIController@getTopicWiseQuestions')->name('api.topicwise.questions');
+Route::get('/gettopicwise/questions/{softtoken}/{topic_id}', 'APIController@getTopicWiseQuestions')->name('api.topicwise.questions');

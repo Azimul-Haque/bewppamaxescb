@@ -1070,8 +1070,8 @@ class APIController extends Controller
             // Eager load the explanation and image relationships to avoid N+1 queries
             $questions = Question::with(['questionexplanation', 'questionimage'])
                 ->where('topic_id', $topicId)
-                ->inRandomOrder() // Replaces orderBy(DB::raw('RAND()')) for better readability
-                ->take(20) // Limit to 20 questions
+                // ->inRandomOrder()
+                // ->take(20)
                 ->get();
             
             // Map and structure the data for the API response

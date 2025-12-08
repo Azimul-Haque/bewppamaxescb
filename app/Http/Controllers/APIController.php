@@ -998,70 +998,72 @@ class APIController extends Controller
         ]);
     }
 
-    public function getParentWiseTopics($softtoken, $parent_id)
-    {
-        $cacheKey = 'topics_parent_aggregated_' . ($parentId ?? 'root');
-        $cacheDuration = 30 * 24 * 60 * 60; // Long cache time, as this is expensive
-
-        $topics = Cache::remember($cacheKey, $cacheDuration, function () use ($parentId) {
-            
-            // 1. Fetch the topics needed for the current view, eager load children and questions
-            $topics = Topic::with('children.children.questions') // Adjust depth as needed
-                           ->where('parent_id', $parentId)
-                           ->get();
-
-            // 2. Map the results to calculate the recursive total for each topic
-            return $topics->map(function ($topic) {
-                
-                // Calculate the total question count recursively
-                $totalQuestions = $topic->getTotalQuestionsRecursive();
-                
-                // Add the total question count to the topic object
-                $topic->total_questions_aggregated = $totalQuestions;
-                
-                // Only return necessary fields to minimize payload
-                return [
-                    'id' => $topic->id,
-                    'name' => $topic->name,
-                    'parent_id' => $topic->parent_id,
-                    'total_questions_aggregated' => $totalQuestions,
-                ];
-            })->toArray();
-        });
-        
-        return response()->json([
-            'topics' => $topics
-        ]);
-    }
-
-    // public function getTopicWiseQuestions($softtoken, $topic_id)
+    // public function getParentWiseTopics($softtoken, $parent_id)
     // {
-    //     if($softtoken == env('SOFT_TOKEN'))
-    //     {
-    //         $topicquestions = Question::where('topic_id', $topic_id)->orderBy(DB::raw('RAND()'))
-    //                                   ->take(20)
-    //                                   ->get();
+    //     if($softtoken == env('SOFT_TOKEN')) {
+    //         $parentId = $parent_id;
 
-    //         foreach($topicquestions as $topicquestion) {
-    //             // dd($topicquestion);
-    //             if($topicquestion->questionexplanation) {
-    //                 $topicquestion->explanation = $topicquestion->questionexplanation->explanation;
-    //             }if($topicquestion->questionimage) {
-    //                 $topicquestion->image = $topicquestion->questionimage->image;
-    //             }
-    //             $topicquestion = $topicquestion->makeHidden(['topic_id', 'difficulty', 'created_at', 'updated_at', 'questionexplanation', 'questionimage']);
+    //         if($parentId == 0) {
+    //             $parentId = null;
     //         }
+            
+    //         $cacheKey = 'topics_parent_' . ($parentId ?? 'root');
+                
+    //         $cacheDuration = 30 * 24 * 60 * 60; 
+
+    //         $topics = Cache::remember($cacheKey, $cacheDuration, function () use ($parentId) {
+                
+    //             return Topic::select('id', 'name', 'parent_id')
+    //                 ->where('parent_id', $parentId)
+    //                 ->withCount('questions')
+    //                 ->get();
+    //         });
+
 
     //         return response()->json([
-    //             'success' => true,
-    //             'questions' => $topicquestions,
-    //         ]);
-    //     } else {
-    //         return response()->json([
-    //             'success' => false
+    //             'topics' => $topics
     //         ]);
     //     }
     // }
+
+    public function getParentWiseTopics($softtoken, $parent_id)
+    {
+        if ($softtoken == env('SOFT_TOKEN')) {
+            $parentId = $parent_id == 0 ? null : $parent_id;
+
+            $cacheKey = 'topics_parent_dynamic_aggregated_' . ($parentId ?? 'root');
+            $cacheDuration = 30 * 24 * 60 * 60; 
+
+            $topics = Cache::remember($cacheKey, $cacheDuration, function () use ($parentId) {
+                
+                // 1. Fetch topics at the current level, eager loading only one level of children
+                //    This is needed to start the efficient recursive ID collection in the Topic model.
+                $topics = Topic::with('children') 
+                               ->where('parent_id', $parentId)
+                               ->get();
+
+                // 2. Map and calculate the total questions dynamically for each topic
+                return $topics->map(function ($topic) {
+                    
+                    $totalQuestions = $topic->getTotalQuestionCountAggregated();
+                    
+                    return [
+                        'id' => $topic->id,
+                        'name' => $topic->name,
+                        'parent_id' => $topic->parent_id,
+                        // Use a clean, consistent field name for Flutter
+                        'total_questions_aggregated' => $totalQuestions, 
+                    ];
+                })->toArray();
+            });
+            
+            return response()->json([
+                'topics' => $topics
+            ]);
+        } else {
+             return response()->json(['success' => false, 'message' => 'Invalid token'], 401);
+        }
+    }
 
     public function getTopicWiseQuestions(string $softtoken, int $topicId)
     {

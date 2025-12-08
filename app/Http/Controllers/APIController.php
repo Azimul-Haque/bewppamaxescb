@@ -1017,6 +1017,7 @@ class APIController extends Controller
                     ->where('parent_id', $parentId)
                     ->get();
             });
+            
 
             return response()->json([
                 'topics' => $topics

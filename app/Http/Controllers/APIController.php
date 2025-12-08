@@ -1000,30 +1000,40 @@ class APIController extends Controller
 
     public function getParentWiseTopics($softtoken, $parent_id)
     {
-        if($softtoken == env('SOFT_TOKEN')) {
-            $parentId = $parent_id;
+        // ... token and parentId initialization ...
 
-            if($parentId == 0) {
-                $parentId = null;
-            }
+        $cacheKey = 'topics_parent_aggregated_' . ($parentId ?? 'root');
+        $cacheDuration = 30 * 24 * 60 * 60; // Long cache time, as this is expensive
+
+        $topics = Cache::remember($cacheKey, $cacheDuration, function () use ($parentId) {
             
-            $cacheKey = 'topics_parent_' . ($parentId ?? 'root');
+            // 1. Fetch the topics needed for the current view, eager load children and questions
+            $topics = Topic::with('children.children.questions') // Adjust depth as needed
+                           ->where('parent_id', $parentId)
+                           ->get();
+
+            // 2. Map the results to calculate the recursive total for each topic
+            return $topics->map(function ($topic) {
                 
-            $cacheDuration = 30 * 24 * 60 * 60; 
-
-            $topics = Cache::remember($cacheKey, $cacheDuration, function () use ($parentId) {
+                // Calculate the total question count recursively
+                $totalQuestions = $topic->getTotalQuestionsRecursive();
                 
-                return Topic::select('id', 'name', 'parent_id')
-                    ->where('parent_id', $parentId)
-                    ->withCount('questions')
-                    ->get();
-            });
-
-
-            return response()->json([
-                'topics' => $topics
-            ]);
-        }
+                // Add the total question count to the topic object
+                $topic->total_questions_aggregated = $totalQuestions;
+                
+                // Only return necessary fields to minimize payload
+                return [
+                    'id' => $topic->id,
+                    'name' => $topic->name,
+                    'parent_id' => $topic->parent_id,
+                    'total_questions_aggregated' => $totalQuestions,
+                ];
+            })->toArray();
+        });
+        
+        return response()->json([
+            'topics' => $topics
+        ]);
     }
 
     // public function getTopicWiseQuestions($softtoken, $topic_id)

@@ -1024,11 +1024,11 @@ class APIController extends Controller
         }
     }
 
-    public function getTopicExamQuestions($softtoken, $id)
+    public function getTopicExamQuestions($softtoken, $topic_id)
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $topicquestions = Question::where('topic_id', $id)->orderBy(DB::raw('RAND()'))
+            $topicquestions = Question::where('topic_id', $topic_id)->orderBy(DB::raw('RAND()'))
                                       ->take(20)
                                       ->get();
 
@@ -1043,7 +1043,7 @@ class APIController extends Controller
             }
             // dd($topicquestions);
 
-            $topic = Topic::findOrFail($id);
+            $topic = Topic::findOrFail($topic_id);
             $topic->participation++;
             $topic->save();
 

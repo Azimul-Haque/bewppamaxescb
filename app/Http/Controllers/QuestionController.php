@@ -346,12 +346,6 @@ class QuestionController extends Controller
 
         Session::flash('success', 'Question created successfully!');
         return redirect()->back();
-        // if(request()->routeIs('dashboard.questionstopicbased')) {
-        //     return redirect()->route('dashboard.questionstopicbased', $request->topic_id);
-        // } else {
-        //     return redirect()->route('dashboard.questions');
-        // }
-        
     }
 
     public function storeExcelQuestion(Request $request)

@@ -712,4 +712,51 @@ class QuestionController extends Controller
     // searchTopic is placed under APIController
     // searchTopic is placed under APIController
     // searchTopic is placed under APIController
+
+    public function updateAllTopicCounts($softtoken)
+    {
+        // 1. Token Check
+        if ($softtoken !== env('SOFT_TOKEN')) {
+            return response()->json(['success' => false, 'message' => 'Invalid token'], 401);
+        }
+
+        // 2. Fetch all topics, ordered by parent_id descending to ensure children are processed 
+        //    before their parents (important for the recursive save logic to work efficiently).
+        $allTopics = Topic::orderByDesc('parent_id')->get();
+        $count = $allTopics->count();
+        $updatedCount = 0;
+
+        // 3. Iterate and Recalculate
+        // This process is CPU intensive and will run for every single topic.
+        foreach ($allTopics as $topic) {
+            
+            // NOTE: We assume the Topic Model's recalculateAggregatedQuestionCount() 
+            // is available and handles fetching local questions and summing child totals.
+            
+            // Simplified Logic (If using the model method from the optimization plan):
+            // $topic->recalculateAggregatedQuestionCount(); 
+
+            // If you are using the raw aggregation method (slower but more direct):
+            $newAggregatedCount = $topic->getTotalQuestionCountAggregated(); // <--- This is the core logic
+            
+            if ($topic->total_questions_sum !== $newAggregatedCount) {
+                // Update the column directly and silently
+                DB::table('topics')
+                    ->where('id', $topic->id)
+                    ->update(['total_questions_sum' => $newAggregatedCount]);
+                $updatedCount++;
+            }
+        }
+
+        // 4. Clear Cache for the topic list endpoints
+        // You should manually clear any cache keys related to topic lists here.
+        // Example: Cache::forget('topics_parent_aggregated_root');
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Total question counts calculated and saved successfully.',
+            'total_topics_processed' => $count,
+            'topics_updated' => $updatedCount
+        ]);
+    }
 }

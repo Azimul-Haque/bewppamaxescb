@@ -716,7 +716,7 @@ class QuestionController extends Controller
     public function updateAllTopicCounts($softtoken, $offset = 0, $limit = 20)
     {
         // Ensure limit is 20 for this specific process
-        $limit = (int) $offset;
+        $limit = (int) $limit;
         $offset = (int) $offset;
 
         // 1. Token Check

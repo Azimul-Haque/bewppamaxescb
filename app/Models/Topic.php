@@ -61,32 +61,38 @@ class Topic extends Model
     protected function collectDescendantIdsFromEagerLoad(Topic $topic): array
     {
         $ids = [];
-        // Only iterate over the loaded relationship data
+        
+        // Check if the children relationship is loaded AND has data
         if ($topic->relationLoaded('children')) {
             foreach ($topic->children as $child) {
-                $ids[] = $child->id;
-                // Recursively merge the IDs of the grandchildren
+                // Include the child's ID itself
+                $ids[] = $child->id; 
+                
+                // CRITICAL RECURSION: Recursively call the function for the child
+                // This will pull IDs from the grandchild level (Level 3, Level 4, etc.)
                 $ids = array_merge($ids, $this->collectDescendantIdsFromEagerLoad($child));
             }
         }
         return $ids;
     }
 
-    /**
-     * Accessor to generate the 'descendant_ids' array for the Flutter client.
-     * This works when the API uses ->with('children').
-     * @return array
-     */
+    // Accessor to generate the 'descendant_ids' array for the Flutter client.
     public function getDescendantIdsAttribute(): array
     {
-        // We include the current topic's ID and then the collected descendant IDs.
+        // Must ensure 'children' is loaded for this to work.
+        if (!$this->relationLoaded('children')) {
+            // Fallback: This indicates the API forgot to use ->with('children')
+            return [$this->id]; 
+        }
+        
+        // 1. Start with the current topic's ID
         $ids = [$this->id]; 
         
-        // Use the efficient collector method
+        // 2. Collect all descendant IDs using the loaded relationship data
         $descendants = $this->collectDescendantIdsFromEagerLoad($this);
         
-        // Merge without checking uniqueness (since the collector is structured)
-        return array_merge($ids, $descendants);
+        // 3. Merge and return the unique set
+        return array_unique(array_merge($ids, $descendants));
     }
     
     // --- SERVER-SIDE AGGREGATION & DENORMALIZATION ---

@@ -3,35 +3,48 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use DB;
+use Illuminate\Support\Facades\DB; // Use the facade for DB
 
 class Topic extends Model
 {
     public $timestamps = false;
     
-    public function questions(){
+    // Ensure this property is cast as an integer if you have one. 
+    // Example: protected $casts = ['total_questions_sum' => 'integer'];
+
+    // --- Relationships ---
+
+    public function questions()
+    {
         return $this->hasMany('App\Models\Question');
     }
 
-    public function parent()  { 
-        return $this->belongsTo(Topic::class, 'parent_id'); 
+    public function parent()
+    {
+        // Define relationship with Topic::class, not string, for type hinting
+        return $this->belongsTo(Topic::class, 'parent_id');
     }
 
-    public function children() { 
+    public function children()
+    {
+        // Add the 'with' clause here for deep loading in the API (if desired)
+        // return $this->hasMany(Topic::class, 'parent_id')->with('children');
         return $this->hasMany(Topic::class, 'parent_id'); 
     }
+
+    // --- Accessors (Full Path) ---
 
     public function getFullPathAttribute(): string
     {
         // Initialize the path collection with the current topic's name
         $path = collect([$this->name]);
-        $parent = $this->parent; // Assumes the 'parent' relationship is defined
+        
+        // Ensure the parent is loaded before starting the traversal
+        $parent = $this->parent; 
 
         // Traverse up the hierarchy
         while ($parent) {
-            // Add the parent's name to the beginning of the collection
             $path->prepend($parent->name);
-            // Move up to the next parent
             $parent = $parent->parent;
         }
 
@@ -39,60 +52,74 @@ class Topic extends Model
         return $path->join('→');
     }
 
-    protected function getDescendantIds(int $topicId): array
-    {
-        // Start with the current topic's ID
-        $ids = [$topicId];
-        
-        // Fetch direct children of the current ID
-        $children = $this->children()->where('parent_id', $topicId)->pluck('id')->toArray();
-        
-        if (empty($children)) {
-            return $ids;
-        }
-        
-        // If children exist, merge their IDs
-        $ids = array_merge($ids, $children);
-
-        // Recursively call for each child to get their own descendants
-        foreach ($children as $childId) {
-            // We need a fresh Topic instance for the childId to use the children() relationship scope properly
-            $childTopic = self::find($childId);
-            if ($childTopic) {
-                $ids = array_merge($ids, $childTopic->getDescendantIds($childId));
-            }
-        }
-        
-        // Ensure unique IDs
-        return array_unique($ids);
-    }
-
+    // --- NEW: FAST CLIENT-SIDE AGGREGATION HELPERS ---
 
     /**
-     * Get the total count of questions for this topic and all its descendants.
-     * This is the public method that initiates the process.
-     * * @return int
+     * Recursively collects all descendant IDs using the eagerly loaded 'children' relationship.
+     * This is the efficient recursive helper.
+     */
+    protected function collectDescendantIdsFromEagerLoad(Topic $topic): array
+    {
+        $ids = [];
+        // Only iterate over the loaded relationship data
+        if ($topic->relationLoaded('children')) {
+            foreach ($topic->children as $child) {
+                $ids[] = $child->id;
+                // Recursively merge the IDs of the grandchildren
+                $ids = array_merge($ids, $this->collectDescendantIdsFromEagerLoad($child));
+            }
+        }
+        return $ids;
+    }
+
+    /**
+     * Accessor to generate the 'descendant_ids' array for the Flutter client.
+     * This works when the API uses ->with('children').
+     * @return array
+     */
+    public function getDescendantIdsAttribute(): array
+    {
+        // We include the current topic's ID and then the collected descendant IDs.
+        $ids = [$this->id]; 
+        
+        // Use the efficient collector method
+        $descendants = $this->collectDescendantIdsFromEagerLoad($this);
+        
+        // Merge without checking uniqueness (since the collector is structured)
+        return array_merge($ids, $descendants);
+    }
+    
+    // --- SERVER-SIDE AGGREGATION & DENORMALIZATION ---
+    
+    /**
+     * [OLD/SLOW METHOD] Get the total count of questions for this topic and all its descendants.
+     * This method is only useful for initial database population/cleanup now.
+     * @return int
      */
     public function getTotalQuestionCountAggregated(): int
     {
-        // 1. Get the IDs of all descendants (current topic ID included).
-        // The previous implementation was overly complex; this version starts the streamlined process.
-        $descendantIds = $this->getDescendantIds($this->id);
+        // WARNING: The method definition for getDescendantIds() you provided is highly inefficient
+        // for large datasets as it makes multiple DB queries. We rely on the replacement logic below.
         
-        // 2. Count all questions where the topic_id is in the list of descendant IDs.
-        // This part remains efficient.
+        // Since we are no longer using this for the API (we use total_questions_sum), 
+        // we keep the logic simple for database cleanup purposes.
+        $descendantIds = $this->getDescendantIds($this->id); // Using the slow helper
+        
         return DB::table('questions')
                  ->whereIn('topic_id', $descendantIds)
                  ->count();
     }
-
+    
+    /**
+     * [ROLL-UP METHOD] Recalculates and updates the total_questions_sum 
+     * for the current topic and recursively rolls up the change to parents.
+     */
     public function recalculateAggregatedQuestionCount()
     {
-        // 1. Get the local question count (only questions directly attached to this topic ID)
-        $localCount = $this->questions()->count(); 
+        // 1. Get the local question count (questions directly attached to this topic)
+        $localCount = $this->questions()->count();
         
-        // 2. Sum the pre-calculated sums of its direct children.
-        // This is the efficient part: using the already saved value from the children's column.
+        // 2. Sum the pre-calculated totals of its direct children (EFFICIENT READ)
         $childrenSum = $this->children()->sum('total_questions_sum');
         
         // 3. The new aggregated count for THIS topic.
@@ -102,15 +129,41 @@ class Topic extends Model
         if ($this->total_questions_sum !== $newAggregatedCount) {
             $this->total_questions_sum = $newAggregatedCount;
             
-            // Use saveQuietly to prevent infinite loop if an Observer is active.
-            $this->saveQuietly(); 
+            // Use saveQuietly to prevent infinite loop
+            $this->saveQuietly();
             
-            // 5. Recursively trigger the recalculation for the parent, as THIS topic's 
-            //    change affects its parent's total.
+            // 5. Recursively trigger the recalculation for the parent
             if ($this->parent) {
                 $this->parent->recalculateAggregatedQuestionCount();
             }
         }
     }
     
+    // --- DEPRECATED/INNEFFICIENT METHODS (RETAINED FOR COMPATIBILITY) ---
+    
+    // NOTE: This original implementation of getDescendantIds() is slow and should be phased out.
+    protected function getDescendantIds(int $topicId): array
+    {
+         // This logic involves multiple DB queries inside a loop/recursion and is highly inefficient.
+         // Since it is used by the old getTotalQuestionCountAggregated(), we keep it for now.
+         $ids = [$topicId];
+         
+         // Fetch direct children of the current ID
+         $children = $this->children()->where('parent_id', $topicId)->pluck('id')->toArray();
+         
+         if (empty($children)) {
+             return $ids;
+         }
+         
+         $ids = array_merge($ids, $children);
+         
+         foreach ($children as $childId) {
+             $childTopic = self::find($childId);
+             if ($childTopic) {
+                 $ids = array_merge($ids, $childTopic->getDescendantIds($childId));
+             }
+         }
+         
+         return array_unique($ids);
+    }
 }

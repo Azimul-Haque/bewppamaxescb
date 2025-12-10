@@ -86,6 +86,31 @@ class Topic extends Model
                  ->count();
     }
 
-    
+    public function recalculateAggregatedQuestionCount()
+    {
+        // 1. Get the local question count (only questions directly attached to this topic ID)
+        $localCount = $this->questions()->count(); 
+        
+        // 2. Sum the pre-calculated sums of its direct children.
+        // This is the efficient part: using the already saved value from the children's column.
+        $childrenSum = $this->children()->sum('total_questions_sum');
+        
+        // 3. The new aggregated count for THIS topic.
+        $newAggregatedCount = $localCount + $childrenSum;
+
+        // 4. Update the current topic's column if the value has changed.
+        if ($this->total_questions_sum !== $newAggregatedCount) {
+            $this->total_questions_sum = $newAggregatedCount;
+            
+            // Use saveQuietly to prevent infinite loop if an Observer is active.
+            $this->saveQuietly(); 
+            
+            // 5. Recursively trigger the recalculation for the parent, as THIS topic's 
+            //    change affects its parent's total.
+            if ($this->parent) {
+                $this->parent->recalculateAggregatedQuestionCount();
+            }
+        }
+    }
     
 }

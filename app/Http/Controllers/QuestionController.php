@@ -729,7 +729,7 @@ class QuestionController extends Controller
         
         // 3. Fetch the specific chunk (20 topics)
         // We order by parent_id DESC and then by id to ensure a consistent, repeatable order across chunks.
-        $topicsToProcess = Topic::orderByAsc('parent_id')
+        $topicsToProcess = Topic::orderBy('parent_id')
                                 ->orderBy('id')
                                 ->offset($offset)
                                 ->limit($limit)

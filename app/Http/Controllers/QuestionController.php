@@ -741,7 +741,7 @@ class QuestionController extends Controller
         foreach ($topicsToProcess as $topic) {
             // We run the heavy recursive logic only for the 20 topics in this batch
             $newAggregatedCount = $topic->getTotalQuestionCountAggregated();
-            dd($newAggregatedCount);
+            // dd($newAggregatedCount);
             
             if ($topic->total_questions_sum !== $newAggregatedCount) {
                 DB::table('topics')

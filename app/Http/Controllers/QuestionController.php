@@ -320,6 +320,12 @@ class QuestionController extends Controller
         $question->difficulty = $request->difficulty;
         $question->save();
 
+        $topic = Topic::find($request->topic_id);
+        if ($topic) {
+            // This method triggers the fast, incremental update up the hierarchy.
+            $topic->recalculateAggregatedQuestionCount(); 
+        }
+
         
         if(isset($request->tags_ids)){
             $question->tags()->sync($request->tags_ids, false);

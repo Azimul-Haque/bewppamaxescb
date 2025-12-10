@@ -1049,7 +1049,7 @@ class APIController extends Controller
                 // 2. Map and calculate the total questions dynamically for each topic
                 return $topics->map(function ($topic) {
                     
-                    $totalQuestions = $topic->getTotalQuestionCountAggregated();
+                    // $totalQuestions = $topic->getTotalQuestionCountAggregated();
                     
                     return [
                         'id' => $topic->id,

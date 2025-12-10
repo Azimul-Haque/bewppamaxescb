@@ -715,6 +715,7 @@ class QuestionController extends Controller
 
     public function updateAllTopicCounts($softtoken)
     {
+        set_time_limit(300);
         // 1. Token Check
         if ($softtoken !== env('SOFT_TOKEN')) {
             return response()->json(['success' => false, 'message' => 'Invalid token'], 401);

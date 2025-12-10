@@ -1049,14 +1049,12 @@ class APIController extends Controller
                 // 2. Map and calculate the total questions dynamically for each topic
                 return $topics->map(function ($topic) {
                     
-                    $totalQuestions = $topic->getTotalQuestionCountAggregated();
-                    
                     return [
                         'id' => $topic->id,
                         'name' => $topic->name,
                         'parent_id' => $topic->parent_id,
                         // Use a clean, consistent field name for Flutter
-                        'total_questions_aggregated' => $totalQuestions, 
+                        'total_questions_aggregated' => $topic->total_questions_sum, 
                     ];
                 })->toArray();
             });

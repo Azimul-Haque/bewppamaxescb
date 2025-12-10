@@ -29,7 +29,7 @@ class Topic extends Model
     {
         // Add the 'with' clause here for deep loading in the API (if desired)
         // return $this->hasMany(Topic::class, 'parent_id')->with('children');
-        return $this->hasMany(Topic::class, 'parent_id');
+        return $this->hasMany(Topic::class, 'parent_id')->with('children'); 
     }
 
     // --- Accessors (Full Path) ---

@@ -1054,7 +1054,8 @@ class APIController extends Controller
                         'name' => $topic->name,
                         'parent_id' => $topic->parent_id,
                         // Use a clean, consistent field name for Flutter
-                        'total_questions_aggregated' => $topic->total_questions_sum, 
+                        'total_questions_aggregated' => $topic->total_questions_sum,
+                        'descendant_ids' => $topic->descendant_ids,
                     ];
                 })->toArray();
             });

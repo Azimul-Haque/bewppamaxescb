@@ -713,35 +713,36 @@ class QuestionController extends Controller
     // searchTopic is placed under APIController
     // searchTopic is placed under APIController
 
-    public function updateAllTopicCounts($softtoken)
+    public function updateAllTopicCounts($softtoken, $offset = 0, $limit = 20)
     {
-        set_time_limit(300);
+        // Ensure limit is 20 for this specific process
+        $limit = 20;
+        $offset = (int) $offset;
+
         // 1. Token Check
         if ($softtoken !== env('SOFT_TOKEN')) {
             return response()->json(['success' => false, 'message' => 'Invalid token'], 401);
         }
 
-        // 2. Fetch all topics, ordered by parent_id descending to ensure children are processed 
-        //    before their parents (important for the recursive save logic to work efficiently).
-        $allTopics = Topic::orderByDesc('parent_id')->get();
-        $count = $allTopics->count();
+        // 2. Count Total Topics
+        $totalTopics = Topic::count();
+        
+        // 3. Fetch the specific chunk (20 topics)
+        // We order by parent_id DESC and then by id to ensure a consistent, repeatable order across chunks.
+        $topicsToProcess = Topic::orderByDesc('parent_id')
+                                ->orderBy('id')
+                                ->offset($offset)
+                                ->limit($limit)
+                                ->get();
+
         $updatedCount = 0;
 
-        // 3. Iterate and Recalculate
-        // This process is CPU intensive and will run for every single topic.
-        foreach ($allTopics as $topic) {
-            
-            // NOTE: We assume the Topic Model's recalculateAggregatedQuestionCount() 
-            // is available and handles fetching local questions and summing child totals.
-            
-            // Simplified Logic (If using the model method from the optimization plan):
-            // $topic->recalculateAggregatedQuestionCount(); 
-
-            // If you are using the raw aggregation method (slower but more direct):
-            $newAggregatedCount = $topic->getTotalQuestionCountAggregated(); // <--- This is the core logic
+        // 4. Iterate and Recalculate for the current chunk (Fast execution)
+        foreach ($topicsToProcess as $topic) {
+            // We run the heavy recursive logic only for the 20 topics in this batch
+            $newAggregatedCount = $topic->getTotalQuestionCountAggregated(); 
             
             if ($topic->total_questions_sum !== $newAggregatedCount) {
-                // Update the column directly and silently
                 DB::table('topics')
                     ->where('id', $topic->id)
                     ->update(['total_questions_sum' => $newAggregatedCount]);
@@ -749,15 +750,23 @@ class QuestionController extends Controller
             }
         }
 
-        // 4. Clear Cache for the topic list endpoints
-        // You should manually clear any cache keys related to topic lists here.
-        // Example: Cache::forget('topics_parent_aggregated_root');
-        
+        // 5. Determine Next Steps and Response
+        $nextOffset = $offset + $limit;
+        $hasMore = $nextOffset < $totalTopics;
+
+        if (!$hasMore) {
+            // 6. Final Step: Clear Cache ONLY after the last chunk is processed
+            // Example: Cache::forget('topics_parent_aggregated_root');
+        }
+
         return response()->json([
             'success' => true,
-            'message' => 'Total question counts calculated and saved successfully.',
-            'total_topics_processed' => $count,
-            'topics_updated' => $updatedCount
+            'message' => $hasMore ? 'Chunk processed. Call next offset to continue.' : 'All topics processed successfully.',
+            'total_topics_in_db' => $totalTopics,
+            'topics_processed_in_chunk' => $topicsToProcess->count(),
+            'topics_updated_in_chunk' => $updatedCount,
+            'next_offset' => $hasMore ? $nextOffset : null,
+            'has_more' => $hasMore
         ]);
     }
 }

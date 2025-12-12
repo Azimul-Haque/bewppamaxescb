@@ -447,7 +447,9 @@ class APIController extends Controller
             $courseexams = Cache::remember('courseexams'.$course->id, 10 * 24 * 60 * 60, function () use ($course) {
                 $courseexams = Courseexam::select('course_id', 'exam_id')
                                          ->where('course_id', $course->id)
-                                         ->orderBy('exam_id', 'desc')
+                                         // ->orderBy('exam_id', 'desc')
+                                         ->join('exams', 'exams.id', '=', 'courseexams.exam_id')
+                                         ->orderBy('exams.available_from', 'asc')
                                          ->get();
 
                 foreach($courseexams as $courseexam) {

@@ -288,6 +288,20 @@
                             <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
                         </div>
                     </div>
+
+                    <div class="input-group mb-3">
+                      <select name="type" class="form-control" required>
+                          <option selected="" disabled="" value="">ধরন</option>
+                          <option value="1">সাধারণ কোর্স</option>
+                          {{-- <option value="2">বিজেএস মডেল টেস্ট</option>
+                          <option value="3">বার মডেল টেস্ট</option> --}}
+                          <option value="4">ফ্রি মডেল টেস্ট</option>
+                          <option value="5">প্রশ্ন ব্যাংক</option>
+                      </select>
+                      <div class="input-group-append">
+                          <div class="input-group-text"><span class="fas fa-tag"></span></div>
+                      </div>
+                    </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

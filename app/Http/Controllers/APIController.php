@@ -400,7 +400,7 @@ class APIController extends Controller
                  $courses = Course::select('id', 'name')
                              // status check korar dorkar nai, live check korbo
                              ->where('category', $category) // 1 = BCS, 2 = Primary, 3 = Bank, 4 = NTRCS, 5 = NSI/DGFI and Others
-                             ->where('live', 1)
+                             ->where('live', 1) // live থাকলে কোর্স ক্যাটাগরির ভেতরে শো করবে
                              ->orderBy('serial', 'asc') // priority ব্যবহৃত হবে চলমান কোর্সসমূহ বার এ, serial ব্যবহৃত হবে কোর্স্ ক্যাটাগরিতে
                              ->get();
                  foreach($courses as $course) {

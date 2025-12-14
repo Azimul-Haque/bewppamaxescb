@@ -78,6 +78,9 @@ class CourseController extends Controller
             'name'   => 'required|string|max:191',
             'status' => 'required',
             'type' => 'required',
+            'category' => 'required',
+            'live' => 'required',
+            'serial' => 'required',
         ));
 
         $course = Course::findOrFail($id);

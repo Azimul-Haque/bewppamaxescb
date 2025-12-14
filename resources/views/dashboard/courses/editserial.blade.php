@@ -70,9 +70,7 @@
                     <!-- /.card-body -->
                   </div>
 
-                  <div class="card-footer clearfix">
-                      {{ $courseexams->links() }} {{-- Use Bootstrap 5 style pagination --}}
-                  </div>
+                  {{ $courseexams->links() }}
             </div>
         </div>
 

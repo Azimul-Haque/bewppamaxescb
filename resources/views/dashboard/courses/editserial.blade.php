@@ -59,7 +59,7 @@
                                               >
                                           </td>
                                           <td>
-                                              <button type="submit" class="btn btn-sm btn-primary">Save</button>
+                                              <button type="submit" class="btn btn-sm btn-primary">দাখিল করুন</button>
                                           </td>
                                       </form>
                                   </tr>

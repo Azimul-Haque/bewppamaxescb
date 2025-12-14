@@ -262,7 +262,7 @@
                     <div class="input-group mb-3">
                         <select name="status" class="form-control" required>
                             <option selected="" disabled="" value="">স্ট্যাটাস (চলমান কোর্সসমূহতে দেখাবে কি না)</option>
-                            <option value="1" selected>Active - হ্যাঁ</option>
+                            <option value="1">Active - হ্যাঁ</option>
                             <option value="0">In-active - না</option>
                         </select>
                         <div class="input-group-append">

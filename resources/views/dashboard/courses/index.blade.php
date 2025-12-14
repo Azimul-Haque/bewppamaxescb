@@ -305,13 +305,20 @@
                     </div>
 
                     <div class="input-group mb-3">
-                        <select name="status" class="form-control" required>
+                        <select name="live" class="form-control" required>
                             <option selected="" disabled="" value="">লাইভ স্যাটাস (ক্যাটাগরিভিত্তিক এর ভেতরে দেখাবে কি না)</option>
                             <option value="1">Live - হ্যাঁ</option>
                             <option value="0">Expired - না</option>
                         </select>
                         <div class="input-group-append">
                             <div class="input-group-text"><span class="fas fa-star-half-alt"></span></div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" name="priority" class="form-control" value="{{ old('priority') }}" placeholder="প্রায়োরিটি (চলমান কোর্সসমূহতে যে সিরিয়ালে অ্যাপে দেখাবে)" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
                         </div>
                     </div>
               </div>

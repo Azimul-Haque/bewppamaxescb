@@ -271,7 +271,7 @@
                     </div>
                     <div class="input-group mb-3">
                       <select name="type" class="form-control" required>
-                          <option selected="" disabled="" value="">ধরন</option>
+                          <option selected="" disabled="" value="">ক্লাসিকাল ধরন</option>
                           <option value="1">সাধারণ কোর্স</option>
                           {{-- <option value="2">বিজেএস মডেল টেস্ট</option>
                           <option value="3">বার মডেল টেস্ট</option> --}}

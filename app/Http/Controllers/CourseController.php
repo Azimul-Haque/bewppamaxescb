@@ -129,6 +129,21 @@ class CourseController extends Controller
         Session::flash('success', 'Course updated successfully!');
         return redirect()->back();
     }
+
+    public function editExamSerialCourse($id)
+    {
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
+            abort(403, 'Access Denied');
+        }
+        
+        $courses = Course::orderBy('id', 'desc')->paginate(10);
+        $totalcourses = Course::count();
+        // $examcategories = Examcategory::all();
+        // dd($courses);
+        return view('dashboard.courses.index')
+                    ->withCourses($courses)
+                    ->withTotalcourses($totalcourses);
+    }
     
     public function updateExamSerialCourse(Request $request, $id)
     {

@@ -146,7 +146,7 @@ class CourseController extends Controller
                     // We use the secondary key for sorting since the serial management page 
                     // implies a specific order (e.g., newest exams first by exam_id)
                     ->orderBy('exam_id', 'desc') 
-                    ->paginate(10); // Paginate with 10 items per page
+                    ->paginate(20); // Paginate with 20 items per page
 
         return view('dashboard.courses.editserial')
                     ->withCourse($course)

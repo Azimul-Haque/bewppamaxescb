@@ -155,28 +155,19 @@ class CourseController extends Controller
     
     public function updateExamSerialCourse(Request $request, $id)
     {
-        // dd($request->file('image'));
-        $this->validate($request,array(
-            'available_from'     => 'required',
-            'gapbetween'         => 'required',
-            'oldwordtoreplace'   => 'sometimes',
-            'newwordtoreplace'   => 'sometimes',
-        ));
+        $request->validate([
+            'serial' => 'nullable|integer|min:0',
+        ]);
 
-        $course = Course::findOrFail($id);
-        // dd($course->courseexams);
-        $newdate = Carbon::parse($request->available_from);
-        foreach($course->courseexams as $courseexam) {
-            $courseexam->exam->available_from = $newdate;
-            $courseexam->exam->available_to = $newdate;
-    
-            if($request->oldwordtoreplace != '' && $request->newwordtoreplace != '' || $request->oldwordtoreplace != null && $request->newwordtoreplace != null) {
-                // dd($courseexam->exam->name);
-                $courseexam->exam->name = str_replace($request->oldwordtoreplace, $request->newwordtoreplace, $courseexam->exam->name);
-            }
-            $courseexam->exam->save();
-            $newdate = $newdate->addDays($request->gapbetween);
-        }
+        // Find the Exam record
+        $exam = Exam::findOrFail($examId);
+        
+        // Update the serial column
+        $exam->serial = $request->input('serial') ?? 0; // Default to 0 if null/empty
+        $exam->save();
+
+        // Redirect back, optionally passing the course_id if needed
+        return redirect()->back()->with('success', 'Exam serial updated successfully!');
 
         Cache::forget('courseexams' . $id);
         Session::flash('success', 'Course updated successfully!');

@@ -166,12 +166,8 @@ class CourseController extends Controller
         $exam->serial = $request->serial ?? 0; // Default to 0 if null/empty
         $exam->save();
 
-        // Redirect back, optionally passing the course_id if needed
-        return redirect()->back()->with('success', 'Exam serial updated successfully!');
-
         Cache::forget('courseexams' . $id);
-        Session::flash('success', 'Course updated successfully!');
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Exam serial updated successfully!');
     }
 
     public function deleteCourse($id)

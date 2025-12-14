@@ -137,7 +137,7 @@ class CourseController extends Controller
         }
         
         $course = Course::findOrFail($id);
-        return view('dashboard.courses.index')
+        return view('dashboard.courses.editserial')
                     ->withCourse($course);
     }
     

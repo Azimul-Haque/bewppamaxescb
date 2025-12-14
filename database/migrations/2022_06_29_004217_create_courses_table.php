@@ -21,7 +21,7 @@ class CreateCoursesTable extends Migration
             $table->integer('priority')->default(3);
             $table->integer('category')->default(0); // 1 = BCS, 2 = Primary, 3 = Bank, 4 = NTRCS, 5 = NSI/DGFI and Others
             $table->integer('live')->default(0); // live থাকলে কোর্স ক্যাটাগরির ভেতরে শো করবে
-            $table->integer('serial')->default(0);
+            $table->integer('serial')->default(0); // priority ব্যবহৃত হবে চলমান কোর্সসমূহ বার এ, serial ব্যবহৃত হবে কোর্স্ ক্যাটাগরিতে
             $table->timestamps();
         });
     }

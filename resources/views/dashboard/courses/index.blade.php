@@ -295,7 +295,7 @@
                           <option value="1">বিসিএস</option>
                           <option value="2">প্রাইমারি</option>
                           <option value="3">ব্যাংক</option>
-                          <option value="4">ফ্রি মডেল টেস্ট</option>
+                          <option value="4">NTRCA</option>
                           <option value="5">প্রশ্ন ব্যাংক</option>
                       </select>
                       <div class="input-group-append">

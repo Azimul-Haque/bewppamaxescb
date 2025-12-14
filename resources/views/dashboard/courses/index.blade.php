@@ -293,7 +293,7 @@
                       <select name="category" class="form-control" required>
                           <option selected="" disabled="" value="">ধরন</option>
                           <option value="1">বিসিএস</option>
-                          <option value="2">বিজেএস মডেল টেস্ট</option>
+                          <option value="2">প্রাইমারি</option>
                           <option value="3">বার মডেল টেস্ট</option>
                           <option value="4">ফ্রি মডেল টেস্ট</option>
                           <option value="5">প্রশ্ন ব্যাংক</option>

@@ -400,6 +400,7 @@ class APIController extends Controller
                  $courses = Course::select('id', 'name')
                              // status check korar dorkar nai, live check korbo
                              ->where('category', $category) // 1 = BCS, 2 = Primary, 3 = Bank, 4 = NTRCS, 5 = NSI/DGFI and Others
+                             ->where('live', 1)
                              ->orderBy('priority', 'asc')
                              ->get();
                  foreach($courses as $course) {

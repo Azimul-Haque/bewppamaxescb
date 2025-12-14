@@ -306,7 +306,7 @@
 
                     <div class="input-group mb-3">
                         <select name="status" class="form-control" required>
-                            <option selected="" disabled="" value="">লাইভ স্যাটাস (চলমান কোর্সসমূহতে দেখাবে কি না)</option>
+                            <option selected="" disabled="" value="">লাইভ স্যাটাস (ক্যাটাগরিভিত্তিক এর ভেতরে দেখাবে কি না)</option>
                             <option value="1">Active - হ্যাঁ</option>
                             <option value="0">In-active - না</option>
                         </select>

@@ -138,7 +138,7 @@ class CourseController extends Controller
         
         $course = Course::findOrFail($id);
 
-        $courseexams = Courseexam::where('course_id', $courseId)
+        $courseexams = Courseexam::where('course_id', $id)
                     ->with(['exam' => function ($query) {
                         // Ensure we select the columns we need, including 'serial'
                         $query->select('id', 'name', 'created_at', 'serial');

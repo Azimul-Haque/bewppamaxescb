@@ -69,6 +69,10 @@
                     </div>
                     <!-- /.card-body -->
                   </div>
+
+                  <div class="card-footer clearfix">
+                      {{ $courseExams->links('pagination::bootstrap-5') }} {{-- Use Bootstrap 5 style pagination --}}
+                  </div>
             </div>
         </div>
 

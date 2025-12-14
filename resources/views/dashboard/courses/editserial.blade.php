@@ -32,9 +32,9 @@
                               </tr>
                           </thead>
                           <tbody>
-                              @foreach ($courseexams as $courseExam)
+                              @foreach ($courseexams as $courseexam)
                                   @php
-                                      $exam = $courseExam->exam;
+                                      $exam = $courseexam->exam;
                                       // Calculate the current row number across all pages
                                       $rowNumber = ($courseexams->currentPage() - 1) * $courseexams->perPage() + $loop->iteration;
                                   @endphp

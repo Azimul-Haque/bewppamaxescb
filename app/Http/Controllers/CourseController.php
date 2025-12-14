@@ -129,6 +129,36 @@ class CourseController extends Controller
         Session::flash('success', 'Course updated successfully!');
         return redirect()->back();
     }
+    
+    public function updateExamSerialCourse(Request $request, $id)
+    {
+        // dd($request->file('image'));
+        $this->validate($request,array(
+            'available_from'     => 'required',
+            'gapbetween'         => 'required',
+            'oldwordtoreplace'   => 'sometimes',
+            'newwordtoreplace'   => 'sometimes',
+        ));
+
+        $course = Course::findOrFail($id);
+        // dd($course->courseexams);
+        $newdate = Carbon::parse($request->available_from);
+        foreach($course->courseexams as $courseexam) {
+            $courseexam->exam->available_from = $newdate;
+            $courseexam->exam->available_to = $newdate;
+    
+            if($request->oldwordtoreplace != '' && $request->newwordtoreplace != '' || $request->oldwordtoreplace != null && $request->newwordtoreplace != null) {
+                // dd($courseexam->exam->name);
+                $courseexam->exam->name = str_replace($request->oldwordtoreplace, $request->newwordtoreplace, $courseexam->exam->name);
+            }
+            $courseexam->exam->save();
+            $newdate = $newdate->addDays($request->gapbetween);
+        }
+
+        Cache::forget('courseexams' . $id);
+        Session::flash('success', 'Course updated successfully!');
+        return redirect()->back();
+    }
 
     public function deleteCourse($id)
     {

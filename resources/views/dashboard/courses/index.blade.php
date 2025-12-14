@@ -149,7 +149,7 @@
                                                   </div>
 
                                                   <div class="input-group mb-3">
-                                                      <input type="number" name="serial" class="form-control" value="{{ old('serial') }}" placeholder="সিরিয়াল (ক্যাটাগরিভিত্তিক এর ভেতরে যে সিরিয়ালে অ্যাপে দেখাবে)" required>
+                                                      <input type="number" name="serial" class="form-control" value="{{ $course->serial }}" placeholder="সিরিয়াল (ক্যাটাগরিভিত্তিক এর ভেতরে যে সিরিয়ালে অ্যাপে দেখাবে)" required>
                                                       <div class="input-group-append">
                                                           <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
                                                       </div>

@@ -105,7 +105,7 @@
                                                   </div>
                                                   <div class="input-group mb-3">
                                                     <select name="type" class="form-control" required>
-                                                        <option selected="" disabled="" value="">ধরন</option>
+                                                        <option selected="" disabled="" value="">ক্লাসিকাল ধরন</option>
                                                         <option value="1" @if($course->type == 1) selected @endif>সাধারণ কোর্স</option>
                                                         {{-- <option value="2" @if($course->type == 2) selected @endif>বিজেএস মডেল টেস্ট</option>
                                                         <option value="3" @if($course->type == 3) selected @endif>বার মডেল টেস্ট</option> --}}

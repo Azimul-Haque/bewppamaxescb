@@ -107,8 +107,8 @@
                                                     <select name="type" class="form-control" required>
                                                         <option selected="" disabled="" value="">ধরন</option>
                                                         <option value="1" @if($course->type == 1) selected @endif>সাধারণ কোর্স</option>
-                                                        <option value="2" @if($course->type == 2) selected @endif>বিজেএস মডেল টেস্ট</option>
-                                                        <option value="3" @if($course->type == 3) selected @endif>বার মডেল টেস্ট</option>
+                                                        {{-- <option value="2" @if($course->type == 2) selected @endif>বিজেএস মডেল টেস্ট</option>
+                                                        <option value="3" @if($course->type == 3) selected @endif>বার মডেল টেস্ট</option> --}}
                                                         <option value="4" @if($course->type == 4) selected @endif>ফ্রি মডেল টেস্ট</option>
                                                         <option value="5" @if($course->type == 5) selected @endif>প্রশ্ন ব্যাংক</option>
                                                     </select>

@@ -303,6 +303,17 @@
                           <div class="input-group-text"><span class="fas fa-tag"></span></div>
                       </div>
                     </div>
+
+                    <div class="input-group mb-3">
+                        <select name="status" class="form-control" required>
+                            <option selected="" disabled="" value="">স্ট্যাটাস (চলমান কোর্সসমূহতে দেখাবে কি না)</option>
+                            <option value="1">Active - হ্যাঁ</option>
+                            <option value="0">In-active - না</option>
+                        </select>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-star-half-alt"></span></div>
+                        </div>
+                    </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

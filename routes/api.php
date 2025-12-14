@@ -41,6 +41,10 @@ Route::get('/gettopics/{softtoken}', 'APIController@getTopics')->name('api.getto
 Route::get('/getpackages/{softtoken}', 'APIController@getPackages')->name('api.getpackages');
 Route::post('/payment/proceed', 'APIController@paymentProceed')->name('api.paymentproceed');
 
+// NEW VERSION CATEGORY WISE COURSES AND OTHERS
+Route::get('/getcourses/{softtoken}/{coursetype}', 'APIController@getCourses')->name('api.getcourses');
+// NEW VERSION CATEGORY WISE COURSES AND OTHERS
+
 Route::post('/message/store', 'APIController@storeMessage')->name('api.storemessage');
 
 Route::get('/getpaymenthistory/{softtoken}/{phonenumber}', 'APIController@getPaymentHistory')->name('api.getpaymenthistory');

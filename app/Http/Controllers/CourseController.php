@@ -63,6 +63,7 @@ class CourseController extends Controller
         $course->priority = $request->priority;
         $course->category = $request->category;
         $course->live = $request->live;
+        $course->serial = $request->serial;
         $course->save();
 
         Cache::forget('courses' . $request->type);

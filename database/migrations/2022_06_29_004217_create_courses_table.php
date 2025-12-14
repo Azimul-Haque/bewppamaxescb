@@ -19,6 +19,7 @@ class CreateCoursesTable extends Migration
             $table->integer('status')->default(0);
             $table->integer('type')->default(1); // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT
             $table->integer('priority')->default(3);
+            $table->integer('category')->default(3);
             $table->timestamps();
         });
     }

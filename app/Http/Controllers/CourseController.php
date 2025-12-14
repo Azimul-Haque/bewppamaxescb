@@ -53,6 +53,7 @@ class CourseController extends Controller
             'type' => 'required',
             'category' => 'required',
             'live' => 'required',
+            'serial' => 'required',
         ));
 
         $course = new Course;
@@ -60,6 +61,7 @@ class CourseController extends Controller
         $course->status = $request->status;
         $course->type = $request->type; // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT, 5 = QB
         $course->priority = $request->priority;
+        $course->category = $request->category;
         $course->save();
 
         Cache::forget('courses' . $request->type);

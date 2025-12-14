@@ -138,7 +138,7 @@ class CourseController extends Controller
         
         $course = Course::findOrFail($id);
 
-        $courseExams = Courseexam::where('course_id', $courseId)
+        $courseexams = Courseexam::where('course_id', $courseId)
                     ->with(['exam' => function ($query) {
                         // Ensure we select the columns we need, including 'serial'
                         $query->select('id', 'name', 'created_at', 'serial');
@@ -147,7 +147,7 @@ class CourseController extends Controller
                     // implies a specific order (e.g., newest exams first by exam_id)
                     ->orderBy('exam_id', 'desc') 
                     ->paginate(10); // Paginate with 10 items per page
-                    
+
         return view('dashboard.courses.editserial')
                     ->withCourse($course);
     }

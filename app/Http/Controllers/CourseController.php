@@ -138,8 +138,7 @@ class CourseController extends Controller
         
         $course = Course::findOrFail($id);
         return view('dashboard.courses.index')
-                    ->withCourses($courses)
-                    ->withTotalcourses($totalcourses);
+                    ->withCourse($course);
     }
     
     public function updateExamSerialCourse(Request $request, $id)

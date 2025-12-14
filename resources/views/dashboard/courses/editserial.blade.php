@@ -31,7 +31,6 @@
                     </div>
                     <!-- /.card-body -->
                   </div>
-                  {{ $courses->links() }}
             </div>
         </div>
 

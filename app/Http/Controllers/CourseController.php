@@ -160,7 +160,7 @@ class CourseController extends Controller
         ]);
 
         // Find the Exam record
-        $exam = Exam::findOrFail($examId);
+        $exam = Exam::findOrFail($id);
         
         // Update the serial column
         $exam->serial = $request->input('serial') ?? 0; // Default to 0 if null/empty

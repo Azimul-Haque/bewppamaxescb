@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-    @section('page-header') কোর্সসমূহ @endsection
+    @section('page-header') {{ $course->name }} এর সিরিয়াল আপডেট @endsection
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9">

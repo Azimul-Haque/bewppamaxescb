@@ -70,7 +70,7 @@
                                         <i class="fas fa-folder-plus"></i>
                                     </a>
                                     <a href="{{ route('dashboard.courses.exam.serial.edit', $course->id) }}" class="btn btn-success btn-sm" rel="tooltip" title="কোর্স হালনাগাদ করুন">
-                                        <i class="fas fa-folder-plus"></i>
+                                        <i class="fas fa-plus-circle"></i>
                                     </a>
                                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCourseModal{{ $course->id }}" rel="tooltip" title="তথ্য হালনাগাদ করুন">
                                           <i class="far fa-edit"></i>

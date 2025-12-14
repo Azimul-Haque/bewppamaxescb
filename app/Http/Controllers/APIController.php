@@ -436,7 +436,8 @@ class APIController extends Controller
             // 1. Fetch the base records from courseexams, eager load relationships, and join the exams table.
             $courseexams = Courseexam::select(
                     'courseexams.course_id', 
-                    'courseexams.exam_id'
+                    'courseexams.exam_id',
+                    'exams.serial'
                 )
                 // Eager load relationships needed in the foreach loop to prevent N+1 query problem
                 ->with('exam.examquestions') 

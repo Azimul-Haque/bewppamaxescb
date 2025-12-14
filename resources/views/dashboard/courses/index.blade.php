@@ -122,6 +122,38 @@
                                                           <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
                                                       </div>
                                                   </div>
+                                                  <div class="input-group mb-3">
+                                                    <select name="category" class="form-control" required>
+                                                        <option selected="" disabled="" value="">আপডেটেড ধরন</option>
+                                                        <option value="1">বিসিএস</option>
+                                                        <option value="2">প্রাইমারি</option>
+                                                        <option value="3">ব্যাংক</option>
+                                                        <option value="4">NTRCA</option>
+                                                        <option value="5">NSI, DGFI ও অন্যান্য</option>
+                                                        <option value="6">প্রশ্ন ব্যাংক</option>
+                                                    </select>
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text"><span class="fas fa-tag"></span></div>
+                                                    </div>
+                                                  </div>
+
+                                                  <div class="input-group mb-3">
+                                                      <select name="live" class="form-control" required>
+                                                          <option selected="" disabled="" value="">লাইভ স্যাটাস (ক্যাটাগরিভিত্তিক এর ভেতরে দেখাবে কি না)</option>
+                                                          <option value="1">Live - হ্যাঁ</option>
+                                                          <option value="0">Expired - না</option>
+                                                      </select>
+                                                      <div class="input-group-append">
+                                                          <div class="input-group-text"><span class="fas fa-star-half-alt"></span></div>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class="input-group mb-3">
+                                                      <input type="number" name="serial" class="form-control" value="{{ old('serial') }}" placeholder="সিরিয়াল (ক্যাটাগরিভিত্তিক এর ভেতরে যে সিরিয়ালে অ্যাপে দেখাবে)" required>
+                                                      <div class="input-group-append">
+                                                          <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
+                                                      </div>
+                                                  </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

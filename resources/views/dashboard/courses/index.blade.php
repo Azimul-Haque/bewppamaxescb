@@ -69,7 +69,7 @@
                                     <a href="{{ route('dashboard.courses.add.exam', $course->id) }}" class="btn btn-warning btn-sm" rel="tooltip" title="কোর্স হালনাগাদ করুন">
                                         <i class="fas fa-folder-plus"></i>
                                     </a>
-                                    <a href="{{ route('dashboard.courses.exam.serial.edit', $course->id) }}" class="btn btn-success btn-sm" rel="tooltip" title="কোর্স হালনাগাদ করুন">
+                                    <a href="{{ route('dashboard.courses.exam.serial.edit', $course->id) }}" class="btn btn-success btn-sm" rel="tooltip" title="সিরিয়াল হালনাগাদ করুন">
                                         <i class="fas fa-sort-amount-up-alt"></i>
                                     </a>
                                       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCourseModal{{ $course->id }}" rel="tooltip" title="তথ্য হালনাগাদ করুন">

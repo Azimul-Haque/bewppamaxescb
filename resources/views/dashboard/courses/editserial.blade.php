@@ -18,12 +18,6 @@
                 <div class="card">
                     <div class="card-header">
                       <h3 class="card-title">{{ $course->name }} এর সিরিয়াল আপডেট</h3>
-          
-                      <div class="card-tools">
-                          <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#addCourseModal">
-                              <i class="fas fa-plus-circle"></i> নতুন কোর্স যোগ
-                          </button>
-                      </div>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body p-0">

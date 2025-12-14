@@ -150,6 +150,7 @@ class CourseController extends Controller
 
         return view('dashboard.courses.editserial')
                     ->withCourse($course);
+                    ->withCourseexams($courseexams);
     }
     
     public function updateExamSerialCourse(Request $request, $id)

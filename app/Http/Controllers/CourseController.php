@@ -149,7 +149,7 @@ class CourseController extends Controller
                     ->paginate(10); // Paginate with 10 items per page
 
         return view('dashboard.courses.editserial')
-                    ->withCourse($course);
+                    ->withCourse($course)
                     ->withCourseexams($courseexams);
     }
     

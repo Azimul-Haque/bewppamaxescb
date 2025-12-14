@@ -401,7 +401,7 @@ class APIController extends Controller
                              // status check korar dorkar nai, live check korbo
                              ->where('category', $category) // 1 = BCS, 2 = Primary, 3 = Bank, 4 = NTRCS, 5 = NSI/DGFI and Others
                              ->where('live', 1)
-                             ->orderBy('serial', 'asc')
+                             ->orderBy('serial', 'asc') // priority use hobe চলমান কোর্সসমূহ বার এ, serial ব্যবহৃত হতে কোর্স্ ক্যাটাগরিতে
                              ->get();
                  foreach($courses as $course) {
                      $course->examcount = $course->courseexams->count();

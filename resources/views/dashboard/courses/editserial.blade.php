@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') ড্যাশবোর্ড | কোর্সসমূহ @endsection
+@section('title') ড্যাশবোর্ড | কোর্স | {{ $course->name }} @endsection
 
 @section('third_party_stylesheets')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.min.css') }}">

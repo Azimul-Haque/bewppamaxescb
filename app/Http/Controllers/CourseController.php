@@ -136,10 +136,7 @@ class CourseController extends Controller
             abort(403, 'Access Denied');
         }
         
-        $course = Course::orderBy('id', 'desc')->paginate(10);
-        $totalcourses = Course::count();
-        // $examcategories = Examcategory::all();
-        // dd($courses);
+        $course = Course::findOrFail($id);
         return view('dashboard.courses.index')
                     ->withCourses($courses)
                     ->withTotalcourses($totalcourses);

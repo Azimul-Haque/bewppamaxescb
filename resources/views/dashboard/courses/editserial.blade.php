@@ -43,7 +43,7 @@
                                       <td>{{ $exam->name ?? 'N/A' }}</td>
                                       <td>{{ $exam->created_at->format('Y-m-d') ?? 'N/A' }}</td>
                                       
-                                      <form action="{{ route('exam.update_serial', $exam->id) }}" method="POST">
+                                      <form action="{{ route('dashboard.courses.exam.serial.edit', $exam->id) }}" method="POST">
                                           @csrf
                                           @method('PUT') {{-- Use PUT method for update --}}
                                           

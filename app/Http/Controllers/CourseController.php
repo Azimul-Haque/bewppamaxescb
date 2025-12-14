@@ -163,7 +163,7 @@ class CourseController extends Controller
         $exam = Exam::findOrFail($id);
         
         // Update the serial column
-        $exam->serial = $request->input('serial') ?? 0; // Default to 0 if null/empty
+        $exam->serial = $request->serial ?? 0; // Default to 0 if null/empty
         $exam->save();
 
         // Redirect back, optionally passing the course_id if needed

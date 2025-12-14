@@ -61,7 +61,7 @@ class CourseController extends Controller
         $course->status = $request->status;
         $course->type = $request->type; // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT, 5 = QB
         $course->priority = $request->priority;
-        $course->category = $request->category;
+        $course->category = $request->category; // 1 = BCS, 2 = Primary, 3 = Bank, 4 = NTRCS, 5 = NSI/DGFI and Others
         $course->live = $request->live;
         $course->serial = $request->serial;
         $course->save();

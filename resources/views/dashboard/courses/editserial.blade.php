@@ -38,19 +38,6 @@
 @endsection
 
 @section('third_party_scripts')
-{{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
-{{-- <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script> --}}
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script>
-    // ClassicEditor
-    //     .create( document.querySelector( '.summernote' ) )
-    //     .then( editor => {
-    //             console.log( editor );
-    //     } )
-    //     .catch( error => {
-    //             console.error( error );
-    //     } );
-</script>
 <script type="text/javascript">
     $(document).ready( function() {
       $(document).on('change', '.btn-file :file', function() {

@@ -431,61 +431,61 @@ class APIController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-        $courseexams = Cache::remember('courseexams_' . $id, 10 * 24 * 60 * 60, function () use ($id) {
+            $courseexams = Cache::remember('courseexams_' . $id, 10 * 24 * 60 * 60, function () use ($id) {
 
-        // 1. Fetch the base records from courseexams, eager load relationships, and join the exams table.
-        $courseexams = Courseexam::select(
-                'courseexams.course_id', 
-                'courseexams.exam_id'
-            )
-            // Eager load relationships needed in the foreach loop to prevent N+1 query problem
-            ->with('exam.examquestions') 
-            
-            // 2. Join the exams table to access the 'serial' column for sorting
-            ->join('exams', 'exams.id', '=', 'courseexams.exam_id')
-            
-            // Ensure we only get exams for the specific course
-            ->where('course_id', $id)
-            
-            // 3. APPLY TWO-TIER CONDITIONAL SORTING LOGIC:
-            //    a) Primary Sort: By serial from the exams table (non-zero serials appear first)
-            ->orderBy('exams.serial', 'desc')
-            
-            //    b) Secondary Sort: Fallback to exam_id descending (used when serials are tied, e.g., all 0)
-            ->orderBy('courseexams.exam_id', 'desc')
-            
-            // Fetch the results
-            ->get();
+            // 1. Fetch the base records from courseexams, eager load relationships, and join the exams table.
+            $courseexams = Courseexam::select(
+                    'courseexams.course_id', 
+                    'courseexams.exam_id'
+                )
+                // Eager load relationships needed in the foreach loop to prevent N+1 query problem
+                ->with('exam.examquestions') 
+                
+                // 2. Join the exams table to access the 'serial' column for sorting
+                ->join('exams', 'exams.id', '=', 'courseexams.exam_id')
+                
+                // Ensure we only get exams for the specific course
+                ->where('course_id', $id)
+                
+                // 3. APPLY TWO-TIER CONDITIONAL SORTING LOGIC:
+                //    a) Primary Sort: By serial from the exams table (non-zero serials appear first)
+                ->orderBy('exams.serial', 'desc')
+                
+                //    b) Secondary Sort: Fallback to exam_id descending (used when serials are tied, e.g., all 0)
+                ->orderBy('courseexams.exam_id', 'desc')
+                
+                // Fetch the results
+                ->get();
 
-            // 4. Process the results for the frontend (add derived properties and hide redundant data)
-            foreach ($courseexams as $courseexam) {
-                // Accessing $courseexam->exam->... is now highly efficient due to EAGER LOADING (with('exam'))
+                // 4. Process the results for the frontend (add derived properties and hide redundant data)
+                foreach ($courseexams as $courseexam) {
+                    // Accessing $courseexam->exam->... is now highly efficient due to EAGER LOADING (with('exam'))
+                    
+                    // Add derived properties
+                    $courseexam->name = $courseexam->exam->name;
+                    $courseexam->start = $courseexam->exam->available_from;
+                    $courseexam->questioncount = $courseexam->exam->examquestions->count();
+                    $courseexam->syllabus = $courseexam->exam->syllabus ?? 'N/A'; // Use null coalescing for cleaner check
+                    $courseexam->alltimeavailability = $courseexam->exam->alltimeavailability;
+                    
+                    // Hide unnecessary exam details from the resulting JSON structure
+                    $courseexam->exam->makeHidden([
+                        'id', 'name', 'examcategory_id', 'price_type', 
+                        'available_from', 'available_to', 'syllabus', 
+                        'created_at', 'updated_at', 'examquestions', 
+                        'alltimeavailability'
+                    ]);
+                    
+                    // The join makes the 'exam_id' available, but the 'exam' relationship itself is what holds the objects
+                }
                 
-                // Add derived properties
-                $courseexam->name = $courseexam->exam->name;
-                $courseexam->start = $courseexam->exam->available_from;
-                $courseexam->questioncount = $courseexam->exam->examquestions->count();
-                $courseexam->syllabus = $courseexam->exam->syllabus ?? 'N/A'; // Use null coalescing for cleaner check
-                $courseexam->alltimeavailability = $courseexam->exam->alltimeavailability;
-                
-                // Hide unnecessary exam details from the resulting JSON structure
-                $courseexam->exam->makeHidden([
-                    'id', 'name', 'examcategory_id', 'price_type', 
-                    'available_from', 'available_to', 'syllabus', 
-                    'created_at', 'updated_at', 'examquestions', 
-                    'alltimeavailability'
-                ]);
-                
-                // The join makes the 'exam_id' available, but the 'exam' relationship itself is what holds the objects
-            }
-            
-            return $courseexams;
-        });
+                return $courseexams;
+            });
 
-        return response()->json([
-            'success' => true,
-            'exams' => $courseexams,
-        ]);
+            return response()->json([
+                'success' => true,
+                'exams' => $courseexams,
+            ]);
         } else {
             return response()->json([
                 'success' => false

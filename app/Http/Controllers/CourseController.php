@@ -62,6 +62,7 @@ class CourseController extends Controller
         $course->type = $request->type; // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT, 5 = QB
         $course->priority = $request->priority;
         $course->category = $request->category;
+        $course->live = $request->live;
         $course->save();
 
         Cache::forget('courses' . $request->type);

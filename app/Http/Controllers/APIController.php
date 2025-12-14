@@ -392,14 +392,14 @@ class APIController extends Controller
         }
     }
 
-    public function getCoursesCategoryWise($softtoken, $coursetype)
+    public function getCoursesCategoryWise($softtoken, $category)
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $courses = Cache::remember('courses'.$coursetype, 10 * 24 * 60 * 60, function () use ($coursetype) {
+            $courses = Cache::remember('courses'.$category, 10 * 24 * 60 * 60, function () use ($category) {
                  $courses = Course::select('id', 'name')
                              ->where('status', 1) // take only active courses
-                             ->where('type', $coursetype) // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT, 5 = QB
+                             ->where('type', $category) // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT, 5 = QB
                              ->orderBy('priority', 'asc')
                              ->get();
                  foreach($courses as $course) {

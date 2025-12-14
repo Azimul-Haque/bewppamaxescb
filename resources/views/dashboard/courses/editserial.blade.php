@@ -21,7 +21,51 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body p-0">
-                      
+                      <table class="table table-striped">
+                          <thead>
+                              <tr>
+                                  <th style="width: 10px">#</th>
+                                  <th>Exam Name</th>
+                                  <th>Created At</th>
+                                  <th style="width: 150px">Serial (Order)</th>
+                                  <th style="width: 100px">Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              @foreach ($courseExams as $courseExam)
+                                  @php
+                                      $exam = $courseExam->exam;
+                                      // Calculate the current row number across all pages
+                                      $rowNumber = ($courseExams->currentPage() - 1) * $courseExams->perPage() + $loop->iteration;
+                                  @endphp
+                                  <tr>
+                                      <td>{{ $rowNumber }}</td>
+                                      <td>{{ $exam->name ?? 'N/A' }}</td>
+                                      <td>{{ $exam->created_at->format('Y-m-d') ?? 'N/A' }}</td>
+                                      
+                                      <form action="{{ route('exam.update_serial', $exam->id) }}" method="POST">
+                                          @csrf
+                                          @method('PUT') {{-- Use PUT method for update --}}
+                                          
+                                          <td>
+                                              <input 
+                                                  type="number" 
+                                                  name="serial" 
+                                                  value="{{ $exam->serial ?? 0 }}" 
+                                                  class="form-control form-control-sm"
+                                                  placeholder="0" 
+                                                  min="0"
+                                                  style="max-width: 100px;"
+                                              >
+                                          </td>
+                                          <td>
+                                              <button type="submit" class="btn btn-sm btn-primary">Save</button>
+                                          </td>
+                                      </form>
+                                  </tr>
+                              @endforeach
+                          </tbody>
+                      </table>
                     </div>
                     <!-- /.card-body -->
                   </div>

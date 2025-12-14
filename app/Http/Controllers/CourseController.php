@@ -95,7 +95,7 @@ class CourseController extends Controller
 
         Cache::forget('courses' . $request->type);
         Session::flash('success', 'Course updated successfully!');
-        return redirect()->route('dashboard.courses');
+        return redirect()->back();
     }
     
     public function updateExamDatesCourse(Request $request, $id)

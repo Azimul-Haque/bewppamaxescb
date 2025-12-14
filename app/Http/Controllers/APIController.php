@@ -396,7 +396,7 @@ class APIController extends Controller
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $courses = Cache::remember('courses'.$category, 10 * 24 * 60 * 60, function () use ($category) {
+            $courses = Cache::remember('categorywisecourses'.$category, 10 * 24 * 60 * 60, function () use ($category) {
                  $courses = Course::select('id', 'name')
                              // status check korar dorkar nai, live check korbo
                              ->where('category', $category) // 1 = BCS, 2 = Primary, 3 = Bank, 4 = NTRCS, 5 = NSI/DGFI and Others, 6 = QB

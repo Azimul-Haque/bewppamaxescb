@@ -156,7 +156,7 @@ Route::post('/dashboard/courses/exams/dates/{id}/update', 'CourseController@upda
 Route::get('/dashboard/courses/{id}/delete', 'CourseController@deleteCourse')->name('dashboard.courses.delete');
 Route::get('/dashboard/courses/add/exam/{id}', 'CourseController@addExamToCourse')->name('dashboard.courses.add.exam');
 Route::post('/dashboard/courses/add/exam/store', 'CourseController@storeCourseExam')->name('dashboard.courses.exam.store');
-Route::post('/dashboard/courses/exams/serial/{id}/update', 'CourseController@updateExamSerialCourse')->name('dashboard.courses.exam.serial.update');
+Route::get('/dashboard/courses/exams/serial/{id}/update', 'CourseController@updateExamSerialCourse')->name('dashboard.courses.exam.serial.update');
 
 Route::get('/dashboard/materials', 'MaterialController@getMaterials')->name('dashboard.materials');
 Route::post('/dashboard/materials/store', 'MaterialController@storeMaterial')->name('dashboard.materials.store');

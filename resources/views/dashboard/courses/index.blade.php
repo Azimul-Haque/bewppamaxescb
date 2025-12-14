@@ -129,8 +129,8 @@
                                                         <option value="2"  @if($course->type == 4) selected @endif>প্রাইমারি</option>
                                                         <option value="3"  @if($course->type == 4) selected @endif>ব্যাংক</option>
                                                         <option value="4"  @if($course->type == 4) selected @endif>NTRCA</option>
-                                                        <option value="5">NSI, DGFI ও অন্যান্য</option>
-                                                        <option value="6">প্রশ্ন ব্যাংক</option>
+                                                        <option value="5"  @if($course->type == 4) selected @endif>NSI, DGFI ও অন্যান্য</option>
+                                                        <option value="6"  @if($course->type == 4) selected @endif>প্রশ্ন ব্যাংক</option>
                                                     </select>
                                                     <div class="input-group-append">
                                                         <div class="input-group-text"><span class="fas fa-tag"></span></div>

@@ -32,11 +32,11 @@
                               </tr>
                           </thead>
                           <tbody>
-                              @foreach ($courseExams as $courseExam)
+                              @foreach ($courseexams as $courseExam)
                                   @php
                                       $exam = $courseExam->exam;
                                       // Calculate the current row number across all pages
-                                      $rowNumber = ($courseExams->currentPage() - 1) * $courseExams->perPage() + $loop->iteration;
+                                      $rowNumber = ($courseexams->currentPage() - 1) * $courseexams->perPage() + $loop->iteration;
                                   @endphp
                                   <tr>
                                       <td>{{ $rowNumber }}</td>
@@ -71,7 +71,7 @@
                   </div>
 
                   <div class="card-footer clearfix">
-                      {{ $courseExams->links('pagination::bootstrap-5') }} {{-- Use Bootstrap 5 style pagination --}}
+                      {{ $courseexams->links('pagination::bootstrap-5') }} {{-- Use Bootstrap 5 style pagination --}}
                   </div>
             </div>
         </div>

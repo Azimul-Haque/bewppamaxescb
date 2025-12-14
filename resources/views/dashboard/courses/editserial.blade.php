@@ -71,7 +71,7 @@
                   </div>
 
                   <div class="card-footer clearfix">
-                      {{ $courseexams->links('pagination::bootstrap-5') }} {{-- Use Bootstrap 5 style pagination --}}
+                      {{ $courseexams->links() }} {{-- Use Bootstrap 5 style pagination --}}
                   </div>
             </div>
         </div>

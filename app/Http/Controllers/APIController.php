@@ -457,8 +457,6 @@ class APIController extends Controller
             // Fetch the results
             ->get();
 
-            dd($courseexams);
-
             // 4. Process the results for the frontend (add derived properties and hide redundant data)
             foreach ($courseexams as $courseexam) {
                 // Accessing $courseexam->exam->... is now highly efficient due to EAGER LOADING (with('exam'))

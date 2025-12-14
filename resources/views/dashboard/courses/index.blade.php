@@ -95,7 +95,7 @@
                                                   </div>
                                                   <div class="input-group mb-3">
                                                     <select name="status" class="form-control" required>
-                                                        <option selected="" disabled="" value="">স্ট্যাটাস (চলমান কোর্সসমূহতে যে সিরিয়ালে অ্যাপে দেখাবে)</option>
+                                                        <option selected="" disabled="" value="">স্ট্যাটাস (চলমান কোর্সসমূহতে দেখাবে কি না)</option>
                                                         <option value="1" @if($course->status == 1) selected @endif>Active</option>
                                                         <option value="0" @if($course->status == 0) selected @endif>In-active</option>
                                                     </select>

@@ -45,7 +45,7 @@
                                       
                                       <form action="{{ route('dashboard.courses.exam.serial.edit', $exam->id) }}" method="POST">
                                           @csrf
-                                          @method('POST') {{-- Use PUT method for update --}}
+                                          @method('POST')
                                           
                                           <td>
                                               <input 

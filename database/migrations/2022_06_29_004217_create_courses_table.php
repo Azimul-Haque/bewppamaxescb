@@ -21,6 +21,7 @@ class CreateCoursesTable extends Migration
             $table->integer('priority')->default(3);
             $table->integer('category')->default(0);
             $table->integer('live')->default(0);
+            $table->integer('serial')->default(0);
             $table->timestamps();
         });
     }

@@ -95,7 +95,6 @@ class CourseController extends Controller
         $course->save();
 
         Cache::forget('courses' . $request->type);
-        
         Cache::forget('categorywisecourses' . $request->category);
         Session::flash('success', 'Course updated successfully!');
         return redirect()->back();

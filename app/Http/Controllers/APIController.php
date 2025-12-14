@@ -399,7 +399,7 @@ class APIController extends Controller
             $courses = Cache::remember('courses'.$category, 10 * 24 * 60 * 60, function () use ($category) {
                  $courses = Course::select('id', 'name')
                              ->where('status', 1) // take only active courses
-                             ->where('type', $category) // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT, 5 = QB
+                             ->where('category', $category) // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT, 5 = QB
                              ->orderBy('priority', 'asc')
                              ->get();
                  foreach($courses as $course) {

@@ -139,7 +139,7 @@
 
                                                   <div class="input-group mb-3">
                                                       <select name="live" class="form-control" required>
-                                                          <option selected="" disabled="" value="">লাইভ স্যাটাস (ক্যাটাগরিভিত্তিক এর ভেতরে দেখাবে কি না)</option>
+                                                          <option selected="" disabled="" value="{{ $course->live }}">লাইভ স্যাটাস (ক্যাটাগরিভিত্তিক এর ভেতরে দেখাবে কি না)</option>
                                                           <option value="1">Live - হ্যাঁ</option>
                                                           <option value="0">Expired - না</option>
                                                       </select>

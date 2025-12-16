@@ -43,7 +43,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
         'otp.throttle' => [
-            'throttle:5,15', // Allows 3 attempts every 5 minutes per IP
+            'throttle:5,15', // Allows 5 attempts every 15 minutes per IP
         ],
     ];
 

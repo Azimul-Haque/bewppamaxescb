@@ -57,7 +57,6 @@ class APIController extends Controller
             }
 
             $ip_address = $request->ip(); // 🌟 Get the current IP address 🌟
-            // ... (OTP generation and mobile number formatting) ...
 
             // 🌟 NEW SPAM PREVENTION Layer 1.5: IP Rate Limit (5 attempts per hour from any IP)
             $ip_requests_last_hour = Userotp::where('ip_address', $ip_address)

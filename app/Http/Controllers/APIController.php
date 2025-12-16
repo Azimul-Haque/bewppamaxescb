@@ -56,7 +56,7 @@ class APIController extends Controller
                 }
             }
 
-            // SPAM PREVENTION Layers...
+            // SPAM PREVENTION Layers 1
             $ip_address = $request->ip(); // 🌟 Get the current IP address 🌟
 
             // 🌟 NEW SPAM PREVENTION Layer 1.5: IP Rate Limit (5 attempts per hour from any IP)
@@ -68,7 +68,7 @@ class APIController extends Controller
                  return response()->json(['success' => false, 'message' => 'Too many requests from this device/network. Try again later.'], 429);
             }
 
-            // SPAM PREVENTION Layer 1
+            // SPAM PREVENTION Layer 2
             $triedlastfivedays = Userotp::where('mobile', $mobile_number)
                                         ->where('created_at', '>=', Carbon::now()->subDays(5)->toDateTimeString())
                                         ->count();

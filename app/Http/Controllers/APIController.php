@@ -64,7 +64,7 @@ class APIController extends Controller
                 ->where('created_at', '>=', Carbon::now()->subHours(2)->toDateTimeString())
                 ->count();
             
-            if($ip_requests_last_hour > 5) {
+            if($ip_requests_last_hour > 3) {
                  return response()->json(['success' => false, 'message' => 'Too many requests from this device/network. Try again later.'], 429);
             }
 

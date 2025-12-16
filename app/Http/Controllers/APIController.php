@@ -74,7 +74,7 @@ class APIController extends Controller
                                         ->count();
 
             if($triedlastfivedays < 2) {
-                // SPAM PREVENTION Layer 1
+                // SPAM PREVENTION Layer 2
                 $triedlasttwentyminutes = Userotp::where('mobile', $mobile_number)
                                         ->where('created_at', '>=', Carbon::now()->subMinutes(20)->toDateTimeString())
                                         ->count();
@@ -136,7 +136,7 @@ class APIController extends Controller
             } else {
                 return 'Requested too many times!';
             }
-            // SPAM PREVENTION Layer 1
+            // SPAM PREVENTION Layer 2
             
         } else {
             return 'Invalid Soft Token';

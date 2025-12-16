@@ -59,6 +59,7 @@ class APIController extends Controller
             // SPAM PREVENTION Layers 1
             $ip_address = $request->ip(); // 🌟 Get the current IP address 🌟
 
+            // 🌟 NEW SPAM CHECK: IMMEDIATE COOLDOWN ON IP (Layer 1.1) 🌟
             $last_request_time = Userotp::where('ip_address', $ip_address)
                         ->latest() // Get the most recent attempt
                         ->value('created_at');
@@ -70,7 +71,7 @@ class APIController extends Controller
                         ], 429);
                     }
 
-            // 🌟 NEW SPAM PREVENTION Layer 1.1: IP Rate Limit (5 attempts per 2 hour from any IP)
+            // 🌟 NEW SPAM PREVENTION Layer 1.2: IP Rate Limit (5 attempts per 2 hour from any IP)
             $ip_requests_last_hour = Userotp::where('ip_address', $ip_address)
                 ->where('created_at', '>=', Carbon::now()->subHours(2)->toDateTimeString())
                 ->count();

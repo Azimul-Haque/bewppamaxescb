@@ -56,6 +56,7 @@ class APIController extends Controller
                 }
             }
 
+            // SPAM PREVENTION Layers...
             $ip_address = $request->ip(); // 🌟 Get the current IP address 🌟
 
             // 🌟 NEW SPAM PREVENTION Layer 1.5: IP Rate Limit (5 attempts per hour from any IP)

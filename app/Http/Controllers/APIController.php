@@ -56,6 +56,18 @@ class APIController extends Controller
                 }
             }
 
+            $ip_address = $request->ip(); // 🌟 Get the current IP address 🌟
+            // ... (OTP generation and mobile number formatting) ...
+
+            // 🌟 NEW SPAM PREVENTION Layer 1.5: IP Rate Limit (5 attempts per hour from any IP)
+            $ip_requests_last_hour = Userotp::where('ip_address', $ip_address)
+                ->where('created_at', '>=', Carbon::now()->subHour()->toDateTimeString())
+                ->count();
+            
+            if($ip_requests_last_hour > 5) {
+                 return response()->json(['success' => false, 'message' => 'Too many requests from this device/network. Try again later.'], 429);
+            }
+
             // SPAM PREVENTION Layer 1
             $triedlastfivedays = Userotp::where('mobile', $mobile_number)
                                         ->where('created_at', '>=', Carbon::now()->subDays(5)->toDateTimeString())

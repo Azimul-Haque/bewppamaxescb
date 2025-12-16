@@ -142,7 +142,7 @@ class APIController extends Controller
 
                     return $otp; 
                 } else {
-                    return 'Requested within 5 minutes!';
+                    return 'Requested within 30 minutes!';
                 }
                 // SPAM PREVENTION Layer 2
             } else {

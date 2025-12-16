@@ -125,6 +125,7 @@ class APIController extends Controller
                     $newOTP = new Userotp();
                     $newOTP->mobile = $number;
                     $newOTP->otp = $otp;
+                    $newOTP->ip_address = $ip_address; // 🌟 Save the IP 🌟
                     $newOTP->save();
 
                     return $otp; 

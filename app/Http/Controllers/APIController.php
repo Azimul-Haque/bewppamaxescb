@@ -59,7 +59,7 @@ class APIController extends Controller
             // SPAM PREVENTION Layers 1
             $ip_address = $request->ip(); // 🌟 Get the current IP address 🌟
 
-            🌟 NEW SPAM CHECK: IMMEDIATE COOLDOWN ON IP (Layer 1.1) 🌟
+            // 🌟 NEW SPAM CHECK: IMMEDIATE COOLDOWN ON IP (Layer 1.1) 🌟
             $last_request_time = Userotp::where('ip_address', $ip_address)
                         ->latest() // Get the most recent attempt
                         ->value('created_at');

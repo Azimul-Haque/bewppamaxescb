@@ -68,7 +68,7 @@ class APIController extends Controller
                 return response()->json([
                     'success' => false, 
                     'message' => 'Please wait 60 seconds before trying a new number from this network.'
-                ], 429);
+                ], 503);
             }
 
             // 🌟 NEW SPAM PREVENTION Layer 1.2: IP Rate Limit (5 attempts per 2 hour from any IP)

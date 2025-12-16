@@ -17,6 +17,7 @@ class CreateUserotpsTable extends Migration
             $table->id();
             $table->string('mobile');
             $table->string('otp');
+            $table->string('ip_address')->nullable()->after('mobile');
             $table->timestamps();
         });
     }

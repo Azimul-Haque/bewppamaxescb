@@ -39,122 +39,122 @@ class APIController extends Controller
     {
         return response()->json(['success' => false, 'message' => 'Blocking temporarily.'], 404);
 
-        // $this->validate($request,array(
-        //     'mobile'         => 'required',
-        //     'softtoken'      => 'required|max:191'
-        // ));
+        $this->validate($request,array(
+            'mobile'         => 'required',
+            'softtoken'      => 'required|max:191'
+        ));
 
-        // if($request->softtoken == env('SOFT_TOKEN')) {
+        if($request->softtoken == env('SOFT_TOKEN')) {
 
-        //     $pool = '0123456789';
-        //     $otp = substr(str_shuffle(str_repeat($pool, 4)), 0, 4);
+            $pool = '0123456789';
+            $otp = substr(str_shuffle(str_repeat($pool, 4)), 0, 4);
 
-        //     $mobile_number = 0;
-        //     if(strlen($request->mobile) == 11) {
-        //         $mobile_number = $request->mobile;
-        //     } elseif(strlen($request->mobile) > 11) {
-        //         if (strpos($request->mobile, '+') !== false) {
-        //             $mobile_number = substr($request->mobile, -11);
-        //         }
-        //     }
+            $mobile_number = 0;
+            if(strlen($request->mobile) == 11) {
+                $mobile_number = $request->mobile;
+            } elseif(strlen($request->mobile) > 11) {
+                if (strpos($request->mobile, '+') !== false) {
+                    $mobile_number = substr($request->mobile, -11);
+                }
+            }
 
-        //     // SPAM PREVENTION Layers 1
-        //     $ip_address = $request->ip(); // 🌟 Get the current IP address 🌟
+            // SPAM PREVENTION Layers 1
+            $ip_address = $request->ip(); // 🌟 Get the current IP address 🌟
 
-        //     // 🌟 NEW SPAM CHECK: IMMEDIATE COOLDOWN ON IP (Layer 1.1) 🌟
-        //     $last_request_time = Userotp::where('ip_address', $ip_address)
-        //                 ->latest() // Get the most recent attempt
-        //                 ->value('created_at');
+            // 🌟 NEW SPAM CHECK: IMMEDIATE COOLDOWN ON IP (Layer 1.1) 🌟
+            $last_request_time = Userotp::where('ip_address', $ip_address)
+                        ->latest() // Get the most recent attempt
+                        ->value('created_at');
 
-        //     if ($last_request_time && Carbon::parse($last_request_time)->diffInSeconds(Carbon::now()) < 60) {
-        //         return response()->json([
-        //             'success' => false, 
-        //             'message' => 'Please wait 60 seconds before trying a new number from this network.'
-        //         ], 503);
-        //     }
+            if ($last_request_time && Carbon::parse($last_request_time)->diffInSeconds(Carbon::now()) < 60) {
+                return response()->json([
+                    'success' => false, 
+                    'message' => 'Please wait 60 seconds before trying a new number from this network.'
+                ], 503);
+            }
 
-        //     // 🌟 NEW SPAM PREVENTION Layer 1.2: IP Rate Limit (5 attempts per 2 hour from any IP)
-        //     $ip_requests_last_hour = Userotp::where('ip_address', $ip_address)
-        //         ->where('created_at', '>=', Carbon::now()->subHours(2)->toDateTimeString())
-        //         ->count();
+            // 🌟 NEW SPAM PREVENTION Layer 1.2: IP Rate Limit (5 attempts per 2 hour from any IP)
+            $ip_requests_last_hour = Userotp::where('ip_address', $ip_address)
+                ->where('created_at', '>=', Carbon::now()->subHours(2)->toDateTimeString())
+                ->count();
             
-        //     if($ip_requests_last_hour > 3) {
-        //          return response()->json(['success' => false, 'message' => 'Too many requests from this device/network. Try again later.'], 429);
-        //     }
+            if($ip_requests_last_hour > 3) {
+                 return response()->json(['success' => false, 'message' => 'Too many requests from this device/network. Try again later.'], 429);
+            }
 
-        //     // SPAM PREVENTION Layer 2
-        //     $triedlastfivedays = Userotp::where('mobile', $mobile_number)
-        //                                 ->where('created_at', '>=', Carbon::now()->subDays(5)->toDateTimeString())
-        //                                 ->count();
+            // SPAM PREVENTION Layer 2
+            $triedlastfivedays = Userotp::where('mobile', $mobile_number)
+                                        ->where('created_at', '>=', Carbon::now()->subDays(5)->toDateTimeString())
+                                        ->count();
 
-        //     if($triedlastfivedays < 3) {
-        //         // SPAM PREVENTION Layer 2
-        //         $triedlasttwentyminutes = Userotp::where('mobile', $mobile_number)
-        //                                 ->where('created_at', '>=', Carbon::now()->subMinutes(30)->toDateTimeString())
-        //                                 ->count();
+            if($triedlastfivedays < 3) {
+                // SPAM PREVENTION Layer 2
+                $triedlasttwentyminutes = Userotp::where('mobile', $mobile_number)
+                                        ->where('created_at', '>=', Carbon::now()->subMinutes(30)->toDateTimeString())
+                                        ->count();
 
-        //         if($triedlasttwentyminutes < 1) {
-        //             // FOR PLAY CONSOLE TESTING PURPOSE
-        //             // FOR PLAY CONSOLE TESTING PURPOSE
-        //             if($mobile_number == '01751398392') {
-        //                $otp = env('SMS_GATEWAY_PLAY_CONSOLE_TEST_OTP');
-        //             }
+                if($triedlasttwentyminutes < 1) {
+                    // FOR PLAY CONSOLE TESTING PURPOSE
+                    // FOR PLAY CONSOLE TESTING PURPOSE
+                    if($mobile_number == '01751398392') {
+                       $otp = env('SMS_GATEWAY_PLAY_CONSOLE_TEST_OTP');
+                    }
 
-        //             // TEXT MESSAGE OTP
-        //             // TEXT MESSAGE OTP
+                    // TEXT MESSAGE OTP
+                    // TEXT MESSAGE OTP
 
-        //             // NEW PANEL
-        //             $url = config('sms.url2');
-        //             $api_key = config('sms.api_key');
-        //             $senderid = config('sms.senderid');
-        //             $number = $mobile_number;
-        //             $message = $otp . ' is your pin for BCS Exam Aid App.';
+                    // NEW PANEL
+                    $url = config('sms.url2');
+                    $api_key = config('sms.api_key');
+                    $senderid = config('sms.senderid');
+                    $number = $mobile_number;
+                    $message = $otp . ' is your pin for BCS Exam Aid App.';
 
-        //             $data = [
-        //                 "api_key" => $api_key,
-        //                 "senderid" => $senderid,
-        //                 "number" => $number,
-        //                 "message" => $message,
-        //             ];
-        //             $ch = curl_init();
-        //             curl_setopt($ch, CURLOPT_URL, $url);
-        //             curl_setopt($ch, CURLOPT_POST, 1);
-        //             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        //             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        //             $response = curl_exec($ch);
-        //             curl_close($ch);
-        //             $jsonresponse = json_decode($response);
+                    $data = [
+                        "api_key" => $api_key,
+                        "senderid" => $senderid,
+                        "number" => $number,
+                        "message" => $message,
+                    ];
+                    $ch = curl_init();
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_POST, 1);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                    $response = curl_exec($ch);
+                    curl_close($ch);
+                    $jsonresponse = json_decode($response);
 
-        //             if($jsonresponse->response_code == 202) {
-        //                 // Session::flash('success', 'SMS সফলভাবে পাঠানো হয়েছে!');
-        //             } elseif($jsonresponse->response_code == 1007) {
-        //                 // Session::flash('warning', 'অপর্যাপ্ত SMS ব্যালেন্সের কারণে SMS পাঠানো যায়নি!');
-        //             } else {
-        //                 // Session::flash('warning', 'দুঃখিত! SMS পাঠানো যায়নি!');
-        //             }
+                    if($jsonresponse->response_code == 202) {
+                        // Session::flash('success', 'SMS সফলভাবে পাঠানো হয়েছে!');
+                    } elseif($jsonresponse->response_code == 1007) {
+                        // Session::flash('warning', 'অপর্যাপ্ত SMS ব্যালেন্সের কারণে SMS পাঠানো যায়নি!');
+                    } else {
+                        // Session::flash('warning', 'দুঃখিত! SMS পাঠানো যায়নি!');
+                    }
 
-        //             // Userotp::where('mobile', $number)->delete(); // এটাকার প্রিভেন্ট করার জন্য ডিলেট ক্রতেসি না...
+                    // Userotp::where('mobile', $number)->delete(); // এটাকার প্রিভেন্ট করার জন্য ডিলেট ক্রতেসি না...
 
-        //             $newOTP = new Userotp();
-        //             $newOTP->mobile = $number;
-        //             $newOTP->otp = $otp;
-        //             $newOTP->ip_address = $ip_address; // 🌟 Save the IP 🌟
-        //             $newOTP->save();
+                    $newOTP = new Userotp();
+                    $newOTP->mobile = $number;
+                    $newOTP->otp = $otp;
+                    $newOTP->ip_address = $ip_address; // 🌟 Save the IP 🌟
+                    $newOTP->save();
 
-        //             return $otp; 
-        //         } else {
-        //             return 'Requested within 30 minutes!';
-        //         }
-        //         // SPAM PREVENTION Layer 2
-        //     } else {
-        //         return 'Requested too many times!';
-        //     }
-        //     // SPAM PREVENTION Layer 2
+                    return $otp; 
+                } else {
+                    return 'Requested within 30 minutes!';
+                }
+                // SPAM PREVENTION Layer 2
+            } else {
+                return 'Requested too many times!';
+            }
+            // SPAM PREVENTION Layer 2
             
-        // } else {
-        //     return 'Invalid Soft Token';
-        // }
+        } else {
+            return 'Invalid Soft Token';
+        }
     }
 
     public function loginOrCreate(Request $request)

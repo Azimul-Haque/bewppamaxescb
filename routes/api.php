@@ -20,8 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/testapi', 'APIController@test')->name('api.test');
 
-// Route::post('/generateotp', 'APIController@generateOTP')->name('api.generateotp');
-Route::post('/generateotp', 'APIController@generateOTP')->name('api.generateotp')->middleware('otp.throttle');
+Route::post('/generateotp', 'APIController@generateOTP')->name('api.generateotp');
+// Route::post('/generateotp', 'APIController@generateOTP')->name('api.generateotp')->middleware('otp.throttle');
 Route::post('/loginorcreate', 'APIController@loginOrCreate')->name('api.loginorcreate');
 
 Route::get('/checkuid/{softtoken}/{phonenumber}', 'APIController@checkUid')->name('api.checkuid');

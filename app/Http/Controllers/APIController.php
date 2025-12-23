@@ -171,7 +171,8 @@ class APIController extends Controller
                     $newOTP->ip_address = $ip_address; // 🌟 Save the IP 🌟
                     $newOTP->save();
 
-                    return $otp; 
+                    // return $otp;
+                    return response()->json(['success' => true, 'message' => 'OTP Sent!']);
                 } else {
                     // return 'Requested within 30 minutes!';
                     return response()->json(['success' => false, 'message' => '৩০ মিনিট পরে চেষ্টা করুন!'], 429);

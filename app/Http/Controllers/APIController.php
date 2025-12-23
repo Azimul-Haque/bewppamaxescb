@@ -162,6 +162,7 @@ class APIController extends Controller
                     return $otp; 
                 } else {
                     return 'Requested within 30 minutes!';
+                    return response()->json(['success' => false, 'message' => 'আপনি বার বার চেষ্টা করছেন! পরে চেষ্টা করুন।'], 429);
                 }
                 // SPAM PREVENTION Layer 2
             } else {

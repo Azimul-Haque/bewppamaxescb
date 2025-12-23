@@ -66,7 +66,10 @@ class APIController extends Controller
         // cloudflare
         // cloudflare
 
-        
+        // OTP Limit for devices
+        $deviceId = $request->input('device_id');
+            $key = 'otp_limit:' . $deviceId;
+        // OTP Limit for devices
 
         if($request->softtoken == env('SOFT_TOKEN')) {
 

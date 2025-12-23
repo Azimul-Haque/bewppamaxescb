@@ -90,7 +90,7 @@ class APIController extends Controller
                 ], 503);
             }
 
-            // 🌟 NEW SPAM PREVENTION Layer 1.2: IP Rate Limit (5 attempts per 2 hour from any IP)
+            // 🌟 NEW SPAM PREVENTION Layer 1.2: IP Rate Limit (3 attempts per 2 hour from any IP)
             $ip_requests_last_hour = Userotp::where('ip_address', $ip_address)
                 ->where('created_at', '>=', Carbon::now()->subHours(2)->toDateTimeString())
                 ->count();

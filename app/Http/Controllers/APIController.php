@@ -62,6 +62,11 @@ class APIController extends Controller
 
             // cloudflare
             $captchaToken = $request->input('captcha_token');
+            $verify = \Illuminate\Support\Facades\Http::asForm()->post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+                'secret'   => 'আপনার_SECRET_KEY_এখানে_দিন', // Cloudflare থেকে পাওয়া Secret Key
+                'response' => $captchaToken,
+                'remoteip' => $request->ip(),
+            ]);
             // cloudflare
 
             // SPAM PREVENTION Layers 1

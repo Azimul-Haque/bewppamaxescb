@@ -47,9 +47,7 @@ class APIController extends Controller
             'softtoken'         => 'required|max:191'
         ));
 
-        // cloudflare
-        // cloudflare
-        // cloudflare
+        // ১. ক্লাউডফ্লেয়ার ভেরিফিকেশন (সবার আগে)
         $captchaToken = $request->input('captcha_token');
         $verify = \Illuminate\Support\Facades\Http::asForm()->post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
             'secret'   => config('services.turnstile.secret'), // Cloudflare থেকে পাওয়া Secret Key

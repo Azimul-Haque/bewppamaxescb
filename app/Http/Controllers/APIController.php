@@ -60,6 +60,10 @@ class APIController extends Controller
                 }
             }
 
+            // cloudflare
+            $captchaToken = $request->input('captcha_token');
+            // cloudflare
+
             // SPAM PREVENTION Layers 1
             $ip_address = $request->ip(); // 🌟 Get the current IP address 🌟
 

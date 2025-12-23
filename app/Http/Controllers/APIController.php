@@ -70,6 +70,9 @@ class APIController extends Controller
             return response()->json(['message' => 'বার বার সার্ভারে হিট করার জন্য আপনার ডিভাইস ৩ দিনের জন্য ব্লক করা হলো!'], 429);
         }
 
+        // ৩. হিট কাউন্টার এখানে বসাতে হবে (টার্নস্টাইল পাস হওয়ার ঠিক পরে)
+        \Illuminate\Support\Facades\RateLimiter::hit($device_key, 259200);
+
         if($request->softtoken == env('SOFT_TOKEN')) {
 
             $pool = '0123456789';

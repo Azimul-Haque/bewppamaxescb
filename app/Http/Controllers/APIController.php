@@ -71,7 +71,7 @@ class APIController extends Controller
         }
 
         // ৩. হিট কাউন্টার এখানে বসাতে হবে (টার্নস্টাইল পাস হওয়ার ঠিক পরে)
-        \Illuminate\Support\Facades\RateLimiter::hit($device_key, 259200);
+        \Illuminate\Support\Facades\RateLimiter::hit($device_key, 259200); // ৩ দিনের জন্য ব্লক!
 
         if($request->softtoken == env('SOFT_TOKEN')) {
 

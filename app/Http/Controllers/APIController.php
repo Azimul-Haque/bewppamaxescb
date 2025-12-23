@@ -173,7 +173,7 @@ class APIController extends Controller
             // SPAM PREVENTION Layer 2
             
         } else {
-            return 'Invalid Soft Token';
+            // return 'Invalid Soft Token';
             return response()->json(['success' => false, 'message' => 'Invalid Soft Token!'], 403);
         }
     }

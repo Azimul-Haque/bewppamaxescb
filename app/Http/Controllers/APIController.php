@@ -96,7 +96,7 @@ class APIController extends Controller
                 ->count();
             
             if($ip_requests_last_hour > 3) {
-                 return response()->json(['success' => false, 'message' => 'Too many requests from this device/network. Try again later.'], 429);
+                 return response()->json(['success' => false, 'message' => 'আপনি বার বার চেষ্টা করছেন! পরে চেষ্টা করুন।'], 429);
             }
 
             // SPAM PREVENTION Layer 2

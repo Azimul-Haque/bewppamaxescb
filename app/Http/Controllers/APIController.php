@@ -39,6 +39,7 @@ class APIController extends Controller
     public function generateOTP(Request $request)
     {
         // return response()->json(['success' => false, 'message' => 'Blocking temporarily.'], 404);
+        return $request->all();
 
         $this->validate($request,array(
             'mobile'            => 'required',

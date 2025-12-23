@@ -174,7 +174,7 @@ class APIController extends Controller
             
         } else {
             return 'Invalid Soft Token';
-            return response()->json(['success' => false, 'message' => 'Requested too many times!'], 403);
+            return response()->json(['success' => false, 'message' => 'Invalid Soft Token!'], 403);
         }
     }
 

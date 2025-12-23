@@ -60,9 +60,6 @@ class APIController extends Controller
                 'message' => 'হিউম্যান ভেরিফিকেশন সফল হয়নি! অ্যাপটি পুনরায় চালু করুন।'
             ], 403);
         }
-        // cloudflare
-        // cloudflare
-        // cloudflare
 
         // OTP Limit for devices
         // OTP Limit for devices

@@ -39,7 +39,10 @@ class APIController extends Controller
     public function generateOTP(Request $request)
     {
         // return response()->json(['success' => false, 'message' => 'Blocking temporarily.'], 404);
-        return $request->all();
+        return response()->json([
+            'success' => false,
+            'message' => 'হিউম্যান ভেরিফিকেশন সফল হয়নি!'
+        ], 403);
 
         $this->validate($request,array(
             'mobile'            => 'required',

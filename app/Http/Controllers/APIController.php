@@ -61,9 +61,7 @@ class APIController extends Controller
             ], 403);
         }
 
-        // OTP Limit for devices
-        // OTP Limit for devices
-        // OTP Limit for devices
+        // ২. ডিভাইস ভিত্তিক ব্লক চেক
         $deviceId = $request->input('device_id');
         $device_key = 'otp_limit:' . $deviceId;
 
@@ -71,9 +69,6 @@ class APIController extends Controller
         if (\Illuminate\Support\Facades\RateLimiter::tooManyAttempts($device_key, 5)) {
             return response()->json(['message' => 'বার বার সার্ভারে হিট করার জন্য আপনার ডিভাইস ৩ দিনের জন্য ব্লক করা হলো!'], 429);
         }
-        // OTP Limit for devices
-        // OTP Limit for devices
-        // OTP Limit for devices
 
         if($request->softtoken == env('SOFT_TOKEN')) {
 

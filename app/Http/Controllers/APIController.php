@@ -40,6 +40,21 @@ class APIController extends Controller
     {
         // return response()->json(['success' => false, 'message' => 'Blocking temporarily.'], 404);
 
+        // cloudflare
+        $captchaToken = $request->input('captcha_token');
+        $verify = \Illuminate\Support\Facades\Http::asForm()->post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+            'secret'   => config('services.turnstile.secret'), // Cloudflare থেকে পাওয়া Secret Key
+            'response' => $captchaToken,
+            'remoteip' => $request->ip(),
+        ]);
+        if (!$verify->json('success')) {
+            return response()->json([
+                'success' => false,
+                'message' => 'হিউম্যান ভেরিফিকেশন সফল হয়নি। আবার চেষ্টা করুন।'
+            ], 403);
+        }
+        // cloudflare
+
         $this->validate($request,array(
             'mobile'            => 'required',
             'captcha_token'     => 'required',
@@ -59,21 +74,6 @@ class APIController extends Controller
                     $mobile_number = substr($request->mobile, -11);
                 }
             }
-
-            // cloudflare
-            $captchaToken = $request->input('captcha_token');
-            $verify = \Illuminate\Support\Facades\Http::asForm()->post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
-                'secret'   => config('services.turnstile.secret'), // Cloudflare থেকে পাওয়া Secret Key
-                'response' => $captchaToken,
-                'remoteip' => $request->ip(),
-            ]);
-            if (!$verify->json('success')) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'হিউম্যান ভেরিফিকেশন সফল হয়নি। আবার চেষ্টা করুন।'
-                ], 403);
-            }
-            // cloudflare
 
             // SPAM PREVENTION Layers 1
             $ip_address = $request->ip(); // 🌟 Get the current IP address 🌟

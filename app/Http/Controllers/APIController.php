@@ -43,6 +43,7 @@ class APIController extends Controller
         $this->validate($request,array(
             'mobile'            => 'required',
             'captcha_token'     => 'required',
+            'device_id'     => 'required',
             'softtoken'         => 'required|max:191'
         ));
 

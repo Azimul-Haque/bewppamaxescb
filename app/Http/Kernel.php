@@ -68,5 +68,6 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\IsAdminMiddleware::class,
         'manager' => \App\Http\Middleware\IsManagerMiddleware::class,
         'volunteer' => \App\Http\Middleware\IsVolunteerMiddleware::class,
+        'otp.global' => \App\Http\Middleware\GlobalOTPThrottle::class,
     ];
 }

@@ -56,7 +56,7 @@ class APIController extends Controller
         if (!$verify->json('success')) {
             return response()->json([
                 'success' => false,
-                'message' => 'হিউম্যান ভেরিফিকেশন সফল হয়নি!'
+                'message' => 'হিউম্যান ভেরিফিকেশন সফল হয়নি! অ্যাপটি পুনরায় চালু করুন।'
             ], 403);
         }
         // cloudflare

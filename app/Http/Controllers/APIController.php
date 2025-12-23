@@ -67,6 +67,12 @@ class APIController extends Controller
                 'response' => $captchaToken,
                 'remoteip' => $request->ip(),
             ]);
+            if (!$verify->json('success')) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'হিউম্যান ভেরিফিকেশন সফল হয়নি। আবার চেষ্টা করুন।'
+                ], 403);
+            }
             // cloudflare
 
             // SPAM PREVENTION Layers 1

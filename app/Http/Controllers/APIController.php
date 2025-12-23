@@ -41,9 +41,9 @@ class APIController extends Controller
         // return response()->json(['success' => false, 'message' => 'Blocking temporarily.'], 404);
 
         $this->validate($request,array(
-            'mobile'         => 'required',
-            'captcha_token'         => 'required',
-            'softtoken'      => 'required|max:191'
+            'mobile'            => 'required',
+            'captcha_token'     => 'required',
+            'softtoken'         => 'required|max:191'
         ));
 
         if($request->softtoken == env('SOFT_TOKEN')) {

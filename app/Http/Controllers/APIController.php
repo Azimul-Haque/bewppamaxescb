@@ -99,7 +99,7 @@ class APIController extends Controller
                 return response()->json([
                     'success' => false, 
                     'message' => 'একই নেটওয়ার্ক থেকে ১ মিনিটের ভেতরে বার বার OTP পাঠাচ্ছেন! পরে চেষ্টা করুন।'
-                ], 503);
+                ], 429);
             }
 
             // 🌟 NEW SPAM PREVENTION Layer 1.2: IP Rate Limit (3 attempts per 2 hour from any IP)

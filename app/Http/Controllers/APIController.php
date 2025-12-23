@@ -86,7 +86,7 @@ class APIController extends Controller
             if ($last_request_time && Carbon::parse($last_request_time)->diffInSeconds(Carbon::now()) < 60) {
                 return response()->json([
                     'success' => false, 
-                    'message' => 'Please wait 60 seconds before trying a new number from this network.'
+                    'message' => 'একই নেটওয়ার্ক থেকে ১ মিনিটের ভেতরে বার বার OTP পাঠাচ্ছেন! পরে চেষ্টা করুন।'
                 ], 503);
             }
 

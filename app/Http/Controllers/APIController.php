@@ -166,7 +166,9 @@ class APIController extends Controller
                 }
                 // SPAM PREVENTION Layer 2
             } else {
-                return 'Requested too many times!';
+                // return 'Requested too many times!';
+                return response()->json(['success' => false, 'message' => 'Requested within 30 minutes!'], 429);
+
             }
             // SPAM PREVENTION Layer 2
             

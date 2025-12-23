@@ -172,7 +172,7 @@ class APIController extends Controller
                     $newOTP->save();
 
                     // return $otp;
-                    return response()->json(['success' => true, 'message' => 'OTP Sent!']);
+                    return response()->json(['success' => true, 'message' => 'OTP পাঠানো হয়েছে!']);
                 } else {
                     // return 'Requested within 30 minutes!';
                     return response()->json(['success' => false, 'message' => '৩০ মিনিট পরে চেষ্টা করুন!'], 429);

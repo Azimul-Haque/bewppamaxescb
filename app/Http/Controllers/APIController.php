@@ -48,6 +48,8 @@ class APIController extends Controller
         ));
 
         // cloudflare
+        // cloudflare
+        // cloudflare
         $captchaToken = $request->input('captcha_token');
         $verify = \Illuminate\Support\Facades\Http::asForm()->post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
             'secret'   => config('services.turnstile.secret'), // Cloudflare থেকে পাওয়া Secret Key
@@ -61,6 +63,10 @@ class APIController extends Controller
             ], 403);
         }
         // cloudflare
+        // cloudflare
+        // cloudflare
+
+        
 
         if($request->softtoken == env('SOFT_TOKEN')) {
 

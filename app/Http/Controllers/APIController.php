@@ -61,8 +61,6 @@ class APIController extends Controller
         }
         // cloudflare
 
-        
-
         if($request->softtoken == env('SOFT_TOKEN')) {
 
             $pool = '0123456789';

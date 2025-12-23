@@ -71,7 +71,7 @@ class APIController extends Controller
         $device_key = 'otp_limit:' . $deviceId;
 
         // ৫ বার চেষ্টার পর ৩ দিনের জন্য ব্লক (২৫৯২০০ সেকেন্ড)
-        if (\Illuminate\Support\Facades\RateLimiter::tooManyAttempts($key, 5)) {
+        if (\Illuminate\Support\Facades\RateLimiter::tooManyAttempts($device_key, 5)) {
             return response()->json(['message' => 'বার বার সার্ভারে হিট করার জন্য আপনার ডিভাইস ৩ দিনের জন্য ব্লক করা হলো!'], 429);
         }
         // OTP Limit for devices

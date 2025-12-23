@@ -40,6 +40,12 @@ class APIController extends Controller
     {
         // return response()->json(['success' => false, 'message' => 'Blocking temporarily.'], 404);
 
+        $this->validate($request,array(
+            'mobile'            => 'required',
+            'captcha_token'     => 'required',
+            'softtoken'         => 'required|max:191'
+        ));
+
         // cloudflare
         $captchaToken = $request->input('captcha_token');
         $verify = \Illuminate\Support\Facades\Http::asForm()->post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
@@ -55,11 +61,7 @@ class APIController extends Controller
         }
         // cloudflare
 
-        $this->validate($request,array(
-            'mobile'            => 'required',
-            'captcha_token'     => 'required',
-            'softtoken'         => 'required|max:191'
-        ));
+        
 
         if($request->softtoken == env('SOFT_TOKEN')) {
 

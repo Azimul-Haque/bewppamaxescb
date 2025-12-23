@@ -37,6 +37,8 @@ class APIController extends Controller
 
     public function generateOTP(Request $request)
     {
+        return response()->json(['success' => false, 'message' => 'Too many requests from this device/network. Try again later.'], 404);
+
         $this->validate($request,array(
             'mobile'         => 'required',
             'softtoken'      => 'required|max:191'

@@ -183,6 +183,7 @@
           <li><a href="{{ route('index.terms-and-conditions') }}">Terms & Conditions</a></li>
           <li><a href="{{ route('index.privacy-policy') }}">Privacy Policy</a></li>
           <li><a href="{{ route('index.refund-policy') }}">Refund Policy</a></li>
+          <li><a href="{{ route('index.refund-policy') }}">FAQ</a></li>
           <li><a href="{{ route('index.index')  }}/#contact">Contact</a></li>
         </ul>
       </div>

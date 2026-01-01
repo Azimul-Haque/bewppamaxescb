@@ -247,7 +247,7 @@
                 <i class="lni lni-capsule"></i>
               </div>
               <div class="service-content">
-                <h4>BCS MCQ Exam</h4>
+                <h4>বিসিএস প্রিলিমিনারি প্রস্তুতি</h4>
                 <p>
                   ৫০ ও ৫১তম বিসিএস স্পেশাল: নির্ভুল প্রিলিমিনারি মডেল টেস্ট
                 </p>

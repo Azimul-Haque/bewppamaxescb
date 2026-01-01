@@ -193,7 +193,7 @@
           <li>
             <a href="https://www.facebook.com/profile.php?id=100094040247109"><i class="lni lni-facebook-filled"></i></a>
           </li>
-          <li>
+          {{-- <li>
             <a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a>
           </li>
           <li>
@@ -201,7 +201,7 @@
           </li>
           <li>
             <a href="javascript:void(0)"><i class="lni lni-youtube"></i></a>
-          </li>
+          </li> --}}
         </ul>
       </div>
       <!-- sidebar social -->

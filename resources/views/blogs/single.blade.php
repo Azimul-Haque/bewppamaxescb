@@ -11,28 +11,25 @@
     <meta name="keywords" content="{{ $blog->keywords ? $blog->keywords : 'BCS, বিসিএস, bcs book list, bcs book suggestion, BCS Preparation Books, বিসিএস প্রিলিমিনারি বই তালিকা, বিসিএস বই তালিকা, বিসিএস লিখিত বই তালিকা, bcs preliminary book list, bcs written book list, বিসিএস প্রিলিমিনারি পরীক্ষার সিলেবাস, বিসিএস পরীক্ষার সিলেবাস' }}">
     <meta property="og:title" content="{{ $blog->title }}"/>
     <meta property="og:description" content="{{ $blog->description ? $blog->description : mb_substr(strip_tags($blog->body), 0, 200) }}" />
-    <!-- <meta name="og:description" content="{{ $blog->description ?? mb_substr(strip_tags($blog->body), 0, 200) }}" /> -->
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="{{ Request::url() }}" />
     <meta property="og:site_name" content="BCS Exam Aid">
     <meta property="og:locale" content="en_US">
     <meta property="fb:admins" content="100001596964477">
     <meta property="fb:app_id" content="1471913530260781">
-    <meta property="og:type" content="article">
     <meta property="og:image:alt" content="{{ $blog->title }}" />
     <meta property="og:image:width" content="1025" />
     <meta property="og:image:height" content="542" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="{{ url()->current() }}">
-    <!-- Open Graph - Article -->
+    
     <meta name="article:section" content="{{ $blog->blogcategory->name }}">
     <meta name="article:published_time" content="{{ $blog->created_at}}">
     <meta name="article:author" content="{{ Request::url('blogger/profile/'.$blog->user->unique_key) }}">
     <meta name="article:tag" content="{{ $blog->blogcategory->name }}">
     <meta name="article:modified_time" content="{{ $blog->updated_at }}">
 
-    <!-- Structured data JSON-LD (optional but highly recommended) -->
     <script type="application/ld+json">
         {
         "@context": "https://schema.org",
@@ -51,6 +48,14 @@
     </script>
 
     <style type="text/css">
+        .blog-single-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
         .blog-single-content {
             font-size: 17px;
             line-height: 1.8;
@@ -79,7 +84,7 @@
             border-radius: 8px;
         }
         .author-box {
-            background: #fff;
+            background: #f8f9fa;
             border-radius: 12px;
             padding: 20px;
             margin-top: 40px;
@@ -119,7 +124,7 @@
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/bn_IN/sdk.js#xfbml=1&version=v12.0&appId=163879201229487"></script>
 
-    <div class="blog-single-wrapper">
+    <div class="blog-single-card">
         <h1 class="mb-3 font-weight-bold" style="color: #222; font-size: 32px;">{{ $blog->title }}</h1>
         
         <div class="mb-4 text-muted" style="font-size: 14px;">
@@ -136,6 +141,16 @@
 
         <div class="blog-single-content">
             {!! $blog->body !!}
+            
+            {{-- Tag checking logic preserved --}}
+            @if(substr_count(substr($blog->body, 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+0)), "<strong>") == substr_count(substr($blog->body, 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+0)), "</strong>"))
+            @else </strong> @endif
+            @if(substr_count(substr($blog->body, 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+0)), "<b>") == substr_count(substr($blog->body, 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+0)), "</b>"))
+            @else </b> @endif
+            @if(substr_count(substr($blog->body, 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+0)), "<em>") == substr_count(substr($blog->body, 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+0)), "</em>"))
+            @else </em> @endif
+            @if(substr_count(substr($blog->body, 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+0)), "<p>") == substr_count(substr($blog->body, 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+0)), "</p>"))
+            @else </p> @endif
         </div>
 
         <hr class="my-5">
@@ -143,7 +158,7 @@
         {{-- Action Bar: Likes, Views, Share --}}
         <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
             <div>
-                <a href="javascript:void(0)" class="btn btn-light rounded-pill px-4 me-2" onclick="likeBlog({{ $blog->id }})">
+                <a href="javascript:void(0)" class="btn btn-light rounded-pill px-4 me-2" onclick="likeBlog({{ $blog->id }})" title="Click to Like/Unlike!">
                     <i class="far fa-heart" id="like_icon"></i> <span id="like_span">{{ $blog->likes }} Like(s)</span>
                 </a>
                 <span class="text-muted ms-3"><i class="fas fa-eye"></i> {{ $blog->views }} Views</span>
@@ -152,7 +167,7 @@
                 <span class="me-3 font-weight-bold">Share:</span>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}" class="btn btn-facebook" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://twitter.com/intent/tweet?url={{ url()->current() }}" class="btn btn-twitter" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url()->current() }}" class="btn btn-linkedin" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url()->current() }}&title=BCS%20Exam%20Aid&summary={{ $blog->title }}" class="btn btn-linkedin" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
 
@@ -185,36 +200,26 @@
             $('.note-video-clip').addClass('youtubeiframe');
             $('.note-video-clip').removeAttr('width');
             $('.note-video-clip').removeAttr('height');
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function(){
+            
             checkLiked();
         });
 
-        // like or dislike
         function likeBlog(blog_id) {
-          // console.log(user_id +','+ blog_id);
-          $.get(window.location.protocol + "//" + window.location.host + "/like/" + blog_id, function(data, status){
-              console.log("Data: " + data + "\nStatus: " + status);
-              checkLiked();
-          });
+            $.get(window.location.protocol + "//" + window.location.host + "/like/" + blog_id, function(data, status){
+                checkLiked();
+            });
         }
 
-        // check liked or not, based on cookies
         function checkLiked() {
-          $.get(window.location.protocol + "//" + window.location.host + "/check/like/" + {{ $blog->id }}, function(data, status){
-              // console.log(data.cookie);
-              if(data.status == 'liked') {
-                $('#like_span').text(data.likes +' Liked');
-                $('#like_icon').css('color', 'red');
-                $('#like_icon').attr('class', 'fas fa-heart');
-              } else {
-                $('#like_span').text(data.likes +' Like');
-                $('#like_icon').css('color', '');
-                $('#like_icon').attr('class', 'far fa-heart');
-              }
-          });
+            $.get(window.location.protocol + "//" + window.location.host + "/check/like/" + {{ $blog->id }}, function(data, status){
+                if(data.status == 'liked') {
+                    $('#like_span').text(data.likes +' Liked');
+                    $('#like_icon').css('color', 'red').attr('class', 'fas fa-heart');
+                } else {
+                    $('#like_span').text(data.likes +' Like');
+                    $('#like_icon').css('color', '').attr('class', 'far fa-heart');
+                }
+            });
         }
     </script>
 @endsection

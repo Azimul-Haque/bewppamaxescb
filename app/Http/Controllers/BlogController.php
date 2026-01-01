@@ -242,15 +242,15 @@ class BlogController extends Controller {
                         ->orderBy('created_at', 'DESC')
                         ->get();
         if($name == 'Historical Place') {
-          $blogs = Blog::whereIn('blogcategory_id', [3,4,5,6,7,8,9,10])->orderBy('id', 'desc')->paginate(7);
+          $blogs = Blog::whereIn('blogcategory_id', [3,4,5,6,7,8,9,10])->orderBy('id', 'desc')->paginate(8);
         } elseif($name == 'Travel') {
-          $blogs = Blog::whereIn('blogcategory_id', [11,12])->orderBy('id', 'desc')->paginate(7);
+          $blogs = Blog::whereIn('blogcategory_id', [11,12])->orderBy('id', 'desc')->paginate(8);
         }elseif($name == 'Biography') {
-          $blogs = Blog::whereIn('blogcategory_id', [13,14,15,16,17,18,10])->orderBy('id', 'desc')->paginate(7);
+          $blogs = Blog::whereIn('blogcategory_id', [13,14,15,16,17,18,10])->orderBy('id', 'desc')->paginate(8);
         } else {
           $category = Blogcategory::where('name', $name)->first();
 
-          $blogs = Blog::where('blogcategory_id', $category->id)->orderBy('id', 'desc')->paginate(7);
+          $blogs = Blog::where('blogcategory_id', $category->id)->orderBy('id', 'desc')->paginate(8);
         }
         
         return view('blogs.categorywise')
@@ -273,7 +273,7 @@ class BlogController extends Controller {
         $blogs = Blog::whereYear('created_at', '=', date('Y', strtotime($date)))
                      ->whereMonth('created_at', '=', date('m', strtotime($date)))
                      ->orderBy('id', 'desc')
-                     ->paginate(7);
+                     ->paginate(8);
         $archivedate = date('F Y', strtotime($date));
         return view('blogs.archive')
                   ->withBlogs($blogs)

@@ -142,7 +142,7 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="" href="{{ route('index.index')  }}/#pricing">Pricing</a>
+                  <a class="" href="{{ route('index.index')  }}/#pricing">প্যাকেজ</a>
                 </li>
                 <li class="nav-item">
                   <a class="" href="{{ route('index.index')  }}/#contact">Contact</a>

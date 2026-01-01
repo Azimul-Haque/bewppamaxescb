@@ -123,10 +123,14 @@
                             </h3>
                             
                             <div class="blog-excerpt">
-                                @if(strlen(strip_tags($blog->body))>200)
-                                    {{ mb_substr(strip_tags($blog->body), 0, 200) }}...
+                                @if($blog->description != '')
+                                  {{ $blog->description }}
                                 @else
-                                    {{ strip_tags($blog->body) }}
+                                  @if(strlen(strip_tags($blog->body))>200)
+                                      {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200))."... " }}
+                                  @else
+                                      {{ strip_tags($blog->body) }}
+                                  @endif
                                 @endif
                             </div>
                             

@@ -171,7 +171,7 @@
                 <circle cx="60.333" cy="132" r="1.66667" fill="#DADADA" />
                 <circle cx="104" cy="132" r="1.66667" fill="#DADADA" />
               </svg>
-              <img src="{{ asset('/') }}images/about/about-img2.jpg" alt="about" />
+              <img src="{{ asset('/') }}images/about/promotional-poster.jpg" alt="about" />
             </div>
           </div>
           <div class="col-lg-6 col-12">

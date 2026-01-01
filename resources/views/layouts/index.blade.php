@@ -145,7 +145,7 @@
                   <a class="" href="{{ route('index.index')  }}/#pricing">প্যাকেজ</a>
                 </li>
                 <li class="nav-item">
-                  <a class="" href="{{ route('index.index')  }}/#contact">Contact</a>
+                  <a class="" href="{{ route('index.index')  }}/#contact">যোগাযোগ</a>
                 </li>
               </ul>
             </div>

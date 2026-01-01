@@ -260,42 +260,10 @@
             </a>
             <a href="#" class="blog-like"><i class="fas fa-eye"></i> {{ $blog->views }} View(s)</a>
             <a href="#" class="blog-share" data-toggle="modal" data-target="#shareModal" title="Click to Share this Article!"><i class="fas fa-share-alt"></i> Share</a>
-            {{-- <a href="#" class="comment"><i class="fa fa-comment-o"></i><span class="fb-comments-count" data-href="{{ Request::url() }}"></span> comment(s)</a> --}}
-            {{-- <a href="#" class="comment"><i class="fa fa-comment-o"></i>
-            <span id="comment_count"></span> comment(s)</a>
-            <script type="text/javascript" src="{{ asset('vendor/hcode/js/jquery.min.js') }}"></script>
-            <script type="text/javascript">
-                $.ajax({
-                    url: "https://graph.facebook.com/v2.2/?fields=share{comment_count}&id={{ Request::url() }}",
-                    dataType: "jsonp",
-                    success: function(data) {
-                        if(data.share) {
-                            $('#comment_count').text(data.share.comment_count);
-                        } else {
-                            $('#comment_count').text(0);
-                        }
-                    }
-                });
-            </script> --}}
+            
         </div>
 
-        {{-- <div class="text-center margin-ten no-margin-bottom about-author text-left bg-gray">
-            <div class="blog-comment text-left clearfix no-margin">
-                <!-- author image -->
-                <a class="comment-avtar no-margin-top"><img src="{{ asset('images/users/'.$blog->user->image) }}" alt=""></a>
-                <!-- end author image -->
-                <!-- author text -->
-                <div class="comment-text overflow-hidden position-relative">
-                    <h5 class="widget-title">About The Author</h5>
-                    <a href="{{ route('blogger.profile', $blog->user->id) }}"><p class="blog-date no-padding-top">{{ $blog->user->name }}</p></a>
-                    <p class="about-author-text no-margin">
-                        {{ $blog->user->designation }}<br/>
-                        {{ $blog->user->email }}
-                    </p>
-                </div>
-                <!-- end author text -->
-            </div>
-        </div> --}}
+        
         <br/>
         <div class="blog-comment-main xs-no-padding-top">
             <h5 class="widget-title">Article Comments</h5>

@@ -52,7 +52,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return redirect('https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs');
+        // return redirect('https://play.google.com/store/apps/details?id=com.orbachinujbuk.bcs');
         
         $packages = Package::where('status', 1)->get();
         $blogs = Blog::orderBy('id', 'desc')->get()->take(3);

@@ -77,9 +77,9 @@ class IndexController extends Controller
         return view('index.refundpolicy');
     }
 
-    public function refundPolicy()
+    public function getFaq()
     {
-        return view('index.refundpolicy');
+        return view('index.faq');
     }
 
     public function paymentProceed(Request $request)

@@ -95,7 +95,7 @@
             border-radius: 8px;
         }
         .author-box {
-            background: #f8f9fa;
+            background: #fff;
             border-radius: 12px;
             padding: 20px;
             margin-top: 40px;

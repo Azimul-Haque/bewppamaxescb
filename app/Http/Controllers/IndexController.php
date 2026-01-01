@@ -325,7 +325,11 @@ class IndexController extends Controller
         Artisan::call('view:clear');
         // Artisan::call('key:generate'); // not good for server and api or api token
         Artisan::call('config:clear');
-        Artisan::call('session:gc');
+        
+        DB::table('sessions')
+                ->where('last_activity', '<', Carbon::now()->subMinutes(config('session.lifetime'))->getTimestamp())
+                ->delete();
+                
         Session::flush();
         return 'Config and Route Cached. All Cache Cleared';
     }

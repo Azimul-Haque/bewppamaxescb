@@ -44,6 +44,7 @@ Route::get('/blogs/archive/{date}',['as' => 'blog.monthwise', 'uses' => 'BlogCon
 Route::get('/single/exam/pdf/{softtoken}/{examid}', 'IndexController@getExamSolvePDF')->name('index.single.exam.solve.pdf');
 
 // Clear Route
+Route::get('/sessionsclear', ['as'=>'sessionsclear','uses'=>'IndexController@deleteSessionFiles']);
 Route::get('/clear', ['as'=>'clear','uses'=>'IndexController@clear']);
 
 // Payment Routes for bKash

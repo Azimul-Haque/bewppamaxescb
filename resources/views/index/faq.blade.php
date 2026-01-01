@@ -5,6 +5,10 @@
 
 @endsection
 
+@section('header-s')
+    ব্লগ সমূহ
+@endsection
+
 @section('content')
 <section style="padding-top: 150px; padding-bottom: 50px; background-color: var(--light-3);">
     <div class="container">

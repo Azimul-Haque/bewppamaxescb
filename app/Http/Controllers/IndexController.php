@@ -304,6 +304,18 @@ class IndexController extends Controller
         return view('index.documentation');
     }
 
+    // delete sessions folder data
+    public function deleteSessionFiles()
+    {
+        $files = glob(storage_path('framework/sessions/*')); 
+        foreach($files as $file){
+            if(is_file($file)) {
+                unlink($file); // একটি একটি করে ফাইল ডিলিট করবে
+            }
+        }
+        return "Old session files are being deleted!";
+    }
+
     // clear configs, routes and serve
     public function clear()
     {

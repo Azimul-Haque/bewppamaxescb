@@ -92,7 +92,7 @@
 @endsection
 
 @section('header-s')
-    {{ $archivedate }}
+    {{ bangla('$archivedate') }}
 @endsection
 
 @section('content-s')

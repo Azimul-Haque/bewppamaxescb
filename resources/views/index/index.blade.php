@@ -470,14 +470,12 @@
                           @if($blog->description != '')
                             {{ $blog->description }}
                           @else
-
-                          @endif
-
                             @if(strlen(strip_tags($blog->body))>200)
                                 {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200))."... " }}
                             @else
                                 {{ strip_tags($blog->body) }}
                             @endif
+                          @endif
                         </p>
                     </div>
                     <div class="light-rounded-buttons" style="margin-top: 20px; margin-bottom: 40px;">

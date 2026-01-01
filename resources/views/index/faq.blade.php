@@ -149,6 +149,71 @@
                         </div>
                     </div>
 
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">
+                                ৬. আমার অ্যাকাউন্টের নিরাপত্তা এবং ওটিপি (OTP) সমস্যার সমাধান কী?
+                            </button>
+                        </h3>
+                        <div id="q6" class="accordion-collapse collapse" data-bs-parent="#bcsFaq">
+                            <div class="accordion-body">
+                                আমরা আপনার অ্যাকাউন্টের নিরাপত্তাকে সর্বোচ্চ গুরুত্ব দিই। সাম্প্রতিক আপডেটে আমাদের <strong>সুপার-ফাস্ট ওটিপি (OTP) সিস্টেম</strong> উন্নত করা হয়েছে, যার ফলে আপনি কয়েক সেকেন্ডের মধ্যেই ভেরিফিকেশন কোড পেয়ে যাবেন। যদি কখনো ওটিপি পেতে সমস্যা হয়, তবে আপনার ইন্টারনেট সংযোগ চেক করুন অথবা কয়েক মিনিট পর পুনরায় চেষ্টা করুন। আমাদের সিস্টেম এখন আগের চেয়ে অনেক বেশি স্থিতিশীল এবং নিরাপদ।
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q7">
+                                ৭. অ্যাপটিতে বিসিএস-এর ১১টি বিষয়ের সিলেবাস কি পুরোপুরি কভার করা হয়েছে?
+                            </button>
+                        </h3>
+                        <div id="q7" class="accordion-collapse collapse" data-bs-parent="#bcsFaq">
+                            <div class="accordion-body">
+                                হ্যাঁ, <strong>BCS Exam Aid</strong> অ্যাপে বিসিএস প্রিলিমিনারি সিলেবাসের ১১টি মূল বিষয় (বাংলা, ইংরেজি, গণিত, বিজ্ঞান, কম্পিউটার ইত্যাদি) অত্যন্ত সূক্ষ্মভাবে সাজানো হয়েছে। আমরা পুরো সিলেবাসকে <strong>২২০০+ সাব-টপিকে</strong> ভাগ করেছি, যাতে আপনি প্রতিটি ক্ষুদ্র ক্ষুদ্র অংশ আলাদাভাবে পড়তে এবং পরীক্ষা দিয়ে নিজের দক্ষতা যাচাই করতে পারেন।
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q8">
+                                ৮. অ্যাপের প্রশ্ন এবং সমাধানগুলো কতটা নির্ভুল?
+                            </button>
+                        </h3>
+                        <div id="q8" class="accordion-collapse collapse" data-bs-parent="#bcsFaq">
+                            <div class="accordion-body">
+                                আমাদের প্রতিটি প্রশ্ন এবং এর বিস্তারিত ব্যাখ্যা শীর্ষস্থানীয় ক্যাডার এবং বিশেষজ্ঞ প্যানেল দ্বারা যাচাইকৃত। আমরা তথ্যের নির্ভুলতা নিশ্চিত করতে সরকারি গেজেট এবং টেক্সটবুক অনুসরণ করি। কোনো তথ্যে অসংগতি পাওয়া গেলে আমরা দ্রুত তা আপডেট করি, যা আপনার <strong>ডিজিটাল জব সল্যুশন</strong> হিসেবে শতভাগ নির্ভরযোগ্যতা নিশ্চিত করে।
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q9">
+                                ৯. পরীক্ষার প্রস্তুতির জন্য স্টাডি মেটেরিয়াল বা পিডিএফ (PDF) সুবিধা আছে কি?
+                            </button>
+                        </h3>
+                        <div id="q9" class="accordion-collapse collapse" data-bs-parent="#bcsFaq">
+                            <div class="accordion-body">
+                                অবশ্যই। আমাদের অ্যাপের ‘লেকচার অ্যান্ড নোটস’ সেকশনে আপনি বিসিএস-এর গুরুত্বপূর্ণ টপিকগুলোর ওপর প্রিমিয়াম লেকচার মেটেরিয়াল পাবেন। এছাড়া অনেক ক্ষেত্রে ভিডিও ক্লাস এবং ডাউনলোডযোগ্য পিডিএফ শিট প্রদানের ব্যবস্থা রয়েছে, যা আপনাকে ইন্টারনেট ছাড়াও রিভিশন দিতে সাহায্য করবে।
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q10">
+                                ১০. লাইভ মডেল টেস্টে মেধা তালিকা (Merit List) কীভাবে কাজ করে?
+                            </button>
+                        </h3>
+                        <div id="q10" class="accordion-collapse collapse" data-bs-parent="#bcsFaq">
+                            <div class="accordion-body">
+                                আমাদের অ্যাপে প্রতিদিন কয়েক হাজার শিক্ষার্থী একসাথে লাইভ পরীক্ষায় অংশগ্রহণ করে। পরীক্ষা শেষ হওয়ার সাথে সাথেই স্বয়ংক্রিয়ভাবে <strong>রিয়েল-টাইম মেধা তালিকা</strong> প্রকাশ করা হয়। আপনি আপনার স্কোর, কতজন পরীক্ষার্থীর মধ্যে আপনার অবস্থান কত এবং প্রতিটি প্রশ্নের তুলনামূলক বিশ্লেষণ দেখতে পাবেন, যা আপনাকে প্রতিযোগিতামূলক পরীক্ষার আসল অভিজ্ঞতা দেবে।
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

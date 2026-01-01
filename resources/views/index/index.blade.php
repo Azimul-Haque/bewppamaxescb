@@ -56,7 +56,7 @@
             <div class="header-content">
               <h1 style="padding-top: 7px;">বিসিএস-সহ সরকারি চাকরি পরীক্ষার প্রস্তুতির সেরা অনলাইন প্ল্যাটফর্ম!</h1>
               <p>
-                <b>BCS EXAM AID</b> is a dedicated online platform to take the best preparation for the Bangladesh Civil Service (BCS) Exam and Other Govt Job Exam.
+                <b>BCS EXAM AID</b> বিসিএস, ব্যাংক, প্রাইমারি, NTRCA, NSI, DGFI, দুদক সহ সকল সরকারি চাকরির পূর্ণাঙ্গ প্রস্তুতির সেরা অ্যাপ। ১,০০,০০০+ প্রশ্নব্যাংক, ২২০০+ সাব-টপিক এবং স্পেশাল মডেল টেস্টের মাধ্যমে ঘরে বসেই আপনার প্রস্তুতিকে করুন আরও নির্ভুল ও আত্মবিশ্বাসী।
               </p>
               <div class="button">
                 {{-- <a href="javascript:void(0)" class="btn primary-btn">Get Started</a> --}}

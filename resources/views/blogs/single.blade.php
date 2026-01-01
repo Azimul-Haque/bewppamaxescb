@@ -207,7 +207,7 @@
 
 
     {{-- facebook comment plugin --}}
-    <div id="fb-root"></div>
+    {{-- <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -299,13 +299,10 @@
               <!-- end social icon -->
               </p>
             </div>
-            {{-- <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div> --}}
           </div>
           
         </div>
-    </div>
+    </div> --}}
 @endsection
 
 @section('third_party_scripts-s')

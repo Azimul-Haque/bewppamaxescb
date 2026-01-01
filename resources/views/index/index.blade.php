@@ -647,13 +647,13 @@
 @section('third_party_scripts')
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-  {{-- <script type="text/javascript">
+  <script type="text/javascript">
     $(document).ready(function() {
         setTimeout(function() {
             // Open the modal
             $('#offerModalMain').modal('show');
         }, 500); // 1000ms = 1 second
     });
-  </script> --}}
+  </script>
 
 @endsection

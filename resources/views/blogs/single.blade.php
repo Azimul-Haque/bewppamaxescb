@@ -215,18 +215,15 @@
       js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2&appId=163879201229487&autoLogAppEvents=1';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    {{-- facebook comment plugin --}}
     <section style="padding-top: 50px; padding-bottom: 50px;">
         <h2 class="blog-details-headline text-black">{{ $blog->title }}</h2>
         <div class="blog-date no-padding-top">Posted by <a href="{{ route('blogger.profile', $blog->user->id) }}"><b>{{ $blog->user->name }}</b></a> | {{ date('F d, Y', strtotime($blog->created_at)) }} | <a href="{{ route('blog.categorywise', str_replace(" ", "-", $blog->blogcategory->name)) }}">{{ $blog->blogcategory->name }}</a> </div>
-        {{-- strtolower() টা সমাধান করা লাগবে --}}
         @if($blog->featured_image != null)
             <div class="blog-image margin-eight"><img src="{{ asset('images/blogs/'.$blog->featured_image) }}" alt="" style="width: 100%;"></div><br/>
         @endif
 
         <div class="" style="overflow-wrap: break-word; ">
             {!! $blog->body !!}
-            {{-- solved the strong, em and p problem --}}
             @if(substr_count(substr($blog->body, 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+0)), "<strong>") == substr_count(substr($blog->body, 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+0)), "</strong>"))
             @else
               </strong>

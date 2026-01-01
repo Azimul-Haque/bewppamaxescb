@@ -177,7 +177,7 @@
             <img src="{{ $blog->user->image ? asset('images/users/'.$blog->user->image) : asset('images/user.png') }}" class="author-img" alt="Author">
             <div>
                 <h5 class="mb-1 font-weight-bold">{{ $blog->user->name }}</h5>
-                <p class="text-muted mb-0" style="font-size: 14px;">{{ $blog->user->designation ?? 'Expert Content Creator' }}</p>
+                <p class="text-muted mb-0" style="font-size: 14px;">{{ $blog->user->designation ?? 'বিশেষজ্ঞ কন্টেন্ট নির্মাতা' }}</p>
                 <a href="{{ route('blogger.profile', $blog->user->id) }}" class="small text-primary">View Profile »</a>
             </div>
         </div>

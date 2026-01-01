@@ -313,6 +313,7 @@ class IndexController extends Controller
         Artisan::call('view:clear');
         Artisan::call('key:generate');
         Artisan::call('config:clear');
+        Artisan::call('session:gc');
         Session::flush();
         return 'Config and Route Cached. All Cache Cleared';
     }

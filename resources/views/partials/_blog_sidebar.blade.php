@@ -115,7 +115,7 @@
 </style>
 
 <div class="widget">
-    <h5 class="widget-title">Search</h5>
+    <h5 class="widget-title">সার্চ</h5>
     <form action="#!" method="GET">
         <div style="position: relative;">
             <input type="text" placeholder="ব্লগ খুঁজুন..." class="search-input" name="search">
@@ -127,7 +127,7 @@
 </div>
 
 <div class="widget">
-    <h5 class="widget-title">Categories</h5>
+    <h5 class="widget-title">ব্লগ ক্যাটাগরি</h5>
     <div class="widget-body">
         <ul class="category-list">
             @foreach($categories as $category)

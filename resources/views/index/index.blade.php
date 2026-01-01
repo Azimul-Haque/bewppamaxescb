@@ -312,7 +312,7 @@
                 <i class="lni lni-reload"></i>
               </div>
               <div class="service-content">
-                <h4>Regular Updates</h4>
+                <h4>পূর্ণাঙ্গ প্রশ্নব্যাঙ্ক</h4>
                 <p>
                   ব্যাখ্যাসহ স্মার্ট প্রশ্নব্যাংক ও লাইভ জব সল্যুশন
                 </p>

@@ -115,7 +115,7 @@
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <i class="far fa-user"></i> {{ $blog->user->name }} &nbsp;|&nbsp; 
-                                <i class="far fa-calendar-alt"></i> {{ date('M d, Y', strtotime($blog->created_at)) }}
+                                <i class="far fa-calendar-alt"></i> {{ bangla(date('M d, Y', strtotime($blog->created_at))) }}
                             </div>
                             
                             <h3 class="blog-card-title">

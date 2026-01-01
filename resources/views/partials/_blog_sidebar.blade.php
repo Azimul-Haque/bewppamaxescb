@@ -52,7 +52,7 @@
         <ul class="category-list">
             @foreach($archives as $archive)
             <li>
-                <a href="{{ route('blog.monthwise', date('Y-m', strtotime($archive->created_at))) }}">{{ date('F Y', strtotime($archive->created_at)) }} / 
+                <a href="{{ route('blog.monthwise', date('Y-m', strtotime($archive->created_at))) }}">{{ bangla(date('F Y', strtotime($archive->created_at))) }} / 
                     <span>{{ bangla($archive->total) }}</span>
                 </a>
             </li>

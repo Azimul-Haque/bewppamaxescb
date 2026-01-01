@@ -138,7 +138,7 @@
                                 <div class="blog-footer">
                                     <div>
                                         <span class="text-danger"><i class="far fa-heart"></i> {{ $blog->likes }}</span>
-                                        <span class="ms-2 text-primary"><i class="far fa-folder"></i> <<a href="{{ route('blog.categorywise', $blog->blogcategory->name) }}" title="">{{ $blog->blogcategory->name }}</a></span>
+                                        <span class="ms-2 text-primary"><i class="far fa-folder"></i> <a href="{{ route('blog.categorywise', $blog->blogcategory->name) }}" title="">{{ $blog->blogcategory->name }}</a></span>
                                     </div>
                                     <a class="read-more-btn" href="{{ route('blog.single', $blog->slug) }}">আরও পড়ুন »</a>
                                 </div>

@@ -61,17 +61,17 @@ class APIController extends Controller
             ], 403);
         }
 
-        // // ২. ডিভাইস ভিত্তিক ব্লক চেক
-        // $deviceId = $request->input('device_id');
-        // $device_key = 'otp_limit:' . $deviceId;
+        // ২. ডিভাইস ভিত্তিক ব্লক চেক
+        $deviceId = $request->input('device_id');
+        $device_key = 'otp_limit:' . $deviceId;
 
-        // // ৫ বার চেষ্টার পর ৩ দিনের জন্য ব্লক (২৫৯২০০ সেকেন্ড)
-        // if (\Illuminate\Support\Facades\RateLimiter::tooManyAttempts($device_key, 5)) {
-        //     return response()->json(['message' => 'বার বার সার্ভারে হিট করার জন্য আপনার ডিভাইস ৩ দিনের জন্য ব্লক করা হলো!'], 429);
-        // }
+        // ৫ বার চেষ্টার পর ৩ দিনের জন্য ব্লক (২৫৯২০০ সেকেন্ড)
+        if (\Illuminate\Support\Facades\RateLimiter::tooManyAttempts($device_key, 5)) {
+            return response()->json(['message' => 'বার বার সার্ভারে হিট করার জন্য আপনার ডিভাইস ৩ দিনের জন্য ব্লক করা হলো!'], 429);
+        }
 
-        // // ৩. হিট কাউন্টার এখানে বসাতে হবে (টার্নস্টাইল পাস হওয়ার ঠিক পরে)
-        // \Illuminate\Support\Facades\RateLimiter::hit($device_key, 259200); // হিট কাউন্ট!
+        // ৩. হিট কাউন্টার এখানে বসাতে হবে (টার্নস্টাইল পাস হওয়ার ঠিক পরে)
+        \Illuminate\Support\Facades\RateLimiter::hit($device_key, 259200); // হিট কাউন্ট!
 
         if($request->softtoken == env('SOFT_TOKEN')) {
 

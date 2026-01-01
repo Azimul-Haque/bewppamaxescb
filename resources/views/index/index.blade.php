@@ -286,7 +286,7 @@
                 <i class="lni lni-dashboard"></i>
               </div>
               <div class="service-content">
-                <h4>Target Based Courses</h4>
+                <h4>টার্গেট ভিত্তিক স্পেশাল কোর্স</h4>
                 <p>
                   বিসিএস ক্র্যাশ কোর্স: নির্দিষ্ট সময়ে সিলেবাস শেষ করার স্মার্ট পরিকল্পনা
                 </p>

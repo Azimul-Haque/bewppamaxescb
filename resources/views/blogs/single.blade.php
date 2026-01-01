@@ -178,7 +178,7 @@
             <div>
                 <h5 class="mb-1 font-weight-bold">{{ $blog->user->name }}</h5>
                 <p class="text-muted mb-0" style="font-size: 14px;">{{ $blog->user->designation ?? 'বিশেষজ্ঞ কন্টেন্ট নির্মাতা' }}</p>
-                <a href="{{ route('blogger.profile', $blog->user->id) }}" class="small text-primary">View Profile »</a>
+                <a href="{{ route('blogger.profile', $blog->user->id) }}" class="small text-primary">প্রোফাইল দেখুন »</a>
             </div>
         </div>
 

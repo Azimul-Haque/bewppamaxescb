@@ -174,7 +174,7 @@
       <div class="sidebar-logo">
         <a href="/"><img src="{{ asset('/') }}images/logo.png" alt="Logo" /></a>
       </div>
-      <p class="text">BCS Exam Aid</p>
+      <p class="text">বিসিএস এক্সাম এইড</p>
       <!-- logo -->
       <div class="sidebar-menu">
         <h5 class="menu-title">Quick Links</h5>

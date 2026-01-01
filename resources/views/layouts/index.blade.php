@@ -135,7 +135,7 @@
                   <a class="{{ Request::is('/') ? 'active' : '' }}" href="{{ route('index.index')  }}/#hero-area">হোম</a>
                 </li>
                 <li class="nav-item">
-                  <a class="{{ Request::is('/#services') ? 'active' : '' }}" href="{{ route('index.index')  }}/#services">সেবা তালিকা</a>
+                  <a class="" href="{{ route('index.index')  }}/#services">সেবা তালিকা</a>
                 </li>
                 <li class="nav-item">
                   <a class="{{ Request::is('/blogs') ? 'active' : '' }}" href="{{ route('blogs.index')  }}">ব্লগ</a>

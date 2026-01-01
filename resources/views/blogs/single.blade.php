@@ -51,22 +51,6 @@
     </script>
 
     <style type="text/css">
-        .youtibecontainer {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%;
-        }
-        .youtubeiframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-
-    <style type="text/css">
         .blog-single-content {
             font-size: 17px;
             line-height: 1.8;

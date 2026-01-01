@@ -6,8 +6,8 @@
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   @if (!Request::is('blogs', 'blogs/*', 'blog', 'blog/*'))
-    <meta name="description" content="BCS Exam Aid: বিসিএস, ব্যাংক, প্রাইমারি, NTRCA, NSI, DGFI সহ সকল সরকারি চাকরির পূর্ণাঙ্গ প্রস্তুতির সেরা অ্যাপ। ১,০০,০০০+ প্রশ্নব্যাংক, ২২০০+ সাব-টপিক এবং স্পেশাল মডেল টেস্টের মাধ্যমে ঘরে বসেই আপনার প্রস্তুতিকে করুন আরও নির্ভুল ও আত্মবিশ্বাসী।">
-    <meta name="keywords" content="BCS, Bangladesh Civil Service, NSI, DGFI দুদক, বাংলাদেশ ব্যাংক, অন্যান্য ব্যাংক, প্রাথমিক শিক্ষক নিয়োগ, Primary Exam, Job Circular, Bank Job Circular, Bank Job Exam, BCS Circular, বিসিএস পরীক্ষা, বার কাউন্সিল পরীক্ষা, জুডিশিয়াল পরীক্ষা, Judicial Exam, bcs book list, bcs book suggestion, BCS Preparation Books, বিসিএস প্রিলিমিনারি বই তালিকা, বিসিএস বই তালিকা, বিসিএস লিখিত বই তালিকা, bcs preliminary book list, bcs written book list, বিসিএস প্রিলিমিনারি পরীক্ষার সিলেবাস, বিসিএস পরীক্ষার সিলেবাস">
+    <meta name="description" content="BCS Exam Aid: বিসিএস, ব্যাংক, প্রাইমারি, NTRCA, NSI, DGFI, দুদক সহ সকল সরকারি চাকরির পূর্ণাঙ্গ প্রস্তুতির সেরা অ্যাপ। ১,০০,০০০+ প্রশ্নব্যাংক, ২২০০+ সাব-টপিক এবং স্পেশাল মডেল টেস্টের মাধ্যমে ঘরে বসেই আপনার প্রস্তুতিকে করুন আরও নির্ভুল ও আত্মবিশ্বাসী।">
+    <meta name="keywords" content="BCS, Bangladesh Civil Service, NSI, DGFI, NTRCA, দুদক, বাংলাদেশ ব্যাংক, অন্যান্য ব্যাংক, প্রাথমিক শিক্ষক নিয়োগ, Primary Exam, Job Circular, Bank Job Circular, Bank Job Exam, BCS Circular, বিসিএস পরীক্ষা, বার কাউন্সিল পরীক্ষা, জুডিশিয়াল পরীক্ষা, Judicial Exam, bcs book list, bcs book suggestion, BCS Preparation Books, বিসিএস প্রিলিমিনারি বই তালিকা, বিসিএস বই তালিকা, বিসিএস লিখিত বই তালিকা, bcs preliminary book list, bcs written book list, বিসিএস প্রিলিমিনারি পরীক্ষার সিলেবাস, বিসিএস পরীক্ষার সিলেবাস">
 
     <meta property="og:image" content="{{ asset('images/bcs-exam-aid-banner.png') }}" />
     <meta property="og:type" content="website"/>

@@ -130,7 +130,7 @@
         <div class="mb-4 text-muted" style="font-size: 14px;">
             <i class="far fa-user"></i> <a href="{{ route('blogger.profile', $blog->user->id) }}"><b>{{ $blog->user->name }}</b></a> 
             <span class="mx-2">|</span>
-            <i class="far fa-calendar-alt"></i> {{ date('F d, Y', strtotime($blog->created_at)) }} 
+            <i class="far fa-calendar-alt"></i> {{ bangla(date('F d, Y', strtotime($blog->created_at))) }} 
             <span class="mx-2">|</span>
             <i class="far fa-folder"></i> <a href="{{ route('blog.categorywise', str_replace(' ', '-', $blog->blogcategory->name)) }}">{{ $blog->blogcategory->name }}</a>
         </div>

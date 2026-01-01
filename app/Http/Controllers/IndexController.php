@@ -77,6 +77,11 @@ class IndexController extends Controller
         return view('index.refundpolicy');
     }
 
+    public function refundPolicy()
+    {
+        return view('index.refundpolicy');
+    }
+
     public function paymentProceed(Request $request)
     {
         $this->validate($request,array(

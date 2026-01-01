@@ -179,7 +179,7 @@
       <div class="sidebar-menu">
         <h5 class="menu-title">Quick Links</h5>
         <ul>
-          <li><a href="{{ route('blogs.index') }}">Blogs</a></li>
+          <li><a href="{{ route('blogs.index') }}">ব্লগ</a></li>
           <li><a href="{{ route('index.terms-and-conditions') }}">Terms & Conditions</a></li>
           <li><a href="{{ route('index.privacy-policy') }}">Privacy Policy</a></li>
           <li><a href="{{ route('index.refund-policy') }}">Refund Policy</a></li>

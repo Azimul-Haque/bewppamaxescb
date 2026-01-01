@@ -164,7 +164,7 @@
                 <span class="text-muted ms-3"><i class="fas fa-eye"></i> {{ $blog->views }} Views</span>
             </div>
             <div class="social-share-links mt-3 mt-md-0">
-                <span class="me-3 font-weight-bold">Share:</span>
+                <span class="me-3 font-weight-bold">শেয়ার করুন:</span>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}" class="btn btn-facebook" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://twitter.com/intent/tweet?url={{ url()->current() }}" class="btn btn-twitter" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url()->current() }}&title=BCS%20Exam%20Aid&summary={{ $blog->title }}" class="btn btn-linkedin" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fab fa-linkedin-in"></i></a>

@@ -93,7 +93,7 @@
                     <div class="accordion-item">
                         <h3 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
-                                ২. আমি এখনো ছাত্র, বিসিএস প্রস্তুতির জন্য এখনই কী করা উচিত?
+                                ২. বিসিএস প্রস্তুতির জন্য এখনই কী করা উচিত?
                             </button>
                         </h3>
                         <div id="q2" class="accordion-collapse collapse" data-bs-parent="#bcsFaq">

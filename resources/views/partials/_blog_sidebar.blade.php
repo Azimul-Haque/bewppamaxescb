@@ -159,7 +159,7 @@
                     {{ $popular->title }}
                 </a>
                 <small class="text-muted" style="font-size: 11px; display: block; mt-1;">
-                    <i class="far fa-calendar-alt"></i> {{ date('M d, Y', strtotime($popular->created_at)) }}
+                    <i class="far fa-calendar-alt"></i> {{ bangla(date('M d, Y', strtotime($popular->created_at))) }}
                 </small>
             </div>
         </div>

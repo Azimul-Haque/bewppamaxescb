@@ -82,7 +82,7 @@
 
 <div class="widget">
     <h5 class="widget-title">Search</h5>
-    <form action="{{ route('blog.search') }}" method="GET">
+    <form action="#!" method="GET">
         <div style="position: relative;">
             <input type="text" placeholder="ব্লগ খুঁজুন..." class="search-input" name="search">
             <button type="submit" style="position: absolute; right: 15px; top: 10px; border: none; background: none; color: #777;">

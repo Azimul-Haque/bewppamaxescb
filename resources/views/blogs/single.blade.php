@@ -166,9 +166,9 @@
             </div>
             <div class="social-share-links mt-3 mt-md-0">
                 <span class="me-3 font-weight-bold">Share:</span>
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlcurrent() }}" class="btn btn-facebook" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com/intent/tweet?url={{ urlcurrent() }}" class="btn btn-twitter" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlcurrent() }}" class="btn btn-linkedin" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}" class="btn btn-facebook" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/intent/tweet?url={{ url()->current() }}" class="btn btn-twitter" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url()->current() }}" class="btn btn-linkedin" onclick="window.open(this.href,'newwindow', 'width=500,height=400'); return false;"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
 

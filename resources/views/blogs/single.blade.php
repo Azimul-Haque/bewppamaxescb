@@ -174,7 +174,7 @@
 
         {{-- Author Section --}}
         <div class="author-box shadow-sm">
-            <img src="{{ $blog->user->image ? asset('images/users/'.$blog->user->image) : asset('images/default-user.png') }}" class="author-img" alt="Author">
+            <img src="{{ $blog->user->image ? asset('images/users/'.$blog->user->image) : asset('images/user.png') }}" class="author-img" alt="Author">
             <div>
                 <h5 class="mb-1 font-weight-bold">{{ $blog->user->name }}</h5>
                 <p class="text-muted mb-0" style="font-size: 14px;">{{ $blog->user->designation ?? 'Expert Content Creator' }}</p>

@@ -135,7 +135,7 @@
                   <a class=" active" href="{{ route('index.index')  }}/#hero-area">হোম</a>
                 </li>
                 <li class="nav-item">
-                  <a class="" href="{{ route('index.index')  }}/#services">Services</a>
+                  <a class="" href="{{ route('index.index')  }}/#services">সেবা তালিকা</a>
                 </li>
                 <li class="nav-item">
                   <a class="" href="{{ route('blogs.index')  }}">Blogs</a>

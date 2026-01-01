@@ -65,6 +65,66 @@
             height: 100%;
         }
     </style>
+
+    <style type="text/css">
+        .blog-single-content {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+        }
+        .blog-single-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .youtibecontainer {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            margin: 20px 0;
+        }
+        .youtubeiframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+        .author-box {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .author-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .social-share-links .btn {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: #fff;
+            transition: 0.3s;
+        }
+        .btn-facebook { background: #3b5998; }
+        .btn-twitter { background: #1da1f2; }
+        .btn-linkedin { background: #0077b5; }
+        .social-share-links .btn:hover { opacity: 0.8; transform: scale(1.1); }
+    </style>
 @endsection
 
 @section('header-s')

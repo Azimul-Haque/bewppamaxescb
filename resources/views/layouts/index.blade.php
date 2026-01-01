@@ -262,7 +262,7 @@
                 <ul>
                   <li><a href="#pricing">Pricing</a></li>
                   <li><a href="{{ route('index.documentation') }}">Documentation</a></li>
-                  <li><a href="javascript:void(0)">Guides</a></li>
+                  <li><a href="javascript:void(0)">FAQ</a></li>
                   <li><a href="{{ route('index.api.status') }}">API Status</a></li>
                 </ul>
               </div>

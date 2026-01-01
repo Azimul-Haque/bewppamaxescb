@@ -466,7 +466,8 @@
                         </h6>
                     </div>
                     <div class="table-content" style="padding-top: 10px;">
-                        <p style="padding: 0px 20px;"> @if(strlen(strip_tags($blog->body))>200)
+                        <p style="padding: 0px 20px;">
+                            @if(strlen(strip_tags($blog->body))>200)
                                 {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200))."... " }}
                             @else
                                 {{ strip_tags($blog->body) }}

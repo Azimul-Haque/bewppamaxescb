@@ -97,7 +97,7 @@
 @endsection
 
 @section('content-s')
-    <section style="padding-top: 50px; padding-bottom: 50px;">
+    <section>
         <div class="container">
             <div class="row">
                 @foreach ($blogs as $blog)

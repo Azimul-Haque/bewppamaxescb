@@ -96,7 +96,7 @@
 @endsection
 
 @section('content-s')
-    <section style="">
+    <section>
         <div class="container">
             <div class="row">
                 @foreach ($blogs as $blog)

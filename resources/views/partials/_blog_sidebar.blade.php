@@ -168,7 +168,7 @@
 </div>
 
 <div class="widget">
-    <h5 class="widget-title">Archive</h5>
+    <h5 class="widget-title">আর্কাইভ</h5>
     <div class="widget-body">
         <ul class="category-list">
             @foreach($archives as $archive)

@@ -299,7 +299,7 @@
                 <i class="lni lni-layers"></i>
               </div>
               <div class="service-content">
-                <h4>Fully Access</h4>
+                <h4>সম্পূর্ণ এক্সেস</h4>
                 <p>
                   প্রিমিয়াম এক্সেস: ১,০০,০০০+ প্রশ্ন ও ক্যাডারদের লেকচার শিট এক জায়গায়
                 </p>

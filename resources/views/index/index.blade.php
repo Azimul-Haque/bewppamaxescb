@@ -273,7 +273,7 @@
                 <i class="lni lni-shortcode"></i>
               </div>
               <div class="service-content">
-                <h4>Topic Based</h4>
+                <h4>২২০০+ সাব-টপিক</h4>
                 <p>
                   সুনির্দিষ্টভাবে প্রতি বিষয়ে ভালো করার জন্য বিষয়ভিত্তিক পরীক্ষা পদ্ধতি।
                 </p>

@@ -311,7 +311,7 @@ class IndexController extends Controller
         // Artisan::call('optimize');
         Artisan::call('cache:clear');
         Artisan::call('view:clear');
-        Artisan::call('key:generate');
+        // Artisan::call('key:generate'); // not good for server and api or api token
         Artisan::call('config:clear');
         Artisan::call('session:gc');
         Session::flush();

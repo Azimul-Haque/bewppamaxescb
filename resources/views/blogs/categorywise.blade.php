@@ -115,7 +115,7 @@
                         
                         <div class="blog-content">
                             <div class="blog-meta">
-                                <i class="far fa-user"></i> {{ $blog->user->name }} &nbsp;|&nbsp; 
+                                <i class="far fa-user"></i> <a href="{{ route('blogger.profile', $blog->user->id) }}">{{ $blog->user->name }}</a> &nbsp;|&nbsp; 
                                 <i class="far fa-calendar-alt"></i> {{ bangla(date('M d, Y', strtotime($blog->created_at))) }}
                             </div>
                             

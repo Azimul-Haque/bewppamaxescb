@@ -143,7 +143,7 @@
 </div>
 
 <div class="widget">
-    <h5 class="widget-title">Popular posts</h5>
+    <h5 class="widget-title">জনপ্রিয় ব্লগ</h5>
     <div class="widget-body">
         @foreach($populars as $popular)
         <div class="popular-post-item">

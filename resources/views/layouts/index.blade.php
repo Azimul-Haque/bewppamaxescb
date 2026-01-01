@@ -132,7 +132,7 @@
             <div class="collapse navbar-collapse sub-menu-bar" id="navbarNine">
               <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                  <a class=" active" href="{{ route('index.index')  }}/#hero-area">হোম</a>
+                  <a class="{{ Request::is('/') ? 'active' : '' }}" href="{{ route('index.index')  }}/#hero-area">হোম</a>
                 </li>
                 <li class="nav-item">
                   <a class="" href="{{ route('index.index')  }}/#services">সেবা তালিকা</a>

@@ -116,9 +116,7 @@
     </style>
 @endsection
 
-{{-- @section('header-s')
-    {{ $blog->title }}
-@endsection --}}
+
 
 @section('content-s')
     <div id="fb-root"></div>

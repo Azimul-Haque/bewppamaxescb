@@ -468,7 +468,7 @@
                     <div class="table-content" style="padding-top: 10px;">
                         <p style="padding: 0px 20px;">
                           @if($blog->description != '')
-                            $blog->description
+                            {{ $blog->description }}
                           @else
 
                           @endif

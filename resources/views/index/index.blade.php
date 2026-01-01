@@ -73,7 +73,7 @@
           </div>
           <div class="col-lg-6 col-md-12 col-12">
             <div class="header-image">
-              <img src="{{ asset('/') }}images/header/home.png" alt="#" />
+              <img src="{{ asset('/') }}images/header/Picture2.png" alt="#" />
             </div>
           </div>
         </div>

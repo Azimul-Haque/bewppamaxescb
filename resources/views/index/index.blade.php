@@ -546,7 +546,7 @@
                     </div>
                     <div class="contact-content">
                       <h4>Contact</h4>
-                      <p>+8801837409842</p>
+                      <p>+8801842828885</p>
                       <p>bcsexamaid@gmail.com</p>
                     </div>
                   </div>

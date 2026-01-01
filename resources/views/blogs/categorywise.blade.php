@@ -23,7 +23,73 @@
 @endsection
 
 @section('third_party_stylesheets-s')
-    
+    <style>
+        .blog-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        .blog-image-wrapper img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .blog-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-meta {
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+        .blog-card-title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+        .blog-card-title a {
+            color: #333;
+            text-decoration: none;
+        }
+        .blog-card-title a:hover {
+            color: #0062cc;
+        }
+        .blog-excerpt {
+            font-size: 14px;
+            color: #555;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        .blog-footer {
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+        .read-more-btn {
+            background: #0062cc;
+            color: #fff !important;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-decoration: none;
+        }
+    </style>
 @endsection
 
 @section('header-s')

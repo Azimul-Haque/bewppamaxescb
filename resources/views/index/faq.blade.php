@@ -5,7 +5,7 @@
 
 @endsection
 
-@section('header-s')
+@section('header')
     ব্লগ সমূহ
 @endsection
 

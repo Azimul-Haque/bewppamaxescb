@@ -100,7 +100,7 @@
         <div class="container">
             <div class="row">
                 @foreach ($blogs as $blog)
-                <div class="col-md-6 col-sm-12" style="padding-bottom: 20px;">
+                <div class="col-md-6 col-sm-12" style="padding-bottom: 25px;">
                     <div class="blog-card wow fadeIn">
                         <div class="blog-image-wrapper">
                             <a href="{{ route('blog.single', $blog->slug) }}">

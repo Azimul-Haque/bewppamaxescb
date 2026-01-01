@@ -66,7 +66,7 @@
                   <span class="btn icon-btn rounded-full">
                     <i class="lni lni-play"></i>
                   </span>
-                  <span class="text">Watch Intro</span>
+                  <span class="text">ভিডিও প্রোমো</span>
                 </a>
               </div>
             </div>

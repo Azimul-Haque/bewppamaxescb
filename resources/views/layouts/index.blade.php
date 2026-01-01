@@ -138,7 +138,7 @@
                   <a class="{{ Request::is('/#services') ? 'active' : '' }}" href="{{ route('index.index')  }}/#services">সেবা তালিকা</a>
                 </li>
                 <li class="nav-item">
-                  <a class="" href="{{ route('blogs.index')  }}">ব্লগ</a>
+                  <a class="{{ Request::is('/blogs') ? 'active' : '' }}" href="{{ route('blogs.index')  }}">ব্লগ</a>
                 </li>
 
                 <li class="nav-item">

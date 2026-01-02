@@ -634,7 +634,7 @@ class QuestionController extends Controller
         return (new FastExcel($questions))->download('questions_topic_' . $topic_id . '.xlsx', function ($question) {
             return [
                 'topic_id' => $question->topic_id != '' ? $question->topic_id : '',
-                'question' => $question->question != '' ? $question->topic_id : '',
+                'question' => $question->question != '' ? $question->question : '',
                 'option1'  => $question->option1 != '' ? $question->option1 : '',
                 'option2'  => $question->option2 != '' ? $question->option2 : '',
                 'option3'  => $question->option3 != '' ? $question->option3 : '',

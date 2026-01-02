@@ -621,7 +621,6 @@ class QuestionController extends Controller
 
     public function getOldQSTopicWise($topic_id)
     {
-        dd($topic_id);
         // ১. ডাটাবেস থেকে নির্দিষ্ট topic_id এর প্রশ্নগুলো কুয়েরি করা
         // মেমোরি সেভ করার জন্য আমরা cursor() ব্যবহার করছি
         $questions = Question::where('topic_id', $topic_id)->cursor();

@@ -623,7 +623,7 @@ class QuestionController extends Controller
     {
         // ১. ডাটাবেস থেকে নির্দিষ্ট topic_id এর প্রশ্নগুলো কুয়েরি করা
         // মেমোরি সেভ করার জন্য আমরা cursor() ব্যবহার করছি
-        $questions = Question::where('topic_id', $topic_id)->cursor();
+        $questions = Question::where('topic_id', $topic_id)->get();
 
         // ২. যদি কোনো ডাটা না থাকে তবে ইউজারকে ফেরত পাঠানো (Optional)
         if ($questions->isEmpty()) {

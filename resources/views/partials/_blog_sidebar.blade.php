@@ -71,7 +71,7 @@
     }
     .popular-post-thumb {
         width: 65px !important;
-        height: 65px;
+        height: 65px !important;
         object-fit: cover;
         border-radius: 8px;
         flex-shrink: 0; /* ইমেজ যাতে ছোট হয়ে না যায় */

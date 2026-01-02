@@ -619,6 +619,31 @@ class QuestionController extends Controller
         return redirect()->back();
     }
 
+    public function getOldQSTopicWise($topic_id)
+    {
+        // ১. ডাটাবেস থেকে নির্দিষ্ট topic_id এর প্রশ্নগুলো কুয়েরি করা
+        // মেমোরি সেভ করার জন্য আমরা cursor() ব্যবহার করছি
+        $questions = Question::where('topic_id', $topic_id)->cursor();
+
+        // ২. যদি কোনো ডাটা না থাকে তবে ইউজারকে ফেরত পাঠানো (Optional)
+        if ($questions->isEmpty()) {
+            return back()->with('error', 'এই টপিকে কোনো প্রশ্ন পাওয়া যায়নি!');
+        }
+
+        // ৩. FastExcel ব্যবহার করে কাস্টম কলাম নেম সেট করে এক্সপোর্ট করা
+        return (new FastExcel($questions))->download('questions_topic_' . $topic_id . '.xlsx', function ($question) {
+            return [
+                'topic_id' => $question->topic_id,
+                'question' => $question->question,
+                'option1'  => $question->option1,
+                'option2'  => $question->option2,
+                'option3'  => $question->option3,
+                'option4'  => $question->option4,
+                'answer'   => $question->answer,
+            ];
+        });
+    }
+
     public function getFullPathAttribute()
     {
         $topics = Topic::get();

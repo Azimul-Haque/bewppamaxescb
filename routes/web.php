@@ -114,6 +114,8 @@ Route::post('/dashboard/questions/tag/store', 'QuestionController@storeQuestions
 Route::post('/dashboard/questions/tag/{id}/update', 'QuestionController@updateQuestionsTag')->name('dashboard.questions.tag.update');
 Route::get('/dashboard/questions/tag/{id}/delete', 'QuestionController@deleteQuestionsTag')->name('dashboard.questions.tag.delete');
 
+Route::get('/dashboard/questions/topicwise/old/data/{topic_id}', 'QuestionController@getOldQSTopicWise')->name('dashboard.questions.topicwise.old');
+
 Route::get('/dashboard/topics/pivotlist', 'QuestionController@getFullPathAttribute')->name('dashboard.topics.pivotlist');
 Route::get('/dashboard/topics/update-topic-counts/{softtoken}/{offset?}/{limit?}', 'QuestionController@updateAllTopicCounts')->name('dashboard.topics.update-topic-counts');
 Route::get('/dashboard/cache/rebuild/{secret}', 'QuestionController@rebuildTopicsCache')->name('dashboard.topics.requild.cache');

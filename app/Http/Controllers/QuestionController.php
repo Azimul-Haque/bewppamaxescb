@@ -639,7 +639,7 @@ class QuestionController extends Controller
                 'option2'  => $question->option2,
                 'option3'  => $question->option3,
                 'option4'  => $question->option4,
-                'answer'   => $question->answer,
+                'answer'   => $question->answer
             ];
         });
     }

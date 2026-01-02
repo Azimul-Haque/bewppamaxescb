@@ -104,6 +104,7 @@
         .popular-post-thumb {
             width: 55px;
             height: 55px;
+            flex-shrink: 0;
         }
         .widget-title {
             font-size: 16px;

@@ -68,6 +68,7 @@
         gap: 12px;
         margin-bottom: 15px;
         align-items: center;
+        align-items: flex-start;
     }
     .popular-post-thumb {
         width: 65px !important;

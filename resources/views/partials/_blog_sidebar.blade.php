@@ -152,7 +152,7 @@
                 @if($popular->featured_image != null)
                     <img src="{{ asset('images/blogs/'.$popular->featured_image) }}" class="popular-post-thumb" alt="{{ $popular->title }}"/>
                 @else
-                    <img src="{{ asset('images/default-blog-thumb.png') }}" class="popular-post-thumb" alt="Default"/>
+                    <img src="{{ asset('images/favicon.png') }}" class="popular-post-thumb" alt="Default"/>
                 @endif
             </a>
             <div>

@@ -71,8 +71,8 @@
         align-items: flex-start;
     }
     .popular-post-thumb {
-        width: 100px !important;
-        height: 65px !important;
+        width: 100px;
+        height: 65px;
         object-fit: cover;
         border-radius: 8px;
         flex-shrink: 0; /* ইমেজ যাতে ছোট হয়ে না যায় */

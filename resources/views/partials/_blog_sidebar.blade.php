@@ -103,7 +103,7 @@
     
     @media (max-width: 575px) {
         .popular-post-thumb {
-            width: 90px;
+            width: 100px;
             height: 55px;
             flex-shrink: 0;
         }

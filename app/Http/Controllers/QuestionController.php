@@ -633,13 +633,13 @@ class QuestionController extends Controller
         // ৩. FastExcel ব্যবহার করে কাস্টম কলাম নেম সেট করে এক্সপোর্ট করা
         return (new FastExcel($questions))->download('questions_topic_' . $topic_id . '.xlsx', function ($question) {
             return [
-                'topic_id' => $question->topic_id,
-                'question' => $question->question,
-                'option1'  => $question->option1,
-                'option2'  => $question->option2,
-                'option3'  => $question->option3,
-                'option4'  => $question->option4,
-                'answer'   => $question->answer,
+                'topic_id' => $question->topic_id != '' ? $question->topic_id : '',
+                'question' => $question->question != '' ? $question->topic_id : '',
+                'option1'  => $question->option1 != '' ? $question->option1 : '',
+                'option2'  => $question->option2 != '' ? $question->option2 : '',
+                'option3'  => $question->option3 != '' ? $question->option3 : '',
+                'option4'  => $question->option4 != '' ? $question->option4 : '',
+                'answer'   => $question->answer != '' ? $question->answer : '',
             ];
         });
     }

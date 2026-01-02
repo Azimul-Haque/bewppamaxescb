@@ -149,7 +149,7 @@
         @foreach($populars as $popular)
         <div class="popular-post-item">
             <a href="{{ route('blog.single', $popular->slug) }}">
-                @if($popular->featured_image != null && asset('images/blogs/'.$popular->featured_image))
+                @if($popular->featured_image != null && file_exists(public_path('images/blogs/' . $popular->featured_image)))
                     <img src="{{ asset('images/blogs/'.$popular->featured_image) }}" class="popular-post-thumb" alt="{{ $popular->title }}"/>
                 @else
                     <img src="{{ asset('images/favicon.png') }}" class="popular-post-thumb" alt="Default"/>

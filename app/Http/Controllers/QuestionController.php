@@ -640,6 +640,7 @@ class QuestionController extends Controller
                 'option3'  => $question->option3,
                 'option4'  => $question->option4,
                 'answer'   => $question->answer,
+                'answer'   => $question->explanation,
             ];
         });
     }

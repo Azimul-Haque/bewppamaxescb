@@ -70,7 +70,7 @@
         align-items: center;
     }
     .popular-post-thumb {
-        width: 65px;
+        width: 65px !important;
         height: 65px;
         object-fit: cover;
         border-radius: 8px;

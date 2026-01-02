@@ -125,7 +125,7 @@ class APIController extends Controller
                 if($triedlasttwentyminutes < 1) {
                     // FOR PLAY CONSOLE TESTING PURPOSE
                     // FOR PLAY CONSOLE TESTING PURPOSE
-                    if($mobile_number == '01751398392') {
+                    if($mobile_number == '01751398392' || $mobile_number == '01842828885') {
                        $otp = env('SMS_GATEWAY_PLAY_CONSOLE_TEST_OTP');
                     }
 

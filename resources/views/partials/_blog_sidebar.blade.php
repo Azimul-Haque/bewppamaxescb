@@ -156,7 +156,7 @@
                     <img src="{{ asset('images/favicon.png') }}" class="popular-post-thumb" alt="Default"/>
                 @endif
             </a>
-            <div class="ms-3"> {{-- একটু মার্জিন যোগ করা হয়েছে --}}
+            <div class="ms-1"> {{-- একটু মার্জিন যোগ করা হয়েছে --}}
                 <a href="{{ route('blog.single', $popular->slug) }}" class="popular-post-title" style="display: block; line-height: 1.4;">
                     {{ $popular->title }}
                 </a>

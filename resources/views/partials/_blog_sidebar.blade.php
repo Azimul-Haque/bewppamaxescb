@@ -149,18 +149,18 @@
     <div class="widget-body">
         @foreach($populars as $popular)
         <div class="popular-post-item">
-            <a href="{{ route('blog.single', $popular->slug) }}">
+            <a href="{{ route('blog.single', $popular->slug) }}" style="flex-shrink: 0;"> {{-- এখানে ফ্লেক্স-শ্রিঙ্ক জিরো রাখা জরুরি --}}
                 @if($popular->featured_image != null && file_exists(public_path('images/blogs/' . $popular->featured_image)))
                     <img src="{{ asset('images/blogs/'.$popular->featured_image) }}" class="popular-post-thumb" alt="{{ $popular->title }}"/>
                 @else
                     <img src="{{ asset('images/favicon.png') }}" class="popular-post-thumb" alt="Default"/>
                 @endif
             </a>
-            <div>
-                <a href="{{ route('blog.single', $popular->slug) }}" class="popular-post-title">
+            <div class="ms-3"> {{-- একটু মার্জিন যোগ করা হয়েছে --}}
+                <a href="{{ route('blog.single', $popular->slug) }}" class="popular-post-title" style="display: block; line-height: 1.4;">
                     {{ $popular->title }}
                 </a>
-                <small class="text-muted" style="font-size: 11px; display: block; mt-1;">
+                <small class="text-muted" style="font-size: 11px; display: block; margin-top: 5px;">
                     <i class="far fa-calendar-alt"></i> {{ bangla(date('M d, Y', strtotime($popular->created_at))) }}
                 </small>
             </div>

@@ -71,7 +71,7 @@
         align-items: flex-start;
     }
     .popular-post-thumb {
-        width: 65px !important;
+        width: 100px !important;
         height: 65px !important;
         object-fit: cover;
         border-radius: 8px;

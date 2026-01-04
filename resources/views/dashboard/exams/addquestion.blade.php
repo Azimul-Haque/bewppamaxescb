@@ -350,17 +350,16 @@
                 data: { main_topic_id: topicId },
                 success: function(groups) {
                     if ($.isEmptyObject(groups)) {
-                        alert('কোনো সাবটপিক পাওয়া যায়নি।');
+                        alert('কোনো সাবটপিক পাওয়া যায়নি।');
                         return;
                     }
 
                     loadedTopics.push(topicId);
-                    
-                    // প্রতিটি মেইন টপিকের জন্য একটি ইউনিক Accordion ID
                     let accordionId = "accordion_" + topicId;
+                    
                     let html = `
                         <div class="card card-warning card-outline mb-4" id="main_card_${topicId}">
-                            <div class="card-header">
+                            <div class="card-header py-2">
                                 <h3 class="card-title text-bold"><i class="fas fa-book mr-2"></i> ${topicName}</h3>
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool remove-main-topic" data-id="${topicId}">
@@ -372,7 +371,8 @@
                                 <div class="accordion" id="${accordionId}">`;
 
                     let groupIndex = 0;
-                    $.each(groups, function(parentName, subtopics) {
+                    // groups হলো: { "প্রাচীন যুগ": { "চর্যাপদ": {data}, "অন্ধকার যুগ": {data} }, ... }
+                    $.each(groups, function(parentGroupName, subtopicsData) {
                         groupIndex++;
                         let collapseId = `collapse_${topicId}_${groupIndex}`;
                         
@@ -382,27 +382,38 @@
                                     <h2 class="mb-0">
                                         <button class="btn btn-link btn-block text-left text-dark font-weight-bold p-1 text-sm" 
                                                 type="button" data-toggle="collapse" data-target="#${collapseId}">
-                                            <i class="fas fa-folder mr-2 text-warning"></i> ${parentName} 
-                                            <span class="badge badge-pill badge-secondary float-right">${subtopics.length}</span>
+                                            <i class="fas fa-folder mr-2 text-warning"></i> ${parentGroupName} 
+                                            <span class="badge badge-pill badge-secondary float-right">${Object.keys(subtopicsData).length} টি প্রধান বিভাগ</span>
                                         </button>
                                     </h2>
                                 </div>
-                                <div id="${collapseId}" class="collapse" data-parent="#${accordionId}">
+                                <div id="${collapseId}" class="collapse show" data-parent="#${accordionId}">
                                     <div class="card-body p-2">
                                         <div class="row">`;
 
-                        subtopics.forEach(function(sub) {
+                        $.each(subtopicsData, function(mainSubName, data) {
+                            // ব্র্যাকেটের জন্য সাব-লিস্ট তৈরি (যদি থাকে)
+                            let bracketInfo = data.sub_list && data.sub_list.length > 0 
+                                ? `<br><small class="text-muted italic" style="font-size: 11px;">(${data.sub_list.join(', ')})</small>` 
+                                : '';
+
                             html += `
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-12 mb-2">
                                     <div class="p-2 border rounded bg-white d-flex justify-content-between align-items-center shadow-sm">
-                                        <div style="max-width: 75%;">
-                                            <span class="d-block text-xs font-weight-bold text-truncate subtopic-name" title="${sub.full_path}">${sub.name}</span>
-                                            <small class="text-muted" style="font-size: 10px;">প্রশ্ন: ${sub.total_questions_sum || 0}</small>
+                                        <div style="max-width: 80%;">
+                                            <span class="d-block text-sm font-weight-bold text-primary subtopic-name">${mainSubName}</span>
+                                            ${bracketInfo}
+                                            <div class="mt-1">
+                                                <span class="badge badge-light border" style="font-size: 10px;">মোট প্রশ্ন: ${data.total_q}</span>
+                                            </div>
                                         </div>
-                                        <input type="number" name="topics[${sub.id}]" 
-                                               class="form-control form-control-sm q-count-input" 
-                                               style="width: 55px; height: 25px; font-size: 12px;" 
-                                               min="0" max="${sub.total_questions_sum || 0}" value="0">
+                                        <div class="text-right">
+                                            <input type="number" name="topic_groups[${JSON.stringify(data.all_ids)}]" 
+                                                   class="form-control form-control-sm q-count-input" 
+                                                   data-name="${mainSubName}"
+                                                   style="width: 70px; font-weight: bold;" 
+                                                   min="0" max="${data.total_q}" value="0">
+                                        </div>
                                     </div>
                                 </div>`;
                         });
@@ -417,11 +428,11 @@
                             </div>
                         </div>`;
 
-                    // .html() এর বদলে .append() ব্যবহার করুন যাতে আগের ডাটা না মুছে যায়
                     $('#topics_wrapper').append(html);
+                    updateSelectionPreview(); // ইনিশিয়াল কল
                 },
                 error: function() {
-                    alert('ডাটা লোড করতে সমস্যা হয়েছে।');
+                    alert('ডাটা লোড করতে সমস্যা হয়েছে।');
                 },
                 complete: function() {
                     btn.prop('disabled', false).html('<i class="fas fa-plus"></i> সাবটপিক লোড করুন');
@@ -440,6 +451,7 @@
             });
         });
 
+        // ইনপুট চেঞ্জ হলে প্রিভিউ আপডেট
         $(document).on('input', '.q-count-input', function() {
             updateSelectionPreview();
         });
@@ -450,15 +462,16 @@
             let anySelected = false;
 
             $('.q-count-input').each(function() {
-                total += parseInt($(this).val()) || 0;
                 let count = parseInt($(this).val()) || 0;
+                total += count;
+                
                 if (count > 0) {
                     anySelected = true;
-                    // data-name থেকে নাম নিচ্ছি
-                    let name = $(this).closest('.p-2').find('.subtopic-name').text();
+                    let name = $(this).data('name');
                     previewHtml += `
-                        <span class="badge badge-info m-1 px-2 py-1 shadow-sm" style="font-size: 11px;">
-                            ${name} <span class="badge badge-light ml-1">${count}</span>
+                        <span class="badge badge-info m-1 px-2 py-1 shadow-sm border" style="font-size: 12px; font-weight: 500;">
+                            <i class="fas fa-check-circle mr-1"></i> ${name} 
+                            <span class="badge badge-light ml-1" style="color: #000;">${count}</span>
                         </span>`;
                 }
             });

@@ -317,7 +317,136 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.4/underscore-umd-min.js"></script>
 <script>
-    
+    $(document).ready(function() {
+        let loadedTopics = []; 
+
+        $('#add_topic_btn').on('click', function() {
+            let selectedOption = $('#main_topic_selector').find(":selected");
+            let topicId = selectedOption.val();
+            let topicName = selectedOption.data('name');
+
+            if (!topicId) {
+                alert('অনুগ্রহ করে একটি টপিক সিলেক্ট করুন।');
+                return;
+            }
+
+            if (loadedTopics.includes(topicId)) {
+                alert('এই টপিকটি অলরেডি নিচে যোগ করা হয়েছে।');
+                return;
+            }
+
+            let btn = $(this);
+            btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> লোড হচ্ছে...');
+            $('.empty-msg').hide();
+
+            $.ajax({
+                url: "{{ route('dashboard.exams.subtopics') }}",
+                type: "GET",
+                data: { main_topic_id: topicId },
+                success: function(groups) {
+                    if ($.isEmptyObject(groups)) {
+                        alert('কোনো সাবটপিক পাওয়া যায়নি।');
+                        return;
+                    }
+
+                    loadedTopics.push(topicId);
+                    
+                    // প্রতিটি মেইন টপিকের জন্য একটি ইউনিক Accordion ID
+                    let accordionId = "accordion_" + topicId;
+                    let html = `
+                        <div class="card card-warning card-outline mb-4" id="main_card_${topicId}">
+                            <div class="card-header">
+                                <h3 class="card-title text-bold"><i class="fas fa-book mr-2"></i> ${topicName}</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool remove-main-topic" data-id="${topicId}">
+                                        <i class="fas fa-times text-danger"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body p-2">
+                                <div class="accordion" id="${accordionId}">`;
+
+                    let groupIndex = 0;
+                    $.each(groups, function(parentName, subtopics) {
+                        groupIndex++;
+                        let collapseId = `collapse_${topicId}_${groupIndex}`;
+                        
+                        html += `
+                            <div class="card mb-1 shadow-none border">
+                                <div class="card-header bg-light py-1">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left text-dark font-weight-bold p-1 text-sm" 
+                                                type="button" data-toggle="collapse" data-target="#${collapseId}">
+                                            <i class="fas fa-folder mr-2 text-warning"></i> ${parentName} 
+                                            <span class="badge badge-pill badge-secondary float-right">${subtopics.length}</span>
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="${collapseId}" class="collapse" data-parent="#${accordionId}">
+                                    <div class="card-body p-2">
+                                        <div class="row">`;
+
+                        subtopics.forEach(function(sub) {
+                            html += `
+                                <div class="col-md-6 mb-2">
+                                    <div class="p-2 border rounded bg-white d-flex justify-content-between align-items-center shadow-sm">
+                                        <div style="max-width: 75%;">
+                                            <span class="d-block text-xs font-weight-bold text-truncate" title="${sub.full_path}">${sub.name}</span>
+                                            <small class="text-muted" style="font-size: 10px;">প্রশ্ন: ${sub.total_q}</small>
+                                        </div>
+                                        <input type="number" name="topics[${sub.id}]" 
+                                               class="form-control form-control-sm q-count-input" 
+                                               style="width: 55px; height: 25px; font-size: 12px;" 
+                                               min="0" max="${sub.total_q}" value="0">
+                                    </div>
+                                </div>`;
+                        });
+
+                        html += `       </div>
+                                    </div>
+                                </div>
+                            </div>`;
+                    });
+
+                    html += `   </div>
+                            </div>
+                        </div>`;
+
+                    // .html() এর বদলে .append() ব্যবহার করুন যাতে আগের ডাটা না মুছে যায়
+                    $('#topics_wrapper').append(html);
+                },
+                error: function() {
+                    alert('ডাটা লোড করতে সমস্যা হয়েছে।');
+                },
+                complete: function() {
+                    btn.prop('disabled', false).html('<i class="fas fa-plus"></i> সাবটপিক লোড করুন');
+                }
+            });
+        });
+
+        // মেইন টপিক কার্ড রিমুভ করা
+        $(document).on('click', '.remove-main-topic', function() {
+            let id = $(this).data('id').toString();
+            $(`#main_card_${id}`).fadeOut(300, function() {
+                $(this).remove();
+                loadedTopics = loadedTopics.filter(item => item !== id);
+                if(loadedTopics.length === 0) $('.empty-msg').show();
+                updateTotalCount();
+            });
+        });
+
+        $(document).on('input', '.q-count-input', function() {
+            updateTotalCount();
+        });
+
+        function updateTotalCount() {
+            let total = 0;
+            $('.q-count-input').each(function() {
+                total += parseInt($(this).val()) || 0;
+            });
+            $('#total_selected_count').text(total + 'টি প্রশ্ন সিলেক্ট করা হয়েছে');
+        }
+    });
 </script>
 
 <script>

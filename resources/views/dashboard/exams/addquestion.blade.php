@@ -411,6 +411,8 @@
                     আরও সাবটপিক লোড করুন <i class="fas fa-arrow-down ml-1"></i>
                 </button>` : '';
 
+            let idsToSend = (item.all_ids && item.all_ids.length > 0) ? item.all_ids : [item.id];
+
             return `
                 <div class="subtopic-row-wrapper mb-2" id="row_wrapper_${item.id}">
                     <div class="p-2 border rounded bg-white d-flex justify-content-between align-items-center shadow-sm">

@@ -405,6 +405,8 @@ class ExamController extends Controller
             }
         }
 
+        dd(allQuestionIds);
+
         // আপনার Pivot টেবিলে ইনসার্ট (Exam-Question relation)
         $exam = Exam::find($examId);
         $exam->questions()->attach($allQuestionIds);

@@ -37,7 +37,7 @@ class ExamController extends Controller
     {
         $examcategories = $examcategories = Examcategory::all();
 
-        return view('dashboard.exams.index')
+        return view('dashboard.exams.landing')
                     ->withExamcategories($examcategories);
     }
 

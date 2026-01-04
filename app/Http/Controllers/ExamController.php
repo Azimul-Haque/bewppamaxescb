@@ -528,7 +528,7 @@ class ExamController extends Controller
                 $exam             = new Exam;
                 $exam->examcategory_id   = $collection['examcategory_id'];
                 $exam->name   = $collection['name'];
-                $exam->option1    = $collection['option1'];
+                $exam->duration    = $collection['duration'];
                 $exam->option2    = $collection['option2'];
                 $exam->option3    = $collection['option3'];
                 $exam->option4    = $collection['option4'];

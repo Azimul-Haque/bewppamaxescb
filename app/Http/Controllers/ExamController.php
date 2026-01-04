@@ -352,9 +352,9 @@ class ExamController extends Controller
         $mainTopicId = $request->main_topic_id;
         $mainTopic = Topic::find($mainTopicId);
 
-        dd($mainTopic);
-
         if (!$mainTopic) return response()->json([]);
+
+                dd($mainTopic);
 
         // সব লেভেলের সাবটপিক আইডি নেওয়া
         $allDescendantIds = $mainTopic->descendant_ids; 

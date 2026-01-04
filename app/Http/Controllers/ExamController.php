@@ -405,7 +405,7 @@ class ExamController extends Controller
         // সিলেবাসটি স্ট্রিং হিসেবে তৈরি করা
         $finalSyllabus = "📝 পরীক্ষার সংক্ষিপ্ত সিলেবাস\n\n" . implode("\n\n", $syllabusParts);
 
-        dd($syllabusParts)
+        dd($finalSyllabus);
 
         // ডাটাবেসে সেভ
         $exam = Exam::find($request->exam_id);

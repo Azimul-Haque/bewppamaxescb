@@ -35,7 +35,6 @@
                             5 => 'NSI, DGFI ও অন্যান্য',
                             6 => 'প্রশ্ন ব্যাংক'
                         ];
-                        $groupedCourses = $courses->groupBy('category');
                     @endphp
                     <!-- /.card-header -->
                     <div class="card-body p-0">

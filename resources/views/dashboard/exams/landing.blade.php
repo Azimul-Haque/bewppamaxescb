@@ -45,7 +45,7 @@
             </div>
         @endforeach
 
-        <style>
+        {{-- <style>
             .small-box:hover {
                 transform: translateY(-8px);
             }
@@ -58,7 +58,7 @@
             .small-box h3, .small-box p, .small-box .small-box-footer {
                 color: #fff !important;
             }
-        </style>
+        </style> --}}
 
         <div class="col-lg-3 col-6">
             <div class="small-box shadow-sm border border-dashed" 

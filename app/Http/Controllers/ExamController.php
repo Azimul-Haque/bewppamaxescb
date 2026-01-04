@@ -370,52 +370,58 @@ class ExamController extends Controller
     }
 
     public function storeAutoQuestions(Request $request) {
-        $examId = $request->exam_id;
-
         $allQuestionIds = [];
 
-        // ১. শুধুমাত্র নিজস্ব প্রশ্ন প্রসেস করা (only_own)
-        if ($request->has('only_own')) {
-            foreach ($request->only_own as $topicId => $count) {
-                if ($count > 0) {
-                    $questions = Question::where('topic_id', $topicId)
-                                    ->inRandomOrder()
-                                    ->limit($count)
-                                    ->pluck('id')
-                                    ->toArray();
-                    $allQuestionIds = array_merge($allQuestionIds, $questions);
+            // ১. শুধুমাত্র নিজস্ব প্রশ্ন প্রসেস করা (only_own)
+            if ($request->has('only_own')) {
+                foreach ($request->only_own as $topicId => $count) {
+                    $count = (int)$count;
+                    if ($count > 0) {
+                        $questions = Question::where('topic_id', $topicId)
+                                        ->inRandomOrder()
+                                        ->limit($count)
+                                        ->pluck('id')
+                                        ->toArray();
+                        $allQuestionIds = array_merge($allQuestionIds, $questions);
+                    }
                 }
             }
-        }
 
-        // ২. সাবটপিকসহ প্রশ্ন প্রসেস করা (topic_groups)
-        foreach ($request->topic_groups as $idsJson => $count) {
-            if ($count > 0) {
-                $ids = json_decode($idsJson);
-                
-                // চেক করুন $ids আসলে একটি অ্যারে কি না এবং এটি খালি কি না
-                if (!is_array($ids) || empty($ids)) {
-                    continue; // যদি আইডি না থাকে তবে এই লুপটি স্কিপ করুন
+            // ২. সাবটপিকসহ প্রশ্ন প্রসেস করা (topic_groups)
+            if ($request->has('topic_groups')) {
+                foreach ($request->topic_groups as $idsCommaString => $count) {
+                    $count = (int)$count;
+                    if ($count > 0) {
+                        // আইডিগুলো কমা দিয়ে আলাদা করা (স্ট্রিং থেকে অ্যারে)
+                        $ids = explode(',', $idsCommaString);
+
+                        if (empty($ids)) continue;
+
+                        $query = Question::whereIn('topic_id', $ids);
+
+                        // যদি ইতিমধ্যে কিছু প্রশ্ন সিলেক্ট হয়ে থাকে তবে সেগুলো বাদ দেওয়া
+                        if (!empty($allQuestionIds)) {
+                            $query->whereNotIn('id', $allQuestionIds);
+                        }
+
+                        $questions = $query->inRandomOrder()
+                                        ->limit($count)
+                                        ->pluck('id')
+                                        ->toArray();
+                                        
+                        $allQuestionIds = array_merge($allQuestionIds, $questions);
+                    }
                 }
-
-                $questions = Question::whereIn('topic_id', $ids)
-                                ->whereNotIn('id', $allQuestionIds)
-                                ->inRandomOrder()
-                                ->limit($count)
-                                ->pluck('id')
-                                ->toArray();
-                                
-                $allQuestionIds = array_merge($allQuestionIds, $questions);
             }
-        }
 
-        dd(allQuestionIds);
+            // ৩. এক্সাম পেপারে প্রশ্নগুলো সেভ করা
+            if (!empty($allQuestionIds)) {
+                $exam = Exam::find($request->exam_id);
+                $exam->questions()->syncWithoutDetaching($allQuestionIds);
+                return back()->with('success', count($allQuestionIds) . 'টি প্রশ্ন সফলভাবে যোগ করা হয়েছে।');
+            }
 
-        // আপনার Pivot টেবিলে ইনসার্ট (Exam-Question relation)
-        $exam = Exam::find($examId);
-        $exam->questions()->attach($allQuestionIds);
-
-        return back()->with('success', count($allQuestionIds) . 'টি প্রশ্ন সফলভাবে যোগ করা হয়েছে।');
+            return back()->with('error', 'কোনো প্রশ্ন সিলেক্ট করা হয়নি।');
     }
 
     public function addQuestionToExamTopic($topic_id, $id)

@@ -397,12 +397,12 @@
                                     <div class="p-2 border rounded bg-white d-flex justify-content-between align-items-center shadow-sm">
                                         <div style="max-width: 75%;">
                                             <span class="d-block text-xs font-weight-bold text-truncate subtopic-name" title="${sub.full_path}">${sub.name}</span>
-                                            <small class="text-muted" style="font-size: 10px;">প্রশ্ন: ${sub.total_q}</small>
+                                            <small class="text-muted" style="font-size: 10px;">প্রশ্ন: ${sub.total_questions_sum || 0}</small>
                                         </div>
                                         <input type="number" name="topics[${sub.id}]" 
                                                class="form-control form-control-sm q-count-input" 
                                                style="width: 55px; height: 25px; font-size: 12px;" 
-                                               min="0" max="${sub.total_q}" value="0">
+                                               min="0" max="${sub.total_questions_sum || 0}" value="0">
                                     </div>
                                 </div>`;
                         });

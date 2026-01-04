@@ -611,7 +611,7 @@
       {{-- Add Category Modal Code --}}
       {{-- Add Category Modal Code --}}
   
-  </div>
+  
 @endsection
 
 @section('third_party_scripts')

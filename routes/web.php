@@ -129,7 +129,7 @@ Route::get('/dashboard/change/topic/questions/{search}', 'QuestionController@get
 Route::get('/dashboard/change/topic/questions/topicbased/{id}', 'QuestionController@getChangeTopicQuestionsTopicBased')->name('dashboard.questions.changetopicbased');
 Route::post('/dashboard/change/topic/questions/{id}/update', 'QuestionController@postChangeTopicQuestions')->name('dashboard.questions.updatechangetopicbased');
 
-Route::get('/dashboard/landing/exams', 'ExamController@getExams')->name('dashboard.exams');
+Route::get('/dashboard/landing/exams', 'ExamController@getExamsLanding')->name('dashboard.exams.landing');
 Route::get('/dashboard/exams', 'ExamController@getExams')->name('dashboard.exams');
 Route::get('/dashboard/exams/{search}', 'ExamController@getExamsSearch')->name('dashboard.exams.search');
 Route::get('/dashboard/exams/meritlist/{exam_id}', 'ExamController@getExamMeritList')->name('dashboard.exams.getmeritlist');

@@ -45,7 +45,7 @@
             </div> --}}
         </div>
 
-        <hr class="my-4">
+        {{-- <hr class="my-4">
 
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
     @endsection

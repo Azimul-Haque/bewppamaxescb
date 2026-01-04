@@ -455,7 +455,7 @@
                 if (count > 0) {
                     anySelected = true;
                     // data-name থেকে নাম নিচ্ছি
-                    let name = $(this).data('name'); 
+                    let name = $(this).closest('.p-2').find('.subtopic-name').text();
                     previewHtml += `
                         <span class="badge badge-info m-1 px-2 py-1 shadow-sm" style="font-size: 11px;">
                             ${name} <span class="badge badge-light ml-1">${count}</span>

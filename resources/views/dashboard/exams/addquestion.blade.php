@@ -56,6 +56,7 @@
                                   <td>
                                       {!! $examquestion->question->question !!}<br/>
                                       <span class="badge bg-success">{{ $examquestion->question->topic->name }}</span>
+                                      <span class="badge bg-success">{{ $examquestion->question->topic->full_path }}</span>
                                       @foreach($examquestion->question->tags as $tag)
                                         <span class="badge bg-primary">{{ $tag->name }}</span>
                                       @endforeach

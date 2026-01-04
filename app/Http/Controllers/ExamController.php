@@ -350,7 +350,7 @@ class ExamController extends Controller
     public function getSubtopics(Request $request)
     {
         $mainTopicId = $request->main_topic_id;
-        $mainTopic = Topic::find($mainTopicId);
+        $mainTopic = Topic::with('children')->find($mainTopicId);
 
         if (!$mainTopic) return response()->json([]);
 

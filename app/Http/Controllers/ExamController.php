@@ -350,18 +350,22 @@ class ExamController extends Controller
     public function getSubtopics(Request $request)
     {
         $mainTopicId = $request->main_topic_id;
+        $mainTopic = Topic::find($mainTopicId);
 
-        // মেইন টপিকের আন্ডারে থাকা সব সাবটপিক এবং তাদের questions count
-        // আমরা মডেলে থাকা full_path accessor ব্যবহার করছি
-        $topics = Topic::where('parent_id', $mainTopicId)
-                        ->with('children') // ডাইনামিক ডেপথের জন্য
+        if (!$mainTopic) return response()->json([]);
+
+        // সব লেভেলের সাবটপিক আইডি নেওয়া
+        $allDescendantIds = $mainTopic->descendant_ids; 
+
+        // ডাটা নিয়ে এসে তাদের ইমিডিয়েট প্যারেন্ট অনুযায়ী গ্রুপ করা
+        $topics = Topic::whereIn('id', $allDescendantIds)
+                        ->where('id', '!=', $mainTopicId)
+                        ->where('total_questions_sum', '>', 0)
+                        ->with('parent') // প্যারেন্ট নেম জানার জন্য
                         ->get()
-                        ->map(function ($topic) {
-                            return [
-                                'id' => $topic->id,
-                                'full_name' => $topic->full_path, // আপনার মডেলে থাকা Accessor
-                                'total_q' => $topic->total_questions_sum ?? 0
-                            ];
+                        ->groupBy(function($item) {
+                            // ইমিডিয়েট প্যারেন্টের নাম অনুযায়ী গ্রুপ হবে
+                            return $item->parent ? $item->parent->name : 'অন্যান্য';
                         });
 
         return response()->json($topics);

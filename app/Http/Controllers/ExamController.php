@@ -409,7 +409,7 @@ class ExamController extends Controller
         //     $finalSyllabus = "সিলেবাস নির্ধারিত নেই।";
         // }
 
-        dd($finalSyllabus);
+        // dd($finalSyllabus);
 
         // ডাটাবেসে সেভ
         $exam = Exam::find($request->exam_id);

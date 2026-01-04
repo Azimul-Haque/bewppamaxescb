@@ -25,6 +25,18 @@
                           </button>
                       </div>
                     </div>
+
+                    @php
+                        $categoryNames = [
+                            1 => 'বিসিএস',
+                            2 => 'প্রাইমারি',
+                            3 => 'ব্যাংক',
+                            4 => 'NTRCA',
+                            5 => 'NSI, DGFI ও অন্যান্য',
+                            6 => 'প্রশ্ন ব্যাংক'
+                        ];
+                        $groupedCourses = $courses->groupBy('category');
+                    @endphp
                     <!-- /.card-header -->
                     <div class="card-body p-0">
                       <table class="table">

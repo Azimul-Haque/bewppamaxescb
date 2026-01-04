@@ -134,7 +134,7 @@
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/bn_IN/sdk.js#xfbml=1&version=v12.0&appId=163879201229487"></script>
 
     <div class="blog-single-card">
-        <h1 class="mb-3 font-weight-bold" style="color: #222;">{{ $blog->title }}</h1>
+        <h1 class="mb-3 font-weight-bold blog-title" style="color: #222;">{{ $blog->title }}</h1>
         
         <div class="mb-4 text-muted" style="font-size: 14px;">
             <i class="far fa-user"></i> <a href="{{ route('blogger.profile', $blog->user->id) }}"><b>{{ $blog->user->name }}</b></a> 

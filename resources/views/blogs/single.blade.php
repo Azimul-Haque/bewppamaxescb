@@ -139,6 +139,7 @@
             font-family: 'Kalpurush', sans-serif;
         }
     </style>
+    <link rel="preload" href="fonts/kalpurush.woff2" as="font" type="font/woff2" crossorigin>
 @endsection
 
 @section('header-s')

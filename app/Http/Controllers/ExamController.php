@@ -445,6 +445,24 @@ class ExamController extends Controller
         return back()->with('error', 'কোনো প্রশ্ন সিলেক্ট করা হয়নি।');
     }
 
+    public function fastCleanup()
+    {
+        // ১. একটি টেম্পোরারি টেবিল তৈরি করুন যেখানে ডুপ্লিকেট ছাড়া ইউনিক আইডিগুলো থাকবে
+        DB::statement("CREATE TABLE temp_ids AS 
+                       SELECT MIN(id) as id 
+                       FROM examquestions 
+                       GROUP BY exam_id, question_id");
+
+        // ২. এবার মেইন টেবিল থেকে সেই সব ডাটা ডিলিট করুন যে আইডিগুলো টেম্পোরারি টেবিলে নেই
+        DB::statement("DELETE FROM examquestions 
+                       WHERE id NOT IN (SELECT id FROM temp_ids)");
+
+        // ৩. টেম্পোরারি টেবিলটি ড্রপ করে দিন
+        DB::statement("DROP TABLE temp_ids");
+
+        return "সফলভাবে ডুপ্লিকেট ক্লিন হয়েছে!";
+    }
+
     public function addQuestionToExamTopic($topic_id, $id)
     {
         $exam = Exam::findOrFail($id);

@@ -1322,7 +1322,7 @@ class DashboardController extends Controller
             'slug'           => 'sometimes|max:255|unique:blogs,slug',
             'body'           => 'required',
             'blogcategory_id'    => 'required|integer',
-            'featured_image'  => 'sometimes|image|max:500',
+            'featured_image'  => 'sometimes|image|max:800',
             'keywords' => 'sometimes',
             'description' => 'sometimes',
         ));
@@ -1369,7 +1369,7 @@ class DashboardController extends Controller
             'slug'           => 'required|max:255|unique:blogs,slug,'.$blog->id,
             'body'           => 'required',
             'blogcategory_id'    => 'required|integer',
-            'featured_image' => 'sometimes|image|max:500',
+            'featured_image' => 'sometimes|image|max:800',
             'keywords' => 'sometimes',
             'description' => 'sometimes',
         ));

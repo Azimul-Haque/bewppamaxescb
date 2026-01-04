@@ -65,7 +65,7 @@ class BlogController extends Controller {
             'title'          => 'required|max:255|unique:blogs,title',
             'body'           => 'required',
             'blogcategory_id'    => 'required|integer',
-            'featured_image' => 'sometimes|image|max:300',
+            'featured_image' => 'sometimes|image|max:800',
             'keywords' => 'sometimes',
             'description' => 'sometimes',
         ));

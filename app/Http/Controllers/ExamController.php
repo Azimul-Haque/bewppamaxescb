@@ -47,9 +47,10 @@ class ExamController extends Controller
             abort(403, 'Access Denied');
         }
         
+        dd($request)
         $totalexams = Exam::count();
         if($request->id) {
-            
+
         }
         $exams = Exam::orderBy('id', 'desc')->paginate(10);
         $examcategories = Examcategory::all();

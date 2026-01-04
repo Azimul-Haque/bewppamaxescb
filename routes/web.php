@@ -151,7 +151,7 @@ Route::post('/dashboard/exams/add/question/tags', 'ExamController@storeTagExamQu
 // 2026 features
 // 2026 features
 
-Route::post('/dashboard/exams/excel/store', 'ExamController@storeExcelQuestion')->name('dashboard.questions.excel.store');
+Route::post('/dashboard/exams/excel/store', 'ExamController@storeExcelExam')->name('dashboard.exams.excel.store');
 
 Route::get('/dashboard/exams/get/subtopics', 'ExamController@getSubtopics')->name('dashboard.exams.subtopics');
 Route::get('/dashboard/exams/questions/fastcleanup', 'ExamController@fastCleanup')->name('dashboard.exams.fastcleanup');

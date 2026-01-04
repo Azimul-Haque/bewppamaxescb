@@ -432,7 +432,7 @@
                 $(this).remove();
                 loadedTopics = loadedTopics.filter(item => item !== id);
                 if(loadedTopics.length === 0) $('.empty-msg').show();
-                updateTotalCount();
+                updateSelectionPreview();
             });
         });
 

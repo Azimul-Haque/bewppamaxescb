@@ -205,6 +205,7 @@ class CourseController extends Controller
 
     public function storeCourseExam(Request $request)
     {
+        dd($request->all());
         $request->validate([
             'exam_ids' => 'nullable|array',
             'exam_ids.*' => 'exists:exams,id'

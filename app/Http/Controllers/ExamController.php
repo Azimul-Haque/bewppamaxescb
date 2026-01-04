@@ -49,7 +49,7 @@ class ExamController extends Controller
 
         $totalexams = Exam::count();
         if(!empty($request->id)) {
-            $exams = Exam::orderBy('id', 'desc')->paginate(10);
+            $exams = Exam::where('id', $request->id)->orderBy('id', 'desc')->paginate(10);
         }
         $exams = Exam::orderBy('id', 'desc')->paginate(10);
         $examcategories = Examcategory::all();

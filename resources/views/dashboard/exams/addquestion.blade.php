@@ -392,7 +392,7 @@
                                 <div class="col-md-6 mb-2">
                                     <div class="p-2 border rounded bg-white d-flex justify-content-between align-items-center shadow-sm">
                                         <div style="max-width: 75%;">
-                                            <span class="d-block text-xs font-weight-bold text-truncate" title="${sub.full_path}">${sub.name}</span>
+                                            <span class="d-block text-xs font-weight-bold text-truncate subtopic-name" title="${sub.full_path}">${sub.name}</span>
                                             <small class="text-muted" style="font-size: 10px;">প্রশ্ন: ${sub.total_q}</small>
                                         </div>
                                         <input type="number" name="topics[${sub.id}]" 

@@ -430,7 +430,7 @@
                                        data-name="${name} (নিজস্ব)" 
                                        style="width: 55px; border-color: #28a745;" 
                                        min="0" max="${item.direct_q}" value="0">
-                                <small class="text-success d-block" style="font-size: 8px;">নিজস্ব</small>
+                                <small class="text-success d-block" style="font-size: 11px;">নিজস্ব</small>
                             </div>
 
                             <div class="text-center">
@@ -439,7 +439,7 @@
                                        data-name="${name} (সবসহ)" 
                                        style="width: 55px; border-color: #6c757d;" 
                                        min="0" max="${item.total_q}" value="0">
-                                <small class="text-muted d-block" style="font-size: 8px;">সবসহ</small>
+                                <small class="text-muted d-block" style="font-size: 11px;">সবসহ</small>
                             </div>
                         </div>
                     </div>

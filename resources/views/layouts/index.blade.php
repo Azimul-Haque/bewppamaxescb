@@ -45,7 +45,7 @@
   <link rel="stylesheet" href="{{ asset('vendor/frontend/css/lineicons.css') }}" />
 
   <!--====== Tiny Slider css ======-->
-  <link rel="stylesheet" href="{{ asset('vendor/frontend/css/tiny-slider.css') }}" />
+  {{-- <link rel="stylesheet" href="{{ asset('vendor/frontend/css/tiny-slider.css') }}" /> --}}
 
   <!--====== gLightBox css ======-->
   @if (!Request::is('blogs', 'blogs/*', 'blog', 'blog/*'))
@@ -315,7 +315,7 @@
     <script src="{{ asset('vendor/frontend/js/glightbox.min.js') }}"></script>
   @endif
   <script src="{{ asset('vendor/frontend/js/main.js') }}"></script>
-  <script src="{{ asset('vendor/frontend/js/tiny-slider.js') }}"></script>
+  {{-- <script src="{{ asset('vendor/frontend/js/tiny-slider.js') }}"></script> --}}
 
   <script>
 

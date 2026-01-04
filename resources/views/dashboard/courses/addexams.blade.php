@@ -57,7 +57,7 @@
                     <input type="text" id="quickSearch" class="form-control form-control-sm" placeholder="এই পেজে খুঁজুন...">
                 </div>
             </div>
-            <form action="{{ route('dashboard.courses.exam.store', $course->name) }}" method="POST">
+            <form action="{{ route('dashboard.courses.exam.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="course_id" value="{{ $course->id }}">
                 <div class="card-body p-0" style="max-height: 700px; overflow-y: auto;">

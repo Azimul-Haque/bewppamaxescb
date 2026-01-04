@@ -491,7 +491,7 @@
                 }
             });
 
-            $('#total_selected_count').text(total + 'টি প্রশ্ন সিলেক্ট করা হয়েছে');
+            $('#total_selected_count').text(total + ' টি প্রশ্ন সিলেক্ট করা হয়েছে');
             if (anySelected) {
                 $('#selection_preview_container').removeClass('d-none');
                 $('#selection_preview').html(previewHtml);

@@ -6,14 +6,7 @@
 @section('page-header') পরীক্ষার বিভাগসমূহ @endsection
 
 <div class="container-fluid">
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="callout callout-info shadow-sm">
-                <h5><i class="fas fa-info-circle text-info"></i> স্বাগতম!</h5>
-                <p>নিচের যেকোনো একটি বিভাগ নির্বাচন করে ওই বিভাগের পরীক্ষাসমূহ পরিচালনা বা নতুন পরীক্ষা যোগ করুন।</p>
-            </div>
-        </div>
-    </div>
+    
 
     <div class="row">
         @php

@@ -447,23 +447,6 @@
         function updateSelectionPreview() {
             let total = 0;
             let previewHtml = '';
-            $('.q-count-input').each(function() {
-                total += parseInt($(this).val()) || 0;
-                let count = parseInt($(this).val());
-                if (count > 0) {
-                    let name = $(this).closest('.p-2').find('.subtopic-name').text();
-                    previewHtml += `<span class="badge badge-primary m-1 p-2">${name} (${count})</span>`;
-                }
-            });
-            
-            // মোডালের নিচে বা উপরে একটি div রাখুন id="selection_preview" দিয়ে
-            $('#selection_preview').html(previewHtml);
-            $('#total_selected_count').text(total + 'টি প্রশ্ন সিলেক্ট করা হয়েছে');
-        }
-
-        function updateSelectionPreview() {
-            let total = 0;
-            let previewHtml = '';
             let anySelected = false;
 
             $('.q-count-input').each(function() {

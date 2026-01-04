@@ -60,6 +60,7 @@
             margin-bottom: 30px;
         }
         .blog-single-content {
+            font-family: 'Kalpurush', sans-serif !important; /* এখানে ফন্ট নিশ্চিত করা হলো */
             font-size: 17px;
             line-height: 1.8;
             color: #333;

@@ -366,7 +366,7 @@ class ExamController extends Controller
                 // যদি ৩টি লেয়ারের বেশি থাকে, তবে ৩ নম্বর লেয়ারের নাম দিয়ে গ্রুপ হবে
                 // যেমন: বাংলা সাহিত্য (১) → প্রাচীন যুগ (২) → চর্যাপদ (৩)
                 // চর্যাপদের নিচের সব সাবটপিক এই "চর্যাপদ" ফোল্ডারের ভেতরে ঢুকবে
-                return (isset($parts[2])) ? $parts[2] : $parts[1]; 
+                return (isset($parts[1])) ? $parts[1] : $parts[0]; 
             });
 
         return response()->json($topics);

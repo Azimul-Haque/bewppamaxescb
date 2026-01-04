@@ -327,7 +327,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
-                <form method="post" id="addautoquestionform" action="{{ route('dashboard.exams.question.auto') }}">
+                {{-- <form method="post" id="addautoquestionform" action="{{ route('dashboard.exams.question.auto') }}">
                     <div class="modal-body p-0">
                         @csrf
                         <input type="hidden" name="exam_id" value="{{ $exam->id }}">
@@ -349,7 +349,7 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
                         <button type="submit" class="btn btn-success">দাখিল করুন</button>
                     </div>
-                </form>
+                </form> --}}
             </div>
         </div>
     </div>

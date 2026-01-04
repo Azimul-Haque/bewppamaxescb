@@ -530,7 +530,7 @@ class ExamController extends Controller
                 $exam->name   = $collection['name'];
                 $exam->duration    = $collection['duration'];
                 $exam->qsweight    = $collection['qsweight'];
-                $exam->option3    = $collection['option3'];
+                $exam->negativepercentage    = $collection['negativepercentage'];
                 $exam->option4    = $collection['option4'];
                 $exam->answer     = $collection['answer'];
                 $exam->difficulty = 1;

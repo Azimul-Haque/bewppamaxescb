@@ -243,28 +243,28 @@ class CourseController extends Controller
 
         //////////
         //////////
-        $this->validate($request,array(
-            'course_id'          => 'required',
-            // 'hiddencheckarray' => 'required',
-            // 'examcheck'    => 'required',
-        ));
+        // $this->validate($request,array(
+        //     'course_id'          => 'required',
+        //     // 'hiddencheckarray' => 'required',
+        //     // 'examcheck'    => 'required',
+        // ));
         
-        $oldcourseexams = Courseexam::where('course_id', $request->course_id)->get();
-        if(count($oldcourseexams) > 0) {
-            foreach($oldcourseexams as $oldcourseexam) {
-                $oldcourseexam->delete();
-            }
-        }
-        $hiddencheckarray = explode(',', $request->hiddencheckarray);
-        // sort($hiddencheckarray);
-        // dd($hiddencheckarray);
+        // $oldcourseexams = Courseexam::where('course_id', $request->course_id)->get();
+        // if(count($oldcourseexams) > 0) {
+        //     foreach($oldcourseexams as $oldcourseexam) {
+        //         $oldcourseexam->delete();
+        //     }
+        // }
+        // $hiddencheckarray = explode(',', $request->hiddencheckarray);
+        // // sort($hiddencheckarray);
+        // // dd($hiddencheckarray);
         
-        foreach($hiddencheckarray as $exam_id) {
-            $courseexam = new Courseexam();
-            $courseexam->course_id = $request->course_id;
-            $courseexam->exam_id = $exam_id;
-            $courseexam->save();
-        }
+        // foreach($hiddencheckarray as $exam_id) {
+        //     $courseexam = new Courseexam();
+        //     $courseexam->course_id = $request->course_id;
+        //     $courseexam->exam_id = $exam_id;
+        //     $courseexam->save();
+        // }
 
         Cache::forget('courseexams' . $request->course_id);
         Cache::forget('courses1');

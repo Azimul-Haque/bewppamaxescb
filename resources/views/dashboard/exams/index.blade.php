@@ -605,7 +605,7 @@
                   <button type="submit" class="btn btn-warning">দাখিল করুন</button>
                 </div>
             </form>
-          </div>
+          
         
       {{-- Add Category Modal Code --}}
       {{-- Add Category Modal Code --}}

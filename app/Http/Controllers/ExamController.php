@@ -526,8 +526,8 @@ class ExamController extends Controller
         foreach ($collections as $collection) {
             try {
                 $exam             = new Exam;
-                $exam->topic_id   = $collection['examcategory_id'];
-                $exam->exam   = $collection['exam'];
+                $exam->examcategory_id   = $collection['examcategory_id'];
+                $exam->name   = $collection['name'];
                 $exam->option1    = $collection['option1'];
                 $exam->option2    = $collection['option2'];
                 $exam->option3    = $collection['option3'];

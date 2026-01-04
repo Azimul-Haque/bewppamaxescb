@@ -486,7 +486,7 @@ class ExamController extends Controller
             //     'message' => count($insertData) . 'টি প্রশ্ন এক্সামে যোগ করা হয়েছে।',
             //     'total'   => count($insertData)
             // ]);
-            return back()->with('success', 'টি প্রশ্ন এক্সামে যোগ করা হয়েছে।');
+            return back()->with('success', count($insertData) . 'টি প্রশ্ন এক্সামে যোগ করা হয়েছে।');
         }
 
         return back()->with('error', 'কোনো প্রশ্ন সিলেক্ট করা হয়নি।');

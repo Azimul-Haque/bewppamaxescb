@@ -416,7 +416,7 @@
                     <div class="p-2 border rounded bg-white d-flex justify-content-between align-items-center shadow-sm">
                         <div style="max-width: 60%;">
                             <span class="d-block text-sm font-weight-bold text-dark">${name}</span>
-                            <div class="d-flex  mt-1">
+                            <div class="flex-wrap mt-1">
                                 <span class="badge badge-warning mr-1" style="font-size: 11px;">নিজস্ব প্রশ্ন: ${item.direct_q}</span>
                                 <span class="badge badge-info" style="font-size: 11px;">মোট (সবসহ): ${item.total_q}</span>
                                 ${drillBtn}

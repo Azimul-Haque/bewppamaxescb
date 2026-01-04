@@ -35,13 +35,7 @@ class ExamController extends Controller
 
     public function getExamsLanding()
     {
-        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
-            abort(403, 'Access Denied');
-        }
-        
-        $totalexams = Exam::count();
-        $exams = Exam::orderBy('id', 'desc')->paginate(10);
-        $examcategories = Examcategory::all();
+        $examcategories = $examcategories = Examcategory::all();
 
         return view('dashboard.exams.index')
                     ->withExams($exams)

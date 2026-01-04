@@ -2,7 +2,12 @@
 @section('title') ড্যাশবোর্ড | পরীক্ষাসমূহ @endsection
 
 @section('third_party_stylesheets')
+{{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery-for-dp.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> --}}
 @endsection
 
 @section('content')

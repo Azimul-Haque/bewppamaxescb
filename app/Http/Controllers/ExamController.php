@@ -371,7 +371,6 @@ class ExamController extends Controller
 
     public function storeAutoQuestions(Request $request) {
         $examId = $request->exam_id;
-        $topics = collect($request->topics)->filter(fn($q) => $q > 0);
 
         $allQuestionIds = [];
 

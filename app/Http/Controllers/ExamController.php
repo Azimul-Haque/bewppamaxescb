@@ -405,6 +405,26 @@ class ExamController extends Controller
             }
         }
 
+        foreach ($request->topic_groups as $idsJson => $count) {
+            if ($count > 0) {
+                $ids = json_decode($idsJson);
+                
+                // চেক করুন $ids আসলে একটি অ্যারে কি না এবং এটি খালি কি না
+                if (!is_array($ids) || empty($ids)) {
+                    continue; // যদি আইডি না থাকে তবে এই লুপটি স্কিপ করুন
+                }
+
+                $questions = Question::whereIn('topic_id', $ids)
+                                ->whereNotIn('id', $allQuestionIds)
+                                ->inRandomOrder()
+                                ->limit($count)
+                                ->pluck('id')
+                                ->toArray();
+                                
+                $allQuestionIds = array_merge($allQuestionIds, $questions);
+            }
+        }
+
         dd(allQuestionIds);
 
         // আপনার Pivot টেবিলে ইনসার্ট (Exam-Question relation)

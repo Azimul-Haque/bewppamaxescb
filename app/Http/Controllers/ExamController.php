@@ -533,7 +533,7 @@ class ExamController extends Controller
                 $exam->negativepercentage    = $collection['negativepercentage'];
                 $exam->price_type = 1;
                 $exam->available_from    = Carbon::parse($collection['available_from']);
-                $exam->available_from    = Carbon::parse($collection['available_from']);
+                $exam->available_to    = Carbon::parse($collection['available_from']);
                 $exam->syllabus     = $collection['syllabus'];
                 // $exam->participation     = 0;
                 $exam->cutmark     = $collection['cutmark'];

@@ -207,7 +207,7 @@ class CourseController extends Controller
     {
         $this->validate($request,array(
             'course_id'          => 'required',
-            'hiddencheckarray' => 'required',
+            // 'hiddencheckarray' => 'required',
             'examcheck'    => 'required',
         ));
         

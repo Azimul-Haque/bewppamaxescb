@@ -148,7 +148,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($topics as $topic)
+                            @foreach ($mainTopics as $topic)
                                 <tr>
                                     <td>{{ $topic->name }}</td>
                                     @php

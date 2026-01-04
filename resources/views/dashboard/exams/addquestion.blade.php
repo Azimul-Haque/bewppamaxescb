@@ -328,7 +328,7 @@
                 </button>
                 </div>
                 <form method="post" id="addautoquestionform" action="{{ route('dashboard.exams.question.auto') }}">
-                    <div class="modal-body p-0">
+                    <div class="modal-body">
                         @csrf
                         <input type="hidden" name="exam_id" value="{{ $exam->id }}">
                         {{-- <table class="table">

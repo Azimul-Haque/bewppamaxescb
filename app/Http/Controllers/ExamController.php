@@ -548,7 +548,7 @@ class ExamController extends Controller
         }
         
         Session::flash('success', 'Exams uploaded successfully!');
-        return redirect()->route('dashboard.questions');
+        return redirect()->route('dashboard.exams');
     }
 
     public function addQuestionToExamTopic($topic_id, $id)

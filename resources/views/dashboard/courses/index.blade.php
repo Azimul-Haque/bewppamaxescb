@@ -61,17 +61,17 @@
                                         <span class="badge badge-default">In-active</span>
                                       @endif
                                   </td><td>
-                                      @if($course->category == $categoryNames[1])
+                                      @if($course->category == 1)
                                         বিসিএস
-                                      @elseif($course->category == $categoryNames[2])
+                                      @elseif($course->category == 2)
                                         প্রাইমারি
-                                      @elseif($course->category == $categoryNames[3])
+                                      @elseif($course->category == 3)
                                         ব্যাংক
-                                      @elseif($course->category == $categoryNames[4])
+                                      @elseif($course->category == 4)
                                         NTRCA
-                                      @elseif($course->category == $categoryNames[5])
+                                      @elseif($course->category == 5)
                                         NSI, DGFI ও অন্যান্য
-                                      @elseif($course->category == $categoryNames[6])
+                                      @elseif($course->category == 6)
                                         প্রশ্ন ব্যাংক
                                       @endif
                                   </td>

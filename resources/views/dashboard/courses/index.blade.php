@@ -61,15 +61,17 @@
                                         <span class="badge badge-default">In-active</span>
                                       @endif
                                   </td><td>
-                                      @if($course->type == 1)
+                                      @if($course->type == $categoryNames[1])
                                         সাধারণ কোর্স
-                                      @elseif($course->type == 2)
+                                      @elseif($course->type == $categoryNames[1])
                                         বিজেএস মডেল টেস্ট
-                                      @elseif($course->type == 3)
+                                      @elseif($course->type == $categoryNames[1])
                                         বার মডেল টেস্ট
-                                      @elseif($course->type == 4)
+                                      @elseif($course->type == $categoryNames[1])
                                         ফ্রি মডেল টেস্ট
-                                      @elseif($course->type == 5)
+                                      @elseif($course->type == $categoryNames[1])
+                                        প্রশ্ন ব্যাংক
+                                      @elseif($course->type == $categoryNames[1])
                                         প্রশ্ন ব্যাংক
                                       @endif
                                   </td>

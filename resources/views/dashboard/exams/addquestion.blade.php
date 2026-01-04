@@ -437,17 +437,8 @@
         });
 
         $(document).on('input', '.q-count-input', function() {
-            updateTotalCount();
             updateSelectionPreview();
         });
-
-        function updateTotalCount() {
-            let total = 0;
-            $('.q-count-input').each(function() {
-                
-            });
-            
-        }
 
         function updateSelectionPreview() {
             let total = 0;

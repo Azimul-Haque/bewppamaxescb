@@ -34,7 +34,7 @@
 
             <div class="col-lg-3 col-6">
                 <div class="small-box shadow-sm border border-dashed" 
-                     style="background-color: #f8f9fa; border: 2px dashed #ddd; border-radius: 10px; cursor: pointer;"
+                     style="background-color: #f8f9fa; border: 2px dashed #ddd; border-radius: 10px; cursor: pointer; transition: transform .2s;"
                      data-toggle="modal" data-target="#addTopicModal">
                     <div class="inner text-center" style="padding: 30px 10px;">
                         <i class="fas fa-plus-circle fa-2x text-warning mb-2"></i>

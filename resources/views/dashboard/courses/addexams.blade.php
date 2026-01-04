@@ -66,6 +66,7 @@
                                 <th width="50">
                                     <div class="icheck-primary icheck-inline" style="float: left;">
                                         <input type="checkbox" id="checkAll">
+                                        <label for="check{{ $exam->id }}"> </label>
                                     </div>
                                 </th>
                                 <th>পরীক্ষার নাম</th>

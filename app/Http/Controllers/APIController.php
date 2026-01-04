@@ -428,7 +428,7 @@ class APIController extends Controller
         {
             $courses = Cache::remember('categorywisecourses'.$category, 10 * 24 * 60 * 60, function () use ($category) {
                  $courses = Course::select('id', 'name')
-                             // status check korar dorkar nai, live check korbo
+                             // status check korar dorkar nai, live check korbo, status active শুধু চলমান কোর্সে যাবে
                              ->where('category', $category) // 1 = BCS, 2 = Primary, 3 = Bank, 4 = NTRCA, 5 = NSI/DGFI and Others, 6 = QB
                              ->where('live', 1) // live থাকলে কোর্স ক্যাটাগরির ভেতরে শো করবে
                              ->orderBy('serial', 'asc') // priority ব্যবহৃত হবে চলমান কোর্সসমূহ বার এ, serial ব্যবহৃত হবে কোর্স্ ক্যাটাগরিতে

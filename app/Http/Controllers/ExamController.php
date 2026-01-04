@@ -38,9 +38,7 @@ class ExamController extends Controller
         $examcategories = $examcategories = Examcategory::all();
 
         return view('dashboard.exams.index')
-                    ->withExams($exams)
-                    ->withExamcategories($examcategories)
-                    ->withTotalexams($totalexams);
+                    ->withExamcategories($examcategories);
     }
 
     public function getExams()

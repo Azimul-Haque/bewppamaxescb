@@ -373,7 +373,7 @@ class ExamController extends Controller
     public function storeAutoQuestions(Request $request) {
         $allQuestionIds = [];
 
-        dd($request->all());
+        // dd($request->all());
         // ১. শুধুমাত্র নিজস্ব প্রশ্ন প্রসেস করা (only_own)
         if ($request->has('only_own')) {
             foreach ($request->only_own as $topicId => $count) {

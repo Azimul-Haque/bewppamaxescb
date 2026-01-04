@@ -406,15 +406,6 @@ class ExamController extends Controller
             }
         }
 
-        foreach ($topics as $topicId => $count) {
-            $questions = \App\Models\Question::where('topic_id', $topicId)
-                            ->inRandomOrder()
-                            ->limit($count)
-                            ->pluck('id')
-                            ->toArray();
-            $allQuestionIds = array_merge($allQuestionIds, $questions);
-        }
-
         // আপনার Pivot টেবিলে ইনসার্ট (Exam-Question relation)
         $exam = Exam::find($examId);
         $exam->questions()->attach($allQuestionIds);

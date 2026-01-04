@@ -547,7 +547,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form method="post" action="{{ route('dashboard.questions.excel.store') }}" enctype='multipart/form-data'>
+          <form method="post" action="{{ route('dashboard.exams.excel.store') }}" enctype='multipart/form-data'>
               <div class="modal-body">
                     @csrf
                     <label for="file">Excel ফাইল</label>

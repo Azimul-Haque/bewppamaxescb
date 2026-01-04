@@ -343,37 +343,54 @@
                 url: "{{ route('dashboard.exams.subtopics') }}", // আপনার রাউট
                 type: "GET",
                 data: { main_topic_id: topicId },
-                success: function(data) {
-                    loadedTopics.push(topicId);
-                    
-                    let topicCard = `
-                        <div class="card card-outline card-info mb-4" id="card_topic_${topicId}">
-                            <div class="card-header">
-                                <h3 class="card-title text-bold text-primary"><i class="fas fa-book-open mr-2"></i> ${topicName}</h3>
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool remove-topic" data-id="${topicId}"><i class="fas fa-times text-danger"></i></button>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">`;
+                success: function(groups) {
+                    let accordionId = "subtopicAccordion";
+                    let html = `<div class="accordion w-100" id="${accordionId}">`;
+                    let groupIndex = 0;
 
-                    data.forEach(function(sub) {
-                        topicCard += `
-                            <div class="col-md-4 mb-2">
-                                <div class="p-2 border rounded bg-white">
-                                    <small class="d-block text-truncate" title="${sub.full_name}">${sub.full_name}</small>
-                                    <div class="d-flex justify-content-between align-items-center mt-1">
-                                        <span class="badge badge-secondary">প্রশ্ন: ${sub.total_q}</span>
+                    $.each(groups, function(parentName, subtopics) {
+                        groupIndex++;
+                        let collapseId = "collapse_" + groupIndex;
+                        
+                        html += `
+                            <div class="card mb-2 shadow-sm">
+                                <div class="card-header bg-light py-2" id="heading_${groupIndex}">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left text-dark font-weight-bold p-0" type="button" data-toggle="collapse" data-target="#${collapseId}">
+                                            <i class="fas fa-folder-open mr-2 text-warning"></i> ${parentName} 
+                                            <span class="badge badge-pill badge-secondary float-right">${subtopics.length} সাবটপিক</span>
+                                        </button>
+                                    </h2>
+                                </div>
+
+                                <div id="${collapseId}" class="collapse ${groupIndex === 1 ? 'show' : ''}" data-parent="#${accordionId}">
+                                    <div class="card-body p-2">
+                                        <div class="row">`;
+
+                        subtopics.forEach(function(sub) {
+                            html += `
+                                <div class="col-md-6 mb-2">
+                                    <div class="p-2 border rounded bg-white d-flex justify-content-between align-items-center">
+                                        <div style="max-width: 70%;">
+                                            <span class="d-block text-sm font-weight-bold text-truncate" title="${sub.full_path}">${sub.name}</span>
+                                            <small class="text-muted">প্রশ্ন আছে: ${sub.total_questions_sum}</small>
+                                        </div>
                                         <input type="number" name="topics[${sub.id}]" 
                                                class="form-control form-control-sm q-count-input" 
-                                               style="width: 70px;" min="0" max="${sub.total_q}" value="0">
+                                               style="width: 60px;" min="0" max="${sub.total_questions_sum}" value="0">
+                                    </div>
+                                </div>`;
+                        });
+
+                        html += `       </div>
                                     </div>
                                 </div>
                             </div>`;
                     });
 
-                    topicCard += `</div></div></div>`;
-                    $('#topics_wrapper').append(topicCard);
+                    html += `</div>`;
+                    $('#topics_wrapper').html(html);
+                }
                 },
                 complete: function() {
                     $('#add_topic_btn').prop('disabled', false).html('<i class="fas fa-plus"></i> সাবটপিক লোড করুন');

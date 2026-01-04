@@ -389,22 +389,6 @@ class ExamController extends Controller
         }
 
         // ২. সাবটপিকসহ প্রশ্ন প্রসেস করা (topic_groups)
-        if ($request->has('topic_groups')) {
-            foreach ($request->topic_groups as $idsJson => $count) {
-                if ($count > 0) {
-                    $ids = json_decode($idsJson);
-                    // এই গ্রুপ থেকে প্রশ্ন নেওয়ার সময় খেয়াল রাখতে হবে যেন ডুপ্লিকেট না হয়
-                    $questions = Question::whereIn('topic_id', $ids)
-                                    ->whereNotIn('id', $allQuestionIds) // ইতিমধ্যে সিলেক্ট করা প্রশ্ন বাদ
-                                    ->inRandomOrder()
-                                    ->limit($count)
-                                    ->pluck('id')
-                                    ->toArray();
-                    $allQuestionIds = array_merge($allQuestionIds, $questions);
-                }
-            }
-        }
-
         foreach ($request->topic_groups as $idsJson => $count) {
             if ($count > 0) {
                 $ids = json_decode($idsJson);

@@ -33,6 +33,22 @@ class ExamController extends Controller
         $this->middleware(['admin'])->only('getQuestions');
     }
 
+    public function getExamsLanding()
+    {
+        if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
+            abort(403, 'Access Denied');
+        }
+        
+        $totalexams = Exam::count();
+        $exams = Exam::orderBy('id', 'desc')->paginate(10);
+        $examcategories = Examcategory::all();
+
+        return view('dashboard.exams.index')
+                    ->withExams($exams)
+                    ->withExamcategories($examcategories)
+                    ->withTotalexams($totalexams);
+    }
+
     public function getExams()
     {
         if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {

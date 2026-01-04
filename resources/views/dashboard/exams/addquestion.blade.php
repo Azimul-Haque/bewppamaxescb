@@ -259,7 +259,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="post" id="addautoquestionform" action="{{ route('dashboard.exams.question.auto.subs') }}">
+                <form method="post" id="addautoquestionform" action="{{ route('dashboard.exams.question.auto.fromsubs') }}">
                     <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
                         @csrf
                         <input type="hidden" name="exam_id" value="{{ $exam->id }}">

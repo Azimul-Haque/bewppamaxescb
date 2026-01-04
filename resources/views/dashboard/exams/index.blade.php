@@ -606,7 +606,7 @@
                 </div>
             </form>
           </div>
-        </div>
+        
       {{-- Add Category Modal Code --}}
       {{-- Add Category Modal Code --}}
   

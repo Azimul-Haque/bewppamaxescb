@@ -273,7 +273,7 @@ class CourseController extends Controller
         Cache::forget('questionbank3');
         Cache::forget('questionbank4');
         Cache::forget('questionbank5');
-        Session::flash('success', 'Exams updated successfully!');
-        return redirect()->route('dashboard.courses.add.exam', $request->course_id);
+        // Session::flash('success', 'Exams updated successfully!');
+        // return redirect()->route('dashboard.courses.add.exam', $request->course_id);
     }
 }

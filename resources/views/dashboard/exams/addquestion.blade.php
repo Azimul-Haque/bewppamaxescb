@@ -417,6 +417,9 @@
                     <div class="p-2 border rounded bg-white d-flex justify-content-between align-items-center shadow-sm">
                         <div style="max-width: 75%;">
                             <span class="d-block text-sm font-weight-bold text-dark">${name}</span>
+                            <span class="badge badge-success mr-1" style="font-size: 9px;" title="শুধুমাত্র এই টপিকের প্রশ্ন">
+                                নিজস্ব: ${item.direct_q}
+                            </span>
                             <small class="text-muted mr-2">প্রশ্ন: ${item.total_q}</small>
                             ${drillBtn}
                         </div>

@@ -340,7 +340,7 @@
             $('.empty-msg').hide();
 
             $.ajax({
-                url: "{{ route('exams.getSubtopics') }}", // আপনার রাউট
+                url: "{{ route('dashboard.exams.subtopics') }}", // আপনার রাউট
                 type: "GET",
                 data: { main_topic_id: topicId },
                 success: function(data) {

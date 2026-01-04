@@ -419,7 +419,7 @@ class ExamController extends Controller
         // ৩. এক্সাম পেপারে প্রশ্নগুলো সেভ করা
         if (!empty($allQuestionIds)) {
             $exam = Exam::find($request->exam_id);
-            $exam->questions()->syncWithoutDetaching($allQuestionIds);
+            $exam->examquestions()->syncWithoutDetaching($allQuestionIds);
             return back()->with('success', count($allQuestionIds) . 'টি প্রশ্ন সফলভাবে যোগ করা হয়েছে।');
         }
 

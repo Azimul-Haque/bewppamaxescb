@@ -270,7 +270,7 @@ class ExamController extends Controller
         $mainTopics = Topic::whereNull('parent_id')
                                     ->orWhere('parent_id', 0)
                                     ->get();
-                                    
+
         $questions = Question::select('id', 'question', 'topic_id')->get()->take(20);
         // $questions = Question::all();
         
@@ -279,7 +279,8 @@ class ExamController extends Controller
                                     ->withExamquestions($examquestions)
                                     ->withTopics($topics)
                                     ->withTags($tags)
-                                    ->withQuestions($questions);
+                                    ->withQuestions($questions)
+                                    ->withMainTopics($mainTopics);
     }
 
     public function addQuestionToExamAll($id)

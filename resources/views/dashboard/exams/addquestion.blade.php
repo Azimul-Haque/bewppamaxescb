@@ -437,6 +437,7 @@
 
         $(document).on('input', '.q-count-input', function() {
             updateTotalCount();
+            updateSelectionPreview();
         });
 
         function updateTotalCount() {

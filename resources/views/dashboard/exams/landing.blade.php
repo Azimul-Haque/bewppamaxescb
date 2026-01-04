@@ -25,7 +25,7 @@
                     <div class="icon">
                         <i class="fas fa-file-signature" style="color: rgba(0,0,0,0.05);"></i>
                     </div>
-                    <a href="{{ route('dashboard.exams', 'id' -> $category->id) }}" class="small-box-footer bg-primary py-2">
+                    <a href="{{ route('dashboard.exams', 'id' => $category->id) }}" class="small-box-footer bg-primary py-2">
                         পরীক্ষাসমূহ দেখুন <i class="fas fa-arrow-circle-right ml-1"></i>
                     </a>
                 </div>

@@ -53,10 +53,6 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        *, body, h1, .blog-single-card, .blog-single-content {
-            font-family: 'Kalpurush', sans-serif !important;
-            
-        }
         .blog-single-card {
             background: #fff;
             border-radius: 12px;

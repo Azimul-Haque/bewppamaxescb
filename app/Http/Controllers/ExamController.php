@@ -535,28 +535,6 @@ class ExamController extends Controller
                 $question->answer     = $collection['answer'];
                 $question->difficulty = 1;
                 $question->save();
-                
-
-                if($collection['tag'] != null) {
-                    $tagarray = explode(',', $collection['tag']);
-
-                    // dd($tagarray);
-                    $newquestiontags = [];
-                    for ($i=0; $i < count($tagarray); $i++) { 
-                        $checktag = Tag::where('name', $tagarray[$i])->first();
-                        if($checktag) {
-                            $newquestiontags[] = $checktag->id;
-                        } else {
-                            $tag = new Tag;
-                            $tag->name = $tagarray[$i];
-                            $tag->save();
-                            $newquestiontags[] = $tag->id;
-                            // dd($newquestiontags);
-                        }
-                    }
-
-                    $question->tags()->sync($newquestiontags, false);
-                }
 
                 DB::commit();
             } catch (Exception $e) {

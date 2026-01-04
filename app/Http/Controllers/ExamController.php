@@ -412,8 +412,8 @@ class ExamController extends Controller
         // dd($finalSyllabus);
 
         // ডাটাবেসে সেভ
-        $exam = Exam::find($request->exam_id);
-        $exam->update(['syllabus' => $finalSyllabus]);
+        // $exam = Exam::find($request->exam_id);
+        // $exam->update(['syllabus' => $finalSyllabus]);
         // GENERATING SYLLABUS
         // GENERATING SYLLABUS
 

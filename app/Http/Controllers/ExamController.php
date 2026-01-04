@@ -367,6 +367,28 @@ class ExamController extends Controller
         return response()->json($topics);
     }
 
+    public function storeAutoQuestions(Request $request) {
+        $examId = $request->exam_id;
+        $topics = collect($request->topics)->filter(fn($q) => $q > 0);
+
+        $allQuestionIds = [];
+
+        foreach ($topics as $topicId => $count) {
+            $questions = \App\Models\Question::where('topic_id', $topicId)
+                            ->inRandomOrder()
+                            ->limit($count)
+                            ->pluck('id')
+                            ->toArray();
+            $allQuestionIds = array_merge($allQuestionIds, $questions);
+        }
+
+        // আপনার Pivot টেবিলে ইনসার্ট (Exam-Question relation)
+        $exam = Exam::find($examId);
+        $exam->questions()->attach($allQuestionIds);
+
+        return back()->with('success', count($allQuestionIds) . 'টি প্রশ্ন সফলভাবে যোগ করা হয়েছে।');
+    }
+
     public function addQuestionToExamTopic($topic_id, $id)
     {
         $exam = Exam::findOrFail($id);

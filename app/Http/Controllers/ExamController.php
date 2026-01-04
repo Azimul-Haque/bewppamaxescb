@@ -347,6 +347,26 @@ class ExamController extends Controller
         return redirect()->back();
     }
 
+    public function getSubtopics(Request $request)
+    {
+        $mainTopicId = $request->main_topic_id;
+
+        // মেইন টপিকের আন্ডারে থাকা সব সাবটপিক এবং তাদের questions count
+        // আমরা মডেলে থাকা full_path accessor ব্যবহার করছি
+        $topics = Topic::where('parent_id', $mainTopicId)
+                        ->with('children') // ডাইনামিক ডেপথের জন্য
+                        ->get()
+                        ->map(function ($topic) {
+                            return [
+                                'id' => $topic->id,
+                                'full_name' => $topic->full_path, // আপনার মডেলে থাকা Accessor
+                                'total_q' => $topic->total_questions_sum ?? 0
+                            ];
+                        });
+
+        return response()->json($topics);
+    }
+
     public function addQuestionToExamTopic($topic_id, $id)
     {
         $exam = Exam::findOrFail($id);

@@ -419,8 +419,8 @@
                             <div class="d-flex flex-wrap mt-1">
                                 <span class="badge badge-success mr-1" style="font-size: 11px;">নিজস্ব প্রশ্ন: ${item.direct_q}</span>
                                 <span class="badge badge-secondary" style="font-size: 11px;">মোট (সবসহ): ${item.total_q}</span>
+                                ${drillBtn}
                             </div>
-                            ${drillBtn}
                         </div>
                         
                         <div class="d-flex align-items-center">

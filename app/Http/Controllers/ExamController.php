@@ -363,11 +363,12 @@ class ExamController extends Controller
         $topics = Topic::whereIn('id', $allDescendantIds)
                         ->where('id', '!=', $mainTopicId)
                         ->where('total_questions_sum', '>', 0)
-                        ->with('parent') // প্যারেন্ট নেম জানার জন্য
                         ->get()
                         ->groupBy(function($item) {
-                            // ইমিডিয়েট প্যারেন্টের নাম অনুযায়ী গ্রুপ হবে
-                            return $item->parent ? $item->parent->name : 'অন্যান্য';
+                            // এটি ফুল পাথ থেকে লাস্ট অংশ বাদ দিয়ে বাকিটুকু গ্রুপ নাম হিসেবে নেবে
+                            $parts = explode('→', $item->full_path);
+                            array_pop($parts); 
+                            return implode(' → ', $parts);
                         });
 
         return response()->json($topics);

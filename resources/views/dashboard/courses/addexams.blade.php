@@ -167,6 +167,24 @@
 <script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.4/underscore-umd-min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // এক ক্লিকে সব সিলেক্ট করা
+        $('#checkAll').click(function() {
+            $('.exam-checkbox').prop('checked', this.checked);
+        });
+
+        // কুইক সার্চ ফিল্টার (পেজ রিলোড ছাড়া এই পেজের এক্সাম খোঁজা)
+        $("#quickSearch").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#examTable tbody tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
 <script>
     $("#datatable").DataTable({
         "responsive": true, "lengthChange": true, "autoWidth": false, info: false, "pageLength": 10,

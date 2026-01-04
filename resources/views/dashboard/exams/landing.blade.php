@@ -16,22 +16,55 @@
     </div>
 
     <div class="row">
-        @foreach($examcategories as $category)
-        <div class="col-lg-3 col-6">
-            <div class="small-box shadow-sm border" style="background-color: #ffffff; border-radius: 10px; overflow: hidden; transition: transform .2s;">
-                <div class="inner">
-                    <h3 class="text-primary">{{ $category->exams_count ?? $category->exams->count() }}</h3>
-                    <p class="font-weight-bold" style="font-size: 1.1rem; color: #444;">{{ $category->name }}</p>
+        একঘেয়েমি কাটাতে আমরা লুপের ভেতর একটি Color Array ব্যবহার করে প্রতিটি কার্ডকে আলাদা আলাদা প্রফেশনাল কালার দিতে পারি। AdminLTE-এর ডিফল্ট কালার ক্লাসগুলো (যেমন: bg-info, bg-success, bg-warning, bg-danger) ব্যবহার করলে এটি দেখতে অনেক বেশি প্রাণবন্ত লাগবে।
+
+        নিচে আপনার জন্য আপডেট করা কোডটি দেওয়া হলো:
+
+        Blade
+
+        @php
+            // প্রফেশনাল কালার ক্লাসের একটি অ্যারে তৈরি করুন
+            $colors = ['bg-info', 'bg-success', 'bg-warning', 'bg-danger', 'bg-primary', 'bg-teal', 'bg-purple'];
+        @endphp
+
+        @foreach($examcategories as $index => $category)
+            @php
+                // লুপের ইনডেক্স অনুযায়ী কালার সিলেক্ট করুন
+                $currentColor = $colors[$index % count($colors)];
+            @endphp
+
+            <div class="col-lg-3 col-6">
+                <div class="small-box {{ $currentColor }} shadow border-0" style="border-radius: 12px; overflow: hidden; transition: transform .3s ease;">
+                    <div class="inner p-3">
+                        <h3 class="mb-0">{{ $category->exams_count ?? $category->exams->count() }}</h3>
+                        <p class="font-weight-bold" style="font-size: 1.2rem; opacity: 0.9;">{{ $category->name }}</p>
+                    </div>
+                    
+                    <div class="icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    
+                    <a href="{{ route('dashboard.exams', ['id' => $category->id]) }}" class="small-box-footer" style="background: rgba(0,0,0,0.1); border-top: 1px solid rgba(255,255,255,0.1); padding: 8px 0;">
+                        পরীক্ষাসমূহ দেখুন <i class="fas fa-arrow-circle-right ml-1"></i>
+                    </a>
                 </div>
-                <div class="icon">
-                    <i class="fas fa-file-signature" style="color: rgba(0,0,0,0.05);"></i>
-                </div>
-                <a href="{{ route('dashboard.exams', ['id' => $category->id]) }}" class="small-box-footer bg-primary py-2">
-                    পরীক্ষাসমূহ দেখুন <i class="fas fa-arrow-circle-right ml-1"></i>
-                </a>
             </div>
-        </div>
         @endforeach
+
+        <style>
+            .small-box:hover {
+                transform: translateY(-8px);
+            }
+            .small-box .icon {
+                color: rgba(255,255,255,0.3);
+                top: 10px;
+                right: 15px;
+            }
+            /* টেক্সট কালার হোয়াইট করার জন্য নিশ্চিত করা */
+            .small-box h3, .small-box p, .small-box .small-box-footer {
+                color: #fff !important;
+            }
+        </style>
 
         <div class="col-lg-3 col-6">
             <div class="small-box shadow-sm border border-dashed" 

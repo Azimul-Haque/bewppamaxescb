@@ -331,7 +331,7 @@
                     <div class="modal-body p-0">
                         @csrf
                         <input type="hidden" name="exam_id" value="{{ $exam->id }}">
-                        <table class="table">
+                        {{-- <table class="table">
                             <tbody>
                                 @foreach ($topics as $topic)
                                     <tr>
@@ -343,7 +343,7 @@
                                     </tr>
                                 @endforeach
                             </tbody>
-                        </table>
+                        </table> --}}
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

@@ -525,7 +525,7 @@ class ExamController extends Controller
         DB::beginTransaction();
         foreach ($collections as $collection) {
             try {
-                $question             = new Question;
+                $exam             = new Exam;
                 $question->topic_id   = $collection['topic_id'];
                 $question->question   = $collection['question'];
                 $question->option1    = $collection['option1'];

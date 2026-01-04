@@ -68,9 +68,9 @@
                                       @elseif($course->type == $categoryNames[3])
                                         ব্যাংক
                                       @elseif($course->type == $categoryNames[4])
-                                        ফ্রি মডেল টেস্ট
+                                        NTRCA
                                       @elseif($course->type == $categoryNames[5])
-                                        প্রশ্ন ব্যাংক
+                                        NSI, DGFI ও অন্যান্য
                                       @elseif($course->type == $categoryNames[6])
                                         প্রশ্ন ব্যাংক
                                       @endif

@@ -65,6 +65,9 @@
             color: #333;
             text-align: justify;
         }
+        .blog-single-content * {
+            font-family: 'Kalpurush', sans-serif !important;
+        }
         .blog-single-content img {
             max-width: 100%;
             height: auto;

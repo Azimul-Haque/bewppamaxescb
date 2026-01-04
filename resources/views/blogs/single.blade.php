@@ -54,7 +54,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
         .blog-title {
-            font-size: 24px !important;
+            font-size: 30px !important;
         }
         .blog-single-card {
             background: #fff;

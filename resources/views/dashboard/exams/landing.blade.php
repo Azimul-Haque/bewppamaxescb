@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title') ড্যাশবোর্ড | পরীক্ষাসমূহ @endsection
 
-@section('content')+
+@section('content')
 
 @section('page-header') পরীক্ষার বিভাগসমূহ @endsection
 

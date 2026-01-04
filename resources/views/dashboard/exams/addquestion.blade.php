@@ -148,7 +148,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($mainTopics as $topic)
+                            {{-- @foreach ($topics as $topic)
                                 <tr>
                                     <td>{{ $topic->name }}</td>
                                     @php
@@ -161,7 +161,7 @@
                                     @endphp
                                     <td>{{ $totalqs }}</td>
                                 </tr>
-                            @endforeach
+                            @endforeach --}}
                         </tbody>
                       </table>
                     </div>

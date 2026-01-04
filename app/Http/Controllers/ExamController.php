@@ -538,7 +538,7 @@ class ExamController extends Controller
                 // $exam->participation     = 0;
                 $exam->cutmark     = $collection['cutmark'];
                 $exam->alltimeavailability     = 0;
-                $exam->alltimeavailability     = 0;
+                $exam->serial     = $collection['serial'];
                 $exam->save();
 
                 DB::commit();

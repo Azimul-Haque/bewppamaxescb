@@ -12,8 +12,6 @@ class CreateExamquestionsTable extends Migration
      * @return void
      */
 
-    $table->unique(['exam_id', 'question_id']);
-    
     public function up()
     {
         Schema::create('examquestions', function (Blueprint $table) {
@@ -21,6 +19,8 @@ class CreateExamquestionsTable extends Migration
             $table->foreignId('exam_id')->unsigned();
             $table->foreignId('question_id')->unsigned();
             $table->timestamps();
+
+            $table->unique(['exam_id', 'question_id']);
         });
     }
 

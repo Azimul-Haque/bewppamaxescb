@@ -526,15 +526,15 @@ class ExamController extends Controller
         foreach ($collections as $collection) {
             try {
                 $exam             = new Exam;
-                $question->topic_id   = $collection['topic_id'];
-                $question->question   = $collection['question'];
-                $question->option1    = $collection['option1'];
-                $question->option2    = $collection['option2'];
-                $question->option3    = $collection['option3'];
-                $question->option4    = $collection['option4'];
-                $question->answer     = $collection['answer'];
-                $question->difficulty = 1;
-                $question->save();
+                $exam->topic_id   = $collection['topic_id'];
+                $exam->exam   = $collection['exam'];
+                $exam->option1    = $collection['option1'];
+                $exam->option2    = $collection['option2'];
+                $exam->option3    = $collection['option3'];
+                $exam->option4    = $collection['option4'];
+                $exam->answer     = $collection['answer'];
+                $exam->difficulty = 1;
+                $exam->save();
 
                 DB::commit();
             } catch (Exception $e) {

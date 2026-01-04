@@ -344,6 +344,18 @@
                                 @endforeach
                             </tbody>
                         </table> --}}
+
+                        <div class="form-group">
+                            <label for="main_topic">Select Broad Topic</label>
+                            <select class="form-control select2" id="main_topic" name="main_topic_id" required>
+                                <option value="">-- Choose a Topic --</option>
+                                @foreach($mainTopics as $topic)
+                                    <option value="{{ $topic->id }}">{{ $topic->name }} (Total: {{ $topic->total_questions_sum }})</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <hr>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

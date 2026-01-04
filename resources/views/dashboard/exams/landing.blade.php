@@ -40,7 +40,7 @@
                         <i class="fas fa-plus-circle fa-2x text-warning mb-2"></i>
                         <p class="font-weight-bold text-muted">নতুন ক্যাটাগরি যোগ করুন</p>
                     </div>
-                    <span class="small-box-footer bg-secondary py-2" style="height: 38px;">asd</span>
+                    {{-- <span class="small-box-footer bg-secondary py-2" style="height: 38px;"></span> --}}
                 </div>
             </div>
         </div>

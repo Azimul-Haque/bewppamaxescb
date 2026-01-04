@@ -354,22 +354,20 @@ class ExamController extends Controller
 
         if (!$mainTopic) return response()->json([]);
 
-        // সব লেভেলের সাবটপিক আইডি নেওয়া
         $allDescendantIds = $mainTopic->descendant_ids;
 
-        // dd($allDescendantIds);
-
-        // ডাটা নিয়ে এসে তাদের ইমিডিয়েট প্যারেন্ট অনুযায়ী গ্রুপ করা
         $topics = Topic::whereIn('id', $allDescendantIds)
-                        ->where('id', '!=', $mainTopicId)
-                        ->where('total_questions_sum', '>', 0)
-                        ->get()
-                        ->groupBy(function($item) {
-                            // এটি ফুল পাথ থেকে লাস্ট অংশ বাদ দিয়ে বাকিটুকু গ্রুপ নাম হিসেবে নেবে
-                            $parts = explode('→', $item->full_path);
-                            array_pop($parts); 
-                            return implode(' → ', $parts);
-                        });
+            ->where('id', '!=', $mainTopicId)
+            ->where('total_questions_sum', '>', 0)
+            ->get()
+            ->groupBy(function($item) {
+                $parts = explode('→', $item->full_path);
+                
+                // যদি ৩টি লেয়ারের বেশি থাকে, তবে ৩ নম্বর লেয়ারের নাম দিয়ে গ্রুপ হবে
+                // যেমন: বাংলা সাহিত্য (১) → প্রাচীন যুগ (২) → চর্যাপদ (৩)
+                // চর্যাপদের নিচের সব সাবটপিক এই "চর্যাপদ" ফোল্ডারের ভেতরে ঢুকবে
+                return (isset($parts[2])) ? $parts[2] : $parts[1]; 
+            });
 
         return response()->json($topics);
     }

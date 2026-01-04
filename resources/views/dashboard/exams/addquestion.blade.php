@@ -319,53 +319,57 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-warning">
-                <h5 class="modal-title" id="automaticQuestionSetModalLabel">
-                    স্বয়ংক্রিয় প্রশ্ন প্রণয়ন
-                    <span id="questionupdatingnumberauto"></span>
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                    <h5 class="modal-title" id="automaticQuestionSetModalLabel">
+                        স্বয়ংক্রিয় প্রশ্ন প্রণয়ন 
+                        <small class="badge badge-dark ml-2" id="total_selected_count">০টি প্রশ্ন সিলেক্ট করা হয়েছে</small>
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <form method="post" id="addautoquestionform" action="{{ route('dashboard.exams.question.auto') }}">
-                    <div class="modal-body">
+                    <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
                         @csrf
                         <input type="hidden" name="exam_id" value="{{ $exam->id }}">
-                        {{-- <table class="table">
-                            <tbody>
-                                @foreach ($topics as $topic)
-                                    <tr>
-                                        <td width="50%">{{ $topic->name }}</td>
-                                        <td>
-                                            <input type="hidden" name="topic{{ $topic->id }}" value="{{ $topic->id }}">
-                                            <input type="number" name="quantity{{ $topic->id }}" min="0" class="form-control" value="" placeholder="প্রশ্নের পরিমাণ">
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table> --}}
 
-                        <div class="form-group">
-                            <label for="main_topic">মূল টপিক সিলেক্ট করুন</label>
-                            <select class="form-control select2" id="main_topic" name="main_topic_id" required>
-                                <option value="" selected disabled="">-- টপিক সিলেক্ট করুন --</option>
-                                @foreach($mainTopics as $topic)
-                                    <option value="{{ $topic->id }}">{{ $topic->name }} (মোট প্রশ্ন: {{ $topic->total_questions_sum }})</option>
-                                @endforeach
-                            </select>
+                        <div class="row align-items-end">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label for="main_topic">মূল টপিক সিলেক্ট করুন</label>
+                                    <select class="form-control select2" id="main_topic_selector" style="width: 100%;">
+                                        <option value="" selected disabled>-- টপিক সিলেক্ট করুন --</option>
+                                        @foreach($mainTopics as $topic)
+                                            <option value="{{ $topic->id }}" data-name="{{ $topic->name }}">
+                                                {{ $topic->name }} (মোট প্রশ্ন: {{ $topic->total_questions_sum }})
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <button type="button" id="add_topic_btn" class="btn btn-primary btn-block">
+                                        <i class="fas fa-plus"></i> সাবটপিক লোড করুন
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
                         <hr>
-                        <div id="subtopic_container" class="row">
-                            <div class="col-12 text-center py-4">
-                                <p class="text-muted italic">সাবটপিক লোড করার জন্য মূল টপিক সিলেক্ট করুন</p>
+
+                        <div id="topics_wrapper">
+                            <div class="text-center py-5 empty-msg">
+                                <i class="fas fa-layer-group fa-3x text-muted mb-3"></i>
+                                <p class="text-muted">এখনো কোনো টপিক যোগ করা হয়নি। উপরের ড্রপডাউন থেকে টপিক সিলেক্ট করে "লোড করুন" বাটনে ক্লিক করুন।</p>
                             </div>
                         </div>
 
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer bg-light">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                        <button type="submit" class="btn btn-success">দাখিল করুন</button>
+                        <button type="submit" class="btn btn-success shadow">
+                            <i class="fas fa-check-circle"></i> প্রশ্ন সেট জেনারেট করুন
+                        </button>
                     </div>
                 </form>
             </div>

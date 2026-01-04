@@ -356,6 +356,12 @@
                         </div>
 
                         <hr>
+                        <div id="subtopic_container" class="row">
+                            <div class="col-12 text-center py-4">
+                                <p class="text-muted italic">Please select a broad topic first to load subtopics.</p>
+                            </div>
+                        </div>
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

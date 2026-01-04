@@ -535,6 +535,7 @@ class ExamController extends Controller
                 $exam->available_from    = Carbon::parse($collection['available_from']);
                 $exam->available_from    = Carbon::parse($collection['available_from']);
                 $exam->syllabus     = $collection['syllabus'];
+                // $exam->participation     = 0;
                 $exam->participation     = 0;
                 $exam->save();
 

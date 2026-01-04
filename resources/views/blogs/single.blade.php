@@ -48,6 +48,9 @@
     </script>
 
     <style type="text/css">
+        body, h1, h2, h3, h4, h5, h6, .blog-single-content, p, span {
+            font-family: 'Kalpurush', Arial, sans-serif !important;
+        }
         .blog-single-card {
             background: #fff;
             border-radius: 12px;

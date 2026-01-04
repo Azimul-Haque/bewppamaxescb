@@ -359,6 +359,7 @@ class ExamController extends Controller
                         ->mapWithKeys(function($topic) {
                             return [$topic->name => [
                                 'id' => $topic->id,
+                                'direct_q' => $topic->questions_count, // নিজস্ব প্রশ্ন
                                 'total_q' => $topic->total_questions_sum,
                                 'has_children' => $topic->children()->count() > 0,
                                 'all_ids' => $topic->descendant_ids // সব লিফ আইডি

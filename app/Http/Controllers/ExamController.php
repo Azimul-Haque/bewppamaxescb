@@ -354,8 +354,6 @@ class ExamController extends Controller
 
         if (!$mainTopic) return response()->json([]);
 
-                dd($mainTopic);
-
         // সব লেভেলের সাবটপিক আইডি নেওয়া
         $allDescendantIds = $mainTopic->descendant_ids; 
 

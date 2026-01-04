@@ -414,7 +414,7 @@ class ExamController extends Controller
             }
         }
 
-        dd($allQuestionIds);
+        // dd($allQuestionIds);
 
         // ৩. এক্সাম পেপারে প্রশ্নগুলো সেভ করা
         $examId = $request->exam_id;

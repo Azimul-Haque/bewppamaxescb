@@ -75,6 +75,7 @@
                                     <div class="icheck-primary icheck-inline" style="float: left;">
                                         <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 
                                         class="exam-checkbox" {{ in_array($exam->id, $existingExamIds) ? 'checked' : '' }}>
+                                        <label for="check{{ $exam->id }}"> </label>
                                     </div>
                                 </td>
                                 <td>{{ $exam->name }}</td>

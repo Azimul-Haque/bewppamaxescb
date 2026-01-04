@@ -431,7 +431,7 @@ class QuestionController extends Controller
             }
         }
         
-        Session::flash('success', 'Question uploaded successfully!');
+        Session::flash('success', 'Questions uploaded successfully!');
         return redirect()->route('dashboard.questions');
     }
 

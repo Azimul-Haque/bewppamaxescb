@@ -531,9 +531,9 @@ class ExamController extends Controller
                 $exam->duration    = $collection['duration'];
                 $exam->qsweight    = $collection['qsweight'];
                 $exam->negativepercentage    = $collection['negativepercentage'];
+                $exam->price_type = 1;
                 $exam->option4    = $collection['option4'];
                 $exam->answer     = $collection['answer'];
-                $exam->difficulty = 1;
                 $exam->save();
 
                 DB::commit();

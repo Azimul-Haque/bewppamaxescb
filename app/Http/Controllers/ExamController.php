@@ -110,7 +110,7 @@ class ExamController extends Controller
 
         Cache::forget('examcategories');
         Session::flash('success', 'Category created successfully!');
-        return redirect()->route('dashboard.exams');
+        return redirect()->bacK();
     }
 
     public function updateExamCategory(Request $request, $id)

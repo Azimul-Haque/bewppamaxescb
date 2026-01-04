@@ -46,9 +46,9 @@ class ExamController extends Controller
         if(!(Auth::user()->role == 'admin' || Auth::user()->role == 'manager')) {
             abort(403, 'Access Denied');
         }
-        
+
         $totalexams = Exam::count();
-        if($request->id) {
+        if(!empty($request->id)) {
 
         }
         $exams = Exam::orderBy('id', 'desc')->paginate(10);

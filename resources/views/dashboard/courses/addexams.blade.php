@@ -63,7 +63,11 @@
                     <table class="table table-head-fixed text-nowrap mt-2" id="examTable">
                         <thead>
                             <tr>
-                                <th width="50"><input type="checkbox" id="checkAll"></th>
+                                <th width="50">
+                                    <div class="icheck-primary icheck-inline" style="float: left;">
+                                        <input type="checkbox" id="checkAll">
+                                    </div>
+                                </th>
                                 <th>পরীক্ষার নাম</th>
                                 <th>ক্যাটাগরি</th>
                             </tr>

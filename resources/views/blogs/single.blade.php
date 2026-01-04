@@ -53,6 +53,9 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+        .blog-title {
+            font-size: 24px !important;
+        }
         .blog-single-card {
             background: #fff;
             border-radius: 12px;

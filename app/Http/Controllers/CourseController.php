@@ -206,40 +206,40 @@ class CourseController extends Controller
     public function storeCourseExam(Request $request)
     {
         $request->validate([
-                'exam_ids' => 'nullable|array',
-                'exam_ids.*' => 'exists:exams,id'
-            ]);
+            'exam_ids' => 'nullable|array',
+            'exam_ids.*' => 'exists:exams,id'
+        ]);
 
-            try {
-                // ২. ট্রানজ্যাকশন শুরু করা (যাতে কোনো এরর হলে ডেটাবেস উল্টাপাল্টা না হয়)
-                \DB::beginTransaction();
+        try {
+            // ২. ট্রানজ্যাকশন শুরু করা (যাতে কোনো এরর হলে ডেটাবেস উল্টাপাল্টা না হয়)
+            \DB::beginTransaction();
 
-                // ৩. এই কোর্সের আগের সব অ্যাসাইন করা পরীক্ষা মুছে ফেলা
-                Courseexam::where('course_id', $id)->delete();
+            // ৩. এই কোর্সের আগের সব অ্যাসাইন করা পরীক্ষা মুছে ফেলা
+            Courseexam::where('course_id', $id)->delete();
 
-                // ৪. নতুন সিলেক্ট করা পরীক্ষাগুলো লুপ চালিয়ে সেভ করা
-                if ($request->has('exam_ids')) {
-                    $data = [];
-                    foreach ($request->exam_ids as $examId) {
-                        $data[] = [
-                            'course_id' => $id,
-                            'exam_id'   => $examId,
-                            'created_at' => now(),
-                            'updated_at' => now(),
-                        ];
-                    }
-
-                    // Bulk Insert (একবারে অনেক ডেটা সেভ করা দ্রুততর)
-                    Courseexam::insert($data);
+            // ৪. নতুন সিলেক্ট করা পরীক্ষাগুলো লুপ চালিয়ে সেভ করা
+            if ($request->has('exam_ids')) {
+                $data = [];
+                foreach ($request->exam_ids as $examId) {
+                    $data[] = [
+                        'course_id' => $id,
+                        'exam_id'   => $examId,
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ];
                 }
 
-                \DB::commit();
-                return redirect()->back()->with('success', 'পরীক্ষাসমূহ সফলভাবে আপডেট করা হয়েছে।');
-
-            } catch (\Exception $e) {
-                \DB::rollback();
-                return redirect()->back()->with('error', 'কিছু একটা সমস্যা হয়েছে: ' . $e->getMessage());
+                // Bulk Insert (একবারে অনেক ডেটা সেভ করা দ্রুততর)
+                Courseexam::insert($data);
             }
+
+            \DB::commit();
+            return redirect()->back()->with('success', 'পরীক্ষাসমূহ সফলভাবে আপডেট করা হয়েছে।');
+
+        } catch (\Exception $e) {
+            \DB::rollback();
+            return redirect()->back()->with('error', 'কিছু একটা সমস্যা হয়েছে: ' . $e->getMessage());
+        }
 
         //////////
         //////////

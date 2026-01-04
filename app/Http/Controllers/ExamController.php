@@ -47,7 +47,6 @@ class ExamController extends Controller
             abort(403, 'Access Denied');
         }
         
-        dd($request->all());
         $totalexams = Exam::count();
         if($request->id) {
 

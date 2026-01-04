@@ -148,6 +148,7 @@ Route::get('/dashboard/exams/remove/question/{exam_id}/{question_id}', 'ExamCont
 Route::post('/dashboard/exams/add/question/tags', 'ExamController@storeTagExamQuestion')->name('dashboard.exams.question.tags');
 
 Route::get('/dashboard/exams/get/subtopics', 'ExamController@getSubtopics')->name('dashboard.exams.subtopics');
+Route::get('/dashboard/exams/get/subtopics', 'ExamController@fastCleanup')->name('dashboard.exams.subtopics');
 Route::post('/dashboard/exams/add/question/automatic/from/subs', 'ExamController@storeAutoQuestions')->name('dashboard.exams.question.auto.fromsubs');
 Route::post('/dashboard/exams/add/question/automatic', 'ExamController@automaticeExamQuestionSet')->name('dashboard.exams.question.auto'); // OLD
 

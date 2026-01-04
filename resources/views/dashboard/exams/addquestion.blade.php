@@ -344,103 +344,101 @@
             btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> লোড হচ্ছে...');
             $('.empty-msg').hide();
 
+            // প্রাথমিক কল (লেভেল ২ এর জন্য)
+            loadSubtopicData(topicId, topicName, true);
+        });
+
+        // ডাটা লোড করার কমন ফাংশন
+        function loadSubtopicData(targetId, targetName, isMainCard = false) {
             $.ajax({
                 url: "{{ route('dashboard.exams.subtopics') }}",
                 type: "GET",
-                data: { main_topic_id: topicId },
-                success: function(groups) {
-                    if ($.isEmptyObject(groups)) {
+                data: { target_id: targetId },
+                success: function(data) {
+                    if ($.isEmptyObject(data)) {
                         alert('কোনো সাবটপিক পাওয়া যায়নি।');
                         return;
                     }
 
-                    loadedTopics.push(topicId);
-                    let accordionId = "accordion_" + topicId;
-                    
-                    let html = `
-                        <div class="card card-warning card-outline mb-4" id="main_card_${topicId}">
-                            <div class="card-header py-2">
-                                <h3 class="card-title text-bold"><i class="fas fa-book mr-2"></i> ${topicName}</h3>
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool remove-main-topic" data-id="${topicId}">
-                                        <i class="fas fa-times text-danger"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body p-2">
-                                <div class="accordion" id="${accordionId}">`;
-
-                    let groupIndex = 0;
-                    // groups হলো: { "প্রাচীন যুগ": { "চর্যাপদ": {data}, "অন্ধকার যুগ": {data} }, ... }
-                    $.each(groups, function(parentGroupName, subtopicsData) {
-                        groupIndex++;
-                        let collapseId = `collapse_${topicId}_${groupIndex}`;
-                        
-                        html += `
-                            <div class="card mb-1 shadow-none border">
-                                <div class="card-header bg-light py-1">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block text-left text-dark font-weight-bold p-1 text-sm" 
-                                                type="button" data-toggle="collapse" data-target="#${collapseId}">
-                                            <i class="fas fa-folder mr-2 text-warning"></i> ${parentGroupName} 
-                                            <span class="badge badge-pill badge-secondary float-right">${Object.keys(subtopicsData).length} টি প্রধান বিভাগ</span>
-                                        </button>
-                                    </h2>
-                                </div>
-                                <div id="${collapseId}" class="collapse show" data-parent="#${accordionId}">
-                                    <div class="card-body p-2">
-                                        <div class="row">`;
-
-                        $.each(subtopicsData, function(mainSubName, data) {
-                            // ব্র্যাকেটের জন্য সাব-লিস্ট তৈরি (যদি থাকে)
-                            let bracketInfo = data.sub_list && data.sub_list.length > 0 
-                                ? `<br><small class="text-muted italic" style="font-size: 11px;">(${data.sub_list.join(', ')})</small>` 
-                                : '';
-
-                            html += `
-                                <div class="col-md-12 mb-2">
-                                    <div class="p-2 border rounded bg-white d-flex justify-content-between align-items-center shadow-sm">
-                                        <div style="max-width: 80%;">
-                                            <span class="d-block text-sm font-weight-bold text-primary subtopic-name">${mainSubName}</span>
-                                            ${bracketInfo}
-                                            <div class="mt-1">
-                                                <span class="badge badge-light border" style="font-size: 10px;">মোট প্রশ্ন: ${data.total_q}</span>
-                                            </div>
-                                        </div>
-                                        <div class="text-right">
-                                            <input type="number" name="topic_groups[${JSON.stringify(data.all_ids)}]" 
-                                                   class="form-control form-control-sm q-count-input" 
-                                                   data-name="${mainSubName}"
-                                                   style="width: 70px; font-weight: bold;" 
-                                                   min="0" max="${data.total_q}" value="0">
-                                        </div>
-                                    </div>
-                                </div>`;
-                        });
-
-                        html += `       </div>
-                                    </div>
-                                </div>
-                            </div>`;
-                    });
-
-                    html += `   </div>
-                            </div>
-                        </div>`;
-
-                    $('#topics_wrapper').append(html);
-                    updateSelectionPreview(); // ইনিশিয়াল কল
-                },
-                error: function() {
-                    alert('ডাটা লোড করতে সমস্যা হয়েছে।');
+                    if (isMainCard) {
+                        loadedTopics.push(targetId);
+                        renderMainCard(targetId, targetName, data);
+                    } else {
+                        renderDrillDown(targetId, data);
+                    }
                 },
                 complete: function() {
-                    btn.prop('disabled', false).html('<i class="fas fa-plus"></i> সাবটপিক লোড করুন');
+                    $('#add_topic_btn').prop('disabled', false).html('<i class="fas fa-plus"></i> সাবটপিক লোড করুন');
                 }
             });
+        }
+
+        // মেইন কার্ড রেন্ডার (প্রাচীন যুগ, মধ্য যুগ ইত্যাদি)
+        function renderMainCard(id, name, groups) {
+            let html = `
+                <div class="card card-warning card-outline mb-4 shadow" id="main_card_${id}">
+                    <div class="card-header py-2">
+                        <h3 class="card-title text-bold"><i class="fas fa-book-reader mr-2"></i> ${name}</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool remove-main-topic" data-id="${id}"><i class="fas fa-times text-danger"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-body p-2" id="wrapper_${id}">`;
+
+            $.each(groups, function(subName, item) {
+                html += generateRowHtml(item, subName);
+            });
+
+            html += `</div></div>`;
+            $('#topics_wrapper').append(html);
+        }
+
+        // ড্রিল ডাউন রেন্ডার (চর্যাপদ এর ভেতর আরও গভীরে)
+        function renderDrillDown(parentId, data) {
+            let container = $(`#drill_container_${parentId}`);
+            let html = '<div class="ml-4 border-left pl-3 mt-2 bg-light p-2 rounded">';
+            $.each(data, function(subName, item) {
+                html += generateRowHtml(item, subName);
+            });
+            html += '</div>';
+            container.html(html);
+        }
+
+        // রো (Row) তৈরির কমন লজিক
+        function generateRowHtml(item, name) {
+            // যদি আরও চাইল্ড থাকে তবে বাটন দেখাবে
+            let drillBtn = item.has_children ? 
+                `<button type="button" class="btn btn-xs btn-outline-primary ml-2 load-more-drill" data-id="${item.id}" data-name="${name}">
+                    আরও সাবটপিক লোড করুন <i class="fas fa-arrow-down ml-1"></i>
+                </button>` : '';
+
+            return `
+                <div class="subtopic-row-wrapper mb-2" id="row_wrapper_${item.id}">
+                    <div class="p-2 border rounded bg-white d-flex justify-content-between align-items-center shadow-sm">
+                        <div style="max-width: 75%;">
+                            <span class="d-block text-sm font-weight-bold text-dark">${name}</span>
+                            <small class="text-muted mr-2">প্রশ্ন: ${item.total_q}</small>
+                            ${drillBtn}
+                        </div>
+                        <input type="number" name="topic_groups[${JSON.stringify(item.all_ids)}]" 
+                               class="form-control form-control-sm q-count-input" 
+                               data-name="${name}" style="width: 70px;" min="0" max="${item.total_q}" value="0">
+                    </div>
+                    <div class="drill-target" id="drill_container_${item.id}"></div>
+                </div>`;
+        }
+
+        // "আরও সাবটপিক" বাটনের ইভেন্ট
+        $(document).on('click', '.load-more-drill', function() {
+            let btn = $(this);
+            let id = btn.data('id');
+            let name = btn.data('name');
+            btn.html('<i class="fas fa-spinner fa-spin"></i> লোড হচ্ছে...').prop('disabled', true);
+            loadSubtopicData(id, name, false);
+            btn.fadeOut(); // লোড হয়ে গেলে বাটন সরিয়ে ফেলবে
         });
 
-        // মেইন টপিক কার্ড রিমুভ করা
+        // মেইন টপিক রিমুভ
         $(document).on('click', '.remove-main-topic', function() {
             let id = $(this).data('id').toString();
             $(`#main_card_${id}`).fadeOut(300, function() {
@@ -451,7 +449,6 @@
             });
         });
 
-        // ইনপুট চেঞ্জ হলে প্রিভিউ আপডেট
         $(document).on('input', '.q-count-input', function() {
             updateSelectionPreview();
         });
@@ -464,20 +461,15 @@
             $('.q-count-input').each(function() {
                 let count = parseInt($(this).val()) || 0;
                 total += count;
-                
                 if (count > 0) {
                     anySelected = true;
                     let name = $(this).data('name');
-                    previewHtml += `
-                        <span class="badge badge-info m-1 px-2 py-1 shadow-sm border" style="font-size: 12px; font-weight: 500;">
-                            <i class="fas fa-check-circle mr-1"></i> ${name} 
-                            <span class="badge badge-light ml-1" style="color: #000;">${count}</span>
-                        </span>`;
+                    previewHtml += `<span class="badge badge-info m-1 px-2 py-1 shadow-sm border" style="font-size: 11px;">
+                                    ${name} <span class="badge badge-light ml-1">${count}</span></span>`;
                 }
             });
 
             $('#total_selected_count').text(total + 'টি প্রশ্ন সিলেক্ট করা হয়েছে');
-
             if (anySelected) {
                 $('#selection_preview_container').removeClass('d-none');
                 $('#selection_preview').html(previewHtml);

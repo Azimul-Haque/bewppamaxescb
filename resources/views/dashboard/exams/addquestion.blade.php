@@ -407,8 +407,8 @@
         // রো (Row) তৈরির কমন লজিক
         function generateRowHtml(item, name) {
             let drillBtn = item.has_children ? 
-                `<button type="button" class="btn btn-xs btn-outline-info mt-1 load-more-drill" data-id="${item.id}" data-name="${name}">
-                    সাবটপিক দেখুন <i class="fas fa-arrow-down ml-1"></i>
+                `<button type="button" class="btn btn-xs btn-outline-primary ml-2 load-more-drill" data-id="${item.id}" data-name="${name}">
+                    আরও সাবটপিক লোড করুন <i class="fas fa-arrow-down ml-1"></i>
                 </button>` : '';
 
             return `

@@ -45,7 +45,7 @@
   <link rel="stylesheet" href="{{ asset('vendor/frontend/css/lineicons.css') }}" />
 
   <!--====== Tiny Slider css ======-->
-  {{-- <link rel="stylesheet" href="{{ asset('vendor/frontend/css/tiny-slider.css') }}" /> --}}
+  <link rel="stylesheet" href="{{ asset('vendor/frontend/css/tiny-slider.css') }}" />
 
   <!--====== gLightBox css ======-->
   @if (!Request::is('blogs', 'blogs/*', 'blog', 'blog/*'))

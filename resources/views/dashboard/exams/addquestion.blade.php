@@ -450,6 +450,7 @@
         }
 
         function updateSelectionPreview() {
+            let total = 0;
             let previewHtml = '';
             $('.q-count-input').each(function() {
                 let count = parseInt($(this).val());

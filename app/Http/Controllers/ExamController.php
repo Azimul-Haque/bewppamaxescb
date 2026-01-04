@@ -418,7 +418,29 @@ class ExamController extends Controller
 
         // ৩. এক্সাম পেপারে প্রশ্নগুলো সেভ করা
         $examId = $request->exam_id;
-        
+        if (!empty($allQuestionIds)) {
+            $insertData = [];
+            $now = now();
+
+            foreach (array_unique($allQuestionIds) as $qId) {
+                $insertData[] = [
+                    'exam_id'     => $examId,
+                    'question_id' => $qId,
+                    'created_at'  => $now,
+                    'updated_at'  => $now,
+                ];
+            }
+
+            // ২. ডাটাবেসে একবারে ইনসার্ট করা (Performance Optimization)
+            // insertOrIgnore ব্যবহার করলে যদি প্রশ্নটি আগে থেকেই থাকে তবে সেটি এরর দিবে না, স্কিপ করবে।
+            DB::table('examquestions')->insertOrIgnore($insertData);
+
+            return response()->json([
+                'status'  => 'success',
+                'message' => count($insertData) . 'টি প্রশ্ন এক্সামে যোগ করা হয়েছে।',
+                'total'   => count($insertData)
+            ]);
+        }
 
         return back()->with('error', 'কোনো প্রশ্ন সিলেক্ট করা হয়নি।');
     }

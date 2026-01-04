@@ -374,7 +374,7 @@ class ExamController extends Controller
 
         // GENERATING SYLLABUS
         // GENERATING SYLLABUS
-        $syllabusParts = [];
+        // $syllabusParts = [];
 
         // -- শুধুমাত্র নিজস্ব প্রশ্ন (Only Own) প্রসেস করা --
         // if ($request->has('only_own')) {

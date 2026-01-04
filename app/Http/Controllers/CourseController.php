@@ -195,10 +195,11 @@ class CourseController extends Controller
             
         // সব এক্সাম লোড করুন (Pagination সহ)
         $exams = Exam::orderBy('name', 'asc')->paginate(50);
-        
+
         return view('dashboard.courses.addexams')
                                     ->withCourse($course)
                                     ->withCourseexams($courseexams)
+                                    ->withExistingExamIds($existingExamIds)
                                     ->withExams($exams);
     }
 

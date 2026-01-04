@@ -436,7 +436,7 @@
                             </div>
 
                             <div class="text-center">
-                                <input type="number" name="topic_groups[${JSON.stringify(item.all_ids)}]" 
+                                <input type="number" name="topic_groups[${JSON.stringify(${JSON.stringify(idsToSend)})}]" 
                                        class="form-control form-control-sm q-count-input" 
                                        data-name="${name} (সবসহ)" 
                                        style="width: 55px; border-color: #6c757d;" 

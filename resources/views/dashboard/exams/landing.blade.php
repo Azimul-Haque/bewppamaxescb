@@ -66,6 +66,48 @@
     </div> --}}
 </div>
 
+<div class="modal fade" id="addTopicModal" tabindex="-1" role="dialog" aria-labelledby="addTopicModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-warning">
+          <h5 class="modal-title" id="addTopicModalLabel">নতুন ক্যাটাগরি যোগ</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form method="post" action="{{ route('dashboard.exams.category.store') }}">
+            <div class="modal-body">
+                  @csrf
+                  <div class="input-group mb-3">
+                      <input type="text"
+                             name="name"
+                             class="form-control"
+                             value="{{ old('name') }}"
+                             placeholder="নাম" required>
+                      <div class="input-group-append">
+                          <div class="input-group-text"><span class="far fa-bookmark"></span></div>
+                      </div>
+                  </div>
+                  <div class="input-group mb-3">
+                      <input type="text"
+                             name="thumbnail"
+                             class="form-control"
+                             value="{{ old('thumbnail') }}"
+                             placeholder="থাম্বনেইল" required>
+                      <div class="input-group-append">
+                          <div class="input-group-text"><span class="far fa-image"></span></div>
+                      </div>
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+              <button type="submit" class="btn btn-warning">দাখিল করুন</button>
+            </div>
+        </form>
+      </div>
+    </div>
+</div>
+
 @endsection
 
 @section('third_party_scripts')

@@ -349,25 +349,20 @@ class ExamController extends Controller
 
     public function getSubtopics(Request $request)
     {
-        $mainTopicId = $request->main_topic_id;
-        $targetId = $request->target_id ?? $mainTopicId; // কোন লেভেল থেকে লোড হবে
+        // যদি target_id না থাকে তবে মেইন সিলেক্টর থেকে আইডি নেবে
+        $parentId = $request->target_id ?? $request->main_topic_id;
         
-        $parentTopic = Topic::with('children')->find($targetId);
-        if (!$parentTopic) return response()->json([]);
-
-        // এই লেভেলের সরাসরি চাইল্ডগুলো আনা
-        $topics = Topic::where('parent_id', $targetId)
-                    ->where('total_questions_sum', '>', 0)
-                    ->get()
-                    ->map(function($topic) {
-                        return [
-                            'id' => $topic->id,
-                            'name' => $topic->name,
-                            'total_q' => $topic->total_questions_sum,
-                            'has_children' => $topic->children()->count() > 0,
-                            'all_descendant_ids' => $topic->descendant_ids // আপনার মডেলের এক্সেসর
-                        ];
-                    });
+        $topics = Topic::where('parent_id', $parentId)
+                        ->where('total_questions_sum', '>', 0)
+                        ->get()
+                        ->mapWithKeys(function($topic) {
+                            return [$topic->name => [
+                                'id' => $topic->id,
+                                'total_q' => $topic->total_questions_sum,
+                                'has_children' => $topic->children()->count() > 0,
+                                'all_ids' => $topic->descendant_ids // সব লিফ আইডি
+                            ]];
+                        });
 
         return response()->json($topics);
     }

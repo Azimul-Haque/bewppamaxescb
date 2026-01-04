@@ -59,7 +59,7 @@
             </div>
             <form action="{{ route('dashboard.courses.exam.store', $course->name) }}" method="POST">
                 @csrf
-                <div class="card-body p-0" style="max-height: 500px; overflow-y: auto;">
+                <div class="card-body p-0" style="max-height: 700px; overflow-y: auto;">
                     <table class="table table-head-fixed text-nowrap mt-2" id="examTable">
                         <thead>
                             <tr>

@@ -542,7 +542,7 @@ class ExamController extends Controller
             }
         }
         
-        Session::flash('success', 'Question uploaded successfully!');
+        Session::flash('success', 'Exams uploaded successfully!');
         return redirect()->route('dashboard.questions');
     }
 

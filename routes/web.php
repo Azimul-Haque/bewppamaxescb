@@ -146,7 +146,7 @@ Route::get('/dashboard/exams/add/question/bank/search/{id}/{search}', 'ExamContr
 Route::post('/dashboard/exams/add/question/store', 'ExamController@storeExamQuestion')->name('dashboard.exams.question.store');
 Route::get('/dashboard/exams/remove/question/{exam_id}/{question_id}', 'ExamController@removeExamQuestion')->name('dashboard.exams.question.remove');
 Route::post('/dashboard/exams/add/question/tags', 'ExamController@storeTagExamQuestion')->name('dashboard.exams.question.tags');
-Route::get('/dashboard/exams/add/question/tags', 'ExamController@getSubtopics')->name('dashboard.exams.question.tags');
+Route::get('/dashboard/exams/add/question/tags', 'ExamController@getSubtopics')->name('dashboard.exams.subtopics');
 Route::post('/dashboard/exams/add/question/automatic', 'ExamController@automaticeExamQuestionSet')->name('dashboard.exams.question.auto');
 
 Route::post('/dashboard/exams/category/store', 'ExamController@storeExamCategory')->name('dashboard.exams.category.store');

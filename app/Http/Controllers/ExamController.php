@@ -376,34 +376,38 @@ class ExamController extends Controller
         // GENERATING SYLLABUS
         $syllabusParts = [];
 
-        // ১. শুধুমাত্র নিজস্ব (Only Own) টপিকগুলোর নাম নেওয়া
+        // -- শুধুমাত্র নিজস্ব প্রশ্ন (Only Own) প্রসেস করা --
         if ($request->has('only_own')) {
-            $onlyOwnIds = array_keys(array_filter($request->only_own, fn($count) => $count > 0));
+            $onlyOwnIds = array_keys(array_filter($request->only_own, fn($count) => (int)$count > 0));
             if (!empty($onlyOwnIds)) {
                 $onlyOwnNames = Topic::whereIn('id', $onlyOwnIds)->pluck('name')->toArray();
-                $syllabusParts[] = "✅ প্রধান বিষয়ের ওপর পরীক্ষা:\n   • " . implode("\n   • ", $onlyOwnNames);
+                $syllabusParts[] = "🎯 মূল বিষয় (সরাসরি):\n  • " . implode(', ', $onlyOwnNames);
             }
         }
 
-        // ২. যদি গ্রুপ (topic_groups) সিলেক্ট করা থাকে
+        // -- সাবটপিক গ্রুপ (Topic Groups) প্রসেস করা --
         if ($request->has('topic_groups')) {
-            $groupTopicIds = [];
+            $groupMainIds = [];
             foreach ($request->topic_groups as $idsCommaString => $count) {
-                if ($count > 0) {
-                    // আমরা প্রথম আইডিটি নিচ্ছি মূল নাম দেখানোর জন্য
+                if ((int)$count > 0) {
                     $ids = explode(',', $idsCommaString);
-                    $groupTopicIds[] = $ids[0]; 
+                    // প্রথম আইডিটি সাধারণত সেই লেভেলের মূল নাম রিপ্রেজেন্ট করে
+                    $groupMainIds[] = $ids[0]; 
                 }
             }
             
-            if (!empty($groupTopicIds)) {
-                $groupNames = Topic::whereIn('id', $groupTopicIds)->pluck('name')->toArray();
-                $syllabusParts[] = "📂 বিস্তারিত বিষয়সমূহ (সাব-টপিকসহ):\n   • " . implode("\n   • ", $groupNames);
+            if (!empty($groupMainIds)) {
+                $groupNames = Topic::whereIn('id', $groupMainIds)->pluck('name')->toArray();
+                $syllabusParts[] = "📂 বিস্তারিত বিভাগ (সাব-টপিকসহ):\n  • " . implode(', ', $groupNames);
             }
         }
 
-        // সিলেবাসটি স্ট্রিং হিসেবে তৈরি করা
-        $finalSyllabus = "📝 পরীক্ষার সংক্ষিপ্ত সিলেবাস\n\n" . implode("\n\n", $syllabusParts);
+        // ৩. চূড়ান্ত সিলেবাস ফরম্যাটিং
+        if (!empty($syllabusParts)) {
+            $finalSyllabus = "📝 পরীক্ষার সিলেবাস\n" . "━━━━━━━━━━━━━━\n" . implode("\n\n", $syllabusParts);
+        } else {
+            $finalSyllabus = "সিলেবাস নির্ধারিত নেই।";
+        }
 
         dd($finalSyllabus);
 

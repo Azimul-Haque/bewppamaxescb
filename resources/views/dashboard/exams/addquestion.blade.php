@@ -321,7 +321,7 @@
         let loadedTopics = []; // ডুপ্লিকেট লোড বন্ধ করতে
 
         $('#add_topic_btn').on('click', function() {
-            let selectedOption = $('#main_topic_selector find(":selected")');
+            let selectedOption = $('#main_topic_selector').find(":selected");
             let topicId = selectedOption.val();
             let topicName = selectedOption.data('name');
 

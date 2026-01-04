@@ -390,7 +390,6 @@
 
                     html += `</div>`;
                     $('#topics_wrapper').html(html);
-                }
                 },
                 complete: function() {
                     $('#add_topic_btn').prop('disabled', false).html('<i class="fas fa-plus"></i> সাবটপিক লোড করুন');

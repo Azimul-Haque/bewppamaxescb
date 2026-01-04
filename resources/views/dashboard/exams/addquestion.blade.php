@@ -346,7 +346,7 @@
                         </table> --}}
 
                         <div class="form-group">
-                            <label for="main_topic">Select Broad Topic</label>
+                            <label for="main_topic">মূল টপিক সিলেক্ট করুন</label>
                             <select class="form-control select2" id="main_topic" name="main_topic_id" required>
                                 <option value="">-- Choose a Topic --</option>
                                 @foreach($mainTopics as $topic)

@@ -446,7 +446,7 @@
             $('.q-count-input').each(function() {
                 total += parseInt($(this).val()) || 0;
             });
-            $('#total_selected_count').text(total + 'টি প্রশ্ন সিলেক্ট করা হয়েছে');
+            
         }
 
         function updateSelectionPreview() {
@@ -461,6 +461,7 @@
             
             // মোডালের নিচে বা উপরে একটি div রাখুন id="selection_preview" দিয়ে
             $('#selection_preview').html(previewHtml);
+            $('#total_selected_count').text(total + 'টি প্রশ্ন সিলেক্ট করা হয়েছে');
         }
     });
 </script>

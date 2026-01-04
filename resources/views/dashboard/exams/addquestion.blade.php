@@ -327,7 +327,7 @@
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     });
 
-    function checkboxquestion(id) {
+    {{-- function checkboxquestion(id) {
         if($('#check' + id)[0].checked){
             var hiddencheckarray = $('#hiddencheckarray').val();
             // console.log(hiddencheckarray);
@@ -354,7 +354,7 @@
             $('#questionupdatingnumbertag').text('প্রশ্ন সংখ্যাঃ ' + updatedarray.length);
             $('#questionupdatingnumberauto').text('প্রশ্ন সংখ্যাঃ ' + updatedarray.length);
         }
-    }
+    } --}}
     
     
   </script>

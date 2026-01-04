@@ -316,6 +316,94 @@
 <script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.4/underscore-umd-min.js"></script>
+<script>
+    $(document).ready(function() {
+        let loadedTopics = []; // ডুপ্লিকেট লোড বন্ধ করতে
+
+        $('#add_topic_btn').on('click', function() {
+            let selectedOption = $('#main_topic_selector find(":selected")');
+            let topicId = selectedOption.val();
+            let topicName = selectedOption.data('name');
+
+            if (!topicId) {
+                alert('অনুগ্রহ করে একটি টপিক সিলেক্ট করুন।');
+                return;
+            }
+
+            if (loadedTopics.includes(topicId)) {
+                alert('এই টপিকটি অলরেডি নিচে যোগ করা হয়েছে।');
+                return;
+            }
+
+            // লোডিং শুরু
+            $(this).prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> লোড হচ্ছে...');
+            $('.empty-msg').hide();
+
+            $.ajax({
+                url: "{{ route('exams.getSubtopics') }}", // আপনার রাউট
+                type: "GET",
+                data: { main_topic_id: topicId },
+                success: function(data) {
+                    loadedTopics.push(topicId);
+                    
+                    let topicCard = `
+                        <div class="card card-outline card-info mb-4" id="card_topic_${topicId}">
+                            <div class="card-header">
+                                <h3 class="card-title text-bold text-primary"><i class="fas fa-book-open mr-2"></i> ${topicName}</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool remove-topic" data-id="${topicId}"><i class="fas fa-times text-danger"></i></button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">`;
+
+                    data.forEach(function(sub) {
+                        topicCard += `
+                            <div class="col-md-4 mb-2">
+                                <div class="p-2 border rounded bg-white">
+                                    <small class="d-block text-truncate" title="${sub.full_name}">${sub.full_name}</small>
+                                    <div class="d-flex justify-content-between align-items-center mt-1">
+                                        <span class="badge badge-secondary">প্রশ্ন: ${sub.total_q}</span>
+                                        <input type="number" name="topics[${sub.id}]" 
+                                               class="form-control form-control-sm q-count-input" 
+                                               style="width: 70px;" min="0" max="${sub.total_q}" value="0">
+                                    </div>
+                                </div>
+                            </div>`;
+                    });
+
+                    topicCard += `</div></div></div>`;
+                    $('#topics_wrapper').append(topicCard);
+                },
+                complete: function() {
+                    $('#add_topic_btn').prop('disabled', false).html('<i class="fas fa-plus"></i> সাবটপিক লোড করুন');
+                }
+            });
+        });
+
+        // টপিক কার্ড রিমুভ করা
+        $(document).on('click', '.remove-topic', function() {
+            let id = $(this).data('id').toString();
+            $(`#card_topic_${id}`).remove();
+            loadedTopics = loadedTopics.filter(item => item !== id);
+            if(loadedTopics.length === 0) $('.empty-msg').show();
+            updateTotalCount();
+        });
+
+        // মোট কত প্রশ্ন হলো তার লাইভ আপডেট
+        $(document).on('input', '.q-count-input', function() {
+            updateTotalCount();
+        });
+
+        function updateTotalCount() {
+            let total = 0;
+            $('.q-count-input').each(function() {
+                total += parseInt($(this).val()) || 0;
+            });
+            $('#total_selected_count').text(total + 'টি প্রশ্ন সিলেক্ট করা হয়েছে');
+        }
+    });
+</script>
 
 <script>
     $("#datatable").DataTable({

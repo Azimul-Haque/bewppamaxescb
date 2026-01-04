@@ -83,9 +83,9 @@
       /* ১. ফন্ট ফেস ডিক্লারেশন এবং স্পিড অপ্টিমাইজেশন */
       @font-face {
           font-family: 'Kalpurush';
-          src: url('fonts/kalpurush.woff2') format('woff2'), /* সবচেয়ে হালকা এবং ফাস্ট ফরম্যাট */
-               url('fonts/kalpurush.woff') format('woff'),
-               url('fonts/kalpurush.ttf') format('truetype');
+          src: url("{{ asset('fonts/kalpurush.woff2') }}") format('woff2'),
+                       url("{{ asset('fonts/kalpurush.woff') }}") format('woff'),
+                       url("{{ asset('fonts/kalpurush.ttf') }}") format('truetype');
           font-weight: normal;
           font-style: normal;
           font-display: swap; /* ফন্ট লোড হওয়ার আগ পর্যন্ত সিস্টেম ফন্ট দেখাবে, যাতে পেজ লোড ফাস্ট হয় */

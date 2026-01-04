@@ -510,7 +510,7 @@ class ExamController extends Controller
         return "সফলভাবে ডুপ্লিকেট ক্লিন হয়েছে!";
     }
 
-    public function storeExcelQuestion(Request $request)
+    public function storeExcelExam(Request $request)
     {
         // dd($request->file('file'));
         ini_set('memory_limit', '512000000');

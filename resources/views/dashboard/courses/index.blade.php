@@ -3,236 +3,359 @@
 
 @section('third_party_stylesheets')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="{{ asset('js/jquery-for-dp.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<style>
-    .nav-tabs .nav-link.active { color: #007bff; font-weight: bold; border-top: 3px solid #007bff; }
-    .table td, .table th { vertical-align: middle !important; }
-</style>
 @endsection
 
 @section('content')
     @section('page-header') কোর্সসমূহ @endsection
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-                <div class="card card-primary card-outline shadow-sm">
+            <div class="col-md-9">
+                <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">কোর্সসমূহ (মোটঃ {{ $totalcourses }})</h3>
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addCourseModal">
-                                <i class="fas fa-plus-circle"></i> নতুন কোর্স যোগ
-                            </button>
-                        </div>
+                      <h3 class="card-title">কোর্সসমূহ (মোটঃ {{ $totalcourses }})</h3>
+          
+                      <div class="card-tools">
+                          <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#addCourseModal">
+                              <i class="fas fa-plus-circle"></i> নতুন কোর্স যোগ
+                          </button>
+                      </div>
                     </div>
-                    
-                    @php
-                        $categoryNames = [
-                            1 => 'বিসিএস',
-                            2 => 'প্রাইমারি',
-                            3 => 'ব্যাংক',
-                            4 => 'NTRCA',
-                            5 => 'অন্যান্য',
-                            6 => 'প্রশ্ন ব্যাংক'
-                        ];
-                        // কোর্সগুলোকে ক্যাটাগরি অনুযায়ী গ্রুপ করা
-                        $groupedCourses = $courses->groupBy('category');
-                    @endphp
-
-                    <div class="card-body">
-                        <ul class="nav nav-tabs mb-3" id="courseTab" role="tablist">
-                            @foreach($categoryNames as $id => $name)
-                                @if(isset($groupedCourses[$id]))
-                                <li class="nav-item">
-                                    <a class="nav-link {{ $loop->first ? 'active' : '' }}" id="tab-{{ $id }}" data-toggle="pill" href="#content-{{ $id }}" role="tab">
-                                        {{ $name }} <span class="badge badge-secondary ml-1">{{ $groupedCourses[$id]->count() }}</span>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>Course</th>
+                                  <th>Status</th>
+                                  <th>Type</th>
+                                  <th>Exams</th>
+                                  <th>Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                          @foreach($courses as $course)
+                              <tr>
+                                  <td>
+                                    <a href="{{ route('dashboard.courses.add.exam', $course->id) }}">{{ $course->name }}</a>
+                                  </td>
+                                  <td>
+                                      @if($course->status == 1)
+                                        <span class="badge badge-primary">Active</span>
+                                      @else
+                                        <span class="badge badge-default">In-active</span>
+                                      @endif
+                                  </td><td>
+                                      @if($course->type == 1)
+                                        সাধারণ কোর্স
+                                      @elseif($course->type == 2)
+                                        বিজেএস মডেল টেস্ট
+                                      @elseif($course->type == 3)
+                                        বার মডেল টেস্ট
+                                      @elseif($course->type == 4)
+                                        ফ্রি মডেল টেস্ট
+                                      @elseif($course->type == 5)
+                                        প্রশ্ন ব্যাংক
+                                      @endif
+                                  </td>
+                                  <td>
+                                    মোট পরীক্ষাঃ {{ $course->courseexams->count() }} টি
+                                  </td>
+                                  <td>
+                                    <a href="{{ route('dashboard.courses.add.exam', $course->id) }}" class="btn btn-warning btn-sm" rel="tooltip" title="কোর্স হালনাগাদ করুন">
+                                        <i class="fas fa-folder-plus"></i>
                                     </a>
-                                </li>
-                                @endif
-                            @endforeach
-                        </ul>
+                                    <a href="{{ route('dashboard.courses.exam.serial.edit', $course->id) }}" class="btn btn-success btn-sm" rel="tooltip" title="সিরিয়াল হালনাগাদ করুন">
+                                        <i class="fas fa-sort-amount-up-alt"></i>
+                                    </a>
+                                      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCourseModal{{ $course->id }}" rel="tooltip" title="তথ্য হালনাগাদ করুন">
+                                          <i class="far fa-edit"></i>
+                                      </button>
+                                      {{-- Edit Course Modal Code --}}
+                                      {{-- Edit Course Modal Code --}}
+                                      <!-- Modal -->
+                                      <div class="modal fade" id="editCourseModal{{ $course->id }}" tabindex="-1" role="dialog" aria-labelledby="editCourseModalLabel" aria-hidden="true" data-backdrop="static">
+                                          <div class="modal-dialog modal-lg" role="document">
+                                          <div class="modal-content">
+                                              <div class="modal-header bg-success">
+                                                <h5 class="modal-title" id="editCourseModalLabel">কোর্স হালনাগাদ</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                              </div>
+                                              <form method="post" action="{{ route('dashboard.courses.update', $course->id) }}" enctype='multipart/form-data'>
+                                                <div class="modal-body">
+                                                  @csrf
+                                                  <div class="input-group mb-3">
+                                                      <input type="text" name="name" class="form-control" value="{{ $course->name }}" placeholder="কোর্সের নাম" required>
+                                                      <div class="input-group-append">
+                                                          <div class="input-group-text"><span class="fas fa-layer-group"></span></div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="input-group mb-3">
+                                                    <select name="status" class="form-control" required>
+                                                        <option selected="" disabled="" value="">স্ট্যাটাস (চলমান কোর্সসমূহতে দেখাবে কি না)</option>
+                                                        <option value="1" @if($course->status == 1) selected @endif>Active - হ্যাঁ</option>
+                                                        <option value="0" @if($course->status == 0) selected @endif>In-active - না</option>
+                                                    </select>
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text"><span class="fas fa-star-half-alt"></span></div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="input-group mb-3">
+                                                    <select name="type" class="form-control" required>
+                                                        <option selected="" disabled="" value="">ক্লাসিকাল ধরন</option>
+                                                        <option value="1" @if($course->type == 1) selected @endif>সাধারণ কোর্স</option>
+                                                        {{-- <option value="2" @if($course->type == 2) selected @endif>বিজেএস মডেল টেস্ট</option>
+                                                        <option value="3" @if($course->type == 3) selected @endif>বার মডেল টেস্ট</option> --}}
+                                                        <option value="4" @if($course->type == 4) selected @endif>ফ্রি মডেল টেস্ট</option>
+                                                        <option value="5" @if($course->type == 5) selected @endif>প্রশ্ন ব্যাংক</option>
+                                                    </select>
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text"><span class="fas fa-tag"></span></div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="input-group mb-3">
+                                                      <input type="number" name="priority" class="form-control" value="{{ $course->priority }}" placeholder="প্রায়োরিটি (চলমান কোর্সসমূহতে যে সিরিয়ালে অ্যাপে দেখাবে)" required>
+                                                      <div class="input-group-append">
+                                                          <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="input-group mb-3">
+                                                    <select name="category" class="form-control" required>
+                                                        <option selected="" disabled="" value="">আপডেটেড ধরন</option>
+                                                        <option value="1" @if($course->category == 1) selected @endif>বিসিএস</option>
+                                                        <option value="2" @if($course->category == 2) selected @endif>প্রাইমারি</option>
+                                                        <option value="3" @if($course->category == 3) selected @endif>ব্যাংক</option>
+                                                        <option value="4" @if($course->category == 4) selected @endif>NTRCA</option>
+                                                        <option value="5" @if($course->category == 5) selected @endif>NSI, DGFI ও অন্যান্য</option>
+                                                        <option value="6" @if($course->category == 6) selected @endif>প্রশ্ন ব্যাংক</option>
+                                                    </select>
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text"><span class="fas fa-tag"></span></div>
+                                                    </div>
+                                                  </div>
 
-                        <div class="tab-content">
-                            @foreach($groupedCourses as $catId => $courseGroup)
-                                <div class="tab-pane fade show {{ $loop->first ? 'active' : '' }}" id="content-{{ $catId }}" role="tabpanel">
-                                    <div class="table-responsive">
-                                        <table class="table table-hover border">
-                                            <thead class="bg-light">
-                                                <tr>
-                                                    <th>Course Name</th>
-                                                    <th>Status</th>
-                                                    <th>Type</th>
-                                                    <th>Exams</th>
-                                                    <th class="text-right">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($courseGroup as $course)
-                                                <tr>
-                                                    <td>
-                                                        <a href="{{ route('dashboard.courses.add.exam', $course->id) }}" class="font-weight-bold">{{ $course->name }}</a>
-                                                        <br><small class="text-muted">Serial: {{ $course->serial }} | Priority: {{ $course->priority }}</small>
-                                                    </td>
-                                                    <td>
-                                                        @if($course->status == 1)
-                                                            <span class="badge badge-success">Active</span>
-                                                        @else
-                                                            <span class="badge badge-secondary">In-active</span>
-                                                        @endif
-                                                        @if($course->live == 1)
-                                                            <span class="badge badge-warning ml-1">Live</span>
-                                                        @endif
-                                                    </td>
-                                                    <td>
-                                                        @if($course->type == 1) সাধারণ @elseif($course->type == 2) বিজেএস @elseif($course->type == 3) বার @elseif($course->type == 4) ফ্রি @elseif($course->type == 5) প্রশ্ন ব্যাংক @endif
-                                                    </td>
-                                                    <td>{{ $course->courseexams->count() }} টি</td>
-                                                    <td class="text-right">
-                                                        <div class="btn-group">
-                                                            <a href="{{ route('dashboard.courses.add.exam', $course->id) }}" class="btn btn-warning btn-sm" title="প্রশ্ন যোগ"><i class="fas fa-folder-plus"></i></a>
-                                                            <a href="{{ route('dashboard.courses.exam.serial.edit', $course->id) }}" class="btn btn-success btn-sm" title="সিরিয়াল"><i class="fas fa-sort-amount-up-alt"></i></a>
-                                                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCourseModal{{ $course->id }}"><i class="far fa-edit"></i></button>
-                                                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#changeExamDatesModal{{ $course->id }}"><i class="far fa-calendar-check"></i></button>
-                                                            <button type="button" class="btn btn-danger btn-sm" disabled><i class="far fa-trash-alt"></i></button>
-                                                        </div>
+                                                  <div class="input-group mb-3">
+                                                      <select name="live" class="form-control" required>
+                                                          <option selected="" disabled="" value="{{ $course->live }}">লাইভ স্যাটাস (ক্যাটাগরিভিত্তিক এর ভেতরে দেখাবে কি না)</option>
+                                                          <option value="1" @if($course->live == 1) selected @endif>Live - হ্যাঁ</option>
+                                                          <option value="0" @if($course->live == 0) selected @endif>Expired - না</option>
+                                                      </select>
+                                                      <div class="input-group-append">
+                                                          <div class="input-group-text"><span class="fas fa-star-half-alt"></span></div>
+                                                      </div>
+                                                  </div>
 
-                                                        <div class="modal fade text-left" id="editCourseModal{{ $course->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
-                                                            <div class="modal-dialog modal-lg" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header bg-success text-white">
-                                                                        <h5 class="modal-title">কোর্স হালনাগাদ: {{ $course->name }}</h5>
-                                                                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                    </div>
-                                                                    <form method="post" action="{{ route('dashboard.courses.update', $course->id) }}" enctype='multipart/form-data'>
-                                                                        @csrf
-                                                                        <div class="modal-body">
-                                                                            <div class="row">
-                                                                                <div class="col-md-12 mb-3">
-                                                                                    <label>কোর্সের নাম</label>
-                                                                                    <div class="input-group">
-                                                                                        <input type="text" name="name" class="form-control" value="{{ $course->name }}" required>
-                                                                                        <div class="input-group-append"><div class="input-group-text"><span class="fas fa-layer-group"></span></div></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-md-6 mb-3">
-                                                                                    <label>স্ট্যাটাস</label>
-                                                                                    <select name="status" class="form-control" required>
-                                                                                        <option value="1" @if($course->status == 1) selected @endif>Active - হ্যাঁ</option>
-                                                                                        <option value="0" @if($course->status == 0) selected @endif>In-active - না</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                                <div class="col-md-6 mb-3">
-                                                                                    <label>আপডেটেড ধরন</label>
-                                                                                    <select name="category" class="form-control" required>
-                                                                                        @foreach($categoryNames as $cid => $cname)
-                                                                                            <option value="{{ $cid }}" @if($course->category == $cid) selected @endif>{{ $cname }}</option>
-                                                                                        @endforeach
-                                                                                    </select>
-                                                                                </div>
-                                                                                <div class="col-md-6 mb-3">
-                                                                                    <label>সিরিয়াল</label>
-                                                                                    <input type="number" name="serial" class="form-control" value="{{ $course->serial }}" required>
-                                                                                </div>
-                                                                                <div class="col-md-6 mb-3">
-                                                                                    <label>লাইভ স্ট্যাটাস</label>
-                                                                                    <select name="live" class="form-control" required>
-                                                                                        <option value="1" @if($course->live == 1) selected @endif>Live - হ্যাঁ</option>
-                                                                                        <option value="0" @if($course->live == 0) selected @endif>Expired - না</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                                                                            <button type="submit" class="btn btn-success">দাখিল করুন</button>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                  <div class="input-group mb-3">
+                                                      <input type="number" name="serial" class="form-control" value="{{ $course->serial }}" placeholder="সিরিয়াল (ক্যাটাগরিভিত্তিক এর ভেতরে যে সিরিয়ালে অ্যাপে দেখাবে)" required>
+                                                      <div class="input-group-append">
+                                                          <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                                                  <button type="submit" class="btn btn-success">দাখিল করুন</button>
+                                                </div>
+                                            </form>
+                                          </div>
+                                          </div>
+                                      </div>
+                                        {{-- Edit Course Modal Code --}}
+                                        {{-- Edit Course Modal Code --}}
 
-                                                        <div class="modal fade text-left" id="changeExamDatesModal{{ $course->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
-                                                            <div class="modal-dialog modal-lg" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header bg-info text-white">
-                                                                        <h5 class="modal-title">পরীক্ষার তথ্য পরিবর্তন</h5>
-                                                                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                    </div>
-                                                                    <form method="post" action="{{ route('dashboard.courses.exam.dates.update', $course->id) }}">
-                                                                        @csrf
-                                                                        <div class="modal-body">
-                                                                            <div class="form-group">
-                                                                                <label>প্রথম পরীক্ষা চালু হবে</label>
-                                                                                <input type="text" name="available_from" id="available_from{{ $course->id }}" class="form-control" autocomplete="off" required>
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label>প্রতি দুই পরীক্ষায় গ্যাপ (দিন)</label>
-                                                                                <input type="number" name="gapbetween" class="form-control" required>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                                                                            <button type="submit" class="btn btn-success">দাখিল করুন</button>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
+                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#changeExamDatesModal{{ $course->id }}" rel="tooltip" title="পরীক্ষার তথ্য হালনাগাদ করুন">
+                                            <i class="far fa-calendar-check"></i>
+                                        </button>
+                                        {{-- Change Exam Dates Modal Code --}}
+                                        {{-- Change Exam Dates Modal Code --}}
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="changeExamDatesModal{{ $course->id }}" tabindex="-1" role="dialog" aria-labelledby="changeExamDatesModalLabel" aria-hidden="true" data-backdrop="static">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-info">
+                                                  <h5 class="modal-title" id="changeExamDatesModalLabel">পরীক্ষার তথ্য পরিবর্তন</h5>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                  </button>
+                                                </div>
+                                                <form method="post" action="{{ route('dashboard.courses.exam.dates.update', $course->id) }}" enctype='multipart/form-data'>
+                                                  <div class="modal-body">
+                                                    @csrf
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" name="available_from" id="available_from{{ $course->id }}" class="form-control" autocomplete="off" placeholder="প্রথম পরীক্ষাটি চালু হবে" required>
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text"><span class="fas fa-calendar-check"></span></div>
                                                         </div>
-                                                        <script>
-                                                            $("#available_from{{ $course->id }}").datepicker({ format: 'MM dd, yyyy', todayHighlight: true, autoclose: true, container:'#changeExamDatesModal{{ $course->id }}' });
-                                                        </script>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <input type="number" name="gapbetween" class="form-control" placeholder="প্রতি দুই পরীক্ষায় যতদিন গ্যাপ থাকবে" required>
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" name="oldwordtoreplace" class="form-control" placeholder="পূর্বের যে শব্দটি রিপ্লেস করতে চান">
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" name="newwordtoreplace" class="form-control" placeholder="যে শব্দ নতুন করে বসাতে চান">
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                                                    <button type="submit" class="btn btn-success">দাখিল করুন</button>
+                                                  </div>
+                                              </form>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            $("#available_from{{ $course->id }}").datepicker({
+                                              format: 'MM dd, yyyy',
+                                              todayHighlight: true,
+                                              autoclose: true,
+                                              container:'#changeExamDatesModal{{ $course->id }}',
+                                            });
+                                        </script>
+                                        {{-- Change Exam Dates Modal Code --}}
+                                        {{-- Change Exam Dates Modal Code --}}
+        
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteCourseModal{{ $course->id }}" disabled>
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                  </td>
+                                  {{-- Delete Course Modal Code --}}
+                                  {{-- Delete Course Modal Code --}}
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="deleteCourseModal{{ $course->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteCourseModalLabel" aria-hidden="true" data-backdrop="static">
+                                      <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                          <div class="modal-header bg-danger">
+                                          <h5 class="modal-title" id="deleteCourseModalLabel">কোর্স ডিলেট</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                          </button>
+                                          </div>
+                                          <div class="modal-body">
+                                            আপনি কি নিশ্চিতভাবে এই কোর্সটি ডিলেট করতে চান?<br/><br/>
+                                            <center>
+                                                <big><b>{{ $course->name }}</b></big>
+                                            </center>
+                                          </div>
+                                          <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                                          <a href="{{ route('dashboard.courses.delete', $course->id) }}" class="btn btn-danger">ডিলেট করুন</a>
+                                          </div>
+                                      </div>
+                                      </div>
+                                  </div>
+                                  {{-- Delete Course Modal Code --}}
+                                  {{-- Delete Course Modal Code --}}
+                              </tr>
+                          @endforeach
+                          </tbody>
+                      </table>
                     </div>
-                </div>
-                {{ $courses->links() }}
+                    <!-- /.card-body -->
+                  </div>
+                  {{ $courses->links() }}
             </div>
         </div>
-    </div>
 
-    <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+    {{-- Add Course Modal Code --}}
+    {{-- Add Course Modal Code --}}
+    <!-- Modal -->
+    <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true" data-backdrop="static">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-          <div class="modal-header bg-success text-white">
-            <h5 class="modal-title">নতুন কোর্স যোগ</h5>
-            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="modal-header bg-success">
+            <h5 class="modal-title" id="addCourseModalLabel">নতুন কোর্স যোগ</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           <form method="post" action="{{ route('dashboard.courses.store') }}" enctype='multipart/form-data'>
-              @csrf
               <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12 mb-3">
+                    @csrf
+                    <div class="input-group mb-3">
                         <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="কোর্সের নাম" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-layer-group"></span></div>
+                        </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="input-group mb-3">
                         <select name="status" class="form-control" required>
-                            <option selected disabled>স্ট্যাটাস</option>
-                            <option value="1">Active</option>
-                            <option value="0">In-active</option>
+                            <option selected="" disabled="" value="">স্ট্যাটাস (চলমান কোর্সসমূহতে দেখাবে কি না)</option>
+                            <option value="1">Active - হ্যাঁ</option>
+                            <option value="0">In-active - না</option>
                         </select>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-star-half-alt"></span></div>
+                        </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <select name="category" class="form-control" required>
-                            <option selected disabled>আপডেটেড ধরন</option>
-                            @foreach($categoryNames as $id => $name) <option value="{{ $id }}">{{ $name }}</option> @endforeach
+                    <div class="input-group mb-3">
+                      <select name="type" class="form-control" required>
+                          <option selected="" disabled="" value="">ক্লাসিকাল ধরন</option>
+                          <option value="1">সাধারণ কোর্স</option>
+                          {{-- <option value="2">বিজেএস মডেল টেস্ট</option>
+                          <option value="3">বার মডেল টেস্ট</option> --}}
+                          <option value="4">ফ্রি মডেল টেস্ট</option>
+                          <option value="5">প্রশ্ন ব্যাংক</option>
+                      </select>
+                      <div class="input-group-append">
+                          <div class="input-group-text"><span class="fas fa-tag"></span></div>
+                      </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="number" name="priority" class="form-control" value="{{ old('priority') }}" placeholder="প্রায়োরিটি (চলমান কোর্সসমূহতে যে সিরিয়ালে অ্যাপে দেখাবে)" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <select name="category" class="form-control" required>
+                          <option selected="" disabled="" value="">আপডেটেড ধরন</option>
+                          <option value="1">বিসিএস</option>
+                          <option value="2">প্রাইমারি</option>
+                          <option value="3">ব্যাংক</option>
+                          <option value="4">NTRCA</option>
+                          <option value="5">NSI, DGFI ও অন্যান্য</option>
+                          <option value="6">প্রশ্ন ব্যাংক</option>
+                      </select>
+                      <div class="input-group-append">
+                          <div class="input-group-text"><span class="fas fa-tag"></span></div>
+                      </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <select name="live" class="form-control" required>
+                            <option selected="" disabled="" value="">লাইভ স্যাটাস (ক্যাটাগরিভিত্তিক এর ভেতরে দেখাবে কি না)</option>
+                            <option value="1">Live - হ্যাঁ</option>
+                            <option value="0">Expired - না</option>
                         </select>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-star-half-alt"></span></div>
+                        </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <input type="number" name="priority" class="form-control" placeholder="প্রায়োরিটি" required>
+
+                    <div class="input-group mb-3">
+                        <input type="number" name="serial" class="form-control" value="{{ old('serial') }}" placeholder="সিরিয়াল (ক্যাটাগরিভিত্তিক এর ভেতরে যে সিরিয়ালে অ্যাপে দেখাবে)" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-sort-amount-up"></span></div>
+                        </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <input type="number" name="serial" class="form-control" placeholder="সিরিয়াল" required>
-                    </div>
-                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
@@ -242,20 +365,66 @@
         </div>
       </div>
     </div>
+    {{-- Add Course Modal Code --}}
+    {{-- Add Course Modal Code --}}
 @endsection
 
 @section('third_party_scripts')
+{{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
+{{-- <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+    // ClassicEditor
+    //     .create( document.querySelector( '.summernote' ) )
+    //     .then( editor => {
+    //             console.log( editor );
+    //     } )
+    //     .catch( error => {
+    //             console.error( error );
+    //     } );
+</script>
 <script type="text/javascript">
     $(document).ready( function() {
-        // ইমেজ হ্যান্ডলিং এবং অন্যান্য জেএস লজিক (আপনার বিদ্যমান কোড)
-        $("#image").change(function(){
-            var filesize = parseInt((this.files[0].size)/1024);
-            if(filesize > 10000) {
-                Swal.fire({ icon: 'warning', title: 'File size is too large!' });
-                $(this).val('');
-            }
-        });
+      $(document).on('change', '.btn-file :file', function() {
+        var input = $(this),
+            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+        input.trigger('fileselect', [label]);
+      });
+
+      $('.btn-file :file').on('fileselect', function(event, label) {
+          var input = $(this).parents('.input-group').find(':text'),
+              log = label;
+          if( input.length ) {
+              input.val(log);
+          } else {
+              if( log ) alert(log);
+          }
+      });
+      function readURL(input) {
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                  $('#img-upload').attr('src', e.target.result);
+              }
+              reader.readAsDataURL(input.files[0]);
+          }
+      }
+      $("#image").change(function(){
+          readURL(this);
+          var filesize = parseInt((this.files[0].size)/1024);
+          if(filesize > 10000) {
+            $("#image").val('');
+            // toastr.warning('File size is: '+filesize+' Kb. try uploading less than 300Kb', 'WARNING').css('width', '400px;');
+            Toast.fire({
+                icon: 'warning',
+                title: 'File size is: '+filesize+' Kb. try uploading less than 300Kb'
+            })
+            setTimeout(function() {
+            $("#img-upload").attr('src', '{{ asset('images/placeholder.png') }}');
+            }, 1000);
+          }
+      });
+
     });
 </script>
 @endsection

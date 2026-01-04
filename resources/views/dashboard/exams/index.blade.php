@@ -534,6 +534,36 @@
     {{-- Add Exam Modal Code --}}
     {{-- Add Exam Modal Code --}}
 
+
+    {{-- Upload Excel Modal Code --}}
+    {{-- Upload Excel Modal Code --}}
+    <!-- Modal -->
+    <div class="modal fade" id="addExcelQuesitonModal" tabindex="-1" role="dialog" aria-labelledby="addExcelQuesitonModalLabel" aria-hidden="true" data-backdrop="static">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-warning">
+            <h5 class="modal-title" id="addExcelQuesitonModalLabel">Excel আপলোড</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form method="post" action="{{ route('dashboard.questions.excel.store') }}" enctype='multipart/form-data'>
+              <div class="modal-body">
+                    @csrf
+                    <label for="file">Excel ফাইল</label>
+                    <input type="file" id="file" name="file" class="form-control" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                <button type="submit" class="btn btn-warning">দাখিল করুন</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    {{-- Upload Excel Modal Code --}}
+    {{-- Upload Excel Modal Code --}}
+
 {{-- Add Category Modal Code --}}
 {{-- Add Category Modal Code --}}
 <!-- Modal -->

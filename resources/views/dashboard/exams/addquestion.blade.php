@@ -350,7 +350,7 @@
                             <select class="form-control select2" id="main_topic" name="main_topic_id" required>
                                 <option value="">-- টপিক সিলেক্ট করুন --</option>
                                 @foreach($mainTopics as $topic)
-                                    <option value="{{ $topic->id }}">{{ $topic->name }} (Total: {{ $topic->total_questions_sum }})</option>
+                                    <option value="{{ $topic->id }}">{{ $topic->name }} (মোট প্রশ্ন: {{ $topic->total_questions_sum }})</option>
                                 @endforeach
                             </select>
                         </div>

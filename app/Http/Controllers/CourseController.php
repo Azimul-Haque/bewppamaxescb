@@ -208,7 +208,7 @@ class CourseController extends Controller
         $this->validate($request,array(
             'course_id'          => 'required',
             // 'hiddencheckarray' => 'required',
-            'examcheck'    => 'required',
+            // 'examcheck'    => 'required',
         ));
         
         $oldcourseexams = Courseexam::where('course_id', $request->course_id)->get();

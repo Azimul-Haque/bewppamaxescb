@@ -66,10 +66,14 @@
 			                    </a>
 			                </h5>
 			                <div style="text-align: justify; margin-bottom: 10px;">
-			                    @if(strlen(strip_tags($blog->body))>200)
-			                        {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+150))."... " }} <a class="highlight-button xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Read More »</a>
+			                    @if($blog->description != '')
+			                      {{ $blog->description }}
 			                    @else
-			                        {{ strip_tags($blog->body) }} <a class="highlight-button xs-no-margin-bottom" href="{{ route('blog.single', $blog->slug) }}">Read More »</a>
+			                      @if(strlen(strip_tags($blog->body))>200)
+			                          {{ mb_substr(strip_tags($blog->body), 0, stripos($blog->body, " ", stripos(strip_tags($blog->body), " ")+200))."... " }}
+			                      @else
+			                          {{ strip_tags($blog->body) }}
+			                      @endif
 			                    @endif
 			                </div>
 			                <small style="margin-bottom: 10px;">

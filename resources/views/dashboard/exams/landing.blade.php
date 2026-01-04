@@ -16,12 +16,6 @@
     </div>
 
     <div class="row">
-        একঘেয়েমি কাটাতে আমরা লুপের ভেতর একটি Color Array ব্যবহার করে প্রতিটি কার্ডকে আলাদা আলাদা প্রফেশনাল কালার দিতে পারি। AdminLTE-এর ডিফল্ট কালার ক্লাসগুলো (যেমন: bg-info, bg-success, bg-warning, bg-danger) ব্যবহার করলে এটি দেখতে অনেক বেশি প্রাণবন্ত লাগবে।
-
-        নিচে আপনার জন্য আপডেট করা কোডটি দেওয়া হলো:
-
-        Blade
-
         @php
             // প্রফেশনাল কালার ক্লাসের একটি অ্যারে তৈরি করুন
             $colors = ['bg-info', 'bg-success', 'bg-warning', 'bg-danger', 'bg-primary', 'bg-teal', 'bg-purple'];

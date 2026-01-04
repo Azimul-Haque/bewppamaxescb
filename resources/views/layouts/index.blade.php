@@ -313,7 +313,7 @@
   <script src="{{ asset('vendor/frontend/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('vendor/frontend/js/glightbox.min.js') }}"></script>
   <script src="{{ asset('vendor/frontend/js/main.js') }}"></script>
-  <script src="{{ asset('vendor/frontend/js/tiny-slider.js') }}"></script>
+  {{-- <script src="{{ asset('vendor/frontend/js/tiny-slider.js') }}"></script> --}}
 
   <script>
 

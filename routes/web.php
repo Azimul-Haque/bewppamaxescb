@@ -147,10 +147,20 @@ Route::post('/dashboard/exams/add/question/store', 'ExamController@storeExamQues
 Route::get('/dashboard/exams/remove/question/{exam_id}/{question_id}', 'ExamController@removeExamQuestion')->name('dashboard.exams.question.remove');
 Route::post('/dashboard/exams/add/question/tags', 'ExamController@storeTagExamQuestion')->name('dashboard.exams.question.tags');
 
+// 2026 features
+// 2026 features
+// 2026 features
+
+Route::post('/dashboard/questions/excel/store', 'QuestionController@storeExcelQuestion')->name('dashboard.questions.excel.store');
+
 Route::get('/dashboard/exams/get/subtopics', 'ExamController@getSubtopics')->name('dashboard.exams.subtopics');
 Route::get('/dashboard/exams/questions/fastcleanup', 'ExamController@fastCleanup')->name('dashboard.exams.fastcleanup');
 Route::post('/dashboard/exams/add/question/automatic/from/subs', 'ExamController@storeAutoQuestions')->name('dashboard.exams.question.auto.fromsubs');
 Route::post('/dashboard/exams/add/question/automatic', 'ExamController@automaticeExamQuestionSet')->name('dashboard.exams.question.auto'); // OLD
+
+// 2026 features
+// 2026 features
+// 2026 features
 
 Route::post('/dashboard/exams/category/store', 'ExamController@storeExamCategory')->name('dashboard.exams.category.store');
 Route::post('/dashboard/exams/category/{id}/update', 'ExamController@updateExamCategory')->name('dashboard.exams.category.update');

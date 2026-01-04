@@ -377,37 +377,37 @@ class ExamController extends Controller
         $syllabusParts = [];
 
         // -- শুধুমাত্র নিজস্ব প্রশ্ন (Only Own) প্রসেস করা --
-        if ($request->has('only_own')) {
-            $onlyOwnIds = array_keys(array_filter($request->only_own, fn($count) => (int)$count > 0));
-            if (!empty($onlyOwnIds)) {
-                $onlyOwnNames = Topic::whereIn('id', $onlyOwnIds)->pluck('name')->toArray();
-                $syllabusParts[] = "🎯 মূল বিষয় (সরাসরি):\n  • " . implode(', ', $onlyOwnNames);
-            }
-        }
+        // if ($request->has('only_own')) {
+        //     $onlyOwnIds = array_keys(array_filter($request->only_own, fn($count) => (int)$count > 0));
+        //     if (!empty($onlyOwnIds)) {
+        //         $onlyOwnNames = Topic::whereIn('id', $onlyOwnIds)->pluck('name')->toArray();
+        //         $syllabusParts[] = "🎯 মূল বিষয় (সরাসরি):\n  • " . implode(', ', $onlyOwnNames);
+        //     }
+        // }
 
-        // -- সাবটপিক গ্রুপ (Topic Groups) প্রসেস করা --
-        if ($request->has('topic_groups')) {
-            $groupMainIds = [];
-            foreach ($request->topic_groups as $idsCommaString => $count) {
-                if ((int)$count > 0) {
-                    $ids = explode(',', $idsCommaString);
-                    // প্রথম আইডিটি সাধারণত সেই লেভেলের মূল নাম রিপ্রেজেন্ট করে
-                    $groupMainIds[] = $ids[0]; 
-                }
-            }
+        // // -- সাবটপিক গ্রুপ (Topic Groups) প্রসেস করা --
+        // if ($request->has('topic_groups')) {
+        //     $groupMainIds = [];
+        //     foreach ($request->topic_groups as $idsCommaString => $count) {
+        //         if ((int)$count > 0) {
+        //             $ids = explode(',', $idsCommaString);
+        //             // প্রথম আইডিটি সাধারণত সেই লেভেলের মূল নাম রিপ্রেজেন্ট করে
+        //             $groupMainIds[] = $ids[0]; 
+        //         }
+        //     }
             
-            if (!empty($groupMainIds)) {
-                $groupNames = Topic::whereIn('id', $groupMainIds)->pluck('name')->toArray();
-                $syllabusParts[] = "📂 বিস্তারিত বিভাগ (সাব-টপিকসহ):\n  • " . implode(', ', $groupNames);
-            }
-        }
+        //     if (!empty($groupMainIds)) {
+        //         $groupNames = Topic::whereIn('id', $groupMainIds)->pluck('name')->toArray();
+        //         $syllabusParts[] = "📂 বিস্তারিত বিভাগ (সাব-টপিকসহ):\n  • " . implode(', ', $groupNames);
+        //     }
+        // }
 
-        // ৩. চূড়ান্ত সিলেবাস ফরম্যাটিং
-        if (!empty($syllabusParts)) {
-            $finalSyllabus = "📝 পরীক্ষার সিলেবাস\n" . "━━━━━━━━━━━━━━\n" . implode("\n\n", $syllabusParts);
-        } else {
-            $finalSyllabus = "সিলেবাস নির্ধারিত নেই।";
-        }
+        // // ৩. চূড়ান্ত সিলেবাস ফরম্যাটিং
+        // if (!empty($syllabusParts)) {
+        //     $finalSyllabus = "📝 পরীক্ষার সিলেবাস\n" . "━━━━━━━━━━━━━━\n" . implode("\n\n", $syllabusParts);
+        // } else {
+        //     $finalSyllabus = "সিলেবাস নির্ধারিত নেই।";
+        // }
 
         dd($finalSyllabus);
 

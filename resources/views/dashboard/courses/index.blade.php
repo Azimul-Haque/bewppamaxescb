@@ -62,11 +62,11 @@
                                       @endif
                                   </td><td>
                                       @if($course->type == $categoryNames[1])
-                                        সাধারণ কোর্স
+                                        বিসিএস
                                       @elseif($course->type == $categoryNames[2])
-                                        বিজেএস মডেল টেস্ট
+                                        প্রাইমারি
                                       @elseif($course->type == $categoryNames[3])
-                                        বার মডেল টেস্ট
+                                        ব্যাংক
                                       @elseif($course->type == $categoryNames[4])
                                         ফ্রি মডেল টেস্ট
                                       @elseif($course->type == $categoryNames[5])

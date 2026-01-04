@@ -265,6 +265,12 @@ class ExamController extends Controller
                                      ->get();
         $topics = Topic::all();
         $tags = Tag::all();
+
+
+        $mainTopics = Topic::whereNull('parent_id')
+                                    ->orWhere('parent_id', 0)
+                                    ->get();
+                                    
         $questions = Question::select('id', 'question', 'topic_id')->get()->take(20);
         // $questions = Question::all();
         

@@ -45,7 +45,20 @@
             </div>
         @endforeach
 
-        
+        {{-- <style>
+            .small-box:hover {
+                transform: translateY(-8px);
+            }
+            .small-box .icon {
+                color: rgba(255,255,255,0.3);
+                top: 10px;
+                right: 15px;
+            }
+            /* টেক্সট কালার হোয়াইট করার জন্য নিশ্চিত করা */
+            .small-box h3, .small-box p, .small-box .small-box-footer {
+                color: #fff !important;
+            }
+        </style> --}}
 
         <div class="col-lg-3 col-6">
             <div class="small-box shadow-sm border border-dashed" 

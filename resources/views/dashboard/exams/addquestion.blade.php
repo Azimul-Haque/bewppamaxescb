@@ -249,6 +249,7 @@
                     <h5 class="modal-title" id="automaticQuestionSetModalLabel">
                         স্বয়ংক্রিয় প্রশ্ন প্রণয়ন 
                         <small class="badge badge-dark ml-2" id="total_selected_count">০টি প্রশ্ন সিলেক্ট করা হয়েছে</small>
+                        <div id="selection_preview"></div>
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -447,7 +448,7 @@
             });
             $('#total_selected_count').text(total + 'টি প্রশ্ন সিলেক্ট করা হয়েছে');
         }
-        
+
         function updateSelectionPreview() {
             let previewHtml = '';
             $('.q-count-input').each(function() {

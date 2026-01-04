@@ -357,6 +357,8 @@ class ExamController extends Controller
         // সব লেভেলের সাবটপিক আইডি নেওয়া
         $allDescendantIds = $mainTopic->descendant_ids; 
 
+        dd($allDescendantIds);
+
         // ডাটা নিয়ে এসে তাদের ইমিডিয়েট প্যারেন্ট অনুযায়ী গ্রুপ করা
         $topics = Topic::whereIn('id', $allDescendantIds)
                         ->where('id', '!=', $mainTopicId)

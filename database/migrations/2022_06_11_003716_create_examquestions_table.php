@@ -11,6 +11,9 @@ class CreateExamquestionsTable extends Migration
      *
      * @return void
      */
+
+    $table->unique(['exam_id', 'question_id']);
+    
     public function up()
     {
         Schema::create('examquestions', function (Blueprint $table) {

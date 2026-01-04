@@ -462,6 +462,7 @@
         }
 
         function updateSelectionPreview() {
+            let total = 0;
             let previewHtml = '';
             let anySelected = false;
 

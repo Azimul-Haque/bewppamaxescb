@@ -355,6 +355,7 @@ class ExamController extends Controller
         $topics = Topic::where('parent_id', $parentId)
                         ->where('total_questions_sum', '>', 0)
                         ->withCount('questions')
+                        ->with('children')
                         ->get()
                         ->mapWithKeys(function($topic) {
                             return [$topic->name => [

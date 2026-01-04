@@ -105,7 +105,7 @@
       }
   </style>
 
-  <link rel="preload" href="fonts/kalpurush.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/kalpurush.woff2" as="font" type="font/woff2" crossorigin>
   
   @yield('third_party_stylesheets')
 </head>

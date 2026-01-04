@@ -435,11 +435,11 @@ class ExamController extends Controller
             // insertOrIgnore ব্যবহার করলে যদি প্রশ্নটি আগে থেকেই থাকে তবে সেটি এরর দিবে না, স্কিপ করবে।
             DB::table('examquestions')->insertOrIgnore($insertData);
 
-            return response()->json([
-                'status'  => 'success',
-                'message' => count($insertData) . 'টি প্রশ্ন এক্সামে যোগ করা হয়েছে।',
-                'total'   => count($insertData)
-            ]);
+            // return response()->json([
+            //     'status'  => 'success',
+            //     'message' => count($insertData) . 'টি প্রশ্ন এক্সামে যোগ করা হয়েছে।',
+            //     'total'   => count($insertData)
+            // ]);
             return back()->with('success', 'টি প্রশ্ন এক্সামে যোগ করা হয়েছে।');
         }
 

@@ -32,7 +32,7 @@
             </div>
             @endforeach
 
-            <div class="col-lg-3 col-6">
+            {{-- <div class="col-lg-3 col-6">
                 <div class="small-box shadow-sm border border-dashed" 
                      style="background-color: #f8f9fa; border: 2px dashed #ddd; border-radius: 10px; cursor: pointer;"
                      data-toggle="modal" data-target="#addTopicModal">
@@ -42,7 +42,7 @@
                     </div>
                     <span class="small-box-footer bg-secondary py-2" style="height: 38px;"></span>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <hr class="my-4">

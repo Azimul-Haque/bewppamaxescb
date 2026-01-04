@@ -327,7 +327,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
-                {{-- <form method="post" id="addautoquestionform" action="{{ route('dashboard.exams.question.auto') }}">
+                <form method="post" id="addautoquestionform" action="{{ route('dashboard.exams.question.auto') }}">
                     <div class="modal-body p-0">
                         @csrf
                         <input type="hidden" name="exam_id" value="{{ $exam->id }}">
@@ -349,29 +349,31 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
                         <button type="submit" class="btn btn-success">দাখিল করুন</button>
                     </div>
-                </form> --}}
+                </form>
 
-                <div class="modal-body p-0">
-                    @csrf
-                    <input type="hidden" name="exam_id" value="{{ $exam->id }}">
-                    <table class="table">
-                        <tbody>
-                            @foreach ($topics as $topic)
-                                <tr>
-                                    <td width="50%">{{ $topic->name }}</td>
-                                    <td>
-                                        <input type="hidden" name="topic{{ $topic->id }}" value="{{ $topic->id }}">
-                                        <input type="number" name="quantity{{ $topic->id }}" min="0" class="form-control" value="" placeholder="প্রশ্নের পরিমাণ">
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                    <button type="submit" class="btn btn-success">দাখিল করুন</button>
-                </div>
+                <form method="post" id="addautoquestionform" action="{{ route('dashboard.exams.question.auto') }}">
+                    <div class="modal-body p-0">
+                        @csrf
+                        <input type="hidden" name="exam_id" value="{{ $exam->id }}">
+                        <table class="table">
+                            <tbody>
+                                @foreach ($topics as $topic)
+                                    <tr>
+                                        <td width="50%">{{ $topic->name }}</td>
+                                        <td>
+                                            <input type="hidden" name="topic{{ $topic->id }}" value="{{ $topic->id }}">
+                                            <input type="number" name="quantity{{ $topic->id }}" min="0" class="form-control" value="" placeholder="প্রশ্নের পরিমাণ">
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                        <button type="submit" class="btn btn-success">দাখিল করুন</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

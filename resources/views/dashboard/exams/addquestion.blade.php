@@ -406,26 +406,42 @@
 
         // রো (Row) তৈরির কমন লজিক
         function generateRowHtml(item, name) {
-            // যদি আরও চাইল্ড থাকে তবে বাটন দেখাবে
             let drillBtn = item.has_children ? 
-                `<button type="button" class="btn btn-xs btn-outline-primary ml-2 load-more-drill" data-id="${item.id}" data-name="${name}">
-                    আরও সাবটপিক লোড করুন <i class="fas fa-arrow-down ml-1"></i>
+                `<button type="button" class="btn btn-xs btn-outline-info mt-1 load-more-drill" data-id="${item.id}" data-name="${name}">
+                    সাবটপিক দেখুন <i class="fas fa-arrow-down ml-1"></i>
                 </button>` : '';
 
             return `
                 <div class="subtopic-row-wrapper mb-2" id="row_wrapper_${item.id}">
                     <div class="p-2 border rounded bg-white d-flex justify-content-between align-items-center shadow-sm">
-                        <div style="max-width: 75%;">
+                        <div style="max-width: 60%;">
                             <span class="d-block text-sm font-weight-bold text-dark">${name}</span>
-                            <span class="badge badge-success mr-1" style="font-size: 9px;" title="শুধুমাত্র এই টপিকের প্রশ্ন">
-                                নিজস্ব: ${item.direct_q}
-                            </span>
-                            <small class="text-muted mr-2">প্রশ্ন: ${item.total_q}</small>
+                            <div class="d-flex flex-wrap mt-1">
+                                <span class="badge badge-success mr-1" style="font-size: 9px;">নিজস্ব প্রশ্ন: ${item.direct_q}</span>
+                                <span class="badge badge-secondary" style="font-size: 9px;">মোট (সবসহ): ${item.total_q}</span>
+                            </div>
                             ${drillBtn}
                         </div>
-                        <input type="number" name="topic_groups[${JSON.stringify(item.all_ids)}]" 
-                               class="form-control form-control-sm q-count-input" 
-                               data-name="${name}" style="width: 70px;" min="0" max="${item.total_q}" value="0">
+                        
+                        <div class="d-flex align-items-center">
+                            <div class="text-center mr-2">
+                                <input type="number" name="only_own[${item.id}]" 
+                                       class="form-control form-control-sm q-count-input" 
+                                       data-name="${name} (নিজস্ব)" 
+                                       style="width: 55px; border-color: #28a745;" 
+                                       min="0" max="${item.direct_q}" value="0">
+                                <small class="text-success d-block" style="font-size: 8px;">নিজস্ব</small>
+                            </div>
+
+                            <div class="text-center">
+                                <input type="number" name="topic_groups[${JSON.stringify(item.all_ids)}]" 
+                                       class="form-control form-control-sm q-count-input" 
+                                       data-name="${name} (সবসহ)" 
+                                       style="width: 55px; border-color: #6c757d;" 
+                                       min="0" max="${item.total_q}" value="0">
+                                <small class="text-muted d-block" style="font-size: 8px;">সবসহ</small>
+                            </div>
+                        </div>
                     </div>
                     <div class="drill-target" id="drill_container_${item.id}"></div>
                 </div>`;

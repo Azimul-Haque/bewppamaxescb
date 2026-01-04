@@ -510,6 +510,87 @@ class ExamController extends Controller
         return "সফলভাবে ডুপ্লিকেট ক্লিন হয়েছে!";
     }
 
+    public function storeExcelQuestion(Request $request)
+    {
+        // dd($request->file('file'));
+        ini_set('memory_limit', '512000000');
+        try {
+            $collections = (new FastExcel)->import($request->file('file'));
+        } catch (\Exception $exception) {
+            Session::flash('error', 'You have uploaded a wrong format file, please upload the right file.');
+            return back();
+        }
+
+        // dd($collections);
+        DB::beginTransaction();
+        foreach ($collections as $collection) {
+            try {
+                $question             = new Question;
+                $question->topic_id   = $collection['topic_id'];
+                $question->question   = $collection['question'];
+                $question->option1    = $collection['option1'];
+                $question->option2    = $collection['option2'];
+                $question->option3    = $collection['option3'];
+                $question->option4    = $collection['option4'];
+                $question->answer     = $collection['answer'];
+                $question->difficulty = 1;
+                $question->save();
+
+                // APATOT KORA HOCCHE NA...
+                // if(isset($request->tags_ids)){
+                //     $question->tags()->sync($request->tags_ids, false);
+                // }
+
+                // APATOT KORA HOCCHE NA...
+                // if($request->hasFile('image')) {
+                //     $image    = $request->file('image');
+                //     $filename = random_string(5) . time() .'.' . "webp";
+                //     $location = public_path('images/questions/'. $filename);
+                //     Image::make($image)->resize(350, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+                //     $questionimage              = new Questionimage;
+                //     $questionimage->question_id = $question->id;
+                //     $questionimage->image       = $filename;
+                //     $questionimage->save();
+                // }
+
+                if($collection['explanation'] != null) {
+                    $questionexplanation              = new Questionexplanation;
+                    $questionexplanation->question_id = $question->id;
+                    $questionexplanation->explanation = $collection['explanation'];
+                    $questionexplanation->save();
+                }
+
+                if($collection['tag'] != null) {
+                    $tagarray = explode(',', $collection['tag']);
+
+                    // dd($tagarray);
+                    $newquestiontags = [];
+                    for ($i=0; $i < count($tagarray); $i++) { 
+                        $checktag = Tag::where('name', $tagarray[$i])->first();
+                        if($checktag) {
+                            $newquestiontags[] = $checktag->id;
+                        } else {
+                            $tag = new Tag;
+                            $tag->name = $tagarray[$i];
+                            $tag->save();
+                            $newquestiontags[] = $tag->id;
+                            // dd($newquestiontags);
+                        }
+                    }
+
+                    $question->tags()->sync($newquestiontags, false);
+                }
+
+                DB::commit();
+            } catch (Exception $e) {
+                DB::rollback();
+            }
+        }
+        
+        Session::flash('success', 'Question uploaded successfully!');
+        return redirect()->route('dashboard.questions');
+    }
+
     public function addQuestionToExamTopic($topic_id, $id)
     {
         $exam = Exam::findOrFail($id);

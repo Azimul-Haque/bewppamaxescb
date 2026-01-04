@@ -48,7 +48,9 @@
   {{-- <link rel="stylesheet" href="{{ asset('vendor/frontend/css/tiny-slider.css') }}" /> --}}
 
   <!--====== gLightBox css ======-->
-  <link rel="stylesheet" href="{{ asset('vendor/frontend/css/glightbox.min.css') }}" />
+  @if (!Request::is('blogs', 'blogs/*', 'blog', 'blog/*'))
+    <link rel="stylesheet" href="{{ asset('vendor/frontend/css/glightbox.min.css') }}" />
+  @endif
 
   <link rel="stylesheet" href="{{ asset('vendor/frontend/css/style.css') }}" />
 

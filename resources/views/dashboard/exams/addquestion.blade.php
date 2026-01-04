@@ -467,6 +467,7 @@
             let anySelected = false;
 
             $('.q-count-input').each(function() {
+                total += parseInt($(this).val()) || 0;
                 let count = parseInt($(this).val()) || 0;
                 if (count > 0) {
                     anySelected = true;

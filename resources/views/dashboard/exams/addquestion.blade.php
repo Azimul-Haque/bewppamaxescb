@@ -460,6 +460,31 @@
             $('#selection_preview').html(previewHtml);
             $('#total_selected_count').text(total + 'টি প্রশ্ন সিলেক্ট করা হয়েছে');
         }
+
+        function updateSelectionPreview() {
+            let previewHtml = '';
+            let anySelected = false;
+
+            $('.q-count-input').each(function() {
+                let count = parseInt($(this).val()) || 0;
+                if (count > 0) {
+                    anySelected = true;
+                    // data-name থেকে নাম নিচ্ছি
+                    let name = $(this).data('name'); 
+                    previewHtml += `
+                        <span class="badge badge-info m-1 px-2 py-1 shadow-sm" style="font-size: 11px;">
+                            ${name} <span class="badge badge-light ml-1">${count}</span>
+                        </span>`;
+                }
+            });
+
+            if (anySelected) {
+                $('#selection_preview_container').removeClass('d-none');
+                $('#selection_preview').html(previewHtml);
+            } else {
+                $('#selection_preview_container').addClass('d-none');
+            }
+        }
     });
 </script>
 

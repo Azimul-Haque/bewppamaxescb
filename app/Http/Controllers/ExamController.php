@@ -351,25 +351,46 @@ class ExamController extends Controller
     {
         $mainTopicId = $request->main_topic_id;
         $mainTopic = Topic::with('children')->find($mainTopicId);
-
         if (!$mainTopic) return response()->json([]);
 
         $allDescendantIds = $mainTopic->descendant_ids;
 
-        $topics = Topic::whereIn('id', $allDescendantIds)
+        $allTopics = Topic::whereIn('id', $allDescendantIds)
             ->where('id', '!=', $mainTopicId)
             ->where('total_questions_sum', '>', 0)
-            ->get()
-            ->groupBy(function($item) {
-                $parts = explode('→', $item->full_path);
-                
-                // যদি ২টি লেয়ারের বেশি থাকে, তবে ২ নম্বর লেয়ারের নাম দিয়ে গ্রুপ হবে
-                // যেমন: বাংলা সাহিত্য (০) → প্রাচীন যুগ (১) → চর্যাপদ (২)
-                // চর্যাপদের নিচের সব সাবটপিক এই "চর্যাপদ" ফোল্ডারের ভেতরে ঢুকবে
-                return (isset($parts[1])) ? $parts[1] : $parts[0]; 
-            });
+            ->get();
 
-        return response()->json($topics);
+        $grouped = [];
+
+        foreach ($allTopics as $topic) {
+            $parts = explode('→', $topic->full_path);
+            
+            // লেভেল নির্ধারণ: বাংলা সাহিত্য (০) → প্রাচীন যুগ (১) → চর্যাপদ (২)
+            // আমরা চাচ্ছি লেভেল ২ (অর্থাৎ ৩য় অংশ) পর্যন্ত মেইন গ্রুপ করতে
+            $groupKey = isset($parts[1]) ? $parts[1] : 'অন্যান্য'; // প্রাচীন যুগ / মধ্য যুগ
+            $targetLevelName = isset($parts[2]) ? $parts[2] : $topic->name; // চর্যাপদ / শ্রীকৃষ্ণকীর্তন
+
+            if (!isset($grouped[$groupKey][$targetLevelName])) {
+                $grouped[$groupKey][$targetLevelName] = [
+                    'id' => $topic->id, 
+                    'name' => $targetLevelName,
+                    'total_q' => 0,
+                    'sub_list' => [],
+                    'all_ids' => [] // এই গ্রুপের আন্ডারে থাকা সব লিফ আইডি
+                ];
+            }
+
+            // ডাটা যোগ করা
+            $grouped[$groupKey][$targetLevelName]['total_q'] += $topic->total_questions_sum;
+            $grouped[$groupKey][$targetLevelName]['all_ids'][] = $topic->id;
+            
+            // যদি এটি নিজে একটি সাব-লেভেল হয়, তবে লিস্টে নাম যোগ করা
+            if (isset($parts[3])) {
+                $grouped[$groupKey][$targetLevelName]['sub_list'][] = $parts[3];
+            }
+        }
+
+        return response()->json($grouped);
     }
 
     public function storeAutoQuestions(Request $request) {

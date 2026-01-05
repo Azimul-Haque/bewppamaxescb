@@ -66,52 +66,53 @@
                   </div>
             </div>
         </div> --}}
-
-        <div class="card card-outline card-info">
-            <div class="card-header">
-                <h3 class="card-title">পরীক্ষা নির্বাচন করুন</h3>
-                <div class="card-tools">
-                    <input type="text" id="quickSearch" class="form-control form-control-sm" placeholder="নাম লিখে খুঁজুন...">
+        <div class="row">
+            <div class="card card-outline card-info">
+                <div class="card-header">
+                    <h3 class="card-title">পরীক্ষা নির্বাচন করুন</h3>
+                    <div class="card-tools">
+                        <input type="text" id="quickSearch" class="form-control form-control-sm" placeholder="নাম লিখে খুঁজুন...">
+                    </div>
+                    <div class="icheck-primary d-inline" style="margin-left: 10px;">
+                        <input type="checkbox" id="checkAll">
+                        <label for="checkAll">সবগুলো সিলেক্ট করুন</label>
+                    </div>
                 </div>
-                <div class="icheck-primary d-inline" style="margin-left: 10px;">
-                    <input type="checkbox" id="checkAll">
-                    <label for="checkAll">সবগুলো সিলেক্ট করুন</label>
-                </div>
-            </div>
-            
-            <form action="{{ route('dashboard.courses.exam.store') }}" method="POST">
-                @csrf
-                <div class="card-body">
-                    <input type="hidden" name="course_id" value="{{ $course->id }}">
-                    
-                    <div class="row" id="examContainer">
-                        @foreach($exams as $index => $exam)
-                        <div class="col-md-6 exam-item">
-                            <div class="p-2 border rounded mb-2 bg-light d-flex align-items-center">
-                                <div class="icheck-primary">
-                                    <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 
-                                           class="exam-checkbox" {{ in_array($exam->id, $existingExamIds) ? 'checked' : '' }} 
-                                           id="check{{ $exam->id }}">
-                                    <label for="check{{ $exam->id }}" style="font-weight: normal; cursor: pointer; width: 100%;">
-                                        {{ $exam->name }} 
-                                        <span class="badge badge-secondary ml-1" style="font-size: 10px;">{{ $exam->category }}</span>
-                                    </label>
+                
+                <form action="{{ route('dashboard.courses.exam.store') }}" method="POST">
+                    @csrf
+                    <div class="card-body">
+                        <input type="hidden" name="course_id" value="{{ $course->id }}">
+                        
+                        <div class="row" id="examContainer">
+                            @foreach($exams as $index => $exam)
+                            <div class="col-md-6 exam-item">
+                                <div class="p-2 border rounded mb-2 bg-light d-flex align-items-center">
+                                    <div class="icheck-primary">
+                                        <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 
+                                               class="exam-checkbox" {{ in_array($exam->id, $existingExamIds) ? 'checked' : '' }} 
+                                               id="check{{ $exam->id }}">
+                                        <label for="check{{ $exam->id }}" style="font-weight: normal; cursor: pointer; width: 100%;">
+                                            {{ $exam->name }} 
+                                            <span class="badge badge-secondary ml-1" style="font-size: 10px;">{{ $exam->category }}</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
-                        @endforeach
-                    </div>
 
-                    <button type="submit" class="btn btn-primary float-right shadow">নির্বাচিত পরীক্ষাসমূহ সেভ করুন</button>
-                    <div class="float-left">
-                        {{ $exams->links() }}
+                        <button type="submit" class="btn btn-primary float-right shadow">নির্বাচিত পরীক্ষাসমূহ সেভ করুন</button>
+                        <div class="float-left">
+                            {{ $exams->links() }}
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
 
-            {{-- <div class="card-footer">
-                
-            </div> --}}
+                {{-- <div class="card-footer">
+                    
+                </div> --}}
+            </div>
         </div>
 
         

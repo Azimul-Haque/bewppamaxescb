@@ -116,57 +116,20 @@
                     <button type="submit" class="btn btn-primary float-right shadow">নির্বাচিত পরীক্ষাসমূহ সেভ করুন</button>
                 </div>
             </form>
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary float-right shadow">নির্বাচিত পরীক্ষাসমূহ সেভ করুন</button>
+                <div class="float-left">
+                    {{ $exams->links() }}
+                </div>
+            </div>
         </div>
 
-        <script>
-        $(document).ready(function() {
-            let itemsToShow = 50; 
-            let currentItems = 50;
-
-            // Load More Logic
-            $('#loadMoreBtn').on('click', function() {
-                let hiddenItems = $('.exam-item:hidden');
-                hiddenItems.slice(0, itemsToShow).fadeIn();
-                
-                currentItems += itemsToShow;
-                let total = {{ $exams->count() }};
-                
-                if (currentItems >= total) {
-                    $(this).hide();
-                }
-                $('#showingCount').text(currentItems > total ? total : currentItems);
-            });
-
-            // Select All Logic
-            $('#checkAll').click(function() {
-                $('.exam-checkbox:visible').prop('checked', this.checked);
-            });
-
-            // Quick Search Logic
-            $("#quickSearch").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                if(value.length > 0) {
-                    $('#loadMoreBtn').hide();
-                    $(".exam-item").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-                    });
-                } else {
-                    $('.exam-item').hide();
-                    $('.exam-item').slice(0, currentItems).show();
-                    if (currentItems < {{ $exams->count() }}) $('#loadMoreBtn').show();
-                }
-            });
-        });
-        </script>
+        
 
     </div>
 
-    <div class="card-footer">
-        <button type="submit" class="btn btn-primary float-right shadow">নির্বাচিত পরীক্ষাসমূহ সেভ করুন</button>
-        <div class="float-left">
-            {{ $exams->links() }}
-        </div>
-    </div>
+    
 
     {{-- Add Exam Modal Code --}}
     {{-- Add Exam Modal Code --}}

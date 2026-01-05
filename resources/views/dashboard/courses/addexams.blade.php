@@ -58,7 +58,7 @@
                 </div>
             </div>
             
-            <form action="{{ route('dashboard.courses.exams.store') }}" method="POST">
+            <form action="{{ route('dashboard.courses.exam.store') }}" method="POST">
                 @csrf
                 <div class="card-body">
                     <div class="row" id="examContainer">

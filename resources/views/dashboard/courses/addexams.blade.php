@@ -50,7 +50,55 @@
             </div>
         </div>
 
-        
+        <div class="card card-outline card-info">
+            <div class="card-header">
+                <h3 class="card-title">পরীক্ষা নির্বাচন করুন</h3>
+                <div class="card-tools">
+                    <input type="text" id="quickSearch" class="form-control form-control-sm" placeholder="এই পেজে খুঁজুন...">
+                </div>
+            </div>
+            <form action="{{ route('dashboard.courses.exam.store') }}" method="POST">
+                @csrf
+                <input type="hidden" name="course_id" value="{{ $course->id }}">
+                <div class="card-body p-0" style="max-height: 700px; overflow-y: auto;">
+                    <table class="table table-head-fixed text-nowrap mt-2" id="examTable">
+                        <thead>
+                            <tr>
+                                <th width="50">
+                                    <div class="icheck-primary icheck-inline" style="float: left;">
+                                        <input type="checkbox" id="checkAll">
+                                        <label for="checkAll"> </label>
+                                    </div>
+                                </th>
+                                <th>পরীক্ষার নাম</th>
+                                <th>ক্যাটাগরি</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($exams as $exam)
+                            <tr>
+                                <td>
+                                    <div class="icheck-primary icheck-inline" style="float: left;">
+                                        <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 
+                                        class="exam-checkbox" {{ in_array($exam->id, $existingExamIds) ? 'checked' : '' }} id="check{{ $exam->id }}">
+                                        <label for="check{{ $exam->id }}"> </label>
+                                    </div>
+                                </td>
+                                <td>{{ $exam->name }}</td>
+                                <td><span class="badge badge-secondary">{{ $exam->category }}</span></td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary float-right shadow">নির্বাচিত পরীক্ষাসমূহ সেভ করুন</button>
+                    <div class="float-left">
+                        {{ $exams->links() }}
+                    </div>
+                </div>
+            </form>
+        </div>
 
     </div>
 

@@ -224,6 +224,8 @@ class CourseController extends Controller
             // dd($request->all());
 
             // ৪. নতুন সিলেক্ট করা পরীক্ষাগুলো লুপ চালিয়ে সেভ করা
+            $selected_exam_ids = $request->exam_ids ?? [];
+            
             if ($request->has('exam_ids')) {
                 $data = [];
                 foreach ($request->exam_ids as $examId) {

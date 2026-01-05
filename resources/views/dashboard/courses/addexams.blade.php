@@ -81,10 +81,8 @@
             
             <form action="{{ route('dashboard.courses.exam.store') }}" method="POST">
                 @csrf
-                <input type="hidden" name="course_id" value="{{ $course->id }}">
-                
                 <div class="card-body">
-                    
+                    <input type="hidden" name="course_id" value="{{ $course->id }}">
                     
                     <div class="row" id="examContainer">
                         @foreach($exams as $index => $exam)

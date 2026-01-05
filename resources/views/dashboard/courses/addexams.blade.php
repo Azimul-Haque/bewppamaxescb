@@ -123,7 +123,7 @@
     {{-- Add Exam Modal Code --}}
     {{-- Add Exam Modal Code --}}
     <!-- Modal -->
-    <div class="modal fade" id="addExamModal" tabindex="-1" role="dialog" aria-labelledby="addExamModalLabel" aria-hidden="true" data-backdrop="static">
+    {{-- <div class="modal fade" id="addExamModal" tabindex="-1" role="dialog" aria-labelledby="addExamModalLabel" aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-success">
@@ -184,7 +184,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- Add Exam Modal Code --}}
     {{-- Add Exam Modal Code --}}
 @endsection

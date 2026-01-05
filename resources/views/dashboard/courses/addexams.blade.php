@@ -138,7 +138,7 @@
             </div>
         </div>
 
-        <div class="card card-outline card-info">
+        {{-- <div class="card card-outline card-info">
             <div class="card-header">
                 <h3 class="card-title">পরীক্ষা নির্বাচন করুন (সিলেক্ট করাগুলো প্রথমে দেখাচ্ছে)</h3>
                 <div class="card-tools">
@@ -173,7 +173,7 @@
                     </button>
                 </div>
             </form>
-        </div>
+        </div> --}}
 
         
     </div>

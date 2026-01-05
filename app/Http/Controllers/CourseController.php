@@ -224,7 +224,7 @@ class CourseController extends Controller
                 $data = [];
                 foreach ($request->exam_ids as $examId) {
                     $data[] = [
-                        'course_id' => $id,
+                        'course_id' => $request->course_id,
                         'exam_id'   => $examId,
                         'created_at' => now(),
                         'updated_at' => now(),

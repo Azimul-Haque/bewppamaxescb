@@ -104,14 +104,16 @@
                         </div>
                         @endforeach
                     </div>
+
+                    <button type="submit" class="btn btn-primary float-right shadow">নির্বাচিত পরীক্ষাসমূহ সেভ করুন</button>
+                    <div class="float-left">
+                        {{ $exams->links() }}
+                    </div>
                 </div>
             </form>
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary float-right shadow">নির্বাচিত পরীক্ষাসমূহ সেভ করুন</button>
-                <div class="float-left">
-                    {{ $exams->links() }}
-                </div>
+                
             </div>
         </div>
 

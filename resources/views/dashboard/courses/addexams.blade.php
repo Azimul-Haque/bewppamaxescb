@@ -27,7 +27,7 @@
 @section('content')
     @section('page-header') {{ $course->name }} @endsection
     <div class="container-fluid">
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
@@ -65,7 +65,7 @@
                     <!-- /.card-body -->
                   </div>
             </div>
-        </div> --}}
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-outline card-info">

@@ -73,9 +73,11 @@
                 <div class="card-tools">
                     <input type="text" id="quickSearch" class="form-control form-control-sm" placeholder="নাম লিখে খুঁজুন...">
                 </div>
-                <div class="icheck-primary d-inline">
-                    <input type="checkbox" id="checkAll">
-                    <label for="checkAll">সবগুলো সিলেক্ট করুন</label>
+                <div class="mb-2">
+                    <div class="icheck-primary d-inline">
+                        <input type="checkbox" id="checkAll">
+                        <label for="checkAll">সবগুলো সিলেক্ট করুন</label>
+                    </div>
                 </div>
             </div>
             
@@ -84,9 +86,7 @@
                 <input type="hidden" name="course_id" value="{{ $course->id }}">
                 
                 <div class="card-body">
-                    <div class="mb-2">
-                        
-                    </div>
+                    
                     
                     <div class="row" id="examContainer">
                         @foreach($exams as $index => $exam)

@@ -232,6 +232,11 @@ class CourseController extends Controller
                     ->pluck('id')
                     ->toArray();
 
+            DB::table('courseexams')
+                        ->where('course_id', $course_id)
+                        ->whereIn('exam_id', $current_page_exam_ids)
+                        ->delete();
+
             if ($request->has('exam_ids')) {
                 $data = [];
                 foreach ($request->exam_ids as $examId) {

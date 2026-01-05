@@ -191,7 +191,7 @@ class CourseController extends Controller
                                      ->get();
         // $exams = Exam::all();
 
-        // $existingExamIds = Courseexam::where('course_id', $course->id)->pluck('exam_id')->toArray();
+        $existingExamIds = Courseexam::where('course_id', $course->id)->pluck('exam_id')->toArray();
             
         // সব এক্সাম লোড করুন (Pagination সহ)
         $exams = Exam::orderBy('id', 'desc')->paginate(30);
@@ -215,7 +215,7 @@ class CourseController extends Controller
             DB::beginTransaction();
 
             // ৩. এই কোর্সের আগের সব অ্যাসাইন করা পরীক্ষা মুছে ফেলা
-            DB::table('courseexams')->where('course_id', $request->course_id)->delete();
+            // DB::table('courseexams')->where('course_id', $request->course_id)->delete();
 
             // dd($request->all());
 

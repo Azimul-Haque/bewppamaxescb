@@ -207,8 +207,7 @@ class CourseController extends Controller
     {
 
         $request->validate([
-            'exam_ids' => 'nullable|array',
-            'exam_ids.*' => 'exists:exams,id'
+            'exam_ids' => 'nullable|array'
         ]);
 
         try {

@@ -115,7 +115,7 @@
                                                 <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 
                                                        class="exam-checkbox" {{ $isSelected ? 'checked' : '' }} 
                                                        id="check{{ $exam->id }}">
-                                                <label for="check{{ $exam->id }}" class="" style="cursor: pointer; font-weight: {{ $isSelected ? 'bold' : 'normal' }}">
+                                                <label for="check{{ $exam->id }}" class="w-100" style="cursor: pointer; font-weight: {{ $isSelected ? 'bold' : 'normal' }}">
                                                     {{ $exam->name }}
                                                     @if($isSelected)
                                                         <i class="fas fa-check-circle text-primary float-right mt-1" title="ইতিমধ্যেই যুক্ত আছে"></i>

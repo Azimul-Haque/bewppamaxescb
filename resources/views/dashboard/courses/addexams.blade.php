@@ -109,7 +109,7 @@
 
                                 @foreach($exams as $exam)
                                     @php $isSelected = in_array($exam->id, $existingExamIds); @endphp
-                                    <div class="col-md-6 exam-item mb-2">
+                                    <div class="col-md-4 exam-item mb-2">
                                         <div class="p-2 border rounded {{ $isSelected ? 'bg-info-light border-info' : 'bg-light' }} h-100 shadow-sm">
                                             <div class="icheck-primary">
                                                 <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 

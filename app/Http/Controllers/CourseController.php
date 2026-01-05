@@ -237,19 +237,17 @@ class CourseController extends Controller
                         ->whereIn('exam_id', $current_page_exam_ids)
                         ->delete();
 
-            if ($request->has('exam_ids')) {
+            if (!empty($selected_exam_ids)) {
                 $data = [];
-                foreach ($request->exam_ids as $examId) {
+                foreach ($selected_exam_ids as $exam_id) {
                     $data[] = [
-                        'course_id' => $request->course_id,
-                        'exam_id'   => $examId,
+                        'course_id' => $course_id,
+                        'exam_id'   => $exam_id,
                         'created_at' => now(),
                         'updated_at' => now(),
                     ];
                 }
-
-                // Bulk Insert (একবারে অনেক ডেটা সেভ করা দ্রুততর)
-                Courseexam::insert($data);
+                DB::table('courseexams')->insert($data);
             }
 
             DB::commit();

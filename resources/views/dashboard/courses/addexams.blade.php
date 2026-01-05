@@ -151,7 +151,7 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <form method="post" action="{{ route('dashboard.exams.category.store') }}">
+                <form method="post" action="{{ route('dashboard.courses.exam.delete') }}">
                     <div class="modal-body">
                           @csrf
                           এই কোর্সের সব পরীক্ষা মুছে ফেলবেন?

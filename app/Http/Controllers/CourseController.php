@@ -233,25 +233,26 @@ class CourseController extends Controller
             DB::beginTransaction();
 
             DB::table('courseexams')
-                        ->where('course_id', $request->course_id)
-                        ->whereIn('exam_id', $current_page_exam_ids)
-                        ->delete();
+                ->where('course_id', $course_id)
+                ->whereIn('exam_id', $current_page_exam_ids)
+                ->delete();
 
+            // ৬. নতুনগুলো ইনসার্ট করুন
             if (!empty($selected_exam_ids)) {
-                $data = [];
+                $insertData = [];
                 foreach ($selected_exam_ids as $exam_id) {
-                    $data[] = [
-                        'course_id' => $request->course_id,
+                    $insertData[] = [
+                        'course_id' => $course_id,
                         'exam_id'   => $exam_id,
                         'created_at' => now(),
                         'updated_at' => now(),
                     ];
                 }
-                DB::table('courseexams')->insert($data);
+                DB::table('courseexams')->insert($insertData);
             }
 
             DB::commit();
-            return redirect()->back()->with('success', 'পরীক্ষাসমূহ সফলভাবে আপডেট করা হয়েছে।');
+            return back()->with('success', 'সফলভাবে আপডেট করা হয়েছে!');
 
         } catch (\Exception $e) {
             DB::rollback();

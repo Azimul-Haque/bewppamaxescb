@@ -217,7 +217,7 @@ class CourseController extends Controller
             // ৩. এই কোর্সের আগের সব অ্যাসাইন করা পরীক্ষা মুছে ফেলা
             DB::table('courseexams')->where('course_id', $request->course_id)->delete();
 
-            dd($request->all());
+            // dd($request->all());
 
             // ৪. নতুন সিলেক্ট করা পরীক্ষাগুলো লুপ চালিয়ে সেভ করা
             if ($request->has('exam_ids')) {

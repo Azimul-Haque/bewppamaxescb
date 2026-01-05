@@ -91,7 +91,7 @@
                             <input type="hidden" name="course_id" value="{{ $course->id }}">
                             
                             <div class="row" id="examContainer">
-                                @foreach($exams as $index => $exam)
+                                {{-- @foreach($exams as $index => $exam)
                                 <div class="col-md-4 exam-item">
                                     <div class="p-1 border rounded mb-2 bg-light d-flex align-items-center">
                                         <div class="icheck-primary">
@@ -105,7 +105,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
+                                @endforeach --}}
 
                                 @foreach($exams as $exam)
                                     @php $isSelected = in_array($exam->id, $existingExamIds); @endphp

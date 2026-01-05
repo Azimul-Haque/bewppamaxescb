@@ -10,7 +10,7 @@
 @section('content')
     @section('page-header') {{ $course->name }} @endsection
     <div class="container-fluid">
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
@@ -48,8 +48,8 @@
                     <!-- /.card-body -->
                   </div>
             </div>
-        </div> --}}
-        <div class="col-md-8">
+        </div>
+
         <div class="card card-outline card-info">
             <div class="card-header">
                 <h3 class="card-title">পরীক্ষা নির্বাচন করুন</h3>
@@ -60,7 +60,7 @@
             <form action="{{ route('dashboard.courses.exam.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="course_id" value="{{ $course->id }}">
-                <div class="card-body p-0" style="max-height: 500px; overflow-y: auto;">
+                <div class="card-body p-0" style="max-height: 700px; overflow-y: auto;">
                     <table class="table table-head-fixed text-nowrap mt-2" id="examTable">
                         <thead>
                             <tr>

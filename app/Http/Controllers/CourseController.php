@@ -226,16 +226,6 @@ class CourseController extends Controller
             // ২. ট্রানজ্যাকশন শুরু করা (যাতে কোনো এরর হলে ডেটাবেস উল্টাপাল্টা না হয়)
             DB::beginTransaction();
 
-            // ৩. এই কোর্সের আগের সব অ্যাসাইন করা পরীক্ষা মুছে ফেলা
-            // DB::table('courseexams')->where('course_id', $request->course_id)->delete();
-
-            // dd($request->all());
-
-            // ৪. নতুন সিলেক্ট করা পরীক্ষাগুলো লুপ চালিয়ে সেভ করা
-            
-
-            
-
             DB::table('courseexams')
                         ->where('course_id', $request->course_id)
                         ->whereIn('exam_id', $current_page_exam_ids)

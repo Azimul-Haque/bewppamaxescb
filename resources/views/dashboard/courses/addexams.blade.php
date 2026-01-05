@@ -87,7 +87,7 @@
                             
                             <div class="row" id="examContainer">
                                 @foreach($exams as $index => $exam)
-                                <div class="col-md-6 exam-item">
+                                <div class="col-md-4 exam-item">
                                     <div class="p-2 border rounded mb-2 bg-light d-flex align-items-center">
                                         <div class="icheck-primary">
                                             <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 

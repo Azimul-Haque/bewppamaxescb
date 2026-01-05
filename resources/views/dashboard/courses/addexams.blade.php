@@ -114,6 +114,83 @@
             </div>
         </div>
 
+        <div class="card card-outline card-info">
+            <div class="card-header">
+                <h3 class="card-title">পরীক্ষা নির্বাচন করুন (সিলেক্ট করাগুলো প্রথমে দেখাচ্ছে)</h3>
+                <div class="card-tools">
+                    <input type="text" id="quickSearch" class="form-control form-control-sm" placeholder="এই পেজে খুঁজুন...">
+                </div>
+            </div>
+            
+            <form action="{{ route('dashboard.courses.exam.store') }}" method="POST">
+                @csrf
+                <input type="hidden" name="course_id" value="{{ $course->id }}">
+                
+                <div class="card-body">
+                    <div class="mb-3 d-flex justify-content-between align-items-center border-bottom pb-2">
+                        <div class="icheck-primary">
+                            <input type="checkbox" id="checkAll">
+                            <label for="checkAll"><b>এই পেজের সবগুলো সিলেক্ট করুন</b></label>
+                        </div>
+                        <span class="badge badge-primary shadow-sm">মোট পরীক্ষা: {{ $exams->total() }} টি</span>
+                    </div>
+
+                    <div class="row" id="examContainer">
+                        @foreach($exams as $exam)
+                            @php $isSelected = in_array($exam->id, $existingExamIds); @endphp
+                            <div class="col-md-6 exam-item mb-2">
+                                <div class="p-2 border rounded {{ $isSelected ? 'bg-info-light border-info' : 'bg-light' }} h-100 shadow-sm">
+                                    <div class="icheck-primary">
+                                        <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 
+                                               class="exam-checkbox" {{ $isSelected ? 'checked' : '' }} 
+                                               id="check{{ $exam->id }}">
+                                        <label for="check{{ $exam->id }}" class="w-100" style="cursor: pointer; font-weight: {{ $isSelected ? 'bold' : 'normal' }}">
+                                            {{ $exam->name }}
+                                            @if($isSelected)
+                                                <i class="fas fa-check-circle text-primary float-right mt-1" title="ইতিমধ্যেই যুক্ত আছে"></i>
+                                            @endif
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="card-footer d-flex justify-content-between align-items-center bg-white border-top">
+                    <div class="pagination-area">
+                        {{ $exams->appends(request()->query())->links() }}
+                    </div>
+                    <button type="submit" class="btn btn-success px-5 font-weight-bold shadow">
+                        <i class="fas fa-save mr-1"></i> সেভ করুন
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <style>
+            .bg-info-light { background-color: #f0f7ff !important; }
+            .exam-item:hover { transform: translateY(-2px); transition: 0.2s; }
+            .pagination { margin-bottom: 0 !important; }
+        </style>
+
+        <script>
+            $(document).ready(function() {
+                // এই পেজের ভেতর কুইক সার্চ
+                $("#quickSearch").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $(".exam-item").each(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                    });
+                });
+
+                // চেক অল লজিক
+                $('#checkAll').click(function() {
+                    $('.exam-checkbox:visible').prop('checked', this.checked);
+                });
+            });
+        </script>
+
         
 
     </div>

@@ -106,6 +106,25 @@
                                     </div>
                                 </div>
                                 @endforeach
+
+                                @foreach($exams as $exam)
+                                    @php $isSelected = in_array($exam->id, $existingExamIds); @endphp
+                                    <div class="col-md-6 exam-item mb-2">
+                                        <div class="p-2 border rounded {{ $isSelected ? 'bg-info-light border-info' : 'bg-light' }} h-100 shadow-sm">
+                                            <div class="icheck-primary">
+                                                <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 
+                                                       class="exam-checkbox" {{ $isSelected ? 'checked' : '' }} 
+                                                       id="check{{ $exam->id }}">
+                                                <label for="check{{ $exam->id }}" class="w-100" style="cursor: pointer; font-weight: {{ $isSelected ? 'bold' : 'normal' }}">
+                                                    {{ $exam->name }}
+                                                    @if($isSelected)
+                                                        <i class="fas fa-check-circle text-primary float-right mt-1" title="ইতিমধ্যেই যুক্ত আছে"></i>
+                                                    @endif
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="card-footer">

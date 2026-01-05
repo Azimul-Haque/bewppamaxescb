@@ -128,8 +128,8 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-warning float-right shadow">সব মুছে ফেলুন</button>
                             <button type="submit" class="btn btn-primary float-right shadow">নির্বাচিত পরীক্ষাসমূহ সেভ করুন</button>
+                            <button class="btn btn-warning float-right shadow">সব মুছে ফেলুন</button>
                             <div class="float-left">
                                 {{ $exams->links() }}
                             </div>

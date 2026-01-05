@@ -236,11 +236,11 @@ class CourseController extends Controller
                 Courseexam::insert($data);
             }
 
-            \DB::commit();
+            DB::commit();
             return redirect()->back()->with('success', 'পরীক্ষাসমূহ সফলভাবে আপডেট করা হয়েছে।');
 
         } catch (\Exception $e) {
-            \DB::rollback();
+            DB::rollback();
             return redirect()->back()->with('error', 'কিছু একটা সমস্যা হয়েছে: ' . $e->getMessage());
         }
 

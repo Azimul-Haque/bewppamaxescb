@@ -228,7 +228,7 @@ class CourseController extends Controller
 
             $current_page_exam_ids = Exam::select('id')
                     ->orderBy('name', 'asc')
-                    ->paginate(50) // আপনার ব্লেডের পেজিনেশন সংখ্যার সাথে মিল থাকতে হবে
+                    ->paginate(৩০) // আপনার ব্লেডের পেজিনেশন সংখ্যার সাথে মিল থাকতে হবে
                     ->pluck('id')
                     ->toArray();
 

@@ -212,7 +212,7 @@ class CourseController extends Controller
     {
 
         $request->validate([
-            'exam_ids' => 'required|array'
+            'exam_ids' => 'nullable|array'
         ]);
 
         try {

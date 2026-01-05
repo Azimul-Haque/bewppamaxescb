@@ -283,7 +283,7 @@ class CourseController extends Controller
         // return redirect()->route('dashboard.courses.add.exam', $request->course_id);
     }
 
-    public function deleteCourseExams(Request $request)
+    public function deleteCourseExams(Request $request, $id)
     {
         $request->validate([
             'exam_ids' => 'nullable|array'

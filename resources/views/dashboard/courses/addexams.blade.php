@@ -112,9 +112,9 @@
                 </div>
             </form>
 
-            <div class="card-footer">
+            {{-- <div class="card-footer">
                 
-            </div>
+            </div> --}}
         </div>
 
         

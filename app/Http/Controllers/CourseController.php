@@ -214,6 +214,12 @@ class CourseController extends Controller
             'exam_ids' => 'nullable|array'
         ]);
 
+        $current_page_exam_ids = Exam::select('id')
+                ->orderBy('name', 'asc')
+                ->paginate(30) // আপনার ব্লেডের পেজিনেশন সংখ্যার সাথে মিল থাকতে হবে
+                ->pluck('id')
+                ->toArray();
+
         try {
             // ২. ট্রানজ্যাকশন শুরু করা (যাতে কোনো এরর হলে ডেটাবেস উল্টাপাল্টা না হয়)
             DB::beginTransaction();
@@ -226,11 +232,7 @@ class CourseController extends Controller
             // ৪. নতুন সিলেক্ট করা পরীক্ষাগুলো লুপ চালিয়ে সেভ করা
             $selected_exam_ids = $request->exam_ids ?? [];
 
-            $current_page_exam_ids = Exam::select('id')
-                    ->orderBy('name', 'asc')
-                    ->paginate(30) // আপনার ব্লেডের পেজিনেশন সংখ্যার সাথে মিল থাকতে হবে
-                    ->pluck('id')
-                    ->toArray();
+            
 
             DB::table('courseexams')
                         ->where('course_id', $request->course_id)

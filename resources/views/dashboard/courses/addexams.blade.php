@@ -27,7 +27,7 @@
 @section('content')
     @section('page-header') {{ $course->name }} @endsection
     <div class="container-fluid">
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
@@ -65,7 +65,7 @@
                     <!-- /.card-body -->
                   </div>
             </div>
-        </div>
+        </div> --}}
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-outline card-info">
@@ -88,7 +88,7 @@
                             <div class="row" id="examContainer">
                                 @foreach($exams as $index => $exam)
                                 <div class="col-md-4 exam-item">
-                                    <div class="p-2 border rounded mb-2 bg-light d-flex align-items-center">
+                                    <div class=" border rounded mb-2 bg-light d-flex align-items-center">
                                         <div class="icheck-primary">
                                             <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 
                                                    class="exam-checkbox" {{ in_array($exam->id, $existingExamIds) ? 'checked' : '' }} 

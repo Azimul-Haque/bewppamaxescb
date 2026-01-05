@@ -73,7 +73,7 @@
                 <div class="card-tools">
                     <input type="text" id="quickSearch" class="form-control form-control-sm" placeholder="নাম লিখে খুঁজুন...">
                 </div>
-                <div class="mb-2">
+                <div class="ml-2">
                     <div class="icheck-primary d-inline">
                         <input type="checkbox" id="checkAll">
                         <label for="checkAll">সবগুলো সিলেক্ট করুন</label>

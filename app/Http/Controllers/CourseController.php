@@ -194,7 +194,7 @@ class CourseController extends Controller
         $existingExamIds = Courseexam::where('course_id', $course->id)->pluck('exam_id')->toArray();
             
         // সব এক্সাম লোড করুন (Pagination সহ)
-        $exams = Exam::orderBy('id', 'desc')->paginate(30);
+        // $exams = Exam::orderBy('id', 'desc')->paginate(30);
 
         $exams = Exam::select('id', 'name', 'category')
                 ->orderByRaw(DB::raw("CASE WHEN id IN (" . (empty($existingExamIds) ? '0' : implode(',', $existingExamIds)) . ") THEN 0 ELSE 1 END"))

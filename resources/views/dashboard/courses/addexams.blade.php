@@ -104,12 +104,6 @@
                         </div>
                         @endforeach
                     </div>
-
-                    <div class="text-center mt-3">
-                        <button type="button" id="loadMoreBtn" class="btn btn-outline-info btn-sm px-4">
-                            আরও দেখুন (<span id="showingCount">50</span> / {{ $exams->count() }})
-                        </button>
-                    </div>
                 </div>
 
                 <div class="card-footer">

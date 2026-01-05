@@ -90,7 +90,23 @@
                         <div class="card-body">
                             <input type="hidden" name="course_id" value="{{ $course->id }}">
                             
-                            
+                            <div class="row" id="examContainer">
+                                @foreach($exams as $index => $exam)
+                                <div class="col-md-4 exam-item">
+                                    <div class="p-1 border rounded mb-2 bg-light d-flex align-items-center">
+                                        <div class="icheck-primary">
+                                            <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 
+                                                   class="exam-checkbox" {{ in_array($exam->id, $existingExamIds) ? 'checked' : '' }} 
+                                                   id="check{{ $exam->id }}">
+                                            <label for="check{{ $exam->id }}" style="font-weight: normal; cursor: pointer; width: 100%;">
+                                                {{ $exam->name }} 
+                                                <span class="badge badge-secondary ml-1" style="font-size: 10px;">{{ $exam->category }}</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary float-right shadow">নির্বাচিত পরীক্ষাসমূহ সেভ করুন</button>
@@ -125,41 +141,7 @@
                     </div>
 
                     <div class="row" id="examContainer">
-                        <div class="row" id="examContainer">
-                            @foreach($exams as $index => $exam)
-                            <div class="col-md-4 exam-item">
-                                <div class="p-1 border rounded mb-2 bg-light d-flex align-items-center">
-                                    <div class="icheck-primary">
-                                        <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 
-                                               class="exam-checkbox" {{ in_array($exam->id, $existingExamIds) ? 'checked' : '' }} 
-                                               id="check{{ $exam->id }}">
-                                        <label for="check{{ $exam->id }}" style="font-weight: normal; cursor: pointer; width: 100%;">
-                                            {{ $exam->name }} 
-                                            <span class="badge badge-secondary ml-1" style="font-size: 10px;">{{ $exam->category }}</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                        @foreach($exams as $exam)
-                            @php $isSelected = in_array($exam->id, $existingExamIds); @endphp
-                            <div class="col-md-6 exam-item mb-2">
-                                <div class="p-2 border rounded {{ $isSelected ? 'bg-info-light border-info' : 'bg-light' }} h-100 shadow-sm">
-                                    <div class="icheck-primary">
-                                        <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 
-                                               class="exam-checkbox" {{ $isSelected ? 'checked' : '' }} 
-                                               id="check{{ $exam->id }}">
-                                        <label for="check{{ $exam->id }}" class="w-100" style="cursor: pointer; font-weight: {{ $isSelected ? 'bold' : 'normal' }}">
-                                            {{ $exam->name }}
-                                            @if($isSelected)
-                                                <i class="fas fa-check-circle text-primary float-right mt-1" title="ইতিমধ্যেই যুক্ত আছে"></i>
-                                            @endif
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+                        
                     </div>
                 </div>
 

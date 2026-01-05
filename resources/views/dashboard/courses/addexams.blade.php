@@ -22,6 +22,11 @@
         padding: 10px;
     }
 </style> --}}
+<style>
+    .bg-info-light { background-color: #f0f7ff !important; }
+    .exam-item:hover { transform: translateY(-2px); transition: 0.2s; }
+    .pagination { margin-bottom: 0 !important; }
+</style>
 @endsection
 
 @section('content')
@@ -168,31 +173,7 @@
             </form>
         </div>
 
-        <style>
-            .bg-info-light { background-color: #f0f7ff !important; }
-            .exam-item:hover { transform: translateY(-2px); transition: 0.2s; }
-            .pagination { margin-bottom: 0 !important; }
-        </style>
-
-        <script>
-            $(document).ready(function() {
-                // এই পেজের ভেতর কুইক সার্চ
-                $("#quickSearch").on("keyup", function() {
-                    var value = $(this).val().toLowerCase();
-                    $(".exam-item").each(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-                    });
-                });
-
-                // চেক অল লজিক
-                $('#checkAll').click(function() {
-                    $('.exam-checkbox:visible').prop('checked', this.checked);
-                });
-            });
-        </script>
-
         
-
     </div>
 
     

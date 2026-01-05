@@ -69,47 +69,6 @@
 
         <div class="card card-outline card-info">
             <div class="card-header">
-                <h3 class="card-title">পরীক্ষা নির্বাচন করুন (মোটঃ {{ $exams->count() }})</h3>
-                <div class="card-tools">
-                    <input type="text" id="examSearch" class="form-control form-control-sm" placeholder="নাম লিখে খুঁজুন...">
-                </div>
-            </div>
-            
-            <form action="{{ route('dashboard.courses.exam.store') }}" method="POST">
-                @csrf
-                <div class="card-body">
-                    <div class="row" id="examContainer">
-                        @foreach($exams as $index => $exam)
-                        <div class="col-md-6 exam-item" style="display: {{ $index < 50 ? 'block' : 'none' }};">
-                            <div class="custom-control custom-checkbox mb-2 p-2 border rounded bg-light">
-                                <input class="custom-control-input exam-checkbox" type="checkbox" 
-                                       name="exam_ids[]" id="exam{{ $exam->id }}" value="{{ $exam->id }}"
-                                       {{ in_array($exam->id, $existingExamIds) ? 'checked' : '' }}>
-                                <label for="exam{{ $exam->id }}" class="custom-control-label d-block cursor-pointer">
-                                    {{ $exam->name }}
-                                </label>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-
-                    <div class="text-center mt-3">
-                        <button type="button" id="loadMoreBtn" class="btn btn-outline-primary px-5">
-                            আরও পরীক্ষা লোড করুন (<span id="showingCount">50</span>/{{ $exams->count() }})
-                        </button>
-                    </div>
-                </div>
-
-                <div class="card-footer bg-white border-top shadow-sm" style="position: sticky; bottom: 0; z-index: 10;">
-                    <button type="submit" class="btn btn-primary btn-block font-weight-bold">
-                        <i class="fas fa-save mr-1"></i> নির্বাচিত পরীক্ষাসমূহ সেভ করুন
-                    </button>
-                </div>
-            </form>
-        </div>
-
-        <div class="card card-outline card-info">
-            <div class="card-header">
                 <h3 class="card-title">পরীক্ষা নির্বাচন করুন</h3>
                 <div class="card-tools">
                     <input type="text" id="quickSearch" class="form-control form-control-sm" placeholder="এই পেজে খুঁজুন...">

@@ -78,7 +78,7 @@
                             @foreach($exams as $exam)
                             <tr>
                                 <td>
-                                    <div class="icheck-primary " style="float: left;">
+                                    <div class="" style="float: left;">
                                         <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 
                                         class="exam-checkbox" {{ in_array($exam->id, $existingExamIds) ? 'checked' : '' }} id="check{{ $exam->id }}">
                                         <label for="check{{ $exam->id }}"> </label>

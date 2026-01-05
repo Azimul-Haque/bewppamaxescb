@@ -130,7 +130,7 @@
                         <div class="card-footer">
                             <div class="float-right">
 
-                                <button class="btn btn-danger shadow" data-toggle="modal" data-target="#deleteAllModal">সব মুছে ফেলুন</button>
+                                <button type="button" class="btn btn-danger shadow" data-toggle="modal" data-target="#deleteAllModal">সব মুছে ফেলুন</button>
                                 <button type="submit" class="btn btn-primary shadow">নির্বাচিত পরীক্ষাসমূহ সেভ করুন</button>
                             </div>
                             <div class="float-left">

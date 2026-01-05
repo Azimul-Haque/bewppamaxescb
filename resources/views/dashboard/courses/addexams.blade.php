@@ -72,13 +72,13 @@
                 <h3 class="card-title">পরীক্ষা নির্বাচন করুন</h3>
                 <div class="card-tools">
                     <input type="text" id="quickSearch" class="form-control form-control-sm" placeholder="নাম লিখে খুঁজুন...">
-                </div>
-                <div class="pr-2">
                     <div class="icheck-primary d-inline">
                         <input type="checkbox" id="checkAll">
                         <label for="checkAll">সবগুলো সিলেক্ট করুন</label>
                     </div>
                 </div>
+
+               
             </div>
             
             <form action="{{ route('dashboard.courses.exam.store') }}" method="POST">

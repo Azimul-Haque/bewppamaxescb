@@ -268,13 +268,13 @@ class CourseController extends Controller
         //     $courseexam->save();
         // }
 
-        Cache::forget('courseexams' . $request->course_id);
-        Cache::forget('courses1');
-        Cache::forget('questionbank1');
-        Cache::forget('questionbank2');
-        Cache::forget('questionbank3');
-        Cache::forget('questionbank4');
-        Cache::forget('questionbank5');
+        // Cache::forget('courseexams' . $request->course_id);
+        // Cache::forget('courses1');
+        // Cache::forget('questionbank1');
+        // Cache::forget('questionbank2');
+        // Cache::forget('questionbank3');
+        // Cache::forget('questionbank4');
+        // Cache::forget('questionbank5');
         // Session::flash('success', 'Exams updated successfully!');
         // return redirect()->route('dashboard.courses.add.exam', $request->course_id);
     }

@@ -214,13 +214,19 @@ class CourseController extends Controller
             'exam_ids' => 'nullable|array'
         ]);
 
+        $course_id = $request->course_id;
         $selected_exam_ids = $request->exam_ids ?? [];
+        
+        // ৩. সেভ করার সময় হুবহু আগের মতো existingExamIds বের করতে হবে সর্টিং ঠিক রাখতে
+        $existingExamIdsForSorting = Courseexam::where('course_id', $course_id)->pluck('exam_id')->toArray();
 
+        // ৪. হুবহু একই সর্টিং ব্যবহার করে বর্তমান পেজের আইডিগুলো বের করা
         $current_page_exam_ids = Exam::select('id')
-                ->orderBy('name', 'asc')
-                ->paginate(30) // আপনার ব্লেডের পেজিনেশন সংখ্যার সাথে মিল থাকতে হবে
-                ->pluck('id')
-                ->toArray();
+            ->orderByRaw(DB::raw("CASE WHEN id IN (" . (empty($existingExamIdsForSorting) ? '0' : implode(',', $existingExamIdsForSorting)) . ") THEN 0 ELSE 1 END"))
+            ->orderBy('name', 'asc')
+            ->paginate(50, ['*'], 'page', $request->page) // হিডেন ইনপুট থেকে আসা পেজ নম্বর
+            ->pluck('id')
+            ->toArray();
 
         try {
             // ২. ট্রানজ্যাকশন শুরু করা (যাতে কোনো এরর হলে ডেটাবেস উল্টাপাল্টা না হয়)

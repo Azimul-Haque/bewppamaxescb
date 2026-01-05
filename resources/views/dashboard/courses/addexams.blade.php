@@ -287,39 +287,6 @@
         }
     }
 
-    $(document).ready(function() {
-        let itemsToShow = 50; // একবারে কয়টি দেখাবে
-        let currentItems = 50;
-
-        // Load More Functionality
-        $('#loadMoreBtn').on('click', function() {
-            let items = $('.exam-item:hidden');
-            items.slice(0, itemsToShow).fadeIn();
-            
-            currentItems += itemsToShow;
-            if (currentItems >= $('.exam-item').length) {
-                $(this).hide(); // সব লোড হয়ে গেলে বাটন হাইড হবে
-            }
-            $('#showingCount').text(Math.min(currentItems, $('.exam-item').length));
-        });
-
-        // Search Functionality (একই সাথে সার্চ কাজ করবে)
-        $("#examSearch").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            if(value.length > 0) {
-                $('#loadMoreBtn').hide();
-                $(".exam-item").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-                });
-            } else {
-                // সার্চ খালি করলে আবার প্রথম ৫০টি দেখাবে
-                $('.exam-item').hide();
-                $('.exam-item').slice(0, currentItems).show();
-                if (currentItems < $('.exam-item').length) $('#loadMoreBtn').show();
-            }
-        });
-    });
-    
     
   </script>
 

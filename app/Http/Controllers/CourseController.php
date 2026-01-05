@@ -233,7 +233,7 @@ class CourseController extends Controller
                     ->toArray();
 
             DB::table('courseexams')
-                        ->where('course_id', $course_id)
+                        ->where('course_id', $request->course_id)
                         ->whereIn('exam_id', $current_page_exam_ids)
                         ->delete();
 
@@ -241,7 +241,7 @@ class CourseController extends Controller
                 $data = [];
                 foreach ($selected_exam_ids as $exam_id) {
                     $data[] = [
-                        'course_id' => $course_id,
+                        'course_id' => $request->course_id,
                         'exam_id'   => $exam_id,
                         'created_at' => now(),
                         'updated_at' => now(),

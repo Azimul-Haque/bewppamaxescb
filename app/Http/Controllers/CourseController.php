@@ -194,7 +194,7 @@ class CourseController extends Controller
         $existingExamIds = Courseexam::where('course_id', $course->id)->pluck('exam_id')->toArray();
             
         // সব এক্সাম লোড করুন (Pagination সহ)
-        $exams = Exam::orderBy('id', 'desc')->paginate(20);
+        $exams = Exam::orderBy('id', 'desc')->paginate(30);
 
         return view('dashboard.courses.addexams')
                                     ->withCourse($course)

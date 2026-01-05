@@ -16,11 +16,11 @@
         font-size: 0.95rem;
     }
     /* নির্দিষ্ট হাইট মেইনটেইন করার জন্য */
-    #examContainer {
+    {{-- #examContainer {
         max-height: 600px;
         overflow-y: auto;
         padding: 10px;
-    }
+    } --}}
 </style>
 @endsection
 

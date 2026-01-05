@@ -67,7 +67,7 @@
                             <div class="custom-control custom-checkbox mb-2 p-2 border rounded bg-light">
                                 <input class="custom-control-input exam-checkbox" type="checkbox" 
                                        name="exam_ids[]" id="exam{{ $exam->id }}" value="{{ $exam->id }}"
-                                       {{ in_array($exam->id, $assignedExamIds) ? 'checked' : '' }}>
+                                       {{ in_array($exam->id, $existingExamIds) ? 'checked' : '' }}>
                                 <label for="exam{{ $exam->id }}" class="custom-control-label d-block cursor-pointer">
                                     {{ $exam->name }}
                                 </label>

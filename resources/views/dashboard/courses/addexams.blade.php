@@ -80,7 +80,7 @@
                 <input type="hidden" name="course_id" value="{{ $course->id }}">
                 
                 <div class="card-body">
-                    <div class="mb-2">
+                    <div class="">
                         <div class="icheck-primary d-inline">
                             <input type="checkbox" id="checkAll">
                             <label for="checkAll">সবগুলো সিলেক্ট করুন</label>

@@ -79,7 +79,7 @@
                 @csrf
                 <input type="hidden" name="course_id" value="{{ $course->id }}">
                 
-                <div class="card-body" style="overflow-y: auto;">
+                <div class="card-body">
                     <div class="mb-2">
                         <div class="icheck-primary d-inline">
                             <input type="checkbox" id="checkAll">

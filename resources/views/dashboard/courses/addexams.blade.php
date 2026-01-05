@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/icheck-bootstrap@3.0.1/icheck-bootstrap.min.css">
-<style>
+{{-- <style>
     .cursor-pointer { cursor: pointer; }
     .exam-item div:hover {
         background-color: #e9ecef !important;
@@ -16,12 +16,12 @@
         font-size: 0.95rem;
     }
     /* নির্দিষ্ট হাইট মেইনটেইন করার জন্য */
-    {{-- #examContainer {
+    #examContainer {
         max-height: 600px;
         overflow-y: auto;
         padding: 10px;
-    } --}}
-</style>
+    }
+</style> --}}
 @endsection
 
 @section('content')

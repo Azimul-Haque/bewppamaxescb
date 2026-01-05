@@ -146,7 +146,7 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header bg-danger">
-                  <h5 class="modal-title" id="addTopicModalLabel">নতুন ক্যাটাগরি যোগ</h5>
+                  <h5 class="modal-title" id="addTopicModalLabel">সব মুছে ফেলুন</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>

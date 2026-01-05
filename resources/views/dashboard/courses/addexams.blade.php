@@ -129,8 +129,8 @@
                         </div>
                         <div class="card-footer">
                             <div class="float-right">
-                                
-                                <button class="btn btn-warning shadow">সব মুছে ফেলুন</button>
+
+                                <button class="btn btn-warning shadow" data-toggle="modal" data-target="#addTopicModal">সব মুছে ফেলুন</button>
                                 <button type="submit" class="btn btn-primary shadow">নির্বাচিত পরীক্ষাসমূহ সেভ করুন</button>
                             </div>
                             <div class="float-left">

@@ -213,7 +213,7 @@ class CourseController extends Controller
 
         try {
             // ২. ট্রানজ্যাকশন শুরু করা (যাতে কোনো এরর হলে ডেটাবেস উল্টাপাল্টা না হয়)
-            \DB::beginTransaction();
+            DB::beginTransaction();
 
             // ৩. এই কোর্সের আগের সব অ্যাসাইন করা পরীক্ষা মুছে ফেলা
             Courseexam::where('course_id', $course_id)->delete();

@@ -286,6 +286,6 @@ class CourseController extends Controller
     public function deleteCourseExams(Request $request, $id)
     {
         DB::table('courseexams')->where('course_id', $id)->delete();
-        return redirect()->back()->with('success', 'পরীক্ষাসমূহ সফলভাবে আপডেট করা হয়েছে।');
+        return redirect()->back()->with('success', 'পরীক্ষাসমূহ সফলভাবে মুছে দেওয়া হয়েছে।');
     }
 }

@@ -71,46 +71,93 @@
             <div class="card-header">
                 <h3 class="card-title">পরীক্ষা নির্বাচন করুন</h3>
                 <div class="card-tools">
-                    <input type="text" id="quickSearch" class="form-control form-control-sm" placeholder="এই পেজে খুঁজুন...">
+                    <input type="text" id="quickSearch" class="form-control form-control-sm" placeholder="নাম লিখে খুঁজুন...">
                 </div>
             </div>
+            
             <form action="{{ route('dashboard.courses.exam.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="course_id" value="{{ $course->id }}">
-                <div class="card-body p-0" style="overflow-y: auto;">
-                    <table class="table table-head-fixed text-nowrap mt-2" id="examTable">
-                        <thead>
-                            <tr>
-                                <th width="50">
-                                    <div class="icheck-primary icheck-inline" style="float: left;">
-                                        <input type="checkbox" id="checkAll">
-                                        <label for="checkAll"> </label>
-                                    </div>
-                                </th>
-                                <th>পরীক্ষার নাম</th>
-                                <th>ক্যাটাগরি</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($exams as $exam)
-                            <tr>
-                                <td>
-                                    <div class="icheck-primary icheck-inline" style="float: left;">
-                                        <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 
-                                        class="exam-checkbox" {{ in_array($exam->id, $existingExamIds) ? 'checked' : '' }} id="check{{ $exam->id }}">
-                                        <label for="check{{ $exam->id }}"> </label>
-                                    </div>
-                                </td>
-                                <td>{{ $exam->name }}</td>
-                                <td><span class="badge badge-secondary">{{ $exam->category }}</span></td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
                 
+                <div class="card-body" style="max-height: 500px; overflow-y: auto;">
+                    <div class="mb-2">
+                        <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="checkAll">
+                            <label for="checkAll">সবগুলো সিলেক্ট করুন</label>
+                        </div>
+                    </div>
+                    
+                    <div class="row" id="examContainer">
+                        @foreach($exams as $index => $exam)
+                        <div class="col-md-6 exam-item" style="display: {{ $index < 50 ? 'block' : 'none' }};">
+                            <div class="p-2 border rounded mb-2 bg-light d-flex align-items-center">
+                                <div class="icheck-primary">
+                                    <input type="checkbox" name="exam_ids[]" value="{{ $exam->id }}" 
+                                           class="exam-checkbox" {{ in_array($exam->id, $existingExamIds) ? 'checked' : '' }} 
+                                           id="check{{ $exam->id }}">
+                                    <label for="check{{ $exam->id }}" style="font-weight: normal; cursor: pointer; width: 100%;">
+                                        {{ $exam->name }} 
+                                        <span class="badge badge-secondary ml-1" style="font-size: 10px;">{{ $exam->category }}</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <button type="button" id="loadMoreBtn" class="btn btn-outline-info btn-sm px-4">
+                            আরও দেখুন (<span id="showingCount">50</span> / {{ $exams->count() }})
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary float-right shadow">নির্বাচিত পরীক্ষাসমূহ সেভ করুন</button>
+                </div>
             </form>
         </div>
+
+        <script>
+        $(document).ready(function() {
+            let itemsToShow = 50; 
+            let currentItems = 50;
+
+            // Load More Logic
+            $('#loadMoreBtn').on('click', function() {
+                let hiddenItems = $('.exam-item:hidden');
+                hiddenItems.slice(0, itemsToShow).fadeIn();
+                
+                currentItems += itemsToShow;
+                let total = {{ $exams->count() }};
+                
+                if (currentItems >= total) {
+                    $(this).hide();
+                }
+                $('#showingCount').text(currentItems > total ? total : currentItems);
+            });
+
+            // Select All Logic
+            $('#checkAll').click(function() {
+                $('.exam-checkbox:visible').prop('checked', this.checked);
+            });
+
+            // Quick Search Logic
+            $("#quickSearch").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                if(value.length > 0) {
+                    $('#loadMoreBtn').hide();
+                    $(".exam-item").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                    });
+                } else {
+                    $('.exam-item').hide();
+                    $('.exam-item').slice(0, currentItems).show();
+                    if (currentItems < {{ $exams->count() }}) $('#loadMoreBtn').show();
+                }
+            });
+        });
+        </script>
 
     </div>
 

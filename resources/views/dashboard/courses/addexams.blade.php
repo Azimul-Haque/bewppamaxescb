@@ -130,7 +130,7 @@
                         <div class="card-footer">
                             <div class="float-right">
 
-                                <button class="btn btn-warning shadow" data-toggle="modal" data-target="#deleteAllModal">সব মুছে ফেলুন</button>
+                                <button class="btn btn-danger shadow" data-toggle="modal" data-target="#deleteAllModal">সব মুছে ফেলুন</button>
                                 <button type="submit" class="btn btn-primary shadow">নির্বাচিত পরীক্ষাসমূহ সেভ করুন</button>
                             </div>
                             <div class="float-left">
@@ -145,7 +145,7 @@
         <div class="modal fade" id="deleteAllModal" tabindex="-1" role="dialog" aria-labelledby="addTopicModalLabel" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header bg-warning">
+                <div class="modal-header bg-danger">
                   <h5 class="modal-title" id="addTopicModalLabel">নতুন ক্যাটাগরি যোগ</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

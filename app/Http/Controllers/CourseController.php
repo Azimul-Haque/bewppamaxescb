@@ -205,7 +205,7 @@ class CourseController extends Controller
 
     public function storeCourseExam(Request $request)
     {
-        
+
         $request->validate([
             'exam_ids' => 'nullable|array',
             'exam_ids.*' => 'exists:exams,id'
@@ -217,6 +217,8 @@ class CourseController extends Controller
 
             // ৩. এই কোর্সের আগের সব অ্যাসাইন করা পরীক্ষা মুছে ফেলা
             Courseexam::where('course_id', $course_id)->delete();
+
+            dd($request->all());
 
             // ৪. নতুন সিলেক্ট করা পরীক্ষাগুলো লুপ চালিয়ে সেভ করা
             if ($request->has('exam_ids')) {

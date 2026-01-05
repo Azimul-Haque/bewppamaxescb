@@ -285,6 +285,6 @@ class CourseController extends Controller
 
     public function deleteCourseExams(Request $request, $id)
     {
-        
+        DB::table('courseexams')->where('course_id', $request->course_id)->delete();
     }
 }

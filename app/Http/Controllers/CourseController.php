@@ -196,6 +196,10 @@ class CourseController extends Controller
         // সব এক্সাম লোড করুন (Pagination সহ)
         $exams = Exam::orderBy('id', 'desc')->paginate(30);
 
+        $exams = Exam::orderByRaw(DB::raw("FIELD(id, " . (empty($existingExamIds) ? '0' : implode(',', $existingExamIds)) . ") DESC"))
+                         ->orderBy('name', 'asc')
+                         ->get();
+
         return view('dashboard.courses.addexams')
                                     ->withCourse($course)
                                     ->withCourseexams($courseexams)

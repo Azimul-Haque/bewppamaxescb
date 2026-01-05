@@ -89,6 +89,7 @@
                         @csrf
                         <div class="card-body">
                             <input type="hidden" name="course_id" value="{{ $course->id }}">
+                            <input type="hidden" name="page" value="{{ $exams->currentPage() }}">
                             
                             <div class="row" id="examContainer">
                                 {{-- @foreach($exams as $index => $exam)

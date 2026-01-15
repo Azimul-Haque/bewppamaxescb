@@ -197,7 +197,8 @@ class CourseController extends Controller
         // সব এক্সাম লোড করুন (Pagination সহ)
         // $exams = Exam::orderBy('id', 'desc')->paginate(30);
 
-        $exams = Exam::select('id', 'name')->where('examcategory_id')
+        $exams = Exam::select('id', 'name')
+                ->where('examcategory_id', )
                 // ->orderByRaw(DB::raw("CASE WHEN id IN (" . (empty($existingExamIds) ? '0' : implode(',', $existingExamIds)) . ") THEN 0 ELSE 1 END"))
                 ->orderBy('id', 'desc')
                 ->paginate(30); // প্রতি পেজে ৫০টি করে ডাটা

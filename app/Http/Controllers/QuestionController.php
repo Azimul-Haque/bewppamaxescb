@@ -75,14 +75,14 @@ class QuestionController extends Controller
         //                      ->orWhere('option4', 'LIKE', "%$search%")
         //                      ->orderBy('id', 'desc')
         //                      ->cursorPaginate(10);
-        // ১. কাউন্ট করার জন্য
-        $totalquestions = Question::whereRaw("MATCH(question, option1, option2, option3, option4) AGAINST(? IN NATURAL LANGUAGE MODE)", [$search])
-                                  ->count();
+        // // ১. কাউন্ট করার জন্য
+        // $totalquestions = Question::whereRaw("MATCH(question, option1, option2, option3, option4) AGAINST(? IN NATURAL LANGUAGE MODE)", [$search])
+        //                           ->count();
 
-        // ২. ডাটা গেট করার জন্য
-        $questions = Question::whereRaw("MATCH(question, option1, option2, option3, option4) AGAINST(? IN NATURAL LANGUAGE MODE)", [$search])
-                             ->orderBy('id', 'desc')
-                             ->cursorPaginate(10);
+        // // ২. ডাটা গেট করার জন্য
+        // $questions = Question::whereRaw("MATCH(question, option1, option2, option3, option4) AGAINST(? IN NATURAL LANGUAGE MODE)", [$search])
+        //                      ->orderBy('id', 'desc')
+        //                      ->cursorPaginate(10);
                              
         $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get();
         $tags = Tag::orderBy('id', 'asc')->get();

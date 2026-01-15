@@ -200,7 +200,7 @@ class CourseController extends Controller
         $exams = Exam::select('id', 'name')
                 // ->where('examcategory_id', $course->category)
                 // ->orderByRaw(DB::raw("CASE WHEN id IN (" . (empty($existingExamIds) ? '0' : implode(',', $existingExamIds)) . ") THEN 0 ELSE 1 END"))
-                ->orderBy('id', 'desc')
+                ->orderBy('id', 'asc')
                 ->paginate(30); // প্রতি পেজে ৩০টি করে ডাটা
 
         return view('dashboard.courses.addexams')

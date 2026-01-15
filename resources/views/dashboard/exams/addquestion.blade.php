@@ -262,7 +262,7 @@
                 </div>
                 <form method="post" id="addautoquestionform" action="{{ route('dashboard.exams.question.auto.fromsubs') }}">
                     <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
-                        <div class="small">
+                        <div class="small mb-2">
                             সিলেবাস: {{ $exam->syllabus }}
                         </div>
                         @csrf

@@ -67,14 +67,14 @@ class QuestionController extends Controller
             abort(403, 'Access Denied');
         }
         
-        // $totalquestions = Question::where('question', 'LIKE', "%$search%")->count();
-        // $questions = Question::where('question', 'LIKE', "%$search%")
-        //                      ->orWhere('option1', 'LIKE', "%$search%")
-        //                      ->orWhere('option2', 'LIKE', "%$search%")
-        //                      ->orWhere('option3', 'LIKE', "%$search%")
-        //                      ->orWhere('option4', 'LIKE', "%$search%")
-        //                      ->orderBy('id', 'desc')
-        //                      ->cursorPaginate(10);
+        $totalquestions = Question::where('question', 'LIKE', "%$search%")->count();
+        $questions = Question::where('question', 'LIKE', "%$search%")
+                             ->orWhere('option1', 'LIKE', "%$search%")
+                             ->orWhere('option2', 'LIKE', "%$search%")
+                             ->orWhere('option3', 'LIKE', "%$search%")
+                             ->orWhere('option4', 'LIKE', "%$search%")
+                             ->orderBy('id', 'desc')
+                             ->cursorPaginate(10);
         // // ১. কাউন্ট করার জন্য
         // $totalquestions = Question::whereRaw("MATCH(question, option1, option2, option3, option4) AGAINST(? IN NATURAL LANGUAGE MODE)", [$search])
         //                           ->count();

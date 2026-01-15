@@ -35,9 +35,9 @@
                         <a href="{{ route('dashboard.exams.add.question.from.others', $exam->id) }}" class="btn btn-info btn-sm"  {{-- data-toggle="modal" data-target="#addExamQuestionModal" --}}>
                             <i class="fas fa-copy"></i> অন্য প্রশ্নপত্র থেকে
                         </a>
-                        {{-- <a href="{{ route('dashboard.exams.add.question.all', $exam->id) }}" class="btn btn-success btn-sm" >
+                        <a href="{{ route('dashboard.exams.add.question.all', $exam->id) }}" class="btn btn-success btn-sm" disabled>
                             <i class="fas fa-tasks"></i> প্রশ্ন হালনাগাদ করুন
-                        </a> --}}
+                        </a>
                       </div>
                     </div>
                     <!-- /.card-header -->

@@ -257,7 +257,7 @@
                             <div id="selection_preview" class="d-flex flex-wrap">
                                 </div>
                         </div>
-                    </h5>
+                    </h5><br/>
                     <div class="small mb-2">
                         সিলেবাস: {{ $exam->syllabus }}
                     </div>

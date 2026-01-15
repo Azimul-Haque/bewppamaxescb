@@ -64,6 +64,22 @@
                                         <i class="fas fa-calendar-check" style="color: green;" rel="tooltip" title="চলতি"></i>
                                     @endif
                                     <a href="{{ route('dashboard.exams.add.question', $exam->id) }}" rel="tooltip" title="প্রশ্ন যোগ করুন">{{ $exam->name }}</a>
+                                    @if($exam->courseexams->count() > 0)
+                                        <div class="d-flex flex-wrap" style="gap: 5px;">
+                                            @foreach($exam->courseexams as $index => $ce)
+                                                @if($ce->course != null)
+                                                    <span class="badge badge-warning shadow-sm">
+                                                        <i class="fas fa-book-open mr-1"></i>
+                                                        {{ $ce->course->name ?? 'N/A' }}
+                                                    </span>
+                                                    {{-- যদি কমাও রাখতে চান তবে নিচের কোডটি ব্যবহার করতে পারেন --}}
+                                                    {{-- @if(!$loop->last), @endif --}}
+                                                @endif
+                                            @endforeach
+                                        </div>
+                                    @else
+                                        {{-- <span class="text-muted small">কোনো কোর্সে যুক্ত নেই</span> --}}
+                                    @endif
                                     <br/>
                                     <span class="badge bg-success">{{ $exam->examcategory->name }}</span>
                                     <span class="badge bg-info">{{ $exam->price_type == 0 ? 'ফ্রি' : 'পেইড' }}</span>

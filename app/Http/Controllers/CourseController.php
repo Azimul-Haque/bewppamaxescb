@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Topic;
 use App\Models\Exam;
+use App\Models\Examcategory;
 use App\Models\Course;
 use App\Models\Courseexam;
 
@@ -37,10 +38,11 @@ class CourseController extends Controller
         
         $courses = Course::orderBy('id', 'desc')->paginate(10);
         $totalcourses = Course::count();
-        // $examcategories = Examcategory::all();
+        $examcategories = Examcategory::all();
         // dd($courses);
         return view('dashboard.courses.index')
                     ->withCourses($courses)
+                    ->withExamcategories($examcategories)
                     ->withTotalcourses($totalcourses);
     }
 
@@ -61,7 +63,7 @@ class CourseController extends Controller
         $course->status = $request->status;
         $course->type = $request->type; // 1 = Course, 2 = BJS MT, 3 = Bar MT, 4 = Free MT, 5 = QB
         $course->priority = $request->priority;
-        $course->category = $request->category; // 1 = BCS, 2 = Primary, 3 = Bank, 4 = NTRCS, 5 = NSI/DGFI and Others, 6 = QB
+        $course->category = $request->category; // 1 = BCS, 2 = Primary, 3 = Bank, 4 = NTRCA, 5 = NSI/DGFI and Others, 6 = QB
         $course->live = $request->live; // live থাকলে কোর্স ক্যাটাগরির ভেতরে শো করবে
         $course->serial = $request->serial; // priority ব্যবহৃত হবে চলমান কোর্সসমূহ বার এ, serial ব্যবহৃত হবে কোর্স্ ক্যাটাগরিতে
         $course->save();
@@ -196,9 +198,9 @@ class CourseController extends Controller
         // সব এক্সাম লোড করুন (Pagination সহ)
         // $exams = Exam::orderBy('id', 'desc')->paginate(30);
 
-        $exams = Exam::select('id', 'name')
-                ->orderByRaw(DB::raw("CASE WHEN id IN (" . (empty($existingExamIds) ? '0' : implode(',', $existingExamIds)) . ") THEN 0 ELSE 1 END"))
-                ->orderBy('name', 'asc')
+        $exams = Exam::select('id', 'name')->where('examcategory_id')
+                // ->orderByRaw(DB::raw("CASE WHEN id IN (" . (empty($existingExamIds) ? '0' : implode(',', $existingExamIds)) . ") THEN 0 ELSE 1 END"))
+                ->orderBy('id', 'desc')
                 ->paginate(30); // প্রতি পেজে ৫০টি করে ডাটা
 
         return view('dashboard.courses.addexams')

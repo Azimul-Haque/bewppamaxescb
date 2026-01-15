@@ -27,6 +27,7 @@
                     </div>
 
                     @php
+                        // $examcategories = Examcategory::all(); // ব্যবহার করা যেতে পারে
                         $categoryNames = [
                             1 => 'বিসিএস',
                             2 => 'প্রাইমারি',

@@ -257,10 +257,11 @@
                             <div id="selection_preview" class="d-flex flex-wrap">
                                 </div>
                         </div>
-                    </h5><br/><br/>
-                    <div class="small mb-2">
-                        সিলেবাস: {{ $exam->syllabus }}
-                    </div>
+                        <div class="small mb-2">
+                            সিলেবাস: {{ $exam->syllabus }}
+                        </div>
+                    </h5>
+                    
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

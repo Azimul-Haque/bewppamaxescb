@@ -649,6 +649,7 @@ class QuestionController extends Controller
                 'option3'  => strval($question->option3 ?? ''),
                 'option4'  => strval($question->option4 ?? ''),
                 'answer'   => strval($question->answer ?? ''),
+                'id'       => strval($question->id ?? ''),
             ];
         });
     }

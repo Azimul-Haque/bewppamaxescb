@@ -618,7 +618,7 @@
                     @csrf
                     <label for="file">টপিক আইডি আপডেটের Excel ফাইল</label>
                     <input type="file" id="file" name="file" class="form-control" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"><br/>
-                    <button type="submit" class="btn btn-warning">দাখিল করুন</button>
+                    <button type="submit" class="btn btn-success">দাখিল করুন</button>
                 </form>
               </div>
               <div class="modal-footer">

@@ -616,7 +616,7 @@
                 <hr>
                 <form method="post" action="{{ route('dashboard.questions.excel.topic.id.update') }}" enctype='multipart/form-data'>
                     @csrf
-                    <label for="file">Excel ফাইল</label>
+                    <label for="file">টপিক আইডি আপডেটের Excel ফাইল</label>
                     <input type="file" id="file" name="file" class="form-control" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"><br/>
                     <button type="submit" class="btn btn-warning">দাখিল করুন</button>
                 </form>

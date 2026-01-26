@@ -389,7 +389,7 @@ class QuestionController extends Controller
                 $question->difficulty = 1;
                 $question->save();
 
-                if($collection['explanation'] != null) {
+                if($collection['image_name'] != null) {
                     $questionexplanation              = new Questionexplanation;
                     $questionexplanation->question_id = $question->id;
                     $questionexplanation->explanation = $collection['explanation'];

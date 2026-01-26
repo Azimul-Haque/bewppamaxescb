@@ -381,7 +381,7 @@ class QuestionController extends Controller
                 $question             = new Question;
                 $question->topic_id   = $collection['topic_id'];
                 if($collection['image_name'] != null) {
-                    $question->question   = $collection['question'] . '<br><img src="https://bcsexamaid.com/images/questions/' . $collection['image_name'] . '>';
+                    $question->question   = $collection['question'] . '<br><img src="https://bcsexamaid.com/images/questions/' . $collection['image_name'] . '">';
                 } else {
                     $question->question   = $collection['question'];
                 }

@@ -413,7 +413,7 @@ class QuestionController extends Controller
 
                         $questionimage              = new Questionimage;
                         $questionimage->question_id = $question->id;
-                        $questionimage->image       = $filename;
+                        $questionimage->image       = $collection['image_name'];
                         $questionimage->save();
                 }
                 

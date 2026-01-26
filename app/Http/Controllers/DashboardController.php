@@ -1466,7 +1466,7 @@ class DashboardController extends Controller
         // Artisan::call('optimize');
         Artisan::call('cache:clear');
         Artisan::call('view:clear');
-        Artisan::call('key:generate');
+        // Artisan::call('key:generate');
         Artisan::call('config:clear');
         Session::flush();
         return 'Config and Route Cached. All Cache Cleared';

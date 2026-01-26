@@ -102,7 +102,7 @@ Route::get('/dashboard/questions/topic/{id}', 'QuestionController@getQuestionsTo
 Route::get('/dashboard/questions/tag/{id}', 'QuestionController@getQuestionsTagBased')->name('dashboard.questionstagbased');
 Route::post('/dashboard/questions/store', 'QuestionController@storeQuestion')->name('dashboard.questions.store');
 Route::post('/dashboard/questions/excel/store', 'QuestionController@storeExcelQuestion')->name('dashboard.questions.excel.store');
-Route::post('/dashboard/questions/update/topic/id/excel', 'QuestionController@updateTopicIdsFromExcel')->name('dashboard.questions.excel.update');
+Route::post('/dashboard/questions/excel/topic/id/update', 'QuestionController@updateTopicIdsFromExcel')->name('dashboard.questions.excel.update');
 Route::post('/dashboard/questions/{id}/update', 'QuestionController@updateQuestion')->name('dashboard.questions.update');
 Route::get('/dashboard/questions/{id}/delete', 'QuestionController@deleteQuestion')->name('dashboard.questions.delete');
 Route::get('/dashboard/questions/{id}/send-notification', 'QuestionController@sendNotificationQuestion')->name('dashboard.questions.sendnotification');

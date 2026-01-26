@@ -380,7 +380,15 @@ class QuestionController extends Controller
             try {
                 $question             = new Question;
                 $question->topic_id   = $collection['topic_id'];
-                $question->question   = $collection['question'];
+                if($collection['image_name'] != null) {
+                    $questionimage              = new Questionimage;
+                    $questionimage->question_id = $question->id;
+                    $questionimage->image       = $collection['image_name'];
+                    $questionimage->save();
+                } else {
+                    $question->question   = $collection['question'];
+                }
+                
                 $question->option1    = $collection['option1'];
                 $question->option2    = $collection['option2'];
                 $question->option3    = $collection['option3'];

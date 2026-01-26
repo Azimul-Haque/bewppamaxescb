@@ -48,7 +48,7 @@ class QuestionController extends Controller
                 return Question::count();
             }
         );
-        $questions = DB::table('questions')->orderBy('id', 'desc')->cursorPaginate(10);
+        $questions = Question::orderBy('id', 'desc')->cursorPaginate(10);
         $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get(); // EKAHNE KAAJ ACHE
         $tags = Tag::orderBy('id', 'asc')->get();
 

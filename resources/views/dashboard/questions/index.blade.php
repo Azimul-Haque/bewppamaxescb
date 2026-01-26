@@ -613,6 +613,7 @@
                     <input type="file" id="file" name="file" class="form-control" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"><br/>
                     <button type="submit" class="btn btn-warning">দাখিল করুন</button>
                 </form>
+                <hr>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

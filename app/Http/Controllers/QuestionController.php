@@ -387,6 +387,7 @@ class QuestionController extends Controller
                 $question->option4    = $collection['option4'];
                 $question->answer     = $collection['answer'];
                 $question->difficulty = 1;
+                $question->save();
                 
 
                 // APATOT KORA HOCCHE NA...
@@ -410,12 +411,12 @@ class QuestionController extends Controller
                     $questionimage->image = $collection['image_name'];
                     $questionexplanation->save();
 
-                    //     $questionimage              = new Questionimage;
-                    //     $questionimage->question_id = $question->id;
-                    //     $questionimage->image       = $filename;
-                    //     $questionimage->save();
+                        $questionimage              = new Questionimage;
+                        $questionimage->question_id = $question->id;
+                        $questionimage->image       = $filename;
+                        $questionimage->save();
                 }
-                $question->save();
+                
 
                 if($collection['explanation'] != null) {
                     $questionexplanation              = new Questionexplanation;

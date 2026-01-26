@@ -407,8 +407,7 @@ class QuestionController extends Controller
                 // }
 
                 if($collection['image_name'] != null) {
-                    $questionimage->image = $question->id;
-                    $questionexplanation->explanation = $collection['explanation'];
+                    $questionimage->image = $collection['image_name'];
                     $questionexplanation->save();
                 }
                 $question->save();

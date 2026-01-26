@@ -389,6 +389,23 @@ class QuestionController extends Controller
                 $question->difficulty = 1;
                 $question->save();
 
+                // APATOT KORA HOCCHE NA...
+                // if(isset($request->tags_ids)){
+                //     $question->tags()->sync($request->tags_ids, false);
+                // }
+
+                // APATOT KORA HOCCHE NA...
+                // if($request->hasFile('image')) {
+                //     $image    = $request->file('image');
+                //     $filename = random_string(5) . time() .'.' . "webp";
+                //     $location = public_path('images/questions/'. $filename);
+                //     Image::make($image)->resize(350, null, function ($constraint) { $constraint->aspectRatio(); })->save($location);
+                //     $questionimage              = new Questionimage;
+                //     $questionimage->question_id = $question->id;
+                //     $questionimage->image       = $filename;
+                //     $questionimage->save();
+                // }
+
                 if($collection['image_name'] != null) {
                     $questionexplanation              = new Questionexplanation;
                     $questionexplanation->question_id = $question->id;

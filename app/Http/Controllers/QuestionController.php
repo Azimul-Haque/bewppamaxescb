@@ -446,6 +446,7 @@ class QuestionController extends Controller
 
     public function updateTopicIdsFromExcel(Request $request)
     {
+        ini_set('memory_limit', '512000000');
         // ১. ফাইল ভ্যালিডেশন
         $request->validate([
             'file' => 'required|mimes:xlsx,xls,csv'

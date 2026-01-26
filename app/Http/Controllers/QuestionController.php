@@ -387,7 +387,7 @@ class QuestionController extends Controller
                 $question->option4    = $collection['option4'];
                 $question->answer     = $collection['answer'];
                 $question->difficulty = 1;
-                $question->save();
+                
 
                 // APATOT KORA HOCCHE NA...
                 // if(isset($request->tags_ids)){
@@ -411,6 +411,7 @@ class QuestionController extends Controller
                     $questionexplanation->explanation = $collection['explanation'];
                     $questionexplanation->save();
                 }
+                $question->save();
 
                 if($collection['explanation'] != null) {
                     $questionexplanation              = new Questionexplanation;

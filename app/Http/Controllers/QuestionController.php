@@ -408,10 +408,10 @@ class QuestionController extends Controller
                 // }
 
                 if($collection['image_name'] != null) {
-                        $questionimage              = new Questionimage;
-                        $questionimage->question_id = $question->id;
-                        $questionimage->image       = $collection['image_name'];
-                        $questionimage->save();
+                    $questionimage              = new Questionimage;
+                    $questionimage->question_id = $question->id;
+                    $questionimage->image       = $collection['image_name'];
+                    $questionimage->save();
                 }
                 
 

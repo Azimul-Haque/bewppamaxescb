@@ -386,7 +386,7 @@ class QuestionController extends Controller
                     $questionimage->image       = $collection['image_name'];
                     $questionimage->save();
 
-                    $question->question   = $collection['question'];
+                    $question->question   = $collection['question'] . '<br><img src="https://bcsexamaid.com/images/questions/' . $collection['image_name'] . '" class="img-fluid rounded mt-2">';
                 } else {
                     $question->question   = $collection['question'];
                 }

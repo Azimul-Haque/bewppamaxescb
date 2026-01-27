@@ -496,7 +496,7 @@ class QuestionController extends Controller
                         // ২. প্রশ্নের সাথে HTML ইমেজ ট্যাগ যোগ করা
                         $htmlImage = '<br><img src="https://bcsexamaid.com/images/questions/' . $row['image_name'] . '" class="img-fluid rounded mt-2">';
                         
-                        $updateData['question'] = $currentQuestion . $htmlImage;
+                        $updateData['question'] = . $htmlImage;
                     }
 
                     // ৩. একবারে আপডেট করা

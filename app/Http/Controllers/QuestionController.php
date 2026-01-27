@@ -480,32 +480,32 @@ class QuestionController extends Controller
             //     }
             // });
 
-            (new FastExcel)->import($request->file('file'), function ($row) {
-                // শুধুমাত্র id এবং topic_id নিশ্চিত করা
-                if (isset($row['id']) && isset($row['topic_id'])) {
+            // (new FastExcel)->import($request->file('file'), function ($row) {
+            //     // শুধুমাত্র id এবং topic_id নিশ্চিত করা
+            //     if (isset($row['id']) && isset($row['topic_id'])) {
                     
-                    $updateData = [
-                        'topic_id' => $row['topic_id']
-                    ];
+            //         $updateData = [
+            //             'topic_id' => $row['topic_id']
+            //         ];
 
-                    // যদি এক্সেল ফাইলে image_name থাকে এবং তা খালি না হয়
-                    if (!empty($row['image_name'])) {
-                        // ১. বর্তমান প্রশ্নটি ডাটাবেস থেকে নেওয়া
+            //         // যদি এক্সেল ফাইলে image_name থাকে এবং তা খালি না হয়
+            //         if (!empty($row['image_name'])) {
+            //             // ১. বর্তমান প্রশ্নটি ডাটাবেস থেকে নেওয়া
 
-                        // ২. প্রশ্নের সাথে HTML ইমেজ ট্যাগ যোগ করা
-                        $htmlImage = $row['question'] . '<br><img src="https://bcsexamaid.com/images/questions/' . $row['image_name'] . '">';
+            //             // ২. প্রশ্নের সাথে HTML ইমেজ ট্যাগ যোগ করা
+            //             $htmlImage = $row['question'] . '<br><img src="https://bcsexamaid.com/images/questions/' . $row['image_name'] . '">';
                         
-                        $updateData['question'] = $htmlImage;
-                    } else {
-                        $updateData['question'] = $row['question'];
-                    }
+            //             $updateData['question'] = $htmlImage;
+            //         } else {
+            //             $updateData['question'] = $row['question'];
+            //         }
 
-                    // ৩. একবারে আপডেট করা
-                    DB::table('questions')
-                        ->where('id', $row['id'])
-                        ->update($updateData);
-                }
-            });
+            //         // ৩. একবারে আপডেট করা
+            //         DB::table('questions')
+            //             ->where('id', $row['id'])
+            //             ->update($updateData);
+            //     }
+            // });
 
             return back()->with('success', 'Topic IDs updated successfully!');
 

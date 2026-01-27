@@ -496,6 +496,8 @@ class QuestionController extends Controller
                         $htmlImage = $row['question'] . '<br><img src="https://bcsexamaid.com/images/questions/' . $row['image_name'] . '">';
                         
                         $updateData['question'] = $htmlImage;
+                    } else {
+                        $updateData['question'] = $htmlImage;
                     }
 
                     // ৩. একবারে আপডেট করা

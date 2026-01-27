@@ -468,17 +468,17 @@ class QuestionController extends Controller
 
         try {
             // ২. ফাস্ট এক্সেল দিয়ে ফাইল রিড করা
-            (new FastExcel)->import($request->file('file'), function ($row) {
+            // (new FastExcel)->import($request->file('file'), function ($row) {
                 
-                // ৩. শুধুমাত্র id এবং topic_id আছে কিনা নিশ্চিত করা
-                if (isset($row['id']) && isset($row['topic_id'])) {
+            //     // ৩. শুধুমাত্র id এবং topic_id আছে কিনা নিশ্চিত করা
+            //     if (isset($row['id']) && isset($row['topic_id'])) {
                     
-                    // ৪. ডাটাবেসে আপডেট কুয়েরি (এটি দ্রুত কাজ করার জন্য সরাসরি DB ব্যবহার করা হয়েছে)
-                    DB::table('questions')
-                        ->where('id', $row['id'])
-                        ->update(['topic_id' => $row['topic_id']]);
-                }
-            });
+            //         // ৪. ডাটাবেসে আপডেট কুয়েরি (এটি দ্রুত কাজ করার জন্য সরাসরি DB ব্যবহার করা হয়েছে)
+            //         DB::table('questions')
+            //             ->where('id', $row['id'])
+            //             ->update(['topic_id' => $row['topic_id']]);
+            //     }
+            // });
 
             return back()->with('success', 'Topic IDs updated successfully!');
 

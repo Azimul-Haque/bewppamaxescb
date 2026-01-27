@@ -497,7 +497,7 @@ class QuestionController extends Controller
                         
                         $updateData['question'] = $htmlImage;
                     } else {
-                        $updateData['question'] = $htmlImage;
+                        $updateData['question'] = $row['question'];
                     }
 
                     // ৩. একবারে আপডেট করা

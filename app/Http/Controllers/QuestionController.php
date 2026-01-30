@@ -427,26 +427,26 @@ class QuestionController extends Controller
                     $questionexplanation->save();
                 }
 
-                // if($collection['tag'] != null) {
-                //     $tagarray = explode(',', $collection['tag']);
+                if($collection['tag'] != null) {
+                    $tagarray = explode(',', $collection['tag']);
 
-                //     // dd($tagarray);
-                //     $newquestiontags = [];
-                //     for ($i=0; $i < count($tagarray); $i++) { 
-                //         $checktag = Tag::where('name', $tagarray[$i])->first();
-                //         if($checktag) {
-                //             $newquestiontags[] = $checktag->id;
-                //         } else {
-                //             $tag = new Tag;
-                //             $tag->name = $tagarray[$i];
-                //             $tag->save();
-                //             $newquestiontags[] = $tag->id;
-                //             // dd($newquestiontags);
-                //         }
-                //     }
+                    // dd($tagarray);
+                    $newquestiontags = [];
+                    for ($i=0; $i < count($tagarray); $i++) { 
+                        $checktag = Tag::where('name', $tagarray[$i])->first();
+                        if($checktag) {
+                            $newquestiontags[] = $checktag->id;
+                        } else {
+                            $tag = new Tag;
+                            $tag->name = $tagarray[$i];
+                            $tag->save();
+                            $newquestiontags[] = $tag->id;
+                            // dd($newquestiontags);
+                        }
+                    }
 
-                //     $question->tags()->sync($newquestiontags, false);
-                // }
+                    $question->tags()->sync($newquestiontags, false);
+                }
 
                 DB::commit();
             } catch (Exception $e) {

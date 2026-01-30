@@ -601,7 +601,7 @@ class APIController extends Controller
         if($softtoken == env('SOFT_TOKEN'))
         {
             $topicquestions = Question::where('topic_id', $id)->orderBy(DB::raw('RAND()'))
-                                      ->take(20)
+                                      ->take(25)
                                       ->get();
 
             foreach($topicquestions as $topicquestion) {

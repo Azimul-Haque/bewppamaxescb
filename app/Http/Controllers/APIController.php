@@ -564,90 +564,30 @@ class APIController extends Controller
         }
     }
 
-    public function getTopicExamQuestions($softtoken, $id)
-    {
-        // ১. টোকেন ভেরিফিকেশন (সরাসরি চেক, দ্রুততর)
-        if ($softtoken !== env('SOFT_TOKEN')) {
-            return response()->json(['success' => false], 401);
-        }
-
-        try {
-            // ২. টপিক এবং তার চিলড্রেনদের রিকার্সিভলি ইগার লোড করা
-            // এটি ডাটাবেসে মাত্র ১-২টি কুয়েরি করবে, লুপ করবে না।
-            $topic = Topic::with('children')->findOrFail($id);
-
-            // ৩. মডেলের এক্সেসর ব্যবহার করে সকল চাইল্ড আইডি বের করা
-            // আপনার মডেলের 'getDescendantIdsAttribute' মেথডটি এখানে ব্যবহার হচ্ছে
-            $allTopicIds = $topic->descendant_ids;
-
-            // ৪. কোয়েশ্চেন রিট্রিভাল (Atomic Select & Eager Loading)
-            // অপ্রয়োজনীয় কলাম বাদ দিয়ে শুধু যা লাগবে তা সিলেক্ট করা হয়েছে (Performance Boost)
-            $topicquestions = Question::whereIn('topic_id', $allTopicIds)
-                ->with([
-                    'questionexplanation:question_id,explanation', 
-                    'questionimage:question_id,image'
-                ])
-                ->inRandomOrder()
-                ->take(25)
-                ->get(['id', 'question', 'option1', 'option2', 'option3', 'option4', 'answer']);
-
-            // ৫. ডাটা ম্যাপিং (Eloquent Object-এর বদলে সরাসরি Array রিটার্ন করা দ্রুততর)
-            $questions = $topicquestions->map(function ($q) {
-                return [
-                    'id'          => $q->id,
-                    'question'    => $q->question,
-                    'option1'     => $q->option1,
-                    'option2'     => $q->option2,
-                    'option3'     => $q->option3,
-                    'option4'     => $q->option4,
-                    'answer'      => $q->answer,
-                    'explanation' => $q->questionexplanation->explanation ?? null,
-                    'image'       => $q->questionimage->image ?? null,
-                ];
-            });
-
-            // ৬. পার্টিসিপেশন কাউন্ট আপডেট (Atomic Increment - দ্রুততর এবং সেফ)
-            Topic::where('id', $id)->increment('participation');
-
-            return response()->json([
-                'success'   => true,
-                'questions' => $questions,
-            ]);
-
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Topic not found or server error'
-            ], 404);
-        }
-    }
-
-    public function getTopicExamQuestions($softtoken, $id)
+    public function getCourseExamQuestions($softtoken, $id)
     {
         if($softtoken == env('SOFT_TOKEN'))
         {
-            $topicquestions = Question::where('topic_id', $id)->orderBy(DB::raw('RAND()'))
-                                      ->take(25)
-                                      ->get();
+            $examquestions = Examquestion::select('exam_id', 'question_id')
+                                     ->where('exam_id', $id)
+                                     ->get();
 
-            foreach($topicquestions as $topicquestion) {
-                // dd($topicquestion);
-                if($topicquestion->questionexplanation) {
-                    $topicquestion->explanation = $topicquestion->questionexplanation->explanation;
-                }if($topicquestion->questionimage) {
-                    $topicquestion->image = $topicquestion->questionimage->image;
+            foreach($examquestions as $examquestion) {
+                $examquestion = $examquestion->makeHidden(['question_id']);
+                if($examquestion->question->questionexplanation) {
+                    $examquestion->question->explanation = $examquestion->question->questionexplanation->explanation;
+                }if($examquestion->question->questionimage) {
+                    $examquestion->question->image = $examquestion->question->questionimage->image;
                 }
-                $topicquestion = $topicquestion->makeHidden(['topic_id', 'difficulty', 'created_at', 'updated_at', 'questionexplanation', 'questionimage']);
+                $examquestion->question = $examquestion->question->makeHidden(['topic_id', 'difficulty', 'created_at', 'updated_at', 'questionexplanation', 'questionimage']);
             }
-            // dd($topicquestions);
-
-            $topic = Topic::findOrFail($id);
-            $topic->participation++;
-            $topic->save();
+            $exam = Exam::findOrFail($id);
+            $exam->participation++;
+            $exam->save();
 
             return response()->json([
                 'success' => true,
-                'questions' => $topicquestions,
+                'questions' => $examquestions,
             ]);
         } else {
             return response()->json([
@@ -655,6 +595,8 @@ class APIController extends Controller
             ]);
         }
     }
+
+    getTopicExamQuestions
 
     public function getTopics($softtoken)
     {

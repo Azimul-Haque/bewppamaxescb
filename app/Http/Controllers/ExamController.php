@@ -169,6 +169,7 @@ class ExamController extends Controller
         $exam->available_from = Carbon::parse($request->available_from);
         $exam->available_to = Carbon::parse($request->available_to);
         $exam->syllabus = nl2br($request->syllabus);
+        $exam->lecture_url =$request->lecture_url;
         if($request->alltimeavailability) {
             $exam->alltimeavailability = 1;
         }else {

@@ -155,6 +155,7 @@ class ExamController extends Controller
             'available_to'       => 'required|string|max:191',
             'syllabus'           => 'required|string',
             'alltimeavailability'           => 'sometimes',
+            'lecture_url'           => 'sometimes',
         ));
 
         $exam = new Exam;

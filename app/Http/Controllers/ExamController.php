@@ -197,6 +197,7 @@ class ExamController extends Controller
             'available_to'       => 'required|string|max:191',
             'syllabus'           => 'required|string',
             'alltimeavailability'           => 'sometimes',
+            'lecture_url'           => 'sometimes',
         ));
 
         $exam = Exam::find($id);
@@ -210,6 +211,7 @@ class ExamController extends Controller
         $exam->available_from = Carbon::parse($request->available_from);
         $exam->available_to = Carbon::parse($request->available_to);
         $exam->syllabus = nl2br($request->syllabus);
+        $exam->lecture_url =$request->lecture_url;
         if($request->alltimeavailability) {
             $exam->alltimeavailability = 1;
         } else {

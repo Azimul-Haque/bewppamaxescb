@@ -497,6 +497,7 @@ class APIController extends Controller
                     $courseexam->questioncount = $courseexam->exam->examquestions->count();
                     $courseexam->syllabus = $courseexam->exam->syllabus ?? 'N/A'; // Use null coalescing for cleaner check
                     $courseexam->alltimeavailability = $courseexam->exam->alltimeavailability;
+                    $courseexam->lecture_url = $courseexam->exam->lecture_url;
                     
                     // Hide unnecessary exam details from the resulting JSON structure
                     $courseexam->exam->makeHidden([

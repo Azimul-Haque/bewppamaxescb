@@ -26,6 +26,7 @@ class CreateExamsTable extends Migration
             $table->text('syllabus');
             $table->integer('participation')->default(0);
             $table->string('cutmark')->default(0);
+            $table->string('lecture_url')->nullable();
             $table->integer('alltimeavailability')->default(0);
             $table->timestamps();
         });

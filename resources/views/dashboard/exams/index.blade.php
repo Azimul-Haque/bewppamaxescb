@@ -213,10 +213,18 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 mb-3">
+                                                        <div class="col-md-6">
+                                                            <div class="input-group mb-3">
+                                                                <input type="text" name="lecture_url" id="lecture_url{{ $exam->id }}" value="{{ $exam->lecture_url }}" class="form-control" placeholder="লেকচার pdf লিংক" required>
+                                                                <div class="input-group-append">
+                                                                    <div class="input-group-text"><span class="fas fa-files-pdf"></span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 mb-3">
                                                             <div class="form-check-inline">
                                                               <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input" name="alltimeavailability" value="1" @if($exam->alltimeavailability == 1) checked @endif>সব সময় এভেইলেবল
+                                                                <input type="checkbox" class="form-check-input" name="alltimeavailability" value="1" @if($exam->alltimeavailability == 1) checked @endif>সব সময় এভেইলেবল থাকবে
                                                               </label>
                                                             </div>
                                                         </div>

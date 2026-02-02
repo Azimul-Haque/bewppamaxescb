@@ -503,7 +503,7 @@ class APIController extends Controller
                     $courseexam->exam->makeHidden([
                         'id', 'name', 'examcategory_id', 'price_type', 
                         'available_from', 'available_to', 'syllabus', 
-                        'created_at', 'updated_at', 'examquestions', 
+                        'created_at', 'updated_at', 'examquestions', 'lecture_url',
                         'alltimeavailability'
                     ]);
                     

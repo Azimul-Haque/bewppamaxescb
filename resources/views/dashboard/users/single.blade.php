@@ -61,13 +61,14 @@
                 <tbody>
                   @foreach($user->meritlists as $examdata)
                     <tr>
-                      <td>
+                      {{ $examdata }}
+                      {{-- <td>
                         <b>{{ $examdata->exam->name }}</b><br/>
                         <small class="text-black-50">{{ $examdata->course->name }}</small> 
                       </td>
                       <td>
                         {{ $examdata->marks }}
-                      </td>
+                      </td> --}}
                   @endforeach
                 </tbody>
               </table>

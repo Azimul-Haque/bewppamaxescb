@@ -43,6 +43,7 @@
               <tbody>
                 @foreach($examstoday as $exam)
                 	<tr>
+                    {{ $exam }}
                     {{-- <td>
                       <a href="{{ route('dashboard.exams.add.question', $exam->exam->id) }}">{{ $exam->exam->name }}</a><br/>
                       <small>{{ $exam->course->name }}</small>

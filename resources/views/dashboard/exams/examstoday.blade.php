@@ -43,14 +43,14 @@
               <tbody>
                 @foreach($examstoday as $exam)
                 	<tr>
-                    {{ $exam }}
-                    {{-- <td>
+                    {{-- {{ $exam }} --}}
+                    <td>
                       <a href="{{ route('dashboard.exams.add.question', $exam->exam->id) }}">{{ $exam->exam->name }}</a><br/>
                       <small>{{ $exam->course->name }}</small>
                     </td>
                     <td><a href="{{ route('dashboard.users.single', $exam->user->id) }}">{{ $exam->user->name }}</a></td>
                     <td>{{ $exam->marks }}</td>
-                		<td>{{ date('F d, Y h:i A', strtotime($exam->created_at)) }}</td> --}}
+                		<td>{{ date('F d, Y h:i A', strtotime($exam->created_at)) }}</td>
                 	</tr>
                 @endforeach
               </tbody>

@@ -909,7 +909,9 @@ class APIController extends Controller
                                            ->first();
 
             if($oldexamresultcheck) {
-                // add korbe na
+                return response()->json([
+                'success' => false
+            ]);
             } else {
                 $examresult = new Meritlist;
                 $examresult->course_id = $request->course_id;

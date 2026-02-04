@@ -44,7 +44,7 @@
                 @foreach($examstoday as $exam)
                 	<tr>
                     <td>
-                      <a href="{{ route('dashboard.exams.add.question', $exam->exam->id) }}">{{ $exam->exam->name }}</a><br/>
+                      {{-- <a href="{{ route('dashboard.exams.add.question', $exam->exam->id) }}">{{ $exam->exam->name }}</a><br/> --}}
                       <small>{{ $exam->course->name }}</small>
                     </td>
                     <td><a href="{{ route('dashboard.users.single', $exam->user->id) }}">{{ $exam->user->name }}</a></td>

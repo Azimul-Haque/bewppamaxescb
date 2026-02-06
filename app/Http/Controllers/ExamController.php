@@ -49,11 +49,18 @@ class ExamController extends Controller
 
         if(!empty($request->id)) {
             $totalexams = Exam::where('examcategory_id', $request->id)->count();
-            $exams = Exam::where('examcategory_id', $request->id)->orderBy('id', 'desc')->paginate(10);
+            // এখানে withQueryString() যোগ করা হয়েছে
+            $exams = Exam::where('examcategory_id', $request->id)
+                         ->orderBy('id', 'desc')
+                         ->paginate(10)
+                         ->withQueryString(); 
         } else {
             $totalexams = Exam::count();
-            $exams = Exam::orderBy('id', 'desc')->paginate(10);
+            $exams = Exam::orderBy('id', 'desc')
+                         ->paginate(10)
+                         ->withQueryString();
         }
+        
         $examcategories = Examcategory::all();
 
         return view('dashboard.exams.index')

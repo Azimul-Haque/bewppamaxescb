@@ -35,20 +35,13 @@
                             <option value="{{ $foreachexam->name }},{{ $foreachexam->id }}">{{ $foreachexam->name }}
                               <span style="font-size: 10px!; color: #bbb;">({{ $foreachexam->examcategory->name }})
                                 @if($foreachexam->courseexams->count() > 0)
-                                    <div class="d-flex flex-wrap" style="gap: 5px;">
+                                    <div>
                                         @foreach($foreachexam->courseexams as $index => $ce)
                                             @if($ce->course != null)
-                                                <span class="badge badge-warning shadow-sm">
-                                                    <i class="fas fa-book-open mr-1"></i>
-                                                    {{ $ce->course->name ?? 'N/A' }}
-                                                </span>
-                                                {{-- যদি কমাও রাখতে চান তবে নিচের কোডটি ব্যবহার করতে পারেন --}}
-                                                {{-- @if(!$loop->last), @endif --}}
+                                                <span>{{ $ce->course->name ?? 'N/A' }}</span>
                                             @endif
                                         @endforeach
                                     </div>
-                                @else
-                                    {{-- <span class="text-muted small">কোনো কোর্সে যুক্ত নেই</span> --}}
                                 @endif
                               </span>
                             </option>

@@ -11,6 +11,17 @@
   .select2-selection__choice{
       background-color: rgba(0, 123, 255) !important;
   }
+
+  /* সিলেক্টবক্সের হাইট অটো করা যাতে দুই লাইন দেখা যায় */
+  .select2-container--default .select2-selection--single {
+      height: auto !important;
+      padding: 6px !important;
+  }
+
+  /* ড্রপডাউনের প্রতিটি আইটেমের মাঝে হালকা গ্যাপ */
+  .select2-results__option {
+      border-bottom: 1px solid #f9f9f9;
+  }
 </style>
 @endsection
 

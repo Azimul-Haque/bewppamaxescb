@@ -32,7 +32,7 @@
                       <select class="form-control select2" id="questionsetselect" data-placeholder="পরীক্ষার নাম">
                         <option value="" selected disabled>পরীক্ষার নাম</option>
                         @foreach ($exams as $foreachexam)
-                            <option value="{{ $foreachexam->name }},{{ $foreachexam->id }}">{{ $foreachexam->name }} <small>{{ $foreachexam->name }}</small></option>
+                            <option value="{{ $foreachexam->name }},{{ $foreachexam->id }}">{{ $foreachexam->name }} <span style="font-size: 12px; color: #bbb;">{{ $foreachexam->name }}</span></option>
                         @endforeach
                       </select><br/>
                       <form method="post" action="{{ route('dashboard.exams.question.from.others.store', $exam->id) }}">

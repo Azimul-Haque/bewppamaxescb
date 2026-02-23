@@ -103,6 +103,35 @@
     $('.select2').select2({
       // theme: 'bootstrap4',
     });
+    $('.select2-custom').select2({
+        templateResult: formatExamWithDetails,
+        templateSelection: formatExamWithDetails,
+        escapeMarkup: function(m) { return m; }
+    });
+
+    function formatExamWithDetails(state) {
+        if (!state.id) return state.text;
+
+        // ডাটা অ্যাট্রিবিউট থেকে তথ্য সংগ্রহ
+        var category = $(state.element).data('category');
+        var courses = $(state.element).data('courses');
+        var date = $(state.element).data('date');
+
+        // মডার্ন মাল্টি-লাইন লেআউট
+        return $(
+            '<div style="display: flex; flex-direction: column; padding: 4px 0;">' +
+                // মেইন পরীক্ষার নাম (বড়)
+                '<span style="font-weight: bold; font-size: 14px; color: #333;">' + state.text + '</span>' +
+                
+                // সাব-টেক্সট (ছোট, গ্রে এবং নিচে)
+                '<div style="font-size: 11px; color: #888; margin-top: 2px; line-height: 1.4;">' +
+                    '<span><i class="fa fa-folder-open"></i> ' + category + '</span>' +
+                    (courses ? ' • <span><i class="fa fa-book"></i> ' + courses + '</span>' : '') +
+                    ' • <span><i class="fa fa-calendar"></i> ' + date + '</span>' +
+                '</div>' +
+            '</div>'
+        );
+    }
     $('#questionsetselect').change(function() {
       const selectarray = $(this).val().split(',');
       // console.log(selectarray[0]);

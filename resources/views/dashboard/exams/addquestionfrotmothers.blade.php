@@ -29,7 +29,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                      <select class="form-control select2" id="questionsetselect" data-placeholder="পরীক্ষার নাম">
+                      <select class="form-control select2-custom" id="questionsetselect" data-placeholder="পরীক্ষার নাম">
                         <option value="" selected disabled>পরীক্ষার নাম</option>
                         {{-- @foreach ($exams as $foreachexam)
                             <option value="{{ $foreachexam->name }},{{ $foreachexam->id }}">{{ $foreachexam->name }}

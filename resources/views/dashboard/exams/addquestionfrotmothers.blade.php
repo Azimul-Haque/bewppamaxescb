@@ -31,7 +31,7 @@
                     <div class="card-body">
                       <select class="form-control select2" id="questionsetselect" data-placeholder="পরীক্ষার নাম">
                         <option value="" selected disabled>পরীক্ষার নাম</option>
-                        @foreach ($exams as $foreachexam)
+                        {{-- @foreach ($exams as $foreachexam)
                             <option value="{{ $foreachexam->name }},{{ $foreachexam->id }}">{{ $foreachexam->name }}
                               <span style="font-size: 10px!; color: #bbb;">({{ $foreachexam->examcategory->name }})
                                 @if($foreachexam->courseexams->count() > 0)
@@ -44,6 +44,24 @@
                                     </div>
                                 @endif
                               </span>
+                            </option>
+                        @endforeach --}}
+                        @foreach ($exams as $foreachexam)
+                            @php
+                                // কোর্সের নামগুলো কমা দিয়ে যুক্ত করা হচ্ছে
+                                $courses = $foreachexam->courseexams
+                                    ->map(function($ce) { return $ce->course->name ?? 'N/A'; })
+                                    ->implode(', ');
+                                    
+                                // তারিখ ফরম্যাট করা (যেমন: ১২ জুন, ২০২৪)
+                                $date = $foreachexam->start ? \Carbon\Carbon::parse($foreachexam->start)->format('d M, Y') : 'N/A';
+                            @endphp
+
+                            <option value="{{ $foreachexam->name }},{{ $foreachexam->id }}" 
+                                    data-category="{{ $foreachexam->examcategory->name ?? 'N/A' }}"
+                                    data-courses="{{ $courses }}"
+                                    data-date="{{ $date }}">
+                                {{ $foreachexam->name }}
                             </option>
                         @endforeach
                       </select><br/>

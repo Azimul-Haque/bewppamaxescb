@@ -65,7 +65,7 @@
                                     ->implode(', ');
                                     
                                 // তারিখ ফরম্যাট করা (যেমন: ১২ জুন, ২০২৪)
-                                $date = $foreachexam->start ? \Carbon\Carbon::parse($foreachexam->start)->format('d M, Y') : 'N/A';
+                                $date = $foreachexam->available_from ? \Carbon\Carbon::parse($foreachexam->available_from)->format('d M, Y') : 'N/A';
                             @endphp
 
                             <option value="{{ $foreachexam->name }},{{ $foreachexam->id }}" 

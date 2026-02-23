@@ -32,7 +32,26 @@
                       <select class="form-control select2" id="questionsetselect" data-placeholder="পরীক্ষার নাম">
                         <option value="" selected disabled>পরীক্ষার নাম</option>
                         @foreach ($exams as $foreachexam)
-                            <option value="{{ $foreachexam->name }},{{ $foreachexam->id }}">{{ $foreachexam->name }} <span style="font-size: 10px!; color: #bbb;">({{ $foreachexam->examcategory->name }}) ({{ $foreachexam->examcategory->name }})</span></option>
+                            <option value="{{ $foreachexam->name }},{{ $foreachexam->id }}">{{ $foreachexam->name }}
+                              <span style="font-size: 10px!; color: #bbb;">({{ $foreachexam->examcategory->name }})
+                                @if($exam->courseexams->count() > 0)
+                                    <div class="d-flex flex-wrap" style="gap: 5px;">
+                                        @foreach($exam->courseexams as $index => $ce)
+                                            @if($ce->course != null)
+                                                <span class="badge badge-warning shadow-sm">
+                                                    <i class="fas fa-book-open mr-1"></i>
+                                                    {{ $ce->course->name ?? 'N/A' }}
+                                                </span>
+                                                {{-- যদি কমাও রাখতে চান তবে নিচের কোডটি ব্যবহার করতে পারেন --}}
+                                                {{-- @if(!$loop->last), @endif --}}
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                @else
+                                    {{-- <span class="text-muted small">কোনো কোর্সে যুক্ত নেই</span> --}}
+                                @endif
+                              </span>
+                            </option>
                         @endforeach
                       </select><br/>
                       <form method="post" action="{{ route('dashboard.exams.question.from.others.store', $exam->id) }}">

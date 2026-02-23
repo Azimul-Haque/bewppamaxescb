@@ -34,9 +34,9 @@
                         @foreach ($exams as $foreachexam)
                             <option value="{{ $foreachexam->name }},{{ $foreachexam->id }}">{{ $foreachexam->name }}
                               <span style="font-size: 10px!; color: #bbb;">({{ $foreachexam->examcategory->name }})
-                                @if($exam->courseexams->count() > 0)
+                                @if($foreachexam->courseexams->count() > 0)
                                     <div class="d-flex flex-wrap" style="gap: 5px;">
-                                        @foreach($exam->courseexams as $index => $ce)
+                                        @foreach($foreachexam->courseexams as $index => $ce)
                                             @if($ce->course != null)
                                                 <span class="badge badge-warning shadow-sm">
                                                     <i class="fas fa-book-open mr-1"></i>

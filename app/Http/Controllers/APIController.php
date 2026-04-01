@@ -660,7 +660,8 @@ class APIController extends Controller
         if($softtoken == env('SOFT_TOKEN'))
         {
             $topics = Cache::remember('topics', 10 * 24 * 60 * 60, function () {
-                $topics = Topic::limit(13)->get();
+                // $topics = Topic::limit(12)->get();
+                $topics = Topic::where('parent_id', null)->orderBy('id', 'asc')->get();
                 return $topics;
             });
             return response()->json([

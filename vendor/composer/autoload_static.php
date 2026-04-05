@@ -648,6 +648,7 @@ class ComposerStaticInitd99be2aa22b662638be63ef18831ea06
         'App\\Models\\Notification' => __DIR__ . '/../..' . '/app/Models/Notification.php',
         'App\\Models\\Package' => __DIR__ . '/../..' . '/app/Models/Package.php',
         'App\\Models\\Payment' => __DIR__ . '/../..' . '/app/Models/Payment.php',
+        'App\\Models\\PayoutRequest' => __DIR__ . '/../..' . '/app/Models/PayoutRequest.php',
         'App\\Models\\Question' => __DIR__ . '/../..' . '/app/Models/Question.php',
         'App\\Models\\Questionexplanation' => __DIR__ . '/../..' . '/app/Models/Questionexplanation.php',
         'App\\Models\\Questionimage' => __DIR__ . '/../..' . '/app/Models/Questionimage.php',

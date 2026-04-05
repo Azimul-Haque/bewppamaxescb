@@ -53,6 +53,7 @@ return array(
     'App\\Models\\Notification' => $baseDir . '/app/Models/Notification.php',
     'App\\Models\\Package' => $baseDir . '/app/Models/Package.php',
     'App\\Models\\Payment' => $baseDir . '/app/Models/Payment.php',
+    'App\\Models\\PayoutRequest' => $baseDir . '/app/Models/PayoutRequest.php',
     'App\\Models\\Question' => $baseDir . '/app/Models/Question.php',
     'App\\Models\\Questionexplanation' => $baseDir . '/app/Models/Questionexplanation.php',
     'App\\Models\\Questionimage' => $baseDir . '/app/Models/Questionimage.php',

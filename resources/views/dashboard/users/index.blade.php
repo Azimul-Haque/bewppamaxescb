@@ -225,6 +225,12 @@
                                         </div>
                                     </div>
 
+                                    @if($user->isAmbassador())
+                                      <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#editUserModal{{ $user->id }}" title="Edit">
+                                          <i class="fas fa-hand-holding-usd"></i>
+                                      </button>
+                                    @endif
+
                                     <div class="modal fade text-left" id="deleteUserModal{{ $user->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">

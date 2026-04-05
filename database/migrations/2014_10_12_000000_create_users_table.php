@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('uid')->nullable();
             $table->string('onesignal_id')->nullable();
+            $table->string('referral_code', 6)->unique()->index();
             $table->string('name');
             $table->string('role')->default('user');
             $table->string('mobile')->unique();

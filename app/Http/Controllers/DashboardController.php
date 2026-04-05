@@ -1451,6 +1451,41 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.blogs');
     }
 
+    public function generateCodes()
+    {
+        // ১. শুধুমাত্র এডমিন এটি রান করতে পারবে (নিরাপত্তার জন্য)
+        if (!(auth()->user()->role == 'admin')) {
+            abort(403);
+        }
+
+        // ২. টাইম লিমিট তুলে দেওয়া যাতে ১৭ হাজার ডাটা প্রসেস হতে সময় পায়
+        set_time_limit(0); 
+
+        $count = 0;
+
+        // ৩. চাস্কিং (Chunking) পদ্ধতিতে প্রসেস করা
+        User::whereNull('referral_code')->chunk(200, function ($users) use (&$count) {
+            foreach ($users as $user) {
+                $user->referral_code = $this->makeUniqueCode();
+                $user->save();
+                $count++;
+            }
+        });
+
+        return "সফলভাবে $count জন ইউজারের জন্য ইউনিক কোড জেনারেট করা হয়েছে!";
+    }
+
+    /**
+     * ইউনিক কোড তৈরির প্রাইভেট ফাংশন
+     */
+    private function makeUniqueCode()
+    {
+        do {
+            $code = strtoupper(Str::random(6));
+        } while (User::where('referral_code', $code)->exists());
+        return $code;
+    }
+
 
     
 

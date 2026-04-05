@@ -87,7 +87,7 @@
                                     <h5 class="modal-title font-weight-bold">Payout Request</h5>
                                     <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
                                 </div>
-                                <form id="payoutRequestForm" method="POST" action="{{ route('dashboard.ambassadors.payout') }}">
+                                <form id="payoutRequestForm" method="POST" action="{{ route('dashboard.ambassadors.payout', $user->id) }}">
                                     @csrf
                                     <div class="modal-body p-4">
                                         <div class="text-center mb-4">

@@ -80,50 +80,72 @@
                         </button>
                     @endif
 
-                    <div class="modal fade" id="requestPayoutModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content border-0 shadow-lg">
+                    <div class="modal fade text-left" id="payoutModal{{ $user->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
                                 <div class="modal-header bg-success text-white">
-                                    <h5 class="modal-title font-weight-bold">Payout Request</h5>
+                                    <h5 class="modal-title"><i class="fas fa-money-check-alt"></i> পে-আউট প্রদান (অ্যাম্বাসেডর)</h5>
                                     <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
                                 </div>
-                                <form id="payoutRequestForm" method="POST" action="{{ route('dashboard.ambassadors.payout', $user->id) }}">
+
+                                <form id="payoutForm{{ $user->id }}" method="post" action="{{ route('dashboard.ambassadors.payout', $user->id) }}">
                                     @csrf
-                                    <div class="modal-body p-4">
-                                        <div class="text-center mb-4">
-                                            <small class="text-muted d-block">আপনার বর্তমান ব্যালেন্স</small>
-                                            <h2 class="text-success font-weight-bold">৳ {{ bangla($user->ambassadorProfile->balance) }}</h2>
+                                    <div class="modal-body">
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="text-muted small">অ্যাম্বাসেডর</label>
+                                                <p class="font-weight-bold mb-0">{{ $user->name }}</p>
+                                            </div>
+                                            <div class="col-md-6 text-right">
+                                                <label class="text-muted small">বর্তমান ব্যালেন্স</label>
+                                                <h5 class="text-success font-weight-bold">৳ {{ $user->ambassadorProfile->balance ?? '0.00' }}</h5>
+                                            </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label>উত্তোলনের পরিমাণ (৳)</label>
-                                            <input type="number" name="amount" class="form-control form-control-lg text-center font-weight-bold" 
-                                                   min="500" max="{{ $user->ambassadorProfile->balance }}" value="500" required>
-                                            <small class="text-danger">* সর্বনিম্ন ৫০০ টাকা উত্তোলন করা যাবে।</small>
-                                        </div>
+                                        <hr>
 
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>পেমেন্ট মেথড</label>
-                                                    <select name="payment_method" class="form-control" required>
-                                                        <option value="bKash">bKash</option>
-                                                        <option value="Nagad">Nagad</option>
-                                                        <option value="Rocket">Rocket</option>
-                                                    </select>
+                                                    <label>টাকার পরিমাণ (Amount)</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text">৳</span></div>
+                                                        <input type="number" name="amount" class="form-control" placeholder="0.00" 
+                                                               max="{{ $user->ambassadorProfile->balance ?? 0 }}" required>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>পার্সোনাল নম্বর</label>
-                                                    <input type="text" name="payment_number" class="form-control" value="{{ $user->mobile }}" required>
+                                                    <label>পেমেন্ট মেথড</label>
+                                                    <select name="payment_method" class="form-control" required>
+                                                        <option value="bKash">bKash (বিকাশ)</option>
+                                                        <option value="Nagad">Nagad (নগদ)</option>
+                                                        <option value="Rocket">Rocket (রকেট)</option>
+                                                        <option value="Bank">Bank Transfer</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label>মোবাইল নম্বর (যেখানে টাকা পাঠিয়েছেন)</label>
+                                            <input type="text" name="payment_number" class="form-control" value="{{ $user->mobile }}" placeholder="017XXXXXXXX" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>ট্রানজেকশন আইডি (Transaction ID)</label>
+                                            <input type="text" name="transaction_id" class="form-control" placeholder="যেমন: TRN12345678" required>
+                                            <small class="text-muted">বিকাশ/নগদ থেকে প্রাপ্ত ট্রানজেকশন আইডিটি এখানে দিন।</small>
+                                        </div>
+
                                     </div>
-                                    <div class="modal-footer bg-light">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">বাতিল</button>
-                                        <button type="button" onclick="submitPayoutRequest()" class="btn btn-success px-4 font-weight-bold">অনুরোধ পাঠান</button>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                                        <button type="button" class="btn btn-success" onclick="confirmPayout('{{ $user->id }}')">
+                                            <i class="fas fa-paper-plane"></i> পেমেন্ট কনফার্ম করুন
+                                        </button>
                                     </div>
                                 </form>
                             </div>

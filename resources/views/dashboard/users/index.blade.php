@@ -300,6 +300,7 @@
 	                		<option value="admin">এডমিন</option>
 							       <option value="manager">ম্যানেজার</option>
                      <option value="volunteer">ভলান্টিয়ার</option>
+                     <option value="ambassador">ভলান্টিয়ার</option>
 	                		<option value="user">ব্যবহারকারী</option>
 							{{-- <option value="accountant">একাউন্টেন্ট</option> --}}
 	                	</select>

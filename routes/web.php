@@ -86,7 +86,7 @@ Route::get('/dashboard/users/{id}/delete', 'DashboardController@deleteUser')->na
 Route::post('/dashboard/users/{id}/single/notification', 'DashboardController@sendSingleNotification')->name('dashboard.users.singlenotification');
 Route::post('/dashboard/users/{id}/single/sms', 'DashboardController@sendSingleSMS')->name('dashboard.users.singlesms');
 Route::post('/dashboard/ambassadors/{id}/payout', 'DashboardController@givePayout')->name('dashboard.ambassadors.payout');
-Route::get('/dashboard/ambassadors/{id}/payout', 'DashboardController@givePayout')->name('dashboard.ambassadors.paymeants');
+Route::get('/dashboard/ambassadors/payouts', 'DashboardController@givePayout')->name('dashboard.ambassadors.payouts');
 
 Route::get('/dashboard/payments', 'DashboardController@getPayments')->name('dashboard.payments');
 Route::get('/dashboard/payments/{search}', 'DashboardController@getPaymentsSearch')->name('dashboard.payments.search');

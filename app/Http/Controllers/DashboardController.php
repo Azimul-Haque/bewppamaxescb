@@ -274,16 +274,6 @@ class DashboardController extends Controller
                     ->withUser($user);
     }
 
-    public function getUserWithOtherPage($id)
-    {
-        $user = User::find($id);
-
-        // dd($totalexpense);
-
-        return view('dashboard.users.singleother')
-                    ->withUser($user);
-    }
-
     public function storeUser(Request $request)
     {
         // dd(serialize($request->sitecheck));

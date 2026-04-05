@@ -124,7 +124,7 @@
                                         </button>
 
                                         @if($user->isAmbassador())
-                                          <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#editUserModal{{ $user->id }}" title="Edit">
+                                          <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#payoutModal{{ $user->id }}" title="Edit">
                                               <i class="fas fa-hand-holding-usd"></i>
                                           </button>
                                         @endif

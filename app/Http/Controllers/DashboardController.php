@@ -373,22 +373,20 @@ class DashboardController extends Controller
     public function ambassadorsPayoutsList()
     {
         $stats = [
-                'total_payout_amount' => PayoutRequest::sum('amount'),
-                'total_ambassadors' => AmbassadorProfile::count(),
-                // ১ জনের বদলে সেরা ৫ জনকে ধরা হচ্ছে
-                'top_earners' => AmbassadorProfile::with('user')
-                                    ->orderBy('total_earned', 'desc')
-                                    ->take(5)
-                                    ->get(),
-            ];
+            'total_payout_amount' => PayoutRequest::sum('amount'),
+            'total_ambassadors' => AmbassadorProfile::count(),
+            // ১ জনের বদলে সেরা ৫ জনকে ধরা হচ্ছে
+            'top_earners' => AmbassadorProfile::with('user')
+                                ->orderBy('total_earned', 'desc')
+                                ->take(5)
+                                ->get(),
+        ];
 
-            $payouts = PayoutRequest::with('user.ambassadorProfile')
-                        ->latest()
-                        ->paginate(15);
+        $payouts = PayoutRequest::with('user.ambassadorProfile')
+                    ->latest()
+                    ->paginate(15);
 
-            return view('admin.ambassadors.payouts', compact($stats, 'payouts'));
-
-        return view('dashboard.users.ambassadorspayouts', compact('stats', 'payouts'));
+        return view('dashboard.users.ambassadorspayouts', compact($stats, 'payouts'));
     }
 
 

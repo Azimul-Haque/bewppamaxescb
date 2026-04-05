@@ -73,13 +73,10 @@
                             <h4 class="text-dark font-weight-bold mb-0">৳ {{ bangla($user->ambassadorProfile->total_earned) }}</h4>
                         </div>
                     </div>
-                    @if($user->ambassadorProfile->balance >= 500)
-                        <button class="btn btn-success btn-sm btn-block mt-3 pulse-green"><i class="fas fa-wallet"></i> পে-আউট করুন</button>
-                    @endif
 
                     @if($user->ambassadorProfile->balance >= 500)
                         <button type="button" class="btn btn-success btn-sm btn-block mt-3 pulse-green" data-toggle="modal" data-target="#requestPayoutModal">
-                            <i class="fas fa-hand-holding-usd"></i> টাকা উত্তোলনের অনুরোধ করুন
+                            <i class="fas fa-hand-holding-usd"></i> পে-আউট করুন
                         </button>
                     @endif
 

@@ -31,8 +31,8 @@
             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-cog"></i></span>
 
             <div class="info-box-content">
-                <span class="info-box-text">Firebase UID: <u><i>{{ $user->uid }}</i></u></span>
-                <span class="info-box-text">Onesignal Player ID: <u><i>{{ $user->onesignal_id }}</i></u></span>
+                {{-- <span class="info-box-text">Firebase UID: <u><i>{{ $user->uid }}</i></u></span>
+                <span class="info-box-text">Onesignal Player ID: <u><i>{{ $user->onesignal_id }}</i></u></span> --}}
                 @if($user->isAmbassador())
                   <span class="stat-pill">ব্যালেন্স: ৳ {{ bangla($user->ambassadorProfile->balance) }}</span>
                   <span class="stat-pill">মোট আয়: ৳ {{ bangla($user->ambassadorProfile->total_earned) }}</span>

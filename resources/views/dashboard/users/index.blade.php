@@ -519,4 +519,36 @@
           }
         });
     </script>
+
+    <script>
+    function confirmPayout(userId) {
+        swal({
+            title: "আপনি কি নিশ্চিত?",
+            text: "টাকাটি পাঠানো হয়েছে এবং আপনি এই রেকর্ডটি ডাটাবেসে সেভ করতে চাচ্ছেন?",
+            icon: "warning",
+            buttons: {
+                cancel: {
+                    text: "ফিরে যান",
+                    value: null,
+                    visible: true,
+                    className: "btn btn-secondary",
+                    closeModal: true,
+                },
+                confirm: {
+                    text: "হ্যাঁ, কনফার্ম করুন!",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-success",
+                    closeModal: true
+                }
+            },
+            dangerMode: false,
+        }).then((willSubmit) => {
+            if (willSubmit) {
+                // যদি ইউজার কনফার্ম করে, তবে ফর্মটি সাবমিট হবে
+                document.getElementById('payoutForm' + userId).submit();
+            }
+        });
+    }
+    </script>
 @endsection

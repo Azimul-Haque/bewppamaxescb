@@ -520,26 +520,33 @@
         });
     </script>
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> --}}
     <script>
     function confirmPayout(userId) {
-        // এখানে swal() এর বদলে Swal.fire() ব্যবহার করা হয়েছে
-        Swal.fire({
-            title: "আপনি কি নিশ্চিত?",
-            text: "টাকাটি পাঠানো হয়েছে এবং আপনি এই রেকর্ডটি ডাটাবেসে সেভ করতে চাচ্ছেন?",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#28a745", // Success color
-            cancelButtonColor: "#6c757d",
-            confirmButtonText: "হ্যাঁ, কনফার্ম করুন!",
-            cancelButtonText: "ফিরে যান",
-            reverseButtons: true // বাটনগুলোর পজিশন ঠিক রাখার জন্য
-        }).then((result) => {
-            // SweetAlert2 তে result.isConfirmed ব্যবহার করতে হয়
-            if (result.isConfirmed) {
-                document.getElementById('payoutForm' + userId).submit();
-            }
-        });
+        // ১. প্রথমে ফর্মটি সিলেক্ট করুন
+        var form = document.getElementById('payoutForm' + userId);
+
+        // ২. ব্রাউজারের নেটিভ ভ্যালিডেশন চেক করুন (required, min, max ইত্যাদি)
+        if (form.checkValidity()) {
+            // ৩. যদি সব ফিল্ড ঠিক থাকে, তবেই Swal দেখাবে
+            Swal.fire({
+                title: "আপনি কি নিশ্চিত?",
+                text: "টাকাটি পাঠানো হয়েছে এবং আপনি এই রেকর্ডটি ডাটাবেসে সেভ করতে চাচ্ছেন?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#28a745",
+                cancelButtonColor: "#6c757d",
+                confirmButtonText: "হ্যাঁ, কনফার্ম করুন!",
+                cancelButtonText: "ফিরে যান",
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit(); // সব ঠিক থাকলে সাবমিট হবে
+                }
+            });
+        } else {
+            // ৪. যদি কোনো ফিল্ড বাকি থাকে, তবে ব্রাউজারকে এরর দেখাতে বলুন
+            form.reportValidity();
+        }
     }
     </script>
 @endsection

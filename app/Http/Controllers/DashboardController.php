@@ -370,7 +370,26 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.users');
     }
 
-    
+    public function ambassadorsPayoutsList()
+    {
+        // ১. এগ্রিগেটেড স্ট্যাটাস (Aggregates)
+        $stats = [
+            'total_payout_amount' => PayoutRequest::sum('amount'),
+            'total_ambassadors' => AmbassadorProfile::count(),
+            'top_ambassador' => AmbassadorProfile::with('user')
+                                ->orderBy('total_earned', 'desc')
+                                ->first(),
+            // যদি আপনার স্ট্যাটাস কলাম থাকে তবে পেন্ডিং এমাউন্ট বের করা ভালো
+            // 'pending_amount' => PayoutRequest::where('status', 'pending')->sum('amount'),
+        ];
+
+        // ২. পে-আউট লিস্ট (Eager Loading ব্যবহার করা হয়েছে N+1 প্রবলেম এড়াতে)
+        $payouts = PayoutRequest::with('user.ambassadorProfile')
+                    ->latest()
+                    ->paginate(15);
+
+        return view('admin.ambassadors.payouts', compact('stats', 'payouts'));
+    }
 
 
 

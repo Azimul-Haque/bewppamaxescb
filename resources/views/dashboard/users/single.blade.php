@@ -91,43 +91,6 @@
         </div>
 
         <div class="col-md-8">
-            <div class="card shadow-sm border-0 mb-4">
-                <div class="card-header bg-white py-3">
-                    <h5 class="card-title font-weight-bold mb-0">
-                        <span class="card-title-icon bg-soft-primary"><i class="fas fa-list-ul"></i></span> পরীক্ষার ইতিহাস
-                    </h5>
-                </div>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table table-modern table-hover mb-0">
-                            <thead>
-                                <tr>
-                                    <th>পরীক্ষার নাম ও কোর্স</th>
-                                    <th class="text-center">প্রাপ্ত নম্বর</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse($user->meritlists as $examdata)
-                                <tr>
-                                    <td>
-                                        <div class="font-weight-bold text-dark">{{ $examdata->exam->name }}</div>
-                                        <small class="text-muted"><i class="fas fa-book-open fa-xs"></i> {{ $examdata->course->name }}</small>
-                                    </td>
-                                    <td class="text-center">
-                                        <span class="badge badge-info px-3 py-2" style="font-size: 14px;">{{ bangla($examdata->marks) }}</span>
-                                    </td>
-                                </tr>
-                                @empty
-                                <tr>
-                                    <td colspan="2" class="text-center py-4 text-muted font-italic">এখনো কোনো পরীক্ষায় অংশগ্রহণ করা হয়নি।</td>
-                                </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
             @if($user->isAmbassador())
             <div class="card shadow-sm border-0">
                 <div class="card-header bg-white py-3">
@@ -168,6 +131,43 @@
                 </div>
             </div>
             @endif
+            
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-header bg-white py-3">
+                    <h5 class="card-title font-weight-bold mb-0">
+                        <span class="card-title-icon bg-soft-primary"><i class="fas fa-list-ul"></i></span> পরীক্ষার ইতিহাস
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-modern table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>পরীক্ষার নাম ও কোর্স</th>
+                                    <th class="text-center">প্রাপ্ত নম্বর</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($user->meritlists as $examdata)
+                                <tr>
+                                    <td>
+                                        <div class="font-weight-bold text-dark">{{ $examdata->exam->name }}</div>
+                                        <small class="text-muted"><i class="fas fa-book-open fa-xs"></i> {{ $examdata->course->name }}</small>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="badge badge-info px-3 py-2" style="font-size: 14px;">{{ bangla($examdata->marks) }}</span>
+                                    </td>
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="2" class="text-center py-4 text-muted font-italic">এখনো কোনো পরীক্ষায় অংশগ্রহণ করা হয়নি।</td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

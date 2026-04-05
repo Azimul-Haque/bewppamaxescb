@@ -123,9 +123,12 @@
                                             <i class="fas fa-bell"></i>
                                         </button>
 
-                                        <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#editUserModal{{ $user->id }}" title="Edit">
-                                            <i class="fas fa-user-edit"></i>
-                                        </button>
+                                        @if($user->isAmbassador())
+                                          <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#editUserModal{{ $user->id }}" title="Edit">
+                                              <i class="fas fa-user-edit"></i>
+                                          </button>
+                                        @endif
+                                        
 
                                         <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#editUserModal{{ $user->id }}" title="Edit">
                                             <i class="fas fa-user-edit"></i>

@@ -1116,7 +1116,53 @@ class DashboardController extends Controller
         return redirect()->back();
     }
 
+    public function givePayout(Request $request, $id)
+    {
+        // ১. ভ্যালিডেশন
+        $request->validate([
+            'amount' => 'required|numeric|min:1',
+            'payment_method' => 'required|string',
+            'payment_number' => 'required|string',
+            'transaction_id' => 'required|string|unique:payout_requests,transaction_id',
+        ]);
 
+        // ২. ইউজার এবং তার অ্যাম্বাসেডর প্রোফাইল খুঁজে বের করা
+        $user = User::with('ambassadorProfile')->findOrFail($id);
+
+        // ৩. চেক করা যে ইউজারের পর্যাপ্ত ব্যালেন্স আছে কি না
+        if (!$user->ambassadorProfile || $user->ambassadorProfile->balance < $request->amount) {
+            return redirect()->back()->with('error', 'দুঃখিত! ইউজারের পর্যাপ্ত ব্যালেন্স নেই।');
+        }
+
+        // ৪. ডাটাবেস ট্রানজেকশন শুরু (Safety First)
+        DB::beginTransaction();
+
+        try {
+            // ক. Payout Table-এ এন্ট্রি করা (হিসাব রাখার জন্য)
+            PayoutRequest::create([
+                'user_id' => $user->id,
+                'amount' => $request->amount,
+                'payment_method' => $request->payment_method,
+                'payment_number' => $request->payment_number,
+                'transaction_id' => $request->transaction_id,
+                // 'status' => 'completed' // যদি আপনার স্কিমাতে স্ট্যাটাস কলাম থাকে
+            ]);
+
+            // খ. Ambassador Profile থেকে ব্যালেন্স কমিয়ে দেওয়া
+            // আমরা এখানে decrement ব্যবহার করছি যা atomic operation নিশ্চিত করে
+            $user->ambassadorProfile()->decrement('balance', $request->amount);
+
+            // সবকিছু ঠিক থাকলে ডাটাবেসে সেভ করা
+            DB::commit();
+
+            return redirect()->back()->with('success', 'পেমেন্ট সফলভাবে সম্পন্ন হয়েছে এবং রেকর্ড আপডেট করা হয়েছে।');
+
+        } catch (\Exception $e) {
+            // কোনো সমস্যা হলে আগের অবস্থায় ফিরে যাওয়া
+            DB::rollBack();
+            return redirect()->back()->with('error', 'দুঃখিত! কারিগরি সমস্যার কারণে পেমেন্ট রেকর্ড করা যায়নি।');
+        }
+    }
 
     public function getNotifications()
     {

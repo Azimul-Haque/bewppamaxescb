@@ -107,36 +107,12 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>টাকার পরিমাণ (সর্বনিম্ন ৫০০ ৳)</label>
+                                                    <label>টাকার পরিমাণ (Amount)</label>
                                                     <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text">৳</span>
-                                                        </div>
-                                                        
-                                                        <input type="number" 
-                                                               name="amount" 
-                                                               class="form-control @if(($user->ambassadorProfile->balance ?? 0) < 500) is-invalid @endif" 
-                                                               placeholder="0.00" 
-                                                               {{-- ব্যালেন্স ৫০০ এর কম হলে ইনপুটটি ডিজেবল থাকবে --}}
-                                                               @if(($user->ambassadorProfile->balance ?? 0) < 500) disabled @endif
-                                                               
-                                                               {{-- মডার্ন লজিক: মিনিমাম সবসময় ৫০০, ম্যাক্সিমাম ইউজারের ব্যালেন্স --}}
-                                                               min="500" 
-                                                               max="{{ $user->ambassadorProfile->balance ?? 0 }}" 
-                                                               
-                                                               {{-- ডিফল্ট ভ্যালু হিসেবে ৫০০ সেট করা ভালো প্র্যাকটিস --}}
-                                                               value="{{ ($user->ambassadorProfile->balance ?? 0) >= 500 ? 500 : '' }}"
-                                                               required>
+                                                        <div class="input-group-prepend"><span class="input-group-text">৳</span></div>
+                                                        <input type="number" name="amount" class="form-control" placeholder="0.00" 
+                                                               max="{{ $user->ambassadorProfile->balance ?? 0 }}" required>
                                                     </div>
-                                                    
-                                                    {{-- ব্যালেন্স ৫০০ এর কম হলে এই ওয়ার্নিং মেসেজটি দেখাবে --}}
-                                                    @if(($user->ambassadorProfile->balance ?? 0) < 500)
-                                                        <small class="text-danger font-weight-bold mt-1">
-                                                            <i class="fas fa-exclamation-circle"></i> দুঃখিত, ৫০০ টাকার নিচে পে-আউট দেওয়া সম্ভব নয়।
-                                                        </small>
-                                                    @else
-                                                        <small class="text-muted">আপনার বর্তমান ব্যালেন্স: ৳ {{ bangla($user->ambassadorProfile->balance) }}</small>
-                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="col-md-6">

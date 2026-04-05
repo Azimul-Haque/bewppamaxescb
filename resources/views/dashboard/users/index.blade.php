@@ -234,7 +234,7 @@
                                                       <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
                                                   </div>
 
-                                                  <form method="post" action="{{ route('dashboard.ambassadors.payout', $user->id) }}">
+                                                  <form id="payoutForm{{ $user->id }}" method="post" action="{{ route('dashboard.ambassadors.payout', $user->id) }}">
                                                       @csrf
                                                       <div class="modal-body">
                                                           <div class="row mb-3">

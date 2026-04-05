@@ -103,8 +103,8 @@
                                         {{ ucfirst($user->role) }}
                                     </span>
                                     @if($user->isAmbassador())
-                                      <span class="stat-pill"><i class="fas fa-box-open mr-1 text-success"></i> প্যাকেজ: {{ bangla($user->payments->count()) }}</span>
-                                      <span class="stat-pill"><i class="fas fa-file-signature mr-1 text-warning"></i> পরীক্ষা: {{ bangla($user->meritlists->count()) }}</span>
+                                      <span class="stat-pill"><i class="fas fa-box-open mr-1 text-success"></i> ৳ {{ bangla($user->payments->count()) }}</span>
+                                      <span class="stat-pill"><i class="fas fa-file-signature mr-1 text-warning"></i> ৳ {{ bangla($user->meritlists->count()) }}</span>
                                     @endif
                                 </td>
 

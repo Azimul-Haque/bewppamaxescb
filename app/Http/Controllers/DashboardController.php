@@ -386,7 +386,7 @@ class DashboardController extends Controller
                     ->latest()
                     ->paginate(15);
 
-        return view('dashboard.users.ambassadorspayouts', compact($stats, 'payouts'));
+        return view('dashboard.users.ambassadorspayouts', compact('stats', 'payouts'));
     }
 
 

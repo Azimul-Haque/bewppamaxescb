@@ -267,4 +267,33 @@
         });
     });
   </script>
+  <script>
+  function confirmPayout(userId) {
+      // ১. প্রথমে ফর্মটি সিলেক্ট করুন
+      var form = document.getElementById('payoutForm' + userId);
+
+      // ২. ব্রাউজারের নেটিভ ভ্যালিডেশন চেক করুন (required, min, max ইত্যাদি)
+      if (form.checkValidity()) {
+          // ৩. যদি সব ফিল্ড ঠিক থাকে, তবেই Swal দেখাবে
+          Swal.fire({
+              title: "আপনি কি নিশ্চিত?",
+              text: "টাকাটি পাঠানো হয়েছে এবং আপনি এই রেকর্ডটি ডাটাবেসে সেভ করতে চাচ্ছেন?",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#28a745",
+              cancelButtonColor: "#6c757d",
+              confirmButtonText: "হ্যাঁ, কনফার্ম করুন!",
+              cancelButtonText: "ফিরে যান",
+              reverseButtons: true
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  form.submit(); // সব ঠিক থাকলে সাবমিট হবে
+              }
+          });
+      } else {
+          // ৪. যদি কোনো ফিল্ড বাকি থাকে, তবে ব্রাউজারকে এরর দেখাতে বলুন
+          form.reportValidity();
+      }
+  }
+  </script>
 @endsection

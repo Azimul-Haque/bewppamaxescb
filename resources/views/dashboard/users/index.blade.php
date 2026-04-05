@@ -289,9 +289,6 @@
 
                                                       <div class="modal-footer">
                                                           <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
-                                                          <button type="submit" class="btn btn-success" onclick="return confirm('আপনি কি নিশ্চিত যে টাকাটি পাঠানো হয়েছে এবং রেকর্ডটি সেভ করতে চান?')">
-                                                              <i class="fas fa-paper-plane"></i> পেমেন্ট কনফার্ম করুন
-                                                          </button>
                                                           <button type="button" class="btn btn-success" onclick="confirmPayout('{{ $user->id }}')">
                                                               <i class="fas fa-paper-plane"></i> পেমেন্ট কনফার্ম করুন
                                                           </button>

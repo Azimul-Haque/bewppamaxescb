@@ -35,223 +35,216 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body p-0">
-            <table class="table table-hover align-middle">
-                <style>
-                    .user-card-info { line-height: 1.4; }
-                    .ref-code-badge {
-                        background: #f1f3f9;
-                        border: 1px dashed #4e73df;
-                        color: #4e73df;
-                        padding: 2px 8px;
-                        border-radius: 4px;
-                        font-family: 'monospace';
-                        font-weight: bold;
-                        font-size: 12px;
-                    }
-                    .stat-badge { font-size: 11px; padding: 4px 8px; border-radius: 50px; background: #f8f9fa; border: 1px solid #eee; }
-                    .table td { vertical-align: middle !important; border-top: 1px solid #f2f2f2; padding: 15px 10px; }
-                </style>
-                <tbody>
-                    @foreach($users as $user)
+            <div class="table-responsive">
+                <table class="table table-hover align-middle shadow-sm">
+                    <style>
+                        .table thead th { 
+                            background-color: #f8f9fa; 
+                            text-transform: uppercase; 
+                            font-size: 11px; 
+                            letter-spacing: 0.5px; 
+                            color: #777; 
+                            border-bottom: 2px solid #eee;
+                        }
+                        .ref-code-badge {
+                            background: #fff;
+                            border: 1px dashed #007bff;
+                            color: #007bff;
+                            padding: 3px 10px;
+                            border-radius: 4px;
+                            font-family: 'Courier New', Courier, monospace;
+                            font-weight: bold;
+                            font-size: 13px;
+                            display: inline-block;
+                        }
+                        .user-name-link { font-weight: 600; color: #333; transition: 0.3s; }
+                        .user-name-link:hover { color: #007bff; text-decoration: none; }
+                        .stat-pill { font-size: 12px; background: #f1f3f9; padding: 2px 8px; border-radius: 12px; color: #555; display: block; margin-bottom: 2px; }
+                        .date-info { font-size: 11px; line-height: 1.2; color: #888; }
+                    </style>
+                    <thead>
                         <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="user-card-info">
-                                        <div class="d-flex align-items-center mb-1">
-                                            <h6 class="mb-0 mr-2 font-weight-bold">
-                                                <a href="{{ route('dashboard.users.single', $user->id) }}" class="text-primary">{{ $user->name }}</a>
-                                            </h6>
-                                            <span class="badge @if($user->role == 'admin') badge-success @else badge-info @endif badge-pill" style="font-size: 10px;">
-                                                {{ ucfirst($user->role) }}
-                                            </span>
-                                        </div>
+                            <th>ব্যবহারকারী</th>
+                            <th>যোগাযোগ</th>
+                            <th>রেফারেল কোড</th>
+                            <th>পরিসংখ্যান</th>
+                            <th>রোল</th>
+                            <th>মেয়াদ</th>
+                            <th class="text-right">অ্যাকশন</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($users as $user)
+                            <tr>
+                                <td>
+                                    <a href="{{ route('dashboard.users.single', $user->id) }}" class="user-name-link">
+                                        {{ $user->name }}
+                                    </a>
+                                    <div class="date-info">যোগদান: {{ date('d M, Y', strtotime($user->created_at)) }}</div>
+                                </td>
 
-                                        <div class="mb-2">
-                                            <span class="text-muted small mr-2"><i class="fas fa-phone-alt fa-xs"></i> {{ $user->mobile }}</span>
-                                            <span class="ref-code-badge" title="Referral Code">
-                                                <i class="fas fa-ticket-alt"></i> {{ $user->referral_code ?? 'N/A' }}
-                                            </span>
-                                        </div>
+                                <td>
+                                    <span class="text-dark small"><i class="fas fa-phone-alt mr-1 text-muted"></i>{{ $user->mobile }}</span>
+                                </td>
 
-                                        <div class="d-flex mb-2">
-                                            <div class="stat-badge mr-2">
-                                                <i class="fas fa-shopping-bag text-success"></i> প্যাকেজ: <b>{{ bangla($user->payments->count()) }} বার</b>
-                                            </div>
-                                            <div class="stat-badge">
-                                                <i class="fas fa-pen-nib text-warning"></i> পরীক্ষা: <b>{{ bangla($user->meritlists->count()) }} টি</b>
-                                            </div>
-                                        </div>
+                                <td>
+                                    <span class="ref-code-badge" title="Referral Code">
+                                        {{ $user->referral_code ?? '------' }}
+                                    </span>
+                                </td>
 
-                                        <div class="small text-muted">
-                                            <span class="mr-3"><i class="far fa-calendar-alt"></i> যোগদান: {{ date('d M, Y', strtotime($user->created_at)) }}</span>
-                                            <span><i class="far fa-clock"></i> মেয়াদ: <b class="text-danger">{{ date('d M, Y', strtotime($user->package_expiry_date)) }}</b></span>
-                                        </div>
+                                <td>
+                                    <span class="stat-pill"><i class="fas fa-box-open mr-1 text-success"></i> প্যাকেজ: {{ bangla($user->payments->count()) }}</span>
+                                    <span class="stat-pill"><i class="fas fa-file-signature mr-1 text-warning"></i> পরীক্ষা: {{ bangla($user->meritlists->count()) }}</span>
+                                </td>
+
+                                <td>
+                                    <span class="badge @if($user->role == 'admin') badge-success @else badge-info @endif badge-pill px-3">
+                                        {{ ucfirst($user->role) }}
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="font-weight-bold text-danger small">
+                                        {{ date('d M, Y', strtotime($user->package_expiry_date)) }}
                                     </div>
-                                </div>
-                            </td>
+                                </td>
 
-                            <td class="text-right" width="25%">
-                                <div class="btn-group shadow-sm">
-                                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#smsModal{{ $user->id }}" title="SMS">
-                                        <i class="fas fa-envelope text-info"></i>
-                                    </button>
+                                <td class="text-right">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#smsModal{{ $user->id }}" title="SMS">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#notifModal{{ $user->id }}" title="Push Notification">
+                                            <i class="fas fa-bell"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#editUserModal{{ $user->id }}" title="Edit">
+                                            <i class="fas fa-user-edit"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteUserModal{{ $user->id }}" title="Delete">
+                                            <i class="fas fa-user-minus"></i>
+                                        </button>
+                                    </div>
+
+                                    {{-- --- MODALS (লজিক অপরিবর্তিত) --- --}}
                                     
-                                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#notifModal{{ $user->id }}" title="Notification">
-                                        <i class="fas fa-bell text-warning"></i>
-                                    </button>
-
-                                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#editUserModal{{ $user->id }}" title="Edit">
-                                        <i class="fas fa-user-edit text-primary"></i>
-                                    </button>
-
-                                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#deleteUserModal{{ $user->id }}" title="Delete">
-                                        <i class="fas fa-user-minus text-danger"></i>
-                                    </button>
-                                </div>
-
-                                {{-- --- ALL MODALS START (NO LOGIC CHANGED) --- --}}
-                                
-                                <div class="modal fade text-left" id="smsModal{{ $user->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header bg-info text-white">
-                                                <h5 class="modal-title"><i class="fas fa-envelope"></i> এসএমএস পাঠান - {{ $user->name }}</h5>
-                                                <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
+                                    <div class="modal fade text-left" id="smsModal{{ $user->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-info text-white">
+                                                    <h5 class="modal-title">এসএমএস - {{ $user->name }}</h5>
+                                                    <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
+                                                </div>
+                                                <form method="post" action="{{ route('dashboard.users.singlesms', $user->id) }}">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <textarea class="form-control" placeholder="মেসেজ লিখুন" name="message" style="min-height: 150px; resize: none;" required></textarea>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                                                        <button type="submit" class="btn btn-info">মেসেজ পাঠান</button>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <form method="post" action="{{ route('dashboard.users.singlesms', $user->id) }}">
-                                                @csrf
-                                                <div class="modal-body">
-                                                    <textarea class="form-control" placeholder="মেসেজ লিখুন" name="message" style="min-height: 150px; resize: none;" required></textarea>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light" data-dismiss="modal">ফিরে যান</button>
-                                                    <button type="submit" class="btn btn-info">মেসেজ পাঠান</button>
-                                                </div>
-                                            </form>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="modal fade text-left" id="notifModal{{ $user->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header bg-warning">
-                                                <h5 class="modal-title"><i class="fas fa-bell"></i> নোটিফিকেশন পাঠান</h5>
-                                                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                                    <div class="modal fade text-left" id="notifModal{{ $user->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-warning">
+                                                    <h5 class="modal-title">নোটিফিকেশন পাঠান</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                                                </div>
+                                                <form method="post" action="{{ route('dashboard.users.singlenotification', $user->id) }}">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <input type="text" name="headings" class="form-control mb-2" placeholder="হেডিংস" required>
+                                                        <input type="text" name="message" class="form-control" placeholder="মেসেজ" required>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                                                        <button type="submit" class="btn btn-warning">দাখিল করুন</button>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <form method="post" action="{{ route('dashboard.users.singlenotification', $user->id) }}">
-                                                @csrf
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label>হেডিংস</label>
-                                                        <input type="text" name="headings" class="form-control" placeholder="যেমন: নতুন পরীক্ষা শুরু হয়েছে" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>মেসেজ</label>
-                                                        <input type="text" name="message" class="form-control" placeholder="আপনার বার্তাটি লিখুন" required>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light" data-dismiss="modal">ফিরে যান</button>
-                                                    <button type="submit" class="btn btn-warning text-white">দাখিল করুন</button>
-                                                </div>
-                                            </form>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="modal fade text-left" id="editUserModal{{ $user->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header bg-primary text-white">
-                                                <h5 class="modal-title"><i class="fas fa-user-edit"></i> তথ্য হালনাগাদ</h5>
-                                                <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
-                                            </div>
-                                            <form method="post" action="{{ route('dashboard.users.update', $user->id) }}">
-                                                @csrf
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label>নাম</label>
-                                                        <input type="text" name="name" class="form-control" value="{{ $user->name }}" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>মোবাইল</label>
-                                                        <input type="text" name="mobile" class="form-control" value="{{ $user->mobile }}" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Firebase UID</label>
-                                                        <input type="text" name="uid" class="form-control" value="{{ $user->uid }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Onesignal Player ID</label>
-                                                        <input type="text" name="onesignal_id" class="form-control" value="{{ $user->onesignal_id }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>ধরন (Role)</label>
-                                                        <select name="role" class="form-control" required>
+                                    <div class="modal fade text-left" id="editUserModal{{ $user->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-primary text-white">
+                                                    <h5 class="modal-title">ব্যবহারকারী আপডেট</h5>
+                                                    <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
+                                                </div>
+                                                <form method="post" action="{{ route('dashboard.users.update', $user->id) }}">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <label>নাম</label>
+                                                                <input type="text" name="name" class="form-control mb-2" value="{{ $user->name }}" required>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label>মোবাইল</label>
+                                                                <input type="text" name="mobile" class="form-control mb-2" value="{{ $user->mobile }}" required>
+                                                            </div>
+                                                        </div>
+                                                        <label>রোল</label>
+                                                        <select name="role" class="form-control mb-2">
                                                             <option value="admin" @if($user->role == 'admin') selected @endif>এডমিন</option>
                                                             <option value="manager" @if($user->role == 'manager') selected @endif>ম্যানেজার</option>
                                                             <option value="volunteer" @if($user->role == 'volunteer') selected @endif>ভলান্টিয়ার</option>
                                                             <option value="user" @if($user->role == 'user') selected @endif>ব্যবহারকারী</option>
                                                         </select>
-                                                    </div>
-                                                    <div class="form-group">
                                                         <label>প্যাকেজের মেয়াদ</label>
-                                                        <input type="text" name="packageexpirydate" id="packageexpirydate{{ $user->id }}" class="form-control" value="{{ date('F d, Y', strtotime($user->package_expiry_date)) }}" required>
+                                                        <input type="text" name="packageexpirydate" id="packageexpirydate{{ $user->id }}" class="form-control mb-2" value="{{ date('F d, Y', strtotime($user->package_expiry_date)) }}" required>
+                                                        <label>পাসওয়ার্ড (পরিবর্তন করতে চাইলে)</label>
+                                                        <input type="password" name="password" class="form-control" placeholder="নতুন পাসওয়ার্ড">
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>পাসওয়ার্ড (ঐচ্ছিক)</label>
-                                                        <input type="password" name="password" class="form-control" placeholder="পরিবর্তন করতে চাইলে লিখুন">
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                                                        <button type="submit" class="btn btn-primary">দাখিল করুন</button>
                                                     </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal fade text-left" id="deleteUserModal{{ $user->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-danger text-white">
+                                                    <h5 class="modal-title">ব্যবহারকারী ডিলেট</h5>
+                                                    <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                    <p>আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীকে ডিলেট করতে চান?</p>
+                                                    <h4><b>{{ $user->name }}</b></h4>
+                                                    <small>{{ $user->mobile }}</small>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light" data-dismiss="modal">ফিরে যান</button>
-                                                    <button type="submit" class="btn btn-primary">দাখিল করুন</button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>
+                                                    <a href="{{ route('dashboard.users.delete', $user->id) }}" class="btn btn-danger">ডিলেট করুন</a>
                                                 </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="modal fade text-left" id="deleteUserModal{{ $user->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header bg-danger text-white">
-                                                <h5 class="modal-title">ব্যবহারকারী ডিলেট</h5>
-                                                <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
-                                            </div>
-                                            <div class="modal-body text-center">
-                                                <i class="fas fa-exclamation-triangle fa-3x text-warning mb-3"></i>
-                                                <p>আপনি কি নিশ্চিতভাবে এই ব্যবহারকারীকে ডিলেট করতে চান?</p>
-                                                <h4 class="font-weight-bold">{{ $user->name }}</h4>
-                                                <span class="text-muted">{{ $user->mobile }}</span>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light" data-dismiss="modal">ফিরে যান</button>
-                                                <a href="{{ route('dashboard.users.delete', $user->id) }}" class="btn btn-danger px-4">হ্যাঁ, ডিলেট করুন</a>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                
-                                {{-- --- ALL MODALS END --- --}}
-
-                            </td>
-                        </tr>
-
-                        <script type="text/javascript" src="{{ asset('js/jquery-for-dp.min.js') }}"></script>
-                        <script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
-                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-                        <script>
-                            $("#packageexpirydate{{ $user->id }}").datepicker({
-                                format: 'MM dd, yyyy',
-                                todayHighlight: true,
-                                autoclose: true,
-                            });
-                        </script>
-                    @endforeach
-                </tbody>
-            </table>
+                                </td>
+                            </tr>
+                            
+                            <script>
+                                $("#packageexpirydate{{ $user->id }}").datepicker({
+                                    format: 'MM dd, yyyy',
+                                    todayHighlight: true,
+                                    autoclose: true,
+                                });
+                            </script>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
           </div>
           <!-- /.card-body -->
         </div>

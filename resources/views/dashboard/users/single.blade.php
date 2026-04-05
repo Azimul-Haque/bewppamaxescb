@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     @if($user->ambassadorProfile->balance >= 500)
-                        <button class="btn btn-success btn-sm btn-block mt-3 pulse-green"><i class="fas fa-wallet"></i> পে-আউট রিকোয়েস্ট করুন</button>
+                        <button class="btn btn-success btn-sm btn-block mt-3 pulse-green"><i class="fas fa-wallet"></i> পে-আউট করুন</button>
                     @endif
                 </div>
             </div>

@@ -37,6 +37,11 @@ class User extends Authenticatable
         return $this->hasOne(AmbassadorProfile::class);
     }
 
+    public function isAmbassador()
+    {
+        return $this->role === 'ambassador' && $this->ambassadorProfile !== null;
+    }
+
     /**
      * The attributes that are mass assignable.
      *

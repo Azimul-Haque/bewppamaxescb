@@ -28,9 +28,6 @@ class CreateAmbassadorProfilesTable extends Migration
             // সর্বমোট আয় (আজ পর্যন্ত কত টাকা ইনকাম করেছে - Track Record এর জন্য)
             $table->decimal('total_earned', 10, 2)->default(0.00);
 
-            // ক্যাম্পাস বা কলেজের নাম (অপশনাল)
-            $table->string('college_name')->nullable();
-
             // স্ট্যাটাস (অ্যাক্টিভ না কি ডিজেবল)
             $table->boolean('is_active')->default(true);
 

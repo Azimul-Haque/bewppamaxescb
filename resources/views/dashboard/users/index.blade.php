@@ -14,6 +14,7 @@
             <h3 class="card-title">ব্যবহারকারীগণ</h3>
             <small><a href="{{ route('dashboard.userssort')  }}" style="margin-left: 5px;">সর্বোচ্চ পরীক্ষার্থী</a></small>
             <small><a href="{{ route('dashboard.expiredusers')  }}" style="margin-left: 5px;">মেয়াদোত্তীর্ণ পরীক্ষার্থী</a></small>
+            <small><a href="{{ route('dashboard.expiredusers')  }}" style="margin-left: 5px;">অ্যাম্বাসেডর পেমেন্ট তালিকা</a></small>
 
             <div class="card-tools">
               <form class="form-inline form-group-lg" action="">

@@ -103,8 +103,8 @@
                                         {{ ucfirst($user->role) }}
                                     </span>
                                     @if($user->isAmbassador())
-                                      <span class="stat-pill"><i class="fas fa-box-open mr-1 text-success"></i> ৳ {{ bangla($user->ambassadorProfile->balance) }}</span>
-                                      <span class="stat-pill"><i class="fas fa-file-signature mr-1 text-warning"></i> ৳ {{ bangla($user->ambassadorProfile->total_earned) }}</span>
+                                      <span class="stat-pill">ব্যালেন্স: ৳ {{ bangla($user->ambassadorProfile->balance) }}</span>
+                                      <span class="stat-pill">মোট আয়: ৳ {{ bangla($user->ambassadorProfile->total_earned) }}</span>
                                     @endif
                                 </td>
 

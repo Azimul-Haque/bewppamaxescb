@@ -76,6 +76,62 @@
                     @if($user->ambassadorProfile->balance >= 500)
                         <button class="btn btn-success btn-sm btn-block mt-3 pulse-green"><i class="fas fa-wallet"></i> পে-আউট করুন</button>
                     @endif
+
+                    @if($user->ambassadorProfile->balance >= 500)
+                        <button type="button" class="btn btn-success btn-sm btn-block mt-3 pulse-green" data-toggle="modal" data-target="#requestPayoutModal">
+                            <i class="fas fa-hand-holding-usd"></i> টাকা উত্তোলনের অনুরোধ করুন
+                        </button>
+                    @endif
+
+                    <div class="modal fade" id="requestPayoutModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content border-0 shadow-lg">
+                                <div class="modal-header bg-success text-white">
+                                    <h5 class="modal-title font-weight-bold">Payout Request</h5>
+                                    <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
+                                </div>
+                                <form id="payoutRequestForm" method="POST" action="{{ route('ambassador.payout.request') }}">
+                                    @csrf
+                                    <div class="modal-body p-4">
+                                        <div class="text-center mb-4">
+                                            <small class="text-muted d-block">আপনার বর্তমান ব্যালেন্স</small>
+                                            <h2 class="text-success font-weight-bold">৳ {{ bangla($user->ambassadorProfile->balance) }}</h2>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>উত্তোলনের পরিমাণ (৳)</label>
+                                            <input type="number" name="amount" class="form-control form-control-lg text-center font-weight-bold" 
+                                                   min="500" max="{{ $user->ambassadorProfile->balance }}" value="500" required>
+                                            <small class="text-danger">* সর্বনিম্ন ৫০০ টাকা উত্তোলন করা যাবে।</small>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>পেমেন্ট মেথড</label>
+                                                    <select name="payment_method" class="form-control" required>
+                                                        <option value="bKash">bKash</option>
+                                                        <option value="Nagad">Nagad</option>
+                                                        <option value="Rocket">Rocket</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>পার্সোনাল নম্বর</label>
+                                                    <input type="text" name="payment_number" class="form-control" value="{{ $user->mobile }}" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer bg-light">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">বাতিল</button>
+                                        <button type="button" onclick="submitPayoutRequest()" class="btn btn-success px-4 font-weight-bold">অনুরোধ পাঠান</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             @endif

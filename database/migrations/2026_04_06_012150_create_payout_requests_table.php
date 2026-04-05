@@ -13,13 +13,15 @@ class CreatePayoutRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ambassador_profiles', function (Blueprint $table) {
+        Schema::create('payout_requests', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->decimal('balance', 10, 2)->default(0.00);      // বর্তমানে পাওনা টাকা
-            $table->decimal('total_earned', 10, 2)->default(0.00); // আজীবন মোট আয়
-            $table->string('college_name')->nullable();           // ক্যাম্পাসের নাম
-            $table->boolean('is_active')->default(true);
+            $table->decimal('amount', 10, 2);
+            $table->string('payment_method'); // bKash, Nagad, etc.
+            $table->string('payment_number');
+            $table->string('transaction_id')->nullable();
+            $table->enum('status', ['pending', 'completed', 'rejected'])->default('pending');
+            $table->text('admin_note')->nullable(); // কোনো মেসেজ দিতে চাইলে
             $table->timestamps();
         });
     }

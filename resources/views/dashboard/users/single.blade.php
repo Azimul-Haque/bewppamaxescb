@@ -75,12 +75,12 @@
                     </div>
 
                     @if($user->ambassadorProfile->balance >= 500)
-                        <button type="button" class="btn btn-success btn-sm btn-block mt-3 pulse-green" data-toggle="modal" data-target="#requestPayoutModal">
+                        <button type="button" class="btn btn-success btn-sm btn-block mt-3 pulse-green" data-toggle="modal" data-target="#payoutModal">
                             <i class="fas fa-hand-holding-usd"></i> পে-আউট করুন
                         </button>
                     @endif
 
-                    <div class="modal fade text-left" id="payoutModal{{ $user->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+                    <div class="modal fade text-left" id="payoutModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header bg-success text-white">

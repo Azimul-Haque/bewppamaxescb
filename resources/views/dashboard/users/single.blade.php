@@ -131,7 +131,7 @@
                 </div>
             </div>
             @endif
-            
+
             <div class="card shadow-sm border-0 mb-4">
                 <div class="card-header bg-white py-3">
                     <h5 class="card-title font-weight-bold mb-0">
@@ -144,6 +144,7 @@
                             <thead>
                                 <tr>
                                     <th>পরীক্ষার নাম ও কোর্স</th>
+                                    <th>সময়</th>
                                     <th class="text-center">প্রাপ্ত নম্বর</th>
                                 </tr>
                             </thead>

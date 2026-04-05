@@ -15,6 +15,7 @@ use App\Models\Blogcategory;
 use App\Models\Meritlist;
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use DB;
 use Hash;
 use Auth;

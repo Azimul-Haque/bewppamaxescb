@@ -250,7 +250,7 @@ Route::get('/dashboard/expenses/{transactiondate}/{user}', 'ExpenseController@ge
 Route::get('/dashboard/deposit/{transactiondate}/{user}', 'ExpenseController@getTodaysDepositList')->name('dashboard.deposit.getlist');
 
 // Generate CODE for all users
-Route::get('/generate-initial-referral-codes', [DashboardController::class, 'generateCodes'])->name('generate.codes');
+Route::get('/generate-initial-referral-codes', 'DashboardController@generateCodes')->name('generate.codes');
 
 // test html question data
 // Route::get('/single/exam/pdf/{softtoken}/{examid}', 'DashboardController@getExamSolvePDF')->name('index.single.exam.solve.pdf');

@@ -102,7 +102,9 @@
                                     <span class="badge @if($user->role == 'admin') badge-success @elseif($user->role == 'ambassador') badge-warning @else badge-info @endif badge-pill px-3">
                                         {{ ucfirst($user->role) }}
                                     </span>
-                                    {{-- {{ $user->isAmbassador() }} --}}
+                                    @if($user->isAmbassador())
+
+                                    @endif
                                 </td>
 
                                 <td>

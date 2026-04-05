@@ -520,7 +520,7 @@
         });
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> --}}
     <script>
     function confirmPayout(userId) {
         // এখানে swal() এর বদলে Swal.fire() ব্যবহার করা হয়েছে

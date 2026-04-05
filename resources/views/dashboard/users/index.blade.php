@@ -256,7 +256,7 @@
                                                                       <label>টাকার পরিমাণ (Amount)</label>
                                                                       <div class="input-group">
                                                                           <div class="input-group-prepend"><span class="input-group-text">৳</span></div>
-                                                                          <input type="number" name="amount" class="form-control" placeholder="0.00" min="{{ $user->ambassadorProfile->balance > 500 }}" 
+                                                                          <input type="number" name="amount" class="form-control" placeholder="0.00" min="{{ $user->ambassadorProfile->balance > 500 ? 500 : 500}}" 
                                                                                  max="{{ $user->ambassadorProfile->balance ?? 0 }}" required>
                                                                       </div>
                                                                   </div>

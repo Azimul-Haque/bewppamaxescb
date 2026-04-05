@@ -1465,7 +1465,7 @@ class DashboardController extends Controller
         $count = 0;
 
         // ৩. চাস্কিং (Chunking) পদ্ধতিতে প্রসেস করা
-        User::whereNull('referral_code')->chunk(200, function ($users) use (&$count) {
+        User::whereNull('referral_code')->chunk(300, function ($users) use (&$count) {
             foreach ($users as $user) {
                 $user->referral_code = $this->makeUniqueCode();
                 $user->save();

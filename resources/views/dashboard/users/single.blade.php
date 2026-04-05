@@ -156,7 +156,7 @@
                                         <small class="text-muted"><i class="fas fa-book-open fa-xs"></i> {{ $examdata->course->name }}</small>
                                     </td>
                                     <td>
-                                        <small class="text-muted">{{ $examdata->course->name }}</small>
+                                        <small class="text-muted">{{ $examdata->created_at }}</small>
                                     </td>
                                     <td class="text-center">
                                         <span class="badge badge-info px-3 py-2" style="font-size: 14px;">{{ bangla($examdata->marks) }}</span>

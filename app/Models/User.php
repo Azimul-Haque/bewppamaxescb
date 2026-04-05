@@ -31,6 +31,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Blog');
     }
 
+    public function ambassadorProfile()
+    {
+        // ১ জন ইউজারের ১টিই অ্যাম্বাসেডর প্রোফাইল থাকবে
+        return $this->hasOne(AmbassadorProfile::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

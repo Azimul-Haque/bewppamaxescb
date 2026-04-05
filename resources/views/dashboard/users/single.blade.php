@@ -155,6 +155,10 @@
                                         <div class="font-weight-bold text-dark">{{ $examdata->exam->name }}</div>
                                         <small class="text-muted"><i class="fas fa-book-open fa-xs"></i> {{ $examdata->course->name }}</small>
                                     </td>
+                                    <td>
+                                        <div class="font-weight-bold text-dark">{{ $examdata->exam->name }}</div>
+                                        <small class="text-muted"><i class="fas fa-book-open fa-xs"></i> {{ $examdata->course->name }}</small>
+                                    </td>
                                     <td class="text-center">
                                         <span class="badge badge-info px-3 py-2" style="font-size: 14px;">{{ bangla($examdata->marks) }}</span>
                                     </td>

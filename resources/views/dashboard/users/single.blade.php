@@ -36,7 +36,7 @@
             <div class="card profile-card shadow-sm border-0">
                 <div class="card-body p-0">
                     <div class="bg-primary p-4 text-center">
-                        <img src="https://ui-avatars.com/api/?name={{ urlencode($user->name) }}&background=random&color=fff&size=128" class="img-circle elevation-2 mb-3" style="width: 100px; border: 3px solid #fff;">
+                        {{-- <img src="https://ui-avatars.com/api/?name={{ urlencode($user->name) }}&background=random&color=fff&size=128" class="img-circle elevation-2 mb-3" style="width: 100px; border: 3px solid #fff;"> --}}
                         <h4 class="text-white font-weight-bold mb-0">{{ $user->name }}</h4>
                         <span class="badge badge-light badge-pill px-3">{{ ucfirst($user->role) }}</span>
                     </div>

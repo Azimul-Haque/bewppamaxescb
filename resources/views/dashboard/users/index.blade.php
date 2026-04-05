@@ -125,7 +125,7 @@
 
                                         @if($user->isAmbassador())
                                           <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#editUserModal{{ $user->id }}" title="Edit">
-                                              <i class="fas fa-hand-holding-dollar"></i>
+                                              <i class="fas fa-hand-holding-usd"></i>
                                           </button>
                                         @endif
                                         

@@ -324,6 +324,12 @@ class DashboardController extends Controller
         $user->name = $request->name;
         $user->mobile = $request->mobile;
         $user->role = $request->role;
+        if ($request->role == 'ambassador') {
+            $user->ambassadorProfile()->firstOrCreate([], [
+                'balance' => 0,
+                'total_earned' => 0
+            ]);
+        }
         $user->package_expiry_date = date('Y-m-d', strtotime($request->packageexpirydate)) . ' 23:59:59';
         // if(!empty($request->sitecheck)) {
         //     $user->sites = implode(',', $request->sitecheck);

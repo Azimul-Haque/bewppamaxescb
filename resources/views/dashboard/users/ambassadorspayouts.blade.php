@@ -74,6 +74,68 @@
         </div>
     </div>
 
-    
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm border-0" style="border-radius: 15px; background: #fff;">
+                <div class="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="card-title font-weight-bold mb-0">
+                        <i class="fas fa-medal text-warning mr-2"></i> সেরা ৫ পারফর্মার (Top Earners)
+                    </h5>
+                    <span class="badge badge-soft-primary px-3 py-2">Hall of Fame</span>
+                </div>
+                <div class="card-body p-0">
+                    <div class="row no-gutters">
+                        @foreach($stats['top_earners'] as $index => $earner)
+                        <div class="col-md-2-4 col-sm-6 border-right"> <div class="text-center p-4">
+                                <div class="mb-3">
+                                    @if($index == 0)
+                                        <span class="badge bg-gradient-warning shadow-sm p-2" style="border-radius: 50%; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 2px solid #fff;">
+                                            <i class="fas fa-crown text-white"></i>
+                                        </span>
+                                    @else
+                                        <span class="badge bg-light border text-dark p-2" style="border-radius: 50%; width: 35px; height: 35px; display: inline-flex; align-items: center; justify-content: center;">
+                                            {{ $index + 1 }}
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <img src="https://ui-avatars.com/api/?name={{ urlencode($earner->user->name) }}&background=random&color=fff&size=100" 
+                                     class="rounded-circle shadow-sm mb-3" 
+                                     style="width: 65px; border: 3px solid #f8f9fa;">
+
+                                <h6 class="font-weight-bold text-dark mb-1 text-truncate" title="{{ $earner->user->name }}">
+                                    {{ $earner->user->name }}
+                                </div>
+                                <div class="text-success font-weight-bold" style="font-size: 16px;">
+                                    ৳ {{ bangla(number_format($earner->total_earned, 0)) }}
+                                </div>
+                                <small class="text-muted">আজীবন আয়</small>
+                                
+                                <div class="progress mt-3" style="height: 4px; border-radius: 10px; background: #eee;">
+                                    <div class="progress-bar bg-primary" 
+                                         role="progressbar" 
+                                         style="width: {{ ($earner->total_earned / $stats['top_earners'][0]->total_earned) * 100 }}%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* ৫ কলামের জন্য কাস্টম গ্রিড (Bootstrap 4 এ ৫ কলামের ডিফল্ট নেই) */
+        @media (min-width: 768px) {
+            .col-md-2-4 {
+                flex: 0 0 20%;
+                max-width: 20%;
+            }
+        }
+        .bg-gradient-warning { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); }
+        .badge-soft-primary { background-color: #e7f1ff; color: #007bff; border-radius: 50px; font-size: 11px; font-weight: bold; }
+    </style>
 </div>
 @endsection

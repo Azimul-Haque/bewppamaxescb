@@ -195,7 +195,8 @@
                                                         <select name="role" class="form-control mb-2">
                                                             <option value="admin" @if($user->role == 'admin') selected @endif>এডমিন</option>
                                                             <option value="manager" @if($user->role == 'manager') selected @endif>ম্যানেজার</option>
-                                                            <option value="volunteer" @if($user->role == 'volunteer') selected @endif>ভলান্টিয়ার</option>
+                                                            <option value="volunteer" @if($user->role == 'volunteer') selected @endif>ভলান্টিয়ার</option>
+                                                            <option value="ambassador">অ্যাম্বাসেডর</option>
                                                             <option value="user" @if($user->role == 'user') selected @endif>ব্যবহারকারী</option>
                                                         </select>
                                                         <label>প্যাকেজের মেয়াদ</label>

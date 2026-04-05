@@ -13,8 +13,13 @@ class CreatePayoutRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('payout_requests', function (Blueprint $table) {
+        Schema::create('ambassador_profiles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->decimal('balance', 10, 2)->default(0.00);      // বর্তমানে পাওনা টাকা
+            $table->decimal('total_earned', 10, 2)->default(0.00); // আজীবন মোট আয়
+            $table->string('college_name')->nullable();           // ক্যাম্পাসের নাম
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

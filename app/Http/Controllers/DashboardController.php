@@ -325,6 +325,7 @@ class DashboardController extends Controller
         $user->mobile = $request->mobile;
         $user->role = $request->role;
         if ($request->role == 'ambassador') {
+            // যদি আগে প্রোফাইল না থাকে তবে তৈরি করবে
             $user->ambassadorProfile()->firstOrCreate([], [
                 'balance' => 0,
                 'total_earned' => 0

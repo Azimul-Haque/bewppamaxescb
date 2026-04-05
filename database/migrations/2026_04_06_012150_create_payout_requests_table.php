@@ -20,8 +20,6 @@ class CreatePayoutRequestsTable extends Migration
             $table->string('payment_method'); // bKash, Nagad, etc.
             $table->string('payment_number');
             $table->string('transaction_id')->nullable();
-            $table->enum('status', ['pending', 'completed', 'rejected'])->default('pending');
-            $table->text('admin_note')->nullable(); // কোনো মেসেজ দিতে চাইলে
             $table->timestamps();
         });
     }

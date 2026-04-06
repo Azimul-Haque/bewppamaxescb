@@ -275,15 +275,17 @@ class APIController extends Controller
         {
             $user = User::where('mobile', substr($phonenumber, -11))->first();
             // dd($user);
-            
-            if($user)
-            return response()->json([
+
+            if($user) {
+                return response()->json([
                 'success' => true,
                 'uid' => $user->uid,
                 'name' => $user->name,
                 'mobile' => $user->mobile,
                 'referral_code' => $user->referral_code,
             ]);
+            }
+            
         } else {
             return response()->json([
                 'success' => false

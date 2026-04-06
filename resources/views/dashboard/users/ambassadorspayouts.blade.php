@@ -163,6 +163,39 @@
                                             <button class="btn btn-sm btn-light disabled" disabled>সম্পন্ন</button>
                                         @endif
                                     </td>
+                                    <div class="modal fade" id="payoutConfirmModal{{ $payout->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content border-0 shadow">
+                                                <form action="{{ route('dashboard.ambassadors.confirm.payout') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="payout_id" value="{{ $payout->id }}">
+                                                    <div class="modal-header bg-primary text-white">
+                                                        <h5 class="modal-title">পেমেন্ট কনফার্মেশন</h5>
+                                                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="alert alert-info py-2">
+                                                            ইউজার: <strong>{{ $payout->user->name }}</strong><br>
+                                                            পরিমাণ: <strong>৳ {{ $payout->amount }}</strong> টাকা<br>
+                                                            পেমেন্ট মেথড: <strong>{{ $payout->payment_method }}</strong>
+                                                            পেমেন্ট নাম্বার: <strong>{{ $payout->payment_number }}</strong>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="font-weight-bold">ট্রানজেকশন আইডি (TxnID)</label>
+                                                            <input type="text" name="transaction_id" class="form-control" placeholder="যেমন: TRN12345678" required>
+                                                            <small class="text-muted">ভবিষ্যৎ রেফারেন্সের জন্য ট্রানজেকশন আইডিটি দিন।</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer bg-light">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">বাতিল</button>
+                                                        <button type="submit" class="btn btn-success px-4">পেমেন্ট সম্পন্ন হয়েছে</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </tr>
                                 @empty
                                 <tr>
@@ -175,39 +208,7 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="payoutConfirmModal{{ $payout->id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content border-0 shadow">
-                        <form action="{{ route('dashboard.ambassadors.confirm.payout') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="payout_id" value="{{ $payout->id }}">
-                            <div class="modal-header bg-primary text-white">
-                                <h5 class="modal-title">পেমেন্ট কনফার্মেশন</h5>
-                                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="alert alert-info py-2">
-                                    ইউজার: <strong>{{ $payout->user->name }}</strong><br>
-                                    পরিমাণ: <strong>৳ {{ $payout->amount }}</strong> টাকা<br>
-                                    পেমেন্ট মেথড: <strong>{{ $payout->payment_method }}</strong>
-                                    পেমেন্ট নাম্বার: <strong>{{ $payout->payment_number }}</strong>
-                                </div>
-                                <div class="form-group">
-                                    <label class="font-weight-bold">ট্রানজেকশন আইডি (TxnID)</label>
-                                    <input type="text" name="transaction_id" class="form-control" placeholder="যেমন: TRN12345678" required>
-                                    <small class="text-muted">ভবিষ্যৎ রেফারেন্সের জন্য ট্রানজেকশন আইডিটি দিন।</small>
-                                </div>
-                            </div>
-                            <div class="modal-footer bg-light">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">বাতিল</button>
-                                <button type="submit" class="btn btn-success px-4">পেমেন্ট সম্পন্ন হয়েছে</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>

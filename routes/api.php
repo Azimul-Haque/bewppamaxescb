@@ -59,6 +59,10 @@ Route::post('/reportquestion', 'APIController@reportQuestion')->name('api.report
 Route::get('/getexamcategories/{softtoken}', 'APIController@getExamCategories')->name('api.getexamcategories');
 Route::get('/getquestionbank/exams/{softtoken}/{getexamcategory}', 'APIController@getQBCatWise')->name('api.getquestionbank.exams');
 
+// Ambassador Code
+Route::get('/ambassador/profile/{uid}', [AmbassadorController::class, 'getProfile']);
+Route::post('/ambassador/payout-request', [AmbassadorController::class, 'requestPayout']);
+
 // for dashboard
 Route::get('/search/topics/{softtoken}', 'APIController@searchTopics')->name('api.search.topics');
 Route::get('/gettopics/parentwise/{softtoken}/{parent_id}', 'APIController@getParentWiseTopics')->name('api.parentwise.topics');

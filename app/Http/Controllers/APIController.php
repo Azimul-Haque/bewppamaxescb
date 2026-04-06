@@ -1267,44 +1267,53 @@ class APIController extends Controller
     }
 
     public function requestAmbassadorPayout(Request $request) {
-        // ১. বেসিক ভ্যালিডেশন
-        if ($request->amount < 500 || $request->amount > 2000) {
-            return response()->json(['success' => false, 'message' => '৫০০ থেকে ২০০০ টাকার মধ্যে রিকোয়েস্ট করুন']);
-        }
-
-        // ২. ডাটাবেস ট্রানজেকশন শুরু (যাতে ব্যালেন্স কাটা এবং রিকুয়েস্ট সেভ হওয়া একসাথে হয়)
-        return DB::transaction(function () use ($request) {
-            $user = User::find($request->user_id);
-            $profile = $user->ambassadorProfile;
-
-            // ৩. ব্যালেন্স চেক (সবচেয়ে গুরুত্বপূর্ণ)
-            if (!$profile || $profile->balance < $request->amount) {
-                return response()->json(['success' => false, 'message' => 'আপনার পর্যাপ্ত ব্যালেন্স নেই!']);
+        try {
+            // ১. বেসিক ভ্যালিডেশন
+            if ($request->amount < 500 || $request->amount > 2000) {
+                return response()->json(['success' => false, 'message' => '৫০০ থেকে ২০০০ টাকার মধ্যে রিকোয়েস্ট করুন']);
             }
 
-            // ৪. পে-আউট রিকুয়েস্ট তৈরি করা
-            // $payoutrequest = new PayoutRequest;
-            // $payoutrequest->user_id = $request->user_id;
-            // $payoutrequest->amount = $request->amount;
-            // $payoutrequest->status = 0;
-            // $payoutrequest->save();
+            // ২. ট্রানজেকশন শুরু
+            return DB::transaction(function () use ($request) {
+                $user = User::find($request->user_id);
+                
+                if (!$user) {
+                    throw new Exception("User not found in database.");
+                }
 
-            PayoutRequest::create([
-                'user_id' => $request->user_id,
-                'amount' => $request->amount,
-                'payment_method' => $request->payment_method, // bKash, Nagad, etc.
-                'payment_number' => $request->payment_number,
-                'status' => 0, 
-            ]);
-            
-            // ৫. ব্যালেন্স ডিডাক্ট করা
-            $profile->decrement('balance', $request->amount);
+                $profile = $user->ambassadorProfile;
 
+                // ৩. ব্যালেন্স চেক
+                if (!$profile || $profile->balance < $request->amount) {
+                    return response()->json(['success' => false, 'message' => 'আপনার পর্যাপ্ত ব্যালেন্স নেই!']);
+                }
+
+                // ৪. পে-আউট রিকুয়েস্ট তৈরি করা
+                // মনে রাখবেন: PayoutRequest মডেলে $fillable এ কলামগুলো থাকতে হবে
+                PayoutRequest::create([
+                    'user_id'        => $request->user_id,
+                    'amount'         => $request->amount,
+                    'payment_method' => $request->payment_method, 
+                    'payment_number' => $request->payment_number,
+                    'status'         => 0, 
+                ]);
+                
+                // ৫. ব্যালেন্স ডিডাক্ট করা
+                $profile->decrement('balance', $request->amount);
+
+                return response()->json([
+                    'success' => true, 
+                    'message' => 'রিকোয়েস্ট সফল হয়েছে এবং ব্যালেন্স সমন্বয় করা হয়েছে।'
+                ]);
+            });
+
+        } catch (Exception $e) {
+            // এই লাইনটি আপনাকে বলে দেবে আসলে সমস্যাটা কোথায় (যেমন: Column not found)
             return response()->json([
-                'success' => true, 
-                'message' => 'রিকোয়েস্ট সফল হয়েছে এবং ব্যালেন্স সমন্বয় করা হয়েছে।'
+                'success' => false, 
+                'message' => 'Server Error: ' . $e->getMessage()
             ]);
-        });
+        }
     }
 
 

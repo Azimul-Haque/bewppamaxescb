@@ -1255,6 +1255,7 @@ class APIController extends Controller
             $payouts = $user->payoutRequests()->latest()->take(10)->get();
 
             return response()->json([
+                'success' => true,
                 'balance' => $profile->balance,
                 'total_earned' => $profile->total_earned,
                 'payouts' => $payouts

@@ -60,7 +60,7 @@ Route::get('/getexamcategories/{softtoken}', 'APIController@getExamCategories')-
 Route::get('/getquestionbank/exams/{softtoken}/{getexamcategory}', 'APIController@getQBCatWise')->name('api.getquestionbank.exams');
 
 // Ambassador Code
-Route::get('/ambassador/profile/{uid}', [AmbassadorController::class, 'getProfile']);
+Route::get('/ambassador/profile/{uid}', [AmbassadorController::class, 'getAmbassadorProfile']);
 Route::post('/ambassador/payout-request', [AmbassadorController::class, 'requestPayout']);
 
 // for dashboard

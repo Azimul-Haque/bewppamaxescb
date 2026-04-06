@@ -62,6 +62,7 @@ Route::get('/getquestionbank/exams/{softtoken}/{getexamcategory}', 'APIControlle
 // Ambassador Code
 Route::get('/ambassador/profile/{softtoken}/{mobile}', 'APIController@getAmbassadorProfile');
 Route::post('/ambassador/payout-request', 'APIController@requestAmbassadorPayout');
+Route::post('/check-promo', 'APIController@checkPromoCode');
 
 // for dashboard
 Route::get('/search/topics/{softtoken}', 'APIController@searchTopics')->name('api.search.topics');

@@ -1318,6 +1318,29 @@ class APIController extends Controller
         }
     }
 
+    public function checkPromoCode(Request $request) {
+        // ৬ অক্ষরের ভ্যালিডেশন
+        $request->validate(['code' => 'required|size:6']);
+
+        $owner = User::where('referral_code', $request->code)->first();
+
+        if (!$owner) {
+            return response()->json(['success' => false, 'message' => 'দুঃখিত, ভুল প্রোমো কোড!']);
+        }
+
+        if ($owner->id == $request->user_id) {
+            return response()->json(['success' => false, 'message' => 'নিজের কোড ব্যবহার করা যাবে না!']);
+        }
+
+        return response()->json([
+            'success' => true,
+            'role' => $owner->role, // ambassador or user
+            'message' => $owner->role == 'ambassador' 
+                ? 'অভিনন্দন! আপনি ১০% ডিসকাউন্ট পাচ্ছেন।' 
+                : 'সফল! পেমেন্টের পর আপনারা উভয়েই ১০ দিন বোনাস পাবেন।'
+        ]);
+    }
+
 
 
 

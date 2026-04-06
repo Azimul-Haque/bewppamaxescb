@@ -280,6 +280,7 @@ class APIController extends Controller
                     'uid' => $user->uid,
                     'name' => $user->name,
                     'mobile' => $user->mobile,
+                    'role' => $user->role,
                     'referral_code' => $user->referral_code,
                 ]);
             } else {

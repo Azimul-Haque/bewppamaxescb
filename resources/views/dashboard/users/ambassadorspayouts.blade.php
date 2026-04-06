@@ -92,7 +92,133 @@
 
     <div class="row">
         <div class="col-12">
-            
+            <div class="card shadow-sm border-0 table-payouts">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="card-title font-weight-bold mb-0">সাম্প্রতিক পে-আউট রিকোয়েস্ট</h5>
+                    <span class="badge badge-primary">{{ $payouts->total() }}টি রিকোয়েস্ট</span>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0" style="vertical-align: middle;">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th width="25%">অ্যাম্বাসেডর</th>
+                                    <th>পেমেন্ট তথ্য</th>
+                                    <th class="text-center">পরিমাণ</th>
+                                    <th class="text-center">স্ট্যাটাস</th>
+                                    <th>ট্রানজেকশন আইডি</th>
+                                    <th class="text-right">তারিখ</th>
+                                    <th class="text-center">অ্যাকশন</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($payouts as $payout)
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <a href="{{ route('dashboard.users.single', $payout->user_id) }}">
+                                                <img src="https://ui-avatars.com/api/?name={{ urlencode($payout->user->name) }}&background=random" class="rounded-circle mr-2" width="35">
+                                            </a>
+                                            <div>
+                                                <a href="{{ route('dashboard.users.single', $payout->user_id) }}" class="user-link d-block font-weight-bold">
+                                                    {{ $payout->user->name }}
+                                                </a>
+                                                <small class="text-muted">{{ $payout->user->mobile }}</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-info">{{ $payout->payment_method }}</span>
+                                        <div class="small mt-1 font-weight-bold">{{ $payout->payment_number }}</div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="font-weight-bold text-dark">৳{{ number_format($payout->amount, 0) }}</span>
+                                    </td>
+                                    <td class="text-center">
+                                        @if($payout->status == 0)
+                                            <span class="badge badge-warning text-dark px-3">পেন্ডিং</span>
+                                        @else
+                                            <span class="badge badge-success px-3">পেইড</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($payout->transaction_id)
+                                            <code class="small text-primary">{{ $payout->transaction_id }}</code>
+                                        @else
+                                            <span class="text-muted small">অপেক্ষমান</span>
+                                        @endif
+                                    </td>
+                                    <td class="text-right small">
+                                        <div class="font-weight-bold">{{ date('d M, Y', strtotime($payout->created_at)) }}</div>
+                                        <div class="text-muted">{{ date('h:i A', strtotime($payout->created_at)) }}</div>
+                                    </td>
+                                    <td class="text-center">
+                                        @if($payout->status == 0)
+                                            <button type="button" 
+                                                class="btn btn-sm btn-primary px-3 pay-now-btn" 
+                                                data-id="{{ $payout->id }}" 
+                                                data-amount="{{ $payout->amount }}" 
+                                                data-user="{{ $payout->user->name }}"
+                                                data-toggle="modal" data-target="#payoutModal">
+                                                পে করুন
+                                            </button>
+                                        @else
+                                            <button class="btn btn-sm btn-light disabled" disabled>সম্পন্ন</button>
+                                        @endif
+                                    </td>
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="7" class="text-center py-5 text-muted">কোন রিকোয়েস্ট পাওয়া যায়নি।</td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="payoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content border-0 shadow">
+                        <form action="{{ route('admin.payout.approve') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="payout_id" id="payout_id">
+                            <div class="modal-header bg-primary text-white">
+                                <h5 class="modal-title">পেমেন্ট কনফার্মেশন</h5>
+                                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="alert alert-info py-2">
+                                    ইউজার: <strong id="modal_user_name"></strong><br>
+                                    পরিমাণ: <strong id="modal_amount"></strong> টাকা
+                                </div>
+                                <div class="form-group">
+                                    <label class="font-weight-bold">ট্রানজেকশন আইডি (TxnID)</label>
+                                    <input type="text" name="transaction_id" class="form-control" placeholder="যেমন: TRN12345678" required>
+                                    <small class="text-muted">ভবিষ্যৎ রেফারেন্সের জন্য ট্রানজেকশন আইডিটি দিন।</small>
+                                </div>
+                            </div>
+                            <div class="modal-footer bg-light">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">বাতিল</button>
+                                <button type="submit" class="btn btn-success px-4">পেমেন্ট সম্পন্ন হয়েছে</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+            $(document).ready(function() {
+                $('.pay-now-btn').on('click', function() {
+                    $('#payout_id').val($(this).data('id'));
+                    $('#modal_user_name').text($(this).data('user'));
+                    $('#modal_amount').text($(this).data('amount'));
+                });
+            });
+            </script>
         </div>
     </div>
 </div>

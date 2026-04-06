@@ -20,6 +20,7 @@ class CreatePayoutRequestsTable extends Migration
             $table->string('payment_method'); // bKash, Nagad, etc.
             $table->string('payment_number');
             $table->string('transaction_id')->nullable();
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

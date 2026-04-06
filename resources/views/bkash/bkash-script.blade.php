@@ -40,7 +40,7 @@
                     success: function (data) {
                         if (data) {
                             if (data.paymentID != null) {
-                                alert('Payment is successful: ' + data.paymentID);
+                                {{-- alert('Payment is successful: ' + data.paymentID); --}}
                                 BkashSuccess(data);
                             } else {
                                 showErrorMessage(data);

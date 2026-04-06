@@ -49,12 +49,12 @@ class BkashController extends Controller
         return view('bkash.final-payment')->withAmount($request->amount);
     }
 
-    public function prodPayment($amount, $mobile, $package_id, $ = null) {
+    public function prodPayment($amount, $mobile, $package_id, $referralcode = null) {
         return view('bkash.final-payment')
                             ->withAmount($amount)
                             ->withMobile($mobile)
                             ->withPackageid($package_id)
-                            ->withReferralcode($referral_code);
+                            ->withReferralcode($referralcode);
     }
 
     public function getToken(Request $request)

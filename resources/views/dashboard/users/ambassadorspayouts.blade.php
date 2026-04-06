@@ -156,7 +156,7 @@
                                         @if($payout->status == 0)
                                             <button type="button" 
                                                 class="btn btn-sm btn-primary px-3 pay-now-btn" 
-                                                data-toggle="modal" data-target="#payoutModal{{ $payout->id }}">
+                                                data-toggle="modal" data-target="#payoutConfirmModal{{ $payout->id }}">
                                                 পে করুন
                                             </button>
                                         @else
@@ -175,7 +175,7 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="payoutModal{{ $payout->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade" id="payoutConfirmModal{{ $payout->id }}" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content border-0 shadow">
                         <form action="{{ route('dashboard.ambassadors.confirm.payout') }}" method="POST">

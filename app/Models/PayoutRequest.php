@@ -11,7 +11,7 @@ class PayoutRequest extends Model
 
     protected $fillable = [
         'user_id', 'amount', 'payment_method', 
-        'payment_number', 'transaction_id'
+        'payment_number', 'transaction_id', 'status'
     ];
 
     // রিলেশন: কোন ইউজার টাকা দাবি করেছেন?

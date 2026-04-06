@@ -92,68 +92,7 @@
 
     <div class="row">
         <div class="col-12">
-            <div class="card shadow-sm border-0 table-payouts">
-                <div class="card-header bg-white py-3">
-                    <h5 class="card-title font-weight-bold mb-0">সাম্প্রতিক পে-আউট হিস্ট্রি</h5>
-                </div>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table table-hover mb-0">
-                            <thead>
-                                <tr>
-                                    <th width="30%">অ্যাম্বাসেডর</th>
-                                    <th>পেমেন্ট তথ্য</th>
-                                    <th class="text-center">পরিমাণ</th>
-                                    <th>ট্রানজেকশন আইডি</th>
-                                    <th class="text-right">তারিখ</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse($payouts as $payout)
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <a href="{{ route('dashboard.users.single', $payout->user_id) }}">
-                                                <img src="https://ui-avatars.com/api/?name={{ urlencode($payout->user->name) }}&background=random" class="rounded-circle mr-3" width="40">
-                                            </a>
-                                            <div>
-                                                <a href="{{ route('dashboard.users.single', $payout->user_id) }}" class="user-link d-block">
-                                                    {{ $payout->user->name }}
-                                                </a>
-                                                <small class="text-muted">{{ $payout->user->mobile }}</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="font-weight-bold text-dark">{{ $payout->payment_method }}</div>
-                                        <div class="small text-muted">{{ $payout->payment_number }}</div>
-                                    </td>
-                                    <td class="text-center">
-                                        <span class="text-bangla-amount text-success">৳ {{ bangla(number_format($payout->amount, 0)) }}</span>
-                                    </td>
-                                    <td>
-                                        <code class="px-2 py-1 bg-light border rounded small">{{ $payout->transaction_id ?? 'N/A' }}</code>
-                                    </td>
-                                    <td class="text-right small text-muted">
-                                        <div class="font-weight-bold">{{ date('d M, Y', strtotime($payout->created_at)) }}</div>
-                                        <div>{{ date('h:i A', strtotime($payout->created_at)) }}</div>
-                                    </td>
-                                </tr>
-                                @empty
-                                <tr>
-                                    <td colspan="5" class="text-center py-5 text-muted">কোন পেমেন্ট রেকর্ড পাওয়া যায়নি।</td>
-                                </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="card-footer bg-white border-0 py-3">
-                    <div class="float-right">
-                        {{ $payouts->links() }}
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>

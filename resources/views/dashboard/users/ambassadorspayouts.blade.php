@@ -145,7 +145,7 @@
                                         @if($payout->transaction_id)
                                             <code class="small text-primary">{{ $payout->transaction_id }}</code>
                                         @else
-                                            <span class="text-muted small">অপেক্ষমান</span>
+                                            <span class="text-muted small">N/A</span>
                                         @endif
                                     </td>
                                     <td class="text-right small">

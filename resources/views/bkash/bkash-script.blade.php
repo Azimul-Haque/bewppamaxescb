@@ -104,7 +104,8 @@
             $.post('{{ route('bkash-success') }}', {
                 payment_info: data,
                 mobile: '{{ $mobile }}',
-                package_id: '{{ $packageid }}'
+                package_id: '{{ $packageid }}',
+                referral_code: '{{ $referralcode }}',
             }, function (res) {
                 // console.log(res.status);
                 // console.log(JSON.parse(res));

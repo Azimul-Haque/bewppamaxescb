@@ -1332,6 +1332,8 @@ class APIController extends Controller
             return response()->json(['success' => false, 'message' => 'নিজের কোড ব্যবহার করা যাবে না!']);
         }
 
+        // পেমেন্ট সফল হলে % বা দিন বাড়ানো বা ব্যালেন্সের কাজটি হবে
+
         return response()->json([
             'success' => true,
             'role' => $owner->role, // ambassador or user

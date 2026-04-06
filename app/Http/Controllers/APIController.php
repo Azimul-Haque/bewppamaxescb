@@ -1248,19 +1248,31 @@ class APIController extends Controller
 
     public function getAmbassadorProfile($softtoken, $mobile) {
         if(if($softtoken == env('SOFT_TOKEN')) {
+            $user = User::where('mobile', $mobile)->first();
 
+            dd($user);
+            $profile = $user->ambassadorProfile; // Relationship assuming
+            $payouts = $user->payoutRequests()->latest()->take(10)->get();
+
+            return response()->json([
+                'balance' => $profile->balance,
+                'total_earned' => $profile->total_earned,
+                'payouts' => $payouts
+            ]);
+        } else {
+            $user = User::where('mobile', $mobile)->first();
+
+            dd($user);
+            $profile = $user->ambassadorProfile; // Relationship assuming
+            $payouts = $user->payoutRequests()->latest()->take(10)->get();
+
+            return response()->json([
+                'balance' => $profile->balance,
+                'total_earned' => $profile->total_earned,
+                'payouts' => $payouts
+            ]);
         }
-        $user = User::where('mobile', $mobile)->first();
-
-        dd($user);
-        $profile = $user->ambassadorProfile; // Relationship assuming
-        $payouts = $user->payoutRequests()->latest()->take(10)->get();
-
-        return response()->json([
-            'balance' => $profile->balance,
-            'total_earned' => $profile->total_earned,
-            'payouts' => $payouts
-        ]);
+        
     }
 
     public function requestAmbassadorPayout(Request $request) {

@@ -52,7 +52,7 @@ Route::get('/clear', ['as'=>'clear','uses'=>'IndexController@clear']);
 // Payment Routes for bKash
 Route::get('bkash/production/test', 'BkashController@prodTest')->name('bkash-prod-test');
 Route::post('bkash/production/test/payment', 'BkashController@prodPaymentTest')->name('bkash-prod-test-payment');
-Route::get('bkash/production/final/payment/{amount}/{mobile}/{package_id}', 'BkashController@prodPayment')->name('bkash-prod-final-payment');
+Route::get('bkash/production/final/payment/{amount}/{mobile}/{package_id}/{referral_code?}', 'BkashController@prodPayment')->name('bkash-prod-final-payment');
 Route::post('bkash/get-token', 'BkashController@getToken')->name('bkash-get-token');
 Route::post('bkash/create-payment', 'BkashController@createPayment')->name('bkash-create-payment');
 Route::post('bkash/execute-payment', 'BkashController@executePayment')->name('bkash-execute-payment');

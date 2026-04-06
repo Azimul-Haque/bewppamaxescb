@@ -61,7 +61,7 @@ Route::get('/getquestionbank/exams/{softtoken}/{getexamcategory}', 'APIControlle
 
 // Ambassador Code
 Route::get('/ambassador/profile/{uid}', [AmbassadorController::class, 'getAmbassadorProfile']);
-Route::post('/ambassador/payout-request', [AmbassadorController::class, 'requestPayout']);
+Route::post('/ambassador/payout-request', [AmbassadorController::class, 'requestAmbassadorPayout']);
 
 // for dashboard
 Route::get('/search/topics/{softtoken}', 'APIController@searchTopics')->name('api.search.topics');

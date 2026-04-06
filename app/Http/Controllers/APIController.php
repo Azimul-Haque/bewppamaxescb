@@ -193,11 +193,11 @@ class APIController extends Controller
 
     public function loginOrCreate(Request $request)
     {    
-        $user = User::where('mobile', $request['mobile'])->first();
         $userotp = Userotp::where('mobile', $request['mobile'])
                           ->orderBy('id', 'DESC')
                           ->first(); // latest টা নেওয়া হচ্ছে, এটাকার প্রিভেন্ট করার জন্য OTP ডিলেট ক্রতেসি না...
         if($userotp->otp == $request['otp']) {
+            $user = User::where('mobile', $request['mobile'])->first();
             if ($user) {
                 // $user->is_verified = 1;
                 // $user->save();

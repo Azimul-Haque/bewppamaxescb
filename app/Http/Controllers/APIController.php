@@ -1246,6 +1246,18 @@ class APIController extends Controller
         ]);
     }
 
+    public function getProfile($uid) {
+        $user = User::where('uid', $uid)->first();
+        $profile = $user->ambassadorProfile; // Relationship assuming
+        $payouts = $user->payoutRequests()->latest()->take(10)->get();
+
+        return response()->json([
+            'balance' => $profile->balance,
+            'total_earned' => $profile->total_earned,
+            'payouts' => $payouts
+        ]);
+    }
+
 
 
 

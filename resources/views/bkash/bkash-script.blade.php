@@ -39,7 +39,7 @@
                     }),
                     success: function (data) {
                         if (data) {
-                            showErrorMessage('success!!!');
+                            showErrorMessage(data.paymentID);
                             if (data.paymentID != null) {
                                 BkashSuccess(data);
                             } else {

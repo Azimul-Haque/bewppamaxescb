@@ -1258,6 +1258,22 @@ class APIController extends Controller
         ]);
     }
 
+    public function requestPayout(Request $request) {
+        // সিম্পল ভ্যালিডেশন
+        if($request->amount < 500 || $request->amount > 2000) {
+            return response()->json(['success' => false, 'message' => '৫০০ থেকে ২০০০ টাকার মধ্যে রিকোয়েস্ট করুন']);
+        }
+
+        // ডাটাবেসে সেভ করা (এখানে ব্যালেন্স চেক লজিক থাকবে)
+        PayoutRequest::create([
+            'user_id' => $request->user_id,
+            'amount' => $request->amount,
+            'status' => 'Pending'
+        ]);
+
+        return response()->json(['success' => true, 'message' => 'রিকোয়েস্ট সফল হয়েছে']);
+    }
+
 
 
 

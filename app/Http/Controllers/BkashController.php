@@ -200,7 +200,6 @@ class BkashController extends Controller
         $user->package_expiry_date = $package_expiry_date;
         $user->save();
         return response()->json(['status' => true]);
-        
     }
 
     public function bkashCancelPage()

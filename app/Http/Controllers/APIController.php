@@ -301,12 +301,15 @@ class APIController extends Controller
     {
         $user = User::where('mobile', substr($phonenumber, -11))->first();
 
-        if($user && $softtoken == env('SOFT_TOKEN'))
+        if($softtoken == env('SOFT_TOKEN'))
         {
-            return response()->json([
-                'success' => true,
-                'package_expiry_date' => date('Y-m-d H:i:s', strtotime($user->package_expiry_date)),
-            ]);
+            if($user) {
+               return response()->json([
+                    'success' => true,
+                    'package_expiry_date' => date('Y-m-d H:i:s', strtotime($user->package_expiry_date)),
+                ]); 
+            }
+            
         } else {
             return response()->json([
                 'success' => false

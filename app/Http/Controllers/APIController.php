@@ -1246,7 +1246,10 @@ class APIController extends Controller
         ]);
     }
 
-    public function getAmbassadorProfile($mobile) {
+    public function getAmbassadorProfile($softtoken, $mobile) {
+        if(if($softtoken == env('SOFT_TOKEN')) {
+
+        }
         $user = User::where('mobile', $mobile)->first();
 
         dd($user);

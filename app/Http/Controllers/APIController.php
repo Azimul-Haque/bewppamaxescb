@@ -1267,19 +1267,37 @@ class APIController extends Controller
     }
 
     public function requestAmbassadorPayout(Request $request) {
-        // সিম্পল ভ্যালিডেশন
-        if($request->amount < 500 || $request->amount > 2000) {
-            return response()->json(['success' => false, 'message' => '৫০০ থেকে ২০০০ টাকার মধ্যে রিকোয়েস্ট করুন']);
+        // ১. বেসিক ভ্যালিডেশন
+        if ($request->amount < 500 || $request->amount > 2000) {
+            return response()->json(['success' => false, 'message' => '৫০০ থেকে ২০০০ টাকার মধ্যে রিকোয়েস্ট করুন']);
         }
 
-        // ডাটাবেসে সেভ করা (এখানে ব্যালেন্স চেক লজিক থাকবে)
-        PayoutRequest::create([
-            'user_id' => $request->user_id,
-            'amount' => $request->amount,
-            'status' => 0
-        ]);
+        // ২. ডাটাবেস ট্রানজেকশন শুরু (যাতে ব্যালেন্স কাটা এবং রিকুয়েস্ট সেভ হওয়া একসাথে হয়)
+        return DB::transaction(function () use ($request) {
+            $user = User::find($request->user_id);
+            $profile = $user->ambassadorProfile;
 
-        return response()->json(['success' => true, 'message' => 'রিকোয়েস্ট সফল হয়েছে']);
+            // ৩. ব্যালেন্স চেক (সবচেয়ে গুরুত্বপূর্ণ)
+            if (!$profile || $profile->balance < $request->amount) {
+                return response()->json(['success' => false, 'message' => 'আপনার পর্যাপ্ত ব্যালেন্স নেই!']);
+            }
+
+            // ৪. ব্যালেন্স ডিডাক্ট করা
+            $profile->decrement('balance', $request->amount);
+
+            // ৫. পে-আউট রিকুয়েস্ট তৈরি করা
+            PayoutRequest::create([
+                'user_id' => $request->user_id,
+                'amount' => $request->amount,
+                'status' => 0, // ০ = পেন্ডিং
+                'requested_at' => now(),
+            ]);
+
+            return response()->json([
+                'success' => true, 
+                'message' => 'রিকোয়েস্ট সফল হয়েছে এবং ব্যালেন্স সমন্বয় করা হয়েছে।'
+            ]);
+        });
     }
 
 

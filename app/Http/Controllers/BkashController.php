@@ -184,6 +184,7 @@ class BkashController extends Controller
         $payment->trx_id = $request->payment_info['trxID'];
         $payment->amount = $request->payment_info['amount'];
         $payment->store_amount = $request->payment_info['amount'] - ($request->payment_info['amount'] * 0.02);
+        $payment->referral_code = $request->referral_code;
         $payment->save();
 
         

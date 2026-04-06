@@ -655,7 +655,7 @@ class DashboardController extends Controller
                 'payment_method' => $request->payment_method,
                 'payment_number' => $request->payment_number,
                 'transaction_id' => $request->transaction_id,
-                // 'status' => 'completed' // যদি আপনার স্কিমাতে স্ট্যাটাস কলাম থাকে
+                'status' => 1,
             ]);
 
             // খ. Ambassador Profile থেকে ব্যালেন্স কমিয়ে দেওয়া

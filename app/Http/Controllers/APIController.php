@@ -1268,7 +1268,7 @@ class APIController extends Controller
         PayoutRequest::create([
             'user_id' => $request->user_id,
             'amount' => $request->amount,
-            'status' => 'Pending'
+            'status' => 0
         ]);
 
         return response()->json(['success' => true, 'message' => 'রিকোয়েস্ট সফল হয়েছে']);

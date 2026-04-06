@@ -40,6 +40,10 @@ class DashboardController extends Controller
     public function __construct()
     {
         parent::__construct();
+        
+        $unresolvedmessagecount = Message::where('status', 0)->count();
+        View::share('unresolvedmessagecount', $unresolvedmessagecount);
+
         $this->middleware('auth')->except('clear');
         $this->middleware(['admin'])->only('getUsers', 'storeUser', 'updateUser', 'deleteUser', 'getUser', 'deleteBalance', 'getCreditors', 'getSingleCreditor', 'getAddDuePage', 'deleteCreditorDue', 'getSiteCategorywise', 'getPackages', 'storePackage', 'updatePackage', 'deletePackage', 'getPayments', 'getMessages', 'updateMessage', 'getNotifications', 'sendSingleNotification', 'sendSingleSMS', 'getExamSolvePDF');
         

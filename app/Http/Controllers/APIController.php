@@ -1258,7 +1258,7 @@ class APIController extends Controller
         ]);
     }
 
-    public function requestPayout(Request $request) {
+    public function requestAmbassadorPayout(Request $request) {
         // সিম্পল ভ্যালিডেশন
         if($request->amount < 500 || $request->amount > 2000) {
             return response()->json(['success' => false, 'message' => '৫০০ থেকে ২০০০ টাকার মধ্যে রিকোয়েস্ট করুন']);

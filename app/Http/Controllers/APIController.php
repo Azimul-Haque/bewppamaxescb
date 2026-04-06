@@ -274,8 +274,8 @@ class APIController extends Controller
         if($softtoken == env('SOFT_TOKEN'))
         {
             $user = User::where('mobile', substr($phonenumber, -11))->first();
-
             // dd($user);
+            
             if($user)
             return response()->json([
                 'success' => true,

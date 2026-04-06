@@ -21,6 +21,8 @@ use App\Models\Message;
 use App\Models\Material;
 use App\Models\Meritlist;
 use App\Models\Reportedquestion;
+use App\Models\PayoutRequest;
+use App\Models\AmbassadorProfile;
 use Illuminate\Support\Facades\Http;
 
 use Hash;

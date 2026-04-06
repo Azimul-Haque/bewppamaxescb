@@ -1282,15 +1282,16 @@ class APIController extends Controller
                 return response()->json(['success' => false, 'message' => 'আপনার পর্যাপ্ত ব্যালেন্স নেই!']);
             }
 
-            // ৪. ব্যালেন্স ডিডাক্ট করা
-            $profile->decrement('balance', $request->amount);
-
-            // ৫. পে-আউট রিকুয়েস্ট তৈরি করা
+            // ৪. পে-আউট রিকুয়েস্ট তৈরি করা
             $payoutrequest = new PayoutRequest;
             $payoutrequest->user_id = $request->user_id;
             $payoutrequest->amount = $request->amount;
             $payoutrequest->status = 0;
             $payoutrequest->save();
+            
+
+            // ৫. ব্যালেন্স ডিডাক্ট করা 
+            $profile->decrement('balance', $request->amount);
 
             return response()->json([
                 'success' => true, 

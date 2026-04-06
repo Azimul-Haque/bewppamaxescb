@@ -183,7 +183,7 @@
                     <div class="modal-content border-0 shadow">
                         <form action="{{ route('dashboard.ambassadors.confirm.payout') }}" method="POST">
                             @csrf
-                            <input type="hidden" name="payout_id" id="payout_id" value="{{ $payout->id }}">
+                            <input type="hidden" name="payout_id" value="{{ $payout->id }}">
                             <div class="modal-header bg-primary text-white">
                                 <h5 class="modal-title">পেমেন্ট কনফার্মেশন</h5>
                                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
@@ -192,9 +192,9 @@
                             </div>
                             <div class="modal-body">
                                 <div class="alert alert-info py-2">
-                                    ইউজার: <strong id="modal_user_name">{{ $payout->user->name }}</strong><br>
-                                    পরিমাণ: <strong id="modal_amount">{{ $payout->amount }}</strong> টাকা
-                                    পেমেন্ট মেথড: <strong id="modal_amount">{{ $payout->payment_method }}</strong>
+                                    ইউজার: <strong>{{ $payout->user->name }}</strong><br>
+                                    পরিমাণ: <strong>{{ $payout->amount }}</strong> টাকা
+                                    পেমেন্ট মেথড: <strong>{{ $payout->payment_method }}</strong>
                                 </div>
                                 <div class="form-group">
                                     <label class="font-weight-bold">ট্রানজেকশন আইডি (TxnID)</label>

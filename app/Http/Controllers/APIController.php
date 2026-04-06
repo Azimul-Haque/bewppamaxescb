@@ -1290,6 +1290,7 @@ class APIController extends Controller
             $payoutrequest->user_id = $request->user_id;
             $payoutrequest->amount = $request->amount;
             $payoutrequest->status = 0;
+            $payoutrequest->save();
 
             return response()->json([
                 'success' => true, 

@@ -299,10 +299,9 @@ class APIController extends Controller
 
     public function checkPackageValidity($softtoken, $phonenumber)
     {
-        $user = User::where('mobile', substr($phonenumber, -11))->first();
-
         if($softtoken == env('SOFT_TOKEN'))
         {
+            $user = User::where('mobile', substr($phonenumber, -11))->first();
             if($user) {
                return response()->json([
                     'success' => true,

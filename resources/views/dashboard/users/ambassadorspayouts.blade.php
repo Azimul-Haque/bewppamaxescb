@@ -193,7 +193,7 @@
                             <div class="modal-body">
                                 <div class="alert alert-info py-2">
                                     ইউজার: <strong>{{ $payout->user->name }}</strong><br>
-                                    পরিমাণ: <strong>{{ $payout->amount }}</strong> টাকা
+                                    পরিমাণ: <strong>৳ {{ $payout->amount }}</strong> টাকা<br>
                                     পেমেন্ট মেথড: <strong>{{ $payout->payment_method }}</strong>
                                 </div>
                                 <div class="form-group">

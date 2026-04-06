@@ -155,7 +155,7 @@
                                     <td class="text-center">
                                         @if($payout->status == 0)
                                             <button type="button" 
-                                                class="btn btn-sm btn-primary px-3 pay-now-btn" 
+                                                class="btn btn-sm btn-warning px-3 pay-now-btn" 
                                                 data-toggle="modal" data-target="#payoutConfirmModal{{ $payout->id }}">
                                                 পে করুন
                                             </button>
@@ -169,7 +169,7 @@
                                                 <form action="{{ route('dashboard.ambassadors.confirm.payout') }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="payout_id" value="{{ $payout->id }}">
-                                                    <div class="modal-header bg-primary text-white">
+                                                    <div class="modal-header bg-warning text-white">
                                                         <h5 class="modal-title">পেমেন্ট কনফার্মেশন</h5>
                                                         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
@@ -190,7 +190,7 @@
                                                     </div>
                                                     <div class="modal-footer bg-light">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">বাতিল</button>
-                                                        <button type="submit" class="btn btn-success px-4">পেমেন্ট সম্পন্ন হয়েছে</button>
+                                                        <button type="submit" class="btn btn-warning px-4">পেমেন্ট সম্পন্ন হয়েছে</button>
                                                     </div>
                                                 </form>
                                             </div>

@@ -1246,8 +1246,8 @@ class APIController extends Controller
         ]);
     }
 
-    public function getProfile($uid) {
-        $user = User::where('uid', $uid)->first();
+    public function getAmbassadorProfile($mobile) {
+        $user = User::where('mobile', $mobile)->first();
         $profile = $user->ambassadorProfile; // Relationship assuming
         $payouts = $user->payoutRequests()->latest()->take(10)->get();
 

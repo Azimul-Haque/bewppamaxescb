@@ -79,7 +79,7 @@
                             <span class="badge @if($index == 0) badge-warning @else badge-light border @endif badge-pill px-3">Rank #{{ $index + 1 }}</span>
                         </div>
                         <a href="{{ route('dashboard.users.single', $earner->user_id) }}">
-                            <img src="https://ui-avatars.com/api/?name={{ urlencode($earner->user->name) }}&background=random" class="earner-avatar">
+                            {{-- <img src="https://ui-avatars.com/api/?name={{ urlencode($earner->user->name) }}&background=random" class="earner-avatar"> --}}
                             <div class="user-link text-truncate px-2">{{ $earner->user->name }}</div>
                         </a>
                         <div class="text-success font-weight-bold mt-1">৳ {{ bangla(number_format($earner->total_earned, 0)) }}</div>

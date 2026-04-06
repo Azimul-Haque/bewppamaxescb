@@ -1286,6 +1286,9 @@ class APIController extends Controller
             $profile->decrement('balance', $request->amount);
 
             // ৫. পে-আউট রিকুয়েস্ট তৈরি করা
+            $payoutrequest = new PayoutRequest;
+            $payoutrequest->user_id = $request->user_id;
+            $payoutrequest->amount = $request->amount;
             PayoutRequest::create([
                 'user_id' => $request->user_id,
                 'amount' => $request->amount,

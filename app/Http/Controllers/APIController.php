@@ -1289,8 +1289,7 @@ class APIController extends Controller
             $payoutrequest->status = 0;
             $payoutrequest->save();
             
-
-            // ৫. ব্যালেন্স ডিডাক্ট করা 
+            // ৫. ব্যালেন্স ডিডাক্ট করা
             $profile->decrement('balance', $request->amount);
 
             return response()->json([

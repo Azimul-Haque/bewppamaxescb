@@ -195,7 +195,7 @@
                                     ইউজার: <strong>{{ $payout->user->name }}</strong><br>
                                     পরিমাণ: <strong>৳ {{ $payout->amount }}</strong> টাকা<br>
                                     পেমেন্ট মেথড: <strong>{{ $payout->payment_method }}</strong>
-                                    পেমেন্ট নাম্বার: <strong>{{ $payout->payment_method }}</strong>
+                                    পেমেন্ট নাম্বার: <strong>{{ $payout->payment_number }}</strong>
                                 </div>
                                 <div class="form-group">
                                     <label class="font-weight-bold">ট্রানজেকশন আইডি (TxnID)</label>

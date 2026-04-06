@@ -1260,16 +1260,8 @@ class APIController extends Controller
                 'payouts' => $payouts
             ]);
         } else {
-            $user = User::where('mobile', $mobile)->first();
-
-            dd($user);
-            $profile = $user->ambassadorProfile; // Relationship assuming
-            $payouts = $user->payoutRequests()->latest()->take(10)->get();
-
             return response()->json([
-                'balance' => $profile->balance,
-                'total_earned' => $profile->total_earned,
-                'payouts' => $payouts
+                'success' => false
             ]);
         }
         

@@ -273,7 +273,7 @@ class APIController extends Controller
 
         // dd($user);
 
-        if($user && $softtoken == env('SOFT_TOKEN'))
+        if($softtoken == env('SOFT_TOKEN'))
         {
             return response()->json([
                 'success' => true,

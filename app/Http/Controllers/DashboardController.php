@@ -394,6 +394,32 @@ class DashboardController extends Controller
         return view('dashboard.users.ambassadorspayouts', compact('stats', 'payouts'));
     }
 
+    public function approvePayout(Request $request)
+    {
+        // ১. ভ্যালিডেশন
+        $request->validate([
+            'payout_id' => 'required|exists:payout_requests,id',
+            'transaction_id' => 'required|string|max:100',
+        ]);
+
+        // ২. রিকোয়েস্ট খুঁজে বের করা
+        $payout = PayoutRequest::findOrFail($request->payout_id);
+
+        // ৩. নিরাপত্তা চেক: অলরেডি পেইড কি না
+        if ($payout->status == 1) {
+            return redirect()->back()->with('error', 'এই পেমেন্টটি ইতিমধ্যে সম্পন্ন করা হয়েছে।');
+        }
+
+        // ৪. স্ট্যাটাস আপডেট
+        $payout->update([
+            'status' => 1, // পেইড
+            'transaction_id' => $request->transaction_id,
+            'paid_at' => now(), // পেমেন্টের সময় ট্র্যাক রাখার জন্য (ঐচ্ছিক কলাম)
+        ]);
+
+        return redirect()->back()->with('success', 'পেমেন্ট সফলভাবে আপডেট করা হয়েছে এবং ট্রানজেকশন আইডি সংরক্ষিত হয়েছে।');
+    }
+
 
 
     public function getPackages()

@@ -183,7 +183,7 @@
                     <div class="modal-content border-0 shadow">
                         <form action="{{ route('dashboard.ambassadors.confirm.payout') }}" method="POST">
                             @csrf
-                            <input type="hidden" name="payout_id" id="payout_id">
+                            <input type="hidden" name="payout_id" id="payout_id" value="{{ $payout->id }}">
                             <div class="modal-header bg-primary text-white">
                                 <h5 class="modal-title">পেমেন্ট কনফার্মেশন</h5>
                                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">

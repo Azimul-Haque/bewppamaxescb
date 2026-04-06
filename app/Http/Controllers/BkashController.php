@@ -171,6 +171,7 @@ class BkashController extends Controller
 
     public function bkashSuccess(Request $request)
     {
+        
         $user = User::where('mobile', $request->mobile)->first();
         
         $payment = new Payment;
@@ -182,12 +183,8 @@ class BkashController extends Controller
         $payment->trx_id = $request->payment_info['trxID'];
         $payment->amount = $request->payment_info['amount'];
         $payment->store_amount = $request->payment_info['amount'] - ($request->payment_info['amount'] * 0.02);
-        // $payment->referral_code = $request->referral_code;
         $payment->save();
 
-        // এখানে কাজ আছে referral_code বিষয়ে
-        // এখানে কাজ আছে referral_code বিষয়ে
-        // এখানে কাজ আছে referral_code বিষয়ে
         
         $current_package_date = Carbon::parse($user->package_expiry_date);
         $package = Package::findOrFail($request->package_id);
@@ -200,6 +197,7 @@ class BkashController extends Controller
         $user->package_expiry_date = $package_expiry_date;
         $user->save();
         return response()->json(['status' => true]);
+        
     }
 
     public function bkashCancelPage()

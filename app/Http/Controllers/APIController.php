@@ -269,8 +269,6 @@ class APIController extends Controller
 
     public function checkUid($softtoken, $phonenumber)
     {
-        
-
         if($softtoken == env('SOFT_TOKEN'))
         {
             $user = User::where('mobile', substr($phonenumber, -11))->first();

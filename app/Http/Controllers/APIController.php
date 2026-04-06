@@ -1289,12 +1289,7 @@ class APIController extends Controller
             $payoutrequest = new PayoutRequest;
             $payoutrequest->user_id = $request->user_id;
             $payoutrequest->amount = $request->amount;
-            PayoutRequest::create([
-                'user_id' => $request->user_id,
-                'amount' => $request->amount,
-                'status' => 0, // ০ = পেন্ডিং
-                'requested_at' => now(),
-            ]);
+            $payoutrequest->status = 0;
 
             return response()->json([
                 'success' => true, 

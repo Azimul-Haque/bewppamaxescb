@@ -187,6 +187,9 @@ class BkashController extends Controller
         $payment->referral_code = $request->referral_code;
         $payment->save();
 
+        // এখানে কাজ আছে referral_code বিষয়ে
+        // এখানে কাজ আছে referral_code বিষয়ে
+        // এখানে কাজ আছে referral_code বিষয়ে
         
         $current_package_date = Carbon::parse($user->package_expiry_date);
         $package = Package::findOrFail($request->package_id);

@@ -164,7 +164,7 @@
                                         @endif
                                     </td>
                                     <div class="modal fade" id="payoutConfirmModal{{ $payout->id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-dialog modal-dialog" role="document">
                                             <div class="modal-content border-0 shadow">
                                                 <form action="{{ route('dashboard.ambassadors.confirm.payout') }}" method="POST">
                                                     @csrf

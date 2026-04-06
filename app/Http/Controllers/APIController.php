@@ -238,7 +238,7 @@ class APIController extends Controller
                 }
                 DB::commit();
                 $user = User::where('mobile', $request['mobile'])->first();
-                $user->save();
+                // $user->save();
                 // $this->deleteOTP($request['mobile']); // এটাকার প্রিভেন্ট করার জন্য ডিলেট ক্রতেসি না...
                 $userdata = [
                     'success' => true,

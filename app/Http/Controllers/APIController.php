@@ -280,6 +280,7 @@ class APIController extends Controller
                 'uid' => $user->uid,
                 'name' => $user->name,
                 'mobile' => $user->mobile,
+                'referral_code' => $user->referral_code,
             ]);
         } else {
             return response()->json([

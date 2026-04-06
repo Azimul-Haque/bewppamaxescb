@@ -209,16 +209,6 @@
                     </div>
                 </div>
             </div>
-
-            <script>
-            $(document).ready(function() {
-                $('.pay-now-btn').on('click', function() {
-                    $('#payout_id').val($(this).data('id'));
-                    $('#modal_user_name').text($(this).data('user'));
-                    $('#modal_amount').text($(this).data('amount'));
-                });
-            });
-            </script>
         </div>
     </div>
 </div>

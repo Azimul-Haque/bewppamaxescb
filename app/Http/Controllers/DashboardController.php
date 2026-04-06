@@ -414,7 +414,6 @@ class DashboardController extends Controller
         $payout->update([
             'status' => 1, // পেইড
             'transaction_id' => $request->transaction_id,
-            'paid_at' => now(), // পেমেন্টের সময় ট্র্যাক রাখার জন্য (ঐচ্ছিক কলাম)
         ]);
 
         return redirect()->back()->with('success', 'পেমেন্ট সফলভাবে আপডেট করা হয়েছে এবং ট্রানজেকশন আইডি সংরক্ষিত হয়েছে।');

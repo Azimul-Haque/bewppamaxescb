@@ -29,6 +29,7 @@ use Artisan;
 use OneSignal;
 use Purifier;
 use Cache;
+use View;
 
 class DashboardController extends Controller
 {
@@ -40,7 +41,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         parent::__construct();
-        
+
         $unresolvedmessagecount = Message::where('status', 0)->count();
         View::share('unresolvedmessagecount', $unresolvedmessagecount);
 

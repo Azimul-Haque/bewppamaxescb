@@ -1249,8 +1249,6 @@ class APIController extends Controller
     public function getAmbassadorProfile($softtoken, $mobile) {
         if($softtoken == env('SOFT_TOKEN')) {
             $user = User::where('mobile', $mobile)->first();
-
-            dd($user);
             $profile = $user->ambassadorProfile; // Relationship assuming
             $payouts = $user->payoutRequests()->latest()->take(10)->get();
 

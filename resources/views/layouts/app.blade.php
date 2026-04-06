@@ -57,11 +57,11 @@
                 <i class="fas fa-hand-holding-usd mr-2"></i> 0 টি পে-আউট রিকুয়েস্ট
                 <span class="float-right text-muted text-sm">12 hours</span>
               </a>
-              <div class="dropdown-divider"></div>
+              {{-- <div class="dropdown-divider"></div>
               <a href="#" class="dropdown-item">
                 <i class="fas fa-file mr-2"></i> 0 new reports
                 <span class="float-right text-muted text-sm">2 days</span>
-              </a>
+              </a> --}}
               <div class="dropdown-divider"></div>
               <a href="#" class="dropdown-item dropdown-footer">সকল নোটিফিকেশন দেখুন</a>
             </div>

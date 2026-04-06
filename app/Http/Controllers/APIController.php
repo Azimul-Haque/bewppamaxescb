@@ -1248,7 +1248,7 @@ class APIController extends Controller
 
     public function getAmbassadorProfile($mobile) {
         $user = User::where('mobile', $mobile)->first();
-        $profile = $user->ambassadorProfile; // Relationship assuming
+        $profile = $user->ambassadorProfile(); // Relationship assuming
         $payouts = $user->payoutRequests()->latest()->take(10)->get();
 
         return response()->json([

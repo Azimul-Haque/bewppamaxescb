@@ -156,9 +156,6 @@
                                         @if($payout->status == 0)
                                             <button type="button" 
                                                 class="btn btn-sm btn-primary px-3 pay-now-btn" 
-                                                data-id="{{ $payout->id }}" 
-                                                data-amount="{{ $payout->amount }}" 
-                                                data-user="{{ $payout->user->name }}"
                                                 data-toggle="modal" data-target="#payoutModal{{ $payout->id }}">
                                                 পে করুন
                                             </button>

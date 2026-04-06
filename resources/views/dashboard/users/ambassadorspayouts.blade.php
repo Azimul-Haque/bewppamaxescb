@@ -193,7 +193,7 @@
                             <div class="modal-body">
                                 <div class="alert alert-info py-2">
                                     ইউজার: <strong id="modal_user_name"></strong><br>
-                                    পরিমাণ: <strong id="modal_amount"></strong> টাকা
+                                    পরিমাণ: <strong id="modal_amount">{{ $payout->amount }}</strong> টাকা
                                 </div>
                                 <div class="form-group">
                                     <label class="font-weight-bold">ট্রানজেকশন আইডি (TxnID)</label>

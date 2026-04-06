@@ -181,7 +181,7 @@
             <div class="modal fade" id="payoutModal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content border-0 shadow">
-                        <form action="{{ route('admin.payout.approve') }}" method="POST">
+                        <form action="{{ route('dashboard.ambassadors.confirm.payout') }}" method="POST">
                             @csrf
                             <input type="hidden" name="payout_id" id="payout_id">
                             <div class="modal-header bg-primary text-white">

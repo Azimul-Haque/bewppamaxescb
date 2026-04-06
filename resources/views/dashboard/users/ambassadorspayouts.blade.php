@@ -116,9 +116,9 @@
                                 <tr>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            {{-- <a href="{{ route('dashboard.users.single', $payout->user_id) }}">
+                                            <a href="{{ route('dashboard.users.single', $payout->user_id) }}">
                                                 <img src="https://ui-avatars.com/api/?name={{ urlencode($payout->user->name) }}&background=random" class="rounded-circle mr-2" width="35">
-                                            </a> --}}
+                                            </a>
                                             <div>
                                                 <a href="{{ route('dashboard.users.single', $payout->user_id) }}" class="user-link d-block font-weight-bold">
                                                     {{ $payout->user->name }}

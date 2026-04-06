@@ -159,7 +159,7 @@
                                                 data-id="{{ $payout->id }}" 
                                                 data-amount="{{ $payout->amount }}" 
                                                 data-user="{{ $payout->user->name }}"
-                                                data-toggle="modal" data-target="#payoutModal">
+                                                data-toggle="modal" data-target="#payoutModal{{ $payout->id }}">
                                                 পে করুন
                                             </button>
                                         @else
@@ -178,7 +178,7 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="payoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade" id="payoutModal{{ $payout->id }}" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content border-0 shadow">
                         <form action="{{ route('dashboard.ambassadors.confirm.payout') }}" method="POST">

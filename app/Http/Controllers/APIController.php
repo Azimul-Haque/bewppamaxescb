@@ -1283,11 +1283,19 @@ class APIController extends Controller
             }
 
             // ৪. পে-আউট রিকুয়েস্ট তৈরি করা
-            $payoutrequest = new PayoutRequest;
-            $payoutrequest->user_id = $request->user_id;
-            $payoutrequest->amount = $request->amount;
-            $payoutrequest->status = 0;
-            $payoutrequest->save();
+            // $payoutrequest = new PayoutRequest;
+            // $payoutrequest->user_id = $request->user_id;
+            // $payoutrequest->amount = $request->amount;
+            // $payoutrequest->status = 0;
+            // $payoutrequest->save();
+
+            PayoutRequest::create([
+                'user_id' => $request->user_id,
+                'amount' => $request->amount,
+                'payment_method' => $request->payment_method, // bKash, Nagad, etc.
+                'payment_number' => $request->payment_number,
+                'status' => 0, 
+            ]);
             
             // ৫. ব্যালেন্স ডিডাক্ট করা
             $profile->decrement('balance', $request->amount);

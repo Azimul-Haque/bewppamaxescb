@@ -223,7 +223,7 @@ class BkashController extends Controller
             $payment->trx_id = $request->payment_info['trxID'] ?? 'N/A';
             $payment->amount = $request->payment_info['amount'] ?? 0;
             $payment->store_amount = $payment->amount - ($payment->amount * 0.02); // ২% বিকাশ চার্জ বাদে
-            $payment->referral_code = $request->referral_code;
+            $payment->referral_code = $request->referral_code ?? '';
             $payment->save();
 
             // ৪. ইউজার মেয়াদ (Expiry Date) আপডেট লজিক

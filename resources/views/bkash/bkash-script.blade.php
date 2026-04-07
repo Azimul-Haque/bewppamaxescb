@@ -149,7 +149,7 @@
                     if(jsonErr.message) errorMsg = jsonErr.message;
                 } catch(e) {}
 
-                alert("সিস্টেম এরর: " + errorMsg);
+                {{-- alert("সিস্টেম এরর: " + errorMsg); --}}
                 window.location.replace('{{ route('bkash-failed-page') }}');
             });
         }

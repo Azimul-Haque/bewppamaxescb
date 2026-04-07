@@ -215,7 +215,7 @@ class BkashController extends Controller
             $payment = new Payment;
             $payment->user_id = $user->id;
             $payment->package_id = $request->package_id;
-            $payment->uid = $user->uid;
+            // $payment->uid = $user->uid;
             $payment->payment_status = 1;
             $payment->card_type = 'bKash';
             // এখানে এপিআই রেসপন্স থেকে আসা ফিল্ডগুলো সাবধানে চেক করতে হবে

@@ -171,7 +171,6 @@ class BkashController extends Controller
 
     public function bkashSuccess(Request $request)
     {
-        
         $user = User::where('mobile', $request->mobile)->first();
         
         $payment = new Payment;

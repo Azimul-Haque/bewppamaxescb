@@ -117,7 +117,7 @@
 
         function BkashSuccess(data) {
             // পেমেন্ট হওয়ার পর ইউজার যাতে বারবার ক্লিক না করে বা পেজ না ছাড়ে সেজন্য একটি লোডার দেখানো ভালো
-            console.log("Payment Info Received:", data);
+            {{-- console.log("Payment Info Received:", data); --}}
 
             $.post('{{ route('bkash-success') }}', {
                 _token: '{{ csrf_token() }}', // লারাভেল সিকিউরিটির জন্য সিএসআরএফ টোকেন

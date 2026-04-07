@@ -128,7 +128,7 @@
             })
             .done(function (res) {
                 // লজিক্যাল সাকসেস বা ফেইল (লারাভেল থেকে স্ট্যাটাস ট্রু/ফলস আসলে)
-                console.log("Server Response:", res);
+                {{-- console.log("Server Response:", res); --}}
                 
                 if(res.status == true) {
                     // পেমেন্ট এবং ডাটাবেস আপডেট সফল

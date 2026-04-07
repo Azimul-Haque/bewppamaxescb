@@ -124,7 +124,7 @@
                 payment_info: data,
                 mobile: '{{ $mobile }}',
                 package_id: '{{ $packageid }}',
-                referral_code: '{{ $referral_code ?? '' }}' // যদি প্রোমো কোড থাকে তবে পাঠাবে
+                referral_code: '{{ $referralcode ?? '' }}' // যদি প্রোমো কোড থাকে তবে পাঠাবে
             })
             .done(function (res) {
                 // লজিক্যাল সাকসেস বা ফেইল (লারাভেল থেকে স্ট্যাটাস ট্রু/ফলস আসলে)

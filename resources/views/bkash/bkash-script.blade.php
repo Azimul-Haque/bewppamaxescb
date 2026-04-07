@@ -135,7 +135,7 @@
                     window.location.replace('{{ route('bkash-success-page') }}');
                 } else {
                     // লারাভেল থেকে লজিক্যাল এরর আসলে (যেমন: ইউজার পাওয়া যায়নি)
-                    alert("ত্রুটি: " + (res.message || "পেমেন্ট প্রসেস করা সম্ভব হয়নি।"));
+                    {{-- alert("ত্রুটি: " + (res.message || "পেমেন্ট প্রসেস করা সম্ভব হয়নি।")); --}}
                     window.location.replace('{{ route('bkash-failed-page') }}');
                 }
             })

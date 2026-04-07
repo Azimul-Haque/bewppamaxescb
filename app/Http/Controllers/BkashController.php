@@ -234,31 +234,31 @@ class BkashController extends Controller
             $user->package_expiry_date = $baseDate->addDays($package->numeric_duration)->format('Y-m-d') . ' 23:59:59';
             
             // ৫. প্রোমো/রেফারেল লজিক (আপনার রিকোয়ারমেন্ট অনুযায়ী)
-            // if ($request->has('promo_code') && !empty($request->promo_code)) {
-            //     $promoOwner = User::where('referral_code', $request->promo_code)->first();
+            if ($request->has('referral_code') && !empty($request->referral_code)) {
+                $promoOwner = User::where('referral_code', $request->referral_code)->first();
 
-            //     if ($promoOwner && $promoOwner->id != $user->id) {
-            //         if ($promoOwner->role == 'ambassador') {
-            //             // --- ক. অ্যাম্বাসেডর হলে ২০% কমিশন ---
-            //             $commission = $payment->amount * 0.20;
-            //             $profile = $promoOwner->ambassadorProfile;
-            //             if ($profile) {
-            //                 $profile->increment('balance', $commission);
-            //                 $profile->increment('total_earned', $commission);
-            //             }
-            //         } else {
-            //             // --- খ. সাধারণ ইউজার হলে উভয়কেই ১০ দিন বোনাস ---
-            //             // ইউজারের ১০ দিন বাড়ানো (ইতিমধ্যে প্যাকেজের সাথে যোগ হবে)
-            //             $user->package_expiry_date = Carbon::parse($user->package_expiry_date)->addDays(10)->format('Y-m-d') . ' 23:59:59';
+                if ($promoOwner && $promoOwner->id != $user->id) {
+                    if ($promoOwner->role == 'ambassador') {
+                        // --- ক. অ্যাম্বাসেডর হলে ২০% কমিশন ---
+                        $commission = $payment->amount * 0.20;
+                        $profile = $promoOwner->ambassadorProfile;
+                        if ($profile) {
+                            $profile->increment('balance', $commission);
+                            $profile->increment('total_earned', $commission);
+                        }
+                    } else {
+                        // --- খ. সাধারণ ইউজার হলে উভয়কেই ১০ দিন বোনাস ---
+                        // ইউজারের ১০ দিন বাড়ানো (ইতিমধ্যে প্যাকেজের সাথে যোগ হবে)
+                        $user->package_expiry_date = Carbon::parse($user->package_expiry_date)->addDays(10)->format('Y-m-d') . ' 23:59:59';
                         
-            //             // রেফারেল দাতার ১০ দিন বাড়ানো
-            //             $owner_current_expiry = $promoOwner->package_expiry_date ? Carbon::parse($promoOwner->package_expiry_date) : $now;
-            //             $owner_base = $owner_current_expiry->greaterThan($now) ? $owner_current_expiry : $now;
-            //             $promoOwner->package_expiry_date = $owner_base->addDays(10)->format('Y-m-d') . ' 23:59:59';
-            //             $promoOwner->save();
-            //         }
-            //     }
-            // }
+                        // রেফারেল দাতার ১০ দিন বাড়ানো
+                        $owner_current_expiry = $promoOwner->package_expiry_date ? Carbon::parse($promoOwner->package_expiry_date) : $now;
+                        $owner_base = $owner_current_expiry->greaterThan($now) ? $owner_current_expiry : $now;
+                        $promoOwner->package_expiry_date = $owner_base->addDays(10)->format('Y-m-d') . ' 23:59:59';
+                        $promoOwner->save();
+                    }
+                }
+            }
 
             // ৬. ইউজারের ডাটা সেভ
             $user->save();

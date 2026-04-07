@@ -411,10 +411,13 @@ class DashboardController extends Controller
         }
 
         // ৪. স্ট্যাটাস আপডেট
-        $payout->update([
-            'status' => 1, // পেইড
-            'transaction_id' => $request->transaction_id,
-        ]);
+        $payout->status = 1;
+        $payout->transaction_id = $request->transaction_id;
+        $payout->save();
+        // $payout->update([
+        //     'status' => 1, // পেইড
+        //     'transaction_id' => $request->transaction_id,
+        // ]);
 
         return redirect()->back()->with('success', 'পেমেন্ট সফলভাবে আপডেট করা হয়েছে এবং ট্রানজেকশন আইডি সংরক্ষিত হয়েছে।');
     }

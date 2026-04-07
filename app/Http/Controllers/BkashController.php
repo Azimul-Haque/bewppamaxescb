@@ -183,7 +183,6 @@ class BkashController extends Controller
         $payment->amount = $request->payment_info['amount'];
         $payment->store_amount = $request->payment_info['amount'] - ($request->payment_info['amount'] * 0.02);
         $payment->save();
-
         
         $current_package_date = Carbon::parse($user->package_expiry_date);
         $package = Package::findOrFail($request->package_id);

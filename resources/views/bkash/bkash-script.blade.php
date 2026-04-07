@@ -40,7 +40,6 @@
                     success: function (data) {
                         if (data) {
                             if (data.paymentID != null) {
-                                {{-- alert('Payment is successful: ' + data.paymentID); --}}
                                 BkashSuccess(data);
                             } else {
                                 showErrorMessage(data);
@@ -100,7 +99,7 @@
         }
         function BkashSuccess(data) {
             // console.log('পেমেন্ট সাকসেসফুল!');
-            {{-- console.log(data); --}}
+            console.log(data);
             // Swal.fire("Successful", 'পেমেন্ট সাকসেসফুল!', "success");
             $.post('{{ route('bkash-success') }}', {
                 payment_info: data,

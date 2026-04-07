@@ -104,8 +104,6 @@
                 mobile: '{{ $mobile }}',
                 package_id: '{{ $packageid }}'
             }, function (res) {
-                // console.log(res.status);
-                // console.log(JSON.parse(res));
                 alert(JSON.stringify(res));
                 // location.reload();
                 if(res.status == true) {

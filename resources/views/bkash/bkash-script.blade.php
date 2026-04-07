@@ -99,8 +99,6 @@
             });
         }
         function BkashSuccess(data) {
-            // console.log('পেমেন্ট সাকসেসফুল!');
-            // Swal.fire("Successful", 'পেমেন্ট সাকসেসফুল!', "success");
             $.post('{{ route('bkash-success') }}', {
                 payment_info: data,
                 mobile: '{{ $mobile }}',

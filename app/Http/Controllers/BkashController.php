@@ -170,33 +170,35 @@ class BkashController extends Controller
         return json_decode($resultdata, true);
     }
 
-    public function bkashSuccess(Request $request)
-    {
-        $user = User::where('mobile', $request->mobile)->first();
+    // public function bkashSuccess(Request $request)
+    // {
+    //     $user = User::where('mobile', $request->mobile)->first();
         
-        $payment = new Payment;
-        $payment->user_id = $user->id;
-        $payment->package_id = $request->package_id;
-        $payment->uid = $user->uid;
-        $payment->payment_status = 1;
-        $payment->card_type = 'bKash';
-        $payment->trx_id = $request->payment_info['trxID'];
-        $payment->amount = $request->payment_info['amount'];
-        $payment->store_amount = $request->payment_info['amount'] - ($request->payment_info['amount'] * 0.02);
-        $payment->save();
+    //     $payment = new Payment;
+    //     $payment->user_id = $user->id;
+    //     $payment->package_id = $request->package_id;
+    //     $payment->uid = $user->uid;
+    //     $payment->payment_status = 1;
+    //     $payment->card_type = 'bKash';
+    //     $payment->trx_id = $request->payment_info['trxID'];
+    //     $payment->amount = $request->payment_info['amount'];
+    //     $payment->store_amount = $request->payment_info['amount'] - ($request->payment_info['amount'] * 0.02);
+    //     $payment->save();
         
-        $current_package_date = Carbon::parse($user->package_expiry_date);
-        $package = Package::findOrFail($request->package_id);
-        if($current_package_date->greaterThanOrEqualTo(Carbon::now())) {
-            $package_expiry_date = $current_package_date->addDays($package->numeric_duration)->format('Y-m-d') . ' 23:59:59';
-        } else {
-            $package_expiry_date = Carbon::now()->addDays($package->numeric_duration)->format('Y-m-d') . ' 23:59:59';
-        }
-        // dd($package_expiry_date);
-        $user->package_expiry_date = $package_expiry_date;
-        $user->save();
-        return response()->json(['status' => true]);
-    }
+    //     $current_package_date = Carbon::parse($user->package_expiry_date);
+    //     $package = Package::findOrFail($request->package_id);
+    //     if($current_package_date->greaterThanOrEqualTo(Carbon::now())) {
+    //         $package_expiry_date = $current_package_date->addDays($package->numeric_duration)->format('Y-m-d') . ' 23:59:59';
+    //     } else {
+    //         $package_expiry_date = Carbon::now()->addDays($package->numeric_duration)->format('Y-m-d') . ' 23:59:59';
+    //     }
+    //     // dd($package_expiry_date);
+    //     $user->package_expiry_date = $package_expiry_date;
+    //     $user->save();
+    //     return response()->json(['status' => true]);
+    // }
+
+    
 
     public function bkashCancelPage()
     {

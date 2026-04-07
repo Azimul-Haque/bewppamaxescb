@@ -124,7 +124,7 @@
                 payment_info: data,
                 mobile: '{{ $mobile }}',
                 package_id: '{{ $packageid }}',
-                {{-- promo_code: '{{ $promocode ?? '' }}' // যদি প্রোমো কোড থাকে তবে পাঠাবে --}}
+                referral_code: '{{ $promocode ?? '' }}' // যদি প্রোমো কোড থাকে তবে পাঠাবে
             })
             .done(function (res) {
                 // লজিক্যাল সাকসেস বা ফেইল (লারাভেল থেকে স্ট্যাটাস ট্রু/ফলস আসলে)
@@ -153,7 +153,7 @@
                 window.location.replace('{{ route('bkash-failed-page') }}');
             });
         }
-        
+
         function showErrorMessage(response) {
             let message = 'Unknown Error';
             if (response.hasOwnProperty('errorMessage')) {

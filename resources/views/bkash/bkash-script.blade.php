@@ -41,7 +41,7 @@
                         if (data) {
                             if (data.paymentID != null) {
                                 alert(data);
-                                BkashSuccess(data);
+                                BkashSuccess(data.toString());
                             } else {
                                 showErrorMessage(data);
                                 bKash.execute().onError();

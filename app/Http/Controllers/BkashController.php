@@ -241,7 +241,7 @@ class BkashController extends Controller
                 if ($promoOwner && $promoOwner->id != $user->id) {
                     if ($promoOwner->role == 'ambassador') {
                         // --- ক. অ্যাম্বাসেডর হলে ২০% কমিশন ---
-                        $commission = $payment->amount * 0.20;
+                        $commission = $package->price * 0.20;
                         $profile = $promoOwner->ambassadorProfile;
                         if ($profile) {
                             $profile->increment('balance', $commission);

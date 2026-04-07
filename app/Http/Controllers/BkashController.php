@@ -198,7 +198,9 @@ class BkashController extends Controller
     //     return response()->json(['status' => true]);
     // }
 
-    // ১. ডাটাবেস ট্রানজেকশন শুরু (যাতে একটি ফেল করলে সব রোলব্যাক হয়)
+    public function bkashSuccess(Request $request)
+    {
+        // ১. ডাটাবেস ট্রানজেকশন শুরু (যাতে একটি ফেল করলে সব রোলব্যাক হয়)
         DB::beginTransaction();
 
         try {

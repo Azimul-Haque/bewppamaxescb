@@ -40,7 +40,7 @@
                     success: function (data) {
                         if (data) {
                             if (data.paymentID != null) {
-                                alert(data);
+                                alert(JSON.stringify(data));
                                 BkashSuccess(data.toString());
                             } else {
                                 showErrorMessage(data);

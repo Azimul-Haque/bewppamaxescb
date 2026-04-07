@@ -141,7 +141,7 @@
             })
             .fail(function (xhr, status, error) {
                 // সার্ভার যদি ৫00 এরর দেয় বা নেটওয়ার্ক চলে যায়
-                console.error("Server Crash Error:", xhr.responseText);
+                {{-- console.error("Server Crash Error:", xhr.responseText); --}}
                 
                 let errorMsg = "সার্ভারে সমস্যা হয়েছে। দয়া করে আপনার ট্রানজেকশন আইডিটি সংরক্ষণ করুন।";
                 try {

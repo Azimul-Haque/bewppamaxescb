@@ -106,7 +106,7 @@
             }, function (res) {
                 // console.log(res.status);
                 // console.log(JSON.parse(res));
-                alert('Payment is successful');
+                alert(JSON.stringify(res));
                 // location.reload();
                 if(res.status == true) {
                     window.location.replace('{{ route('bkash-success-page') }}');

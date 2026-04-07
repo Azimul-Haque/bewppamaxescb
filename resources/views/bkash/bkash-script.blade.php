@@ -98,7 +98,7 @@
                 }
             });
         }
-        function BkashSuccess(data) {
+        {{-- function BkashSuccess(data) {
             $.post('{{ route('bkash-success') }}', {
                 payment_info: data,
                 mobile: '{{ $mobile }}',
@@ -113,7 +113,47 @@
                 }
                 
             });
+        } --}}
+
+        function BkashSuccess(data) {
+            // পেমেন্ট হওয়ার পর ইউজার যাতে বারবার ক্লিক না করে বা পেজ না ছাড়ে সেজন্য একটি লোডার দেখানো ভালো
+            console.log("Payment Info Received:", data);
+
+            $.post('{{ route('bkash-success') }}', {
+                _token: '{{ csrf_token() }}', // লারাভেল সিকিউরিটির জন্য সিএসআরএফ টোকেন
+                payment_info: data,
+                mobile: '{{ $mobile }}',
+                package_id: '{{ $packageid }}',
+                promo_code: '{{ $promocode ?? '' }}' // যদি প্রোমো কোড থাকে তবে পাঠাবে
+            })
+            .done(function (res) {
+                // লজিক্যাল সাকসেস বা ফেইল (লারাভেল থেকে স্ট্যাটাস ট্রু/ফলস আসলে)
+                console.log("Server Response:", res);
+                
+                if(res.status == true) {
+                    // পেমেন্ট এবং ডাটাবেস আপডেট সফল
+                    window.location.replace('{{ route('bkash-success-page') }}');
+                } else {
+                    // লারাভেল থেকে লজিক্যাল এরর আসলে (যেমন: ইউজার পাওয়া যায়নি)
+                    alert("ত্রুটি: " + (res.message || "পেমেন্ট প্রসেস করা সম্ভব হয়নি।"));
+                    window.location.replace('{{ route('bkash-failed-page') }}');
+                }
+            })
+            .fail(function (xhr, status, error) {
+                // সার্ভার যদি ৫00 এরর দেয় বা নেটওয়ার্ক চলে যায়
+                console.error("Server Crash Error:", xhr.responseText);
+                
+                let errorMsg = "সার্ভারে সমস্যা হয়েছে। দয়া করে আপনার ট্রানজেকশন আইডিটি সংরক্ষণ করুন।";
+                try {
+                    let jsonErr = JSON.parse(xhr.responseText);
+                    if(jsonErr.message) errorMsg = jsonErr.message;
+                } catch(e) {}
+
+                alert("সিস্টেম এরর: " + errorMsg);
+                window.location.replace('{{ route('bkash-failed-page') }}');
+            });
         }
+        
         function showErrorMessage(response) {
             let message = 'Unknown Error';
             if (response.hasOwnProperty('errorMessage')) {

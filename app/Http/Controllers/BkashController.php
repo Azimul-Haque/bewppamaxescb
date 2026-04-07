@@ -198,7 +198,85 @@ class BkashController extends Controller
     //     return response()->json(['status' => true]);
     // }
 
-    
+    // ১. ডাটাবেস ট্রানজেকশন শুরু (যাতে একটি ফেল করলে সব রোলব্যাক হয়)
+        DB::beginTransaction();
+
+        try {
+            // ২. ইউজার এবং প্যাকেজ চেক
+            $user = User::where('mobile', $request->mobile)->first();
+            if (!$user) throw new Exception("ইউজার খুঁজে পাওয়া যায়নি (Mobile: {$request->mobile})");
+
+            $package = Package::find($request->package_id);
+            if (!$package) throw new Exception("প্যাকেজ আইডি ভুল!");
+
+            // ৩. পেমেন্ট রেকর্ড সেভ করা
+            $payment = new Payment;
+            $payment->user_id = $user->id;
+            $payment->package_id = $request->package_id;
+            $payment->uid = $user->uid;
+            $payment->payment_status = 1;
+            $payment->card_type = 'bKash';
+            // এখানে এপিআই রেসপন্স থেকে আসা ফিল্ডগুলো সাবধানে চেক করতে হবে
+            $payment->trx_id = $request->payment_info['trxID'] ?? 'N/A';
+            $payment->amount = $request->payment_info['amount'] ?? 0;
+            $payment->store_amount = $payment->amount - ($payment->amount * 0.02); // ২% বিকাশ চার্জ বাদে
+            $payment->save();
+
+            // ৪. ইউজার মেয়াদ (Expiry Date) আপডেট লজিক
+            $now = Carbon::now();
+            // যদি মেয়াদের তারিখ না থাকে বা আজ শেষ হয়ে গিয়ে থাকে তবে 'আজ' থেকে শুরু হবে
+            $current_expiry = $user->package_expiry_date ? Carbon::parse($user->package_expiry_date) : $now;
+            
+            $baseDate = $current_expiry->greaterThan($now) ? $current_expiry : $now;
+            $user->package_expiry_date = $baseDate->addDays($package->numeric_duration)->format('Y-m-d') . ' 23:59:59';
+            
+            // ৫. প্রোমো/রেফারেল লজিক (আপনার রিকোয়ারমেন্ট অনুযায়ী)
+            if ($request->has('promo_code') && !empty($request->promo_code)) {
+                $promoOwner = User::where('referral_code', $request->promo_code)->first();
+
+                if ($promoOwner && $promoOwner->id != $user->id) {
+                    if ($promoOwner->role == 'ambassador') {
+                        // --- ক. অ্যাম্বাসেডর হলে ২০% কমিশন ---
+                        $commission = $payment->amount * 0.20;
+                        $profile = $promoOwner->ambassadorProfile;
+                        if ($profile) {
+                            $profile->increment('balance', $commission);
+                            $profile->increment('total_earned', $commission);
+                        }
+                    } else {
+                        // --- খ. সাধারণ ইউজার হলে উভয়কেই ১০ দিন বোনাস ---
+                        // ইউজারের ১০ দিন বাড়ানো (ইতিমধ্যে প্যাকেজের সাথে যোগ হবে)
+                        $user->package_expiry_date = Carbon::parse($user->package_expiry_date)->addDays(10)->format('Y-m-d') . ' 23:59:59';
+                        
+                        // রেফারেল দাতার ১০ দিন বাড়ানো
+                        $owner_current_expiry = $promoOwner->package_expiry_date ? Carbon::parse($promoOwner->package_expiry_date) : $now;
+                        $owner_base = $owner_current_expiry->greaterThan($now) ? $owner_current_expiry : $now;
+                        $promoOwner->package_expiry_date = $owner_base->addDays(10)->format('Y-m-d') . ' 23:59:59';
+                        $promoOwner->save();
+                    }
+                }
+            }
+
+            // ৬. ইউজারের ডাটা সেভ
+            $user->save();
+
+            // ৭. সব ঠিক থাকলে কনফার্ম করা
+            DB::commit();
+            return response()->json(['status' => true, 'message' => 'পেমেন্ট সফল এবং মেয়াদ আপডেট হয়েছে।']);
+
+        } catch (Exception $e) {
+            // ৮. এরর হলে যা যা ডাটাবেসে সেভ হয়েছিল সব বাতিল (Rollback)
+            DB::rollBack();
+            
+            // এরর মেসেজটি লগ ফাইলে সেভ করুন এবং রেসপন্সে পাঠান
+            \Log::error("bKash Success Logic Error: " . $e->getMessage());
+            
+            return response()->json([
+                'status' => false, 
+                'message' => 'ত্রুটি: ' . $e->getMessage()
+            ], 500);
+        }
+    }
 
     public function bkashCancelPage()
     {

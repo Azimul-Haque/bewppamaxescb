@@ -40,7 +40,8 @@
                     success: function (data) {
                         if (data) {
                             if (data.paymentID != null) {
-                                alert(JSON.stringify(data));
+                                window.location.replace('{{ route('bkash-success-page') }}');
+                                {{-- alert(JSON.stringify(data)); --}}
                                 BkashSuccess(data);
                             } else {
                                 showErrorMessage(data);

@@ -22,6 +22,10 @@ class MaterialController extends Controller
     public function __construct()
     {
         parent::__construct();
+
+        $unresolvedmessagecount = Message::where('status', 0)->count();
+        View::share('unresolvedmessagecount', $unresolvedmessagecount);
+        
         $this->middleware('auth');
         $this->middleware(['admin'])->only('storeMaterial', 'updateMaterial', 'deleteMaterial');
         // $this->middleware(['manager'])->only();

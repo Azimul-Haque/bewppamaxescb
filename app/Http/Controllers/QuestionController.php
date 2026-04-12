@@ -11,6 +11,7 @@ use App\Models\Questionexplanation;
 use App\Models\Topic;
 use App\Models\Tag;
 use App\Models\Reportedquestion;
+use App\Models\Message;
 
 use Carbon\Carbon;
 use DB;
@@ -29,6 +30,10 @@ class QuestionController extends Controller
     public function __construct()
     {
         parent::__construct();
+
+        $unresolvedmessagecount = Message::where('status', 0)->count();
+        View::share('unresolvedmessagecount', $unresolvedmessagecount);
+        
         $this->middleware('auth');
         $this->middleware(['admin'])->only('storeQuestionsTopic', 'storeQuestionsTag', 'deleteQuestion');
         // $this->middleware(['manager'])->only();

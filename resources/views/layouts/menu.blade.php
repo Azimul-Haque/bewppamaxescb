@@ -91,7 +91,7 @@
         <p>
             মেসেজসমূহ
             @if($unresolvedmessagecount > 0)
-            ({{ $unresolvedmessagecount }})
+            ({{ $unresolvedmessagecount ?? '' }})
             @endif
         </p>
     </a>

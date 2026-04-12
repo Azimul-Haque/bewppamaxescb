@@ -29,6 +29,10 @@ class ExamController extends Controller
     public function __construct()
     {
         parent::__construct();
+
+        $unresolvedmessagecount = Message::where('status', 0)->count();
+        View::share('unresolvedmessagecount', $unresolvedmessagecount);
+        
         $this->middleware('auth')->except('clear');
         $this->middleware(['admin'])->only('getQuestions');
     }

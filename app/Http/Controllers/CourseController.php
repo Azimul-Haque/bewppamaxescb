@@ -21,6 +21,7 @@ use Session;
 use Artisan;
 use OneSignal;
 use Cache;
+use View;
 
 class CourseController extends Controller
 {
@@ -31,7 +32,7 @@ class CourseController extends Controller
         $unresolvedmessagecount = Message::where('status', 0)->count();
         View::share('unresolvedmessagecount', $unresolvedmessagecount);
 
-        
+
         $this->middleware('auth');
         $this->middleware(['admin'])->only('getExams');
     }

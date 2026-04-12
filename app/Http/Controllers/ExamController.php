@@ -12,6 +12,7 @@ use App\Models\Examcategory;
 use App\Models\Examquestion;
 use App\Models\Question;
 use App\Models\Meritlist;
+use App\Models\Message;
 
 use Carbon\Carbon;
 use DB;

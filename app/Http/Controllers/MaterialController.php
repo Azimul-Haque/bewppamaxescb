@@ -17,6 +17,7 @@ use Session;
 use Redirect;
 // use OneSignal;
 use Cache;
+use View;
 
 class MaterialController extends Controller
 {
@@ -26,7 +27,7 @@ class MaterialController extends Controller
 
         $unresolvedmessagecount = Message::where('status', 0)->count();
         View::share('unresolvedmessagecount', $unresolvedmessagecount);
-        
+
         $this->middleware('auth');
         $this->middleware(['admin'])->only('storeMaterial', 'updateMaterial', 'deleteMaterial');
         // $this->middleware(['manager'])->only();

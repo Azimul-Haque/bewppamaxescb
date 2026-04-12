@@ -24,6 +24,7 @@ use Artisan;
 use OneSignal;
 use Purifier;
 use Cache;
+use View;
 
 class QuestionController extends Controller
 {
@@ -33,7 +34,7 @@ class QuestionController extends Controller
 
         $unresolvedmessagecount = Message::where('status', 0)->count();
         View::share('unresolvedmessagecount', $unresolvedmessagecount);
-        
+
         $this->middleware('auth');
         $this->middleware(['admin'])->only('storeQuestionsTopic', 'storeQuestionsTag', 'deleteQuestion');
         // $this->middleware(['manager'])->only();

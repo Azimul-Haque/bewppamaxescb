@@ -204,6 +204,7 @@
               data-page-id="{{ $blog->slug }}"
               data-page-url="{{ Request::url() }}"
               data-page-title="{{ $blog->title }}"
+              style="height: 100%;"
             >
             </div>
         </div>

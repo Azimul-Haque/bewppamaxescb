@@ -386,10 +386,12 @@ class QuestionController extends Controller
             try {
                 $question             = new Question;
                 $question->topic_id   = $collection['topic_id'];
-                if($collection['image_name'] != null) {
-                    $question->question   = $collection['question'] . '<br><img src="https://bcsexamaid.com/images/questions/' . $collection['image_name'] . '">';
+                $imageName = $collection['image_name'] ?? null;
+
+                if ($imageName) {
+                    $question->question = $collection['question'] . '<br><img src="https://bcsexamaid.com/images/questions/' . $imageName . '">';
                 } else {
-                    $question->question   = $collection['question'];
+                    $question->question = $collection['question'];
                 }
                 
                 $question->option1    = $collection['option1'];
@@ -418,10 +420,10 @@ class QuestionController extends Controller
                 //     $questionimage->save();
                 // }
 
-                if($collection['image_name'] != null) {
+                if($imageName) {
                     $questionimage              = new Questionimage;
                     $questionimage->question_id = $question->id;
-                    $questionimage->image       = $collection['image_name'];
+                    $questionimage->image       = $imageName;
                     $questionimage->save();
                 }
                 

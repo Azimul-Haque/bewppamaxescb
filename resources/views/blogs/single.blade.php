@@ -126,7 +126,7 @@
         .btn-linkedin { background: #0077b5; }
         .social-share-links .btn:hover { opacity: 0.8; transform: scale(1.1); }
 
-        #cusdis_thread {
+        #cusdis_thread, iframe {
             min-height: 500px; /* Adjust as needed */
         }
     </style>

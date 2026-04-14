@@ -134,7 +134,7 @@
 
 @section('content-s')
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/bn_IN/sdk.js#xfbml=1&version=v12.0&appId=163879201229487"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v25.0&appId=1471913530260781"></script>
 
     <div class="blog-single-card">
         <h1 class="mb-3 font-weight-bold blog-title" style="color: #222;">{{ $blog->title }}</h1>

@@ -200,7 +200,7 @@
         <div id="cusdis_thread"
           data-host="https://cusdis.com"
           data-app-id="00554008-2c15-466a-ba58-b6a114797e49"
-          data-page-id="{{ PAGE_ID }}"
+          data-page-id="{{ $blog->slug }}"
           data-page-url="{{ Request::url() }}"
           data-page-title="{{ $blog->title }}"
         ></div>

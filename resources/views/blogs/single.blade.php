@@ -202,7 +202,7 @@
           data-app-id="00554008-2c15-466a-ba58-b6a114797e49"
           data-page-id="{{ PAGE_ID }}"
           data-page-url="{{ Request::url() }}"
-          data-page-title="{{ PAGE_TITLE }}"
+          data-page-title="{{ $blog->title }}"
         ></div>
         <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 

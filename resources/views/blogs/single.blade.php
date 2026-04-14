@@ -126,9 +126,6 @@
         .btn-linkedin { background: #0077b5; }
         .social-share-links .btn:hover { opacity: 0.8; transform: scale(1.1); }
 
-        iframe {
-            min-height: 400px; /* Adjust as needed */
-        }
     </style>
 @endsection
 
@@ -239,16 +236,6 @@
             });
         }
 
-        // Script to dynamically adjust iframe height based on content
-        window.addEventListener('load', function () {
-            let iframe = document.querySelector("#cusdis_thread iframe");
-            if (iframe) {
-                let observer = new MutationObserver(() => {
-                    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + "px";
-                });
-                observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
-            }
-        });
 
     </script>
 @endsection

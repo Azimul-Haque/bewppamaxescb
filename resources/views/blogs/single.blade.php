@@ -133,8 +133,7 @@
 @endsection
 
 @section('content-s')
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v25.0&appId=1471913530260781"></script>
+    
 
     <div class="blog-single-card">
         <h1 class="mb-3 font-weight-bold blog-title" style="color: #222;">{{ $blog->title }}</h1>
@@ -204,7 +203,6 @@
 @section('third_party_scripts-s')
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        document.querySelector('.fb-comments').setAttribute("data-href", window.location.href);
         $(document).ready(function(){
             $('.note-video-clip').each(function() {
                 var tmp = $(this).parent().html();

@@ -201,14 +201,13 @@
             <h4 class="font-weight-bold mb-4"><i class="far fa-comments"></i> আলোচনা ও মন্তব্য</h4>
             <div class="fb-comments" data-href="{{ Request::url() }}" data-width="100%" data-numposts="5"></div>
         </div> --}}
-        <div class="mt-5 h-100" style="height: 100%;">
+        <div class="mt-5 h-100">
             <div id="cusdis_thread"
               data-host="https://cusdis.com"
               data-app-id="00554008-2c15-466a-ba58-b6a114797e49"
               data-page-id="{{ $blog->slug }}"
               data-page-url="{{ Request::url() }}"
               data-page-title="{{ $blog->title }}"
-              style="height: 100%;"
             >
             </div>
         </div>

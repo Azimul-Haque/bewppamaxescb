@@ -127,7 +127,7 @@
         .social-share-links .btn:hover { opacity: 0.8; transform: scale(1.1); }
 
         iframe {
-            min-height: 400px; /* Adjust as needed */
+            min-height: 100%; /* Adjust as needed */
         }
     </style>
 @endsection

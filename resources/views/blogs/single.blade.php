@@ -201,7 +201,7 @@
           data-host="https://cusdis.com"
           data-app-id="00554008-2c15-466a-ba58-b6a114797e49"
           data-page-id="{{ PAGE_ID }}"
-          data-page-url="{{ PAGE_URL }}"
+          data-page-url="{{ Request::url() }}"
           data-page-title="{{ PAGE_TITLE }}"
         ></div>
         <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>

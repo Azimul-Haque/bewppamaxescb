@@ -193,10 +193,10 @@
         </div>
 
         {{-- Facebook Comments --}}
-        <div class="mt-5">
+        {{-- <div class="mt-5">
             <h4 class="font-weight-bold mb-4"><i class="far fa-comments"></i> আলোচনা ও মন্তব্য</h4>
             <div class="fb-comments" data-href="{{ Request::url() }}" data-width="100%" data-numposts="5"></div>
-        </div>
+        </div> --}}
     </div>
 @endsection
 

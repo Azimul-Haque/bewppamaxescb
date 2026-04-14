@@ -197,6 +197,15 @@
             <h4 class="font-weight-bold mb-4"><i class="far fa-comments"></i> আলোচনা ও মন্তব্য</h4>
             <div class="fb-comments" data-href="{{ Request::url() }}" data-width="100%" data-numposts="5"></div>
         </div> --}}
+        <div id="cusdis_thread"
+          data-host="https://cusdis.com"
+          data-app-id="00554008-2c15-466a-ba58-b6a114797e49"
+          data-page-id="{{ PAGE_ID }}"
+          data-page-url="{{ PAGE_URL }}"
+          data-page-title="{{ PAGE_TITLE }}"
+        ></div>
+        <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
     </div>
 @endsection
 

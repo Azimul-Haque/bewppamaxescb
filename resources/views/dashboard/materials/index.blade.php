@@ -359,7 +359,7 @@
                           {{-- <textarea id="ckeditor" name="content"></textarea> --}}
                           {{-- <input type="hidden" id="content" name="content"> --}}
                           <textarea id="content" name="content" style="display:none;"></textarea>
-                          <div id="summernote"></div>
+                          {{-- <div id="summernote"></div> --}}
                         </div>
                     </div>
               </div>

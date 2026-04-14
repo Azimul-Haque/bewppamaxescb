@@ -202,6 +202,7 @@
             <div class="fb-comments" data-href="{{ Request::url() }}" data-width="100%" data-numposts="5"></div>
         </div> --}}
         <div class="mt-5 h-100">
+            <h4 class="font-weight-bold mb-4"><i class="far fa-comments"></i> আলোচনা ও মন্তব্য</h4>
             <div id="cusdis_thread"
               data-host="https://cusdis.com"
               data-app-id="00554008-2c15-466a-ba58-b6a114797e49"

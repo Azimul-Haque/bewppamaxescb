@@ -92,6 +92,7 @@
                       <h3 class="card-title">সিলেবাস</h3>
           
                       <div class="card-tools">
+                        {{  }}
                       </div>
                     </div>
                     <!-- /.card-header -->

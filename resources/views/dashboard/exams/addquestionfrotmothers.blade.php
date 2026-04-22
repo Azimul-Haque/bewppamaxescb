@@ -89,7 +89,7 @@
             <div class="col-md-2">
                 <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">প্রশ্নের হিসাব</h3>
+                      <h3 class="card-title">সিলেবাস</h3>
           
                       <div class="card-tools">
                       </div>

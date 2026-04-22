@@ -92,7 +92,7 @@
                       <h3 class="card-title">সিলেবাস</h3>
           
                       <div class="card-tools">
-                        {{  }}
+                        {{ $exam->syllabus }}
                       </div>
                     </div>
                     <!-- /.card-header -->

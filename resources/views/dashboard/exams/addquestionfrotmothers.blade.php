@@ -96,7 +96,7 @@
                       </div>
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body p-0">
+                    <div class="card-body ">
                       {{ $exam->syllabus }}
                     </div>
                     <!-- /.card-body -->

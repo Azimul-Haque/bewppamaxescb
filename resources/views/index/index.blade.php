@@ -972,7 +972,8 @@
                 },
                 "about": {
                   "@type": "Course Category",
-                  "name": "{{ $catName }}"
+                  "name": "{{ $catName }}",
+                  "description": "{{ $catName }}"
                 }
               }
             }@if(!$loop->last),@endif

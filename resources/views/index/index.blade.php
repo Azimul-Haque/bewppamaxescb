@@ -762,7 +762,7 @@
                             </div>
 
                             <div class="course-cta d-grid">
-                                <a href="{{ route('course.single', $course->slug) }}" class="btn btn-outline-primary fw-bold" style="border-radius: 8px;">
+                                <a href="#!" class="btn btn-outline-primary fw-bold" style="border-radius: 8px;">
                                     বিস্তারিত দেখুন <i class="lni lni-arrow-right ms-2"></i>
                                 </a>
                             </div>

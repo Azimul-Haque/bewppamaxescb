@@ -852,6 +852,22 @@
                 </div>
             </div>
 
+            <div class="section-title-five">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="content">
+                      <h6>ভিডিও গাইড</h6>
+                      <h2 class="fw-bold">টিউটোরিয়াল ও টিপস</h2>
+                      <p>
+                        আমাদের অ্যাপের ব্যবহার এবং বিসিএস প্রস্তুতির বিশেষ কৌশলগুলো দেখে নিন এই শর্ট ভিডিওগুলোর মাধ্যমে।
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="row g-4 justify-content-center">
                 @foreach($courses as $course)
                     @php

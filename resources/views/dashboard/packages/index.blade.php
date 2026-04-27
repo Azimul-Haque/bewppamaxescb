@@ -325,7 +325,7 @@
                              class="form-control"
                              placeholder="মূল্য" required>
                       <div class="input-group-append">
-                          <div class="input-group-text"><span class="fas fa-dollar-sign"></span></div>
+                          <div class="input-group-text"><span class="fas fa-image"></span></div>
                       </div>
                   </div>
 	          </div>

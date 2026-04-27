@@ -145,4 +145,11 @@
       'Aamarpay' => 'Shipu\\Aamarpay\\Facades\\Aamarpay',
     ),
   ),
+  'spatie/laravel-sitemap' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Spatie\\Sitemap\\SitemapServiceProvider',
+    ),
+  ),
 );

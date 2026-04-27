@@ -434,6 +434,7 @@
                 "@context": "https://schema.org/",
                 "@type": "Product",
                 "name": "{{ $package->name }}",
+                "image": "",
                 "description": "{{ $package->tagline }}",
                 "offers": {
                   "@type": "Offer",

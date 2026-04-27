@@ -442,7 +442,7 @@
                   "priceSpecification": {
                     "@type": "UnitPriceSpecification",
                     "priceType": "https://schema.org/StrikethroughPrice",
-                    "price": 15.00,
+                    "price": "{{ $package->price }}",
                     "priceCurrency": "GBP"
                   }
                 }

@@ -971,7 +971,7 @@
                   "courseWorkload": "মোট পরীক্ষা: {{ $course->courseexams->count() }} টি"
                 },
                 "about": {
-                  "@type": "Thing",
+                  "@type": "Course",
                   "name": "{{ $catName }}"
                 }
               }

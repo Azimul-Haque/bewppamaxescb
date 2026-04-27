@@ -70,7 +70,48 @@
         }
       }
   </script>
-  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Quiz",
+    "name": "BCS Exam Aid: বিসিএস ও সরকারি চাকরি প্রস্তুতি গাইড",
+    "description": "বিসিএস প্রিলিমিনারি, ব্যাংক, প্রাইমারি এবং অন্যান্য সরকারি চাকরির প্রস্তুতি সংক্রান্ত সাধারণ জিজ্ঞাসার উত্তর।",
+    "educationalAlignment": [
+      {
+        "@type": "AlignmentObject",
+        "alignmentType": "educational level",
+        "educationalFramework": "National Curriculum",
+        "targetName": "Competitive Exams"
+      }
+    ],
+    "hasPart": [
+      {
+        "@type": "Question",
+        "name": "BCS Exam Aid অ্যাপটি আসলে কী এবং কাদের জন্য?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "এটি বিসিএস প্রিলিমিনারি, ব্যাংক, প্রাইমারি সহ যেকোনো সরকারি চাকরির প্রস্তুতির একটি স্বয়ংসম্পূর্ণ ডিজিটাল প্ল্যাটফর্ম। যারা ঘরে বসে স্মার্ট প্রস্তুতি নিতে চান, তাদের জন্য এটি ১ লক্ষাধিক প্রশ্নের ভাণ্ডার।"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "অ্যাপটিতে বিসিএস-এর ১১টি বিষয়ের সিলেবাস কি পুরোপুরি কভার করা হয়েছে?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "হ্যাঁ, বিসিএস প্রিলিমিনারি সিলেবাসের ১১টি মূল বিষয়কে ২২০০+ সাব-টপিকে ভাগ করে এখানে সাজানো হয়েছে।"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "অ্যাপের প্রশ্ন এবং সমাধানগুলো কতটা নির্ভুল?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "প্রতিটি প্রশ্ন এবং ব্যাখ্যা শীর্ষস্থানীয় ক্যাডার এবং বিশেষজ্ঞ প্যানেল দ্বারা যাচাইকৃত, যা তথ্যের শতভাগ নির্ভরযোগ্যতা নিশ্চিত করে।"
+        }
+      }
+    ]
+  }
+  </script>
   <!-- Google tag (gtag.js) -->
   {{-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-966058910"></script>
   <script>

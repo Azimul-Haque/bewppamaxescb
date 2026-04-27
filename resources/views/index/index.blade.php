@@ -750,7 +750,7 @@
 
                         <div class="course-info p-4">
                             <h4 class="course-title mb-3">
-                                <a href="{{ route('course.single', $course->slug) }}" style="text-decoration: none; color: #1a237e; transition: 0.3s;">
+                                <a href="#!" style="text-decoration: none; color: #1a237e; transition: 0.3s;">
                                     {{ $course->name }}
                                 </a>
                             </h4>

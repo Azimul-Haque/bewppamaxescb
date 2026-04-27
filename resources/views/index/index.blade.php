@@ -983,9 +983,6 @@
         </script>
     </section>
 
-    
-
-
 
     <!-- Start Cta Area -->
     <section id="call-action" class="call-action">

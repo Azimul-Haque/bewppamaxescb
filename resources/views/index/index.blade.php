@@ -959,7 +959,7 @@
                 "@type": "Course",
                 "url": "{{ url('/') }}#course-{{ $course->id }}",
                 "name": "{{ $course->name }}",
-                "description": "{{ $course->name }}",
+                "description": "{{ $course->name }} - {{ $catName }}",
                 "provider": {
                   "@type": "Organization",
                   "name": "BCS Exam Aid",

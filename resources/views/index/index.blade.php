@@ -654,7 +654,7 @@
           "itemListElement": [
             {
               "@type": "ListItem",
-              "position": 5,
+              "position": 1,
               "item": {
                 "@type": "VideoObject",
                 "name": "BCS Exam Aid: চলমান কোর্সসমূহ",
@@ -666,7 +666,7 @@
             },
             {
               "@type": "ListItem",
-              "position": 4,
+              "position": 2,
               "item": {
                 "@type": "VideoObject",
                 "name": "BCS Exam Aid: প্রশ্নব্যাংক বিস্তারিত",
@@ -690,7 +690,7 @@
             },
             {
               "@type": "ListItem",
-              "position": 2,
+              "position": 4,
               "item": {
                 "@type": "VideoObject",
                 "name": "BCS Exam Aid: বিষয়ভিত্তিক পরীক্ষা",
@@ -702,7 +702,7 @@
             },
             {
               "@type": "ListItem",
-              "position": 1,
+              "position": 5,
               "item": {
                 "@type": "VideoObject",
                 "name": "BCS Exam Aid: রেফারেল সিস্টেম ও ফেসবুক",

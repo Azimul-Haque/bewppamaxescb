@@ -722,12 +722,40 @@
       <style>
           /* কনটেক্সচুয়াল কালার ভ্যারিয়েবল */
           :root {
-              --color-cat-1: #1e3a8a; /* Blue - BCS */
-              --color-cat-2: #166534; /* Green - Primary */
-              --color-cat-3: #c2410c; /* Orange - Bank */
-              --color-cat-4: #0e7490; /* Cyan - NTRCA */
-              --color-cat-5: #111827; /* Dark - NSI/DGFI */
-              --color-cat-6: #6d28d9; /* Purple - Question Bank */
+              --color-cat-1: #0052D4; /* বিসিএস: রিচ রয়্যাল ব্লু (Professional & Authoritative) */
+              --color-cat-2: #009432; /* প্রাইমারি: ব্রাইট গ্রাস গ্রিন (Growth & Foundation) */
+              --color-cat-3: #FF4500; /* ব্যাংক: ভাইব্রেন্ট অরেঞ্জ-রেড (Fast & Financial) */
+              --color-cat-4: #00CEC9; /* NTRCA: ইলেকট্রিক টিল/সিয়ান (Academic & Fresh) */
+              --color-cat-5: #2C3E50; /* NSI/DGFI: মিডনাইট ব্ল্যাক/স্লেট (Secure & Executive) */
+              --color-cat-6: #8E44AD; /* প্রশ্ন ব্যাংক: অ্যামেথিস্ট পার্পল (Archive & Wisdom) */
+          }
+
+          /* গ্রেডিয়েন্ট ইফেক্ট আরও শার্প করার জন্য হেডার স্টাইল আপডেট */
+          .card-header-visual {
+              /* আমরা এখন কালার ভ্যারিয়েবলের সাথে একটা ডার্ক মিক্স দেব যাতে টেক্সট একদম ক্লিয়ার থাকে */
+              background: linear-gradient(145deg, var(--cat-main-color) 0%, #000000 130%);
+              padding: 40px 20px;
+              text-align: center;
+              color: #fff;
+              position: relative;
+              height: 200px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              border-bottom: 4px solid rgba(255,255,255,0.2);
+          }
+
+          .category-name {
+              background: rgba(255, 255, 255, 0.25); /* অপাসিটি বাড়ালাম যাতে আরও ফুটে ওঠে */
+              color: #fff;
+              padding: 4px 12px;
+              border-radius: 4px; /* রাউন্ডেড থেকে একটু শার্প করলাম প্রফেশনাল লুকের জন্য */
+              font-size: 12px;
+              font-weight: 700;
+              margin-bottom: 12px;
+              text-transform: uppercase;
+              letter-spacing: 1px;
           }
 
           /* ক্যাটাগরি অনুযায়ী কালার সেট করা */
@@ -753,18 +781,7 @@
           }
 
           /* ডায়নামিক ভিজ্যুয়াল হেডার (ইমেজের পরিবর্তে) */
-          .card-header-visual {
-              background: linear-gradient(135deg, var(--cat-main-color) 0%, #111827 100%);
-              padding: 40px 20px;
-              text-align: center;
-              color: #fff;
-              position: relative;
-              height: 220px;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-          }
+          
           .category-icon-bg {
               font-size: 50px;
               opacity: 0.2;
@@ -774,16 +791,7 @@
               color: #fff;
               transform: rotate(-15deg);
           }
-          .category-name {
-              background: rgba(255, 255, 255, 0.15);
-              color: #fff;
-              padding: 5px 15px;
-              border-radius: 30px;
-              font-size: 13px;
-              font-weight: 600;
-              margin-bottom: 15px;
-              display: inline-block;
-          }
+          
           .visual-title {
               font-size: 20px;
               color: #fff;

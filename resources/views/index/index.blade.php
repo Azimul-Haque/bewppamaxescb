@@ -718,6 +718,111 @@
       </div>
     </section>
 
+    <section id="courses" class="courses-area py-5" style="background-color: #fcfdfe;">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <div class="section-title">
+                        <h6 style="color: #0d6efd; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">টার্গেট ভিত্তিক কোর্স</h6>
+                        <h2 class="fw-bold mb-3" style="font-size: 32px; color: #1a237e;">আপনার কাঙ্ক্ষিত কোর্সটি বেছে নিন</h2>
+                        <p class="text-muted">বিসিএস ক্যাডারদের প্রত্যক্ষ তত্ত্বাবধানে তৈরি বিশেষ সিলেবাস ও রুটিন অনুযায়ী প্রস্তুতি নিন।</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                @foreach($courses as $course)
+                <div class="col-lg-4 col-md-6">
+                    <div class="course-card-premium h-100">
+                        <div class="course-badge">
+                            @if($course->category == 1) <i class="lni lni-book"></i> বিসিএস
+                            @elseif($course->category == 2) <i class="lni lni-graduation"></i> প্রাইমারি
+                            @elseif($course->category == 3) <i class="lni lni-money-location"></i> ব্যাংক
+                            @elseif($course->category == 4) <i class="lni lni-pencil"></i> NTRCA
+                            @elseif($course->category == 5) <i class="lni lni-shield"></i> NSI, DGFI ও অন্যান্য
+                            @elseif($course->category == 6) <i class="lni lni-archive"></i> প্রশ্ন ব্যাংক
+                            @endif
+                        </div>
+
+                        <div class="course-image">
+                            <img src="{{ asset('images/courses/'.$course->image) }}" alt="{{ $course->name }}" class="img-fluid" loading="lazy">
+                        </div>
+
+                        <div class="course-info p-4">
+                            <h4 class="course-title mb-3">
+                                <a href="{{ route('course.single', $course->slug) }}" style="text-decoration: none; color: #1a237e; transition: 0.3s;">
+                                    {{ $course->name }}
+                                </a>
+                            </h4>
+                            
+                            <div class="course-meta d-flex justify-content-between align-items-center mb-4">
+                                <span class="meta-item text-muted">
+                                    <i class="lni lni-pencil-alt text-primary"></i> মোট পরীক্ষাঃ <strong>{{ $course->courseexams->count() }} টি</strong>
+                                </span>
+                            </div>
+
+                            <div class="course-cta d-grid">
+                                <a href="{{ route('course.single', $course->slug) }}" class="btn btn-outline-primary fw-bold" style="border-radius: 8px;">
+                                    বিস্তারিত দেখুন <i class="lni lni-arrow-right ms-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .course-card-premium {
+            background: #fff;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            border: 1px solid #eee;
+        }
+        .course-card-premium:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: #0d6efd;
+        }
+        .course-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(13, 110, 253, 0.9);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            z-index: 2;
+            backdrop-filter: blur(5px);
+        }
+        .course-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .course-card-premium:hover .course-image img {
+            transform: scale(1.1);
+        }
+        .course-title {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        .meta-item i { margin-right: 5px; }
+    </style>
+
 
 
     <!-- Start Cta Area -->

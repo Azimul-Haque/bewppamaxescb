@@ -499,6 +499,7 @@ class DashboardController extends Controller
             'strike_price'            => 'required|integer',
             'status'                  => 'required',
             'suggested'               => 'required',
+            'image'                   => 'required',
         ));
 
         $package = Package::findOrFail($id);
@@ -510,6 +511,7 @@ class DashboardController extends Controller
         $package->strike_price = $request->strike_price;
         $package->status = $request->status;
         $package->suggested = $request->suggested;
+        $package->image = $request->image;
         $package->save();
 
         Session::flash('success', 'Package updated successfully!');

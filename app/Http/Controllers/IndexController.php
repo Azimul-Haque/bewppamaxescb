@@ -16,6 +16,7 @@ use App\Models\Due;
 use App\Models\Temppayment;
 use App\Models\Payment;
 use App\Models\Blog;
+use App\Models\Course;
 
 use App\Models\Exam;
 

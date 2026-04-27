@@ -491,7 +491,7 @@
                 "headline": "{{ $blog->title }}",
                 "description": "{{ $blog->description ?? mb_substr(strip_tags($blog->body), 0, 200) }}",
                 "image": "{{ asset('images/blogs/'.$blog->featured_image) ?? asset('images/bcs-exam-aid-banner.png') }}",
-                "url": "{{ url()->current() }}",
+                "url": "{{ url() . '/blogs/' }}",
                 "author": {
                   "@type": "Person",
                   "name": "{{ $blog->user->name ?? 'এ. এইচ. এম. আজিমুল হক' }}"

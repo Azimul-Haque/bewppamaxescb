@@ -55,7 +55,8 @@ class IndexController extends Controller
 
         return view('index.index')
                     ->withPackages($packages)
-                    ->withBlogs($blogs);
+                    ->withBlogs($blogs)
+                    ->withCourses($courses);
     }
 
     public function termsAndConditions()

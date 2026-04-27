@@ -647,6 +647,76 @@
             </div>
           </div>
         </div>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "item": {
+                "@type": "VideoObject",
+                "name": "BCS Exam Aid: চলমান কোর্সসমূহ",
+                "description": "বিসিএস প্রিলিমিনারি ও অন্যান্য সরকারি নিয়োগ পরীক্ষার জন্য বর্তমানে অ্যাপে চলমান সকল স্পেশাল কোর্স এবং প্রিমিয়াম ফিচার সম্পর্কে বিস্তারিত জানুন।",
+                "thumbnailUrl": "https://img.youtube.com/vi/6boe3Ui0LKY/maxresdefault.jpg",
+                "uploadDate": "2026-04-24T10:00:00+06:00",
+                "embedUrl": "https://www.youtube.com/embed/6boe3Ui0LKY"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "VideoObject",
+                "name": "BCS Exam Aid: প্রশ্নব্যাংক বিস্তারিত",
+                "description": "বিগত বছরের সকল বিসিএস ও সরকারি চাকরির নিয়োগ পরীক্ষার প্রশ্ন এবং সেগুলোর নির্ভুল ও বিস্তারিত ব্যাখ্যা সম্বলিত প্রশ্নব্যাংক ব্যবহারের গাইড।",
+                "thumbnailUrl": "https://img.youtube.com/vi/IZXtGjRSrys/maxresdefault.jpg",
+                "uploadDate": "2026-04-23T10:00:00+06:00",
+                "embedUrl": "https://www.youtube.com/embed/IZXtGjRSrys"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "VideoObject",
+                "name": "BCS Exam Aid: বিষয়ভিত্তিক অনুশীলন",
+                "description": "বিসিএস সিলেবাসের প্রতিটি বিষয় সহজভাবে আয়ত্ত করতে বিষয়ভিত্তিক অনুশীলন পদ্ধতি এবং অ্যাপের বিশেষ টেকনিকগুলো সম্পর্কে জানুন।",
+                "thumbnailUrl": "https://img.youtube.com/vi/tmqSxbAQKFM/maxresdefault.jpg",
+                "uploadDate": "2026-04-22T10:00:00+06:00",
+                "embedUrl": "https://www.youtube.com/embed/tmqSxbAQKFM"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "VideoObject",
+                "name": "BCS Exam Aid: বিষয়ভিত্তিক পরীক্ষা",
+                "description": "নিজের প্রস্তুতি যাচাই করতে BCS Exam Aid অ্যাপের বিষয়ভিত্তিক পরীক্ষা ফিচারের ব্যবহার দেখে নিন এবং নিয়োগ পরীক্ষায় এগিয়ে থাকুন।",
+                "thumbnailUrl": "https://img.youtube.com/vi/ezrSC30VuKg/maxresdefault.jpg",
+                "uploadDate": "2026-04-21T10:00:00+06:00",
+                "embedUrl": "https://www.youtube.com/embed/ezrSC30VuKg"
+              }
+            },
+            
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "VideoObject",
+                "name": "BCS Exam Aid: রেফারেল সিস্টেম ও ফেসবুক",
+                "description": "BCS Exam Aid অ্যাপের রেফারেল সিস্টেম ব্যবহার করে বোনাস পাওয়ার উপায় এবং আমাদের ফেসবুক কমিউনিটির সাথে যুক্ত হয়ে প্রস্তুতিকে আরও সমৃদ্ধ করার কৌশল জানুন।",
+                "thumbnailUrl": "https://img.youtube.com/vi/GAy-0gd1_Jw/maxresdefault.jpg",
+                "uploadDate": "2026-04-20T10:00:00+06:00",
+                "embedUrl": "https://www.youtube.com/embed/GAy-0gd1_Jw"
+              }
+            },
+            
+          ]
+        }
+        </script>
       </div>
     </section>
 

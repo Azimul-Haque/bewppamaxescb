@@ -434,7 +434,7 @@
                 "@context": "https://schema.org/",
                 "@type": "Product",
                 "name": "{{ $package->name }}",
-                "image": "https://bcsexamaid.com/images/packages/{{ $package->image }}.png",
+                "image": "https://bcsexamaid.com/images/packages/{{ $package->image }}",
                 "description": "{{ $package->tagline }}",
                 "offers": {
                   "@type": "Offer",

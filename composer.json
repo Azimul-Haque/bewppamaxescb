@@ -22,7 +22,8 @@
         "mews/purifier": "^3.4",
         "niklasravnsborg/laravel-pdf": "^4.1",
         "rap2hpoutre/fast-excel": "^4.1",
-        "shipu/php-aamarpay-payment": "^2.0"
+        "shipu/php-aamarpay-payment": "^2.0",
+        "spatie/laravel-sitemap": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

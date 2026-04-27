@@ -446,6 +446,27 @@
                     "price": "{{ $package->strike_price }}",
                     "priceCurrency": "BDT"
                   }
+                },
+                "brand": {
+                  "@type": "Brand",
+                  "name": "ACME"
+                },
+                "review": {
+                  "@type": "Review",
+                  "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": 4,
+                    "bestRating": 5
+                  },
+                  "author": {
+                    "@type": "Person",
+                    "name": "Fred Benson"
+                  }
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": 4.4,
+                  "reviewCount": 89
                 }
               }
             </script>

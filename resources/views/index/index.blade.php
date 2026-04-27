@@ -442,8 +442,8 @@
                   "priceSpecification": {
                     "@type": "UnitPriceSpecification",
                     "priceType": "https://schema.org/StrikethroughPrice",
-                    "price": "{{ $package->price }}",
-                    "priceCurrency": "GBP"
+                    "price": "{{ $package->strike_price }}",
+                    "priceCurrency": "BDT"
                   }
                 }
               }

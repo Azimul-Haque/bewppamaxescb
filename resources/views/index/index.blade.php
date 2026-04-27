@@ -718,7 +718,7 @@
       </div>
     </section>
 
-    <section id="course-showcase" class="courses-section services-eight" style="background-color: #fcfdfe;">
+    <section id="course-showcase" class="courses-section services-eight" style="background-color: #FAFAFA;">
       <style>
           /* কনটেক্সচুয়াল কালার ভ্যারিয়েবল */
           :root {

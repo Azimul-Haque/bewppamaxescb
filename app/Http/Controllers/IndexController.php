@@ -52,7 +52,7 @@ class IndexController extends Controller
         $packages = Package::where('status', 1)->get();
         $blogs = Blog::orderBy('id', 'desc')->get()->take(3);
         $courses = Course::where('status', 1)
-                         ->orderBy('priority', 'asc')
+                         ->orderBy('id', 'desc')
                          ->orderBy('priority', 'asc')
                          ->get()
                          ->take(5);

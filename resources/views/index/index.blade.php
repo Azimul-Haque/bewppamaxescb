@@ -947,7 +947,7 @@
                 "@type": "Course",
                 "url": "{{ url('/') }}#course-{{ $course->id }}", 
                 "name": "{{ $course->name }}",
-                "description": "{{ Str::limit(strip_tags($course->description), 160) }}",
+                "description": "{{ $course->name }}",
                 "provider": {
                   "@type": "Organization",
                   "name": "BCS Exam Aid",

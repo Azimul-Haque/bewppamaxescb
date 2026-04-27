@@ -116,7 +116,7 @@
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "BCS Exam Aid",
+    "name": "BCS Exam Aid: বিসিএস পরীক্ষা",
     "operatingSystem": "ANDROID",
     "applicationCategory": "EducationApplication",
     "aggregateRating": {

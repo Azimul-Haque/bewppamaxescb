@@ -742,7 +742,6 @@
                             @elseif($course->category == 5) <i class="lni lni-shield"></i> NSI, DGFI ও অন্যান্য
                             @elseif($course->category == 6) <i class="lni lni-archive"></i> প্রশ্ন ব্যাংক
                             @endif
-                            {{ $course->category }}
                         </div>
 
                         <div class="course-image">

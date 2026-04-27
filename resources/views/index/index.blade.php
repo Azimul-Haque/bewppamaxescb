@@ -973,7 +973,7 @@
                 "about": {
                   "@type": "Course Category",
                   "name": "{{ $catName }}",
-                  "description": "{{ $catName }}"
+                  "description": "{{ $catName }} ক্যাটাগরির পরীক্ষাসমূহ"
                 }
               }
             }@if(!$loop->last),@endif

@@ -146,6 +146,22 @@
                         </div>
                     </div>
                 </div>
+                <script type="application/ld+json">
+                    {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "{{ $blog->title }}",
+                    "description": "{{ $blog->description ?? mb_substr(strip_tags($blog->body), 0, 200) }}",
+                    "image": "{{ asset('images/blogs/'.$blog->featured_image) ?? asset('images/bcs-exam-aid-banner.png') }}",
+                    "url": "{{ url('/') . '/blog/' . $blog->slug }}",
+                    "author": {
+                      "@type": "Person",
+                      "name": "{{ $blog->user->name ?? 'এ. এইচ. এম. আজিমুল হক' }}"
+                    },
+                    "datePublished": "{{ $blog->created_at ?? now()->toIso8601String() }}",
+                    "dateModified": "{{ $blog->updated_at ?? now()->toIso8601String() }}"
+                    }
+                </script>
                 @endforeach
             </div>
 

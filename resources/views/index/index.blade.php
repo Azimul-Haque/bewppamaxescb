@@ -700,7 +700,6 @@
                 "embedUrl": "https://www.youtube.com/embed/ezrSC30VuKg"
               }
             },
-            
             {
               "@type": "ListItem",
               "position": 1,
@@ -713,7 +712,6 @@
                 "embedUrl": "https://www.youtube.com/embed/GAy-0gd1_Jw"
               }
             }
-            
           ]
         }
         </script>

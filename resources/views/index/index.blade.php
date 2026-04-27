@@ -449,7 +449,7 @@
                 },
                 "brand": {
                   "@type": "Brand",
-                  "name": "ACME"
+                  "name": "BCS Exam Aid"
                 },
                 "review": {
                   "@type": "Review",

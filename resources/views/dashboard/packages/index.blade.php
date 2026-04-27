@@ -330,7 +330,7 @@
                   </div>
 
                   <div class="input-group mb-3">
-                      <input type="number"
+                      <input type="text"
                              name="image"
                              value="{{ old('image') }}"
                              autocomplete="off"

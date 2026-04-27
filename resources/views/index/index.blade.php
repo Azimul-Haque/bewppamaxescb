@@ -920,7 +920,7 @@
                                                 <i class="lni lni-pencil-alt"></i>
                                             </div>
                                             <div class="meta-text">
-                                                <p>মোট পরীক্ষাঃ {{ bangla($course->courseexams->count()) }} টি</p>
+                                                <p>মোট পরীক্ষা: {{ bangla($course->courseexams->count()) }} টি</p>
                                             </div>
                                         </li>
                                     </ul>
@@ -968,7 +968,7 @@
                 "hasCourseInstance": {
                   "@type": "CourseInstance",
                   "courseMode": "Online",
-                  "courseWorkload": "মোট পরীক্ষাঃ {{ $course->courseexams->count() }} টি"
+                  "courseWorkload": "মোট পরীক্ষা: {{ $course->courseexams->count() }} টি"
                 },
                 "about": {
                   "@type": "Thing",

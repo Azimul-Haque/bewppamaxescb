@@ -112,6 +112,26 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BCS Exam Aid",
+    "operatingSystem": "ANDROID",
+    "applicationCategory": "EducationApplication",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "1700"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "BDT"
+    },
+    "description": "১ লক্ষাধিক প্রশ্ন এবং ২২০০+ সাব-টপিক সহ বিসিএস ও সরকারি চাকরির প্রস্তুতির সবচেয়ে নির্ভরযোগ্য অ্যান্ড্রয়েড অ্যাপ।"
+  }
+  </script>
   <!-- Google tag (gtag.js) -->
   {{-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-966058910"></script>
   <script>

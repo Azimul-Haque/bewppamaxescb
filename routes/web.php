@@ -48,6 +48,7 @@ Route::get('/single/exam/pdf/{softtoken}/{examid}', 'IndexController@getExamSolv
 // Clear Route
 Route::get('/sessionsclear', ['as'=>'sessionsclear','uses'=>'IndexController@deleteSessionFiles']);
 Route::get('/clear', ['as'=>'clear','uses'=>'IndexController@clear']);
+Route::get('/sitemap', ['as'=>'clear','uses'=>'IndexController@generateSiteMap']);
 
 // Payment Routes for bKash
 Route::get('bkash/production/test', 'BkashController@prodTest')->name('bkash-prod-test');

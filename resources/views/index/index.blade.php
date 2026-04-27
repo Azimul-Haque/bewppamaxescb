@@ -779,9 +779,6 @@
               box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
               border-color: var(--cat-main-color);
           }
-
-          /* ডায়নামিক ভিজ্যুয়াল হেডার (ইমেজের পরিবর্তে) */
-          
           .category-icon-bg {
               font-size: 50px;
               opacity: 0.2;

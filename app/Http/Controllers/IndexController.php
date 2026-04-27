@@ -331,7 +331,6 @@ class IndexController extends Controller
         // // Artisan::call('key:generate'); // not good for server and api or api token
         // Artisan::call('config:clear');
         Artisan::call('optimize:clear');
-        Artisan::call('sitemap:generate');
 
         DB::table('sessions')
                 ->where('last_activity', '<', Carbon::now()->subMinutes(config('session.lifetime'))->getTimestamp())

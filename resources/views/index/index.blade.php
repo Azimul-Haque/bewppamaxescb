@@ -929,7 +929,42 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <script type="application/ld+json">
+                    {
+                      "@context": "https://schema.org",
+                      "@type": "ItemList",
+                      "name": "বিসিএস ও সরকারি চাকরি প্রস্তুতি কোর্সসমূহ - BCS Exam Aid",
+                      "description": "বিসিএস, ব্যাংক, প্রাইমারি এবং অন্যান্য সরকারি চাকরির জন্য ক্যাডারদের দ্বারা পরিচালিত পূর্ণাঙ্গ অনলাইন কোর্স।",
+                      "itemListElement": [
+                        @foreach($courses as $index => $course)
+                        {
+                          "@type": "ListItem",
+                          "position": {{ $index + 1 }},
+                          "item": {
+                            "@type": "Course",
+                            "url": "{{ url('/') }}#course-{{ $course->id }}", 
+                            "name": "{{ $course->name }}",
+                            "description": "{{ Str::limit(strip_tags($course->description), 160) }}",
+                            "provider": {
+                              "@type": "Organization",
+                              "name": "BCS Exam Aid",
+                              "sameAs": "{{ url('/') }}"
+                            },
+                            "hasCourseInstance": {
+                              "@type": "CourseInstance",
+                              "courseMode": "Online",
+                              "courseWorkload": "মোট পরীক্ষাঃ {{ $course->courseexams->count() }} টি"
+                            },
+                            "about": {
+                              "@type": "Thing",
+                              "name": "@if($course->category == 1)Bangladesh Civil Service (BCS)@elseif($course->category == 2)Primary Teacher Recruitment@elseif($course->category == 3)Bank Job Preparation@elseif($course->category == 4)NTRCA Teacher Registration@elseif($course->category == 5)NSI and DGFI Preparation@elseif($course->category == 6)Previous Year Question Bank@endif"
+                            }
+                          }
+                        }@if(!$loop->last),@endif
+                        @endforeach
+                      ]
+                    }
+                    </script>
                 @endforeach
             </div>
         </div>

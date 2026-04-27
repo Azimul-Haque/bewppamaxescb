@@ -515,6 +515,106 @@
       </div>
     </section>
 
+    <section id="tutorials" class="services-area services-eight" style="background-color: #ffffff;">
+      <style>
+        .video-card-style {
+          background: #fff;
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+          transition: all 0.3s ease;
+          border: 1px solid #eee;
+          padding: 10px;
+        }
+
+        .video-card-style:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        /* 9:16 Aspect Ratio for Shorts */
+        .video-container {
+          position: relative;
+          padding-bottom: 177.77%; /* (16/9)*100 */
+          height: 0;
+          overflow: hidden;
+          border-radius: 10px;
+          background: #000;
+        }
+
+        .video-container iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .border-primary-highlight {
+          border: 2px solid var(--primary); /* আপনার সাইটের প্রাইমারি কালার */
+        }
+      </style>
+      <div class="section-title-five">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="content">
+                <h6>ভিডিও গাইড</h6>
+                <h2 class="fw-bold">টিউটোরিয়াল ও টিপস</h2>
+                <p>
+                  আমাদের অ্যাপের ব্যবহার এবং বিসিএস প্রস্তুতির বিশেষ কৌশলগুলো দেখে নিন এই শর্ট ভিডিওগুলোর মাধ্যমে।
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-3 col-md-6 col-sm-10">
+            <div class="video-card-style">
+              <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/6boe3Ui0LKY" title="BCS Exam Aid Tutorial 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-10">
+            <div class="video-card-style">
+              <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/IZXtGjRSrys" title="BCS Exam Aid Tutorial 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-10">
+            <div class="video-card-style">
+              <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/tmqSxbAQKFM" title="BCS Exam Aid Tutorial 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-10">
+            <div class="video-card-style">
+              <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/ezrSC30VuKg" title="BCS Exam Aid Tutorial 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6 col-sm-10 mt-4">
+            <div class="video-card-style border-primary-highlight">
+              <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/GAy-0gd1_Jw" title="BCS Exam Aid Tutorial 5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
 
     <!-- Start Cta Area -->
@@ -553,7 +653,7 @@
                     <div class="contact-content">
                       <h4>Contact</h4>
                       <p>+8801842828885</p>
-                      <p>bcsexamaid@gmail.com</p>
+                      <p>bcsexamaid.edu@gmail.com</p>
                     </div>
                   </div>
                 </div>

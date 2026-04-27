@@ -339,5 +339,12 @@ class IndexController extends Controller
         Session::flush();
         return 'Config and Route Cached. All Cache Cleared';
     }
+
+    public function generateSiteMap()
+    {
+        Artisan::call('sitemap:generate');
+
+        return 'Sitemap generated Successfully!';
+    }
     
 }

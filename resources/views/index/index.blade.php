@@ -940,14 +940,26 @@
           "description": "বিসিএস, ব্যাংক, প্রাইমারি এবং অন্যান্য সরকারি চাকরির জন্য ক্যাডারদের দ্বারা পরিচালিত পূর্ণাঙ্গ অনলাইন কোর্স।",
           "itemListElement": [
             @foreach($courses as $index => $course)
+            @php
+                // ক্যাটাগরি নামগুলো আগেই ভেরিয়েবলে সেট করে নিচ্ছি যাতে JSON ক্লিন থাকে
+                $categoryNames = [
+                    1 => 'Bangladesh Civil Service (BCS)',
+                    2 => 'Primary Teacher Recruitment',
+                    3 => 'Bank Job Preparation',
+                    4 => 'NTRCA Teacher Registration',
+                    5 => 'NSI and DGFI Preparation',
+                    6 => 'Previous Year Question Bank'
+                ];
+                $catName = $categoryNames[$course->category] ?? 'General Government Job Preparation';
+            @endphp
             {
               "@type": "ListItem",
               "position": {{ $index + 1 }},
               "item": {
                 "@type": "Course",
-                "url": "{{ url('/') }}#course-{{ $course->id }}", 
+                "url": "{{ url('/') }}#course-{{ $course->id }}",
                 "name": "{{ $course->name }}",
-                "description": "{{ $course->name }}",
+                "description": "{{ Str::limit(strip_tags($course->description), 160) }}",
                 "provider": {
                   "@type": "Organization",
                   "name": "BCS Exam Aid",
@@ -960,7 +972,7 @@
                 },
                 "about": {
                   "@type": "Thing",
-                  "name": "@if($course->category == 1)Bangladesh Civil Service (BCS)@elseif($course->category == 2)Primary Teacher Recruitment@elseif($course->category == 3)Bank Job Preparation@elseif($course->category == 4)NTRCA Teacher Registration@elseif($course->category == 5)NSI and DGFI Preparation@elseif($course->category == 6)Previous Year Question Bank@endif"
+                  "name": "{{ $catName }}"
                 }
               }
             }@if(!$loop->last),@endif

@@ -437,7 +437,7 @@
                 "description": "{{ $package->tagline }}",
                 "offers": {
                   "@type": "Offer",
-                  "price": 10.00,
+                  "price": {{ $package->tagline }},
                   "priceCurrency": "GBP",
                   "priceSpecification": {
                     "@type": "UnitPriceSpecification",

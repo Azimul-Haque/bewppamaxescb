@@ -319,8 +319,8 @@
 
                   <div class="input-group mb-3">
                       <input type="number"
-                             name="price"
-                             value="{{ old('price') }}"
+                             name="image"
+                             value="{{ old('image') }}"
                              autocomplete="off"
                              class="form-control"
                              placeholder="মূল্য" required>

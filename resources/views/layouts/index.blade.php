@@ -103,7 +103,8 @@
         {
           "@type": "AlignmentObject",
           "alignmentType": "educational level",
-          "targetName": "Professional Career Preparation"
+          "targetName": "Professional Career Preparation",
+          "targetName": "Competitive Exams"
         }
       ],
     "hasPart": [

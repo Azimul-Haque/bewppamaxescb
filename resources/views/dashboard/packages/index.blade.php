@@ -316,6 +316,18 @@
                           <div class="input-group-text"><span class="fas fa-bolt"></span></div>
                       </div>
                   </div>
+
+                  <div class="input-group mb-3">
+                      <input type="number"
+                             name="price"
+                             value="{{ old('price') }}"
+                             autocomplete="off"
+                             class="form-control"
+                             placeholder="মূল্য" required>
+                      <div class="input-group-append">
+                          <div class="input-group-text"><span class="fas fa-dollar-sign"></span></div>
+                      </div>
+                  </div>
 	          </div>
 	          <div class="modal-footer">
 	            <button type="button" class="btn btn-secondary" data-dismiss="modal">ফিরে যান</button>

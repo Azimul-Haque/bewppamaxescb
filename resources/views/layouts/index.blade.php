@@ -91,14 +91,7 @@
     "@type": "Quiz",
     "name": "BCS Exam Aid: সাধারণ জিজ্ঞাসা ও প্রস্তুতি গাইড",
     "description": "বিসিএস এবং সরকারি চাকরির প্রস্তুতি সম্পর্কিত গুরুত্বপূর্ণ প্রশ্নের উত্তর এবং অ্যাপ ব্যবহারের নির্দেশিকা।",
-    "educationalAlignment": [
-      {
-        "@type": "AlignmentObject",
-        "alignmentType": "educational level",
-        "educationalFramework": "National Curriculum",
-        "targetName": "Competitive Exams"
-      }
-    ],
+
     "educationalAlignment": [
         {
           "@type": "AlignmentObject",

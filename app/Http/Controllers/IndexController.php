@@ -55,7 +55,7 @@ class IndexController extends Controller
                          ->where('type', 1)
                          ->orderBy('priority', 'asc')
                          ->get()
-                         ->take(5);
+                         ->take(6);
 
         return view('index.index')
                     ->withPackages($packages)

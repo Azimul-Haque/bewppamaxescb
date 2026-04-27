@@ -99,6 +99,13 @@
         "targetName": "Competitive Exams"
       }
     ],
+    "educationalAlignment": [
+        {
+          "@type": "AlignmentObject",
+          "alignmentType": "educational level",
+          "targetName": "Professional Career Preparation"
+        }
+      ],
     "hasPart": [
       {
         "@type": "Question",

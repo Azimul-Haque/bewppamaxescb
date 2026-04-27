@@ -438,7 +438,7 @@
                 "offers": {
                   "@type": "Offer",
                   "price": "{{ $package->price }}",
-                  "priceCurrency": "GBP",
+                  "priceCurrency": "BDT",
                   "priceSpecification": {
                     "@type": "UnitPriceSpecification",
                     "priceType": "https://schema.org/StrikethroughPrice",

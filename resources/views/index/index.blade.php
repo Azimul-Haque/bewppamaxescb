@@ -843,15 +843,6 @@
           }
       </style>
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-md-10">
-                    <div class="section-title text-center pb-60">
-                        <h2 class="title wow fadeInUp fw-bold" data-wow-delay=".2s">আমাদের পূর্ণাঙ্গ কোর্সসমূহ</h2>
-                        <p class="text wow fadeInUp" data-wow-delay=".4s">বিসিএস ও সরকারি চাকরির প্রস্তুতি সহজ করতে আমাদের বিশেষায়িত কোর্সগুলো বিস্তারিত দেখে নিন এখানেই!</p>
-                    </div>
-                </div>
-            </div>
-
             <div class="section-title-five">
               <div class="container">
                 <div class="row">

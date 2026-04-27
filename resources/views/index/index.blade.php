@@ -936,28 +936,6 @@
                 @endforeach
             </div>
         </div>
-        <script>
-            function toggleDetails(button) {
-                // বাটনের প্যারেন্ট কার্ড এলিমেন্ট খুঁজে বের করা
-                var card = button.closest('.single-course-card');
-                
-                // ওই কার্ডের ভেতরকার বিবরণ সেকশনটি খুঁজে বের করা
-                var details = card.querySelector('.course-details');
-                
-                // বিবরণ অংশের ভিজিবিলিটি টগল করা
-                if (details.style.display === "none") {
-                    details.style.display = "block";
-                    button.innerHTML = 'বিবরণ বন্ধ করুন <i class="lni lni-chevron-up ml-2"></i>';
-                    button.classList.remove('btn-outline-primary');
-                    button.classList.add('btn-outline-danger'); // বন্ধ করার বাটন রেড করে দেওয়া
-                } else {
-                    details.style.display = "none";
-                    button.innerHTML = 'বিস্তারিত বিবরণ <i class="lni lni-chevron-down ml-2"></i>';
-                    button.classList.remove('btn-outline-danger');
-                    button.classList.add('btn-outline-primary');
-                }
-            }
-        </script>
     </section>
 
 

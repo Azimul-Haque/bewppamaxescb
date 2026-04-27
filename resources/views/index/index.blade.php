@@ -437,7 +437,6 @@
                 "description": "{{ $package->tagline }}",
                 "offers": {
                   "@type": "Offer",
-                  "url": "https://www.example.com/trinket_offer",
                   "price": 10.00,
                   "priceCurrency": "GBP",
                   "priceSpecification": {

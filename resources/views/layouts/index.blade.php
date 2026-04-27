@@ -284,6 +284,9 @@
                   <a class="" href="{{ route('index.index')  }}/#tutorials">ভিডিও</a>
                 </li>
                 <li class="nav-item">
+                  <a class="" href="{{ route('index.index')  }}/#course-showcase">ভিডিও</a>
+                </li>
+                <li class="nav-item">
                   <a class="" href="{{ route('index.index')  }}/#contact">যোগাযোগ</a>
                 </li>
               </ul>

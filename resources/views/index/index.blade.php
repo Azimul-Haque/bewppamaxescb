@@ -971,7 +971,7 @@
                   "courseWorkload": "মোট পরীক্ষা: {{ $course->courseexams->count() }} টি"
                 },
                 "about": {
-                  "@type": "Course Category",
+                  "@type": "Thing",
                   "name": "{{ $catName }}",
                   "description": "{{ $catName }} ক্যাটাগরির পরীক্ষাসমূহ"
                 }

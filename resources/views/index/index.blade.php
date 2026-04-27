@@ -455,7 +455,7 @@
                   "@type": "Review",
                   "reviewRating": {
                     "@type": "Rating",
-                    "ratingValue": 4,
+                    "ratingValue": 4.5,
                     "bestRating": 5
                   },
                   "author": {
@@ -465,7 +465,7 @@
                 },
                 "aggregateRating": {
                   "@type": "AggregateRating",
-                  "ratingValue": 4.4,
+                  "ratingValue": 4.5,
                   "reviewCount": 89
                 }
               }

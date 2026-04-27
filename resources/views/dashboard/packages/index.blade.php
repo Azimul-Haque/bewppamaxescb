@@ -159,7 +159,7 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <input type="number"
+                                        <input type="text"
                                                name="image"
                                                value="{{ $package->image }}"
                                                autocomplete="off"

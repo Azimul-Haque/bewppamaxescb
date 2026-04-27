@@ -914,22 +914,6 @@
                                     </ul>
                                 </div>
 
-                                <div class="course-cta pt-20">
-                                    <button class="btn btn-outline-primary w-100 fw-bold" onclick="toggleDetails(this)">
-                                        বিস্তারিত বিবরণ <i class="lni lni-chevron-down ml-2"></i>
-                                    </button>
-                                </div>
-
-                                <div class="course-details pt-20" style="display: none;">
-                                    @if($course->description)
-                                        <div class="description text-muted">
-                                            {!! $course->description !!}
-                                        </div>
-                                    @else
-                                        <p class="text-muted">এই কোর্সের বিস্তারিত বিবরণ শীঘ্রই আপডেট করা হবে।</p>
-                                    @endif
-                                </div>
-
                             </div>
                         </div>
                     </div>

@@ -719,6 +719,129 @@
     </section>
 
     <section id="course-showcase" class="courses-section pt-120 pb-120">
+      <style>
+          /* কনটেক্সচুয়াল কালার ভ্যারিয়েবল */
+          :root {
+              --color-cat-1: #1e3a8a; /* Blue - BCS */
+              --color-cat-2: #166534; /* Green - Primary */
+              --color-cat-3: #c2410c; /* Orange - Bank */
+              --color-cat-4: #0e7490; /* Cyan - NTRCA */
+              --color-cat-5: #111827; /* Dark - NSI/DGFI */
+              --color-cat-6: #6d28d9; /* Purple - Question Bank */
+          }
+
+          /* ক্যাটাগরি অনুযায়ী কালার সেট করা */
+          .single-course-card.cat-1 { --cat-main-color: var(--color-cat-1); }
+          .single-course-card.cat-2 { --cat-main-color: var(--color-cat-2); }
+          .single-course-card.cat-3 { --cat-main-color: var(--color-cat-3); }
+          .single-course-card.cat-4 { --cat-main-color: var(--color-cat-4); }
+          .single-course-card.cat-5 { --cat-main-color: var(--color-cat-5); }
+          .single-course-card.cat-6 { --cat-main-color: var(--color-cat-6); }
+
+          /* কার্ডের মূল স্টাইল */
+          .single-course-card {
+              background: #fff;
+              border-radius: 20px;
+              overflow: hidden;
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+              transition: all 0.3s ease-out;
+              border: 1px solid #eee;
+          }
+          .single-course-card:hover {
+              box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+              border-color: var(--cat-main-color);
+          }
+
+          /* ডায়নামিক ভিজ্যুয়াল হেডার (ইমেজের পরিবর্তে) */
+          .card-header-visual {
+              background: linear-gradient(135deg, var(--cat-main-color) 0%, #111827 100%);
+              padding: 40px 20px;
+              text-align: center;
+              color: #fff;
+              position: relative;
+              height: 220px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+          }
+          .category-icon-bg {
+              font-size: 50px;
+              opacity: 0.2;
+              position: absolute;
+              bottom: -20px;
+              right: 20px;
+              color: #fff;
+              transform: rotate(-15deg);
+          }
+          .category-name {
+              background: rgba(255, 255, 255, 0.15);
+              color: #fff;
+              padding: 5px 15px;
+              border-radius: 30px;
+              font-size: 13px;
+              font-weight: 600;
+              margin-bottom: 15px;
+              display: inline-block;
+          }
+          .visual-title {
+              font-size: 20px;
+              color: #fff;
+              margin: 0;
+              line-height: 1.4;
+              font-weight: 700;
+          }
+
+          /* কার্ডের টেক্সট কন্টেন্ট */
+          .card-body-content .course-title {
+              font-size: 18px;
+              color: #1a237e;
+              font-weight: 700;
+              margin-bottom: 0;
+              margin-top: 10px;
+          }
+          .course-meta ul {
+              display: flex;
+              flex-wrap: wrap;
+              margin: 0;
+              padding: 0;
+              list-style: none;
+          }
+          .course-meta ul li {
+              display: flex;
+              align-items: center;
+              margin-right: 15px;
+              margin-bottom: 10px;
+          }
+          .course-meta ul li .meta-icon {
+              font-size: 16px;
+              color: var(--cat-main-color);
+              margin-right: 8px;
+          }
+          .course-meta ul li .meta-text p {
+              font-size: 14px;
+              margin: 0;
+              color: #636e72;
+          }
+          .course-details {
+              font-size: 14px;
+              color: #636e72;
+              line-height: 1.8;
+          }
+          /* বিবরণ অংশের কাস্টম স্ক্রলবার */
+          .course-details .description {
+              max-height: 150px; /* Optional: limit description height with overflow */
+              overflow-y: auto;
+              padding-right: 5px;
+          }
+          .course-details .description::-webkit-scrollbar {
+              width: 5px;
+          }
+          .course-details .description::-webkit-scrollbar-thumb {
+              background-color: #eee;
+              border-radius: 5px;
+          }
+      </style>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-10">

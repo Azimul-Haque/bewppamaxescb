@@ -434,11 +434,11 @@
                 "@context": "https://schema.org/",
                 "@type": "Product",
                 "name": "{{ $package->name }}",
-                "image": [
-                  "https://example.com/photos/1x1/photo.jpg",
-                  "https://example.com/photos/4x3/photo.jpg",
-                  "https://example.com/photos/16x9/photo.jpg"
-                 ],
+                // "image": [
+                //   "https://example.com/photos/1x1/photo.jpg",
+                //   "https://example.com/photos/4x3/photo.jpg",
+                //   "https://example.com/photos/16x9/photo.jpg"
+                //  ],
                 "description": "Sleeker than ACME's Classic Anvil, the Executive Anvil is perfect for the business traveler looking for something to drop from a height.",
                 "sku": "0446310786",
                 "mpn": "925872",

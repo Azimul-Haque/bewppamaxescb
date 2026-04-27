@@ -97,13 +97,13 @@
       "description": "Preparation and guidance for recruitment into the Bangladesh Civil Service and other government sectors."
     },
     "educationalAlignment": [
-        {
-          "@type": "AlignmentObject",
-          "alignmentType": "educational level",
-          "targetName": "Professional Career Preparation",
-          "targetName": "Competitive Exams"
-        }
-      ],
+      {
+        "@type": "AlignmentObject",
+        "alignmentType": "educational level",
+        "targetName": "Professional Career Preparation",
+        "targetName": "Competitive Exams"
+      }
+    ],
     "hasPart": [
       {
         "@type": "Question",

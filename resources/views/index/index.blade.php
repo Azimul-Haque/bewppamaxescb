@@ -908,7 +908,7 @@
                                                 <i class="lni lni-pencil-alt"></i>
                                             </div>
                                             <div class="meta-text">
-                                                <p>মোট পরীক্ষাঃ {{ $course->courseexams->count() }} টি</p>
+                                                <p>মোট পরীক্ষাঃ {{ bangla($course->courseexams->count()) }} টি</p>
                                             </div>
                                         </li>
                                     </ul>

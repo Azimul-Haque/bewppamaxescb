@@ -102,6 +102,7 @@
     "hasPart": [
       {
         "@type": "Question",
+        "eduQuestionType": "Flashcard",
         "name": "১. BCS Exam Aid অ্যাপটি আসলে কী এবং কাদের জন্য?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -110,6 +111,7 @@
       },
       {
         "@type": "Question",
+        "eduQuestionType": "Flashcard",
         "name": "২. বিসিএস প্রস্তুতি কীভাবে শুরু করতে পারি?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -118,6 +120,7 @@
       },
       {
         "@type": "Question",
+        "eduQuestionType": "Flashcard",
         "name": "৩. অ্যাপটি ব্যবহার করে কীভাবে আমি সবচেয়ে ভালো ফলাফল পাব?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -126,6 +129,7 @@
       },
       {
         "@type": "Question",
+        "eduQuestionType": "Flashcard",
         "name": "৪. চাকরির পাশাপাশি কীভাবে পড়ার সময় বের করব?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -134,6 +138,7 @@
       },
       {
         "@type": "Question",
+        "eduQuestionType": "Flashcard",
         "name": "৫. অনেক চেষ্টা করেও ভালো রেজাল্ট আসছে না, এখন আমার করণীয় কী?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -142,6 +147,7 @@
       },
       {
         "@type": "Question",
+        "eduQuestionType": "Flashcard",
         "name": "৬. আমার অ্যাকাউন্টের নিরাপত্তা এবং ওটিপি (OTP) সমস্যার সমাধান কী?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -150,6 +156,7 @@
       },
       {
         "@type": "Question",
+        "eduQuestionType": "Flashcard",
         "name": "৭. অ্যাপটিতে বিসিএস-এর ১১টি বিষয়ের সিলেবাস কি পুরোপুরি কভার করা হয়েছে?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -158,6 +165,7 @@
       },
       {
         "@type": "Question",
+        "eduQuestionType": "Flashcard",
         "name": "৮. অ্যাপের প্রশ্ন এবং সমাধানগুলো কতটা নির্ভুল?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -166,6 +174,7 @@
       },
       {
         "@type": "Question",
+        "eduQuestionType": "Flashcard",
         "name": "৯. পরীক্ষার প্রস্তুতির জন্য স্টাডি মেটেরিয়াল বা পিডিএফ (PDF) সুবিধা আছে কি?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -174,6 +183,7 @@
       },
       {
         "@type": "Question",
+        "eduQuestionType": "Flashcard",
         "name": "১০. লাইভ মডেল টেস্টে মেধা তালিকা (Merit List) কীভাবে কাজ করে?",
         "acceptedAnswer": {
           "@type": "Answer",

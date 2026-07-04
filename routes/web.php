@@ -256,6 +256,10 @@ Route::get('/dashboard/deposit/{transactiondate}/{user}', 'ExpenseController@get
 // Generate CODE for all users
 Route::get('/generate-initial-referral-codes', 'DashboardController@generateCodes')->name('generate.codes');
 
+Route::get('/turnstile-verify', function () {
+    return view('turnstile_verify');
+})->name('index.turnstile.verify');
+
 // test html question data
 // Route::get('/single/exam/pdf/{softtoken}/{examid}', 'DashboardController@getExamSolvePDF')->name('index.single.exam.solve.pdf');
 

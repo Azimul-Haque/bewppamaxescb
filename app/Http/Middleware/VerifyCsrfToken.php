@@ -15,5 +15,6 @@ class VerifyCsrfToken extends Middleware
         '/api/*',
         '/payment/*',
         '/bkash/*',
+        '/turnstile-verify',
     ];
 }

@@ -81,9 +81,6 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="font-weight-bold text-dark"></span>
-                                    </td>
-                                    <td>
                                         <span class="badge-package">
                                             <i class="fas fa-shopping-bag mr-1"></i> {{ $message->user->payments->count() }} বার কেনা হয়েছে
                                         </span>

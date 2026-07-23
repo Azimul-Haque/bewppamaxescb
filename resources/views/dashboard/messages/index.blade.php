@@ -82,7 +82,7 @@
                                     </td>
                                     <td>
                                         <span class="badge-package">
-                                            <i class="fas fa-shopping-bag mr-1"></i> {{ $message->user->payments->count() }} বার কেনা হয়েছে
+                                            <i class="fas fa-shopping-bag mr-1"></i> {{ bangla($message->user->payments->count()) }} বার কেনা হয়েছে
                                         </span>
                                     </td>
                                     <td>

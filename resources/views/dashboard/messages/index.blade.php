@@ -76,12 +76,12 @@
                                             </div>
                                             <div>
                                                 <div class="font-weight-bold text-dark">{{ $message->user->name ?? 'N/A' }}</div>
-                                                <small class="text-muted">ID: #{{ $message->user->id ?? '' }}</small>
+                                                <small class="text-muted">ID: {{ $message->user->mobile ?? 'N/A' }}</small>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="font-weight-bold text-dark">{{ $message->user->mobile ?? 'N/A' }}</span>
+                                        <span class="font-weight-bold text-dark"></span>
                                     </td>
                                     <td>
                                         <span class="badge-package">

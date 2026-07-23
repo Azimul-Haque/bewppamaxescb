@@ -149,8 +149,8 @@
                                                     <!-- Quick Templates -->
                                                     <div class="form-group">
                                                         <label class="text-muted mb-1">কুইক টেমপ্লেট:</label><br>
-                                                        <button type="button" class="btn btn-xs btn-outline-secondary mr-1 mb-1" onclick="setTemplate('{{ $message->id }}', 'ধন্যবাদ, আপনার সমস্যার সমাধান করা হয়েছে। অ্যাপটি পুনরায় চেক করুন।')">সমাধান টেমপ্লেট</button>
-                                                        <button type="button" class="btn btn-xs btn-outline-secondary mr-1 mb-1" onclick="setTemplate('{{ $message->id }}', 'আপনার দেওয়া তথ্যে সমস্যা রয়েছে, দয়া করে অ্যাপ থেকে সঠিক মোবাইল নম্বর দিন।')">তথ্য সংশোধন</button>
+                                                        <button type="button" class="btn btn-xs btn-outline-secondary mr-1 mb-1" onclick="setTemplate('{{ $message->id }}', 'ধন্যবাদ, আপনার সমস্যার সমাধান করা হয়েছে। অ্যাপটি পুনরায় চেক করুন।\n- BCS Exam Aid')">সমাধান টেমপ্লেট</button>
+                                                        <button type="button" class="btn btn-xs btn-outline-secondary mr-1 mb-1" onclick="setTemplate('{{ $message->id }}', 'আপনার দেওয়া তথ্যে সমস্যা রয়েছে, দয়া করে অ্যাপ থেকে সঠিক মোবাইল নম্বর দিন।\n- BCS Exam Aid')">তথ্য সংশোধন</button>
                                                     </div>
 
                                                     <div class="form-group">

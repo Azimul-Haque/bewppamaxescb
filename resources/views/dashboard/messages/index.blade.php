@@ -41,7 +41,7 @@
                     <span class="info-box-icon bg-success rounded-circle"><i class="fas fa-check-circle"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text text-muted">সমাধান হয়েছে (Resolved)</span>
-                        <span class="info-box-number h5 mb-0 text-success">{{ bangla(($resolvedMessages)) }} টি</span>
+                        <span class="info-box-number h5 mb-0 text-success">{{ bangla($resolvedMessages) }} টি</span>
                     </div>
                 </div>
             </div>

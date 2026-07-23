@@ -81,7 +81,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="badge-package badge-small">
+                                        <span class="badge-package badge-sm">
                                             <i class="fas fa-shopping-bag mr-1"></i> {{ bangla($message->user->payments->count()) }} বার প্যাকেজ কিনেছেন
                                         </span>
                                     </td>

@@ -23,7 +23,7 @@
                     <span class="info-box-icon bg-info rounded-circle"><i class="fas fa-comments"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text text-muted">মোট মেসেজ</span>
-                        <span class="info-box-number h5 mb-0">{{ $totalMessages }} টি</span>
+                        <span class="info-box-number h5 mb-0">{{ bangla($totalMessages) }} টি</span>
                     </div>
                 </div>
             </div>

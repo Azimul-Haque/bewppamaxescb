@@ -527,11 +527,26 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.packages');
     }
 
+    // public function getMessages()
+    // {
+    //     $messages = Message::orderBy('id', 'desc')->paginate(12);
+
+    //     return view('dashboard.messages.index')->withMessages($messages);
+    // }
+
     public function getMessages()
     {
-        $messages = Message::orderBy('id', 'desc')->paginate(12);
+        // Eager loading added to prevent N+1 query issue
+        $messages = Message::with(['user', 'user.payments'])
+                            ->orderBy('id', 'desc')
+                            ->paginate(12);
 
-        return view('dashboard.messages.index')->withMessages($messages);
+        // Summary counts for dashboard stat cards
+        $totalMessages = Message::count();
+        $pendingMessages = Message::where('status', 0)->count();
+        $resolvedMessages = Message::where('status', 1)->count();
+
+        return view('dashboard.messages.index', compact('messages', 'totalMessages', 'pendingMessages', 'resolvedMessages'));
     }
 
     public function updateMessage(Request $request, $id)

@@ -32,7 +32,7 @@
                     <span class="info-box-icon bg-warning rounded-circle"><i class="fas fa-clock"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text text-muted">অপেক্ষমাণ (Pending)</span>
-                        <span class="info-box-number h5 mb-0 text-warning">{{ $pendingMessages }} টি</span>
+                        <span class="info-box-number h5 mb-0 text-warning">{{ bangla($pendingMessages) }} টি</span>
                     </div>
                 </div>
             </div>

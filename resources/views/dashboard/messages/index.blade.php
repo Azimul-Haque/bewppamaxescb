@@ -76,7 +76,7 @@
                                             </div>
                                             <div>
                                                 <div class="font-weight-bold text-dark">{{ $message->user->name ?? 'N/A' }}</div>
-                                                <small class="text-muted">ID: {{ $message->user->mobile ?? 'N/A' }}</small>
+                                                <small class="text-muted">📞 {{ $message->user->mobile ?? 'N/A' }}</small>
                                             </div>
                                         </div>
                                     </td>

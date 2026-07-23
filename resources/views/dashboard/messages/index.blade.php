@@ -59,7 +59,6 @@
                         <thead class="bg-light text-muted">
                             <tr>
                                 <th>ইউজার প্রোফাইল</th>
-                                <th>যোগাযোগ</th>
                                 <th>ক্রয় বিবরণী</th>
                                 <th style="width: 35%;">মেসেজ কন্টেন্ট</th>
                                 <th>সময়</th>

@@ -143,7 +143,7 @@
                                                 <h5 class="modal-title font-weight-bold"><i class="fas fa-sms mr-2"></i> ইনস্ট্যান্ট SMS পাঠান</h5>
                                                 <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
                                             </div>
-                                            <form method="POST" action="{{ route('dashboard.messages.sendsms', $message->user->id) }}">
+                                            <form method="POST" action="{{ route('dashboard.users.singlesms', $message->user->id) }}">
                                                 @csrf
                                                 <div class="modal-body">
                                                     <div class="form-group">

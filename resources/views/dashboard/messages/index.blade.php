@@ -23,7 +23,7 @@
                     <span class="info-box-icon bg-info rounded-circle"><i class="fas fa-comments"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text text-muted">মোট মেসেজ</span>
-                        <span class="info-box-number h5 mb-0">{{ $totalMessages }}টি</span>
+                        <span class="info-box-number h5 mb-0">{{ $totalMessages }} টি</span>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                     <span class="info-box-icon bg-warning rounded-circle"><i class="fas fa-clock"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text text-muted">অপেক্ষমাণ (Pending)</span>
-                        <span class="info-box-number h5 mb-0 text-warning">{{ $pendingMessages }}টি</span>
+                        <span class="info-box-number h5 mb-0 text-warning">{{ $pendingMessages }} টি</span>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     <span class="info-box-icon bg-success rounded-circle"><i class="fas fa-check-circle"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text text-muted">সমাধান হয়েছে (Resolved)</span>
-                        <span class="info-box-number h5 mb-0 text-success">{{ $resolvedMessages }}টি</span>
+                        <span class="info-box-number h5 mb-0 text-success">{{ $resolvedMessages }} টি</span>
                     </div>
                 </div>
             </div>
